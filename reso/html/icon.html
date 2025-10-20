@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- CRITICAL: Added viewport meta tag for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Symbols Offline Gallery</title>
+    
+    <!-- Tailwind CSS CDN REMOVED -->
+
+    <style>
+        /* CSS Variables for Consistency */
+        :root {
+            --color-primary: #3b82f6; /* blue-500 */
+            --color-gray-50: #f9fafb;
+            --color-gray-100: #f3f4f6;
+            --color-gray-200: #e5e7eb;
+            --color-gray-300: #d1d5db;
+            --color-gray-500: #6b7280;
+            --color-gray-600: #4b5563;
+            --color-gray-700: #374151;
+            --color-gray-800: #1f2937;
+            --color-red-50: #fef2f2;
+            --color-red-300: #fca5a5;
+            --color-red-600: #dc2626;
+            --spacing-1: 0.25rem; /* 4px */
+            --spacing-2: 0.5rem;  /* 8px */
+            --spacing-3: 0.75rem; /* 12px */
+            --spacing-4: 1rem;    /* 16px */
+            --spacing-6: 1.5rem;  /* 24px */
+            --spacing-8: 2rem;    /* 32px */
+            --spacing-12: 3rem;   /* 48px */
+            --spacing-20: 5rem;   /* 80px */
+            --border-radius-lg: 0.5rem; /* 8px */
+            --border-radius-xl: 0.75rem; /* 12px */
+        }
+
+        /*
+         * Font Definitions: KEEPING THESE AS THEY ARE CRITICAL
+         */
+        @font-face {
+            font-family: 'Material Symbols Outlined';
+            src: url('/libs/icons/Material_Symbols_Outlined/MaterialSymbolsOutlined-VariableFont_FILL,GRAD,opsz,wght.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Material Symbols Rounded';
+            src: url('/libs/icons/Material_Symbols_Rounded/MaterialSymbolsRounded-VariableFont_FILL,GRAD,opsz,wght.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Material Symbols Sharp';
+            src: url('/libs/icons/Material_Symbols_Sharp/MaterialSymbolsSharp-VariableFont_FILL,GRAD,opsz,wght.ttf') format('truetype');
+        }
+
+        /* Base Variable Font Settings */
+        .material-symbols-outlined,
+        .material-symbols-rounded,
+        .material-symbols-sharp {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; 
+            display: inline-block;
+            vertical-align: middle;
+            -webkit-font-smoothing: antialiased;
+            word-wrap: break-word;
+            font-style: normal; /* Non-italicized */
+        }
+
+        /* Specific Font Families */
+        .material-symbols-outlined { font-family: 'Material Symbols Outlined'; }
+        .material-symbols-rounded { font-family: 'Material Symbols Rounded'; }
+        .material-symbols-sharp { font-family: 'Material Symbols Sharp'; }
+
+        /* --- GLOBAL LAYOUT --- */
+        .body-layout {
+            background-color: var(--color-gray-50);
+            min-height: 100vh;
+            padding: var(--spacing-4);
+            font-family: 'Inter', sans-serif;
+        }
+        .container {
+            max-width: 80rem; /* max-w-7xl */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- HEADER --- */
+        .header {
+            font-size: 1.875rem; /* 3xl */
+            font-weight: 800; /* extabold */
+            margin-bottom: var(--spacing-6);
+            color: var(--color-gray-900);
+            border-bottom: 1px solid var(--color-gray-200);
+            padding-bottom: var(--spacing-3);
+        }
+
+        /* --- INPUTS AND CONTROLS --- */
+        .input-search {
+            width: 100%;
+            padding: var(--spacing-3);
+            margin-bottom: var(--spacing-4);
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--border-radius-xl);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); /* shadow-lg */
+            font-size: 1.125rem; /* lg */
+            transition: all 150ms ease-in-out;
+        }
+        .input-search:focus {
+            outline: 2px solid var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        .controls-panel {
+            background-color: white;
+            padding: var(--spacing-4);
+            border-radius: var(--border-radius-xl);
+            box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.06); /* shadow-inner */
+            margin-bottom: var(--spacing-8);
+            border: 1px solid var(--color-gray-200);
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: var(--spacing-4);
+        }
+        @media (min-width: 768px) { /* md: */
+            .controls-panel { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+        @media (min-width: 1024px) { /* lg: */
+            .controls-panel { grid-template-columns: repeat(5, minmax(0, 1fr)); padding: var(--spacing-6); }
+            .controls-panel .title { grid-column: span 5 / span 5; }
+        }
+        .controls-panel .title { 
+            font-size: 1.25rem; /* xl */
+            font-weight: 600; /* semibold */
+            color: var(--color-gray-700);
+            margin-bottom: var(--spacing-2);
+            grid-column: span 2 / span 2;
+        }
+        @media (min-width: 768px) { /* md: */
+            .controls-panel .title { grid-column: span 3 / span 3; }
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .control-group label {
+            font-size: 0.875rem; /* sm */
+            font-weight: 500; /* medium */
+            color: var(--color-gray-600);
+            margin-bottom: var(--spacing-1);
+        }
+        .input-control {
+            padding: var(--spacing-2);
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--border-radius-lg);
+            height: 40px;
+        }
+        .input-control:focus {
+            outline: 2px solid var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        /* Range slider specific styles */
+        .range-slider {
+            border: none;
+            height: 40px;
+            width: 100%;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+            background: transparent;
+        }
+        .range-value {
+            font-size: 0.75rem; /* xs */
+            color: var(--color-gray-500);
+            margin-top: var(--spacing-1);
+            text-align: center;
+        }
+
+        /* Color input specific styles */
+        input[type="color"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            height: 40px;
+            width: 100%;
+            padding: 0;
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--border-radius-lg);
+            cursor: pointer;
+        }
+        input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
+        input[type="color"]::-webkit-color-swatch { border: none; border-radius: var(--border-radius-lg); }
+
+        /* Button Toggle */
+        .button-toggle {
+            background-color: var(--color-gray-200);
+            color: var(--color-gray-700);
+            padding: var(--spacing-2);
+            border-radius: var(--border-radius-lg);
+            font-weight: 500; /* medium */
+            transition: all 150ms ease-in-out;
+            height: 100%;
+            border: none;
+            cursor: pointer;
+        }
+        .button-toggle:hover {
+            background-color: var(--color-gray-300);
+        }
+        .button-toggle.fill-on {
+            background-color: var(--color-primary);
+            color: white;
+        }
+        .button-toggle.fill-on:hover {
+             background-color: #2563eb; /* blue-600 */
+        }
+
+        /* --- ICON GRID & ITEMS --- */
+        .loading-indicator {
+            text-align: center;
+            padding-top: var(--spacing-20);
+            padding-bottom: var(--spacing-20);
+            color: var(--color-gray-500);
+            font-weight: 600;
+        }
+
+        .icon-grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: var(--spacing-4);
+        }
+        @media (min-width: 640px) { /* sm: */
+            .icon-grid-container { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+        @media (min-width: 768px) { /* md: */
+            .icon-grid-container { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        }
+        @media (min-width: 1280px) { /* xl: (using xl:grid-cols-5) */
+            .icon-grid-container { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+        }
+
+        .icon-item {
+            background-color: white;
+            padding: var(--spacing-4);
+            border-radius: var(--border-radius-xl);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); /* shadow-md */
+            transition: all 150ms ease-in-out;
+            cursor: default;
+            border: 1px solid transparent;
+        }
+        .icon-item:hover {
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); /* hover:shadow-lg */
+            border-color: var(--color-primary); /* hover:ring-2 and hover:ring-blue-500 equivalent */
+        }
+
+        .icon-variants {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--spacing-2);
+            margin-bottom: var(--spacing-3);
+            height: 2.5rem; /* h-10 */
+        }
+        
+        /* Background for style emphasis (Rounded/Sharp/Outlined) */
+        .icon-emphasis-bg {
+            padding: var(--spacing-1);
+            border-radius: var(--border-radius-lg);
+            background-color: rgba(243, 244, 246, 0.7); /* gray-100/70 */
+        }
+
+        .icon-name {
+            font-size: 0.875rem; /* sm */
+            font-weight: 600; /* semibold */
+            color: var(--color-gray-800);
+            display: block;
+            margin-bottom: var(--spacing-3);
+            word-break: break-all; /* FIX for long names */
+        }
+
+        /* --- CODE SNIPPETS --- */
+        .code-section {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-2);
+        }
+
+        .code-label {
+            font-size: 0.75rem; /* xs */
+            font-weight: 500; /* medium */
+            color: var(--color-gray-600);
+        }
+
+        .icon-code {
+            font-size: 0.75rem; /* xs */
+            background-color: var(--color-gray-100);
+            padding: var(--spacing-2);
+            border-radius: var(--border-radius-lg);
+            font-family: monospace;
+            color: var(--color-gray-600);
+            overflow-x: scroll;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: background-color 150ms ease-in-out;
+        }
+        .icon-code:hover {
+            background-color: var(--color-gray-200);
+        }
+
+        /* Custom scrollbar for code block */
+        .icon-code::-webkit-scrollbar {
+            height: 3px;
+        }
+        .icon-code::-webkit-scrollbar-thumb {
+            background: #cbd5e1; /* slate-300 */
+            border-radius: 4px;
+        }
+
+        /* Error Message */
+        .error-message {
+            grid-column: 1 / -1; /* col-span-full */
+            text-align: center;
+            color: var(--color-red-600);
+            background-color: var(--color-red-50);
+            padding: var(--spacing-6);
+            border-radius: var(--border-radius-xl);
+            border: 1px solid var(--color-red-300);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); /* shadow-md */
+        }
+
+        /* Responsive Padding for body */
+        @media (min-width: 640px) { /* sm: */
+            .body-layout { padding: var(--spacing-6); }
+        }
+        @media (min-width: 1024px) { /* lg: */
+            .body-layout { padding: var(--spacing-8); }
+        }
+
+    </style>
+</head>
+<body class="body-layout">
+    <div class="container">
+        <h1 class="header">
+            Material Symbols Offline Gallery
+        </h1>
+        
+        <!-- Search Box -->
+        <input 
+            type="text" 
+            id="searchBox" 
+            placeholder="Search icons (e.g., toggle_on, home, menu)..."
+            class="input-search"
+        >
+
+        <!-- Customization Controls -->
+        <div class="controls-panel">
+            <h2 class="title">Icon Customization Settings</h2>
+            
+            <div class="control-group">
+                <label for="iconSize">Icon Size (px)</label>
+                <input type="number" id="iconSize" value="32" min="16" max="96" step="4" 
+                    class="input-control">
+            </div>
+
+            <!-- NEW CONTROL: Weight -->
+            <div class="control-group">
+                <label for="iconWeight">Weight (100-700)</label>
+                <input type="range" id="iconWeight" value="400" min="100" max="700" step="100" 
+                    class="range-slider">
+                <span id="weightValueDisplay" class="range-value">400</span>
+            </div>
+
+            <!-- NEW CONTROL: Optical Size -->
+            <div class="control-group">
+                <label for="iconOpticalSize">Optical Size (20-48)</label>
+                <input type="range" id="iconOpticalSize" value="24" min="20" max="48" step="4" 
+                    class="range-slider">
+                <span id="opszValueDisplay" class="range-value">24</span>
+            </div>
+
+            <div class="control-group">
+                <label for="iconColorHex">Icon Color</label>
+                <input type="color" id="iconColorHex" value="#3b82f6">
+            </div>
+
+            <div class="control-group">
+                <label for="fillToggle">Fill State</label>
+                <button id="fillToggle" data-fill="0" 
+                    class="button-toggle">
+                    FILL: Off (0)
+                </button>
+            </div>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loadingIndicator" class="loading-indicator">
+            Loading icons... Please ensure the font files are correctly linked.
+        </div>
+        
+        <!-- Icon Grid (FIX: Reduced max columns for better space for long icon names) -->
+        <div 
+            class="icon-grid-container" 
+            id="iconGrid"
+        >
+            <!-- Icons will be rendered here -->
+        </div>
+    </div>
+
+    <!-- JQuery is used as per the original code -->
+    <script src="/libs/jquery-3.7.1.js"></script> 
+    
+    <script>
+        $(document).ready(function () {
+            const $iconGrid = $("#iconGrid");
+            const $loadingIndicator = $("#loadingIndicator");
+            const $searchBox = $("#searchBox");
+            const $iconSize = $("#iconSize");
+            const $iconColorHex = $("#iconColorHex");
+            const $fillToggle = $("#fillToggle");
+            const $iconWeight = $("#iconWeight");
+            const $iconOpticalSize = $("#iconOpticalSize");
+            const $weightValueDisplay = $("#weightValueDisplay");
+            const $opszValueDisplay = $("#opszValueDisplay");
+
+            let uniqueIcons = [];
+            let currentFilter = "";
+
+            // --- Customization Settings Handling ---
+
+            function getSettings() {
+                const size = parseInt($iconSize.val()) || 24;
+                const color = $iconColorHex.val() || '#3b82f6';
+                const fill = $fillToggle.attr('data-fill') === '1' ? 1 : 0;
+                const weight = parseInt($iconWeight.val()) || 400;
+                const opticalSize = parseInt($iconOpticalSize.val()) || 24;
+                
+                return { size, color, fill, weight, opticalSize };
+            }
+
+            // Re-render icons whenever settings change
+            $iconSize.on("input", () => renderIcons(currentFilter));
+            $iconColorHex.on("input", () => renderIcons(currentFilter));
+            
+            // Weight input handler
+            $iconWeight.on("input", function() {
+                $weightValueDisplay.text($(this).val());
+                renderIcons(currentFilter);
+            });
+            
+            // Optical Size input handler
+            $iconOpticalSize.on("input", function() {
+                $opszValueDisplay.text($(this).val());
+                renderIcons(currentFilter);
+            });
+            
+            $fillToggle.on("click", function() {
+                const currentFill = $(this).attr('data-fill');
+                const newFill = currentFill === '0' ? '1' : '0';
+                $(this).attr('data-fill', newFill);
+                $(this).text(`FILL: ${newFill === '1' ? 'On (1)' : 'Off (0)'}`);
+                // Toggle vanilla CSS class for styling
+                $(this).toggleClass('fill-on');
+                renderIcons(currentFilter);
+            });
+
+
+            // Function to display error message
+            function displayError(message) {
+                $loadingIndicator.hide();
+                $iconGrid.html(`<p class="error-message">${message}</p>`);
+            }
+
+            // --- Icon Loading and Rendering ---
+
+            // Load the icons JSON file
+            $.getJSON('/js/icons.json', function(data) {
+                $loadingIndicator.hide();
+                const icons = [];
+                
+                // Logic to handle simple array of strings (ligatures)
+                if (Array.isArray(data)) {
+                    if (typeof data[0] === 'string') {
+                        icons.push(...data);
+                    } else {
+                        data.forEach(item => {
+                            if (item.ligature) icons.push(item.ligature);
+                        });
+                    }
+                } else {
+                    displayError("Error: The JSON file structure is not recognized. Expected a simple array of icon names.");
+                    return;
+                }
+
+                // Ensure unique icons only and sort alphabetically
+                uniqueIcons = [...new Set(icons)].sort();
+                
+                if (uniqueIcons.length === 0) {
+                    displayError("The /js/icons.json file was loaded but contained no valid icon names.");
+                    return;
+                }
+
+                function renderIcons(filter = "") {
+                    currentFilter = filter;
+                    $iconGrid.empty();
+                    // DESTRUCTURING: Get all settings including new ones
+                    const { size, color, fill, weight, opticalSize } = getSettings();
+                    
+                    // Set dynamic style attributes based on all settings
+                    const fillValue = fill * 100; // 0 or 100
+                    // The inline style handles all variable font settings
+                    const iconStyle = `font-size: ${size}px; color: ${color}; font-variation-settings: 'FILL' ${fillValue}, 'wght' ${weight}, 'GRAD' 0, 'opsz' ${opticalSize};`;
+                    const iconStyleAttr = `style="${iconStyle}"`;
+
+                    const filtered = filter
+                        ? uniqueIcons.filter(i => i.toLowerCase().includes(filter.toLowerCase()))
+                        : uniqueIcons;
+
+                    if (filtered.length === 0) {
+                        $iconGrid.html('<p class="error-message" style="background-color: transparent; border: none; color: var(--color-gray-500); box-shadow: none;">No icons found matching "' + filter + '".</p>');
+                        return;
+                    }
+                    
+                    filtered.forEach(icon => {
+                        
+                        // Function to escape HTML for display
+                        const escapeHtml = (html) => html.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                        
+                        // 1. Outlined Code Snippet
+                        const outlinedCode = `<i class="material-symbols-outlined" ${iconStyleAttr}>${icon}</i>`;
+                        
+                        // 2. Rounded Code Snippet
+                        const roundedCode = `<i class="material-symbols-rounded" ${iconStyleAttr}>${icon}</i>`;
+                        
+                        // 3. Sharp Code Snippet
+                        const sharpCode = `<i class="material-symbols-sharp" ${iconStyleAttr}>${icon}</i>`;
+
+                        // Generate the HTML for one icon item
+                        const $item = $(`
+                            <div class="icon-item">
+                                <div class="icon-variants">
+                                    <!-- Icon variants with gray background for emphasis -->
+                                    <div class="icon-emphasis-bg" title="Outlined"> 
+                                        <i class="material-symbols-outlined" ${iconStyleAttr}>${icon}</i>
+                                    </div>
+                                    <div class="icon-emphasis-bg" title="Rounded">
+                                        <i class="material-symbols-rounded" ${iconStyleAttr}>${icon}</i>
+                                    </div>
+                                    <div class="icon-emphasis-bg" title="Sharp">
+                                        <i class="material-symbols-sharp" ${iconStyleAttr}>${icon}</i>
+                                    </div>
+                                </div>
+                                <span class="icon-name">${icon}</span>
+                                
+                                <!-- Code Samples Container (3 separate copy blocks) -->
+                                <div class="code-section">
+                                    <div class="code-label">Outlined:</div>
+                                    <div class="icon-code" data-code="${outlinedCode.replace(/"/g, '&quot;')}" title="Click to copy HTML snippet">
+                                        ${escapeHtml(outlinedCode)}
+                                    </div>
+                                    <div class="code-label">Rounded:</div>
+                                    <div class="icon-code" data-code="${roundedCode.replace(/"/g, '&quot;')}" title="Click to copy HTML snippet">
+                                        ${escapeHtml(roundedCode)}
+                                    </div>
+                                    <div class="code-label">Sharp:</div>
+                                    <div class="icon-code" data-code="${sharpCode.replace(/"/g, '&quot;')}" title="Click to copy HTML snippet">
+                                        ${escapeHtml(sharpCode)}
+                                    </div>
+                                </div>
+                            </div>
+                        `);
+                        $iconGrid.append($item);
+
+                        // Add click event to copy the code snippet from the data attribute
+                        $item.find('.icon-code').on('click', function() {
+                            const code = $(this).data('code'); 
+                            
+                            const tempInput = document.createElement('textarea');
+                            tempInput.value = code;
+                            document.body.appendChild(tempInput);
+                            tempInput.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(tempInput);
+
+                            // Simple visual feedback
+                            const originalContent = $(this).html();
+                            $(this).text('Copied!');
+                            const self = this;
+                            setTimeout(() => {
+                                $(self).html(originalContent);
+                            }, 800);
+                        });
+                    });
+                }
+
+                renderIcons();
+
+                // Search filtering event
+                $searchBox.on("input", function() {
+                    renderIcons($(this).val());
+                });
+
+            })
+            .fail(function() {
+                // Critical error: The JSON file could not be loaded.
+                displayError("Error: Could not load **`/js/icons.json`**. Please check the file path and ensure the file exists. Icon loading failed.");
+            });
+        });
+    </script>
+</body>
+</html>

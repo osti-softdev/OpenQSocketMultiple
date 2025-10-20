@@ -1,0 +1,1934 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-display: block;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.adminheader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  background-color: rgb(49, 51, 50);
+  box-shadow: 0px 2px 5px rgb(255, 255, 255);
+  overflow: hidden;
+  z-index: 1;
+}
+.adminheader .contactsbtns {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25%; /* or fixed: 80px; */
+  width: 7%; /* might be too small, adjust as needed */
+  display: flex;
+  flex-direction: row; /* stack vertically instead of row */
+  justify-content: space-evenly;
+  align-items: center;
+  z-index: 2;
+}
+.adminheader .contactsbtns img {
+  width: auto; /* scale images inside the box */
+  height: 80%;
+  filter: invert(1);
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+.adminheader .contactsbtns img:hover {
+  filter: drop-shadow(2px 2px 5px red);
+}
+.adminheader .contactsbtns img:active {
+  transform: scale(0.9);
+}
+.adminheader .admwelcome {
+  position: absolute;
+  top: 0;
+  left: 0.5%;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(255, 255, 255);
+}
+.adminheader .admwelcome span {
+  color: rgb(9, 255, 0);
+}
+.adminheader .dashboard-date-range {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 25%;
+  height: 20%;
+  display: none;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.adminheader .dashboard-date-range label {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  text-wrap: wrap;
+}
+.adminheader .dashboard-date-range label input {
+  font-size: 1 rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px black;
+  cursor: pointer;
+  font-weight: 600;
+}
+.adminheader .dashboard-date-range label input:hover {
+  color: white;
+  background-color: #b8a0a0;
+}
+.adminheader .dashboard-exports {
+  position: absolute;
+  bottom: 10%;
+  right: 1%;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 20%;
+  display: none;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.adminheader .dashboard-exports .exportbtns {
+  margin-left: 10px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #28a745;
+  display: inline-block;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px black;
+}
+.adminheader .dashboard-exports .exportbtns:hover {
+  background-color: #1e7e34;
+}
+.adminheader .dashboard-exports .exportbtns:active {
+  transform: scale(0.8);
+}
+.adminheader .dashboard-dashboard-label {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 25%;
+  height: 20%;
+  color: white;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.adminheader .dashboard-announcement-label {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 25%;
+  height: 20%;
+  color: white;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.adminheader .dashboard-ads-label {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 25%;
+  height: 20%;
+  color: white;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.adminheader .dashboard-settings-label {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 25%;
+  height: 20%;
+  color: white;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.adminheader .adminbtns {
+  position: absolute;
+  top: 2%;
+  right: 0.5%;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.adminheader .adminbtns button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  display: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px black;
+}
+.adminheader .adminbtns button:hover {
+  background-color: #0056b3;
+}
+.adminheader .adminbtns button:active {
+  transform: scale(0.8);
+}
+.adminheader .adminbtns .active {
+  background-color: #0056b3;
+}
+
+.adminbody {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 100%;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #192a54;
+}
+.adminbody .dashmain {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.adminbody .dashmain .dash-content1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+}
+.adminbody .dashmain .dash-content1 div {
+  position: relative;
+  height: 90%;
+  width: 20%;
+  padding: 0.5%;
+  font-size: 1.3rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 16px;
+  transform: scale(0.9);
+  background-color: aliceblue;
+  box-shadow: 2px 2px 5px black;
+}
+.adminbody .dashmain .dash-content1 div span {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  color: black;
+}
+.adminbody .dashmain .dash-content2 {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  width: 30%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.adminbody .dashmain .dash-content2 .content2-bars {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 55%;
+  width: 100%;
+  border-radius: 6px;
+  transform: scale(0.95);
+  color: black;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: aliceblue;
+  box-shadow: 2px 2px 5px black;
+}
+.adminbody .dashmain .dash-content2 .content2-bars #barchartcontent2 {
+  position: relative;
+  max-height: 50%;
+  max-width: 100%;
+}
+.adminbody .dashmain .dash-content2 .content2-bars .content2analysis {
+  position: relative;
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.adminbody .dashmain .dash-content2 .content2-bars .content2analysis div {
+  position: relative;
+  height: 100%;
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+}
+.adminbody .dashmain .dash-content2 .content2-bars .content2analysis div:nth-child(1) {
+  width: 50%;
+}
+.adminbody .dashmain .dash-content2 .content2-bars .content2analysis div:nth-child(1) span {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  height: 25%;
+  width: 80%;
+  text-wrap: nowrap;
+}
+.adminbody .dashmain .dash-content2 .content2-bars .content2analysis div:nth-child(1) span span {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: auto;
+  flex-direction: row;
+  text-wrap: nowrap;
+  text-indent: 1%;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+.adminbody .dashmain .dash-content2 .content2-bars .content2analysis div:nth-child(2) {
+  width: 50%;
+}
+.adminbody .dashmain .dash-content2 .content2-bars .content2analysis div:nth-child(2) span {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: start;
+  height: 50%;
+  width: 100%;
+}
+.adminbody .dashmain .dash-content2 .content2-bars .content2analysis div:nth-child(2) span span {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  text-wrap: nowrap;
+  text-indent: 1%;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.adminbody .dashmain .dash-content2 .content2-detailsAverage {
+  position: absolute;
+  top: 55%;
+  left: 0;
+  width: 100%;
+  height: 45%;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  color: #333333;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transform: scale(0.95);
+  overflow-y: auto;
+}
+.adminbody .dashmain .dash-content2 .content2-detailsAverage .title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #007bff;
+  margin-bottom: 5px;
+  text-align: center;
+}
+.adminbody .dashmain .dash-content2 .content2-detailsAverage .cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.adminbody .dashmain .dash-content2 .content2-detailsAverage .cards-wrapper .sname-block {
+  flex: 1 1 50%;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.adminbody .dashmain .dash-content2 .content2-detailsAverage .cards-wrapper .sname-block:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.adminbody .dashmain .dash-content2 .content2-detailsAverage .cards-wrapper .sname-block h3 {
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  color: #007bff;
+}
+.adminbody .dashmain .dash-content2 .content2-detailsAverage .cards-wrapper .sname-block .metric {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin: 4px 0;
+}
+.adminbody .dashmain .dash-content3 {
+  position: absolute;
+  top: 10%;
+  left: 30%;
+  width: 70%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.adminbody .dashmain .dash-content3 .content3-bthsnav {
+  position: absolute;
+  top: 2.4%;
+  right: 2.49%;
+  height: 8%;
+  width: 15%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #192a54;
+  border-bottom-left-radius: 8px;
+  box-shadow: 2px 2px 5px black;
+  z-index: 1;
+  border-bottom: 2px solid aliceblue;
+  border-left: 2px solid aliceblue;
+}
+.adminbody .dashmain .dash-content3 .content3-bthsnav button {
+  position: relative;
+  height: 80%;
+  width: 30%;
+  border: none;
+  border-radius: 4px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+.adminbody .dashmain .dash-content3 .content3-bthsnav button:hover {
+  background-color: #0056b3;
+}
+.adminbody .dashmain .dash-content3 .content3-bthsnav button:active {
+  transform: scale(0.9);
+}
+.adminbody .dashmain .dash-content3 .content3-bthsnav .active {
+  background-color: #0056b3;
+}
+.adminbody .dashmain .dash-content3 div {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 98%;
+  width: 100%;
+  color: black;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 6px;
+  transform: scale(0.95);
+  box-shadow: 2px 2px 5px black;
+  background-color: aliceblue;
+}
+.adminbody .dashmain .dash-content3 .content3-hourpeakchart,
+.adminbody .dashmain .dash-content3 .content3-datepeakchart,
+.adminbody .dashmain .dash-content3 .content3-monthpeakchart {
+  visibility: hidden;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  width: 100%;
+  height: 98%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.adminbody .dashmain .dash-content3 .content3-hourpeakchart canvas,
+.adminbody .dashmain .dash-content3 .content3-datepeakchart canvas,
+.adminbody .dashmain .dash-content3 .content3-monthpeakchart canvas {
+  position: relative;
+  max-height: 100%;
+  max-width: 100%;
+}
+.adminbody .dashmain .dash-content3 .content3-hourpeakchart.active,
+.adminbody .dashmain .dash-content3 .content3-datepeakchart.active,
+.adminbody .dashmain .dash-content3 .content3-monthpeakchart.active {
+  visibility: visible;
+  position: relative;
+  top: auto;
+  left: auto;
+}
+.adminbody .dashmain .dash-content4 {
+  position: absolute;
+  top: 60%;
+  left: 30%;
+  width: 70%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  transform: scale(0.95);
+  color: black;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: aliceblue;
+  padding: 15px;
+  border-radius: 10px;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.adminbody .dashmain .dash-content4 table {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background-color: transparent;
+}
+.adminbody .dashmain .dash-content4 table thead {
+  background-color: white;
+}
+.adminbody .dashmain .dash-content4 table thead th {
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+.adminbody .dashmain .dash-content4 table tbody {
+  overflow-y: auto;
+}
+.adminbody .dashmain .dash-content4 table tbody td {
+  padding: 8px;
+  text-align: center;
+  word-wrap: break-word;
+}
+.adminbody .dashmain .dash-content4 table tbody tr:nth-child(even) {
+  background-color: white;
+}
+.adminbody .dashmain .dash-content4 table .view-history {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.adminbody .dashmain .dash-content4 table .view-history:hover {
+  background: linear-gradient(135deg, #0056b3, #004099);
+  transform: scale(1.05);
+}
+.adminbody .dashmain .dash-content4 table .view-history:active {
+  transform: scale(0.95);
+}
+.adminbody .dashmain .dash-content4 .dataTables_wrapper {
+  width: 100%;
+  height: 100%;
+}
+.adminbody .dashmain .dash-content4 .dataTables_scrollBody {
+  max-height: calc(100% - 40px);
+  overflow-y: auto;
+}
+.adminbody .annmain {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.adminbody .annmain .annannouncements {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  width: 40%;
+  height: 93%;
+}
+.adminbody .annmain .annannouncements div {
+  position: relative;
+  height: 33.3%;
+  width: 95%;
+  background-color: aliceblue;
+  transform: scale(0.95);
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px black;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+.adminbody .annmain .annannouncements div textarea {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  resize: none;
+  text-indent: 10px;
+  font-size: 1.5rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.adminbody .annmain .annannouncements div label {
+  position: absolute;
+  top: 15%;
+  right: 0%;
+  height: 10%;
+  width: 10%;
+  background-color: rgba(0, 255, 81, 0.507);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 2px 2px 5px black;
+  overflow: hidden;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  cursor: pointer;
+}
+.adminbody .annmain .annannouncements div button {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  height: 10%;
+  width: 10%;
+  background-color: rgba(0, 255, 81, 0.507);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-size: 1rem;
+  border-bottom-left-radius: 8px;
+  font-weight: 600;
+  box-shadow: 2px 2px 5px black;
+  overflow: hidden;
+  cursor: pointer;
+}
+.adminbody .annmain .annannouncements div button:hover {
+  background-color: limegreen;
+  color: white;
+}
+.adminbody .annmain .annannouncements div button:active {
+  transform: scale(0.9);
+}
+.adminbody .annmain .annconfigurations {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 93%;
+  width: 60%;
+}
+.adminbody .annmain .annconfigurations .annconfigs {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  transform: scale(0.95);
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px black;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.adminbody .annmain .annconfigurations .annconfigs label {
+  position: relative;
+  height: 15%;
+  width: 90%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  text-indent: 40px;
+  font-size: 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+}
+.adminbody .annmain .annconfigurations .annconfigs label input,
+.adminbody .annmain .annconfigurations .annconfigs label select {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  width: 30%;
+  font-weight: 400;
+  font-size: 1rem;
+  height: 30%;
+  transform: translate(-50%);
+  display: flex;
+}
+.adminbody .annmain .annconfigurations .annconfigs label span {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-indent: 0px;
+  width: 10%;
+  height: 30%;
+  display: flex;
+}
+.adminbody .annmain .footer-containeradmin {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 7%;
+  display: flex;
+  z-index: 1;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  font-weight: 700;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.adminbody .annmain .footer-containeradmin #marqueeadmin {
+  z-index: 98;
+  position: absolute;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.adminbody .annmain .footer-containeradmin #runneradmin {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 98;
+  display: inline-block;
+  padding-left: 100%;
+  text-shadow: 2px 2px 2px rgb(0, 0, 0);
+  animation: marqueeadmin 41s linear infinite;
+  font-size: 25px;
+  font-weight: 900;
+  color: white;
+  white-space: nowrap;
+}
+@keyframes marqueeadmin {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.adminbody .adsmain {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.adminbody .adsmain .adsmainviddisplay {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  height: 100%;
+  width: 60%;
+}
+.adminbody .adsmain .adsmainviddisplay .videocontainer {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 70%;
+  transform: scale(0.96);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification {
+  position: absolute;
+  top: 70%;
+  left: 0%;
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.96);
+  border-radius: 12px;
+  box-shadow: 2px 2px 5px black;
+  background-color: aliceblue;
+  overflow: hidden;
+  gap: 12px;
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification button {
+  height: 80%;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #4cafef, #007acc);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 2px 2px 5px black;
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification button:hover {
+  background: linear-gradient(135deg, #66cfff, #0099ff);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification button:active {
+  transform: scale(0.95);
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification div {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification .firstvideomod {
+  top: 0%;
+  left: 0%;
+  height: 25%;
+  padding: 0.5%;
+  gap: 12px;
+  justify-content: start;
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification .firstvideomod .play-ads-btn {
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification .firstvideomod #refreshAdsBtn {
+  background: linear-gradient(135deg, #ff9800, #f57c00);
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification .firstvideomod #adsshowdetails {
+  background: linear-gradient(135deg, #41a82d, #177417);
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification .firstvideomod #adshidedetails {
+  background: linear-gradient(135deg, #ff1e00, #f54e00);
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification .firstvideomod form {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification .firstvideomod form .file-label {
+  background: linear-gradient(135deg, #9c27b0, #6a1b9a);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+  box-shadow: 2px 2px 5px black;
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification .firstvideomod form .file-label:hover {
+  background: linear-gradient(135deg, #ba68c8, #8e24aa);
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification .firstvideomod form button[type=submit] {
+  background: linear-gradient(135deg, #2196f3, #1565c0);
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification .firstvideomod form .blink-red {
+  animation: blink-red 1s infinite;
+}
+@keyframes blink-red {
+  0%, 50%, 100% {
+    background: linear-gradient(135deg, #f32121, #c01515);
+  }
+  25%, 75% {
+    background: linear-gradient(135deg, #2196f3, #1565c0);
+  }
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification .secondvideomod {
+  top: 25%;
+  left: 0%;
+  gap: 10px;
+  height: 25%;
+  justify-content: start;
+  padding: 0.5%;
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification .video-edit-details {
+  top: 50%;
+  left: 0%;
+  height: 50%;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  gap: 16px;
+  padding: 12px;
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification .video-edit-details .edit-group {
+  position: relative;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+  width: 25%;
+  background-color: rgba(196, 178, 102, 0.8274509804);
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px black;
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification .video-edit-details .edit-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification .video-edit-details .edit-group input,
+.adminbody .adsmain .adsmainviddisplay .videomodification .video-edit-details .edit-group select {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification .video-edit-details .edit-group input:focus,
+.adminbody .adsmain .adsmainviddisplay .videomodification .video-edit-details .edit-group select:focus {
+  border-color: #007acc;
+  box-shadow: 0 0 6px rgba(0, 122, 204, 0.3);
+  outline: none;
+}
+.adminbody .adsmain .adsmainviddisplay .videomodification .video-edit-details .edit-group small {
+  font-size: 0.75rem;
+  color: #666;
+}
+.adminbody .adsmain .adsmainconfiguration {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  width: 40%;
+}
+.adminbody .adsmain .adsmainconfiguration .adsmainconfigtitle {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 5%;
+  transform: scale(0.98);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  box-shadow: 2px 2px 5px black;
+  background-color: aliceblue;
+}
+.adminbody .adsmain .adsmainconfiguration .adslist {
+  position: absolute;
+  top: 5%;
+  left: 0%;
+  width: 100%;
+  height: 95%;
+  transform: scale(0.98);
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px black;
+  background-color: aliceblue;
+  overflow-y: auto;
+}
+.adminbody .adsmain .adsmainconfiguration .adslist .ad-item {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 8px;
+  font-size: 1.2rem;
+  margin-top: 1%;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  min-height: 80px;
+}
+.adminbody .adsmain .adsmainconfiguration .adslist .ad-item:hover {
+  background-color: limegreen;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px black;
+  border: none;
+}
+.adminbody .adsmain .adsmainconfiguration .adslist .ad-item.active {
+  background-color: limegreen;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px black;
+  border: none;
+  transition: all 0.2s ease;
+}
+.adminbody .adsmain .adsmainconfiguration .adslist .ad-item:last-child {
+  border-bottom: none;
+}
+.adminbody .adsmain .adsmainconfiguration .adslist .ad-item button {
+  height: 7%;
+  max-height: 7%;
+  margin-left: 5px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px black;
+  cursor: pointer;
+}
+.adminbody .adsmain .adsmainconfiguration .adslist .ad-item .rename-btn {
+  background: #4c9baf;
+  color: white;
+  border: none;
+  position: absolute;
+  right: 15%;
+}
+.adminbody .adsmain .adsmainconfiguration .adslist .ad-item .rename-btn:active {
+  background-color: rgb(0, 247, 255);
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px black;
+  border: none;
+  color: black;
+  transform: scale(0.9);
+}
+.adminbody .adsmain .adsmainconfiguration .adslist .ad-item .delete-btn {
+  background: #6d322d;
+  color: white;
+  border: none;
+  position: absolute;
+  right: 5%;
+}
+.adminbody .adsmain .adsmainconfiguration .adslist .ad-item .delete-btn:active {
+  background-color: rgb(255, 0, 0);
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px black;
+  border: none;
+  color: black;
+  transform: scale(0.9);
+}
+.adminbody .adsmain #statusMsg {
+  position: absolute;
+  right: 0;
+  top: 0;
+  max-width: 20%;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: auto;
+  display: none;
+  flex-direction: column;
+  font-size: 0.9rem;
+  padding: 0.5%;
+  opacity: 0.9;
+  text-align: center;
+  color: #222;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px black;
+  background-color: lightblue;
+  transition: all 0.3s ease-in-out;
+  z-index: 9999;
+  cursor: grab;
+}
+.adminbody .adsmain #statusMsg .status-content {
+  margin-top: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+  text-align: left;
+}
+.adminbody .settingsmain {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.adminbody .settingsmain .settsubcont {
+  position: absolute;
+  transform: scale(0.95);
+  border-radius: 8px;
+  background-color: aliceblue;
+  box-shadow: 2px 2px 5px black;
+  overflow: hidden;
+}
+.adminbody .settingsmain .settsubcont .setttitles {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 10%;
+  background-color: rgba(255, 204, 0, 0.558);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  box-shadow: 0px 2px 5px black;
+}
+.adminbody .settingsmain .settsubcont .setttitles .settcreateaccount {
+  position: absolute;
+  right: 0%;
+  height: 80%;
+  width: 10%;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.95);
+  background-color: rgba(68, 255, 0, 0.607);
+  cursor: pointer;
+}
+.adminbody .settingsmain .settsubcont .setttitles .settcreateaccount:active {
+  transform: scale(0.8);
+}
+.adminbody .settingsmain .settsubcont .accsettingdata {
+  position: absolute;
+  top: 10%;
+  left: 0%;
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.adminbody .settingsmain .settsubcont .accsettingdata .account-item {
+  position: relative;
+  min-height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 0.5%;
+  background-color: lightgray;
+  box-shadow: 2px 2px 5px black;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.adminbody .settingsmain .settsubcont .accsettingdata .account-item p {
+  flex: 1;
+  margin: 0 0.5rem;
+}
+.adminbody .settingsmain .settsubcont .accsettingdata .account-item button {
+  position: relative;
+  width: 10%;
+  height: 80%;
+  transform: scale(0.95);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px black;
+  cursor: pointer;
+}
+.adminbody .settingsmain .settsubcont .accsettingdata .account-item button:active {
+  transform: scale(0.95);
+}
+.adminbody .settingsmain .settsubcont .accsettingdata .account-item .accedit-btn:hover {
+  background-color: cadetblue;
+}
+.adminbody .settingsmain .settsubcont .accsettingdata .account-item .accdelete-btn:hover {
+  background-color: rgb(220, 26, 26);
+}
+.adminbody .settingsmain .settsubcont .audiosettingdata {
+  position: absolute;
+  top: 10%;
+  left: 0%;
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+}
+.adminbody .settingsmain .settsubcont .audiosettingdata label {
+  position: relative;
+  height: 14%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  text-indent: 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.adminbody .settingsmain .settsubcont .audiosettingdata label input,
+.adminbody .settingsmain .settsubcont .audiosettingdata label select {
+  position: absolute;
+  right: 45%;
+  min-width: 30%;
+  max-width: 30%;
+  height: 50%;
+}
+.adminbody .settingsmain .settsubcont .audiosettingdata label span {
+  position: absolute;
+  right: 1%;
+  min-width: 30%;
+  max-width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+.adminbody .settingsmain .settsubcont .audiosettingdata label #tryVoiceBtn {
+  cursor: pointer;
+  transform: scale(0.8);
+  box-shadow: 2px 2px 5px black;
+  background-color: lightskyblue;
+  font-size: 1.3rem;
+}
+.adminbody .settingsmain .settsubcont .audiosettingdata label #tryVoiceBtn:hover {
+  background-color: red;
+}
+.adminbody .settingsmain .settsubcont .imagesettingdata {
+  position: absolute;
+  top: 10%;
+  left: 0%;
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.adminbody .settingsmain .settsubcont .imagesettingdata div {
+  position: relative;
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  transform: scale(0.95);
+  border-radius: 8px;
+  border: 1px solid gray;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+.adminbody .settingsmain .settsubcont .imagesettingdata div .file-label {
+  background: #3498db;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 90%;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+}
+.adminbody .settingsmain .settsubcont .imagesettingdata div .file-label:hover {
+  background: #2980b9;
+}
+.adminbody .settingsmain .settsubcont .imagesettingdata div input[type=file] {
+  display: none;
+}
+.adminbody .settingsmain .settsubcont .imagesettingdata div .file-name {
+  flex: 1;
+  font-size: 0.9rem;
+  color: #555;
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.adminbody .settingsmain .settsubcont .imagesettingdata div .upload-btn {
+  background: #2ecc71;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+}
+.adminbody .settingsmain .settsubcont .imagesettingdata div .upload-btn:hover {
+  background: #27ae60;
+}
+.adminbody .settingsmain .settsubcont .imagesettingdata div .status {
+  font-size: 0.9rem;
+  margin-left: 8px;
+  font-weight: 500;
+}
+.adminbody .settingsmain .settsubcont .settservicesdata {
+  position: absolute;
+  top: 10%;
+  left: 0%;
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  overflow: auto;
+}
+.adminbody .settingsmain .settsubcont .settservicesdata .service-header,
+.adminbody .settingsmain .settsubcont .settservicesdata .service-rowData {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 30% 15% 40% 10%;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  justify-content: center;
+}
+.adminbody .settingsmain .settsubcont .settservicesdata .service-header {
+  background-color: #333;
+  color: #fff;
+  font-weight: bold;
+}
+.adminbody .settingsmain .settsubcont .settservicesdata .service-rowData {
+  background-color: rebeccapurple;
+}
+.adminbody .settingsmain .settsubcont .settservicesdata .service-rowData input[type=text] {
+  padding: 5px;
+  width: 90%;
+  box-sizing: border-box;
+  text-align: center;
+  height: 90%;
+}
+.adminbody .settingsmain .settsubcont .settservicesdata .service-rowData input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+}
+.adminbody .settingsmain .settsubcont .settservicesdata .service-rowData button {
+  padding: 5px 8px;
+  height: 90%;
+  width: 100%;
+  max-width: 90px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.adminbody .settingsmain .settsubcont .settservicesdata .status-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+.adminbody .settingsmain .settsubcont .settservicesdata .status-wrap .status-label {
+  font-weight: bold;
+  color: white;
+}
+.adminbody .settingsmain .settaccountcreation {
+  top: 0;
+  left: 0;
+  height: 50%;
+  width: 40%;
+}
+.adminbody .settingsmain .setttellertupdate {
+  top: 0%;
+  right: 30%;
+  height: 50%;
+  width: 30%;
+}
+.adminbody .settingsmain .settservicesupdate {
+  top: 0%;
+  right: 0%;
+  height: 50%;
+  width: 30%;
+}
+.adminbody .settingsmain .settaudiosetting {
+  top: 50%;
+  left: 0%;
+  height: 50%;
+  width: 40%;
+}
+.adminbody .settingsmain .settticketupdate {
+  top: 50%;
+  right: 30%;
+  height: 50%;
+  width: 30%;
+}
+.adminbody .settingsmain .settimagesupdate {
+  top: 50%;
+  right: 0%;
+  height: 50%;
+  width: 30%;
+}
+
+.loginmaincontainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(to bottom, #ff9966, #ff5e62);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginmaincontainer #canvas-bg {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.loginmaincontainer .login-container {
+  background: rgba(255, 255, 255, 0.1); /* translucent background */
+  border-radius: 10px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 1;
+}
+.loginmaincontainer .login-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #f5f5f5;
+}
+.loginmaincontainer .login-container .form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.loginmaincontainer .login-container .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-shadow: 2px 2px 5px black;
+}
+.loginmaincontainer .login-container .form-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #2c2c2c;
+  color: #ffffff;
+  font-size: 1rem;
+  outline: none;
+}
+.loginmaincontainer .login-container .form-group .toggle-password {
+  position: absolute;
+  top: 36px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #aaaaaa;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.loginmaincontainer .login-container .login-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #0d6efd;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.loginmaincontainer .login-container .login-button:hover {
+  background-color: #0b5ed7;
+}
+
+@media (max-width: 480px) {
+  .loginmaincontainer .login-container {
+    margin: 0 1rem;
+  }
+}
+.admin-container {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+.admin-container .adminfooter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  color: lightblue;
+  background-color: #00499b;
+  overflow: hidden;
+}
+.admin-container .adminfooter img {
+  position: absolute;
+  bottom: 0%;
+  right: 0%;
+}
+.admin-container .adminfooter .logoutbtn {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 2%;
+  height: 100%;
+  background-image: url("/images/shutdown.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 80% auto;
+  cursor: pointer;
+  filter: brightness(50%);
+}
+.admin-container .adminfooter .logoutbtn:hover {
+  filter: brightness(100%);
+}
+.admin-container .adminfooter .logoutbtn:active {
+  transform: scale(0.9);
+}
+
+@media (max-width: 480px) {
+  .admin-container .adminfooter {
+    font-size: 0.7rem;
+  }
+  .admin-container .adminfooter img {
+    width: 30%;
+  }
+  .admin-container .adminfooter .logoutbtn {
+    width: 10%;
+  }
+  .admin-container .adminheader {
+    height: 30%;
+  }
+  .admin-container .adminheader .contactsbtns {
+    left: 80%;
+    width: 20%;
+    height: 10%;
+  }
+  .admin-container .adminheader .contactsbtns img {
+    height: 50%;
+  }
+  .admin-container .adminheader .admwelcome {
+    top: 0;
+    height: 10%;
+    width: 80%;
+    font-size: 1rem;
+  }
+  .admin-container .adminheader .dashboard-date-range {
+    bottom: 20%;
+    left: 0;
+    transform: translate(0, 0);
+    width: 100%;
+  }
+  .admin-container .adminheader .dashboard-exports {
+    bottom: 0;
+    width: 100%;
+  }
+  .admin-container .adminheader .dashboard-exports .exportbtns {
+    margin: 0;
+    width: 30%;
+  }
+  .admin-container .adminheader .dashboard-dashboard-label {
+    top: 10%;
+    width: 100%;
+    left: 0;
+    transform: translate(0, 0);
+  }
+  .admin-container .adminheader .dashboard-announcement-label {
+    top: 10%;
+    width: 100%;
+    left: 0;
+    transform: translate(0, 0);
+  }
+  .admin-container .adminheader .dashboard-ads-label {
+    top: 10%;
+    width: 100%;
+    left: 0;
+    transform: translate(0, 0);
+  }
+  .admin-container .adminheader .dashboard-settings-label {
+    top: 10%;
+    width: 100%;
+    left: 0;
+    transform: translate(0, 0);
+  }
+  .admin-container .adminheader .adminbtns {
+    top: 30%;
+    right: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    height: 30%;
+    width: 100%;
+    transition: all 0.1s ease-in;
+  }
+  .admin-container .adminheader .adminbtns button {
+    flex: 1 50%;
+    height: 50%;
+    transform: scale(0.9);
+    padding: 0;
+    margin: 0;
+  }
+  .admin-container .adminheader .activerespond {
+    transition: all 0.4s ease-in-out;
+    height: 70%;
+  }
+  .admin-container .adminbody {
+    top: 30%;
+    height: 65%;
+    overflow: hidden;
+  }
+  .admin-container .adminbody .dashmain {
+    position: relative;
+    min-height: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    justify-content: center;
+    align-items: center;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+  }
+  .admin-container .adminbody .dashmain section {
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+  }
+  .admin-container .adminbody .dashmain .dash-content1 {
+    flex-wrap: wrap;
+    height: 50%;
+  }
+  .admin-container .adminbody .dashmain .dash-content1 div {
+    flex: 1 33%;
+    height: 50%;
+    font-size: 1rem;
+  }
+  .admin-container .adminbody .dashmain .dash-content1 div span {
+    font-size: 1.2rem;
+  }
+  .admin-container .adminbody .dashmain .dash-content2 {
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+  .admin-container .adminbody .dashmain .dash-content2 .content2-bars #barchartcontent2 {
+    max-height: 60%;
+  }
+  .admin-container .adminbody .dashmain .dash-content2 .content2-bars .content2analysis {
+    height: 40%;
+  }
+  .admin-container .adminbody .dashmain .dash-content2 .content2-bars .content2analysis div:nth-child(1) {
+    width: 60%;
+  }
+  .admin-container .adminbody .dashmain .dash-content2 .content2-bars .content2analysis div:nth-child(1) span {
+    font-size: 1rem;
+  }
+  .admin-container .adminbody .dashmain .dash-content2 .content2-bars .content2analysis div:nth-child(1) span span {
+    height: 100%;
+    font-size: 1rem;
+  }
+  .admin-container .adminbody .dashmain .dash-content2 .content2-bars .content2analysis div:nth-child(2) {
+    width: 40%;
+  }
+  .admin-container .adminbody .dashmain .dash-content2 .content2-bars .content2analysis div:nth-child(2) span {
+    font-size: 1rem;
+  }
+  .admin-container .adminbody .dashmain .dash-content2 .content2-bars .content2analysis div:nth-child(2) span span {
+    font-size: 1rem;
+  }
+  .admin-container .adminbody .dashmain .dash-content3 {
+    top: 0;
+    left: 0;
+    height: 100%;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: end;
+  }
+  .admin-container .adminbody .dashmain .dash-content3 .content3-bthsnav {
+    top: 1%;
+    width: 90%;
+    left: 5%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-right: 2px solid aliceblue;
+  }
+  .admin-container .adminbody .dashmain .dash-content3 div {
+    height: 90%;
+    bottom: 0%;
+    touch-action: pinch-zoom pan-x pan-y;
+  }
+  .admin-container .adminbody .dashmain .dash-content3 div canvas {
+    touch-action: pinch-zoom pan-x pan-y;
+  }
+  .admin-container .adminbody .dashmain .dash-content4 {
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  .admin-container .adminbody .dashmain .dash-content4 table th {
+    padding: 2px;
+    font-size: 0.6rem;
+  }
+  .admin-container .adminbody .dashmain .dash-content4 table tbody td {
+    font-size: 0.6rem;
+  }
+  .admin-container .adminbody .annmain {
+    position: relative;
+    min-height: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    justify-content: center;
+    align-items: center;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+  }
+  .admin-container .adminbody .annmain section {
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+  }
+  .admin-container .adminbody .annmain .annannouncements {
+    flex-direction: column;
+  }
+  .admin-container .adminbody .annmain .annannouncements div textarea {
+    width: 80%;
+    transform: scale(0.9);
+  }
+  .admin-container .adminbody .annmain .annannouncements div button {
+    width: 20%;
+    height: 30%;
+  }
+  .admin-container .adminbody .annmain .annannouncements div label {
+    top: 35%;
+    width: 20%;
+    height: 30%;
+  }
+  .admin-container .adminbody .annmain .annconfigurations {
+    width: 100%;
+  }
+  .admin-container .adminbody .annmain .annconfigurations .annconfigs {
+    width: 100%;
+  }
+  .admin-container .adminbody .annmain .annconfigurations .annconfigs label {
+    width: 100%;
+    font-size: 0.8rem;
+    justify-content: start;
+  }
+  .admin-container .adminbody .annmain .annconfigurations .annconfigs input, .admin-container .adminbody .annmain .annconfigurations .annconfigs select {
+    top: 0%;
+    right: 10%;
+    height: 100%;
+    width: 30%;
+  }
+  .admin-container .adminbody .annmain .annconfigurations .annconfigs span {
+    top: 0;
+    right: 5%;
+  }
+  .admin-container .adminbody .adsmain {
+    position: relative;
+    min-height: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    justify-content: center;
+    align-items: center;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+  }
+  .admin-container .adminbody .adsmain section {
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+  }
+  .admin-container .adminbody .adsmain .adsmainviddisplay {
+    flex-direction: column;
+  }
+  .admin-container .adminbody .adsmain .adsmainviddisplay .videocontainer {
+    top: 0;
+    height: 50%;
+  }
+  .admin-container .adminbody .adsmain .adsmainviddisplay .videomodification {
+    top: 50%;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 10;
+  }
+  .admin-container .adminbody .adsmain .adsmainviddisplay .videomodification .firstvideomod {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    height: 20%;
+    padding: 0;
+    gap: 0;
+    font-size: 0.8rem;
+  }
+  .admin-container .adminbody .adsmain .adsmainviddisplay .videomodification .firstvideomod button {
+    height: 100%;
+    flex: 1 20%;
+    gap: 0;
+    transform: scale(0.8);
+  }
+  .admin-container .adminbody .adsmain .adsmainviddisplay .videomodification .firstvideomod form button {
+    height: 100%;
+  }
+  .admin-container .adminbody .adsmain .adsmainviddisplay .videomodification .secondvideomod {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    top: 20%;
+    height: 30%;
+    padding: 0;
+    gap: 0;
+    font-size: 0.8rem;
+  }
+  .admin-container .adminbody .adsmain .adsmainviddisplay .videomodification .secondvideomod button {
+    height: 50%;
+    flex: 1 5%;
+    transform: scale(0.8);
+  }
+  .admin-container .adminbody .adsmain .adsmainviddisplay .videomodification .video-edit-details {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    top: 50%;
+    height: 50%;
+    padding: 0;
+    gap: 0;
+    font-size: 0.8rem;
+  }
+  .admin-container .adminbody .adsmain .adsmainviddisplay .videomodification .video-edit-details .edit-group {
+    height: 50%;
+    flex: 1 50%;
+    transform: scale(0.9);
+    gap: 1px;
+  }
+  .admin-container .adminbody .adsmain .adsmainconfiguration .adsmainconfigtitle {
+    height: 10%;
+  }
+  .admin-container .adminbody .adsmain .adsmainconfiguration .adslist {
+    top: 10%;
+    height: 90%;
+  }
+  .admin-container .adminbody .adsmain .adsmainconfiguration .adslist .ad-item .rename-btn {
+    right: 20%;
+  }
+  .admin-container .adminbody .settingsmain {
+    position: relative;
+    min-height: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    justify-content: center;
+    align-items: center;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+  }
+  .admin-container .adminbody .settingsmain section {
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+  }
+  .admin-container .adminbody .settingsmain section .setttitles {
+    font-size: 1rem;
+  }
+  .admin-container .adminbody .settingsmain .settaccountcreation {
+    top: 0;
+    left: 0;
+  }
+  .admin-container .adminbody .settingsmain .settaccountcreation .settcreateaccount {
+    width: -moz-fit-content;
+    width: fit-content;
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+  .admin-container .adminbody .settingsmain .setttellertupdate {
+    top: 0;
+    left: 0;
+  }
+  .admin-container .adminbody .settingsmain .settservicesupdate {
+    top: 0;
+    left: 0;
+  }
+  .admin-container .adminbody .settingsmain .settaudiosetting {
+    top: 0;
+    left: 0;
+  }
+  .admin-container .adminbody .settingsmain .settaudiosetting .audiosettingdata label input, .admin-container .adminbody .settingsmain .settaudiosetting .audiosettingdata label select {
+    right: 35%;
+  }
+  .admin-container .adminbody .settingsmain .settticketupdate {
+    top: 0;
+    left: 0;
+  }
+  .admin-container .adminbody .settingsmain .settimagesupdate {
+    top: 0;
+    left: 0;
+  }
+}/*# sourceMappingURL=admin.css.map */

@@ -1,0 +1,200 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+   font-display: block;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  max-width: 300px;
+  overflow: hidden;
+}
+
+html {
+  /* Let the browser know we support light and dark */
+  color-scheme: light dark;
+}
+@import "materialicons";
+
+/* Default = Dark theme */
+:root {
+  --bg-gradient: linear-gradient(to bottom, #1a1a1a, #0d0d0d);
+  --card-bg: rgb(51, 47, 47);
+  --label-color: #ffffff;
+  --input-bg: #2c2c2c;
+  --input-text: #ffffff;
+  --button-bg: #4890fc;
+  --button2-bg: #969c37;
+  --button3-bg: #409740;
+  --button4-bg: #c74747;
+  --button5-bg: #665c5c;
+  --button-bg-hover: #0b5ed7;
+  --button2-bg-hover: #969c37b4;
+  --button3-bg-hover: #409740b4;
+  --button4-bg-hover: #c74747b4;
+  --button5-bg-hover: #665c5cb4;
+  --text-color: #e9e5e5;
+  --textspecial: rgb(241, 245, 0);
+}
+
+/* Light theme when checkbox is checked */
+html:has(#mode-switcher #theme-toggle:checked) {
+  --bg-gradient: linear-gradient(to bottom, #ff9966, #ff5e62);
+  --card-bg: rgb(212, 199, 199);
+  --label-color: #333333;
+  --input-bg: #f0f0f0;
+  --input-text: #000000;
+
+  --text-color: #222222;
+    --textspecial:rgb(255, 210, 11);
+}
+
+#mode-switcher {
+  position: absolute;
+  top: -2px;
+  right: 0px;
+  width: fit-content;
+  z-index: 10;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  #theme-toggle {
+    display: none; // hide the checkbox
+  }
+
+  label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .spanitheme {
+      font-size: 1.8rem;
+      line-height: 1;
+      user-select: none;
+      position: relative;
+      width: 2rem;
+      height: 2rem;
+
+      &:hover{
+        filter: brightness(160%);
+      }
+      // sun by default
+      &::before {
+        content: "🌞";
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+
+      // moon sits behind
+      &::after {
+        content: "🌙";
+        filter: invert(1);
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transform: rotate(-180deg) scale(0.5);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+    }
+
+    // when checked, swap them
+    #theme-toggle:checked ~ .spanitheme {
+      &::before {
+        opacity: 0;
+        transform: rotate(180deg) scale(0.5);
+      }
+      &::after {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+      }
+    }
+  }
+}
+
+
+/* -------------------------
+   Login Styles
+-------------------------- */
+@import "webloginteller";
+@import "webtellerwindow";
+
+/* -------------------------
+   Responsive Breakpoints
+-------------------------- */
+@media (max-width: 768px) {
+  .loginmaincontainerteller {
+    .login-containerteller {
+      width: 95%;
+      padding: 1.5rem;
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .form-groupteller label {
+        font-size: 1rem;
+      }
+
+      .form-groupteller input {
+        font-size: 0.95rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .loginmaincontainerteller {
+    .login-containerteller {
+      width: 100%;
+      height: 90%;
+      margin: 0 0.5rem;
+      padding: 1rem;
+
+      h2 {
+        font-size: 1rem;
+      }
+
+      .form-groupteller label {
+        font-size: 1rem;
+      }
+
+      .form-groupteller input {
+        font-size: 0.9rem;
+      }
+
+      .login-button_teller {
+        font-size: 0.9rem;
+      }
+    }
+  }
+  .maintellercontainer{
+    .tellernavbar{
+        ul{
+            font-size: 0.8rem;
+            text-wrap: wrap;
+             div{
+                font-weight: 700;
+                font-size: 1rem;
+             }
+        }
+    }
+    .maintellerbody{
+      .tellerdatanav{
+        ul{
+        height: 100%;
+        }
+      }
+    }
+  }
+}

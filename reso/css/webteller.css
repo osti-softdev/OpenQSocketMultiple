@@ -1,0 +1,749 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-display: block;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  max-width: 300px;
+  overflow: hidden;
+}
+
+html {
+  /* Let the browser know we support light and dark */
+  color-scheme: light dark;
+}
+
+/*
+ * Font Definitions: KEEPING THESE AS THEY ARE CRITICAL
+ */
+@font-face {
+  font-family: "Material Symbols Outlined";
+  src: url("/libs/icons/Material_Symbols_Outlined/MaterialSymbolsOutlined-VariableFont_FILL,GRAD,opsz,wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Material Symbols Rounded";
+  src: url("/libs/icons/Material_Symbols_Rounded/MaterialSymbolsRounded-VariableFont_FILL,GRAD,opsz,wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Material Symbols Sharp";
+  src: url("/libs/icons/Material_Symbols_Sharp/MaterialSymbolsSharp-VariableFont_FILL,GRAD,opsz,wght.ttf") format("truetype");
+}
+/* Base Variable Font Settings */
+.material-symbols-outlined,
+.material-symbols-rounded,
+.material-symbols-sharp {
+  /* These are the default settings (FILL 0, Wght 400, Opsz 24) */
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  word-wrap: break-word;
+  font-style: normal;
+}
+
+/* Specific Font Families */
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+}
+
+.material-symbols-rounded {
+  font-family: "Material Symbols Rounded";
+}
+
+.material-symbols-sharp {
+  font-family: "Material Symbols Sharp";
+}
+
+/* Default = Dark theme */
+:root {
+  --bg-gradient: linear-gradient(to bottom, #1a1a1a, #0d0d0d);
+  --card-bg: rgb(51, 47, 47);
+  --label-color: #ffffff;
+  --input-bg: #2c2c2c;
+  --input-text: #ffffff;
+  --button-bg: #4890fc;
+  --button2-bg: #969c37;
+  --button3-bg: #409740;
+  --button4-bg: #c74747;
+  --button5-bg: #665c5c;
+  --button-bg-hover: #0b5ed7;
+  --button2-bg-hover: #969c37b4;
+  --button3-bg-hover: #409740b4;
+  --button4-bg-hover: #c74747b4;
+  --button5-bg-hover: #665c5cb4;
+  --text-color: #e9e5e5;
+  --textspecial: rgb(241, 245, 0);
+}
+
+/* Light theme when checkbox is checked */
+html:has(#mode-switcher #theme-toggle:checked) {
+  --bg-gradient: linear-gradient(to bottom, #ff9966, #ff5e62);
+  --card-bg: rgb(212, 199, 199);
+  --label-color: #333333;
+  --input-bg: #f0f0f0;
+  --input-text: #000000;
+  --text-color: #222222;
+  --textspecial:rgb(255, 210, 11);
+}
+
+#mode-switcher {
+  position: absolute;
+  top: -2px;
+  right: 0px;
+  width: -moz-fit-content;
+  width: fit-content;
+  z-index: 10;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+#mode-switcher #theme-toggle {
+  display: none;
+}
+#mode-switcher label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+#mode-switcher label .spanitheme {
+  font-size: 1.8rem;
+  line-height: 1;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+}
+#mode-switcher label .spanitheme:hover {
+  filter: brightness(160%);
+}
+#mode-switcher label .spanitheme::before {
+  content: "🌞";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+#mode-switcher label .spanitheme::after {
+  content: "🌙";
+  filter: invert(1);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: rotate(-180deg) scale(0.5);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+#mode-switcher label #theme-toggle:checked ~ .spanitheme::before {
+  opacity: 0;
+  transform: rotate(180deg) scale(0.5);
+}
+#mode-switcher label #theme-toggle:checked ~ .spanitheme::after {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* -------------------------
+   Login Styles
+-------------------------- */
+.loginmaincontainerteller {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: var(--bg-gradient);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginmaincontainerteller #canvas-bgteller {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+}
+.loginmaincontainerteller .login-containerteller {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 1rem;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 1;
+}
+.loginmaincontainerteller .login-containerteller h2 {
+  text-align: center;
+  color: var(--text-color);
+  font-size: 1.8rem;
+}
+.loginmaincontainerteller .login-containerteller .form-groupteller {
+  position: relative;
+}
+.loginmaincontainerteller .login-containerteller .form-groupteller label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--label-color);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+.loginmaincontainerteller .login-containerteller .form-groupteller input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  font-size: 1rem;
+  outline: none;
+}
+.loginmaincontainerteller .login-containerteller .form-groupteller .toggle-password {
+  position: absolute;
+  top: 36px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #aaaaaa;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.loginmaincontainerteller .login-containerteller .login-button_teller {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--button-bg);
+  border: none;
+  border-radius: 5px;
+  margin-top: 5px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.loginmaincontainerteller .login-containerteller .login-button_teller:hover {
+  background-color: var(--button-bg-hover);
+}
+
+.maintellercontainer {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  background: var(--bg-gradient);
+}
+.maintellercontainer h2 {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-color);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 3px black;
+}
+.maintellercontainer #logoutBtn {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: auto;
+  cursor: pointer;
+}
+.maintellercontainer #logoutBtn:hover {
+  filter: brightness(150%);
+}
+.maintellercontainer .tellernavbar {
+  position: absolute;
+  top: 30px;
+  left: 0%;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.maintellercontainer .tellernavbar ul {
+  position: relative;
+  display: flex;
+  width: 33%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transform: scale(0.95);
+  border-radius: 10px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  cursor: pointer;
+  overflow: hidden;
+  color: var(--text-color);
+  text-wrap: wrap;
+  text-align: center;
+}
+.maintellercontainer .tellernavbar ul div {
+  font-size: 2rem;
+  color: var(--textspecial);
+}
+.maintellercontainer .tellernavbar ul:active {
+  transform: scale(0.8);
+}
+.maintellercontainer .tellernavbar ul:nth-child(1) {
+  background: var(--button3-bg);
+}
+.maintellercontainer .tellernavbar ul:nth-child(1):hover {
+  background: var(--button3-bg-hover);
+  cursor: pointer;
+}
+.maintellercontainer .tellernavbar ul:nth-child(2) {
+  background: var(--button5-bg);
+}
+.maintellercontainer .tellernavbar ul:nth-child(2):hover {
+  background: var(--button5-bg-hover);
+  cursor: pointer;
+}
+.maintellercontainer .tellernavbar ul:nth-child(3) {
+  background: var(--button-bg);
+}
+.maintellercontainer .tellernavbar ul:nth-child(3):hover {
+  background: var(--button-bg-hover);
+  cursor: pointer;
+}
+.maintellercontainer .tellernavbar ul p {
+  color: var(--textspecial);
+  font-size: 1.4rem;
+  letter-spacing: 3px;
+}
+.maintellercontainer .tellernavbar .blinkingRec {
+  background: red;
+  box-shadow: 0 0 0 rgba(255, 0, 0, 0.4);
+  animation: pulseRed 1.5s infinite;
+}
+.maintellercontainer .tellernavbar .blinkingRec p {
+  color: lawngreen;
+  font-weight: 900;
+  animation: scalingRed 1.7s infinite;
+}
+@keyframes scalingRed {
+  0% {
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes pulseRed {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.8);
+  }
+  70% {
+    box-shadow: 0 0 10px 10px rgba(255, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+  }
+}
+.maintellercontainer .tellerdatanav {
+  position: absolute;
+  top: 60px;
+  left: 0%;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  color: var(--text-color);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.maintellercontainer .tellerdatanav ul {
+  position: relative;
+  display: flex;
+  height: 90%;
+  align-items: center;
+  justify-content: center;
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.37);
+  overflow: hidden;
+}
+.maintellercontainer .tellerdatanav ul:nth-child(1) {
+  width: 50%;
+}
+.maintellercontainer .tellerdatanav ul:nth-child(2) {
+  width: 25%;
+}
+.maintellercontainer .tellerdatanav ul:nth-child(3) {
+  width: 25%;
+}
+.maintellercontainer .tellerdataservices {
+  position: absolute;
+  top: 80px;
+  bottom: 60px;
+  left: 0%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.maintellercontainer .tellerdataservices .tellerservice {
+  position: relative;
+  height: 25px;
+  width: 100%;
+  display: flex;
+  margin-top: 5px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.4rem;
+}
+.maintellercontainer .tellerdataservices .tellerservice div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  box-shadow: 2px 2px 5px black;
+  color: var(--text-color);
+  background: var(--card-bg);
+}
+.maintellercontainer .tellerdataservices .tellerservice .tellerservicename {
+  width: 50%;
+}
+.maintellercontainer .tellerdataservices .tellerservice .tellerservicereg {
+  width: 25%;
+  transform: scale(0.9);
+  border-radius: 4px;
+  background: var(--button-bg);
+  cursor: pointer;
+  font-weight: 600;
+}
+.maintellercontainer .tellerdataservices .tellerservice .tellerservicereg:hover {
+  background: var(--button-bg-hover);
+}
+.maintellercontainer .tellerdataservices .tellerservice .tellerservicereg:active {
+  transform: scale(0.8);
+}
+.maintellercontainer .tellerdataservices .tellerservice .tellerserviceprio {
+  width: 25%;
+  transform: scale(0.9);
+  border-radius: 4px;
+  background: var(--button3-bg);
+  cursor: pointer;
+  font-weight: 600;
+}
+.maintellercontainer .tellerdataservices .tellerservice .tellerserviceprio:hover {
+  background: var(--button3-bg-hover);
+}
+.maintellercontainer .tellerdataservices .tellerservice .tellerserviceprio:active {
+  transform: scale(0.8);
+}
+.maintellercontainer .tellercurrentcalled {
+  position: absolute;
+  bottom: 40px;
+  left: 0%;
+  height: 20px;
+  width: 100%;
+  display: flex;
+}
+.maintellercontainer .tellercurrentcalled div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  box-shadow: 0px 2px 3px 0 rgba(0, 0, 0, 0.37);
+  color: var(--text-color);
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  overflow: hidden;
+}
+.maintellercontainer .tellercurrentcalled div:nth-child(1) {
+  width: 50%;
+}
+.maintellercontainer .tellercurrentcalled div:nth-child(2) {
+  width: 25%;
+}
+.maintellercontainer .tellercurrentcalled div:nth-child(3) {
+  width: 25%;
+}
+.maintellercontainer .tellerdataactionbtns {
+  position: absolute;
+  bottom: 0px;
+  left: 0%;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.maintellercontainer .tellerdataactionbtns div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  width: 20%;
+  transform: scale(0.95);
+  border-radius: 8px;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.37);
+  color: var(--text-color);
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  overflow: hidden;
+  font-size: 1.6rem;
+  text-shadow: 2px 2px 5px black;
+  background: var(--button5-bg);
+}
+.maintellercontainer .tellerdataactionbtns div:active {
+  transform: scale(0.8);
+}
+.maintellercontainer .tellerdataactionbtns div:hover {
+  background: var(--button5-bg-hover);
+  cursor: pointer;
+}
+.maintellercontainer .tellerdataactionbtns div:hover i {
+  filter: brightness(160%);
+}
+.maintellercontainer .tellerdataactionbtns div:nth-child(3) {
+  background: var(--button4-bg);
+}
+.maintellercontainer .tellerdataactionbtns div:nth-child(3):hover {
+  background: var(--button4-bg-hover);
+  cursor: pointer;
+}
+
+.CustomPopup {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  z-index: 10000;
+  background-color: rgba(0, 0, 0, 0.712);
+}
+.CustomPopup .popupmain {
+  position: relative;
+  height: 90%;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-shadow: 2px 2px 10px black;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.CustomPopup .popupmain .cpoptitle {
+  position: absolute;
+  top: 0%;
+  height: 10%;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 900;
+  border-bottom: 1px solid rgba(94, 90, 90, 0.712);
+  color: black;
+}
+.CustomPopup .popupmain .cpopbody {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  height: 75%;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.CustomPopup .popupmain .cpopbody .ticket-info {
+  position: absolute;
+  top: 0%;
+  height: 10%;
+  font-size: 1.3rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.CustomPopup .popupmain .cpopbody .reason-options {
+  position: absolute;
+  top: 10%;
+  height: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.CustomPopup .popupmain .cpopbody .reason-options label {
+  cursor: pointer;
+}
+.CustomPopup .popupmain .cpopbody .reason-options label:hover {
+  color: red;
+}
+.CustomPopup .popupmain .cpopbody #reason-text {
+  position: absolute;
+  top: 30%;
+  height: 50%;
+  width: 90%;
+  resize: none;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  display: flex;
+  text-indent: 10px;
+  justify-content: space-around;
+  align-items: center;
+}
+.CustomPopup .popupmain .cpopbody .counter-info {
+  position: absolute;
+  top: 10%;
+  height: 80%;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  gap: 10px;
+  padding: 10%;
+}
+.CustomPopup .popupmain .cpopbody .counter-info select {
+  position: relative;
+  height: 20%;
+  width: 80%;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px black;
+  font-size: 1rem;
+}
+.CustomPopup .popupmain .cpopbody .errorlogtext {
+  position: absolute;
+  bottom: 0%;
+  height: 10%;
+  width: 100%;
+  color: red;
+  font-size: 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.CustomPopup .popupmain .cpopfooter {
+  position: absolute;
+  bottom: 0%;
+  height: 15%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.CustomPopup .popupmain .cpopfooter div {
+  position: relative;
+  height: 80%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px black;
+  cursor: pointer;
+}
+.CustomPopup .popupmain .cpopfooter div:hover {
+  filter: brightness(120%);
+}
+.CustomPopup .popupmain .cpopfooter div:active {
+  transform: scale(0.9);
+}
+.CustomPopup .popupmain .cpopfooter .csubmitbtn {
+  background-color: rgb(61, 116, 61);
+}
+.CustomPopup .popupmain .cpopfooter .ccancelbtn {
+  background-color: brown;
+}
+
+/* -------------------------
+   Responsive Breakpoints
+-------------------------- */
+@media (max-width: 768px) {
+  .loginmaincontainerteller .login-containerteller {
+    width: 95%;
+    padding: 1.5rem;
+  }
+  .loginmaincontainerteller .login-containerteller h2 {
+    font-size: 1.5rem;
+  }
+  .loginmaincontainerteller .login-containerteller .form-groupteller label {
+    font-size: 1rem;
+  }
+  .loginmaincontainerteller .login-containerteller .form-groupteller input {
+    font-size: 0.95rem;
+  }
+}
+@media (max-width: 480px) {
+  .loginmaincontainerteller .login-containerteller {
+    width: 100%;
+    height: 90%;
+    margin: 0 0.5rem;
+    padding: 1rem;
+  }
+  .loginmaincontainerteller .login-containerteller h2 {
+    font-size: 1rem;
+  }
+  .loginmaincontainerteller .login-containerteller .form-groupteller label {
+    font-size: 1rem;
+  }
+  .loginmaincontainerteller .login-containerteller .form-groupteller input {
+    font-size: 0.9rem;
+  }
+  .loginmaincontainerteller .login-containerteller .login-button_teller {
+    font-size: 0.9rem;
+  }
+  .maintellercontainer .tellernavbar ul {
+    font-size: 0.8rem;
+    text-wrap: wrap;
+  }
+  .maintellercontainer .tellernavbar ul div {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .maintellercontainer .maintellerbody .tellerdatanav ul {
+    height: 100%;
+  }
+}/*# sourceMappingURL=webteller.css.map */

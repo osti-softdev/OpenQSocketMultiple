@@ -1,0 +1,23 @@
+{
+    "announcements_txt": {
+        "firstann": "WELCOME TO CEBU CITY TRANSPORTATION OFFICE🥰",
+        "secondann": "ALWAYS AT YOUR SERVICE",
+        "thirdann": "Sample third announcement"
+    },
+    "ann_data": {
+        "bgcolor": "#030963",
+        "color": "#c3d117",
+        "speed": 42,
+        "fontsize": 61,
+        "fontweight": 900,
+        "shadowcolorvalue": "#000000"
+    },
+    "activated": {
+        "ann1": "1",
+        "ann2": "1",
+        "ann3": "0"
+    },
+    "display_update": {
+        "update": 0
+    }
+}

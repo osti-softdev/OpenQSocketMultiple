@@ -1,0 +1,10 @@
+/node_modules
+/dist_32
+/dist_64
+/outfolder/logs
+/outfolder/app.pid
+dist_32
+dist_64
+node_modules
+package-lock.json
+/

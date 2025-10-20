@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>Admin Panel</title>
+    <script src="/libs/jquery-3.7.1.js"></script>
+    <script src="/libs/jquery-ui-1.14.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/libs/jquery-ui-1.14.1/jquery-ui.css">
+    <script src="/libs/sweetalert2@11.js"></script>
+    <script src="/libs/chart.min.js"></script>
+    <script src="/libs/notify.js"></script>
+    <script src="/libs/chartjs-plugin-datalabels.min.js"></script>
+    <script src="/libs/chartjs-plugin-zoom.min.js"></script>
+    <link rel="stylesheet" href="/libs/jquery.dataTables.min.css">
+    <script src="/libs/jquery.dataTables.min.js"></script>
+    <script src="/libs/jspdf.umd.min.js"></script>
+    <script src="/libs/jspdf.plugin.autotable.min.js"></script>
+    <script src="/libs/xlsx.full.min.js"></script>
+
+<script>
+    Chart.register(ChartDataLabels);
+     Chart.register(ChartZoom);
+</script>
+    <link rel="stylesheet" href="/css/admin.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body onselectstart="return false">
+    <div class="admin-container">
+        <!-- ! Header page -->
+        <div class="adminheader">
+            <div class="contactsbtns">
+                <img 
+                    class="cntctsimg" 
+                    title="osti.com.ph" 
+                    src="/images/web.png" 
+                    alt="web" 
+                    onclick="window.open('https://osti.com.ph', '_blank')">
+
+                <img 
+                    class="cntctsimg" 
+                    title="032-2534769" 
+                    src="/images/tel.png" 
+                    alt="tel"
+                    onclick="copyToClipboard('032-2534769')">
+
+                <!-- Email -->
+                <img 
+                    class="cntctsimg" 
+                    title="sales@osti.com.ph sales@it-central.com.ph support.osti@osti.com.ph" 
+                    src="/images/email.png" 
+                    alt="mail"
+                    onclick="copyToClipboard('sales@osti.com.ph, sales@it-central.com.ph, support.osti@osti.com.ph')">
+            </div>
+
+            <p class="admwelcome"><span class="adminName"></span></p>
+            <div class="adminbtns">
+                <button id="dash" class="admbtnsoptions" data-page="dashboard">📊 Dashboard</button>
+                <button id="ann" class="admbtnsoptions" data-page="announcement">💬 Announcement</button>
+                <button id="ads" class="admbtnsoptions" data-page="advertisement">▶️ Advertisements</button>
+                <button id="settings" class="admbtnsoptions" data-page="settings">⚙ Settings 🔐</button>
+            </div>
+            <div class="dashboard-date-range">
+                <label for="startDate">Start Date: &nbsp;<input type="date" class="daterange" id="startDate" name="startDate"></label>
+                <label for="endDate">End Date: &nbsp;<input type="date" class="daterange" id="endDate" name="endDate"></label>
+            </div>
+            <div class="dashboard-exports">
+                <button data-identifier="exportCSV" class="exportbtns">📁 CSV</button>
+                <button data-identifier="exportPDF" class="exportbtns">📄 PDF</button>
+                <button data-identifier="exportExcel" class="exportbtns">📊 Excel</button>
+            </div>
+             <div class="dashboard-dashboard-label">
+                <h1>Main Dashboard</h1>
+            </div>
+            <div class="dashboard-announcement-label">
+                <h1>Announcement Settings</h1>
+            </div>
+             <div class="dashboard-ads-label">
+                <h1>Advertisements Settings</h1>
+            </div>
+            <div class="dashboard-settings-label">
+                <h1>Settings</h1>
+            </div>
+        </div>
+        <!-- ! Page Contents -->
+        <div class="adminbody">
+            <div class="dashmain">
+                <section class="dash-content1">
+                </section>
+                <section class="dash-content2">
+                     <div class="content2-bars">
+                        <canvas id="barchartcontent2"></canvas>
+                        <div class="content2analysis">
+                            <div>
+                                <span class="content2totalcount"></span>
+                                <span class="content2totalrated"></span>
+                                <span class="content2totalserved"></span>
+                                <span class="content2totalvoided"></span>
+                                <span class="content2totalunserved"></span>
+                            </div>
+                            
+                            <div>
+                                <span class="content2commonservice"></span>
+                                <span class="content2commonrating"></span>
+                            </div>
+                          
+                        </div>
+                     </div>
+                     <div class="content2-detailsAverage">
+                     </div>
+                </section>
+                <section class="dash-content3">
+                    <span class="content3-bthsnav">
+                        <button class="content3btns active" data-content3btnsholder="hour">Hour</button>
+                        <button class="content3btns" data-content3btnsholder="date">Date</button>
+                        <button class="content3btns" data-content3btnsholder="month">Month</button>
+                    </span>
+                    <div class="content3-hourpeakchart">
+                        <canvas id="timelinechart3"></canvas>
+                    </div>
+                    <div class="content3-datepeakchart">
+                        <canvas id="datelinechart3"></canvas>
+                    </div>
+                    <div class="content3-monthpeakchart">
+                        <canvas id="monthlinechart3"></canvas>
+                    </div>
+                </section>
+                <section class="dash-content4">
+                   <table id="adminTable">
+                        <thead>
+                            <tr>
+                                <th>Service</th>
+                                <th>Ticket</th>
+                                <th>Status</th>
+                                <th>Time</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
+                                <th>Date</th>
+                                <th>History</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                   </table>
+                </section>
+            </div>
+            <div class="annmain">
+                <section class="annannouncements">
+                    <div class="firstannmsg">
+                        <textarea class="textareafootermsg" name="firstann" id="firstmsg"></textarea>
+                            <button class="savemsgconfig" data-msgconfig="1">Update</button>
+                            <label class="labelforactivate1" for="activateann1">
+                                <input type="checkbox" name="checkboxactivateann" class="activatemsgconfig"  id="activateann1" data-activateconfig="1">
+                                </input>
+                                <p class="activatemsgconfiglabel1"></p>
+                            </label>  
+                    </div>
+                    <div class="secondannmsg">
+                        <textarea class="textareafootermsg" name="secondann" id="secondmsg"></textarea>
+                        <button class="savemsgconfig" data-msgconfig="2">Update</button>
+                             <label class="labelforactivate2" for="activateann2"><input type="checkbox" name="checkboxactivateann" class="activatemsgconfig"  id="activateann2" data-activateconfig="2"></input><p class="activatemsgconfiglabel2"></p></label>
+                    </div>
+                    <div class="thirdannmsg">
+                        <textarea class="textareafootermsg" name="thirdann" id="thirdmsg"></textarea>
+                        <button class="savemsgconfig" data-msgconfig="3">Update</button>
+                             <label class="labelforactivate3" for="activateann3"><input type="checkbox" name="checkboxactivateann" class="activatemsgconfig"  id="activateann3" data-activateconfig="3"></input><p class="activatemsgconfiglabel3"></p></label>
+                    </div>
+                </section>
+                <section class="annconfigurations">
+                    <div class="annconfigs">
+                        <label for="annconfiginput1">
+                            Speed: 
+                            <input type="range" max="200" min="1" class="commonanninput annconfiginput1 annspeed" data-anninputsconfig="speed">
+                            <span class="speedtext" onselectstart="event.stopPropagation(); return true;"></span>
+                        </label>
+
+                        <label for="annconfiginput2">
+                            Font-size: 
+                            <input type="number" class="commonanninput annconfiginput2 annfontsize" min="30" max="200" data-anninputsconfig="fontsize">
+                            <span class="fontsizetext" onselectstart="event.stopPropagation(); return true;">0px</span>
+                        </label>
+
+                        <label for="annconfiginput3">
+                            Font-weight: 
+                            <select class="commonanninput annconfiginput3 annfontweight" data-anninputsconfig="fontweight">
+                                <option value="100">100 (Thin)</option>
+                                <option value="400">400 (Normal)</option>
+                                <option value="600">600 (semi-bold)</option>
+                                <option value="700">700 (Bold)</option>
+                                <option value="900">900 (Boldest)</option>
+                            </select>
+                            <span class="fontweighttext" onselectstart="event.stopPropagation(); return true;"></span>
+                        </label>
+
+                        <label for="annconfiginput4">
+                            Font-color: 
+                            <input type="color" class="commonanninput annconfiginput4 anncolor" data-anninputsconfig="color"> 
+                            <span class="colortext" onselectstart="event.stopPropagation(); return true;"></span>
+                        </label>
+
+                        <label for="annconfiginput5">
+                            Background-color: 
+                            <input type="color" class="commonanninput annconfiginput5 annbgcolor" data-anninputsconfig="bgcolor">
+                            <span class="bgcolortext" onselectstart="event.stopPropagation(); return true;"></span>
+                        </label>
+
+                        <label for="annconfiginput6">
+                            Shadow-color: 
+                            <input type="color" class="commonanninput annconfiginput6 shadowcolor" data-anninputsconfig="shadowcolorvalue">
+                            <span class="shadowcolortext" onselectstart="event.stopPropagation(); return true;"></span>
+                        </label>
+                    </div>
+                </section>
+                <section class="footer-containeradmin" id="marquee_parentadmin">
+                    <div id="marqueeadmin">
+                        <p id='runneradmin'></p>
+                    </div>
+                </section>
+            </div> 
+            <div class="adsmain">
+                <div id="statusMsg" class="floating">
+                            <div class="status-content">
+                                <div class="file"></div>
+                                <div class="details"></div>
+                                <div class="progress"></div>
+                            </div>
+                        </div>
+                <section class="adsmainviddisplay">
+                    <div class="videocontainer">
+                        <video
+                            id="adminAdPlayer"
+                            autoplay
+                            controls
+                            playsinline
+                            style="width:100%;height:100%;object-fit:contain;background:#000"
+                        ></video>
+                    </div>
+
+                    <div class="videomodification">
+                        <!-- Controls for Ads -->
+                        <div class="firstvideomod">
+                            <form id="uploadForm">
+                                <label for="videoFile" class="file-label">📂 Choose Video</label>
+                                <input id="videoFile" type="file" accept="video/*" hidden />
+                                <button type="submit" class="adsupload" title="Upload Video">⬆ Upload</button>
+                            </form>
+                            <!-- <button id="startAdminAds" class="play-ads-btn" title="Play Ads">▶ Play Ads</button> -->
+                            <!-- <button id="refreshAdsBtn" title="Refresh ads list">↻ Refresh</button> -->
+                            <button id="adsshowdetails" title="Show details">Show Details</button>
+                            <button id="adshidedetails" title="Hide Details">Hide Details</button>
+                        </div>
+                        <!-- Editing Tools -->
+                        <div class="secondvideomod">
+                            <button id="trimBtn" class="processBtn" title="Trim video"><span>✂</span> Trim</button>
+                            <button id="muteBtn" class="processBtn" title="Mute/Unmute video"><span>🔇</span> Mute</button>
+                            <button id="screenshotBtn" class="processBtn" title="Capture screenshot"><span>📸</span> Screenshot</button>
+                            <button id="convertBtn" class="processBtn" title="Convert to MP4"><span>⇆</span> Convert</button>
+                            <button id="resizeBtn" class="processBtn" title="Resize video"><span>📏</span> Resize</button>
+                            <button id="rotateBtn" class="processBtn" title="Rotate video"><span>🔄</span> Rotate</button>
+                        </div>
+
+                        <!-- Edit Details -->
+                        <div class="video-edit-details">
+                            <div class="edit-group">
+                                <label for="trimStart">⏱ Trim Start</label>
+                                <input type="number" id="trimStart" min="0" step="0.1" placeholder="Seconds">
+                            </div>
+
+                            <div class="edit-group">
+                                <label for="trimEnd">⏱ Trim End</label>
+                                <input type="number" id="trimEnd" min="0" step="0.1" placeholder="Seconds">
+                            </div>
+
+                            <div class="edit-group">
+                                <label for="resizePreset">📐 Resize</label>
+                                <select id="resizePreset">
+                                    <option value="1920x1080">1920 × 1080 (Full HD)</option>
+                                    <option value="1280x720">1280 × 720 (HD)</option>
+                                    <option value="854x480">854 × 480 (SD)</option>
+                                    <option value="640x360">640 × 360 (Low)</option>
+                                </select>
+                            </div>
+
+                            <div class="edit-group">
+                                <label for="rotateAngle">🔄 Rotate</label>
+                                <select id="rotateAngle">
+                                    <option value="0">0° (Original)</option>
+                                    <option value="90">90° (Right)</option>
+                                    <option value="180">180° (Upside Down)</option>
+                                    <option value="270">270° (Left)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="adsmainconfiguration">
+                    <div class="adsmainconfigtitle">Advertisement List</div>
+                    <div class="adslist" id="adsList"></div>
+                </section>
+            </div>
+            <div class="settingsmain">
+                <section class="settsubcont settaccountcreation">
+                    <span class="setttitles">Admin Account Creation <span class="settcreateaccount">Create</span></span>
+                    <span class="accsettingdata"></span>
+                </section>
+                <section class="settsubcont setttellertupdate">
+                    <span class="setttitles">Teller Name Settings</span>
+                    <span class="settdata"></span>
+                </section>
+                 <section class="settsubcont settservicesupdate">
+                    <span class="setttitles">Services Settings</span>
+                    <span class="settservicesdata"></span>
+                </section>
+                 <section class="settsubcont settaudiosetting">
+                    <span class="setttitles">Voice and Audio Settings</span>
+                    <span class="audiosettingdata">
+                        <label for="adminvoiceinput">Voice Type:
+                            <select name="adminvoiceinput" id="selectadminvoice"></select>
+                            <span id="currentVoiceName" class="valuelabel"></span>
+                        </label>
+                        <label for="tryVoiceText">
+                            Test Voice:
+                            <input type="text" id="tryVoiceText" placeholder="Enter text to speak" />
+                            <span id="tryVoiceBtn">🔊 Try</span>
+                        </label>
+                        <label for="adminvoicerate">
+                            Voice Rate:
+                            <input type="range" id="adminvoicerate" min="0.1" max="3" step="0.1" value="1">
+                            <span id="voiceRateVal" class="valuelabel">1</span>
+                        </label>
+                        <label for="adminvoicepitch">
+                            Voice Pitch:
+                            <input type="range" id="adminvoicepitch" min="0" max="2" step="0.1" value="1">
+                            <span id="voicePitchVal" class="valuelabel">1</span>
+                        </label>
+                        <label for="adminvoicevolume">
+                            Voice Volume:
+                            <input type="range" id="adminvoicevolume" min="0" max="1" step="0.1">
+                            <span id="voiceVolVal" class="valuelabel"></span>
+                        </label>
+                        <label for="adminadsvolume">
+                            Ads Volume:
+                            <input type="range" id="adminadsvolume" min="0" max="1" step="0.01">
+                            <span id="adsVolVal" class="valuelabel"></span>
+                        </label>
+                        <label for="adminbellvolume">
+                            Bell Volume:
+                            <input type="range" id="adminbellvolume" min="0" max="1" step="0.1">
+                            <span id="bellVolVal" class="valuelabel"></span>
+                        </label>
+                    </span>
+                </section>
+                <section class="settsubcont settticketupdate">
+                    <span class="setttitles">Ticket Print Settings</span>
+                    <span class="settdata"></span>
+                </section>
+                <section class="settsubcont settimagesupdate">
+                    <span class="setttitles">Image Settings</span>
+                    <span class="imagesettingdata">
+                        <!-- Banner upload -->
+                        <div class="upload-block">
+                            <label for="bannerFile" class="file-label">Choose Banner:   
+                                <span id="bannerFilename" class="file-name">No file chosen</span>
+                                <input type="file" id="bannerFile" accept="image/png"></label>
+                            <button id="uploadBanner" class="upload-btn">Upload Banner</button>
+                            <span id="bannerStatus" class="status"></span>
+                        </div>
+
+                        <div class="upload-block">
+                            <label for="bgFile" class="file-label">Choose Background:
+                                <span id="bgFilename" class="file-name">No file chosen</span>
+                                <input type="file" id="bgFile" accept="image/png">
+                            </label>
+                            <button id="uploadBg" class="upload-btn">Upload Background</button>
+                            <span id="bgStatus" class="status"></span>
+                        </div>
+
+                    </span>
+                </section>
+            </div>
+        </div>
+
+        <!-- ! Footer page -->
+          <div class="adminfooter">
+            <div class="adminfooter-text">
+                <p>© 2025 OSTI Software Development Department. All rights reserved.</p>
+                <p>Version: 1.0.0</p>
+                <img src="/images/ostilogo.png" alt="osti logo" height="auto" width="10%">
+                <div class="logoutbtn" title="Logout"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>const socket = io();</script>
+    <script type="module" src="/js/admin/modules.js"></script>
+    <script src="/js/admin/dashboard.js"></script>
+    <script src="/js/admin/adminSocket.js"></script>
+    <script src="/js/admin/content2charts.js"></script>
+    <script src="/js/admin/content3charts.js"></script>
+    <script src="/js/admin/content4.js"></script>
+    <script src="/js/admin/footeradmin.js"></script>
+    <script src="/js/admin/adminads.js"></script>
+    <script src="/js/admin/adsvideditor.js"></script>
+    <script src="/js/admin/adminsettingsaccounts.js"></script>
+    <script src="/js/admin/adminsettingsvoiceandvolumeclient.js"></script>
+    <script src="/js/admin/adminsettingsservices.js"></script>
+    <script src="/js/admin/adminsettingsimageuploader.js"></script>
+    <script src="/js/admin/adminDashboardSaveCharts.js"></script>
+    <script src="/js/admin/dashexports.js"></script>
+    
+    <script>
+let barChartContent2;
+let hourChart;
+let dateChart;
+let monthChart;
+
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(() => {
+        $.notify("Copied to Clipboard", "success");
+        }).catch(err => {
+        $.notify("Failed to copy to clipboard", "error");
+        });
+    }
+        // setInterval(() => {
+        //     window.location.reload();
+        // }, 1000);
+        
+    </script>
+</body>
+</html>

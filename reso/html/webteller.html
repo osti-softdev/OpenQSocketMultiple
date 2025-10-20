@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title class="titleHtml"></title>
+    <script src="/libs/jquery-3.7.1.js"></script>
+    <script src="/libs/jquery-ui-1.14.1/jquery-ui.js"></script>
+      <link rel="stylesheet" href="/libs/jquery-ui-1.14.1/jquery-ui.css">
+    <script src="/libs/sweetalert2@11.js"></script>
+    <script src="/libs/notify.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="/css/webteller.css">
+    <script src="/libs/notify.js"></script>
+</head>
+<body onselectstart="return false;">
+    <div id="mode-switcher">
+      <label>
+        <input type="checkbox" id="theme-toggle" /><p class="spanitheme"></p>
+      </label>
+    </div>
+    <div class="maintellercontainer">
+    <div id="logoutBtn"><i class="material-symbols-rounded" style="font-size: 28px; font-variation-settings:'wght' 900">logout</i></div>
+      <h2 class="usercounternum">COUNTER 1</h2>
+      <nav class="tellernavbar">
+        <ul class="tlrnavbtnheld">HELD: &nbsp; <p></p></ul>
+        <ul class="tlrnavbtnrec">REC: &nbsp;<p></p></ul>
+        <ul class="tlrnavbtnq">QUE: &nbsp;<p></p> </ul>
+      </nav>
+      <div class="maintellerbody">
+        <nav class="tellerdatanav">
+          <ul>Service</ul>
+          <ul>Regular</ul>
+          <ul>Priority</ul>
+        </nav>
+        <div class="tellerdataservices">
+        </div>
+        <div class="tellercurrentcalled">
+          <div class="servicecalled"></div>
+          <div class="servicecalledticket"></div>
+          <div class="servicecalledtimer">00:00:00</div>
+        </div>
+        <div class="tellerdataactionbtns">
+          <div class="telleractbtn" data-actionId="recall" title="Recall Ticket"><i class="material-symbols-rounded" style="font-size: 32px; color: #3b82f6;">phone_callback</i></div>
+          <div class="telleractbtn" data-actionId="hold" title="Hold Ticket"><i class="material-symbols-rounded" style="font-size: 32px; color: #3b82f6;">pause</i></div>
+          <div class="telleractbtn" data-actionId="void" title="Void Ticket"><i class="material-symbols-rounded" style="font-size: 32px; color: #3b82f6;">free_cancellation</i></div>
+          <div class="telleractbtn" data-actionId="forward" title="Forward Ticket"><i class="material-symbols-rounded" style="font-size: 32px; color: #3b82f6;">forward_to_inbox</i></div>
+          <div class="telleractbtn" data-actionId="finish" title="Finish Ticket"><i class="material-symbols-rounded" style="font-size: 32px; color: #3b82f6;">check_circle</i></div>
+        </div>
+      </div>
+    </div>
+
+      <div class="CustomPopup">
+        <div class="popupmain">
+          <div class="cpoptitle"></div>
+            <div class="cpopbody"></div>
+            <div class="cpopfooter">
+              <div class="ccancelbtn">Cancel</div>
+              <div class="csubmitbtn">Submit</div>
+            </div>
+        </div>
+      </div>
+      
+    </div>
+  
+</body>
+<script>
+   const socket = io();
+
+  //  setInterval(() => {
+  //   window.location.reload();
+  //  }, 1000);
+</script>
+<script src="/js/teller/theme.js"></script>
+<script src="/js/teller/timer.js"></script>
+<script src="/js/teller/webtellerfile.js"></script>
+</html>
