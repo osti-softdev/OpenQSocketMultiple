@@ -1,0 +1,36 @@
+❌ 2025-10-17T08:47:24.321Z [..\file:\C:\Users\Neptune\AppData\Roaming\npm\node_modules\electron\dist\resources\default_app.asar\main.js:132] App threw an error during load
+❌ 2025-10-17T08:47:24.322Z [..\file:\C:\Users\Neptune\AppData\Roaming\npm\node_modules\electron\dist\resources\default_app.asar\main.js:133] ReferenceError: app is not defined
+    at Object.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocket\index.js:458:1)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1311:10)
+    at Module.load (node:internal/modules/cjs/loader:1098:32)
+    at Module._load (node:internal/modules/cjs/loader:945:12)
+    at c._load (node:electron/js2c/node_init:2:13672)
+    at cjsLoader (node:internal/modules/esm/translators:288:17)
+    at ModuleWrap.<anonymous> (node:internal/modules/esm/translators:234:7)
+    at ModuleJob.run (node:internal/modules/esm/module_job:217:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:316:24)
+❌ 2025-10-20T08:03:20.398Z [..\node\getallservices.js:9] ❌ Error fetching services: Error: Database not initialized. Call initializeDb first.
+    at getAllServices (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\db.js:33:9)
+    at handleGetAllServices (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\getallservices.js:5:26)
+    at Namespace.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\index.js:324:5)
+    at Namespace.emit (node:events:532:35)
+    at Namespace.emitReserved (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\typed-events.js:56:22)
+    at Namespace._doConnect (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\namespace.js:276:14)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\namespace.js:238:22
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+❌ 2025-10-20T08:03:56.300Z [..\node\getallservices.js:9] ❌ Error fetching services: Error: Database not initialized. Call initializeDb first.
+    at getAllServices (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\db.js:33:9)
+    at handleGetAllServices (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\getallservices.js:5:26)
+    at Namespace.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\index.js:324:5)
+    at Namespace.emit (node:events:532:35)
+    at Namespace.emitReserved (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\typed-events.js:56:22)
+    at Namespace._doConnect (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\namespace.js:276:14)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\namespace.js:238:22
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)
+[31m❌ 2025-10-20T08:18:07.737Z [unknown] exec error: Error: Command failed: php E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder/printer/print.php CW,2,Carwash
+PHP Warning:  Undefined variable $dateni in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\printer\print.php on line 21
+^C[39m
+[31m❌ 2025-10-20T08:19:51.646Z [unknown] exec error: Error: Command failed: php E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder/printer/print.php CW,3,Carwash
+PHP Warning:  Undefined variable $dateni in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\printer\print.php on line 21
+^C[39m

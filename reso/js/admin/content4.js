@@ -11,7 +11,7 @@ function displaytable4() {
         pageLength: 10,
         responsive: true,
         language: { search: "Search records:" },
-        order: [[3, 'asc']], // sort by Time
+        order: [[6, 'desc']], // sort by Time
         ajax: function (data, callback, settings) {
             socket.emit("requestAdminDataforcontent4alldata", {
                 start: data.start,
@@ -19,9 +19,10 @@ function displaytable4() {
                 order: data.order,
                 search: data.search.value
             });
+            console.log(data);
 
             // 🔸 Use socket.once to prevent multiple listeners stacking up
-            socket.once("dashadmincontent4alldata", function (res) {
+            socket.on("dashadmincontent4alldata", function (res) {
                 callback({
                     draw: data.draw,
                     recordsTotal: res.recordsTotal,

@@ -3,9 +3,9 @@
 	"version": "1.0.0",
 	"description": "this queue system is for smaller scale only ",
 	"main": "index.js",
+	"bin": "index.js",
 	"scripts": {
-		"start": "electron --trace-warnings .",
-		"build": "electron-builder"
+		"start": "node index.js"
 	},
 	"author": "Cade Lawrenzo Cana",
 	"license": "ISC",
@@ -19,6 +19,7 @@
 		"cookie-parser": "^1.4.7",
 		"cors": "^2.8.5",
 		"crc": "^4.3.2",
+		"dotenv": "^17.2.3",
 		"express": "^5.1.0",
 		"ini": "^5.0.0",
 		"jsonwebtoken": "^9.0.2",
@@ -29,40 +30,5 @@
 		"socket.io": "^4.8.1",
 		"sqlite3": "^5.1.7",
 		"websocket": "^1.0.35"
-	},
-	"build": {
-		"appId": "com.openq.sque",
-		"productName": "OpenQ System",
-		"directories": {
-			"output": "dist_64"
-		},
-		"win": {
-			"target": {
-				"target": "nsis",
-				"arch": [
-					"x64"
-				]
-			},
-			"icon": "./favicon.ico",
-			"extraFiles": [
-				{
-					"from": "./outfolder",
-					"to": "./outfolder"
-				},
-				{
-					"from": "./favicon.ico",
-					"to": "."
-				}
-			]
-		},
-		"nsis": {
-			"oneClick": false,
-			"perMachine": true,
-			"allowToChangeInstallationDirectory": true
-		}
-	},
-	"devDependencies": {
-		"electron": "^37.3.0",
-		"electron-builder": "^26.0.12"
 	}
 }

@@ -7,93 +7,89 @@ const fs = require("fs");
 const os = require("os");
 const multer = require("multer");
 
-// ===== Electron =====
-const { app, BrowserWindow, screen, session, dialog } = require("electron");
 // ===== Express & Socket.IO =====
 const express = require("express");
 const http = require("http");
 const socketIo = require("socket.io");
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
-const mime = require("mime");
 const requestAPI = multer();
 const cors = require("cors");
-const rootpath = app.getAppPath();
-const OUTFOLDER_PATH = path.join(rootpath, `${tagline}outfolder`);
+const rootpath = path.join(__dirname);
+const OUTFOLDER_PATH = path.join(rootpath, `${tagline}reso/outfolder`);
 global.outfolderPath = OUTFOLDER_PATH;
 const pidFile = path.join(OUTFOLDER_PATH, "app.pid");
 
 const appExpress = express();
 const server = http.createServer(appExpress);
-const io = socketIo(server);
+const io = socketIo(server, {
+  // FIX: Add connection timeout to prevent premature client connections
+  connectTimeout: 5000,
+});
 
 // ===== Local Modules =====
 const {
-	initializeSerialPort,
-	cleanupSerialPorts,
+  initializeSerialPort,
+  cleanupSerialPorts,
 } = require("./reso/node/serialport");
 const { setupLogger } = require("./reso/node/logger");
-const { spawn } = require("child_process");
 const { test, setupAds, initialize: initAdsManager } = require("./reso/node/getads");
 const { handleGetAllServices } = require("./reso/node/getallservices");
 const {
-	setupServicesDisplayWatcher,
+  setupServicesDisplayWatcher,
 } = require("./reso/node/servicesDisplayWatcher");
 const { setupFooterWatcher } = require("./reso/node/footerwatcher");
 const {
-	setupFooterWatcheradmin,
+  setupFooterWatcheradmin,
 } = require("./reso/node/admin/footerwatcheradmin");
 const {
-	setupCalledTicketsWatcher,
+  setupCalledTicketsWatcher,
 } = require("./reso/node/calledTicketsWatcher");
 const {
-	adminoveralldatawatcher,
+  adminoveralldatawatcher,
 } = require("./reso/node/admin/adminDashboardData");
 const {
-	admincontent3chartsdata,
+  admincontent3chartsdata,
 } = require("./reso/node/admin/adminDashboardcontent3chartsdata");
-
 const {
-	admincontent2averages,
+  admincontent2averages,
 } = require("./reso/node/admin/adminDashboardcontent2averages");
 const {
-	admincontent4alldata,
+  admincontent4alldata,
 } = require("./reso/node/admin/adminDashboardcontent4");
 const {
-	admincontentSaveChartImage,
+  admincontentSaveChartImage,
 } = require("./reso/node/admin/adminSaveChartImage");
 const {
-	settupsettingsservices,
+  settupsettingsservices,
 } = require("./reso/node/admin/adminsettingservices");
 const {
-	initializeWindowedKiosk,
+  initializeWindowedKiosk,
 } = require("./reso/node/kiosk/kiosk");
 const {
-	setupLoginSocket,
-	JWT_SECRET,
+  setupLoginSocket,
+  JWT_SECRET,
 } = require("./reso/node/admin/adminlogin");
-
 const {
-	setupLoginSocketteller,
+  setupLoginSocketteller,
 } = require("./reso/node/teller/tellerlogin");
-
 const {
-	settupsettingsaccounts,
+  settupsettingsaccounts,
 } = require("./reso/node/admin/adminsettingsaccounts");
 const { setupKeyApi, handleKey } = require("./reso/node/insertviaapi");
 const {
-	setupSoundSettingsAdmin,
+  setupSoundSettingsAdmin,
 } = require("./reso/node/admin/adminvoiceandvolume");
 const { loadConfig } = require("./reso/node/envconfig");
 const { initializeDb, closeDb } = require("./reso/node/db");
 const { executephp } = require("./reso/node/printer");
 const { setupTellerWatcher } = require("./reso/node/teller/tellerserviceswatcher");
 const {
-	setNoCacheHeaders,
-	expressIpWhitelist,
-	socketIoWhitelist,
-	blockSensitiveRoutes,
-	getClientIp,
+  setNoCacheHeaders,
+  expressIpWhitelist,
+  socketIoWhitelist,
+  blockSensitiveRoutes,
+  getClientIp,
 } = require("./reso/node/security");
 // MULTERS
 const setupVideosApi = require("./reso/node/expressAPI/videos");
@@ -101,15 +97,15 @@ const setupImagesApi = require("./reso/node/expressAPI/images");
 
 // ===== Helper: Get LAN IP =====
 function getLocalIp() {
-	const nets = os.networkInterfaces();
-	for (const name of Object.keys(nets)) {
-		for (const net of nets[name]) {
-			if (net.family === "IPv4" && !net.internal) {
-				return net.address;
-			}
-		}
-	}
-	return "127.0.0.1";
+  const nets = os.networkInterfaces();
+  for (const name of Object.keys(nets)) {
+    for (const net of nets[name]) {
+      if (net.family === "IPv4" && !net.internal) {
+        return net.address;
+      }
+    }
+  }
+  return "127.0.0.1";
 }
 
 const ownip = getLocalIp();
@@ -124,29 +120,26 @@ appExpress.use(express.json());
 appExpress.use(cookieParser());
 appExpress.use(cors());
 appExpress.use(
-	"/libs",
-	express.static(path.join(rootpath, "reso/libs"), {
-		etag: false,
-		lastModified: false,
-		setHeaders: (res, filePath) => {
-			// keep your no-cache headers
-			setNoCacheHeaders(res);
-
-			// 🔑 FIX: Serve wasm correctly
-			if (filePath.endsWith(".wasm")) {
-				res.setHeader("Content-Type", "application/wasm");
-			}
-		},
-	})
+  "/libs",
+  express.static(path.join(rootpath, "reso/libs"), {
+    etag: false,
+    lastModified: false,
+    setHeaders: (res, filePath) => {
+      setNoCacheHeaders(res);
+      if (filePath.endsWith(".wasm")) {
+        res.setHeader("Content-Type", "application/wasm");
+      }
+    },
+  })
 );
 
 appExpress.use(
-	"/css",
-	express.static(path.join(rootpath, "reso/css"), {
-		etag: false,
-		lastModified: false,
-		setHeaders: setNoCacheHeaders,
-	})
+  "/css",
+  express.static(path.join(rootpath, "reso/css"), {
+    etag: false,
+    lastModified: false,
+    setHeaders: setNoCacheHeaders,
+  })
 );
 appExpress.use(
   "/material-icons",
@@ -161,44 +154,62 @@ appExpress.use(
 );
 
 appExpress.use(
-	"/js",
-	express.static(path.join(rootpath, "reso/js"), {
-		etag: false,
-		lastModified: false,
-		setHeaders: setNoCacheHeaders,
-	})
+  "/js",
+  express.static(path.join(rootpath, "reso/js"), {
+    etag: false,
+    lastModified: false,
+    setHeaders: setNoCacheHeaders,
+  })
 );
 
 appExpress.use(
-	"/images",
-	express.static(path.join(OUTFOLDER_PATH, "images"), {
-		setHeaders: setNoCacheHeaders,
-	})
+  "/images",
+  express.static(path.join(OUTFOLDER_PATH, "images"), {
+    setHeaders: setNoCacheHeaders,
+  })
 );
 
 appExpress.use(
-	"/audio",
-	express.static(path.join(OUTFOLDER_PATH, "audio"), {
-		etag: false,
-		lastModified: false,
-		setHeaders: setNoCacheHeaders,
-	})
+  "/audio",
+  express.static(path.join(OUTFOLDER_PATH, "audio"), {
+    etag: false,
+    lastModified: false,
+    setHeaders: setNoCacheHeaders,
+  })
 );
 
 // JWT middleware for Express routes
 function requireAuth(req, res, next) {
-	const token = req.cookies?.auth; // read JWT from cookie
-	if (!token) return res.redirect("/312Xadmin");
+  const token = req.cookies?.auth;
+  if (!token) return res.redirect("/312Xadmin");
 
-	try {
-		const decoded = jwt.verify(token, JWT_SECRET);
-		req.user = decoded;
-		next();
-	} catch {
-		return res.redirect("/312Xadmin");
-	}
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET);
+    req.user = decoded;
+    next();
+  } catch {
+    return res.redirect("/312Xadmin");
+  }
 }
-// *===== Config & Logger =====
+
+// ===== Config & Logger =====
+// FIX: Ensure outfolder and subdirectories exist before setup
+if (!fs.existsSync(OUTFOLDER_PATH)) {
+  fs.mkdirSync(OUTFOLDER_PATH, { recursive: true });
+}
+if (!fs.existsSync(path.join(OUTFOLDER_PATH, "config"))) {
+  fs.mkdirSync(path.join(OUTFOLDER_PATH, "config"), { recursive: true });
+}
+if (!fs.existsSync(path.join(OUTFOLDER_PATH, "logs"))) {
+  fs.mkdirSync(path.join(OUTFOLDER_PATH, "logs"), { recursive: true });
+}
+if (!fs.existsSync(path.join(OUTFOLDER_PATH, "images"))) {
+  fs.mkdirSync(path.join(OUTFOLDER_PATH, "images"), { recursive: true });
+}
+if (!fs.existsSync(path.join(OUTFOLDER_PATH, "audio"))) {
+  fs.mkdirSync(path.join(OUTFOLDER_PATH, "audio"), { recursive: true });
+}
+
 setupLogger();
 const config = loadConfig(io);
 const serverPort = config?.MainServer?.port || 3000;
@@ -228,269 +239,256 @@ const isArduinoUno = system_type === SYSTEM_TYPES.ARDUINO_UNO;
 const isArduinoWifi = system_type === SYSTEM_TYPES.ARDUINO_WIFI;
 const isWindowed = system_type === SYSTEM_TYPES.WINDOWED_APPLICATIONS;
 
-
 // ===== Routes =====
-if(isArduinoWifi){
-	appExpress.use("/api", setupKeyApi(io));
+if (isArduinoWifi) {
+  appExpress.use("/api", setupKeyApi(io));
 }
 
 appExpress.get("/312Xadmin", (req, res) => {
-	setNoCacheHeaders(res);
-	res.clearCookie("auth", {
-		httpOnly: true,
-		secure: false, 
-		sameSite: "lax",
-		path: "/",
-	});
-	res.sendFile(path.join(rootpath, "reso/html/login.html"));
+  setNoCacheHeaders(res);
+  res.clearCookie("auth", {
+    httpOnly: true,
+    secure: false,
+    sameSite: "lax",
+    path: "/",
+  });
+  res.sendFile(path.join(rootpath, "reso/html/login.html"));
 });
 appExpress.get("/312xdashboard", requireAuth, (req, res) => {
-	res.sendFile(path.join(rootpath, "reso/html/admin.html"));
+  res.sendFile(path.join(rootpath, "reso/html/admin.html"));
 });
 appExpress.get("/whoami", requireAuth, (req, res) => {
-	res.json(req.user);
+  res.json(req.user);
 });
 
-if(isWindowed){
-	appExpress.get("/kiosk", (req, res) => {
-		setNoCacheHeaders(res);
-		res.sendFile(path.join(rootpath, "reso/html/kiosk.html"));
-	});
-	appExpress.get("/312Xtellerlogin", (req, res) => {
-		setNoCacheHeaders(res);
-		res.sendFile(path.join(rootpath, "reso/html/webtellerlogin.html"));
-	});
-	appExpress.get("/312XtellerWindow", (req, res) => {
-		setNoCacheHeaders(res);
-		res.sendFile(path.join(rootpath, "reso/html/webteller.html"));
-	});
+if (isWindowed) {
+  appExpress.get("/kiosk", (req, res) => {
+    setNoCacheHeaders(res);
+    res.sendFile(path.join(rootpath, "reso/html/kiosk.html"));
+  });
+  appExpress.get("/312Xtellerlogin", (req, res) => {
+    setNoCacheHeaders(res);
+    res.sendFile(path.join(rootpath, "reso/html/webtellerlogin.html"));
+  });
+  appExpress.get("/312XtellerWindow", (req, res) => {
+    setNoCacheHeaders(res);
+    res.sendFile(path.join(rootpath, "reso/html/webteller.html"));
+  });
 }
 
 appExpress.get("/main", (req, res) => {
-	setNoCacheHeaders(res);
-	res.sendFile(path.join(rootpath, "reso/html/index.html"));
+  setNoCacheHeaders(res);
+  res.sendFile(path.join(rootpath, "reso/html/index.html"));
 });
 appExpress.get("/booticons", (req, res) => {
-	res.sendFile(path.join(rootpath, "reso/html/icon.html"));
+  res.sendFile(path.join(rootpath, "reso/html/icon.html"));
 });
 appExpress.get("/", (req, res) => {
-	res.redirect("/	");
+  res.redirect("/main");
 });
 
-
 appExpress.post("/setAuthCookie", express.json(), (req, res) => {
-	const { token } = req.body;
-	res.cookie("auth", token, {
-		httpOnly: true,
-		secure: false, // true only if HTTPS
-		sameSite: "lax", // not "strict", otherwise redirect can drop it
-		path: "/", // cookie visible across whole site
-		maxAge: 3600000, // 1 hour
-	});
-	res.sendStatus(200);
+  const { token } = req.body;
+  res.cookie("auth", token, {
+    httpOnly: true,
+    secure: false, // true only if HTTPS
+    sameSite: "lax",
+    path: "/",
+    maxAge: 3600000, // 1 hour
+  });
+  res.sendStatus(200);
 });
 
 appExpress.post("/logout", (req, res) => {
-	res.clearCookie("auth");
-	res.sendStatus(200);
+  res.clearCookie("auth");
+  res.sendStatus(200);
 });
 
+// ===== Start Server =====
+// FIX: Add error handling for Socket.IO connection
+io.on("connection", (socket) => {
+  const clientId = socket.id;
+  const ip = getClientIp(socket);
+  console.log(`🔌 Client connected: ${clientId} | IP: ${ip}`);
 
-// *===== Start Server =====
-initializeDb()
-	.then(() => {
-		server.listen(serverPort, () => {
-			console.log(`Server running on http://${ownip}:${serverPort}`);
-			io.on("connection", (socket) => {
-				const clientId = socket.id;
-				const ip = getClientIp(socket);
-				
-				console.log(`🔌 Client connected: ${clientId} | IP: ${ip}`);
-				// ! admin
-				settupsettingsaccounts(socket, io);
-				admincontent3chartsdata(socket, io);
-				admincontent2averages(socket, io);
-				admincontent4alldata(socket, io);
-				adminoveralldatawatcher(socket, io);
-				setupFooterWatcheradmin(socket, io);
+  // FIX: Wrap socket handlers in try-catch to prevent unhandled errors
+  try {
+    settupsettingsaccounts(socket, io);
+    admincontent3chartsdata(socket, io);
+    admincontent2averages(socket, io);
+    admincontent4alldata(socket, io);
+    adminoveralldatawatcher(socket, io);
+    setupFooterWatcheradmin(socket, io);
+    setupAds(socket, io);
+    setupFooterWatcher(socket, io);
+    handleGetAllServices(socket);
+    setupServicesDisplayWatcher(socket, io);
+    setupSoundSettingsAdmin(socket, io);
+    admincontentSaveChartImage(socket, io);
+    settupsettingsservices(socket, io);
+    if (isWindowed) {
+      setupLoginSocketteller(socket);
+      setupTellerWatcher(socket, io);
+      initializeWindowedKiosk(socket, io);
+    }
+    if (isArduinoWifi) {
+      socket.on("key", async (payload) => {
+        try {
+          const key = String(payload?.key ?? payload).trim();
+          if (!key) {
+            socket.emit("key:ack", { ok: false, error: "NO_KEY" });
+            return;
+          }
+          const result = await handleKey(key, io);
+          socket.emit("key:ack", result);
+        } catch (err) {
+          socket.emit("key:ack", { ok: false, error: err.message });
+        }
+      });
+    }
+  } catch (err) {
+    console.error(`Error in Socket.IO connection handler: ${err.message}`);
+    socket.emit("error", { message: "Server error during initialization" });
+    socket.disconnect(true);
+  }
 
-				// ! other sockets
-				setupAds(socket, io);
-				setupFooterWatcher(socket, io);
-				handleGetAllServices(socket);
-				setupServicesDisplayWatcher(socket, io);
-				setupSoundSettingsAdmin(socket, io);
-				admincontentSaveChartImage(socket, io);
-				settupsettingsservices(socket, io);
-				if(isWindowed){
-					setupLoginSocketteller(socket);
-					setupTellerWatcher(socket, io);
-					initializeWindowedKiosk(socket, io);
-				}
-				if(isArduinoWifi){
-					socket.on("key", async (payload) => {
-						try {
-							const key = String(payload?.key ?? payload).trim();
-							if (!key) {
-								socket.emit("key:ack", { ok: false, error: "NO_KEY" });
-								return;
-							}
-							const result = await handleKey(key, io);
-							// ack to sender only
-							socket.emit("key:ack", result);
-						} catch (err) {
-							socket.emit("key:ack", { ok: false, error: err.message });
-						}
-					});
-				}
-				
-			});
-			// ! VIDEOS EXPRESS
-			setupVideosApi(appExpress);
-			// ! IMAGES EXPRESS
-			setupImagesApi(appExpress, io);
+  // FIX: Handle socket errors to prevent crashes
+  socket.on("error", (err) => {
+    console.error(`Socket error for client ${clientId}: ${err.message}`);
+  });
 
-			setupLoginSocket(io);
+  socket.on("disconnect", () => {
+    console.log(`🔌 Client disconnected: ${clientId} | IP: ${ip}`);
+  });
+});
 
-			if(isArduinoUno){
-				setupCalledTicketsWatcher(io);
-				initializeSerialPort(io, "ARDUINO_UNO");
-			}
-			if(isArduinoWifi){
-			setupCalledTicketsWatcher(io, "ARDIONO_WIFI");
-			}
-			if(isWindowed){
-			setupCalledTicketsWatcher(io, "WINDOWED_APPLICATION");
-			}
-		});
-	})
-	.catch((err) => {
-		console.error("Failed to initialize database:", err.message);
-		process.exit(1);
-	});
+// FIX: Ensure all dependencies are initialized before starting server
+async function startServer() {
+  try {
+    // Initialize database
+    await initializeDb();
+    console.log("Database initialized successfully");
+
+    // Initialize other dependencies
+    setupLogger();
+    setupVideosApi(appExpress);
+    setupImagesApi(appExpress, io);
+    setupLoginSocket(io);
+    if (isArduinoUno) {
+      setupCalledTicketsWatcher(io);
+      initializeSerialPort(io, "ARDUINO_UNO");
+    }
+    if (isArduinoWifi) {
+      setupCalledTicketsWatcher(io, "ARDUINO_WIFI");
+    }
+    if (isWindowed) {
+      setupCalledTicketsWatcher(io, "WINDOWED_APPLICATION");
+    }
+
+    // Start server
+    server.listen(serverPort, () => {
+      console.log(`Server running on http://${ownip}:${serverPort}`);
+    });
+  } catch (err) {
+    console.error("Failed to start server:", err.message);
+    await gracefulShutdown("STARTUP_ERROR");
+  }
+}
 
 // ===== PID Handling =====
+// FIX: Ensure outfolder exists before checking PID
 if (!fs.existsSync(OUTFOLDER_PATH)) {
-	fs.mkdirSync(OUTFOLDER_PATH, { recursive: true });
+  fs.mkdirSync(OUTFOLDER_PATH, { recursive: true });
 }
 
 function isProcessRunning(pid) {
-	try {
-		process.kill(pid, 0);
-		return true;
-	} catch {
-		return false;
-	}
+  try {
+    // FIX: Use more reliable process check on Windows
+    if (os.platform() === "win32") {
+      // Use tasklist command to check if the PID is a node.exe process
+      const { execSync } = require("child_process");
+      const result = execSync(`tasklist /FI "PID eq ${pid}" /FO CSV`, { encoding: "utf-8" });
+      return result.includes("node.exe");
+    } else {
+      process.kill(pid, 0);
+      return true;
+    }
+  } catch (err) {
+    return false;
+  }
 }
 
 function checkAndHandleExistingInstance() {
-	if (fs.existsSync(pidFile)) {
-		const pid = parseInt(fs.readFileSync(pidFile, "utf-8"), 10);
-		if (isProcessRunning(pid)) {
-			dialog.showErrorBox("Error", "Instance already running");
-			app.quit();
-			return true;
-		} else {
-			fs.unlinkSync(pidFile);
-		}
-	}
-	return false;
+  if (fs.existsSync(pidFile)) {
+    const pid = parseInt(fs.readFileSync(pidFile, "utf-8"), 10);
+    if (isNaN(pid)) {
+      console.warn(`Invalid PID in ${pidFile}. Removing file.`);
+      fs.unlinkSync(pidFile);
+      return false;
+    }
+    if (isProcessRunning(pid)) {
+      console.error(`Process ${pid} is already running. Exiting.`);
+      return true;
+    } else {
+      console.log(`Stale PID ${pid} found in ${pidFile}. Removing file.`);
+      fs.unlinkSync(pidFile);
+    }
+  }
+  return false;
 }
 
 function writePidFile() {
-	fs.writeFileSync(pidFile, process.pid.toString(), "utf-8");
+  try {
+    fs.writeFileSync(pidFile, process.pid.toString(), "utf-8");
+    console.log(`Wrote PID ${process.pid} to ${pidFile}`);
+  } catch (err) {
+    console.error(`Failed to write PID file: ${err.message}`);
+  }
 }
 
 if (checkAndHandleExistingInstance()) {
-	process.exit(1);
+  process.exit(1);
 }
 
 writePidFile();
 
-// ===== Electron Window =====
-let displayWindow = null;
-let kioskWindow = null;
-process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
-function createWindow() {
-	// ! DISPLAY WINDOW
-	// const broadcasturl = `http://${ownip}:${serverPort}/main`;
-	// const kioskurl = `http://${ownip}:${serverPort}/kiosk`;
-	const displays = screen.getAllDisplays();
-	// let windowOptions = {
-	// 	width: 450,
-	// 	height: 450,
-	// 	autoHideMenuBar: true,
-	// 	frame: true,
-	// };
-
-	// if (displays.length > 1) {
-	// 	const externalDisplay = displays.find(
-	// 		(d) => d.bounds.x !== 0 || d.bounds.y !== 0
-	// 	);
-	// 	if (externalDisplay) {
-	// 		windowOptions.x = externalDisplay.bounds.x + 50;
-	// 		windowOptions.y = externalDisplay.bounds.y + 50;
-	// 	}
-	// }
-
-	// displayWindow = new BrowserWindow(windowOptions);
-	// displayWindow.loadURL(broadcasturl);
-	// displayWindow.setFullScreen(true);
-	// displayWindow.on("closed", handleWindowClosed);
-
-	// // ! KIOSK WINDOW
-	// if(isWindowed){
-	// 	kioskWindow = new BrowserWindow(windowOptions);
-	// 	kioskWindow.loadURL(kioskurl);
-	// 	kioskWindow.setFullScreen(true);
-	// 	kioskWindow.on("closed", handleWindowClosed);
-	// }
-}
-
-function handleWindowClosed() {
-	displayWindow = null;
-	// kioskWindow = null;
-	app.quit();
-}
-
-// ===== Electron App Events =====
-app.whenReady().then(createWindow);
-app.whenReady().then();
-
-app.on("activate", () => {
-	// if (BrowserWindow.getAllWindows().length === 0) createWindow();
-});
-
-app.on("ready", () => {
-	session.defaultSession.clearCache().then(() => {
-		console.log("Cache cleared");
-	});
-});
-
-app.on("before-quit", () => {
-	if (fs.existsSync(pidFile)) fs.unlinkSync(pidFile);
-});
-
-app.on("window-all-closed", () => {
-	app.quit();
-});
-
 // ===== Graceful Shutdown =====
 async function gracefulShutdown(signal) {
-	console.log(`Received ${signal}. Shutting down server...`);
-	try {
-		closeDb();
-		if(isArduinoUno){await cleanupSerialPorts();}
-		await new Promise((resolve, reject) => {
-			server.close((err) => (err ? reject(err) : resolve()));
-		});
-		console.log("✅ Shutdown complete");
-		process.exit(0);
-	} catch (err) {
-		console.error("❌ Error during shutdown:", err.message);
-		process.exit(1);
-	}
+  console.log(`Received ${signal}. Shutting down server...`);
+  try {
+    closeDb();
+    if (isArduinoUno) {
+      await cleanupSerialPorts();
+    }
+    await new Promise((resolve, reject) => {
+      server.close((err) => (err ? reject(err) : resolve()));
+    });
+    // FIX: Remove PID file on shutdown
+    if (fs.existsSync(pidFile)) {
+      fs.unlinkSync(pidFile);
+      console.log(`Removed PID file ${pidFile}`);
+    }
+    console.log("✅ Shutdown complete");
+    process.exit(0);
+  } catch (err) {
+    console.error("❌ Error during shutdown:", err.message);
+    process.exit(1);
+  }
 }
 
 process.on("SIGTERM", () => gracefulShutdown("SIGTERM"));
-process.on("SIGINT", () => gracefulShutdown("SIGINT"));	
+process.on("SIGINT", () => gracefulShutdown("SIGINT"));
+
+// FIX: Handle uncaught exceptions and rejections to prevent crashes
+process.on("uncaughtException", (err) => {
+  console.error("Uncaught Exception:", err.message);
+  gracefulShutdown("UNCAUGHT_EXCEPTION");
+});
+
+process.on("unhandledRejection", (reason, promise) => {
+  console.error("Unhandled Rejection at:", promise, "reason:", reason);
+  gracefulShutdown("UNHANDLED_REJECTION");
+});
+
+// Start the server
+startServer();

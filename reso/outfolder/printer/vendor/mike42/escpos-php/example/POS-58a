@@ -1,0 +1,7 @@
+@These example images are printed with the older
+bit image print command. You should only use
+$p -> bitImage() if $p -> graphics() does not
+work on your printer.
+
+Failed to load image.
+VA

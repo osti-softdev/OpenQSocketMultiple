@@ -43,7 +43,7 @@ function initializeWindowedKiosk(socket, io) {
                             console.error("Insert error:", insertErr.message);
                             socket.emit("ticketInsertError", "Failed to insert ticket");
                         } else {
-                            console.log(`🎫 Ticket inserted: ${ticketservice}${nextTicket} - ${mobile}`);
+                            // console.log(`🎫 Ticket inserted: ${ticketservice}${nextTicket} - ${mobile}`);
                             executephp(ticketservice, nextTicket, sname);
 
                             socket.emit("ticketInserted", {

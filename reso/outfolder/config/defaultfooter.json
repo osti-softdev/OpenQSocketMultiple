@@ -1,0 +1,23 @@
+{
+	"announcements_txt": {
+		"firstann": "WELCOME TO SAMPLE CLIENT",
+		"secondann": "cade",
+		"thirdann": "cade"
+	},
+	"ann_data": {
+		"bgcolor": "#017001",
+		"color": "#ffffff",
+		"speed": "10",
+		"fontsize": "70",
+		"fontweight": "900",
+		"shadowcolorvalue": "#000000"
+	},
+	"activated": {
+		"ann1": "1",
+		"ann2": "0",
+		"ann3": "0"
+	},
+	"display_update": {
+		"update": 0
+	}
+}
