@@ -10,7 +10,7 @@ socket.on("imagesupdates", (data) => {
 socket.on("servicesDisplayUpdate", (services) => {
 	const $servicesList = $("#servicesDisplay");
 	$servicesList.empty();
-
+	console.log("Updating services display:", services);
 	const $headerDiv = $("<div>").addClass("service-header");
 	$headerDiv.append($("<span>").addClass("tickethead").text("NOW SERVING"));
 	$servicesList.append($headerDiv);

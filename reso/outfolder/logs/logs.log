@@ -866,3 +866,99 @@
 ✔ 2025-10-20T08:53:36.635Z [..\..\index.js:457] Received SIGINT. Shutting down server...
 ✔ 2025-10-20T08:53:36.638Z [..\node\db.js:54] Database connection closed
 ✔ 2025-10-20T08:53:45.286Z [..\..\index.js:361] 🔌 Client disconnected: cwF8uC58_7UwsKJ9AAAN | IP: 127.0.0.1
+✔ 2025-10-24T00:57:09.868Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-10-24T00:57:09.871Z [..\..\index.js:235] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-10-24T00:57:09.873Z [..\..\index.js:443] Wrote PID 15296 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-10-24T00:57:09.889Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-10-24T00:57:09.902Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-10-24T00:57:09.905Z [..\node\db.js:25] Database connected
+✔ 2025-10-24T00:57:09.906Z [..\..\index.js:370] Database initialized successfully
+✔ 2025-10-24T00:57:09.907Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-10-24T00:57:09.917Z [..\..\index.js:390] Server running on http://192.168.1.200:12345
+✔ 2025-10-24T00:57:21.500Z [..\..\index.js:312] 🔌 Client connected: JJDlk2fj44cRxyZyAAAB | IP: 127.0.0.1
+✔ 2025-10-24T00:57:23.928Z [..\..\index.js:361] 🔌 Client disconnected: JJDlk2fj44cRxyZyAAAB | IP: 127.0.0.1
+✔ 2025-10-24T00:57:24.292Z [..\..\index.js:312] 🔌 Client connected: Nw9-WUwvMPcIG4ctAAAD | IP: 127.0.0.1
+✔ 2025-10-24T00:57:24.528Z [..\node\getads.js:83] [ADS] Client Nw9-WUwvMPcIG4ctAAAD requested ad refresh
+✔ 2025-10-24T00:57:33.136Z [..\..\index.js:312] 🔌 Client connected: z2XrNMEqeF94DknOAAAF | IP: 127.0.0.1
+✔ 2025-10-24T00:57:33.734Z [..\..\index.js:361] 🔌 Client disconnected: Nw9-WUwvMPcIG4ctAAAD | IP: 127.0.0.1
+✔ 2025-10-24T00:57:35.928Z [..\..\index.js:361] 🔌 Client disconnected: z2XrNMEqeF94DknOAAAF | IP: 127.0.0.1
+✔ 2025-10-24T00:57:36.018Z [..\..\index.js:312] 🔌 Client connected: k_9p4XSwcJc_gRLmAAAH | IP: 127.0.0.1
+✔ 2025-10-24T00:57:42.220Z [..\..\index.js:361] 🔌 Client disconnected: k_9p4XSwcJc_gRLmAAAH | IP: 127.0.0.1
+✔ 2025-10-24T00:57:42.291Z [..\..\index.js:312] 🔌 Client connected: nm2lZj8I3UddKSHgAAAJ | IP: 127.0.0.1
+✔ 2025-10-24T00:58:39.621Z [..\..\index.js:361] 🔌 Client disconnected: nm2lZj8I3UddKSHgAAAJ | IP: 127.0.0.1
+✔ 2025-10-24T00:58:39.687Z [..\..\index.js:312] 🔌 Client connected: KVBloC72CkLtwv6oAAAL | IP: 127.0.0.1
+✔ 2025-10-24T00:58:40.475Z [..\..\index.js:361] 🔌 Client disconnected: KVBloC72CkLtwv6oAAAL | IP: 127.0.0.1
+✔ 2025-10-24T00:58:40.536Z [..\..\index.js:312] 🔌 Client connected: Ue4Gp9YfhPSWDi-AAAAN | IP: 127.0.0.1
+✔ 2025-10-24T00:59:17.196Z [..\..\index.js:457] Received SIGINT. Shutting down server...
+✔ 2025-10-24T00:59:17.201Z [..\node\db.js:54] Database connection closed
+✔ 2025-10-24T00:59:28.671Z [..\..\index.js:361] 🔌 Client disconnected: Ue4Gp9YfhPSWDi-AAAAN | IP: 127.0.0.1
+✔ 2025-10-24T00:59:32.101Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-10-24T00:59:32.104Z [..\..\index.js:235] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-10-24T00:59:32.108Z [..\..\index.js:443] Wrote PID 9080 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-10-24T00:59:32.119Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-10-24T00:59:32.121Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-10-24T00:59:32.122Z [..\node\db.js:25] Database connected
+✔ 2025-10-24T00:59:32.122Z [..\..\index.js:370] Database initialized successfully
+✔ 2025-10-24T00:59:32.127Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-10-24T00:59:32.134Z [..\..\index.js:390] Server running on http://192.168.1.200:12345
+✔ 2025-10-24T00:59:34.507Z [..\..\index.js:312] 🔌 Client connected: sONMMVnbPQm9uNYEAAAB | IP: 127.0.0.1
+✔ 2025-10-24T01:00:42.181Z [..\..\index.js:361] 🔌 Client disconnected: sONMMVnbPQm9uNYEAAAB | IP: 127.0.0.1
+✔ 2025-10-24T01:00:42.234Z [..\..\index.js:312] 🔌 Client connected: ekAwlp73G19RZAv_AAAD | IP: 127.0.0.1
+✔ 2025-10-24T01:00:55.794Z [..\..\index.js:361] 🔌 Client disconnected: ekAwlp73G19RZAv_AAAD | IP: 127.0.0.1
+✔ 2025-10-24T01:00:55.843Z [..\..\index.js:312] 🔌 Client connected: ICDbcQJw8gtpbHPSAAAF | IP: 127.0.0.1
+✔ 2025-10-24T01:00:56.520Z [..\..\index.js:361] 🔌 Client disconnected: ICDbcQJw8gtpbHPSAAAF | IP: 127.0.0.1
+✔ 2025-10-24T01:00:56.571Z [..\..\index.js:312] 🔌 Client connected: 9JujR-nMorBPge3kAAAH | IP: 127.0.0.1
+✔ 2025-10-24T01:02:09.192Z [..\..\index.js:361] 🔌 Client disconnected: 9JujR-nMorBPge3kAAAH | IP: 127.0.0.1
+✔ 2025-10-24T01:02:09.311Z [..\..\index.js:312] 🔌 Client connected: RuBN9orpQ0VfDivdAAAJ | IP: 127.0.0.1
+✔ 2025-10-24T01:05:23.561Z [..\..\index.js:457] Received SIGINT. Shutting down server...
+✔ 2025-10-24T01:05:23.565Z [..\node\db.js:54] Database connection closed
+✔ 2025-10-24T01:05:30.028Z [..\..\index.js:361] 🔌 Client disconnected: RuBN9orpQ0VfDivdAAAJ | IP: 127.0.0.1
+✔ 2025-10-24T01:05:36.984Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-10-24T01:05:36.987Z [..\..\index.js:235] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-10-24T01:05:36.991Z [..\..\index.js:443] Wrote PID 4592 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-10-24T01:05:36.994Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-10-24T01:05:37.001Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-10-24T01:05:37.002Z [..\node\db.js:25] Database connected
+✔ 2025-10-24T01:05:37.003Z [..\..\index.js:370] Database initialized successfully
+✔ 2025-10-24T01:05:37.003Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-10-24T01:05:37.012Z [..\..\index.js:390] Server running on http://192.168.1.200:12345
+✔ 2025-10-24T01:05:37.566Z [..\..\index.js:312] 🔌 Client connected: ABHFr2uNcdMfMjNpAAAB | IP: 127.0.0.1
+✔ 2025-10-24T01:05:51.665Z [..\..\index.js:361] 🔌 Client disconnected: ABHFr2uNcdMfMjNpAAAB | IP: 127.0.0.1
+✔ 2025-10-24T01:05:52.061Z [..\..\index.js:312] 🔌 Client connected: I33Y0ndfg8CNyYuOAAAD | IP: 127.0.0.1
+✔ 2025-10-24T01:06:18.391Z [..\..\index.js:457] Received SIGINT. Shutting down server...
+✔ 2025-10-24T01:06:18.393Z [..\node\db.js:54] Database connection closed
+✔ 2025-10-24T01:06:22.779Z [..\..\index.js:361] 🔌 Client disconnected: I33Y0ndfg8CNyYuOAAAD | IP: 127.0.0.1
+✔ 2025-10-24T01:08:29.238Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-10-24T01:08:29.240Z [..\..\index.js:235] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-10-24T01:08:29.243Z [..\..\index.js:443] Wrote PID 9000 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-10-24T01:08:29.262Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-10-24T01:08:29.263Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-10-24T01:08:29.264Z [..\node\db.js:25] Database connected
+✔ 2025-10-24T01:08:29.264Z [..\..\index.js:370] Database initialized successfully
+✔ 2025-10-24T01:08:29.265Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-10-24T01:08:29.275Z [..\..\index.js:390] Server running on http://192.168.1.200:12345
+✔ 2025-10-24T01:08:31.483Z [..\..\index.js:312] 🔌 Client connected: LePumtcldtfvUvJfAAAB | IP: 127.0.0.1
+✔ 2025-10-24T01:08:53.422Z [..\..\index.js:361] 🔌 Client disconnected: LePumtcldtfvUvJfAAAB | IP: 127.0.0.1
+✔ 2025-10-24T01:08:53.601Z [..\..\index.js:312] 🔌 Client connected: B37KL_4PJrth0pUfAAAD | IP: 127.0.0.1
+✔ 2025-10-24T01:09:00.176Z [..\..\index.js:361] 🔌 Client disconnected: B37KL_4PJrth0pUfAAAD | IP: 127.0.0.1
+✔ 2025-10-24T01:09:00.523Z [..\..\index.js:312] 🔌 Client connected: 5wEcE3e5ASwFul5gAAAF | IP: 127.0.0.1
+✔ 2025-10-24T01:09:01.441Z [..\..\index.js:361] 🔌 Client disconnected: 5wEcE3e5ASwFul5gAAAF | IP: 127.0.0.1
+✔ 2025-10-24T01:09:01.664Z [..\..\index.js:312] 🔌 Client connected: 2QeDOikjpIgNW9I5AAAH | IP: 127.0.0.1
+✔ 2025-10-24T01:09:30.573Z [..\..\index.js:457] Received SIGINT. Shutting down server...
+✔ 2025-10-24T01:09:30.574Z [..\node\db.js:54] Database connection closed
+✔ 2025-10-24T01:09:35.669Z [..\..\index.js:361] 🔌 Client disconnected: 2QeDOikjpIgNW9I5AAAH | IP: 127.0.0.1
+✔ 2025-10-24T01:09:39.330Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-10-24T01:09:39.333Z [..\..\index.js:235] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-10-24T01:09:39.339Z [..\..\index.js:443] Wrote PID 11960 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-10-24T01:09:39.348Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-10-24T01:09:39.350Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-10-24T01:09:39.352Z [..\node\db.js:25] Database connected
+✔ 2025-10-24T01:09:39.352Z [..\..\index.js:370] Database initialized successfully
+✔ 2025-10-24T01:09:39.353Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-10-24T01:09:39.362Z [..\..\index.js:390] Server running on http://192.168.1.200:12345
+✔ 2025-10-24T01:09:42.457Z [..\..\index.js:312] 🔌 Client connected: 6kwwNC2EGos6hUCQAAAB | IP: 127.0.0.1
+✔ 2025-10-24T09:15:45.951Z [..\..\index.js:312] 🔌 Client connected: 6VVluCpB2uZ7ZGkxAAAD | IP: 127.0.0.1
+✔ 2025-10-24T09:15:50.663Z [..\..\index.js:361] 🔌 Client disconnected: 6VVluCpB2uZ7ZGkxAAAD | IP: 127.0.0.1
+✔ 2025-10-24T09:20:08.820Z [..\..\index.js:312] 🔌 Client connected: fsj0tTH2z7F_9lzFAAAF | IP: 127.0.0.1
+✔ 2025-10-24T09:20:10.986Z [..\..\index.js:361] 🔌 Client disconnected: fsj0tTH2z7F_9lzFAAAF | IP: 127.0.0.1
+✔ 2025-10-24T09:54:19.136Z [..\..\index.js:361] 🔌 Client disconnected: 6kwwNC2EGos6hUCQAAAB | IP: 127.0.0.1
