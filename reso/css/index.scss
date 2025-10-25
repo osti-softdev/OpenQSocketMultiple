@@ -164,14 +164,14 @@ body {
       height: 100%;
       display: flex;
       flex-wrap: wrap;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-around;
+      flex-direction: row;
+      align-items: start;
+      justify-content: start;
 
       .service-header {
         position: relative;
-        width: 95%;
-        height: 10%;
+        width: 98%;
+        height: 5%;
         color: black;
         font-weight: 900;
         display: flex;
@@ -209,17 +209,15 @@ body {
 
       .service-row {
         position: relative;
-        // height: 28%;
-        flex: 0.8;
-        width: 95%;
-        margin: 1%;
+        height: 18%;
+        width: 100%;
         border-radius: 16px;
         box-shadow: 2px 2px 5px black;
         overflow: hidden;
-        background-color: red;
         display: flex;
         justify-content: center;
         align-items: center;
+        transform: scale(0.97);
 
         .service-name {
           position: absolute;
@@ -238,24 +236,24 @@ body {
 
         .counter {
           position: absolute;
-          top: 20%;
+          top: 25%;
           left: 0%;
-          width: 30%;
-          height: 80%;
+          width: 20%;
+          height: 75%;
           background-color: lightcoral;
           justify-content: center;
           align-items: center;
-          display: none;
+          display: flex;
           font-size: 5rem;
           font-weight: 900;
           font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
         .service-ticket {
           position: absolute;
-          top: 20%;
+          top: 25%;
           right: 0%;
           width: 100%;
-          height: 80%;
+          height: 75%;
           background-color: #192a54;
           color: rgb(253, 251, 251);
           justify-content: center;

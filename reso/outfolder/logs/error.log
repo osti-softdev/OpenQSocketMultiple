@@ -34,3 +34,12 @@ PHP Warning:  Undefined variable $dateni in E:\SOURCE_CODES\NODE\OpenQSocketMult
 [31m❌ 2025-10-20T08:19:51.646Z [unknown] exec error: Error: Command failed: php E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder/printer/print.php CW,3,Carwash
 PHP Warning:  Undefined variable $dateni in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\printer\print.php on line 21
 ^C[39m
+❌ 2025-10-25T03:20:20.412Z [..\..\index.js:489] Unhandled Rejection at: Promise {
+  <rejected> TypeError: Assignment to constant variable.
+      at StatWatcher.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\servicesDisplayWatcher.js:91:11)
+      at StatWatcher.emit (node:events:520:28)
+      at StatWatcher.onchange (node:internal/fs/watchers:92:8)
+} reason: TypeError: Assignment to constant variable.
+    at StatWatcher.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\servicesDisplayWatcher.js:91:11)
+    at StatWatcher.emit (node:events:520:28)
+    at StatWatcher.onchange (node:internal/fs/watchers:92:8)

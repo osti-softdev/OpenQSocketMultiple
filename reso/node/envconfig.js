@@ -18,6 +18,7 @@ function loadConfig(io) {
 			port: process.env.MAIN_SERVER_PORT,
 			systemType: process.env.SYSTEM_TYPE,
 			sms: process.env.SMS,
+			counterDisplay: process.env.counterDisplay || 0,
 		},
 		DBserver: {
 			hostName: process.env.DB_HOSTNAME,

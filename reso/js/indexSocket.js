@@ -6,8 +6,12 @@ socket.on("imagesupdates", (data) => {
 		window.location.reload();
 	}
 });
+
+let counterDisplayer = 1;
 // --- Services Display ---
-socket.on("servicesDisplayUpdate", (services) => {
+socket.on("servicesDisplayUpdate", (data) => {
+	const { counterDisplay: newCounterDisplay, services } = data || {};
+		counterDisplayer = newCounterDisplay || 0;
 	const $servicesList = $("#servicesDisplay");
 	$servicesList.empty();
 	console.log("Updating services display:", services);
@@ -15,13 +19,60 @@ socket.on("servicesDisplayUpdate", (services) => {
 	$headerDiv.append($("<span>").addClass("tickethead").text("NOW SERVING"));
 	$servicesList.append($headerDiv);
 
-	services.forEach((service) => {
-		const $rowDiv = $("<div>").addClass("service-row");
-		$rowDiv.append($("<span>").addClass("service-name").text(service.sname));
-		$rowDiv.append($("<span>").addClass("service-ticket").text(service.ticket));
-		$servicesList.append($rowDiv);
-	});
+	if(counterDisplayer != 1){
+		services.forEach((service) => {
+			console.log("Rendering service:", service);
+			const $rowDiv = $("<div>").addClass("service-row");
+			$rowDiv.append($("<span>").addClass("service-name").text(service.sname));
+			$rowDiv.append($("<span>").addClass("service-ticket").text(service.ticket));
+			$servicesList.append($rowDiv);
+		});
+	}else{
+		services.forEach((service) => {
+				console.log("Rendering service:", service);
+				const $rowDiv = $("<div>").addClass("service-row");
+				$rowDiv.append($("<span>").addClass("service-name").text(service.sname));
+				$rowDiv.append($("<span>").addClass("service-ticket").text(service.ticket));
+				$rowDiv.append($("<span>").addClass("counter").text(service.counter_num));
+				$servicesList.append($rowDiv);
+		});
+	}
+
+	setServicesDisplay(services.length);
 });
+
+function setServicesDisplay(count) {
+	if (count <= 6) {
+		if(counterDisplayer != 1){
+			$(".counter").css({
+				"display": "none",
+			});
+			$(".service-ticket").css({
+				"width": "100%",
+			}); 
+		}else{
+			$(".counter").css({
+				"display": "flex",
+			});
+			$(".service-ticket").css({
+				"width": "80%",
+			});
+		}
+		$(".service-row").css({
+			"height": "30%",
+			"width": "50%",
+		});
+		$(".service-name").css({
+			"height": "25%",
+			"width": "100%",
+			
+		});
+	}else if (count > 6 && count <= 10) {
+		
+	}else if(count > 10) {
+	}
+
+}
 
 let adQueue = [];
 let currentAdIndex = 0;

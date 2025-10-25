@@ -12,7 +12,7 @@ socket.on("adminServices", function(res) {
         $("<span>", { text: "Service Name", class: "header-col" }),
         $("<span>", { text: "Ticket Letter", class: "header-col" }),
         $("<span>", { text: "Status", class: "header-col" }),
-        $("<span>", { text: "Action", class: "header-col" })
+        // $("<span>", { text: "Action", class: "header-col" })
     );
     $container.append($headerRow);
 
@@ -52,13 +52,8 @@ socket.on("adminServices", function(res) {
         // Update label text when checkbox changes
         $statusCheckbox.on("change", function() {
             $statusLabel.text($(this).is(":checked") ? "Active" : "Inactive");
-        });
-
-        // save button
-        const $saveBtn = $("<button>", {
-            text: "Save",
-            class: "save-btn"
-        }).on("click", function() {
+        
+            // UPDATE DATABASE
             const updatedService = {
                 id: service.id,
                 sname: $snameInput.val(),
@@ -68,11 +63,24 @@ socket.on("adminServices", function(res) {
             socket.emit("updateServices", updatedService);
         });
 
+        // // save button
+        // const $saveBtn = $("<button>", {
+        //     text: "Save",
+        //     class: "save-btn"
+        // }).on("click", function() {
+        //     const updatedService = {
+        //         id: service.id,
+        //         sname: $snameInput.val(),
+        //         regular: $regularInput.val(),
+        //         status: $statusCheckbox.is(":checked") ? 1 : 0
+        //     };
+        //     socket.emit("updateServices", updatedService);
+        // });
+
         $row.append(
             $snameInput,
             $regularInput,
             $("<div>", { class: "status-wrap" }).append($statusCheckbox, $statusLabel),
-            $saveBtn
         );
 
         $container.append($row);
@@ -81,8 +89,6 @@ socket.on("adminServices", function(res) {
 
 // Response after update
 socket.on("servicesgather", function(res) {
-    alert(res.message);
+    console.log(res.message);
 });
-
-
 });

@@ -5,7 +5,7 @@ const sqlite3 = require("sqlite3").verbose();
 const rootpath =
 	global.outfolderPath || path.join(__dirname, "../../outfolder");
 const { getPHDateTime } = require("./datetime");
-
+const { loadConfig } = require("./envconfig");
 const dbPath = path.join(rootpath, "/config/db.db");
 let watcherAdded = false;
 /**
@@ -25,6 +25,7 @@ async function getServicesWithLatestTicket() {
             sname,
             ticketservice,
             ticketnum,
+			counter_num,
             status,
             ROW_NUMBER() OVER (
                 PARTITION BY sname
@@ -38,6 +39,7 @@ async function getServicesWithLatestTicket() {
         s.sname,
         rt.ticketservice,
         rt.ticketnum,
+        rt.counter_num,
         rt.status
     FROM services s
     LEFT JOIN ranked_transactions rt
@@ -59,6 +61,7 @@ async function getServicesWithLatestTicket() {
 						? `${row.ticketservice}${row.ticketnum}`
 						: "--",
 				status: row.status || null,
+				counter_num: row.counter_num || null,
 			}));
 
 			resolve(services);
@@ -70,6 +73,7 @@ async function getServicesWithLatestTicket() {
  * Setup watcher for services display updates
  */
 function setupServicesDisplayWatcher(socket, io) {
+	const config = loadConfig();
 	sendServicesDisplay(socket);
 
 	if (!watcherAdded) {
@@ -81,12 +85,19 @@ function setupServicesDisplayWatcher(socket, io) {
 	async function sendServicesDisplay(target) {
 		try {
 			const services = await getServicesWithLatestTicket();
-			target.emit("servicesDisplayUpdate", services);
+			target.emit("servicesDisplayUpdate", {
+				counterDisplay: config.MainServer.counterDisplay, // ✅ included
+				services, // ✅ include services list
+			});
 		} catch (err) {
 			console.error("❌ Error fetching services display:", err);
-			target.emit("servicesDisplayUpdate", []);
+			target.emit("servicesDisplayUpdate", {
+				counterDisplay: config.MainServer.counterDisplay, // ✅ still send config
+				services: [],
+			});
 		}
 	}
+
 }
 
 module.exports = { setupServicesDisplayWatcher };
