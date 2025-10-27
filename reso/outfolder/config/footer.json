@@ -5,9 +5,9 @@
         "thirdann": "Sample third announcement"
     },
     "ann_data": {
-        "bgcolor": "#030963",
-        "color": "#c3d117",
-        "speed": 42,
+        "bgcolor": "#011d57",
+        "color": "#8d8602",
+        "speed": 24,
         "fontsize": 61,
         "fontweight": 900,
         "shadowcolorvalue": "#000000"

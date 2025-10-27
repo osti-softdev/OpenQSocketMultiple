@@ -13,6 +13,19 @@ $(document).ready(function () {
 				$("#dash").show();
 				$("#ann").show();
 				$("#ads").show();
+				$("#settings").show();
+				$(".settservicesupdate").css({
+					"top": "0",
+					"left": "0",
+					"height": "100%",
+					"width": "100%",
+				});
+				$(".settaccountcreation").hide();
+				$(".setttellertupdate").hide();
+				$(".settaudiosetting").hide();
+				$(".settticketupdate").hide();
+				$(".settimagesupdate").hide();
+
 			} else {
 				$("#dash").show();
 			}
@@ -194,7 +207,7 @@ $(document).ready(function () {
 		$(params).css("display", "flex");
 	}
 	// Auto-click dashboard on load
-	$(".admbtnsoptions[data-page='dashboard']").click();
+	$(".admbtnsoptions[data-page='settings']").click();
 
 	// --- Load last page or fallback to dashboard ---
 const lastPage = localStorage.getItem("lastPage") || "dashboard";

@@ -22,12 +22,11 @@ $(document).ready(function () {
         }
     });
 
-    socket.on("servicesUpdate", (services) => {
+    socket.on("servicesUpdate2", (services) => {
         const $regularServices = $("#regularServices");
         const $priorityServices = $("#priorityServices");
         $regularServices.empty();
         $priorityServices.empty();
-
         if (services.length === 0) {
             $regularServices.append("<p>No regular services available</p>");
             $priorityServices.append("<p>No priority services available</p>");
@@ -81,7 +80,31 @@ $(document).ready(function () {
                     $(".mobilemain").css("display","flex");
                 }
             });
+	setServicesKiosk(services.length);
     });
+
+    function setServicesKiosk(count) {
+        if(count > 0 && count <= 6){
+            $(".service-button" ).css({
+                "height":"40%",
+            });
+        }else if(count > 6 && count <= 9){
+            $(".service-button" ).css({
+                "height":"30%",
+            });
+        }else if(count > 9 && count <= 12){
+            $(".service-button" ).css({
+                "width":"23%",
+                "height":"30%",
+            });
+        }else if(count > 12){
+            $(".service-button" ).css({
+                "width":"23%",
+                "height":"23%",
+            });
+        }
+        
+    }
 
     // Listen for ticket inserted
     socket.on("ticketInserted", (data) => {

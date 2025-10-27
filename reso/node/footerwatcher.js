@@ -6,6 +6,7 @@ const rootpath =
 
 function setupFooterWatcher(socket, io) {
 	const footerPath = path.join(rootpath, "/config/footer.json");
+	const modsPath = path.join(rootpath, "/config/modifications.json");
 
 	// Send current footer on new connection
 	sendFooter(socket);

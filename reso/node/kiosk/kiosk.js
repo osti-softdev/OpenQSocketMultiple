@@ -1,63 +1,83 @@
+// /node/kioskHandler.js
 const sqlite3 = require("sqlite3").verbose();
+const fs = require("fs");
 const path = require("path");
 const { getPHDateTime } = require("../datetime");
 const { executephp } = require("../printer");
+const { getAllServices } = require("../db");
 
 const rootpath = global.outfolderPath || path.join(__dirname, "../../outfolder");
 const dbPath = path.join(rootpath, "/config/db.db");
+let watcherAdded = false;
 
 function initializeWindowedKiosk(socket, io) {
-    socket.on("newServiceTicket", (service) => {
-        const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE, (err) => {
-            if (err) {
-                console.error("DB open error:", err.message);
-                socket.emit("ticketInsertError", "Database connection failed");
-                return;
-            }
-        });
+			 sendToAllKiosks(socket);
+	if (!watcherAdded) {
+		fs.watchFile(dbPath, { interval: 500 }, async () => {
+			await sendToAllKiosks(io);
+		});
+		watcherAdded = true;
+	}
 
-        const { sname, ticketservice, mobile } = service;
-        const { date, time } = getPHDateTime();
+	socket.on("newServiceTicket", (service) => {
+		const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE, (err) => {
+			if (err) {
+				console.error("DB open error:", err.message);
+				socket.emit("ticketInsertError", "Database connection failed");
+				return;
+			}
+		});
 
-        db.get(
-            `SELECT MAX(ticketnum) as maxTicket FROM transactions 
-             WHERE sname = ? AND ticketservice = ? AND date = ?`,
-            [sname, ticketservice, date],
-            (err, row) => {
-                if (err) {
-                    console.error("Max ticket error:", err.message);
-                    socket.emit("ticketInsertError", "Failed to get ticket number");
-                    db.close();
-                    return;
-                }
+		const { sname, ticketservice, mobile } = service;
+		const { date, time } = getPHDateTime();
 
-                const nextTicket = (row?.maxTicket || 0) + 1;
-                const history = `[${time}-Topline-Inserted]`;
+		db.get(
+			`SELECT MAX(ticketnum) as maxTicket FROM transactions 
+			 WHERE sname = ? AND ticketservice = ? AND date = ?`,
+			[sname, ticketservice, date],
+			(err, row) => {
+				if (err) {
+					console.error("Max ticket error:", err.message);
+					socket.emit("ticketInsertError", "Failed to get ticket number");
+					db.close();
+					return;
+				}
 
-                db.run(
-                    `INSERT INTO transactions (ticketnum, sname, ticketservice, status, date, time, history, mobile)
-                     VALUES (?, ?, ?, 'pending', ?, ?, ?, ?)`,
-                    [nextTicket, sname, ticketservice, date, time, history, mobile],
-                    (insertErr) => {
-                        if (insertErr) {
-                            console.error("Insert error:", insertErr.message);
-                            socket.emit("ticketInsertError", "Failed to insert ticket");
-                        } else {
-                            // console.log(`🎫 Ticket inserted: ${ticketservice}${nextTicket} - ${mobile}`);
-                            executephp(ticketservice, nextTicket, sname);
+				const nextTicket = (row?.maxTicket || 0) + 1;
+				const history = `[${time}-Topline-Inserted]`;
 
-                            socket.emit("ticketInserted", {
-                                ticketnum: nextTicket,
-                                sname,
-                                ticketservice,
-                            });
-                        }
-                        db.close();
-                    }
-                );
-            }
-        );
-    });
+				db.run(
+					`INSERT INTO transactions (ticketnum, sname, ticketservice, status, date, time, history, mobile)
+					 VALUES (?, ?, ?, 'pending', ?, ?, ?, ?)`,
+					[nextTicket, sname, ticketservice, date, time, history, mobile],
+					(insertErr) => {
+						if (insertErr) {
+							console.error("Insert error:", insertErr.message);
+							socket.emit("ticketInsertError", "Failed to insert ticket");
+						} else {
+							executephp(ticketservice, nextTicket, sname);
+							socket.emit("ticketInserted", {
+								ticketnum: nextTicket,
+								sname,
+								ticketservice,
+							});
+						}
+						db.close();
+					}
+				);
+			}
+		);
+	});
+}
+
+async function sendToAllKiosks(io) {
+	try {
+		const services = await getAllServices();
+		io.emit("servicesUpdate2", services); 
+	} catch (err) {
+		console.error("❌ Error fetching services:", err);
+		io.emit("servicesUpdate2", []);
+	}
 }
 
 module.exports = { initializeWindowedKiosk };
