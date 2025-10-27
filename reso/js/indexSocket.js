@@ -335,7 +335,58 @@ function setServicesDisplay(count) {
 		});
 	}
 }
+socket.on("DisplayUpdated", (config) => {
+    applyDisplayConfig(config);
+});
 
+function applyDisplayConfig(config) {
+console.log(config);
+  const displayUpdate = config.display_update || {};
+
+	   if (displayUpdate.update === 1) {
+        socket.emit("updateDisplay");
+        socket.once("updatedisplaySuccess", () => {
+            window.location.reload();
+        });
+        socket.once("updatedisplayError", (errMsg) => {
+            console.error("Display update failed:", errMsg);
+        });
+    }
+
+		$(".time").css({
+			"color": config.time_color,
+			"text-shadow": `2ox 2px 5px ${config.time_shadow}`,
+		});
+		$(".date").css({
+			"color": config.time_color
+		});
+		$(".tickethead").css({
+			"color": config.nowserve_text_color,
+			"background-color": config.nowserve_color,
+		});
+		$(".service-name").css({
+			"color": config.service_text_color,
+			"background-color": config.service_color,
+		});
+		$(".counter").css({
+			"color": config.counter_text_color,
+			"background-color": config.counter_color,
+		});
+		$(".service-ticket").css({
+			"color": config.ticket_text_color,
+			"background-color": config.ticket_color,
+		});
+		$("#ticketpop").css({
+			"color": config.popup_ticket_color,
+			"text-shadow": `2ox 2px 5px ${config.popup_service_color}`,
+		});
+		$("#counterpop").css({
+			"color": config.popup_service_color,
+			"text-shadow": `2ox 2px 5px ${config.popup_ticket_color}`,
+		});
+}
+
+// ! ADS DISPLAY
 let adQueue = [];
 let currentAdIndex = 0;
 let videoElement = null;

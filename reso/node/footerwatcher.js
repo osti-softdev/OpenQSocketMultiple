@@ -10,12 +10,13 @@ function setupFooterWatcher(socket, io) {
 
 	// Send current footer on new connection
 	sendFooter(socket);
+	sendDisplay(socket);
 
-	// Handle updatefooter request
+	// ! Handle updatefooter request
 	socket.on("updatefooter", async () => {
 		try {
 			const data = await fsp.readFile(footerPath, "utf8");
-			const footerData = JSON.parse(data);
+			const footerData = JSON.parse(data);  
 
 			if (footerData.display_update?.update !== undefined) {
 				footerData.display_update.update = 0;
@@ -36,10 +37,41 @@ function setupFooterWatcher(socket, io) {
 		}
 	});
 
+// ! Display update handler
+	socket.on("updateDisplay", async () => {
+		try {
+			const data = await fsp.readFile(modsPath, "utf8");
+			const DisplayData = JSON.parse(data);  
+
+			if (DisplayData.display_update?.update !== undefined) {
+				DisplayData.display_update.update = 0;
+			} else {
+				console.warn("⚠ display_update key not found in Modifications.json");
+			}
+
+			await fsp.writeFile(
+				modsPath,
+				JSON.stringify(DisplayData, null, 4),
+				"utf8"
+			);
+			console.log("✅ modifications.json display_update set to 0");
+			socket.emit("updatedisplaySuccess", DisplayData);
+		} catch (err) {
+			console.error("❌ Error updating modifications.json:", err);
+			socket.emit("updatedisplayError", "Failed to update modification.json");
+		}
+	});
+
 	// Watch for changes in footer.json and broadcast
 	fs.watch(footerPath, (eventType) => {
 		if (eventType === "change") {
 			sendFooter(io);
+		}
+	});
+
+	fs.watch(modsPath, (eventType) => {
+		if (eventType === "change") {
+			sendDisplay(io);
 		}
 	});
 
@@ -54,6 +86,20 @@ function setupFooterWatcher(socket, io) {
 				target.emit("footerUpdated", config);
 			} catch (parseErr) {
 				console.error("Invalid footer.json format:", parseErr);
+			}
+		});
+	}
+	function sendDisplay(target) {
+		fs.readFile(modsPath, "utf8", (err, data) => {
+			if (err) {
+				console.error("Error reading modifications.json:", err);
+				return;
+			}
+			try {
+				const config = JSON.parse(data);
+				target.emit("DisplayUpdated", config);
+			} catch (parseErr) {
+				console.error("Invalid modifications.json format:", parseErr);
 			}
 		});
 	}
