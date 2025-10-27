@@ -355,7 +355,7 @@ console.log(config);
 
 		$(".time").css({
 			"color": config.time_color,
-			"text-shadow": `2ox 2px 5px ${config.time_shadow}`,
+			"text-shadow": `2px 2px 5px ${config.time_shadow}`,
 		});
 		$(".date").css({
 			"color": config.time_color
@@ -378,11 +378,11 @@ console.log(config);
 		});
 		$("#ticketpop").css({
 			"color": config.popup_ticket_color,
-			"text-shadow": `2ox 2px 5px ${config.popup_service_color}`,
+			"text-shadow": `2px 2px 5px ${config.popup_service_color}`,
 		});
 		$("#counterpop").css({
 			"color": config.popup_service_color,
-			"text-shadow": `2ox 2px 5px ${config.popup_ticket_color}`,
+			"text-shadow": `2px 2px 5px ${config.popup_ticket_color}`,
 		});
 }
 

@@ -1,6 +1,6 @@
 {
     "time_color": "#000000",
-    "time_shadow": "#fff",
+    "time_shadow": "#333333",
     "date_color": "#000000",
     "nowserve_color": "#00a8df",
     "nowserve_text_color": "#000000",
@@ -18,7 +18,7 @@
     "kiosk_regular_service_color": "#ffff",
     "kiosk_priority_service_color": "#000000",
     "kiosk_service_shadow_color": "#000000",
-    "kiosk_back_color": "#333333",
+    "kiosk_back_color": "#ffff",
     "kiosk_back_text_color": "#000000",
     "display_update": {
         "update": 0

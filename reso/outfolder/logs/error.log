@@ -90694,3 +90694,246 @@
     at JSON.parse (<anonymous>)
     at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:52:25
     at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T06:26:19.950Z [..\node\footerwatcher.js:60] ❌ Error updating modifications.json: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at Socket.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:44:29)
+❌ 2025-10-27T06:26:19.955Z [..\node\footerwatcher.js:60] ❌ Error updating modifications.json: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at Socket.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:44:29)
+❌ 2025-10-27T06:26:19.971Z [..\node\footerwatcher.js:60] ❌ Error updating modifications.json: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at Socket.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:44:29)
+❌ 2025-10-27T06:26:20.064Z [..\node\footerwatcher.js:60] ❌ Error updating modifications.json: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at Socket.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:44:29)
+❌ 2025-10-27T06:26:20.066Z [..\node\footerwatcher.js:60] ❌ Error updating modifications.json: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at Socket.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:44:29)
+❌ 2025-10-27T06:26:20.069Z [..\node\footerwatcher.js:60] ❌ Error updating modifications.json: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at Socket.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:44:29)
+❌ 2025-10-27T07:11:53.531Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.532Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.533Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.533Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.533Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.534Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.534Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.534Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.534Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.535Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.535Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.536Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.536Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.536Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.536Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.537Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.537Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.537Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.538Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.538Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.538Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.538Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.540Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.540Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.541Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.541Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.541Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.542Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.542Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.542Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.543Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.543Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.544Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.545Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.545Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.545Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.545Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.546Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.546Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.546Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.547Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.547Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.547Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.547Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.548Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.548Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.548Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.549Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.549Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.549Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.549Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.550Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.550Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:11:53.550Z [unknown] Invalid modifications.json format: SyntaxError: Expected ',' or '}' after property value in JSON at position 599 (line 18 column 38)
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T07:15:00.422Z [..\node\footerwatcher.js:60] ❌ Error updating modifications.json: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at Socket.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:44:29)
+❌ 2025-10-27T07:15:00.425Z [..\node\footerwatcher.js:60] ❌ Error updating modifications.json: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at Socket.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:44:29)
+❌ 2025-10-27T07:15:00.427Z [..\node\footerwatcher.js:60] ❌ Error updating modifications.json: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at Socket.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:44:29)
