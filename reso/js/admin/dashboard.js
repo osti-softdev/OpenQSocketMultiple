@@ -18,10 +18,16 @@ $(document).ready(function () {
 					"top": "0",
 					"left": "0",
 					"height": "100%",
-					"width": "100%",
+					"width": "50%",
+				});
+				$(".setttellertupdate").css({
+					"top": "0",
+					"left": "50%",
+					"height": "100%",
+					"width": "50%",
 				});
 				$(".settaccountcreation").hide();
-				$(".setttellertupdate").hide();
+				$(".settcolorupdate").hide();
 				$(".settaudiosetting").hide();
 				$(".settticketupdate").hide();
 				$(".settimagesupdate").hide();
