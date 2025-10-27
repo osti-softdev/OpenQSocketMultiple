@@ -46,7 +46,7 @@ async function getServicesWithLatestTicket() {
         ON s.sname = rt.sname
        AND rt.rn = 1
     WHERE s.status = 1
-    ORDER BY s.sname;
+    ORDER BY id;
 `;
 
 
@@ -58,7 +58,7 @@ async function getServicesWithLatestTicket() {
 				sname: row.sname,
 				ticket:
 					row.ticketservice && row.ticketnum
-						? `${row.ticketservice}${row.ticketnum}`
+						? `${row.ticketservice}-${row.ticketnum}`
 						: "--",
 				status: row.status || null,
 				counter_num: row.counter_num || null,

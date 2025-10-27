@@ -42,36 +42,298 @@ socket.on("servicesDisplayUpdate", (data) => {
 });
 
 function setServicesDisplay(count) {
-	if (count <= 6) {
-		if(counterDisplayer != 1){
-			$(".counter").css({
-				"display": "none",
-			});
-			$(".service-ticket").css({
-				"width": "100%",
-			}); 
-		}else{
-			$(".counter").css({
-				"display": "flex",
-			});
-			$(".service-ticket").css({
-				"width": "80%",
-			});
-		}
+	// ! Counter Display Handler
+	if(counterDisplayer != 1){
+		$(".counter").css({
+			"display": "none",
+		});
+		$(".service-ticket").css({
+			"width": "100%",
+		}); 
+	}else{
+		$(".counter").css({
+			"display": "flex",
+		});
+		$(".service-ticket").css({
+			"width": "75%",
+		});
+	}
+	if(count <= 10){
+		$(".video-container").css({
+			"display": "flex",
+		});
+		$(".content-container").css({
+			"left": "50%",
+			"width": "50%",
+		});
+		$("#sub_popup").css({
+			"left": "1%",
+			"width": "50%",
+		});
+	}else{
+		$(".video-container").css({
+			"display": "none",
+		})
+		$(".content-container").css({
+			"left": "0%",
+			"width": "100%",
+		})
+		$("#sub_popup").css({
+			"left": "0%",
+			"width": "100%",
+		})
+	}
+	// ! Services Display Size Handler
+	if (count === 1) {
+		$(".service-row").css({
+			"height": "90%",
+			"width": "100%",
+		});
+		$(".service-name").css({
+			"height": "25%",
+		});
+		$(".counter").css({
+			"font-size": "10rem",
+		});
+		$(".service-ticket").css({
+			"font-size": "8rem"
+		});
+	}else if (count === 2) {
+		$(".service-row").css({
+			"height": "45%",
+			"width": "100%",
+		});
+		$(".service-name").css({
+			"height": "25%",
+		});
+		$(".counter").css({
+			"font-size": "10rem",
+		});
+		$(".service-ticket").css({
+			"font-size": "8rem"
+		});
+	}else if(count === 3){
+		$(".service-row").css({
+			"height": "30%",
+			"width": "100%",
+		});
+		$(".service-name").css({
+			"height": "25%",
+		});
+		$(".counter").css({
+			"font-size": "10rem",
+
+		});
+		$(".service-ticket").css({
+			"font-size": "8rem"
+		});
+	}else if (count === 4) {
+		$(".service-row").css({
+			"height": "45%",
+			"width": "50%",
+		});
+		$(".service-name").css({
+			"height": "25%",
+			"font-size": "2.5rem"
+		});
+		$(".counter").css({
+			"font-size": "5rem",
+		});
+		$(".service-ticket").css({
+			"font-size": "5rem"
+		});
+	}else if(count === 5) {
 		$(".service-row").css({
 			"height": "30%",
 			"width": "50%",
 		});
 		$(".service-name").css({
 			"height": "25%",
-			"width": "100%",
-			
+			"font-size": "2.5rem"
 		});
-	}else if (count > 6 && count <= 10) {
-		
-	}else if(count > 10) {
-	}
+		$(".counter").css({
+			"font-size": "5rem",
 
+		});
+		$(".service-ticket").css({
+			"font-size": "5rem"
+		});
+	}else if (count === 6) {
+		$(".service-row").css({
+			"height": "30%",
+			"width": "50%",
+		});
+		$(".service-name").css({
+			"height": "25%",
+			"font-size": "2.5rem"
+		});
+		$(".counter").css({
+			"font-size": "5rem",
+
+		});
+		$(".service-ticket").css({
+			"font-size": "5rem"
+		});
+	}else if (count === 7) {
+		$(".service-row").css({
+			"height": "23%",
+			"width": "50%",
+		});
+		$(".service-name").css({
+			"height": "25%",
+			"font-size": "2.5rem"
+		});
+		$(".counter").css({
+			"font-size": "5rem",
+
+		});
+		$(".service-ticket").css({
+			"font-size": "4rem"
+		});
+	}else if(count === 8) {
+		$(".service-row").css({
+			"height": "23%",
+			"width": "50%",
+		});
+		$(".service-name").css({
+			"height": "25%",
+			"font-size": "2.5rem"
+		});
+		$(".counter").css({
+			"font-size": "5rem",
+
+		});
+		$(".service-ticket").css({
+			"font-size": "4rem"
+		});
+	}else if(count === 9) {
+		$(".service-row").css({
+			"height": "18%",
+			"width": "50%",
+		});
+		$(".service-name").css({
+			"height": "25%",
+			"font-size": "2.5rem"
+		});
+		$(".counter").css({
+			"font-size": "4rem",
+
+		});
+		$(".service-ticket").css({
+			"font-size": "4rem"
+		});
+	}else if(count === 10) {
+		$(".service-row").css({
+			"height": "18%",
+			"width": "50%",
+		});
+		$(".service-name").css({
+			"height": "25%",
+			"font-size": "2.5rem"
+		});
+		$(".counter").css({
+			"font-size": "4rem",
+
+		});
+		$(".service-ticket").css({
+			"font-size": "4rem"
+		});
+	}else if(count === 11) {
+		$(".service-row").css({
+			"height": "23%",
+			"width": "33.3%",
+		});
+		$(".service-name").css({
+			"height": "25%",
+			"font-size": "2.5rem"
+		});
+		$(".counter").css({
+			"font-size": "6rem",
+
+		});
+		$(".service-ticket").css({
+			"font-size": "5rem"
+		});
+	}else if(count === 12) {
+		$(".service-row").css({
+			"height": "23%",
+			"width": "33.3%",
+		});
+		$(".service-name").css({
+			"height": "25%",
+			"font-size": "2.5rem"
+		});
+		$(".counter").css({
+			"font-size": "6rem",
+
+		});
+		$(".service-ticket").css({
+			"font-size": "5rem"
+		});
+	}else if(count === 13) {
+		$(".service-row").css({
+			"height": "18%",
+			"width": "33.3%",
+		});
+		$(".service-name").css({
+			"height": "25%",
+			"font-size": "2.5rem"
+		});
+		$(".counter").css({
+			"font-size": "6rem",
+
+		});
+		$(".service-ticket").css({
+			"font-size": "5rem"
+		});
+	}else if(count === 14) {
+		$(".service-row").css({
+			"height": "18%",
+			"width": "33.3%",
+		});
+		$(".service-name").css({
+			"height": "25%",
+			"font-size": "2.5rem"
+		});
+		$(".counter").css({
+			"font-size": "6rem",
+
+		});
+		$(".service-ticket").css({
+			"font-size": "5rem"
+		});
+	}else if(count === 15) {
+		$(".service-row").css({
+			"height": "18%",
+			"width": "33.3%",
+		});
+		$(".service-name").css({
+			"height": "25%",
+			"font-size": "2.5rem"
+		});
+		$(".counter").css({
+			"font-size": "6rem",
+
+		});
+		$(".service-ticket").css({
+			"font-size": "5rem"
+		});
+	}else if(count === 16) {
+		$(".service-row").css({
+			"height": "23%",
+			"width": "25%",
+		});
+		$(".service-name").css({
+			"height": "25%",
+			"font-size": "2.5rem"
+		});
+		$(".counter").css({
+			"font-size": "6rem",
+		});
+		$(".service-ticket").css({
+			"font-size": "4rem"
+		});
+	}
 }
 
 let adQueue = [];

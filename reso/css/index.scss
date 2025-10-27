@@ -120,7 +120,7 @@ body {
     position: absolute;
     top: 10%;
     left: 0;
-    width: 60%;
+    width: 50%;
     height: 83%;
     // background-color:rgb(252, 252, 252);
     display: flex;  
@@ -148,8 +148,8 @@ body {
   .content-container {
     position: absolute;
     top: 10%;
-    left: 60%;
-    width: 40%;
+    left: 50%;
+    width: 50%;
     height: 83%;
     // background-color:violet;
     display: flex;
@@ -165,7 +165,7 @@ body {
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
-      align-items: start;
+      align-items: center;
       justify-content: start;
 
       .service-header {
@@ -238,7 +238,7 @@ body {
           position: absolute;
           top: 25%;
           left: 0%;
-          width: 20%;
+          width: 25%;
           height: 75%;
           background-color: lightcoral;
           justify-content: center;
@@ -259,6 +259,8 @@ body {
           justify-content: center;
           align-items: center;
           display: flex;
+          text-wrap: wrap;
+          text-align: center;
           font-size: 7rem;
           font-weight: 900;
           font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -284,7 +286,7 @@ body {
     left: 0px;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.699);
 
     #sub_popup {
       position: absolute;
@@ -307,7 +309,7 @@ body {
       justify-content: center;
       align-items: center;
       text-align: center;
-      font-size: 12vw;
+      font-size: 8vw;
       font-weight: 900;
       font-family: Gotham;
       color: aqua;

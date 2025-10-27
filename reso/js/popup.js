@@ -72,7 +72,7 @@ function showPopup(ticketData) {
 
 	$("#popup").show();
 	$("#counterpop").text(ticketData.sname);
-	$("#ticketpop").text(`${ticketData.service}${ticketData.ticket}`);
+	$("#ticketpop").text(`${ticketData.service}-${ticketData.ticket}`);
 
 	if (audioElement) {
 		audioElement.currentTime = 0;
