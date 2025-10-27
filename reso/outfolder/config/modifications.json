@@ -22,5 +22,8 @@
     "kiosk_back_text_color": "#000000",
     "display_update": {
         "update": 0
+    },
+    "ann_data": {
+        "counter_color": "#413939"
     }
 }

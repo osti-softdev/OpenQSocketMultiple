@@ -43,6 +43,9 @@ const {
   setupFooterWatcheradmin,
 } = require("./reso/node/admin/footerwatcheradmin");
 const {
+  setupColorWatcheradmin,
+} = require("./reso/node/admin/colorswatcheradmin");
+const {
   setupCalledTicketsWatcher,
 } = require("./reso/node/calledTicketsWatcher");
 const {
@@ -319,6 +322,7 @@ io.on("connection", (socket) => {
     admincontent4alldata(socket, io);
     adminoveralldatawatcher(socket, io);
     setupFooterWatcheradmin(socket, io);
+    setupColorWatcheradmin(socket, io);
     setupAds(socket, io);
     setupFooterWatcher(socket, io);
     handleGetAllServices(socket);

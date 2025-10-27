@@ -358,7 +358,7 @@ console.log(config);
 			"text-shadow": `2px 2px 5px ${config.time_shadow}`,
 		});
 		$(".date").css({
-			"color": config.time_color
+			"color": config.date_color
 		});
 		$(".tickethead").css({
 			"color": config.nowserve_text_color,

@@ -1745,3 +1745,97 @@
 ✔ 2025-10-27T09:15:26.319Z [..\..\index.js:361] 🔌 Client disconnected: XoT0KVrI-Ys721NmAAAL | IP: 127.0.0.1
 ✔ 2025-10-27T09:15:26.818Z [..\..\index.js:312] 🔌 Client connected: r_9sT94bGTLMuQu8AAAN | IP: 127.0.0.1
 ✔ 2025-10-27T09:15:26.904Z [..\node\getads.js:83] [ADS] Client r_9sT94bGTLMuQu8AAAN requested ad refresh
+✔ 2025-10-27T13:23:24.139Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-10-27T13:23:24.142Z [..\..\index.js:235] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-10-27T13:23:24.647Z [..\..\index.js:433] Stale PID 14884 found in C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\app.pid. Removing file.
+✔ 2025-10-27T13:23:24.649Z [..\..\index.js:443] Wrote PID 3312 to C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-10-27T13:23:24.652Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-10-27T13:23:24.666Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-10-27T13:23:24.668Z [..\node\db.js:25] Database connected
+✔ 2025-10-27T13:23:24.676Z [..\..\index.js:370] Database initialized successfully
+✔ 2025-10-27T13:23:24.682Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-10-27T13:23:24.697Z [..\..\index.js:390] Server running on http://10.0.2.196:12345
+✔ 2025-10-27T13:23:25.123Z [..\..\index.js:312] 🔌 Client connected: Ae9wzAdKDqzW7CIZAAAB | IP: 127.0.0.1
+✔ 2025-10-27T13:23:29.784Z [..\..\index.js:361] 🔌 Client disconnected: Ae9wzAdKDqzW7CIZAAAB | IP: 127.0.0.1
+✔ 2025-10-27T13:23:30.227Z [..\..\index.js:312] 🔌 Client connected: 0gYhqsSBxslTuiFsAAAD | IP: 127.0.0.1
+✔ 2025-10-27T13:23:30.748Z [..\node\getads.js:83] [ADS] Client 0gYhqsSBxslTuiFsAAAD requested ad refresh
+✔ 2025-10-27T13:45:16.174Z [..\..\index.js:457] Received SIGINT. Shutting down server...
+✔ 2025-10-27T13:45:16.182Z [..\node\db.js:54] Database connection closed
+✔ 2025-10-27T13:45:16.609Z [..\..\index.js:457] Received SIGINT. Shutting down server...
+✔ 2025-10-27T13:45:26.012Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-10-27T13:45:26.013Z [..\..\index.js:238] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-10-27T13:45:26.016Z [..\..\index.js:447] Wrote PID 7056 to C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-10-27T13:45:26.029Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-10-27T13:45:26.042Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-10-27T13:45:26.047Z [..\node\db.js:25] Database connected
+✔ 2025-10-27T13:45:26.048Z [..\..\index.js:374] Database initialized successfully
+✔ 2025-10-27T13:45:26.049Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-10-27T13:45:26.065Z [..\..\index.js:394] Server running on http://10.0.2.196:12345
+✔ 2025-10-27T13:45:26.097Z [..\..\index.js:315] 🔌 Client connected: 8WxssKHxaH8KScX9AAAB | IP: 127.0.0.1
+✔ 2025-10-27T13:45:28.193Z [..\..\index.js:365] 🔌 Client disconnected: 8WxssKHxaH8KScX9AAAB | IP: 127.0.0.1
+✔ 2025-10-27T13:45:28.738Z [..\..\index.js:315] 🔌 Client connected: Fsi8yEJXkdGVTkQ0AAAD | IP: 127.0.0.1
+✔ 2025-10-27T13:45:28.869Z [..\node\getads.js:83] [ADS] Client Fsi8yEJXkdGVTkQ0AAAD requested ad refresh
+✔ 2025-10-27T13:45:29.787Z [..\..\index.js:365] 🔌 Client disconnected: Fsi8yEJXkdGVTkQ0AAAD | IP: 127.0.0.1
+✔ 2025-10-27T13:45:30.225Z [..\..\index.js:315] 🔌 Client connected: col4TUB9ymVpltC2AAAF | IP: 127.0.0.1
+✔ 2025-10-27T13:45:30.376Z [..\node\getads.js:83] [ADS] Client col4TUB9ymVpltC2AAAF requested ad refresh
+✔ 2025-10-27T13:45:44.651Z [..\..\index.js:315] 🔌 Client connected: t7lhGdTWvcofmO40AAAH | IP: 127.0.0.1
+✔ 2025-10-27T13:45:50.135Z [..\node\admin\colorswatcheradmin.js:44] 🎨 Color configuration updated.
+✔ 2025-10-27T13:48:14.407Z [..\..\index.js:461] Received SIGINT. Shutting down server...
+✔ 2025-10-27T13:48:14.411Z [..\node\db.js:54] Database connection closed
+✔ 2025-10-27T13:48:20.546Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-10-27T13:48:20.548Z [..\..\index.js:238] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-10-27T13:48:20.560Z [..\..\index.js:447] Wrote PID 14576 to C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-10-27T13:48:20.563Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-10-27T13:48:20.578Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-10-27T13:48:20.581Z [..\node\db.js:25] Database connected
+✔ 2025-10-27T13:48:20.581Z [..\..\index.js:374] Database initialized successfully
+✔ 2025-10-27T13:48:20.582Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-10-27T13:48:20.599Z [..\..\index.js:394] Server running on http://10.0.2.196:12345
+✔ 2025-10-27T13:48:20.660Z [..\..\index.js:315] 🔌 Client connected: ptEN3gnAeTUnr9rBAAAB | IP: 127.0.0.1
+✔ 2025-10-27T13:48:21.995Z [..\..\index.js:315] 🔌 Client connected: NajZ5DnIEafhROrWAAAD | IP: 127.0.0.1
+✔ 2025-10-27T13:48:22.225Z [..\..\index.js:365] 🔌 Client disconnected: NajZ5DnIEafhROrWAAAD | IP: 127.0.0.1
+✔ 2025-10-27T13:48:22.911Z [..\..\index.js:315] 🔌 Client connected: sC1Rtvh-3G8NC0XWAAAF | IP: 127.0.0.1
+✔ 2025-10-27T13:48:23.049Z [..\node\getads.js:83] [ADS] Client sC1Rtvh-3G8NC0XWAAAF requested ad refresh
+✔ 2025-10-27T13:48:28.957Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { counter_color: '#5f5959' }
+✔ 2025-10-27T13:48:31.302Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { counter_color: '#f50000' }
+✔ 2025-10-27T13:48:34.609Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { ticket_color: '#9a9ea7' }
+✔ 2025-10-27T13:48:42.105Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { ticket_text_color: '#000000' }
+✔ 2025-10-27T13:48:52.213Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { time_color: '#e7d0d0' }
+✔ 2025-10-27T13:48:54.900Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { time_color: '#000000' }
+✔ 2025-10-27T13:48:57.550Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { time_shadow: '#ffffff' }
+✔ 2025-10-27T13:49:00.208Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { time_shadow: '#eb2424' }
+✔ 2025-10-27T13:49:04.349Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { date_color: '#ffffff' }
+✔ 2025-10-27T13:49:10.942Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { date_color: '#dd4646' }
+✔ 2025-10-27T13:50:03.857Z [..\..\index.js:365] 🔌 Client disconnected: ptEN3gnAeTUnr9rBAAAB | IP: 127.0.0.1
+✔ 2025-10-27T13:50:04.107Z [..\..\index.js:315] 🔌 Client connected: REjluSi2I9WqP6CuAAAH | IP: 127.0.0.1
+✔ 2025-10-27T13:50:08.268Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { date_color: '#000000' }
+✔ 2025-10-27T13:50:12.216Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { nowserve_color: '#29c9ff' }
+✔ 2025-10-27T13:50:16.919Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { nowserve_text_color: '#e2dada' }
+✔ 2025-10-27T13:50:21.457Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { service_color: '#3f3727' }
+✔ 2025-10-27T13:50:24.652Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { service_text_color: '#ffffff' }
+✔ 2025-10-27T13:50:29.619Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { counter_color: '#d9baba' }
+✔ 2025-10-27T13:50:33.306Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { counter_text_color: '#e42121' }
+✔ 2025-10-27T13:50:37.028Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { ticket_color: '#2d58be' }
+✔ 2025-10-27T13:51:37.753Z [..\..\index.js:315] 🔌 Client connected: EHAMDW84YfmFeeGAAAAJ | IP: 127.0.0.1
+✔ 2025-10-27T13:51:40.238Z [..\..\index.js:365] 🔌 Client disconnected: EHAMDW84YfmFeeGAAAAJ | IP: 127.0.0.1
+✔ 2025-10-27T13:51:40.386Z [..\..\index.js:315] 🔌 Client connected: X3hpM6gwZcqnI1OqAAAL | IP: 127.0.0.1
+✔ 2025-10-27T13:51:42.606Z [..\node\calledTicketsWatcher.js:41] WINDOWED_APPLICATION
+✔ 2025-10-27T13:51:48.823Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { popup_ticket_color: '#4d4d4d' }
+✔ 2025-10-27T13:51:55.827Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { popup_ticket_color: '#ff0000' }
+✔ 2025-10-27T13:51:59.706Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { popup_service_color: '#ffffff' }
+✔ 2025-10-27T13:52:15.602Z [..\..\index.js:365] 🔌 Client disconnected: REjluSi2I9WqP6CuAAAH | IP: 127.0.0.1
+✔ 2025-10-27T13:52:15.754Z [..\..\index.js:315] 🔌 Client connected: Dlabf3v07LjSDna9AAAN | IP: 127.0.0.1
+✔ 2025-10-27T13:52:22.779Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { kiosk_footer_text_color: '#ff0000' }
+✔ 2025-10-27T13:52:29.917Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { kiosk_footer_text_shadow_color: '#ffffff' }
+✔ 2025-10-27T13:52:35.536Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { kiosk_regular_service_color: '#f00000' }
+✔ 2025-10-27T13:52:39.583Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { kiosk_priority_service_color: '#ffffff' }
+✔ 2025-10-27T13:52:47.004Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { kiosk_service_shadow_color: '#54ff05' }
+✔ 2025-10-27T13:52:51.217Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { kiosk_service_shadow_color: '#000000' }
+✔ 2025-10-27T13:52:57.673Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { kiosk_back_color: '#ff0000' }
+✔ 2025-10-27T13:53:00.098Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { kiosk_back_text_color: '#ffffff' }
+✔ 2025-10-27T13:53:06.888Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { date_color: '#ffffff' }
+✔ 2025-10-27T13:53:13.039Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { time_color: '#ffffff' }
+✔ 2025-10-27T13:53:53.917Z [..\..\index.js:365] 🔌 Client disconnected: Dlabf3v07LjSDna9AAAN | IP: 127.0.0.1
+✔ 2025-10-27T13:53:54.013Z [..\..\index.js:315] 🔌 Client connected: oJmMsY6RY0CSV81IAAAP | IP: 127.0.0.1
+✔ 2025-10-27T13:53:57.182Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { date_color: '#ffffff' }
+✔ 2025-10-27T13:54:00.840Z [..\node\admin\colorswatcheradmin.js:46] 🎨 Color configuration updated: { date_color: '#000000' }

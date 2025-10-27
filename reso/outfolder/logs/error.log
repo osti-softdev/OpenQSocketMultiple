@@ -90943,3 +90943,51 @@
     at StatWatcher.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\calledTicketsWatcher.js:236:18)
     at StatWatcher.emit (node:events:520:28)
     at StatWatcher.onchange (node:internal/fs/watchers:92:8)
+❌ 2025-10-27T13:51:48.805Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T13:51:48.806Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T13:51:48.806Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T13:51:48.807Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T13:51:48.810Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T13:51:48.811Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T13:51:48.812Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T13:51:48.813Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T13:51:48.814Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T13:51:48.815Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T13:51:48.816Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-27T13:51:48.817Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)

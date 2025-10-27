@@ -172,7 +172,7 @@ function applyDisplayConfig(config) {
 			"text-shadow": `2px 2px 5px ${config.time_shadow}`,
 		});
 		$(".date").css({
-			"color": config.time_color
+			"color": config.date_color
 		});
 		$(".regbtn").css({
 			"color": config.kiosk_regular_service_color,
