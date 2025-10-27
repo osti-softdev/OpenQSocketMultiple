@@ -1482,3 +1482,266 @@
 ✔ 2025-10-27T07:41:38.432Z [..\..\index.js:312] 🔌 Client connected: _jkf02X6aXcEhy3EAAA1 | IP: 127.0.0.1
 ✔ 2025-10-27T07:41:39.875Z [..\..\index.js:361] 🔌 Client disconnected: DTDdBoYgeCaBCuytAAAv | IP: 127.0.0.1
 ✔ 2025-10-27T07:41:40.101Z [..\..\index.js:312] 🔌 Client connected: 3xMlaVD1S0Y6rsE1AAA3 | IP: 127.0.0.1
+✔ 2025-10-27T08:17:58.737Z [..\..\index.js:361] 🔌 Client disconnected: jIB8M39xWHWvJmXMAAAJ | IP: 127.0.0.1
+✔ 2025-10-27T08:17:58.830Z [..\..\index.js:312] 🔌 Client connected: 2VieYxONUQM92zh6AAA5 | IP: 127.0.0.1
+✔ 2025-10-27T08:17:59.481Z [..\..\index.js:361] 🔌 Client disconnected: 2VieYxONUQM92zh6AAA5 | IP: 127.0.0.1
+✔ 2025-10-27T08:17:59.538Z [..\..\index.js:312] 🔌 Client connected: AcpbRz5CT_XHl8QrAAA7 | IP: 127.0.0.1
+✔ 2025-10-27T08:18:03.224Z [..\..\index.js:361] 🔌 Client disconnected: AcpbRz5CT_XHl8QrAAA7 | IP: 127.0.0.1
+✔ 2025-10-27T08:18:03.524Z [..\..\index.js:312] 🔌 Client connected: W8J9cDRwbLAxnOsKAAA9 | IP: 127.0.0.1
+✔ 2025-10-27T08:18:03.830Z [..\node\getads.js:83] [ADS] Client W8J9cDRwbLAxnOsKAAA9 requested ad refresh
+✔ 2025-10-27T08:26:48.723Z [..\..\index.js:361] 🔌 Client disconnected: W8J9cDRwbLAxnOsKAAA9 | IP: 127.0.0.1
+✔ 2025-10-27T08:26:48.944Z [..\..\index.js:312] 🔌 Client connected: vzzeJQP12qApOgviAAA_ | IP: 127.0.0.1
+✔ 2025-10-27T08:26:49.201Z [..\node\getads.js:83] [ADS] Client vzzeJQP12qApOgviAAA_ requested ad refresh
+✔ 2025-10-27T08:29:44.820Z [..\..\index.js:361] 🔌 Client disconnected: vzzeJQP12qApOgviAAA_ | IP: 127.0.0.1
+✔ 2025-10-27T08:29:45.086Z [..\..\index.js:312] 🔌 Client connected: txfym-kHkZfS6xfEAABB | IP: 127.0.0.1
+✔ 2025-10-27T08:29:45.287Z [..\node\getads.js:83] [ADS] Client txfym-kHkZfS6xfEAABB requested ad refresh
+✔ 2025-10-27T08:29:50.189Z [..\..\index.js:361] 🔌 Client disconnected: txfym-kHkZfS6xfEAABB | IP: 127.0.0.1
+✔ 2025-10-27T08:29:50.510Z [..\..\index.js:312] 🔌 Client connected: G7D2yMJzf7Hl8I_1AABD | IP: 127.0.0.1
+✔ 2025-10-27T08:29:50.565Z [..\node\getads.js:83] [ADS] Client G7D2yMJzf7Hl8I_1AABD requested ad refresh
+✔ 2025-10-27T08:29:56.199Z [..\..\index.js:361] 🔌 Client disconnected: G7D2yMJzf7Hl8I_1AABD | IP: 127.0.0.1
+✔ 2025-10-27T08:29:56.476Z [..\..\index.js:312] 🔌 Client connected: QgFwJr5cyMoug9tjAABF | IP: 127.0.0.1
+✔ 2025-10-27T08:29:56.704Z [..\node\getads.js:83] [ADS] Client QgFwJr5cyMoug9tjAABF requested ad refresh
+✔ 2025-10-27T08:30:05.462Z [..\..\index.js:361] 🔌 Client disconnected: QgFwJr5cyMoug9tjAABF | IP: 127.0.0.1
+✔ 2025-10-27T08:30:05.748Z [..\..\index.js:312] 🔌 Client connected: X3QAjoYV7jtz8Q7RAABH | IP: 127.0.0.1
+✔ 2025-10-27T08:30:05.902Z [..\node\getads.js:83] [ADS] Client X3QAjoYV7jtz8Q7RAABH requested ad refresh
+✔ 2025-10-27T08:30:35.393Z [..\..\index.js:361] 🔌 Client disconnected: X3QAjoYV7jtz8Q7RAABH | IP: 127.0.0.1
+✔ 2025-10-27T08:30:35.823Z [..\..\index.js:312] 🔌 Client connected: ZmQ79O6QD79d43GNAABJ | IP: 127.0.0.1
+✔ 2025-10-27T08:30:35.869Z [..\node\getads.js:83] [ADS] Client ZmQ79O6QD79d43GNAABJ requested ad refresh
+✔ 2025-10-27T08:30:47.077Z [..\..\index.js:361] 🔌 Client disconnected: ZmQ79O6QD79d43GNAABJ | IP: 127.0.0.1
+✔ 2025-10-27T08:30:47.501Z [..\..\index.js:312] 🔌 Client connected: kNcW1QX4NpSpEImQAABL | IP: 127.0.0.1
+✔ 2025-10-27T08:30:47.568Z [..\node\getads.js:83] [ADS] Client kNcW1QX4NpSpEImQAABL requested ad refresh
+✔ 2025-10-27T08:30:53.668Z [..\..\index.js:361] 🔌 Client disconnected: kNcW1QX4NpSpEImQAABL | IP: 127.0.0.1
+✔ 2025-10-27T08:30:54.000Z [..\..\index.js:312] 🔌 Client connected: DOWXqMXuAzQtVGKMAABN | IP: 127.0.0.1
+✔ 2025-10-27T08:30:54.394Z [..\node\getads.js:83] [ADS] Client DOWXqMXuAzQtVGKMAABN requested ad refresh
+✔ 2025-10-27T08:30:55.085Z [..\..\index.js:361] 🔌 Client disconnected: DOWXqMXuAzQtVGKMAABN | IP: 127.0.0.1
+✔ 2025-10-27T08:30:55.365Z [..\..\index.js:312] 🔌 Client connected: F-lx9IcJ4O-Y9_CTAABP | IP: 127.0.0.1
+✔ 2025-10-27T08:30:55.552Z [..\node\getads.js:83] [ADS] Client F-lx9IcJ4O-Y9_CTAABP requested ad refresh
+✔ 2025-10-27T08:30:59.651Z [..\..\index.js:361] 🔌 Client disconnected: F-lx9IcJ4O-Y9_CTAABP | IP: 127.0.0.1
+✔ 2025-10-27T08:30:59.889Z [..\..\index.js:312] 🔌 Client connected: 84WJdKencWMiCWT-AABR | IP: 127.0.0.1
+✔ 2025-10-27T08:31:00.081Z [..\node\getads.js:83] [ADS] Client 84WJdKencWMiCWT-AABR requested ad refresh
+✔ 2025-10-27T08:31:06.914Z [..\..\index.js:361] 🔌 Client disconnected: 84WJdKencWMiCWT-AABR | IP: 127.0.0.1
+✔ 2025-10-27T08:31:07.305Z [..\..\index.js:312] 🔌 Client connected: MMFsKnzP7cQektH8AABT | IP: 127.0.0.1
+✔ 2025-10-27T08:31:07.360Z [..\node\getads.js:83] [ADS] Client MMFsKnzP7cQektH8AABT requested ad refresh
+✔ 2025-10-27T08:31:31.454Z [..\..\index.js:361] 🔌 Client disconnected: MMFsKnzP7cQektH8AABT | IP: 127.0.0.1
+✔ 2025-10-27T08:31:31.694Z [..\..\index.js:312] 🔌 Client connected: w0YS8OtYvg3XB9PEAABV | IP: 127.0.0.1
+✔ 2025-10-27T08:31:31.870Z [..\node\getads.js:83] [ADS] Client w0YS8OtYvg3XB9PEAABV requested ad refresh
+✔ 2025-10-27T08:31:33.804Z [..\..\index.js:361] 🔌 Client disconnected: w0YS8OtYvg3XB9PEAABV | IP: 127.0.0.1
+✔ 2025-10-27T08:31:34.034Z [..\..\index.js:312] 🔌 Client connected: 2UCLZUkz0_wr2WimAABX | IP: 127.0.0.1
+✔ 2025-10-27T08:31:34.221Z [..\node\getads.js:83] [ADS] Client 2UCLZUkz0_wr2WimAABX requested ad refresh
+✔ 2025-10-27T08:33:46.123Z [..\..\index.js:361] 🔌 Client disconnected: 2UCLZUkz0_wr2WimAABX | IP: 127.0.0.1
+✔ 2025-10-27T08:33:46.404Z [..\..\index.js:312] 🔌 Client connected: BWarcieUIdP7z908AABZ | IP: 127.0.0.1
+✔ 2025-10-27T08:33:46.716Z [..\node\getads.js:83] [ADS] Client BWarcieUIdP7z908AABZ requested ad refresh
+✔ 2025-10-27T08:33:47.300Z [..\..\index.js:361] 🔌 Client disconnected: BWarcieUIdP7z908AABZ | IP: 127.0.0.1
+✔ 2025-10-27T08:33:47.540Z [..\..\index.js:312] 🔌 Client connected: H_-zRDlZVN1688noAABb | IP: 127.0.0.1
+✔ 2025-10-27T08:33:47.795Z [..\node\getads.js:83] [ADS] Client H_-zRDlZVN1688noAABb requested ad refresh
+✔ 2025-10-27T08:33:54.581Z [..\..\index.js:361] 🔌 Client disconnected: H_-zRDlZVN1688noAABb | IP: 127.0.0.1
+✔ 2025-10-27T08:33:54.853Z [..\..\index.js:312] 🔌 Client connected: lyEPW3E-Mx_9vGQbAABd | IP: 127.0.0.1
+✔ 2025-10-27T08:33:55.119Z [..\node\getads.js:83] [ADS] Client lyEPW3E-Mx_9vGQbAABd requested ad refresh
+✔ 2025-10-27T08:34:06.568Z [..\..\index.js:361] 🔌 Client disconnected: lyEPW3E-Mx_9vGQbAABd | IP: 127.0.0.1
+✔ 2025-10-27T08:34:07.022Z [..\..\index.js:312] 🔌 Client connected: 6_AKXZEah6PYVH0GAABf | IP: 127.0.0.1
+✔ 2025-10-27T08:34:07.080Z [..\node\getads.js:83] [ADS] Client 6_AKXZEah6PYVH0GAABf requested ad refresh
+✔ 2025-10-27T08:34:16.229Z [..\..\index.js:361] 🔌 Client disconnected: 6_AKXZEah6PYVH0GAABf | IP: 127.0.0.1
+✔ 2025-10-27T08:34:16.630Z [..\..\index.js:312] 🔌 Client connected: R9GSqT-Z21ShzPP2AABh | IP: 127.0.0.1
+✔ 2025-10-27T08:34:16.840Z [..\node\getads.js:83] [ADS] Client R9GSqT-Z21ShzPP2AABh requested ad refresh
+✔ 2025-10-27T08:34:25.325Z [..\..\index.js:361] 🔌 Client disconnected: R9GSqT-Z21ShzPP2AABh | IP: 127.0.0.1
+✔ 2025-10-27T08:34:25.786Z [..\..\index.js:312] 🔌 Client connected: J7tyDEMJlDYji4wjAABj | IP: 127.0.0.1
+✔ 2025-10-27T08:34:25.837Z [..\node\getads.js:83] [ADS] Client J7tyDEMJlDYji4wjAABj requested ad refresh
+✔ 2025-10-27T08:34:42.991Z [..\..\index.js:361] 🔌 Client disconnected: J7tyDEMJlDYji4wjAABj | IP: 127.0.0.1
+✔ 2025-10-27T08:34:43.367Z [..\..\index.js:312] 🔌 Client connected: Bf1DB0n4ptPaJPTGAABl | IP: 127.0.0.1
+✔ 2025-10-27T08:34:43.604Z [..\node\getads.js:83] [ADS] Client Bf1DB0n4ptPaJPTGAABl requested ad refresh
+✔ 2025-10-27T08:34:58.016Z [..\..\index.js:361] 🔌 Client disconnected: Bf1DB0n4ptPaJPTGAABl | IP: 127.0.0.1
+✔ 2025-10-27T08:34:58.298Z [..\..\index.js:312] 🔌 Client connected: vEWSrJfgMYthOhVgAABn | IP: 127.0.0.1
+✔ 2025-10-27T08:34:58.533Z [..\node\getads.js:83] [ADS] Client vEWSrJfgMYthOhVgAABn requested ad refresh
+✔ 2025-10-27T08:35:31.262Z [..\..\index.js:361] 🔌 Client disconnected: vEWSrJfgMYthOhVgAABn | IP: 127.0.0.1
+✔ 2025-10-27T08:35:31.552Z [..\..\index.js:312] 🔌 Client connected: TDydx6iTMzuBPDAHAABp | IP: 127.0.0.1
+✔ 2025-10-27T08:35:31.748Z [..\node\getads.js:83] [ADS] Client TDydx6iTMzuBPDAHAABp requested ad refresh
+✔ 2025-10-27T08:35:32.476Z [..\..\index.js:361] 🔌 Client disconnected: TDydx6iTMzuBPDAHAABp | IP: 127.0.0.1
+✔ 2025-10-27T08:35:32.752Z [..\..\index.js:312] 🔌 Client connected: -yB1d5ncO841PkSLAABr | IP: 127.0.0.1
+✔ 2025-10-27T08:35:32.901Z [..\node\getads.js:83] [ADS] Client -yB1d5ncO841PkSLAABr requested ad refresh
+✔ 2025-10-27T08:36:26.088Z [..\..\index.js:361] 🔌 Client disconnected: -yB1d5ncO841PkSLAABr | IP: 127.0.0.1
+✔ 2025-10-27T08:36:26.369Z [..\..\index.js:312] 🔌 Client connected: xIZad58Z5ixcEhKxAABt | IP: 127.0.0.1
+✔ 2025-10-27T08:36:26.567Z [..\node\getads.js:83] [ADS] Client xIZad58Z5ixcEhKxAABt requested ad refresh
+✔ 2025-10-27T08:36:34.117Z [..\..\index.js:361] 🔌 Client disconnected: xIZad58Z5ixcEhKxAABt | IP: 127.0.0.1
+✔ 2025-10-27T08:36:34.577Z [..\..\index.js:312] 🔌 Client connected: sZ_KIKten3kj352cAABv | IP: 127.0.0.1
+✔ 2025-10-27T08:36:34.946Z [..\node\getads.js:83] [ADS] Client sZ_KIKten3kj352cAABv requested ad refresh
+✔ 2025-10-27T08:36:35.333Z [..\..\index.js:361] 🔌 Client disconnected: sZ_KIKten3kj352cAABv | IP: 127.0.0.1
+✔ 2025-10-27T08:36:35.579Z [..\..\index.js:312] 🔌 Client connected: 0nUDLM3bxT8cnLkuAABx | IP: 127.0.0.1
+✔ 2025-10-27T08:36:35.742Z [..\node\getads.js:83] [ADS] Client 0nUDLM3bxT8cnLkuAABx requested ad refresh
+✔ 2025-10-27T08:36:39.502Z [..\..\index.js:361] 🔌 Client disconnected: 0nUDLM3bxT8cnLkuAABx | IP: 127.0.0.1
+✔ 2025-10-27T08:36:39.792Z [..\..\index.js:312] 🔌 Client connected: pdD7hVkrUeHrApJsAABz | IP: 127.0.0.1
+✔ 2025-10-27T08:36:40.000Z [..\node\getads.js:83] [ADS] Client pdD7hVkrUeHrApJsAABz requested ad refresh
+✔ 2025-10-27T08:36:55.920Z [..\..\index.js:361] 🔌 Client disconnected: pdD7hVkrUeHrApJsAABz | IP: 127.0.0.1
+✔ 2025-10-27T08:36:56.261Z [..\..\index.js:312] 🔌 Client connected: 84RYB6_R_tHjSLfVAAB1 | IP: 127.0.0.1
+✔ 2025-10-27T08:36:56.467Z [..\node\getads.js:83] [ADS] Client 84RYB6_R_tHjSLfVAAB1 requested ad refresh
+✔ 2025-10-27T08:36:57.037Z [..\..\index.js:361] 🔌 Client disconnected: 84RYB6_R_tHjSLfVAAB1 | IP: 127.0.0.1
+✔ 2025-10-27T08:36:57.287Z [..\..\index.js:312] 🔌 Client connected: zGM_KCWk0nK6DGqbAAB3 | IP: 127.0.0.1
+✔ 2025-10-27T08:36:57.625Z [..\node\getads.js:83] [ADS] Client zGM_KCWk0nK6DGqbAAB3 requested ad refresh
+✔ 2025-10-27T08:37:00.533Z [..\..\index.js:361] 🔌 Client disconnected: zGM_KCWk0nK6DGqbAAB3 | IP: 127.0.0.1
+✔ 2025-10-27T08:37:00.875Z [..\..\index.js:312] 🔌 Client connected: PxHKCgyx-dIghZ-4AAB5 | IP: 127.0.0.1
+✔ 2025-10-27T08:37:01.310Z [..\node\getads.js:83] [ADS] Client PxHKCgyx-dIghZ-4AAB5 requested ad refresh
+✔ 2025-10-27T08:37:05.329Z [..\..\index.js:361] 🔌 Client disconnected: PxHKCgyx-dIghZ-4AAB5 | IP: 127.0.0.1
+✔ 2025-10-27T08:37:05.639Z [..\..\index.js:312] 🔌 Client connected: Sj_EBHtBUPWaxuwIAAB7 | IP: 127.0.0.1
+✔ 2025-10-27T08:37:05.958Z [..\node\getads.js:83] [ADS] Client Sj_EBHtBUPWaxuwIAAB7 requested ad refresh
+✔ 2025-10-27T08:37:06.301Z [..\..\index.js:361] 🔌 Client disconnected: Sj_EBHtBUPWaxuwIAAB7 | IP: 127.0.0.1
+✔ 2025-10-27T08:37:06.553Z [..\..\index.js:312] 🔌 Client connected: 84NmhnUtdiUtaSSSAAB9 | IP: 127.0.0.1
+✔ 2025-10-27T08:37:06.736Z [..\node\getads.js:83] [ADS] Client 84NmhnUtdiUtaSSSAAB9 requested ad refresh
+✔ 2025-10-27T08:37:29.969Z [..\..\index.js:361] 🔌 Client disconnected: 84NmhnUtdiUtaSSSAAB9 | IP: 127.0.0.1
+✔ 2025-10-27T08:37:30.400Z [..\..\index.js:312] 🔌 Client connected: -rtyfoPRfJXatjQCAAB_ | IP: 127.0.0.1
+✔ 2025-10-27T08:37:30.458Z [..\node\getads.js:83] [ADS] Client -rtyfoPRfJXatjQCAAB_ requested ad refresh
+✔ 2025-10-27T08:37:30.883Z [..\..\index.js:361] 🔌 Client disconnected: -rtyfoPRfJXatjQCAAB_ | IP: 127.0.0.1
+✔ 2025-10-27T08:37:31.169Z [..\..\index.js:312] 🔌 Client connected: evyNtYkmoKdPAWFFAACB | IP: 127.0.0.1
+✔ 2025-10-27T08:37:31.298Z [..\node\getads.js:83] [ADS] Client evyNtYkmoKdPAWFFAACB requested ad refresh
+✔ 2025-10-27T08:37:31.661Z [..\..\index.js:361] 🔌 Client disconnected: evyNtYkmoKdPAWFFAACB | IP: 127.0.0.1
+✔ 2025-10-27T08:37:31.901Z [..\..\index.js:312] 🔌 Client connected: IZv3Dthb_Ek55eraAACD | IP: 127.0.0.1
+✔ 2025-10-27T08:37:32.070Z [..\node\getads.js:83] [ADS] Client IZv3Dthb_Ek55eraAACD requested ad refresh
+✔ 2025-10-27T08:37:33.031Z [..\..\index.js:361] 🔌 Client disconnected: IZv3Dthb_Ek55eraAACD | IP: 127.0.0.1
+✔ 2025-10-27T08:37:33.266Z [..\..\index.js:312] 🔌 Client connected: YfHNWOeDQaZIMwqQAACF | IP: 127.0.0.1
+✔ 2025-10-27T08:37:33.478Z [..\node\getads.js:83] [ADS] Client YfHNWOeDQaZIMwqQAACF requested ad refresh
+✔ 2025-10-27T08:37:40.547Z [..\..\index.js:361] 🔌 Client disconnected: YfHNWOeDQaZIMwqQAACF | IP: 127.0.0.1
+✔ 2025-10-27T08:37:40.872Z [..\..\index.js:312] 🔌 Client connected: DRVmw_z1qhIOm1hLAACH | IP: 127.0.0.1
+✔ 2025-10-27T08:37:41.060Z [..\node\getads.js:83] [ADS] Client DRVmw_z1qhIOm1hLAACH requested ad refresh
+✔ 2025-10-27T08:37:41.916Z [..\..\index.js:361] 🔌 Client disconnected: DRVmw_z1qhIOm1hLAACH | IP: 127.0.0.1
+✔ 2025-10-27T08:37:42.168Z [..\..\index.js:312] 🔌 Client connected: Yfr-c-MDBNhRlHQOAACJ | IP: 127.0.0.1
+✔ 2025-10-27T08:37:42.319Z [..\node\getads.js:83] [ADS] Client Yfr-c-MDBNhRlHQOAACJ requested ad refresh
+✔ 2025-10-27T08:37:50.138Z [..\..\index.js:361] 🔌 Client disconnected: Yfr-c-MDBNhRlHQOAACJ | IP: 127.0.0.1
+✔ 2025-10-27T08:37:50.414Z [..\..\index.js:312] 🔌 Client connected: ZjE5D6356dcLpHniAACL | IP: 127.0.0.1
+✔ 2025-10-27T08:37:50.741Z [..\node\getads.js:83] [ADS] Client ZjE5D6356dcLpHniAACL requested ad refresh
+✔ 2025-10-27T08:37:51.293Z [..\..\index.js:361] 🔌 Client disconnected: ZjE5D6356dcLpHniAACL | IP: 127.0.0.1
+✔ 2025-10-27T08:37:51.520Z [..\..\index.js:312] 🔌 Client connected: BufSGsSs29M3rcpUAACN | IP: 127.0.0.1
+✔ 2025-10-27T08:37:51.701Z [..\node\getads.js:83] [ADS] Client BufSGsSs29M3rcpUAACN requested ad refresh
+✔ 2025-10-27T08:37:58.279Z [..\..\index.js:361] 🔌 Client disconnected: BufSGsSs29M3rcpUAACN | IP: 127.0.0.1
+✔ 2025-10-27T08:37:58.504Z [..\..\index.js:312] 🔌 Client connected: wM8vGucFHPIrCMqMAACP | IP: 127.0.0.1
+✔ 2025-10-27T08:37:58.596Z [..\node\getads.js:83] [ADS] Client wM8vGucFHPIrCMqMAACP requested ad refresh
+✔ 2025-10-27T08:37:59.268Z [..\..\index.js:361] 🔌 Client disconnected: wM8vGucFHPIrCMqMAACP | IP: 127.0.0.1
+✔ 2025-10-27T08:37:59.526Z [..\..\index.js:312] 🔌 Client connected: bhLkPnB1VW_czwizAACR | IP: 127.0.0.1
+✔ 2025-10-27T08:37:59.727Z [..\node\getads.js:83] [ADS] Client bhLkPnB1VW_czwizAACR requested ad refresh
+✔ 2025-10-27T08:38:00.229Z [..\..\index.js:361] 🔌 Client disconnected: bhLkPnB1VW_czwizAACR | IP: 127.0.0.1
+✔ 2025-10-27T08:38:00.511Z [..\..\index.js:312] 🔌 Client connected: QMNMHDAIpuQdBfahAACT | IP: 127.0.0.1
+✔ 2025-10-27T08:38:00.669Z [..\node\getads.js:83] [ADS] Client QMNMHDAIpuQdBfahAACT requested ad refresh
+✔ 2025-10-27T08:38:09.362Z [..\..\index.js:361] 🔌 Client disconnected: QMNMHDAIpuQdBfahAACT | IP: 127.0.0.1
+✔ 2025-10-27T08:38:09.636Z [..\..\index.js:312] 🔌 Client connected: dHAJVYHoKNQIgToaAACV | IP: 127.0.0.1
+✔ 2025-10-27T08:38:09.811Z [..\node\getads.js:83] [ADS] Client dHAJVYHoKNQIgToaAACV requested ad refresh
+✔ 2025-10-27T08:38:10.669Z [..\..\index.js:361] 🔌 Client disconnected: dHAJVYHoKNQIgToaAACV | IP: 127.0.0.1
+✔ 2025-10-27T08:38:10.942Z [..\..\index.js:312] 🔌 Client connected: MSLOTOA4TgHWC0LdAACX | IP: 127.0.0.1
+✔ 2025-10-27T08:38:10.988Z [..\node\getads.js:83] [ADS] Client MSLOTOA4TgHWC0LdAACX requested ad refresh
+✔ 2025-10-27T08:38:18.664Z [..\..\index.js:361] 🔌 Client disconnected: MSLOTOA4TgHWC0LdAACX | IP: 127.0.0.1
+✔ 2025-10-27T08:38:19.155Z [..\..\index.js:312] 🔌 Client connected: 1uSQ7m21OrxYxBnOAACZ | IP: 127.0.0.1
+✔ 2025-10-27T08:38:19.207Z [..\node\getads.js:83] [ADS] Client 1uSQ7m21OrxYxBnOAACZ requested ad refresh
+✔ 2025-10-27T08:38:30.158Z [..\..\index.js:361] 🔌 Client disconnected: 1uSQ7m21OrxYxBnOAACZ | IP: 127.0.0.1
+✔ 2025-10-27T08:38:30.675Z [..\..\index.js:312] 🔌 Client connected: FR-SlOsyj4eX2lzKAACb | IP: 127.0.0.1
+✔ 2025-10-27T08:38:30.733Z [..\node\getads.js:83] [ADS] Client FR-SlOsyj4eX2lzKAACb requested ad refresh
+✔ 2025-10-27T08:38:38.799Z [..\..\index.js:361] 🔌 Client disconnected: FR-SlOsyj4eX2lzKAACb | IP: 127.0.0.1
+✔ 2025-10-27T08:38:39.052Z [..\..\index.js:312] 🔌 Client connected: xs1Tr4awUva1G7eKAACd | IP: 127.0.0.1
+✔ 2025-10-27T08:38:39.261Z [..\node\getads.js:83] [ADS] Client xs1Tr4awUva1G7eKAACd requested ad refresh
+✔ 2025-10-27T08:38:58.609Z [..\..\index.js:361] 🔌 Client disconnected: xs1Tr4awUva1G7eKAACd | IP: 127.0.0.1
+✔ 2025-10-27T08:38:59.286Z [..\..\index.js:312] 🔌 Client connected: PMtlIEqZnzAvjboQAACf | IP: 127.0.0.1
+✔ 2025-10-27T08:38:59.405Z [..\node\getads.js:83] [ADS] Client PMtlIEqZnzAvjboQAACf requested ad refresh
+✔ 2025-10-27T08:38:59.873Z [..\..\index.js:361] 🔌 Client disconnected: PMtlIEqZnzAvjboQAACf | IP: 127.0.0.1
+✔ 2025-10-27T08:39:00.267Z [..\..\index.js:312] 🔌 Client connected: eNXV01gh4NHy8JKjAACh | IP: 127.0.0.1
+✔ 2025-10-27T08:39:00.483Z [..\node\getads.js:83] [ADS] Client eNXV01gh4NHy8JKjAACh requested ad refresh
+✔ 2025-10-27T08:39:01.381Z [..\..\index.js:361] 🔌 Client disconnected: eNXV01gh4NHy8JKjAACh | IP: 127.0.0.1
+✔ 2025-10-27T08:39:01.625Z [..\..\index.js:312] 🔌 Client connected: Nedj10J621aOFOAZAACj | IP: 127.0.0.1
+✔ 2025-10-27T08:39:01.787Z [..\node\getads.js:83] [ADS] Client Nedj10J621aOFOAZAACj requested ad refresh
+✔ 2025-10-27T08:39:06.743Z [..\..\index.js:361] 🔌 Client disconnected: Nedj10J621aOFOAZAACj | IP: 127.0.0.1
+✔ 2025-10-27T08:39:06.986Z [..\..\index.js:312] 🔌 Client connected: F-v9V20n2IpuFhzHAACl | IP: 127.0.0.1
+✔ 2025-10-27T08:39:07.054Z [..\node\getads.js:83] [ADS] Client F-v9V20n2IpuFhzHAACl requested ad refresh
+✔ 2025-10-27T08:39:50.213Z [..\..\index.js:361] 🔌 Client disconnected: F-v9V20n2IpuFhzHAACl | IP: 127.0.0.1
+✔ 2025-10-27T08:39:50.505Z [..\..\index.js:312] 🔌 Client connected: SGcjhf2DxgJdKijYAACn | IP: 127.0.0.1
+✔ 2025-10-27T08:39:50.673Z [..\node\getads.js:83] [ADS] Client SGcjhf2DxgJdKijYAACn requested ad refresh
+✔ 2025-10-27T08:40:10.029Z [..\..\index.js:361] 🔌 Client disconnected: SGcjhf2DxgJdKijYAACn | IP: 127.0.0.1
+✔ 2025-10-27T08:40:10.304Z [..\..\index.js:312] 🔌 Client connected: mv6DcWjoAHPMESvgAACp | IP: 127.0.0.1
+✔ 2025-10-27T08:40:10.535Z [..\node\getads.js:83] [ADS] Client mv6DcWjoAHPMESvgAACp requested ad refresh
+✔ 2025-10-27T08:40:26.842Z [..\..\index.js:361] 🔌 Client disconnected: mv6DcWjoAHPMESvgAACp | IP: 127.0.0.1
+✔ 2025-10-27T08:40:27.138Z [..\..\index.js:312] 🔌 Client connected: hlGZ7e7omVsgUApxAACr | IP: 127.0.0.1
+✔ 2025-10-27T08:40:27.327Z [..\node\getads.js:83] [ADS] Client hlGZ7e7omVsgUApxAACr requested ad refresh
+✔ 2025-10-27T08:40:27.941Z [..\..\index.js:361] 🔌 Client disconnected: hlGZ7e7omVsgUApxAACr | IP: 127.0.0.1
+✔ 2025-10-27T08:40:28.288Z [..\..\index.js:312] 🔌 Client connected: 49xGKXoRX-g_a0yIAACt | IP: 127.0.0.1
+✔ 2025-10-27T08:40:28.424Z [..\node\getads.js:83] [ADS] Client 49xGKXoRX-g_a0yIAACt requested ad refresh
+✔ 2025-10-27T08:40:33.101Z [..\..\index.js:361] 🔌 Client disconnected: 49xGKXoRX-g_a0yIAACt | IP: 127.0.0.1
+✔ 2025-10-27T08:40:33.530Z [..\..\index.js:312] 🔌 Client connected: gyevWvFxO9Bd9h5oAACv | IP: 127.0.0.1
+✔ 2025-10-27T08:40:33.834Z [..\node\getads.js:83] [ADS] Client gyevWvFxO9Bd9h5oAACv requested ad refresh
+✔ 2025-10-27T08:40:45.680Z [..\..\index.js:361] 🔌 Client disconnected: gyevWvFxO9Bd9h5oAACv | IP: 127.0.0.1
+✔ 2025-10-27T08:40:45.929Z [..\..\index.js:312] 🔌 Client connected: j_EHKQtzwX6084e8AACx | IP: 127.0.0.1
+✔ 2025-10-27T08:40:46.116Z [..\node\getads.js:83] [ADS] Client j_EHKQtzwX6084e8AACx requested ad refresh
+✔ 2025-10-27T08:40:46.755Z [..\..\index.js:361] 🔌 Client disconnected: j_EHKQtzwX6084e8AACx | IP: 127.0.0.1
+✔ 2025-10-27T08:40:46.987Z [..\..\index.js:312] 🔌 Client connected: apqfrSwClJmENX4xAACz | IP: 127.0.0.1
+✔ 2025-10-27T08:40:47.164Z [..\node\getads.js:83] [ADS] Client apqfrSwClJmENX4xAACz requested ad refresh
+✔ 2025-10-27T08:40:47.809Z [..\..\index.js:361] 🔌 Client disconnected: apqfrSwClJmENX4xAACz | IP: 127.0.0.1
+✔ 2025-10-27T08:40:48.038Z [..\..\index.js:312] 🔌 Client connected: 40_wJVDPvs9_IO3YAAC1 | IP: 127.0.0.1
+✔ 2025-10-27T08:40:48.306Z [..\node\getads.js:83] [ADS] Client 40_wJVDPvs9_IO3YAAC1 requested ad refresh
+✔ 2025-10-27T08:40:57.611Z [..\..\index.js:361] 🔌 Client disconnected: 40_wJVDPvs9_IO3YAAC1 | IP: 127.0.0.1
+✔ 2025-10-27T08:40:57.980Z [..\..\index.js:312] 🔌 Client connected: unypnQDO8C_w1XL9AAC3 | IP: 127.0.0.1
+✔ 2025-10-27T08:40:58.186Z [..\node\getads.js:83] [ADS] Client unypnQDO8C_w1XL9AAC3 requested ad refresh
+✔ 2025-10-27T08:41:13.194Z [..\..\index.js:361] 🔌 Client disconnected: unypnQDO8C_w1XL9AAC3 | IP: 127.0.0.1
+✔ 2025-10-27T08:41:13.440Z [..\..\index.js:312] 🔌 Client connected: yx4fnoXVUaSxDS2fAAC5 | IP: 127.0.0.1
+✔ 2025-10-27T08:41:13.714Z [..\node\getads.js:83] [ADS] Client yx4fnoXVUaSxDS2fAAC5 requested ad refresh
+✔ 2025-10-27T08:41:14.204Z [..\..\index.js:361] 🔌 Client disconnected: yx4fnoXVUaSxDS2fAAC5 | IP: 127.0.0.1
+✔ 2025-10-27T08:41:14.439Z [..\..\index.js:312] 🔌 Client connected: yc2syOPUs1hu9azeAAC7 | IP: 127.0.0.1
+✔ 2025-10-27T08:41:14.646Z [..\node\getads.js:83] [ADS] Client yc2syOPUs1hu9azeAAC7 requested ad refresh
+✔ 2025-10-27T08:41:17.457Z [..\..\index.js:361] 🔌 Client disconnected: yc2syOPUs1hu9azeAAC7 | IP: 127.0.0.1
+✔ 2025-10-27T08:41:17.863Z [..\..\index.js:312] 🔌 Client connected: XWYexw-gYBvzMjmHAAC9 | IP: 127.0.0.1
+✔ 2025-10-27T08:41:17.907Z [..\node\getads.js:83] [ADS] Client XWYexw-gYBvzMjmHAAC9 requested ad refresh
+✔ 2025-10-27T08:41:28.770Z [..\..\index.js:361] 🔌 Client disconnected: XWYexw-gYBvzMjmHAAC9 | IP: 127.0.0.1
+✔ 2025-10-27T08:41:29.145Z [..\..\index.js:312] 🔌 Client connected: Zzn6m0uOAux61QhcAAC_ | IP: 127.0.0.1
+✔ 2025-10-27T08:41:29.200Z [..\node\getads.js:83] [ADS] Client Zzn6m0uOAux61QhcAAC_ requested ad refresh
+✔ 2025-10-27T08:41:35.991Z [..\..\index.js:361] 🔌 Client disconnected: Zzn6m0uOAux61QhcAAC_ | IP: 127.0.0.1
+✔ 2025-10-27T08:41:36.257Z [..\..\index.js:312] 🔌 Client connected: wA5wCFKHyy39hAOnAADB | IP: 127.0.0.1
+✔ 2025-10-27T08:41:36.426Z [..\node\getads.js:83] [ADS] Client wA5wCFKHyy39hAOnAADB requested ad refresh
+✔ 2025-10-27T08:41:36.829Z [..\..\index.js:361] 🔌 Client disconnected: wA5wCFKHyy39hAOnAADB | IP: 127.0.0.1
+✔ 2025-10-27T08:41:37.071Z [..\..\index.js:312] 🔌 Client connected: CnJHEoXfRDAdcVIcAADD | IP: 127.0.0.1
+✔ 2025-10-27T08:41:37.233Z [..\node\getads.js:83] [ADS] Client CnJHEoXfRDAdcVIcAADD requested ad refresh
+✔ 2025-10-27T08:41:42.342Z [..\..\index.js:361] 🔌 Client disconnected: CnJHEoXfRDAdcVIcAADD | IP: 127.0.0.1
+✔ 2025-10-27T08:41:42.821Z [..\..\index.js:312] 🔌 Client connected: dkRds9CKzpr6erb5AADF | IP: 127.0.0.1
+✔ 2025-10-27T08:41:42.976Z [..\node\getads.js:83] [ADS] Client dkRds9CKzpr6erb5AADF requested ad refresh
+✔ 2025-10-27T08:41:52.918Z [..\..\index.js:361] 🔌 Client disconnected: dkRds9CKzpr6erb5AADF | IP: 127.0.0.1
+✔ 2025-10-27T08:41:53.220Z [..\..\index.js:312] 🔌 Client connected: XlSA49Xo53OXSBFiAADH | IP: 127.0.0.1
+✔ 2025-10-27T08:41:53.408Z [..\node\getads.js:83] [ADS] Client XlSA49Xo53OXSBFiAADH requested ad refresh
+✔ 2025-10-27T08:42:03.337Z [..\..\index.js:361] 🔌 Client disconnected: XlSA49Xo53OXSBFiAADH | IP: 127.0.0.1
+✔ 2025-10-27T08:42:03.572Z [..\..\index.js:312] 🔌 Client connected: a2e-kMl4moYd1IIMAADJ | IP: 127.0.0.1
+✔ 2025-10-27T08:42:03.770Z [..\node\getads.js:83] [ADS] Client a2e-kMl4moYd1IIMAADJ requested ad refresh
+✔ 2025-10-27T08:42:08.992Z [..\..\index.js:361] 🔌 Client disconnected: a2e-kMl4moYd1IIMAADJ | IP: 127.0.0.1
+✔ 2025-10-27T08:42:09.332Z [..\..\index.js:312] 🔌 Client connected: EW9aGcb4lmCsP2aqAADL | IP: 127.0.0.1
+✔ 2025-10-27T08:42:09.416Z [..\node\getads.js:83] [ADS] Client EW9aGcb4lmCsP2aqAADL requested ad refresh
+✔ 2025-10-27T08:42:10.331Z [..\..\index.js:361] 🔌 Client disconnected: EW9aGcb4lmCsP2aqAADL | IP: 127.0.0.1
+✔ 2025-10-27T08:42:10.699Z [..\..\index.js:312] 🔌 Client connected: ka2vZpcXlsmezQvyAADN | IP: 127.0.0.1
+✔ 2025-10-27T08:42:10.747Z [..\node\getads.js:83] [ADS] Client ka2vZpcXlsmezQvyAADN requested ad refresh
+✔ 2025-10-27T08:42:41.831Z [..\..\index.js:361] 🔌 Client disconnected: k9_SyUo7sf0OrBwhAAAH | IP: 127.0.0.1
+✔ 2025-10-27T08:42:41.919Z [..\..\index.js:312] 🔌 Client connected: l7PMoQnwB0N3BmthAADP | IP: 127.0.0.1
+✔ 2025-10-27T08:42:43.740Z [..\..\index.js:361] 🔌 Client disconnected: l7PMoQnwB0N3BmthAADP | IP: 127.0.0.1
+✔ 2025-10-27T08:42:43.804Z [..\..\index.js:312] 🔌 Client connected: Fycb6wkFS80HKYqKAADR | IP: 127.0.0.1
+✔ 2025-10-27T08:42:45.445Z [..\..\index.js:361] 🔌 Client disconnected: Fycb6wkFS80HKYqKAADR | IP: 127.0.0.1
+✔ 2025-10-27T08:42:45.489Z [..\..\index.js:312] 🔌 Client connected: 6G0LHxeNWaYFmiFdAADT | IP: 127.0.0.1
+✔ 2025-10-27T08:42:52.113Z [..\..\index.js:361] 🔌 Client disconnected: 6G0LHxeNWaYFmiFdAADT | IP: 127.0.0.1
+✔ 2025-10-27T08:42:52.177Z [..\..\index.js:312] 🔌 Client connected: OjyqIVPyLjJ1fhPrAADV | IP: 127.0.0.1
+✔ 2025-10-27T08:53:40.557Z [..\..\index.js:361] 🔌 Client disconnected: ka2vZpcXlsmezQvyAADN | IP: 127.0.0.1
+✔ 2025-10-27T08:53:40.818Z [..\..\index.js:312] 🔌 Client connected: uf1hKs9zmUIvyzauAADX | IP: 127.0.0.1
+✔ 2025-10-27T08:53:41.027Z [..\node\getads.js:83] [ADS] Client uf1hKs9zmUIvyzauAADX requested ad refresh
+✔ 2025-10-27T08:53:41.494Z [..\..\index.js:361] 🔌 Client disconnected: uf1hKs9zmUIvyzauAADX | IP: 127.0.0.1
+✔ 2025-10-27T08:53:41.744Z [..\..\index.js:312] 🔌 Client connected: Whmg8QR4e3fX75W6AADZ | IP: 127.0.0.1
+✔ 2025-10-27T08:53:42.093Z [..\..\index.js:312] 🔌 Client connected: Rfv-xJdVwrVg0JIOAADb | IP: 127.0.0.1
+✔ 2025-10-27T08:53:42.275Z [..\node\getads.js:83] [ADS] Client Rfv-xJdVwrVg0JIOAADb requested ad refresh
+✔ 2025-10-27T08:54:26.751Z [..\..\index.js:361] 🔌 Client disconnected: Whmg8QR4e3fX75W6AADZ | IP: 127.0.0.1
+✔ 2025-10-27T09:14:39.636Z [..\..\index.js:457] Received SIGINT. Shutting down server...
+✔ 2025-10-27T09:14:39.641Z [..\node\db.js:54] Database connection closed
+✔ 2025-10-27T09:14:47.724Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-10-27T09:14:47.727Z [..\..\index.js:235] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-10-27T09:14:47.731Z [..\..\index.js:443] Wrote PID 14884 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-10-27T09:14:47.740Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-10-27T09:14:47.741Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-10-27T09:14:47.742Z [..\node\db.js:25] Database connected
+✔ 2025-10-27T09:14:47.742Z [..\..\index.js:370] Database initialized successfully
+✔ 2025-10-27T09:14:47.743Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-10-27T09:14:47.753Z [..\..\index.js:390] Server running on http://192.168.1.200:12345
+✔ 2025-10-27T09:14:47.999Z [..\..\index.js:312] 🔌 Client connected: q2bbAvwPms5brTXYAAAB | IP: 127.0.0.1
+✔ 2025-10-27T09:14:48.920Z [..\..\index.js:312] 🔌 Client connected: VP0guLz-yBfCLwGVAAAD | IP: 127.0.0.1
+✔ 2025-10-27T09:14:48.990Z [..\..\index.js:312] 🔌 Client connected: 19QVRWJs3vems4aHAAAG | IP: 127.0.0.1
+✔ 2025-10-27T09:14:49.001Z [..\..\index.js:312] 🔌 Client connected: MSC06wwNs4ipbGxkAAAH | IP: 127.0.0.1
+✔ 2025-10-27T09:14:49.864Z [..\..\index.js:361] 🔌 Client disconnected: VP0guLz-yBfCLwGVAAAD | IP: 127.0.0.1
+✔ 2025-10-27T09:14:50.181Z [..\..\index.js:312] 🔌 Client connected: 8BumfD3WUBCBkm9qAAAJ | IP: 127.0.0.1
+✔ 2025-10-27T09:14:50.259Z [..\node\getads.js:83] [ADS] Client 8BumfD3WUBCBkm9qAAAJ requested ad refresh
+✔ 2025-10-27T09:14:53.872Z [..\..\index.js:361] 🔌 Client disconnected: 8BumfD3WUBCBkm9qAAAJ | IP: 127.0.0.1
+✔ 2025-10-27T09:14:54.288Z [..\..\index.js:312] 🔌 Client connected: XoT0KVrI-Ys721NmAAAL | IP: 127.0.0.1
+✔ 2025-10-27T09:14:54.335Z [..\node\getads.js:83] [ADS] Client XoT0KVrI-Ys721NmAAAL requested ad refresh
+✔ 2025-10-27T09:15:26.319Z [..\..\index.js:361] 🔌 Client disconnected: XoT0KVrI-Ys721NmAAAL | IP: 127.0.0.1
+✔ 2025-10-27T09:15:26.818Z [..\..\index.js:312] 🔌 Client connected: r_9sT94bGTLMuQu8AAAN | IP: 127.0.0.1
+✔ 2025-10-27T09:15:26.904Z [..\node\getads.js:83] [ADS] Client r_9sT94bGTLMuQu8AAAN requested ad refresh

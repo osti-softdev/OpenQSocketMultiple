@@ -90937,3 +90937,9 @@
 ❌ 2025-10-27T07:15:00.427Z [..\node\footerwatcher.js:60] ❌ Error updating modifications.json: SyntaxError: Unexpected end of JSON input
     at JSON.parse (<anonymous>)
     at Socket.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:44:29)
+❌ 2025-10-27T08:41:17.938Z [..\node\calledTicketsWatcher.js:198] ❌ Error reading voice.json: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at readVoiceConfig (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\calledTicketsWatcher.js:196:15)
+    at StatWatcher.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\calledTicketsWatcher.js:236:18)
+    at StatWatcher.emit (node:events:520:28)
+    at StatWatcher.onchange (node:internal/fs/watchers:92:8)

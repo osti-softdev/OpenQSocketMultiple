@@ -1105,6 +1105,39 @@ body {
 .adminbody .settingsmain .settsubcont .setttitles .settcreateaccount:active {
   transform: scale(0.8);
 }
+.adminbody .settingsmain .settsubcont .settcolordata {
+  position: absolute;
+  top: 10%;
+  left: 0%;
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow-y: auto;
+  gap: 1%;
+  scrollbar-width: thin;
+}
+.adminbody .settingsmain .settsubcont .settcolordata label {
+  position: relative;
+  min-height: 15%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  text-indent: 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.adminbody .settingsmain .settsubcont .settcolordata label input {
+  position: absolute;
+  right: 5%;
+  width: 30%;
+  height: 80%;
+}
 .adminbody .settingsmain .settsubcont .accsettingdata {
   position: absolute;
   top: 10%;
@@ -1362,7 +1395,7 @@ body {
   height: 50%;
   width: 40%;
 }
-.adminbody .settingsmain .settticketupdate {
+.adminbody .settingsmain .settcolorupdate {
   top: 50%;
   right: 30%;
   height: 50%;
