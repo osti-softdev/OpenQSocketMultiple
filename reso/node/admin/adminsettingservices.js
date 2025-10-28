@@ -27,15 +27,17 @@ function updateServices(service) {
 
 				const updateQuery = `
 				UPDATE services 
-				SET sname = ?, regular = ?, status = ? 
+				SET sname = ?, shortSname = ?, regular = ?, status = ?, sched = ?
 				WHERE id = ?
 			`;
 				db.run(
 					updateQuery,
 					[
 						service.sname,
+						service.shortSname,
 						service.regular,
 						service.status,
+						service.sched,
 						service.id
 					],
 					function (err) {

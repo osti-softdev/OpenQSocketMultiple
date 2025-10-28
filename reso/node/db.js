@@ -34,7 +34,7 @@ async function getAllServices() {
 	}
 
 	return new Promise((resolve, reject) => {
-		db.all("SELECT sname, regular, priority FROM services WHERE status = 1 ORDER by id ASC", [], (err, rows) => {
+		db.all("SELECT sname, regular, priority, sched FROM services WHERE status = 1 ORDER by id ASC", [], (err, rows) => {
 			if (err) {
 				console.error("Error querying services:", err.message);
 				return reject(err);

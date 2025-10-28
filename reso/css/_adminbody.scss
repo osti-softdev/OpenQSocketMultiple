@@ -983,7 +983,6 @@
                         transform: scale(0.8);
                     }
                 }
-             
 
             }
             .settcolordata{
@@ -1225,7 +1224,7 @@
                 .service-rowData {
                     width: 100%;
                     display: grid;
-                    grid-template-columns: 30% 15% 40% 10%; // Fixed column widths
+                    grid-template-columns: 30% 10% 20% 15% 20%; // Fixed column widths
                     align-items: center;
                     text-align: center;
                     box-sizing: border-box;
@@ -1355,15 +1354,15 @@
         }
         .setttellertupdate {
             top: 0%;
-            right: 30%;
+            right: 40%;
             height: 50%;
-            width: 30%;
+            width: 20%;
         }
         .settservicesupdate {
             top: 0%;
             right: 0%;
             height: 50%;
-            width: 30%;
+            width: 40%;
         }
         .settaudiosetting {
             top: 50%;

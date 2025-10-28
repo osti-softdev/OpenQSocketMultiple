@@ -1347,7 +1347,7 @@ body {
 .adminbody .settingsmain .settsubcont .settservicesdata .service-rowData {
   width: 100%;
   display: grid;
-  grid-template-columns: 30% 15% 40% 10%;
+  grid-template-columns: 30% 10% 20% 15% 20%;
   align-items: center;
   text-align: center;
   box-sizing: border-box;
@@ -1461,15 +1461,15 @@ body {
 }
 .adminbody .settingsmain .setttellertupdate {
   top: 0%;
-  right: 30%;
+  right: 40%;
   height: 50%;
-  width: 30%;
+  width: 20%;
 }
 .adminbody .settingsmain .settservicesupdate {
   top: 0%;
   right: 0%;
   height: 50%;
-  width: 30%;
+  width: 40%;
 }
 .adminbody .settingsmain .settaudiosetting {
   top: 50%;
