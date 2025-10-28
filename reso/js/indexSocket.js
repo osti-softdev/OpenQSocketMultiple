@@ -21,7 +21,6 @@ socket.on("servicesDisplayUpdate", (data) => {
 
 	if(counterDisplayer != 1){
 		services.forEach((service) => {
-			console.log("Rendering service:", service);
 			const $rowDiv = $("<div>").addClass("service-row");
 			$rowDiv.append($("<span>").addClass("service-name").text(service.sname));
 			$rowDiv.append($("<span>").addClass("service-ticket").text(service.ticket));
@@ -29,7 +28,6 @@ socket.on("servicesDisplayUpdate", (data) => {
 		});
 	}else{
 		services.forEach((service) => {
-				console.log("Rendering service:", service);
 				const $rowDiv = $("<div>").addClass("service-row");
 				$rowDiv.append($("<span>").addClass("service-name").text(service.sname));
 				$rowDiv.append($("<span>").addClass("service-ticket").text(service.ticket));
@@ -340,7 +338,6 @@ socket.on("DisplayUpdated", (config) => {
 });
 
 function applyDisplayConfig(config) {
-console.log(config);
   const displayUpdate = config.display_update || {};
 
 	   if (displayUpdate.update === 1) {

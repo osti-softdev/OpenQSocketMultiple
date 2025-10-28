@@ -965,6 +965,26 @@
                         transform: scale(0.8);
                     }
                 }
+                .addTellerbtn {
+                    position: absolute;
+                    right: 0%;
+                    height: 80%;
+                    width: fit-content;
+                    border-radius: 8px;
+                    padding: 0.5% 1%;
+                    box-shadow: $boxesShadows;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    transform: scale(0.95);
+                    background-color: rgba(68, 255, 0, 0.607);
+                    cursor: pointer;
+
+                    &:active {
+                        transform: scale(0.8);
+                    }
+                }
+
             }
             .settcolordata{
                 position: absolute;
@@ -1256,6 +1276,76 @@
                     }
                 }
             }
+            .setttellerdata{
+                position: absolute;
+                top: 10%;
+                left: 0%;
+                width: 100%;
+                height: 90%;
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                align-items: start;
+                overflow-y: auto;
+                gap: 1%;
+                scrollbar-width: thin;
+
+                .teller-card{
+                    position: relative;
+                    height: 10%;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    background-color: lightgray;
+                    font-size: 0.9rem;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+                    p {
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                         button{
+                            height: 80%;
+                            width: 80%;
+                            border: none;
+                            border-radius: 8px;
+                            box-shadow: 2px 2px 5px black;
+                            cursor: pointer;
+                            color: rgb(175, 170, 170);
+                        
+                            &:active {
+                                transform: scale(0.95);
+                            }
+                             &:hover {
+                                filter: brightness(120%);
+                            }
+                        }
+
+                        &:nth-child(1) {
+                        width: 70%;
+                        justify-content: start;
+                        text-indent: 10px;
+                        }
+                        &:nth-child(2) {
+                            width: 15%;
+
+                             button{
+                               background-color: rgb(39, 39, 39);
+                            }
+                        }
+                        &:nth-child(3) {
+                            width: 15%;
+
+                            button{
+                               background-color: rgb(104, 58, 5);
+                            }
+                        }
+                    }
+                }
+            }
         }
         .settaccountcreation {
             top: 0;
@@ -1293,7 +1383,5 @@
             height: 50%;
             width: 30%;
         }
-       
-       
     }
 }

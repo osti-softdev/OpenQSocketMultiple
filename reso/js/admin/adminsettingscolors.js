@@ -1,3 +1,4 @@
+        socket.emit("updatecoloradmin");
 // ✅ Listen for configuration updates from server
 socket.on("ColorUpdatedadmin", (config) => {
     const displayUpdate = config.display_update || {};

@@ -141,6 +141,9 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
           }
         }
 
+         // ✅ Create placeholders for filtering by the counter’s services
+        const placeholders = serviceList.map(() => "?").join(",") || "''";
+
         // Get all pending list
         const allPendingList = await new Promise((res, rej) => {
           db.all(
@@ -148,9 +151,9 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
               SELECT ticketnum, ticketservice, id, time 
               FROM transactions
               WHERE status = 'pending'
-                AND date = ?
+                AND date = ? AND sname IN (${placeholders})
             `,
-            [date],
+            [date,  ...serviceList],
             (err, rows) => {
               if (err) return rej(err);
               res(rows || []);
@@ -166,9 +169,9 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
               FROM transactions
               WHERE status = 'held'
                 AND counter_num = ? AND counter_user = ?
-                AND date = ?
+                AND date = ? AND sname IN (${placeholders})
             `,
-            [cnum, cname, date],
+            [cnum, cname, date, ...serviceList],
             (err, rows) => {
               if (err) return rej(err);
               res(rows || []);
@@ -184,6 +187,7 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
               FROM transactions
               WHERE status = 'received'
                 AND date = ?
+                 AND sname IN (${placeholders})
                 AND (
                   -- Case 1: Has counter_num only
                   (counter_num IS NOT NULL AND counter_group IS NULL AND counter_num = ?)
@@ -195,7 +199,7 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
                   (counter_num IS NOT NULL AND counter_group IS NOT NULL AND counter_num = ?)
                 )
               `,
-              [date, cnum, group_name, cnum],
+              [date, ...serviceList, cnum, group_name, cnum],
               (err, rows) => {
                 if (err) return rej(err);
                 res(rows || []);

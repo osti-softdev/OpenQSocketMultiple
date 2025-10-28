@@ -7,4 +7,4 @@ dist_32
 dist_64
 node_modules
 package-lock.json
-/
+/outfolder/logs
