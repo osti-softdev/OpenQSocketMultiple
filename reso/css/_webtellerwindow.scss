@@ -33,7 +33,18 @@
         }
 
     }
+    .historybtn{
+        position: absolute;
+        top: 0%;
+        right: 10%;
+        width: auto;
+        cursor: pointer;
 
+        &:hover{
+            filter: brightness(150%);
+        }
+
+    }
     .tellernavbar{
         position: absolute;
         top: 30px;

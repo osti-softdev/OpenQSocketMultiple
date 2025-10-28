@@ -27,7 +27,7 @@ function updateServices(service) {
 
 				const updateQuery = `
 				UPDATE services 
-				SET sname = ?, shortSname = ?, regular = ?, status = ?, sched = ?
+				SET sname = ?, shortSname = ?, regular = ?,priority = ?, status = ?, sched = ?
 				WHERE id = ?
 			`;
 				db.run(
@@ -36,6 +36,7 @@ function updateServices(service) {
 						service.sname,
 						service.shortSname,
 						service.regular,
+						service.priority,
 						service.status,
 						service.sched,
 						service.id

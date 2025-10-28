@@ -25,7 +25,7 @@ $(document).ready(function () {
       });
     } 
     socket.on("calledtick", function(params) {
-      console.log("Activity Ticket: "+params.statusdata)
+      // console.log("Activity Ticket: "+params.statusdata)
     })
     socket.on("updatetellersandgroups", (data) => {
       if (!data) {
@@ -33,7 +33,7 @@ $(document).ready(function () {
         return;
       }
       localStorage.setItem("tellerandgroupsdata", JSON.stringify(data));
-      console.log("📥 Received teller and groups data:", data);
+      // console.log("📥 Received teller and groups data:", data);
     });
 
 
@@ -226,12 +226,32 @@ $(document).on("click", ".tlrnavbtnrec", function () {
       dataadditional: "",
       group_name: authUser.group_name,
     });
-    console.log(first.ticketservice+first.ticketnum); 
+    // console.log(first.ticketservice+first.ticketnum); 
   } else {
     console.log("⚠️ No received tickets available");
   }
 });
-
+// ! HISTORY BTN
+$(document).on("click", ".historybtn", function () {
+    socket.emit("gettellershistory", {
+      callingcode: "",
+      tickid: "",
+      tickstatus: "",    
+      tickwherestatus: "", 
+      cnum: authUser.cnum,
+      cname: authUser.cname,
+      tickcode: "",
+      dataadditional: "",
+      group_name: authUser.group_name,
+    });
+});
+  socket.on("tellerhistorydata", (data) => {
+    if (!data) {
+      console.warn("⚠️ No History data received");
+      return;
+    }
+    console.log("📥 Received history data:", data);
+  });
 // ! Right-click context menu for held list
 $(document).on("contextmenu", ".tlrnavbtnheld", function (e) {
   e.preventDefault();

@@ -20,6 +20,7 @@ $(document).ready(function () {
 
 function updateIconColors(theme) {
   $("#logoutBtn i").css("color", theme === "light" ? "#333333" : "#f59300");
+  $(".historybtn i").css("color", theme === "light" ? "#333333" : "#f59300");
   $(".telleractbtn i").css("color", theme === "light" ? "#51ff00ff" : "#004ef5ff");
 }
 

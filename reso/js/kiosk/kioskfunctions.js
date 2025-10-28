@@ -36,20 +36,19 @@ $(document).ready(function () {
             $priorityServices.append("<p>No priority services available</p>");
         } else {
             services.forEach((service) => {
-                 const schedText = service.sched ? `<div class="sched-label">Sched: ${service.sched}</div>` : "";
                 if (service.regular) {
                     $regularServices.append(`
                         <div class="service-button regbtn" data-sname="${service.sname}" data-ticketservice="${service.regular}">
-                            ${service.sname}
-                            <span class="cutoff-text" style="display:none;">Cut Off</span>
+                            ${service.shortSname}
+                            <span class="cutoff-text" style="display:none;color:red;">Cut Off</span>
                         </div>
                     `);
                 }
                 if (service.priority) {
                     $priorityServices.append(`
                         <div class="service-button priobtn" data-sname="${service.sname}" data-ticketservice="${service.priority}">
-                            ${service.sname}
-                            <span class="cutoff-text" style="display:none;">Cut Off</span>
+                            ${service.shortSname}
+                            <span class="cutoff-text" style="display:none; color:red;">Cut Off</span>
                         </div>
                     `);
                 }
@@ -203,7 +202,7 @@ $(document).ready(function () {
                     $btn.css({
                         opacity: "0.5",
                         pointerEvents: "none",
-                        filter: "grayscale(100%)"
+                        filter: "grayscale(80%)"
                     });
                     $cutOffText.show();
                 }

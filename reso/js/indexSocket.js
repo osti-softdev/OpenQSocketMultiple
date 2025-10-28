@@ -14,7 +14,6 @@ socket.on("servicesDisplayUpdate", (data) => {
 		counterDisplayer = newCounterDisplay || 0;
 	const $servicesList = $("#servicesDisplay");
 	$servicesList.empty();
-	console.log("Updating services display:", services);
 	const $headerDiv = $("<div>").addClass("service-header");
 	$headerDiv.append($("<span>").addClass("tickethead").text("NOW SERVING"));
 	$servicesList.append($headerDiv);
@@ -22,14 +21,14 @@ socket.on("servicesDisplayUpdate", (data) => {
 	if(counterDisplayer != 1){
 		services.forEach((service) => {
 			const $rowDiv = $("<div>").addClass("service-row");
-			$rowDiv.append($("<span>").addClass("service-name").text(service.sname));
+			$rowDiv.append($("<span>").addClass("service-name").html(service.shortSname));
 			$rowDiv.append($("<span>").addClass("service-ticket").text(service.ticket));
 			$servicesList.append($rowDiv);
 		});
 	}else{
 		services.forEach((service) => {
 				const $rowDiv = $("<div>").addClass("service-row");
-				$rowDiv.append($("<span>").addClass("service-name").text(service.sname));
+				$rowDiv.append($("<span>").addClass("service-name").html(service.shortSname));
 				$rowDiv.append($("<span>").addClass("service-ticket").text(service.ticket));
 				$rowDiv.append($("<span>").addClass("counter").text(service.counter_num));
 				$servicesList.append($rowDiv);
