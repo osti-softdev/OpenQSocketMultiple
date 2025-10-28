@@ -1632,7 +1632,14 @@ body {
   transform: scale(0.9);
 }
 
+.service-checkbox {
+  flex: 1 25%;
+}
+
 @media (max-width: 480px) {
+  .service-checkbox {
+    flex: 1 40%;
+  }
   .admin-container .adminfooter {
     font-size: 0.7rem;
   }
@@ -2013,6 +2020,14 @@ body {
   .admin-container .adminbody .settingsmain section .setttitles {
     font-size: 1rem;
   }
+  .admin-container .adminbody .settingsmain section .service-checkbox {
+    flex: 1 50%;
+    display: flex;
+    align-items: center;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    gap: 6px;
+    margin-bottom: 5px;
+  }
   .admin-container .adminbody .settingsmain .settaccountcreation {
     top: 0;
     left: 0;
@@ -2026,6 +2041,7 @@ body {
   .admin-container .adminbody .settingsmain .setttellertupdate {
     top: 0;
     left: 0;
+    width: 100%;
   }
   .admin-container .adminbody .settingsmain .settcolorupdate {
     top: 0;
@@ -2034,6 +2050,7 @@ body {
   .admin-container .adminbody .settingsmain .settservicesupdate {
     top: 0;
     left: 0;
+    width: 100%;
   }
   .admin-container .adminbody .settingsmain .settaudiosetting {
     top: 0;
@@ -2041,10 +2058,6 @@ body {
   }
   .admin-container .adminbody .settingsmain .settaudiosetting .audiosettingdata label input, .admin-container .adminbody .settingsmain .settaudiosetting .audiosettingdata label select {
     right: 35%;
-  }
-  .admin-container .adminbody .settingsmain .settticketupdate {
-    top: 0;
-    left: 0;
   }
   .admin-container .adminbody .settingsmain .settimagesupdate {
     top: 0;

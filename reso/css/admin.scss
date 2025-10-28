@@ -76,10 +76,18 @@ body {
     }
 }
 
+// ! Swal custom class
+.service-checkbox{
+    flex: 1 25%;
+}
 
 
 
 @media (max-width: 480px) {
+    .service-checkbox {
+    flex: 1 40%;
+  }
+
     .admin-container{
         .adminfooter{
             font-size: 0.7rem;
@@ -507,6 +515,14 @@ body {
                     .setttitles{
                         font-size: 1rem;
                     }
+                    .service-checkbox{
+                        flex:1 50%;
+                        display:flex;
+                        align-items:center;
+                        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        gap:6px;
+                        margin-bottom:5px;
+                    }
                 }
 
                 .settaccountcreation {
@@ -522,6 +538,7 @@ body {
                 .setttellertupdate {
                     top: 0;
                     left: 0;
+                    width: 100%;
                 }
                 .settcolorupdate {
                     top: 0;
@@ -530,6 +547,7 @@ body {
                 .settservicesupdate {
                     top: 0;
                     left: 0;
+                    width: 100%;
                 }
                 .settaudiosetting {
                     top: 0;
@@ -542,10 +560,6 @@ body {
                             }
                         }
                     }
-                }
-                .settticketupdate {
-                    top: 0;
-                    left: 0;
                 }
                 .settimagesupdate {
                     top: 0;

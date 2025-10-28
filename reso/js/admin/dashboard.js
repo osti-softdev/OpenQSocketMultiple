@@ -18,13 +18,13 @@ $(document).ready(function () {
 					"top": "0",
 					"left": "0",
 					"height": "100%",
-					"width": "50%",
+					"width": "100%",
 				});
 				$(".setttellertupdate").css({
 					"top": "0",
-					"left": "50%",
+					"left": "0",
 					"height": "100%",
-					"width": "50%",
+					"width": "100%",
 				});
 				$(".settaccountcreation").hide();
 				$(".settcolorupdate").hide();

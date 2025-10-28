@@ -52,7 +52,7 @@ socket.on("tellersList", (res) => {
 				const checkboxHTML = services
 					.map(
 						(s) => `
-						<label class="service-checkbox" style="flex:1 20%;display:flex;align-items:center;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;gap:6px;margin-bottom:5px;">
+						<label class="service-checkbox" style="display:flex;align-items:center;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;gap:6px;margin-bottom:5px;">
 							<input type="checkbox" name="services" value="${s}" 
 								${selectedServices.includes(s) ? "checked" : ""}>
 							<span>${s}</span>

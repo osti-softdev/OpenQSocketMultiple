@@ -169,9 +169,9 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
               FROM transactions
               WHERE status = 'held'
                 AND counter_num = ? AND counter_user = ?
-                AND date = ? AND sname IN (${placeholders})
+                AND date = ?
             `,
-            [cnum, cname, date, ...serviceList],
+            [cnum, cname, date],
             (err, rows) => {
               if (err) return rej(err);
               res(rows || []);
@@ -187,7 +187,6 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
               FROM transactions
               WHERE status = 'received'
                 AND date = ?
-                 AND sname IN (${placeholders})
                 AND (
                   -- Case 1: Has counter_num only
                   (counter_num IS NOT NULL AND counter_group IS NULL AND counter_num = ?)
@@ -199,7 +198,7 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
                   (counter_num IS NOT NULL AND counter_group IS NOT NULL AND counter_num = ?)
                 )
               `,
-              [date, ...serviceList, cnum, group_name, cnum],
+              [date, cnum, group_name, cnum],
               (err, rows) => {
                 if (err) return rej(err);
                 res(rows || []);

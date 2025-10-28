@@ -251,3 +251,11 @@
   code: 'SQLITE_BUSY',
   __augmented: true
 }
+❌ 2025-10-28T04:05:46.652Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-28T04:05:46.662Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
