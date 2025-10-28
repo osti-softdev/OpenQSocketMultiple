@@ -213,7 +213,7 @@ $(document).ready(function () {
 		$(params).css("display", "flex");
 	}
 	// Auto-click dashboard on load
-	$(".admbtnsoptions[data-page='settings']").click();
+	$(".admbtnsoptions[data-page='dashboard']").click();
 
 	// --- Load last page or fallback to dashboard ---
 const lastPage = localStorage.getItem("lastPage") || "dashboard";
