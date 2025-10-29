@@ -985,6 +985,25 @@
                         transform: scale(0.8);
                     }
                 }
+                 .EdittellerGroup {
+                    position: absolute;
+                    left: 0%;
+                    height: 80%;
+                    width: fit-content;
+                    border-radius: 8px;
+                    padding: 0.5% 1%;
+                    box-shadow: $boxesShadows;
+                    display: flex;
+                    font-size: 0.8rem;
+                    justify-content: center;
+                    align-items: center;
+                    transform: scale(0.95);
+                    background-color: rgb(78, 83, 83);
+                    cursor: pointer;
+                    &:active {
+                        transform: scale(0.8);
+                    }
+                }
 
             }
             .settcolordata{
@@ -1248,6 +1267,7 @@
                     box-sizing: border-box;
                     text-align: center;
                     height: 90%;
+                    transform: scale(0.95);
                     }
 
                     input[type="checkbox"] {
@@ -1258,8 +1278,8 @@
                     button {
                     padding: 5px 8px;
                     height: 90%;
-                    width: 100%;         // Fit neatly inside column
-                    max-width: 90px;     // Prevent oversized button
+                    width: 100%;  
+                    max-width: 90px;    
                     box-sizing: border-box;
                     cursor: pointer;
                     }
@@ -1347,16 +1367,30 @@
                     }
                 }
             }
+            .systemsettingdata{
+                position: absolute;
+                top: 10%;
+                left: 0%;
+                width: 100%;
+                height: 90%;
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                align-items: start;
+                overflow-y: auto;
+                gap: 1%;
+                scrollbar-width: thin;
+            }
         }
         .settaccountcreation {
             top: 0;
             left: 0;
             height: 50%;
-            width: 40%;
+            width: 30%;
         }
         .setttellertupdate {
             top: 0%;
-            right: 40%;
+            left: 30%;
             height: 50%;
             width: 20%;
         }
@@ -1364,21 +1398,27 @@
             top: 0%;
             right: 0%;
             height: 50%;
-            width: 40%;
+            width: 50%;
         }
         .settaudiosetting {
             top: 50%;
             left: 0%;
             height: 50%;
-            width: 40%;
+            width: 30%;
         }
         .settcolorupdate {
             top: 50%;
-            right: 30%;
+            left: 30%;
             height: 50%;
-            width: 30%;
+            width: 20%;
         }
         .settimagesupdate {
+            top: 50%;
+            left: 50%;
+            height: 50%;
+            width: 20%;
+        }
+        .settsystemsetting {
             top: 50%;
             right: 0%;
             height: 50%;

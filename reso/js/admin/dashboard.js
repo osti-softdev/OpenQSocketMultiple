@@ -27,11 +27,11 @@ $(document).ready(function () {
 					"width": "100%",
 				});
 				$(".settaccountcreation").hide();
+				$(".settsystemsetting").hide();
 				$(".settcolorupdate").hide();
 				$(".settaudiosetting").hide();
 				$(".settticketupdate").hide();
 				$(".settimagesupdate").hide();
-
 			} else {
 				$("#dash").show();
 			}
@@ -213,7 +213,7 @@ $(document).ready(function () {
 		$(params).css("display", "flex");
 	}
 	// Auto-click dashboard on load
-	$(".admbtnsoptions[data-page='dashboard']").click();
+	$(".admbtnsoptions[data-page='settings']").click();
 
 	// --- Load last page or fallback to dashboard ---
 const lastPage = localStorage.getItem("lastPage") || "dashboard";
