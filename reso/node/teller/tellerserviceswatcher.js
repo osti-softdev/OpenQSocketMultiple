@@ -742,13 +742,14 @@ async function getAllHistoryData(cname) {
  */
 function setupTellerWatcher(socket, io) {
   socket.on("gettellerservices", async (data) => {
-    await sendTellerData(socket, data);
+    await sendTellerdata(socket, data);
+    await sendcalledticket(socket, data);
   });
   socket.on("gettellersandgroups", async (data) => {
-    await sendTellerData(socket, data);
+    await sendTellerAndGroups(socket, data);
   });
   socket.on("gettellershistory", async (data) => {
-    await sendTellerData(socket, data);
+    await sendhistorydata(socket, data);
   });
   socket.on("getandupdatecalledtick", async (data) => {
   await updatecalledtick(socket, data);
@@ -760,22 +761,44 @@ function setupTellerWatcher(socket, io) {
     watcherAdded = true;
   }
 
-  async function sendTellerData(target, data) {
+  async function sendcalledticket(target, data) {
     try {
       const { id, cuser, cnum, cname, group_name } = data;
-      const tellerandgroups = await gettellersandgroups(id, cnum, group_name);
-      const teller = await getTellerServices(id, cuser, cnum, cname, group_name);
       const calledticket = await getTellerCalledticket(cnum, cname);
-      const historyData = await getAllHistoryData(cname);
-      target.emit("updatetellersandgroups", tellerandgroups);
-      target.emit("updatetellerservices", teller);
       target.emit("calledticketdata", calledticket);
-      target.emit("tellerhistorydata", historyData);
     } catch (err) {
       console.error("❌ Error fetching teller services:", err);
-      target.emit("updatetellersandgroups", null);
-      target.emit("updatetellerservices", null);
       target.emit("calledticketdata", null);
+    }
+  }
+
+  // ! TELLER AND GROUPS
+  async function sendTellerAndGroups(target, data) {
+   try {
+      const { id, cuser, cnum, cname, group_name } = data;
+      const tellerandgroups = await gettellersandgroups(id, cnum, group_name);
+        target.emit("updatetellersandgroups", tellerandgroups);
+    } catch (err) {
+        target.emit("updatetellersandgroups", null);
+    }
+  }
+  // ! TELLER SERVICES
+  async function sendTellerdata(target, data) {
+   try {
+      const { id, cuser, cnum, cname, group_name } = data;
+        const teller = await getTellerServices(id, cuser, cnum, cname, group_name);
+      target.emit("updatetellerservices", teller);
+    } catch (err) {
+      target.emit("updatetellerservices", null);
+    }
+  }
+  // ! HISTORY DATA
+  async function sendhistorydata(target, data) {
+   try {
+      const { id, cuser, cnum, cname, group_name } = data;
+      const historyData = await getAllHistoryData(cname);
+      target.emit("tellerhistorydata", historyData);
+    } catch (err) {
       target.emit("tellerhistorydata", null);
     }
   }
