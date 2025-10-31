@@ -2,6 +2,8 @@ let smsSetting = null;
 window.snameholder = null;
 window.ticketserviceholder = null;
 window.mobileno = null;
+window.cachedServices = [];
+window.serviceSchedCheckerStarted = false;
 
 $(document).ready(function () {
     socket.on("envSMS", (data) => {
@@ -23,6 +25,8 @@ $(document).ready(function () {
     });
 
     socket.on("servicesUpdate2", (services) => {
+        console.log("Services received for kiosk:", services);
+
         const $regularServices = $("#regularServices");
         const $priorityServices = $("#priorityServices");
         $regularServices.empty();
@@ -35,14 +39,16 @@ $(document).ready(function () {
                 if (service.regular) {
                     $regularServices.append(`
                         <div class="service-button regbtn" data-sname="${service.sname}" data-ticketservice="${service.regular}">
-                            ${service.sname}
+                            ${service.shortSname}
+                            <span class="cutoff-text" style="display:none;color:red;">Cut Off</span>
                         </div>
                     `);
                 }
                 if (service.priority) {
                     $priorityServices.append(`
                         <div class="service-button priobtn" data-sname="${service.sname}" data-ticketservice="${service.priority}">
-                            ${service.sname}
+                            ${service.shortSname}
+                            <span class="cutoff-text" style="display:none; color:red;">Cut Off</span>
                         </div>
                     `);
                 }
@@ -80,7 +86,19 @@ $(document).ready(function () {
                     $(".mobilemain").css("display","flex");
                 }
             });
-	setServicesKiosk(services.length);
+
+        setServicesKiosk(services.length);
+     // Cache services for schedule checker
+           window.cachedServices = services;
+
+        // Initial check
+        updateServiceAvailability();
+
+        // Start schedule checker if not yet running
+        if (!window.serviceSchedCheckerStarted) {
+            window.serviceSchedCheckerStarted = true;
+            setInterval(updateServiceAvailability, 30000); 
+        }
     });
 
     function setServicesKiosk(count) {
@@ -152,6 +170,56 @@ $(document).ready(function () {
     socket.on("DisplayUpdated", (config) => {
         applyDisplayConfig(config);
     });
+
+    // ! ================== SERVICE SCHEDULE CHECKER ==================
+    function updateServiceAvailability() {
+        if (!window.cachedServices || window.cachedServices.length === 0) return;
+
+        const now = new Date();
+        const currentPHTime = new Intl.DateTimeFormat("en-US", {
+            timeZone: "Asia/Manila",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false
+        }).format(now);
+
+        const [curHour, curMin] = currentPHTime.split(":").map(Number);
+        const curTotalMinutes = curHour * 60 + curMin;
+
+        window.cachedServices.forEach((service) => {
+            if (!service.sched) return; // skip services without sched
+
+            const [schedHour, schedMin] = service.sched.split(":").map(Number);
+            const schedTotalMinutes = schedHour * 60 + schedMin;
+            const selector = `.service-button[data-sname="${service.sname}"]`;
+            const $btn = $(selector);
+            const $cutOffText = $btn.find(".cutoff-text");
+
+            if (schedTotalMinutes <= curTotalMinutes) {
+                // Disable permanently once past sched
+                if (!$btn.hasClass("disabled")) {
+                    $btn.addClass("disabled");
+                    $btn.css({
+                        opacity: "0.5",
+                        pointerEvents: "none",
+                        filter: "grayscale(80%)"
+                    });
+                    $cutOffText.show();
+                }
+            } else {
+                // Enable again if before sched
+                if ($btn.hasClass("disabled")) {
+                    $btn.removeClass("disabled");
+                    $btn.css({
+                        opacity: "1",
+                        pointerEvents: "auto",
+                        filter: "none"
+                    });
+                    $cutOffText.hide();
+                }
+            }
+        });
+    }
     
 // ! Function to apply display configuration changes
 function applyDisplayConfig(config) {

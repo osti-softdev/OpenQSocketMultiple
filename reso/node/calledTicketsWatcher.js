@@ -38,7 +38,7 @@ async function getCallingTickets() {
 // --- Update ticket to "called" and append counter history ---
 async function updateCalledTicket(id, counterHist, identifierType) {
 	const { time } = getPHDateTime();
-	console.log(identifierType);
+	// console.log(identifierType);
 	if(identifierType != "WINDOWED_APPLICATION"){
 		const entry = `[${time}-${counterHist}-Called]`;
 		const finishEntry = `[${time}-${counterHist}-AutoFinished]`;

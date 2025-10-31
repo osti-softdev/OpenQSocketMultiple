@@ -26,7 +26,6 @@ $(document).ready(function () {
 
     // Initial call
     updateDateTime();
-    console.log("Clock initialized.");
     // Update time every second
     setInterval(updateDateTime, 1000);
 });

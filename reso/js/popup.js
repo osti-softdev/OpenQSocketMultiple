@@ -27,7 +27,6 @@ socket.on("voiceConfigUpdate", (config) => {
 // --- 3️⃣ Called Tickets Update ---
 socket.on("calledTicketsUpdate", (calledList) => {
 	if (!calledList || !calledList.length) return;
-	console.log("🔔 Called tickets received:", calledList);
 
 	calledList.forEach((ticket) => {
 		if (activeTicketIds.has(ticket.id)) return;
@@ -74,11 +73,11 @@ function showPopup(ticketData) {
 	$("#counterpop").text(ticketData.sname);
 	$("#ticketpop").text(`${ticketData.service}-${ticketData.ticket}`);
 
-	if (audioElement) {
-		audioElement.currentTime = 0;
-		audioElement.volume = voiceConfig.bell_volume || 1;
-		audioElement.play();
-	}
+	// if (audioElement) {
+	// 	audioElement.currentTime = 0;
+	// 	audioElement.volume = voiceConfig.bell_volume || 1;
+	// 	audioElement.play();
+	// }
 }
 
 function hidePopup() {

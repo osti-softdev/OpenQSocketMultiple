@@ -1,1 +1,168 @@
+<<<<<<< HEAD
 ❌ 2025-10-31T08:23:04.468Z [..\node\kiosk\kiosk.js:75] ❌ Failed to send SMS to 09988166518: Modem not connected
+=======
+❌ 2025-10-29T09:18:43.600Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:18:43.603Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:18:43.603Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:18:43.603Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:18:43.604Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:18:43.605Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:18:43.605Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:18:43.607Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:18:56.640Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:18:56.642Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:18:56.642Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:18:56.642Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:18:56.643Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:18:56.643Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:18:56.643Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:18:56.644Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:18:56.644Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:18:56.647Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:22:09.113Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:22:09.114Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:22:09.114Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:22:09.115Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:22:09.115Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:22:09.115Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:22:09.116Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:22:09.116Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:22:09.116Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:22:09.117Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:22:09.118Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:22:09.119Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:23:30.573Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:23:30.574Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:23:30.574Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:23:30.574Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:23:30.574Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:23:30.575Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:23:30.575Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:23:30.575Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:23:30.575Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:23:30.576Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:99:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-10-29T09:23:30.576Z [unknown] Invalid modifications.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+>>>>>>> 1502d7bb13481b3171a95db729fcb64336d9cbb2

@@ -141,6 +141,9 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
           }
         }
 
+         // ✅ Create placeholders for filtering by the counter’s services
+        const placeholders = serviceList.map(() => "?").join(",") || "''";
+
         // Get all pending list
         const allPendingList = await new Promise((res, rej) => {
           db.all(
@@ -148,9 +151,9 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
               SELECT ticketnum, ticketservice, id, time 
               FROM transactions
               WHERE status = 'pending'
-                AND date = ?
+                AND date = ? AND sname IN (${placeholders})
             `,
-            [date],
+            [date,  ...serviceList],
             (err, rows) => {
               if (err) return rej(err);
               res(rows || []);
@@ -511,6 +514,7 @@ async function updatecallticket(callingcode, tickid, tickstatus, tickwherestatus
         let counter_num = null;
         let counter_group = null;
         let counter_user = null;
+        let forwardEntry = `[${time}-${cname}-Forwarded(${dataadditional})]`;
 
         // Parse dataadditional (example: "5_n" or "CASHIER_g")
         if (typeof dataadditional === "string") {
@@ -519,15 +523,16 @@ async function updatecallticket(callingcode, tickid, tickstatus, tickwherestatus
             // If forwarding to a numbered counter, clear others
             counter_group = "";
             counter_user = "";
+            forwardEntry = `[${time}-${cname}-Forwarded(${counter_num})]`;
           } else if (dataadditional.endsWith("_g")) {
             counter_group = dataadditional.replace("_g", "");
             // If forwarding to a group, clear others
             counter_num = "";
             counter_user = "";
+            forwardEntry = `[${time}-${cname}-Forwarded(${counter_group})]`;
           }
         }
 
-        const forwardEntry = `[${time}-${cname}-Forwarded(${dataadditional})]`;
 
         const query = `
           UPDATE transactions
@@ -681,16 +686,70 @@ async function updatecallticket(callingcode, tickid, tickstatus, tickwherestatus
     });
   });
 }
+async function getAllHistoryData(cname) {
+  const { date } = getPHDateTime();
+
+  return new Promise((resolve, reject) => {
+    const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err) => {
+      if (err) return reject(err);
+    });
+
+    // Match only histories that contain this teller’s name between hyphens (e.g. "-ZIPPHORA LEI ALFORQUE-")
+    const historyPattern = `%-${cname}-%`;
+
+    const query = `
+      SELECT ticketnum, ticketservice, start_time, status, history
+      FROM transactions
+      WHERE date = ?
+        AND history LIKE ?
+      ORDER BY id DESC
+    `;
+
+    db.all(query, [date, historyPattern], (err, rows) => {
+      db.close();
+
+      if (err) {
+        return reject(err);
+      }
+
+      // Parse history string into structured format
+      const historyData = rows.map(row => {
+        const parsedHistory = row.history
+          ? row.history.split(";").map(entry => {
+              const match = entry.match(/\[(.*?)\]/);
+              if (!match) return null;
+              const [time, user, action] = match[1].split("-");
+              return { time, user, action };
+            }).filter(Boolean)
+          : [];
+
+        return {
+          ticketnum: row.ticketnum,
+          ticketservice: row.ticketservice,
+          start_time: row.start_time,
+          status: row.status,
+          history: parsedHistory
+        };
+      });
+
+      resolve(historyData);
+    });
+  });
+}
 
 /**
  * Setup watcher for teller data updates
  */
 function setupTellerWatcher(socket, io) {
   socket.on("gettellerservices", async (data) => {
-    await sendTellerData(socket, data);
+    await sendTellerdata(socket, data);
+    await sendcalledticket(socket, data);
   });
   socket.on("gettellersandgroups", async (data) => {
-    await sendTellerData(socket, data);
+    await sendTellerAndGroups(socket, data);
+  });
+  socket.on("gettellershistory", async (data) => {
+    await sendhistorydata(socket, data);
   });
   socket.on("getandupdatecalledtick", async (data) => {
   await updatecalledtick(socket, data);
@@ -702,20 +761,45 @@ function setupTellerWatcher(socket, io) {
     watcherAdded = true;
   }
 
-  async function sendTellerData(target, data) {
+  async function sendcalledticket(target, data) {
     try {
       const { id, cuser, cnum, cname, group_name } = data;
-      const tellerandgroups = await gettellersandgroups(id, cnum, group_name);
-      const teller = await getTellerServices(id, cuser, cnum, cname, group_name);
       const calledticket = await getTellerCalledticket(cnum, cname);
-      target.emit("updatetellersandgroups", tellerandgroups);
-      target.emit("updatetellerservices", teller);
       target.emit("calledticketdata", calledticket);
     } catch (err) {
       console.error("❌ Error fetching teller services:", err);
-      target.emit("updatetellersandgroups", null);
-      target.emit("updatetellerservices", null);
       target.emit("calledticketdata", null);
+    }
+  }
+
+  // ! TELLER AND GROUPS
+  async function sendTellerAndGroups(target, data) {
+   try {
+      const { id, cuser, cnum, cname, group_name } = data;
+      const tellerandgroups = await gettellersandgroups(id, cnum, group_name);
+        target.emit("updatetellersandgroups", tellerandgroups);
+    } catch (err) {
+        target.emit("updatetellersandgroups", null);
+    }
+  }
+  // ! TELLER SERVICES
+  async function sendTellerdata(target, data) {
+   try {
+      const { id, cuser, cnum, cname, group_name } = data;
+        const teller = await getTellerServices(id, cuser, cnum, cname, group_name);
+      target.emit("updatetellerservices", teller);
+    } catch (err) {
+      target.emit("updatetellerservices", null);
+    }
+  }
+  // ! HISTORY DATA
+  async function sendhistorydata(target, data) {
+   try {
+      const { id, cuser, cnum, cname, group_name } = data;
+      const historyData = await getAllHistoryData(cname);
+      target.emit("tellerhistorydata", historyData);
+    } catch (err) {
+      target.emit("tellerhistorydata", null);
     }
   }
   async function updatecalledtick(target, data) {

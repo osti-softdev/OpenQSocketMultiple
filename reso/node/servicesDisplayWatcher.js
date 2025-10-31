@@ -37,6 +37,7 @@ async function getServicesWithLatestTicket() {
     )
     SELECT 
         s.sname,
+        s.shortSname,
         rt.ticketservice,
         rt.ticketnum,
         rt.counter_num,
@@ -56,6 +57,7 @@ async function getServicesWithLatestTicket() {
 
 			const services = rows.map((row) => ({
 				sname: row.sname,
+				shortSname: row.shortSname,
 				ticket:
 					row.ticketservice && row.ticketnum
 						? `${row.ticketservice}-${row.ticketnum}`

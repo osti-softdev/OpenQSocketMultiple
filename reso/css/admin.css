@@ -1097,12 +1097,53 @@ body {
   box-shadow: 2px 2px 5px black;
   display: flex;
   justify-content: center;
+  font-size: 0.8rem;
   align-items: center;
   transform: scale(0.95);
   background-color: rgba(68, 255, 0, 0.607);
   cursor: pointer;
 }
 .adminbody .settingsmain .settsubcont .setttitles .settcreateaccount:active {
+  transform: scale(0.8);
+}
+.adminbody .settingsmain .settsubcont .setttitles .addTellerbtn {
+  position: absolute;
+  right: 0%;
+  height: 80%;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 8px;
+  padding: 0.5% 1%;
+  box-shadow: 2px 2px 5px black;
+  display: flex;
+  font-size: 0.8rem;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.95);
+  background-color: rgba(68, 255, 0, 0.607);
+  cursor: pointer;
+}
+.adminbody .settingsmain .settsubcont .setttitles .addTellerbtn:active {
+  transform: scale(0.8);
+}
+.adminbody .settingsmain .settsubcont .setttitles .EdittellerGroup {
+  position: absolute;
+  left: 0%;
+  height: 80%;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 8px;
+  padding: 0.5% 1%;
+  box-shadow: 2px 2px 5px black;
+  display: flex;
+  font-size: 0.8rem;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.95);
+  background-color: rgb(78, 83, 83);
+  cursor: pointer;
+}
+.adminbody .settingsmain .settsubcont .setttitles .EdittellerGroup:active {
   transform: scale(0.8);
 }
 .adminbody .settingsmain .settsubcont .settcolordata {
@@ -1328,7 +1369,7 @@ body {
 .adminbody .settingsmain .settsubcont .settservicesdata .service-rowData {
   width: 100%;
   display: grid;
-  grid-template-columns: 30% 15% 40% 10%;
+  grid-template-columns: 25% 10% 10% 25% 15% 15%;
   align-items: center;
   text-align: center;
   box-sizing: border-box;
@@ -1348,6 +1389,7 @@ body {
   box-sizing: border-box;
   text-align: center;
   height: 90%;
+  transform: scale(0.95);
 }
 .adminbody .settingsmain .settsubcont .settservicesdata .service-rowData input[type=checkbox] {
   width: 20px;
@@ -1371,37 +1413,120 @@ body {
   font-weight: bold;
   color: white;
 }
+.adminbody .settingsmain .settsubcont .setttellerdata {
+  position: absolute;
+  top: 10%;
+  left: 0%;
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  overflow-y: auto;
+  gap: 1%;
+  scrollbar-width: thin;
+}
+.adminbody .settingsmain .settsubcont .setttellerdata .teller-card {
+  position: relative;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: lightgray;
+  font-size: 0.9rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.adminbody .settingsmain .settsubcont .setttellerdata .teller-card p {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.adminbody .settingsmain .settsubcont .setttellerdata .teller-card p button {
+  height: 80%;
+  width: 80%;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px black;
+  cursor: pointer;
+  color: rgb(175, 170, 170);
+}
+.adminbody .settingsmain .settsubcont .setttellerdata .teller-card p button:active {
+  transform: scale(0.95);
+}
+.adminbody .settingsmain .settsubcont .setttellerdata .teller-card p button:hover {
+  filter: brightness(120%);
+}
+.adminbody .settingsmain .settsubcont .setttellerdata .teller-card p:nth-child(1) {
+  width: 70%;
+  justify-content: start;
+  text-indent: 10px;
+}
+.adminbody .settingsmain .settsubcont .setttellerdata .teller-card p:nth-child(2) {
+  width: 15%;
+}
+.adminbody .settingsmain .settsubcont .setttellerdata .teller-card p:nth-child(2) button {
+  background-color: rgb(39, 39, 39);
+}
+.adminbody .settingsmain .settsubcont .setttellerdata .teller-card p:nth-child(3) {
+  width: 15%;
+}
+.adminbody .settingsmain .settsubcont .setttellerdata .teller-card p:nth-child(3) button {
+  background-color: rgb(104, 58, 5);
+}
+.adminbody .settingsmain .settsubcont .systemsettingdata {
+  position: absolute;
+  top: 10%;
+  left: 0%;
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  overflow-y: auto;
+  gap: 1%;
+  scrollbar-width: thin;
+}
 .adminbody .settingsmain .settaccountcreation {
   top: 0;
   left: 0;
   height: 50%;
-  width: 40%;
+  width: 30%;
 }
 .adminbody .settingsmain .setttellertupdate {
   top: 0%;
-  right: 30%;
+  left: 30%;
   height: 50%;
-  width: 30%;
+  width: 20%;
 }
 .adminbody .settingsmain .settservicesupdate {
   top: 0%;
   right: 0%;
   height: 50%;
-  width: 30%;
+  width: 50%;
 }
 .adminbody .settingsmain .settaudiosetting {
   top: 50%;
   left: 0%;
   height: 50%;
-  width: 40%;
+  width: 30%;
 }
 .adminbody .settingsmain .settcolorupdate {
   top: 50%;
-  right: 30%;
+  left: 30%;
   height: 50%;
-  width: 30%;
+  width: 20%;
 }
 .adminbody .settingsmain .settimagesupdate {
+  top: 50%;
+  left: 50%;
+  height: 50%;
+  width: 20%;
+}
+.adminbody .settingsmain .settsystemsetting {
   top: 50%;
   right: 0%;
   height: 50%;
@@ -1550,7 +1675,14 @@ body {
   transform: scale(0.9);
 }
 
+.service-checkbox {
+  flex: 1 25%;
+}
+
 @media (max-width: 480px) {
+  .service-checkbox {
+    flex: 1 40%;
+  }
   .admin-container .adminfooter {
     font-size: 0.7rem;
   }
@@ -1931,6 +2063,14 @@ body {
   .admin-container .adminbody .settingsmain section .setttitles {
     font-size: 1rem;
   }
+  .admin-container .adminbody .settingsmain section .service-checkbox {
+    flex: 1 50%;
+    display: flex;
+    align-items: center;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    gap: 6px;
+    margin-bottom: 5px;
+  }
   .admin-container .adminbody .settingsmain .settaccountcreation {
     top: 0;
     left: 0;
@@ -1944,10 +2084,16 @@ body {
   .admin-container .adminbody .settingsmain .setttellertupdate {
     top: 0;
     left: 0;
+    width: 100%;
+  }
+  .admin-container .adminbody .settingsmain .settcolorupdate {
+    top: 0;
+    left: 0;
   }
   .admin-container .adminbody .settingsmain .settservicesupdate {
     top: 0;
     left: 0;
+    width: 100%;
   }
   .admin-container .adminbody .settingsmain .settaudiosetting {
     top: 0;
@@ -1956,12 +2102,13 @@ body {
   .admin-container .adminbody .settingsmain .settaudiosetting .audiosettingdata label input, .admin-container .adminbody .settingsmain .settaudiosetting .audiosettingdata label select {
     right: 35%;
   }
-  .admin-container .adminbody .settingsmain .settticketupdate {
-    top: 0;
-    left: 0;
-  }
   .admin-container .adminbody .settingsmain .settimagesupdate {
     top: 0;
     left: 0;
+  }
+  .admin-container .adminbody .settingsmain .settsystemsetting {
+    top: 0;
+    left: 0;
+    width: 100%;
   }
 }/*# sourceMappingURL=admin.css.map */

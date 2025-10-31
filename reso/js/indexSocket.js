@@ -14,24 +14,21 @@ socket.on("servicesDisplayUpdate", (data) => {
 		counterDisplayer = newCounterDisplay || 0;
 	const $servicesList = $("#servicesDisplay");
 	$servicesList.empty();
-	console.log("Updating services display:", services);
 	const $headerDiv = $("<div>").addClass("service-header");
 	$headerDiv.append($("<span>").addClass("tickethead").text("NOW SERVING"));
 	$servicesList.append($headerDiv);
 
 	if(counterDisplayer != 1){
 		services.forEach((service) => {
-			console.log("Rendering service:", service);
 			const $rowDiv = $("<div>").addClass("service-row");
-			$rowDiv.append($("<span>").addClass("service-name").text(service.sname));
+			$rowDiv.append($("<span>").addClass("service-name").html(service.shortSname));
 			$rowDiv.append($("<span>").addClass("service-ticket").text(service.ticket));
 			$servicesList.append($rowDiv);
 		});
 	}else{
 		services.forEach((service) => {
-				console.log("Rendering service:", service);
 				const $rowDiv = $("<div>").addClass("service-row");
-				$rowDiv.append($("<span>").addClass("service-name").text(service.sname));
+				$rowDiv.append($("<span>").addClass("service-name").html(service.shortSname));
 				$rowDiv.append($("<span>").addClass("service-ticket").text(service.ticket));
 				$rowDiv.append($("<span>").addClass("counter").text(service.counter_num));
 				$servicesList.append($rowDiv);
@@ -340,7 +337,6 @@ socket.on("DisplayUpdated", (config) => {
 });
 
 function applyDisplayConfig(config) {
-console.log(config);
   const displayUpdate = config.display_update || {};
 
 	   if (displayUpdate.update === 1) {
