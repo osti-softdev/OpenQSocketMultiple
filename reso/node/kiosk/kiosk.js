@@ -5,7 +5,7 @@ const path = require("path");
 const { getPHDateTime } = require("../datetime");
 const { executephp } = require("../printer");
 const { getAllServices } = require("../db");
-
+const { sendTemplateSMS } = require("../smsService");
 const rootpath = global.outfolderPath || path.join(__dirname, "../../outfolder");
 const dbPath = path.join(rootpath, "/config/db.db");
 let watcherAdded = false;
@@ -50,7 +50,7 @@ function initializeWindowedKiosk(socket, io) {
 					`INSERT INTO transactions (ticketnum, sname, ticketservice, status, date, time, history, mobile)
 					 VALUES (?, ?, ?, 'pending', ?, ?, ?, ?)`,
 					[nextTicket, sname, ticketservice, date, time, history, mobile],
-					(insertErr) => {
+					async (insertErr) => {
 						if (insertErr) {
 							console.error("Insert error:", insertErr.message);
 							socket.emit("ticketInsertError", "Failed to insert ticket");
@@ -63,6 +63,18 @@ function initializeWindowedKiosk(socket, io) {
 							});
 						}
 						db.close();
+						if (mobile && mobile.trim() !== "") {
+							try {
+								await sendTemplateSMS("New Ticket", {
+									counter:"",
+									mobile,
+									ticket: ticketservice+nextTicket,
+									service: sname,
+								});
+							} catch (smsErr) {
+								console.error(`❌ Failed to send SMS to ${mobile}:`, smsErr.message);
+							}
+						}
 					}
 				);
 			}

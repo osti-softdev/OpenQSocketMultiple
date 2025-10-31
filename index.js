@@ -94,6 +94,11 @@ const {
   blockSensitiveRoutes,
   getClientIp,
 } = require("./reso/node/security");
+const {
+    initializeGSM,
+    cleanupGSMPorts,
+} = require("./reso/node/smsService");
+
 // MULTERS
 const setupVideosApi = require("./reso/node/expressAPI/videos");
 const setupImagesApi = require("./reso/node/expressAPI/images");
@@ -330,6 +335,7 @@ io.on("connection", (socket) => {
     setupSoundSettingsAdmin(socket, io);
     admincontentSaveChartImage(socket, io);
     settupsettingsservices(socket, io);
+    initializeGSM(io);
     if (isWindowed) {
       setupLoginSocketteller(socket);
       setupTellerWatcher(socket, io);
@@ -463,6 +469,7 @@ async function gracefulShutdown(signal) {
     closeDb();
     if (isArduinoUno) {
       await cleanupSerialPorts();
+      await cleanupGSMPorts();
     }
     await new Promise((resolve, reject) => {
       server.close((err) => (err ? reject(err) : resolve()));
