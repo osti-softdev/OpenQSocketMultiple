@@ -166,3 +166,101 @@
     at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\colorswatcheradmin.js:67:37
     at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
 >>>>>>> 1502d7bb13481b3171a95db729fcb64336d9cbb2
+❌ 2025-11-05T05:12:41.346Z [unknown] Error querying services: SQLITE_ERROR: no such column: sched
+❌ 2025-11-05T05:12:41.349Z [..\node\getallservices.js:9] ❌ Error fetching services: Error: SQLITE_ERROR: no such column: sched
+--> in Database#all('SELECT sname, regular, priority, shortSname, sched FROM services WHERE status = 1 ORDER by id ASC', [], [Function (anonymous)])
+    at C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\db.js:37:6
+    at new Promise (<anonymous>)
+    at getAllServices (C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\db.js:36:9)
+    at handleGetAllServices (C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\getallservices.js:5:26)
+    at Namespace.<anonymous> (C:\NODE_SOURCES\OpenQSocketMultiple\index.js:337:5)
+    at Namespace.emit (node:events:530:35)
+    at Namespace.emitReserved (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\socket.io\dist\typed-events.js:56:22)
+    at Namespace._doConnect (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\socket.io\dist\namespace.js:276:14)
+    at C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\socket.io\dist\namespace.js:238:22 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2025-11-05T05:12:41.361Z [unknown] Error querying services: SQLITE_ERROR: no such column: sched
+❌ 2025-11-05T05:12:41.376Z [..\node\kiosk\kiosk.js:90] ❌ Error fetching services: Error: SQLITE_ERROR: no such column: sched
+--> in Database#all('SELECT sname, regular, priority, shortSname, sched FROM services WHERE status = 1 ORDER by id ASC', [], [Function (anonymous)])
+    at C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\db.js:37:6
+    at new Promise (<anonymous>)
+    at getAllServices (C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\db.js:36:9)
+    at sendToAllKiosks (C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\kiosk\kiosk.js:87:26)
+    at initializeWindowedKiosk (C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\kiosk\kiosk.js:14:5)
+    at Namespace.<anonymous> (C:\NODE_SOURCES\OpenQSocketMultiple\index.js:346:7)
+    at Namespace.emit (node:events:530:35)
+    at Namespace.emitReserved (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\socket.io\dist\typed-events.js:56:22)
+    at Namespace._doConnect (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\socket.io\dist\namespace.js:276:14) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2025-11-05T05:12:44.372Z [unknown] Error querying services: SQLITE_ERROR: no such column: sched
+❌ 2025-11-05T05:12:44.405Z [..\node\getallservices.js:9] ❌ Error fetching services: Error: SQLITE_ERROR: no such column: sched
+--> in Database#all('SELECT sname, regular, priority, shortSname, sched FROM services WHERE status = 1 ORDER by id ASC', [], [Function (anonymous)])
+    at C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\db.js:37:6
+    at new Promise (<anonymous>)
+    at getAllServices (C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\db.js:36:9)
+    at handleGetAllServices (C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\getallservices.js:5:26)
+    at Namespace.<anonymous> (C:\NODE_SOURCES\OpenQSocketMultiple\index.js:337:5)
+    at Namespace.emit (node:events:530:35)
+    at Namespace.emitReserved (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\socket.io\dist\typed-events.js:56:22)
+    at Namespace._doConnect (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\socket.io\dist\namespace.js:276:14)
+    at C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\socket.io\dist\namespace.js:238:22 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2025-11-05T05:12:44.410Z [unknown] Error querying services: SQLITE_ERROR: no such column: sched
+❌ 2025-11-05T05:12:44.410Z [..\node\kiosk\kiosk.js:90] ❌ Error fetching services: Error: SQLITE_ERROR: no such column: sched
+--> in Database#all('SELECT sname, regular, priority, shortSname, sched FROM services WHERE status = 1 ORDER by id ASC', [], [Function (anonymous)])
+    at C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\db.js:37:6
+    at new Promise (<anonymous>)
+    at getAllServices (C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\db.js:36:9)
+    at sendToAllKiosks (C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\kiosk\kiosk.js:87:26)
+    at initializeWindowedKiosk (C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\kiosk\kiosk.js:14:5)
+    at Namespace.<anonymous> (C:\NODE_SOURCES\OpenQSocketMultiple\index.js:346:7)
+    at Namespace.emit (node:events:530:35)
+    at Namespace.emitReserved (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\socket.io\dist\typed-events.js:56:22)
+    at Namespace._doConnect (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\socket.io\dist\namespace.js:276:14) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2025-11-05T05:12:52.812Z [unknown] Error querying services: SQLITE_ERROR: no such column: sched
+❌ 2025-11-05T05:12:52.817Z [..\node\getallservices.js:9] ❌ Error fetching services: Error: SQLITE_ERROR: no such column: sched
+--> in Database#all('SELECT sname, regular, priority, shortSname, sched FROM services WHERE status = 1 ORDER by id ASC', [], [Function (anonymous)])
+    at C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\db.js:37:6
+    at new Promise (<anonymous>)
+    at getAllServices (C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\db.js:36:9)
+    at handleGetAllServices (C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\getallservices.js:5:26)
+    at Namespace.<anonymous> (C:\NODE_SOURCES\OpenQSocketMultiple\index.js:337:5)
+    at Namespace.emit (node:events:530:35)
+    at Namespace.emitReserved (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\socket.io\dist\typed-events.js:56:22)
+    at Namespace._doConnect (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\socket.io\dist\namespace.js:276:14)
+    at C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\socket.io\dist\namespace.js:238:22 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2025-11-05T05:12:52.842Z [unknown] Error querying services: SQLITE_ERROR: no such column: sched
+❌ 2025-11-05T05:12:52.844Z [..\node\kiosk\kiosk.js:90] ❌ Error fetching services: Error: SQLITE_ERROR: no such column: sched
+--> in Database#all('SELECT sname, regular, priority, shortSname, sched FROM services WHERE status = 1 ORDER by id ASC', [], [Function (anonymous)])
+    at C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\db.js:37:6
+    at new Promise (<anonymous>)
+    at getAllServices (C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\db.js:36:9)
+    at sendToAllKiosks (C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\kiosk\kiosk.js:87:26)
+    at initializeWindowedKiosk (C:\NODE_SOURCES\OpenQSocketMultiple\reso\node\kiosk\kiosk.js:14:5)
+    at Namespace.<anonymous> (C:\NODE_SOURCES\OpenQSocketMultiple\index.js:346:7)
+    at Namespace.emit (node:events:530:35)
+    at Namespace.emitReserved (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\socket.io\dist\typed-events.js:56:22)
+    at Namespace._doConnect (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\socket.io\dist\namespace.js:276:14) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2025-11-05T05:50:22.842Z [..\node\kiosk\kiosk.js:80] ❌ Failed to send SMS to 09988166518: Modem not connected
+❌ 2025-11-05T05:57:56.664Z [..\node\kiosk\kiosk.js:80] ❌ Failed to send SMS to 09988166518: Timeout waiting for response

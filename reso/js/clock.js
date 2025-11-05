@@ -20,7 +20,7 @@ $(document).ready(function () {
       const formattedDate = new Intl.DateTimeFormat("en-US", dateOptions).format(now);
       const formattedTime = new Intl.DateTimeFormat("en-US", timeOptions).format(now);
 
-      $(".date").text(formattedDate);
+      // $(".date").text(formattedDate);
       $(".time").text(formattedTime);
     }
 

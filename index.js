@@ -224,6 +224,7 @@ if (!fs.existsSync(path.join(OUTFOLDER_PATH, "audio"))) {
 setupLogger();
 const config = loadConfig(io);
 const serverPort = config?.MainServer?.port || 3000;
+const smstype = config?.MainServer?.sms || 0;
 // define system type constants
 const SYSTEM_TYPES = {
   ARDUINO_UNO: "ARDUINO_UNO",
@@ -339,7 +340,10 @@ io.on("connection", (socket) => {
     setupSoundSettingsAdmin(socket, io);
     admincontentSaveChartImage(socket, io);
     settupsettingsservices(socket, io);
-    initializeGSM(io);
+
+    if(smstype != 0){
+      initializeGSM(io);
+    }
     if (isWindowed) {
       setupLoginSocketteller(socket);
       setupTellerWatcher(socket, io);
@@ -473,7 +477,9 @@ async function gracefulShutdown(signal) {
     closeDb();
     if (isArduinoUno) {
       await cleanupSerialPorts();
-      await cleanupGSMPorts();
+      if(smstype != 0){
+        await cleanupGSMPorts();
+      }
     }
     await new Promise((resolve, reject) => {
       server.close((err) => (err ? reject(err) : resolve()));

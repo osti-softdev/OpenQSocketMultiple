@@ -6,11 +6,15 @@ const { getPHDateTime } = require("../datetime");
 const { executephp } = require("../printer");
 const { getAllServices } = require("../db");
 const { sendTemplateSMS } = require("../smsService");
+const { loadConfig } = require("../envconfig");
 const rootpath = global.outfolderPath || path.join(__dirname, "../../outfolder");
 const dbPath = path.join(rootpath, "/config/db.db");
 let watcherAdded = false;
 
 function initializeWindowedKiosk(socket, io) {
+	const config = loadConfig(io);
+
+	let smsType = config?.MainServer?.sms
 			 sendToAllKiosks(socket);
 	if (!watcherAdded) {
 		fs.watchFile(dbPath, { interval: 500 }, async () => {
@@ -63,18 +67,21 @@ function initializeWindowedKiosk(socket, io) {
 							});
 						}
 						db.close();
-						if (mobile && mobile.trim() !== "") {
-							try {
-								await sendTemplateSMS("New Ticket", {
-									counter:"",
-									mobile,
-									ticket: ticketservice+nextTicket,
-									service: sname,
-								});
-							} catch (smsErr) {
-								console.error(`❌ Failed to send SMS to ${mobile}:`, smsErr.message);
+						if(smsType != 0){
+							if (mobile && mobile.trim() !== "") {
+								try {
+									await sendTemplateSMS("New Ticket", {
+										counter:"",
+										mobile,
+										ticket: ticketservice+nextTicket,
+										service: sname,
+									});
+								} catch (smsErr) {
+									console.error(`❌ Failed to send SMS to ${mobile}:`, smsErr.message);
+								}
 							}
 						}
+						
 					}
 				);
 			}
