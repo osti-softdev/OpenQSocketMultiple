@@ -81,7 +81,6 @@ function initializeWindowedKiosk(socket, io) {
 								}
 							}
 						}
-						
 					}
 				);
 			}

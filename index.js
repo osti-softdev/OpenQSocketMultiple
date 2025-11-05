@@ -341,10 +341,10 @@ io.on("connection", (socket) => {
     admincontentSaveChartImage(socket, io);
     settupsettingsservices(socket, io);
 
-    if(smstype != 0){
+    if(smstype==1){
       initializeGSM(io);
     }
-    if (isWindowed) {
+      if (isWindowed) {
       setupLoginSocketteller(socket);
       setupTellerWatcher(socket, io);
       initializeWindowedKiosk(socket, io);
@@ -475,11 +475,11 @@ async function gracefulShutdown(signal) {
   console.log(`Received ${signal}. Shutting down server...`);
   try {
     closeDb();
+    if(smstype==1){
+    await cleanupGSMPorts();
+    }
     if (isArduinoUno) {
       await cleanupSerialPorts();
-      if(smstype != 0){
-        await cleanupGSMPorts();
-      }
     }
     await new Promise((resolve, reject) => {
       server.close((err) => (err ? reject(err) : resolve()));

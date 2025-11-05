@@ -800,3 +800,245 @@
 ]
 ✔ 2025-11-05T05:57:51.653Z [..\node\smsService.js:41] 2025-11-05T05:57:51.653Z [..\node\smsService.js:26] 11/5/2025, 1:57:51 PM | Kiosk | +639988166518 | SENDING | Carwash | CW3 | New Ticket
 ✔ 2025-11-05T05:57:56.660Z [..\node\smsService.js:41] 2025-11-05T05:57:56.659Z [..\node\smsService.js:26] 11/5/2025, 1:57:56 PM | Kiosk | +639988166518 | FAILED ❌ (Timeout waiting for response) | Carwash | CW3 | New Ticket
+✔ 2025-11-05T05:58:58.540Z [..\..\index.js:475] Received SIGINT. Shutting down server...
+✔ 2025-11-05T05:58:58.543Z [..\node\db.js:54] Database connection closed
+✔ 2025-11-05T05:59:05.552Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T05:59:05.554Z [..\..\index.js:247] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T05:59:05.561Z [..\..\index.js:461] Wrote PID 4756 to C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T05:59:05.567Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T05:59:05.578Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T05:59:05.581Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T05:59:05.582Z [..\..\index.js:388] Database initialized successfully
+✔ 2025-11-05T05:59:05.583Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T05:59:05.597Z [..\..\index.js:408] Server running on http://192.168.1.16:12345
+✔ 2025-11-05T05:59:05.651Z [..\..\index.js:324] 🔌 Client connected: bG8KJn7N1mEKGWBdAAAB | IP: 127.0.0.1
+✔ 2025-11-05T05:59:05.799Z [..\node\smsService.js:45] 11/5/2025, 1:59:05 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM9
+✔ 2025-11-05T05:59:12.318Z [..\node\smsService.js:45] 11/5/2025, 1:59:12 PM | SYSTEM | - | ⚠️ Init failed: Timeout waiting for response
+✔ 2025-11-05T06:00:02.940Z [..\..\index.js:475] Received SIGINT. Shutting down server...
+✔ 2025-11-05T06:00:02.947Z [..\node\db.js:54] Database connection closed
+✔ 2025-11-05T06:02:49.614Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:02:49.627Z [..\..\index.js:247] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T06:02:49.638Z [..\..\index.js:460] Wrote PID 5540 to C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T06:02:49.643Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:02:49.658Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:02:49.659Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T06:02:49.659Z [..\..\index.js:387] Database initialized successfully
+✔ 2025-11-05T06:02:49.662Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:02:49.686Z [..\..\index.js:407] Server running on http://192.168.1.16:12345
+✔ 2025-11-05T06:02:51.835Z [..\..\index.js:324] 🔌 Client connected: A_2LMwzpeHMsKscvAAAB | IP: 127.0.0.1
+✔ 2025-11-05T06:02:52.211Z [..\node\smsService.js:45] 11/5/2025, 2:02:52 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM9
+✔ 2025-11-05T06:02:58.739Z [..\node\smsService.js:45] 11/5/2025, 2:02:58 PM | SYSTEM | - | ⚠️ Init failed: Timeout waiting for response
+✔ 2025-11-05T06:06:31.554Z [..\..\index.js:474] Received SIGINT. Shutting down server...
+✔ 2025-11-05T06:06:31.558Z [..\node\db.js:54] Database connection closed
+✔ 2025-11-05T06:06:31.612Z [..\node\smsService.js:45] 11/5/2025, 2:06:31 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T06:06:31.618Z [..\node\smsService.js:45] 11/5/2025, 2:06:31 PM | SYSTEM | - | ✅ GSM closed
+✔ 2025-11-05T06:09:00.487Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:09:00.493Z [..\..\index.js:247] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T06:09:00.498Z [..\..\index.js:460] Wrote PID 14740 to C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T06:09:00.501Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:09:00.512Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:09:00.513Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T06:09:00.514Z [..\..\index.js:387] Database initialized successfully
+✔ 2025-11-05T06:09:00.515Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:09:00.528Z [..\..\index.js:407] Server running on http://192.168.1.16:12345
+✔ 2025-11-05T06:09:00.595Z [..\..\index.js:324] 🔌 Client connected: n7GsC7vC4i80YiBZAAAB | IP: 127.0.0.1
+✔ 2025-11-05T06:09:00.899Z [..\node\smsService.js:45] 11/5/2025, 2:09:00 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM9
+✔ 2025-11-05T06:09:07.420Z [..\node\smsService.js:45] 11/5/2025, 2:09:07 PM | SYSTEM | - | ⚠️ Init failed: Timeout waiting for response
+✔ 2025-11-05T06:09:17.819Z [..\node\smsService.js:45] 11/5/2025, 2:09:17 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T06:09:22.840Z [..\node\smsService.js:45] 11/5/2025, 2:09:22 PM | SYSTEM | - | ❌ Failed to open COM9: Opening COM9: File not found
+✔ 2025-11-05T06:09:27.847Z [..\node\smsService.js:45] 11/5/2025, 2:09:27 PM | SYSTEM | - | ❌ Failed to open COM9: Opening COM9: File not found
+✔ 2025-11-05T06:09:32.864Z [..\node\smsService.js:45] 11/5/2025, 2:09:32 PM | SYSTEM | - | ❌ Failed to open COM9: Opening COM9: File not found
+✔ 2025-11-05T06:09:37.878Z [..\node\smsService.js:45] 11/5/2025, 2:09:37 PM | SYSTEM | - | ❌ Failed to open COM9: Opening COM9: File not found
+✔ 2025-11-05T06:09:42.895Z [..\node\smsService.js:45] 11/5/2025, 2:09:42 PM | SYSTEM | - | ❌ Failed to open COM9: Opening COM9: File not found
+✔ 2025-11-05T06:09:47.907Z [..\node\smsService.js:45] 11/5/2025, 2:09:47 PM | SYSTEM | - | ❌ Failed to open COM9: Opening COM9: File not found
+✔ 2025-11-05T06:09:52.909Z [..\node\smsService.js:45] 11/5/2025, 2:09:52 PM | SYSTEM | - | ❌ Failed to open COM9: Opening COM9: File not found
+✔ 2025-11-05T06:09:57.925Z [..\node\smsService.js:45] 11/5/2025, 2:09:57 PM | SYSTEM | - | ❌ Failed to open COM9: Opening COM9: File not found
+✔ 2025-11-05T06:10:02.957Z [..\node\smsService.js:45] 11/5/2025, 2:10:02 PM | SYSTEM | - | ❌ Failed to open COM9: Opening COM9: File not found
+✔ 2025-11-05T06:10:07.971Z [..\node\smsService.js:45] 11/5/2025, 2:10:07 PM | SYSTEM | - | ❌ Failed to open COM9: Opening COM9: File not found
+✔ 2025-11-05T06:10:12.988Z [..\node\smsService.js:45] 11/5/2025, 2:10:12 PM | SYSTEM | - | ❌ Failed to open COM9: Opening COM9: File not found
+✔ 2025-11-05T06:10:18.004Z [..\node\smsService.js:45] 11/5/2025, 2:10:18 PM | SYSTEM | - | ❌ Failed to open COM9: Opening COM9: File not found
+✔ 2025-11-05T06:10:23.020Z [..\node\smsService.js:45] 11/5/2025, 2:10:23 PM | SYSTEM | - | ❌ Failed to open COM9: Opening COM9: File not found
+✔ 2025-11-05T06:10:28.031Z [..\node\smsService.js:45] 11/5/2025, 2:10:28 PM | SYSTEM | - | ❌ Failed to open COM9: Opening COM9: File not found
+✔ 2025-11-05T06:10:28.584Z [..\..\index.js:474] Received SIGINT. Shutting down server...
+✔ 2025-11-05T06:10:28.589Z [..\node\db.js:54] Database connection closed
+✔ 2025-11-05T06:10:35.233Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:10:35.235Z [..\..\index.js:247] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T06:10:35.239Z [..\..\index.js:460] Wrote PID 416 to C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T06:10:35.242Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:10:35.254Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:10:35.260Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T06:10:35.262Z [..\..\index.js:387] Database initialized successfully
+✔ 2025-11-05T06:10:35.263Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:10:35.276Z [..\..\index.js:407] Server running on http://192.168.1.16:12345
+✔ 2025-11-05T06:10:38.824Z [..\..\index.js:324] 🔌 Client connected: LHneKfB27k7fyJtjAAAB | IP: 127.0.0.1
+✔ 2025-11-05T06:10:38.869Z [..\node\smsService.js:45] 11/5/2025, 2:10:38 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM3
+✔ 2025-11-05T06:10:40.661Z [..\node\smsService.js:45] 11/5/2025, 2:10:40 PM | SYSTEM | - | 📡 Modem registered on network
+✔ 2025-11-05T06:10:40.666Z [..\node\smsService.js:45] 11/5/2025, 2:10:40 PM | SYSTEM | - | 📶 Modem ready for SMS
+✔ 2025-11-05T06:10:49.441Z [..\..\index.js:378] 🔌 Client disconnected: LHneKfB27k7fyJtjAAAB | IP: 127.0.0.1
+✔ 2025-11-05T06:10:49.610Z [..\..\index.js:324] 🔌 Client connected: Aam8Z_ywbdMKca2GAAAD | IP: 127.0.0.1
+✔ 2025-11-05T06:10:49.644Z [..\node\smsService.js:45] 11/5/2025, 2:10:49 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: Access denied
+✔ 2025-11-05T06:10:54.516Z [..\..\index.js:378] 🔌 Client disconnected: Aam8Z_ywbdMKca2GAAAD | IP: 127.0.0.1
+✔ 2025-11-05T06:10:54.614Z [..\..\index.js:324] 🔌 Client connected: mH7HZJUSWIlmNMuvAAAF | IP: 127.0.0.1
+✔ 2025-11-05T06:10:54.642Z [..\node\smsService.js:45] 11/5/2025, 2:10:54 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: Access denied
+✔ 2025-11-05T06:10:54.653Z [..\node\smsService.js:45] 11/5/2025, 2:10:54 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: Access denied
+✔ 2025-11-05T06:10:59.667Z [..\node\smsService.js:45] 11/5/2025, 2:10:59 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: Access denied
+✔ 2025-11-05T06:10:59.671Z [..\node\smsService.js:45] 11/5/2025, 2:10:59 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: Access denied
+✔ 2025-11-05T06:11:04.682Z [..\node\smsService.js:45] 11/5/2025, 2:11:04 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: Access denied
+✔ 2025-11-05T06:11:04.684Z [..\node\smsService.js:45] 11/5/2025, 2:11:04 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: Access denied
+✔ 2025-11-05T06:11:09.696Z [..\node\smsService.js:45] 11/5/2025, 2:11:09 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: Access denied
+✔ 2025-11-05T06:11:09.698Z [..\node\smsService.js:45] 11/5/2025, 2:11:09 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: Access denied
+✔ 2025-11-05T06:11:14.707Z [..\node\smsService.js:45] 11/5/2025, 2:11:14 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: Access denied
+✔ 2025-11-05T06:11:14.708Z [..\node\smsService.js:45] 11/5/2025, 2:11:14 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: Access denied
+✔ 2025-11-05T06:11:19.708Z [..\node\smsService.js:45] 11/5/2025, 2:11:19 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: Access denied
+✔ 2025-11-05T06:11:19.711Z [..\node\smsService.js:45] 11/5/2025, 2:11:19 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: Access denied
+✔ 2025-11-05T06:11:24.724Z [..\node\smsService.js:45] 11/5/2025, 2:11:24 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: Access denied
+✔ 2025-11-05T06:11:24.725Z [..\node\smsService.js:45] 11/5/2025, 2:11:24 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: Access denied
+✔ 2025-11-05T06:11:28.948Z [..\..\index.js:474] Received SIGINT. Shutting down server...
+✔ 2025-11-05T06:11:28.953Z [..\node\db.js:54] Database connection closed
+✔ 2025-11-05T06:11:29.739Z [..\node\smsService.js:45] 11/5/2025, 2:11:29 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: Access denied
+✔ 2025-11-05T06:11:29.741Z [..\node\smsService.js:45] 11/5/2025, 2:11:29 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: Access denied
+✔ 2025-11-05T06:11:34.752Z [..\node\smsService.js:45] 11/5/2025, 2:11:34 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: Access denied
+✔ 2025-11-05T06:11:34.754Z [..\node\smsService.js:45] 11/5/2025, 2:11:34 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: Access denied
+✔ 2025-11-05T06:17:58.694Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:17:58.696Z [..\..\index.js:247] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T06:17:58.702Z [..\..\index.js:460] Wrote PID 14160 to C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T06:17:58.718Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:17:58.720Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:17:58.726Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T06:17:58.726Z [..\..\index.js:387] Database initialized successfully
+✔ 2025-11-05T06:17:58.727Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:17:58.736Z [..\..\index.js:407] Server running on http://192.168.1.16:12345
+✔ 2025-11-05T06:18:14.542Z [..\..\index.js:324] 🔌 Client connected: 0JfuffWRMTWjvN2_AAAB | IP: 127.0.0.1
+✔ 2025-11-05T06:18:14.778Z [..\node\smsService.js:45] 11/5/2025, 2:18:14 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM3
+✔ 2025-11-05T06:18:16.562Z [..\node\smsService.js:45] 11/5/2025, 2:18:16 PM | SYSTEM | - | 📡 Modem registered on network
+✔ 2025-11-05T06:18:16.567Z [..\node\smsService.js:45] 11/5/2025, 2:18:16 PM | SYSTEM | - | 📶 Modem ready for SMS
+✔ 2025-11-05T06:18:42.249Z [..\node\smsService.js:77] 📜 Loaded message templates: [
+  'new ticket',
+  'precall',
+  'calling',
+  'forwarded',
+  'held',
+  'voided',
+  'finished'
+]
+✔ 2025-11-05T06:18:42.259Z [..\node\smsService.js:41] 2025-11-05T06:18:42.259Z [..\node\smsService.js:26] 11/5/2025, 2:18:42 PM | Kiosk | +639988166518 | SENDING | Carwash | CW4 | New Ticket
+✔ 2025-11-05T06:18:42.459Z [..\node\smsService.js:41] 2025-11-05T06:18:42.459Z [..\node\smsService.js:26] 11/5/2025, 2:18:42 PM | Kiosk | +639988166518 | 📤 Sending Full... | Carwash | CW4 | New Ticket
+✔ 2025-11-05T06:18:46.557Z [..\node\smsService.js:41] 2025-11-05T06:18:46.556Z [..\node\smsService.js:26] 11/5/2025, 2:18:46 PM | Kiosk | +639988166518 | ✅ Full sent | Carwash | CW4 | New Ticket
+✔ 2025-11-05T06:18:51.567Z [..\node\smsService.js:41] 2025-11-05T06:18:51.566Z [..\node\smsService.js:26] 11/5/2025, 2:18:51 PM | Kiosk | +639988166518 | ✅ Delivered in 1 part(s) | Carwash | CW4 | New Ticket
+✔ 2025-11-05T06:19:17.448Z [..\node\smsService.js:77] 📜 Loaded message templates: [
+  'new ticket',
+  'precall',
+  'calling',
+  'forwarded',
+  'held',
+  'voided',
+  'finished'
+]
+✔ 2025-11-05T06:19:17.450Z [..\node\smsService.js:41] 2025-11-05T06:19:17.449Z [..\node\smsService.js:26] 11/5/2025, 2:19:17 PM | Kiosk | +639988166518 | SENDING | Motorwash | MW1 | New Ticket
+✔ 2025-11-05T06:19:17.614Z [..\node\smsService.js:41] 2025-11-05T06:19:17.614Z [..\node\smsService.js:26] 11/5/2025, 2:19:17 PM | Kiosk | +639988166518 | 📤 Sending Full... | Motorwash | MW1 | New Ticket
+✔ 2025-11-05T06:19:21.854Z [..\node\smsService.js:41] 2025-11-05T06:19:21.852Z [..\node\smsService.js:26] 11/5/2025, 2:19:21 PM | Kiosk | +639988166518 | ✅ Full sent | Motorwash | MW1 | New Ticket
+✔ 2025-11-05T06:19:26.869Z [..\node\smsService.js:41] 2025-11-05T06:19:26.868Z [..\node\smsService.js:26] 11/5/2025, 2:19:26 PM | Kiosk | +639988166518 | ✅ Delivered in 1 part(s) | Motorwash | MW1 | New Ticket
+✔ 2025-11-05T06:20:03.507Z [..\node\smsService.js:77] 📜 Loaded message templates: [
+  'new ticket',
+  'precall',
+  'calling',
+  'forwarded',
+  'held',
+  'voided',
+  'finished'
+]
+✔ 2025-11-05T06:20:03.508Z [..\node\smsService.js:41] 2025-11-05T06:20:03.508Z [..\node\smsService.js:26] 11/5/2025, 2:20:03 PM | Kiosk | +639988166518 | SENDING | Carwash | CW5 | New Ticket
+✔ 2025-11-05T06:20:03.665Z [..\node\smsService.js:41] 2025-11-05T06:20:03.665Z [..\node\smsService.js:26] 11/5/2025, 2:20:03 PM | Kiosk | +639988166518 | 📤 Sending Full... | Carwash | CW5 | New Ticket
+✔ 2025-11-05T06:20:07.734Z [..\node\smsService.js:41] 2025-11-05T06:20:07.733Z [..\node\smsService.js:26] 11/5/2025, 2:20:07 PM | Kiosk | +639988166518 | ✅ Full sent | Carwash | CW5 | New Ticket
+✔ 2025-11-05T06:20:12.744Z [..\node\smsService.js:41] 2025-11-05T06:20:12.742Z [..\node\smsService.js:26] 11/5/2025, 2:20:12 PM | Kiosk | +639988166518 | ✅ Delivered in 1 part(s) | Carwash | CW5 | New Ticket
+✔ 2025-11-05T06:20:51.111Z [..\node\smsService.js:45] 11/5/2025, 2:20:51 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T06:20:56.128Z [..\node\smsService.js:45] 11/5/2025, 2:20:56 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:21:01.142Z [..\node\smsService.js:45] 11/5/2025, 2:21:01 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:21:06.158Z [..\node\smsService.js:45] 11/5/2025, 2:21:06 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:21:11.174Z [..\node\smsService.js:45] 11/5/2025, 2:21:11 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:21:16.190Z [..\node\smsService.js:45] 11/5/2025, 2:21:16 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:21:21.205Z [..\node\smsService.js:45] 11/5/2025, 2:21:21 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:21:26.237Z [..\node\smsService.js:45] 11/5/2025, 2:21:26 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:21:31.254Z [..\node\smsService.js:45] 11/5/2025, 2:21:31 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:21:36.266Z [..\node\smsService.js:45] 11/5/2025, 2:21:36 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:21:41.284Z [..\node\smsService.js:45] 11/5/2025, 2:21:41 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:21:46.298Z [..\node\smsService.js:45] 11/5/2025, 2:21:46 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:21:51.316Z [..\node\smsService.js:45] 11/5/2025, 2:21:51 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:21:56.332Z [..\node\smsService.js:45] 11/5/2025, 2:21:56 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:22:01.348Z [..\node\smsService.js:45] 11/5/2025, 2:22:01 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:22:06.363Z [..\node\smsService.js:45] 11/5/2025, 2:22:06 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:22:11.379Z [..\node\smsService.js:45] 11/5/2025, 2:22:11 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:22:16.393Z [..\node\smsService.js:45] 11/5/2025, 2:22:16 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:22:21.410Z [..\node\smsService.js:45] 11/5/2025, 2:22:21 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:22:26.426Z [..\node\smsService.js:45] 11/5/2025, 2:22:26 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:22:31.440Z [..\node\smsService.js:45] 11/5/2025, 2:22:31 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:22:36.458Z [..\node\smsService.js:45] 11/5/2025, 2:22:36 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:22:41.472Z [..\node\smsService.js:45] 11/5/2025, 2:22:41 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:22:46.489Z [..\node\smsService.js:45] 11/5/2025, 2:22:46 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:22:51.504Z [..\node\smsService.js:45] 11/5/2025, 2:22:51 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:22:56.519Z [..\node\smsService.js:45] 11/5/2025, 2:22:56 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:23:01.534Z [..\node\smsService.js:45] 11/5/2025, 2:23:01 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:23:06.550Z [..\node\smsService.js:45] 11/5/2025, 2:23:06 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:23:11.555Z [..\node\smsService.js:45] 11/5/2025, 2:23:11 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:23:16.566Z [..\node\smsService.js:45] 11/5/2025, 2:23:16 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:23:21.582Z [..\node\smsService.js:45] 11/5/2025, 2:23:21 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:23:26.597Z [..\node\smsService.js:45] 11/5/2025, 2:23:26 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:23:31.613Z [..\node\smsService.js:45] 11/5/2025, 2:23:31 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:23:36.627Z [..\node\smsService.js:45] 11/5/2025, 2:23:36 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:23:41.635Z [..\node\smsService.js:45] 11/5/2025, 2:23:41 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:23:46.651Z [..\node\smsService.js:45] 11/5/2025, 2:23:46 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:23:51.670Z [..\node\smsService.js:45] 11/5/2025, 2:23:51 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:23:56.688Z [..\node\smsService.js:45] 11/5/2025, 2:23:56 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:24:01.705Z [..\node\smsService.js:45] 11/5/2025, 2:24:01 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:24:06.717Z [..\node\smsService.js:45] 11/5/2025, 2:24:06 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:24:11.744Z [..\node\smsService.js:45] 11/5/2025, 2:24:11 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T06:24:12.819Z [..\..\index.js:474] Received SIGINT. Shutting down server...
+✔ 2025-11-05T06:24:12.822Z [..\node\db.js:54] Database connection closed
+✔ 2025-11-05T06:24:13.184Z [..\..\index.js:474] Received SIGINT. Shutting down server...
+✔ 2025-11-05T06:24:16.824Z [..\node\smsService.js:45] 11/5/2025, 2:24:16 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T08:00:03.616Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T08:00:03.619Z [..\..\index.js:247] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T08:00:03.627Z [..\..\index.js:460] Wrote PID 6744 to C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T08:00:03.632Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T08:00:03.648Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T08:00:03.699Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T08:00:03.711Z [..\..\index.js:387] Database initialized successfully
+✔ 2025-11-05T08:00:03.745Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T08:00:03.808Z [..\..\index.js:407] Server running on http://192.168.1.16:12345
+✔ 2025-11-05T08:00:14.468Z [..\..\index.js:324] 🔌 Client connected: Rz-80t08_ZQYdkeyAAAB | IP: 127.0.0.1
+✔ 2025-11-05T08:00:14.589Z [..\node\smsService.js:45] 11/5/2025, 4:00:14 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM3
+✔ 2025-11-05T08:00:16.420Z [..\node\smsService.js:45] 11/5/2025, 4:00:16 PM | SYSTEM | - | ⚠️ Not registered to network (CREG). SMS may fail.
+✔ 2025-11-05T08:00:16.471Z [..\node\smsService.js:45] 11/5/2025, 4:00:16 PM | SYSTEM | - | 📶 Modem ready for SMS
+✔ 2025-11-05T08:00:33.994Z [..\node\smsService.js:45] 11/5/2025, 4:00:33 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T08:00:39.015Z [..\node\smsService.js:45] 11/5/2025, 4:00:39 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM3
+✔ 2025-11-05T08:00:40.684Z [..\node\smsService.js:45] 11/5/2025, 4:00:40 PM | SYSTEM | - | ⚠️ Init failed: ERROR
+✔ 2025-11-05T08:00:47.802Z [..\..\index.js:474] Received SIGINT. Shutting down server...
+✔ 2025-11-05T08:00:47.809Z [..\node\db.js:54] Database connection closed
+✔ 2025-11-05T08:00:47.811Z [..\node\smsService.js:45] 11/5/2025, 4:00:47 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T08:00:47.819Z [..\node\smsService.js:45] 11/5/2025, 4:00:47 PM | SYSTEM | - | ✅ GSM closed
+✔ 2025-11-05T08:00:52.832Z [..\node\smsService.js:45] 11/5/2025, 4:00:52 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM3
+✔ 2025-11-05T08:00:54.596Z [..\node\smsService.js:45] 11/5/2025, 4:00:54 PM | SYSTEM | - | ⚠️ Not registered to network (CREG). SMS may fail.
+✔ 2025-11-05T08:00:54.597Z [..\node\smsService.js:45] 11/5/2025, 4:00:54 PM | SYSTEM | - | 📶 Modem ready for SMS
+✔ 2025-11-05T08:00:58.795Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T08:00:58.797Z [..\..\index.js:247] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T08:00:58.803Z [..\..\index.js:460] Wrote PID 10444 to C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T08:00:58.807Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T08:00:58.820Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T08:00:58.821Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T08:00:58.822Z [..\..\index.js:387] Database initialized successfully
+✔ 2025-11-05T08:00:58.824Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T08:00:58.836Z [..\..\index.js:407] Server running on http://192.168.1.16:12345
+✔ 2025-11-05T08:01:00.146Z [..\..\index.js:324] 🔌 Client connected: aCfm28-1LGsqX7bHAAAB | IP: 127.0.0.1
+✔ 2025-11-05T08:01:00.211Z [..\node\smsService.js:45] 11/5/2025, 4:01:00 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM3
+✔ 2025-11-05T08:01:01.989Z [..\node\smsService.js:45] 11/5/2025, 4:01:01 PM | SYSTEM | - | ⚠️ Not registered to network (CREG). SMS may fail.
+✔ 2025-11-05T08:01:01.992Z [..\node\smsService.js:45] 11/5/2025, 4:01:01 PM | SYSTEM | - | 📶 Modem ready for SMS
+✔ 2025-11-05T08:01:10.107Z [..\node\smsService.js:45] 11/5/2025, 4:01:10 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T08:01:15.114Z [..\node\smsService.js:45] 11/5/2025, 4:01:15 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T08:01:20.128Z [..\node\smsService.js:45] 11/5/2025, 4:01:20 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T08:01:25.142Z [..\node\smsService.js:45] 11/5/2025, 4:01:25 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T08:01:30.150Z [..\node\smsService.js:45] 11/5/2025, 4:01:30 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T08:01:35.154Z [..\node\smsService.js:45] 11/5/2025, 4:01:35 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T08:01:36.744Z [..\..\index.js:378] 🔌 Client disconnected: aCfm28-1LGsqX7bHAAAB | IP: 127.0.0.1
+✔ 2025-11-05T08:01:40.159Z [..\node\smsService.js:45] 11/5/2025, 4:01:40 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T08:01:45.169Z [..\node\smsService.js:45] 11/5/2025, 4:01:45 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
+✔ 2025-11-05T08:01:47.583Z [..\..\index.js:474] Received SIGINT. Shutting down server...
