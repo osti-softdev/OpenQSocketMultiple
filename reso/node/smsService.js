@@ -100,7 +100,7 @@ async function initializeGSM(io) {
   const baudRate = parseInt(process.env.SERIAL_BAUDRATE || "9600");
 
   try {
-    port = new SerialPort({ path: portPath, baudRate, autoOpen: false });
+    port = new SerialPort({ path: portPath, baudRate, autoOpen: true });
 
     port.open(async (err) => {
       if (err) {
@@ -110,8 +110,7 @@ async function initializeGSM(io) {
       }
 
       logStatus("SYSTEM", "-", `✅ Wavecom Fastrack opened on ${portPath}`);
-      await delay(1500);
-
+      await delay(1500)
       try {
         await sendAT("AT");
         await sendAT("ATE0");

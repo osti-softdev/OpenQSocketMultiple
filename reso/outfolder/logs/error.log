@@ -264,3 +264,36 @@
 }
 ❌ 2025-11-05T05:50:22.842Z [..\node\kiosk\kiosk.js:80] ❌ Failed to send SMS to 09988166518: Modem not connected
 ❌ 2025-11-05T05:57:56.664Z [..\node\kiosk\kiosk.js:80] ❌ Failed to send SMS to 09988166518: Timeout waiting for response
+[31m❌ 2025-11-05T06:45:44.498Z [..\..\node:internal\process\warning:65] (node:10536) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 connection listeners added to [Namespace]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(Use `node --trace-warnings ...` to show where the warning was created)[39m
+❌ 2025-11-05T07:03:11.710Z [..\..\index.js:574] Uncaught Exception: Cannot read properties of null (reading 'off')
+❌ 2025-11-05T07:03:11.719Z [..\..\index.js:574] Uncaught Exception: Cannot read properties of null (reading 'off')
+❌ 2025-11-05T07:03:11.745Z [..\..\index.js:574] Uncaught Exception: Cannot read properties of null (reading 'off')
+❌ 2025-11-05T07:03:14.055Z [..\..\index.js:574] Uncaught Exception: Cannot read properties of null (reading 'off')
+❌ 2025-11-05T07:03:14.065Z [..\..\index.js:574] Uncaught Exception: Cannot read properties of null (reading 'off')
+❌ 2025-11-05T07:03:14.079Z [..\..\index.js:574] Uncaught Exception: Cannot read properties of null (reading 'off')
+❌ 2025-11-05T07:03:14.094Z [..\..\index.js:574] Uncaught Exception: Cannot read properties of null (reading 'off')
+❌ 2025-11-05T07:03:18.290Z [..\..\index.js:574] Uncaught Exception: Cannot read properties of null (reading 'off')
+❌ 2025-11-05T07:03:18.321Z [..\..\index.js:574] Uncaught Exception: Cannot read properties of null (reading 'off')
+❌ 2025-11-05T07:03:18.328Z [..\..\index.js:574] Uncaught Exception: Cannot read properties of null (reading 'off')
+❌ 2025-11-05T07:03:18.330Z [..\..\node:internal\process\warning:56] (node:1408) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 close listeners added to [Server]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(Use `electron --trace-warnings ...` to show where the warning was created)
+❌ 2025-11-05T07:03:34.943Z [..\..\index.js:574] Uncaught Exception: Cannot read properties of null (reading 'off')
+❌ 2025-11-05T07:03:34.993Z [..\..\index.js:574] Uncaught Exception: Cannot read properties of null (reading 'off')
+❌ 2025-11-05T07:03:35.007Z [..\..\index.js:574] Uncaught Exception: Cannot read properties of null (reading 'off')
+❌ 2025-11-05T07:03:35.677Z [..\..\index.js:574] Uncaught Exception: Cannot read properties of null (reading 'off')
+❌ 2025-11-05T07:03:35.698Z [..\..\index.js:574] Uncaught Exception: Cannot read properties of null (reading 'off')
+❌ 2025-11-05T07:03:35.727Z [..\..\index.js:574] Uncaught Exception: Cannot read properties of null (reading 'off')
+❌ 2025-11-05T07:06:38.475Z [..\..\index.js:579] Unhandled Rejection at: Promise {
+  <rejected> TypeError: Cannot read properties of null (reading 'on')
+      at initializeGSM (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\smsService.js:167:8)
+} reason: TypeError: Cannot read properties of null (reading 'on')
+    at initializeGSM (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\smsService.js:167:8)
+❌ 2025-11-05T07:06:43.061Z [..\..\index.js:579] Unhandled Rejection at: Promise {
+  <rejected> TypeError: Cannot read properties of null (reading 'on')
+      at initializeGSM (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\smsService.js:167:8)
+} reason: TypeError: Cannot read properties of null (reading 'on')
+    at initializeGSM (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\smsService.js:167:8)
+❌ 2025-11-05T07:06:43.281Z [..\..\index.js:574] Uncaught Exception: Cannot read properties of null (reading 'off')
+❌ 2025-11-05T07:06:43.343Z [..\..\index.js:574] Uncaught Exception: Cannot read properties of null (reading 'off')
+❌ 2025-11-05T07:06:43.415Z [..\..\index.js:574] Uncaught Exception: Cannot read properties of null (reading 'off')

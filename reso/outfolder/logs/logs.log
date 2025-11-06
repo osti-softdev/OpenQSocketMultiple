@@ -800,6 +800,7 @@
 ]
 ✔ 2025-11-05T05:57:51.653Z [..\node\smsService.js:41] 2025-11-05T05:57:51.653Z [..\node\smsService.js:26] 11/5/2025, 1:57:51 PM | Kiosk | +639988166518 | SENDING | Carwash | CW3 | New Ticket
 ✔ 2025-11-05T05:57:56.660Z [..\node\smsService.js:41] 2025-11-05T05:57:56.659Z [..\node\smsService.js:26] 11/5/2025, 1:57:56 PM | Kiosk | +639988166518 | FAILED ❌ (Timeout waiting for response) | Carwash | CW3 | New Ticket
+<<<<<<< Updated upstream
 ✔ 2025-11-05T05:58:58.540Z [..\..\index.js:475] Received SIGINT. Shutting down server...
 ✔ 2025-11-05T05:58:58.543Z [..\node\db.js:54] Database connection closed
 ✔ 2025-11-05T05:59:05.552Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
@@ -1042,3 +1043,1483 @@
 ✔ 2025-11-05T08:01:40.159Z [..\node\smsService.js:45] 11/5/2025, 4:01:40 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
 ✔ 2025-11-05T08:01:45.169Z [..\node\smsService.js:45] 11/5/2025, 4:01:45 PM | SYSTEM | - | ❌ Failed to open COM3: Opening COM3: File not found
 ✔ 2025-11-05T08:01:47.583Z [..\..\index.js:474] Received SIGINT. Shutting down server...
+=======
+✔ 2025-11-05T06:44:00.926Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:44:00.929Z [..\..\index.js:247] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T06:44:01.079Z [..\..\index.js:451] Stale PID 9924 found in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid. Removing file.
+✔ 2025-11-05T06:44:01.080Z [..\..\index.js:461] Wrote PID 10420 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T06:44:01.083Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:44:01.092Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:44:01.093Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T06:44:01.094Z [..\..\index.js:388] Database initialized successfully
+✔ 2025-11-05T06:44:01.095Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:44:01.103Z [..\..\index.js:408] Server running on http://192.168.1.200:12345
+✔ 2025-11-05T06:44:16.051Z [..\..\index.js:324] 🔌 Client connected: sfdonM2tnbzz4QAOAAAB | IP: 127.0.0.1
+✔ 2025-11-05T06:44:16.147Z [..\node\smsService.js:45] 11/5/2025, 2:44:16 PM | SYSTEM | - | 🔍 Scanning 2 serial ports for GSM modem...
+✔ 2025-11-05T06:44:16.149Z [..\node\smsService.js:45] 11/5/2025, 2:44:16 PM | SYSTEM | - | ⚙️ Checking COM4...
+✔ 2025-11-05T06:44:16.177Z [..\node\smsService.js:45] 11/5/2025, 2:44:16 PM | SYSTEM | - | ✅ GSM modem detected on COM4
+✔ 2025-11-05T06:44:17.764Z [..\node\smsService.js:45] 11/5/2025, 2:44:17 PM | SYSTEM | - | ⛔ COM4 not valid: ERROR
+✔ 2025-11-05T06:44:17.765Z [..\node\smsService.js:45] 11/5/2025, 2:44:17 PM | SYSTEM | - | ⚙️ Checking COM1...
+✔ 2025-11-05T06:44:19.774Z [..\node\smsService.js:45] 11/5/2025, 2:44:19 PM | SYSTEM | - | ⛔ COM1 not valid: Timeout waiting for modem response
+✔ 2025-11-05T06:44:19.776Z [..\node\smsService.js:45] 11/5/2025, 2:44:19 PM | SYSTEM | - | ❌ No GSM modem detected. Retrying in 10s...
+✔ 2025-11-05T06:44:29.783Z [..\node\smsService.js:45] 11/5/2025, 2:44:29 PM | SYSTEM | - | 🔍 Scanning 2 serial ports for GSM modem...
+✔ 2025-11-05T06:44:29.785Z [..\node\smsService.js:45] 11/5/2025, 2:44:29 PM | SYSTEM | - | ⚙️ Checking COM4...
+✔ 2025-11-05T06:44:29.786Z [..\node\smsService.js:45] 11/5/2025, 2:44:29 PM | SYSTEM | - | ⛔ COM4 not valid: Opening COM4: Access denied
+✔ 2025-11-05T06:44:29.787Z [..\node\smsService.js:45] 11/5/2025, 2:44:29 PM | SYSTEM | - | ⚙️ Checking COM1...
+✔ 2025-11-05T06:44:31.796Z [..\node\smsService.js:45] 11/5/2025, 2:44:31 PM | SYSTEM | - | ⛔ COM1 not valid: Timeout waiting for modem response
+✔ 2025-11-05T06:44:31.798Z [..\node\smsService.js:45] 11/5/2025, 2:44:31 PM | SYSTEM | - | ❌ No GSM modem detected. Retrying in 10s...
+✔ 2025-11-05T06:44:41.801Z [..\node\smsService.js:45] 11/5/2025, 2:44:41 PM | SYSTEM | - | 🔍 Scanning 2 serial ports for GSM modem...
+✔ 2025-11-05T06:44:41.802Z [..\node\smsService.js:45] 11/5/2025, 2:44:41 PM | SYSTEM | - | ⚙️ Checking COM4...
+✔ 2025-11-05T06:44:41.803Z [..\node\smsService.js:45] 11/5/2025, 2:44:41 PM | SYSTEM | - | ⛔ COM4 not valid: Opening COM4: Access denied
+✔ 2025-11-05T06:44:41.803Z [..\node\smsService.js:45] 11/5/2025, 2:44:41 PM | SYSTEM | - | ⚙️ Checking COM1...
+✔ 2025-11-05T06:44:43.811Z [..\node\smsService.js:45] 11/5/2025, 2:44:43 PM | SYSTEM | - | ⛔ COM1 not valid: Timeout waiting for modem response
+✔ 2025-11-05T06:44:43.812Z [..\node\smsService.js:45] 11/5/2025, 2:44:43 PM | SYSTEM | - | ❌ No GSM modem detected. Retrying in 10s...
+✔ 2025-11-05T06:44:53.820Z [..\node\smsService.js:45] 11/5/2025, 2:44:53 PM | SYSTEM | - | 🔍 Scanning 2 serial ports for GSM modem...
+✔ 2025-11-05T06:44:53.821Z [..\node\smsService.js:45] 11/5/2025, 2:44:53 PM | SYSTEM | - | ⚙️ Checking COM4...
+✔ 2025-11-05T06:44:53.822Z [..\node\smsService.js:45] 11/5/2025, 2:44:53 PM | SYSTEM | - | ⛔ COM4 not valid: Opening COM4: Access denied
+✔ 2025-11-05T06:44:53.823Z [..\node\smsService.js:45] 11/5/2025, 2:44:53 PM | SYSTEM | - | ⚙️ Checking COM1...
+✔ 2025-11-05T06:44:55.836Z [..\node\smsService.js:45] 11/5/2025, 2:44:55 PM | SYSTEM | - | ⛔ COM1 not valid: Timeout waiting for modem response
+✔ 2025-11-05T06:44:55.837Z [..\node\smsService.js:45] 11/5/2025, 2:44:55 PM | SYSTEM | - | ❌ No GSM modem detected. Retrying in 10s...
+✔ 2025-11-05T06:45:04.992Z [..\..\index.js:475] Received SIGINT. Shutting down server...
+✔ 2025-11-05T06:45:04.993Z [..\node\db.js:54] Database connection closed
+✔ 2025-11-05T06:45:05.851Z [..\node\smsService.js:45] 11/5/2025, 2:45:05 PM | SYSTEM | - | 🔍 Scanning 2 serial ports for GSM modem...
+✔ 2025-11-05T06:45:05.852Z [..\node\smsService.js:45] 11/5/2025, 2:45:05 PM | SYSTEM | - | ⚙️ Checking COM4...
+✔ 2025-11-05T06:45:05.853Z [..\node\smsService.js:45] 11/5/2025, 2:45:05 PM | SYSTEM | - | ⛔ COM4 not valid: Opening COM4: Access denied
+✔ 2025-11-05T06:45:05.853Z [..\node\smsService.js:45] 11/5/2025, 2:45:05 PM | SYSTEM | - | ⚙️ Checking COM1...
+✔ 2025-11-05T06:45:07.865Z [..\node\smsService.js:45] 11/5/2025, 2:45:07 PM | SYSTEM | - | ⛔ COM1 not valid: Timeout waiting for modem response
+✔ 2025-11-05T06:45:07.868Z [..\node\smsService.js:45] 11/5/2025, 2:45:07 PM | SYSTEM | - | ❌ No GSM modem detected. Retrying in 10s...
+✔ 2025-11-05T06:45:35.394Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:45:35.398Z [..\..\index.js:247] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T06:45:35.403Z [..\..\index.js:461] Wrote PID 10536 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T06:45:35.414Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:45:35.416Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:45:35.418Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T06:45:35.418Z [..\..\index.js:388] Database initialized successfully
+✔ 2025-11-05T06:45:35.420Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:45:35.431Z [..\..\index.js:408] Server running on http://192.168.1.200:12345
+✔ 2025-11-05T06:45:35.517Z [..\..\index.js:324] 🔌 Client connected: nIR93UQGQ8t-SoCZAAAB | IP: 127.0.0.1
+✔ 2025-11-05T06:45:35.565Z [..\node\smsService.js:45] 11/5/2025, 2:45:35 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T06:45:37.139Z [..\node\smsService.js:45] 11/5/2025, 2:45:37 PM | SYSTEM | - | ⚠️ Init failed: ERROR
+✔ 2025-11-05T06:45:40.396Z [..\..\index.js:379] 🔌 Client disconnected: nIR93UQGQ8t-SoCZAAAB | IP: 127.0.0.1
+✔ 2025-11-05T06:45:40.468Z [..\..\index.js:324] 🔌 Client connected: b1sVhOr2biRHqocJAAAD | IP: 127.0.0.1
+✔ 2025-11-05T06:45:40.490Z [..\node\smsService.js:45] 11/5/2025, 2:45:40 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:41.522Z [..\..\index.js:379] 🔌 Client disconnected: b1sVhOr2biRHqocJAAAD | IP: 127.0.0.1
+✔ 2025-11-05T06:45:41.585Z [..\..\index.js:324] 🔌 Client connected: JxhdIW7GWimqCkVsAAAF | IP: 127.0.0.1
+✔ 2025-11-05T06:45:41.602Z [..\node\smsService.js:45] 11/5/2025, 2:45:41 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:42.209Z [..\..\index.js:379] 🔌 Client disconnected: JxhdIW7GWimqCkVsAAAF | IP: 127.0.0.1
+✔ 2025-11-05T06:45:42.267Z [..\..\index.js:324] 🔌 Client connected: jUHHygYD4a89Xef1AAAH | IP: 127.0.0.1
+✔ 2025-11-05T06:45:42.291Z [..\node\smsService.js:45] 11/5/2025, 2:45:42 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:42.803Z [..\..\index.js:379] 🔌 Client disconnected: jUHHygYD4a89Xef1AAAH | IP: 127.0.0.1
+✔ 2025-11-05T06:45:42.893Z [..\..\index.js:324] 🔌 Client connected: sxYDdc8QA4OeOQDbAAAJ | IP: 127.0.0.1
+✔ 2025-11-05T06:45:42.909Z [..\node\smsService.js:45] 11/5/2025, 2:45:42 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:43.610Z [..\..\index.js:379] 🔌 Client disconnected: sxYDdc8QA4OeOQDbAAAJ | IP: 127.0.0.1
+✔ 2025-11-05T06:45:43.667Z [..\..\index.js:324] 🔌 Client connected: J_3DHAvfwSVvkBRxAAAL | IP: 127.0.0.1
+✔ 2025-11-05T06:45:43.681Z [..\node\smsService.js:45] 11/5/2025, 2:45:43 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:44.426Z [..\..\index.js:379] 🔌 Client disconnected: J_3DHAvfwSVvkBRxAAAL | IP: 127.0.0.1
+✔ 2025-11-05T06:45:44.481Z [..\..\index.js:324] 🔌 Client connected: 3nToY45OzaWjdtULAAAN | IP: 127.0.0.1
+✔ 2025-11-05T06:45:44.502Z [..\node\smsService.js:45] 11/5/2025, 2:45:44 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:45.508Z [..\node\smsService.js:45] 11/5/2025, 2:45:45 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:46.610Z [..\node\smsService.js:45] 11/5/2025, 2:45:46 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:47.311Z [..\node\smsService.js:45] 11/5/2025, 2:45:47 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:47.918Z [..\node\smsService.js:45] 11/5/2025, 2:45:47 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:48.005Z [..\..\index.js:475] Received SIGINT. Shutting down server...
+✔ 2025-11-05T06:45:48.008Z [..\node\db.js:54] Database connection closed
+✔ 2025-11-05T06:45:48.686Z [..\node\smsService.js:45] 11/5/2025, 2:45:48 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:49.523Z [..\node\smsService.js:45] 11/5/2025, 2:45:49 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:50.518Z [..\node\smsService.js:45] 11/5/2025, 2:45:50 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:51.623Z [..\node\smsService.js:45] 11/5/2025, 2:45:51 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:52.322Z [..\node\smsService.js:45] 11/5/2025, 2:45:52 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:52.943Z [..\node\smsService.js:45] 11/5/2025, 2:45:52 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:53.695Z [..\node\smsService.js:45] 11/5/2025, 2:45:53 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:54.535Z [..\node\smsService.js:45] 11/5/2025, 2:45:54 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:55.535Z [..\node\smsService.js:45] 11/5/2025, 2:45:55 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:56.642Z [..\node\smsService.js:45] 11/5/2025, 2:45:56 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:57.332Z [..\node\smsService.js:45] 11/5/2025, 2:45:57 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:57.956Z [..\node\smsService.js:45] 11/5/2025, 2:45:57 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:58.712Z [..\node\smsService.js:45] 11/5/2025, 2:45:58 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:45:59.550Z [..\node\smsService.js:45] 11/5/2025, 2:45:59 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:46:29.705Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:46:29.709Z [..\..\index.js:247] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T06:46:29.714Z [..\..\index.js:461] Wrote PID 2668 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T06:46:29.725Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:46:29.727Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:46:29.728Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T06:46:29.729Z [..\..\index.js:388] Database initialized successfully
+✔ 2025-11-05T06:46:29.735Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:46:29.742Z [..\..\index.js:408] Server running on http://192.168.1.200:12345
+✔ 2025-11-05T06:46:29.928Z [..\..\index.js:324] 🔌 Client connected: yRBm8T48RwylF-1vAAAB | IP: 127.0.0.1
+✔ 2025-11-05T06:46:29.978Z [..\node\smsService.js:45] 11/5/2025, 2:46:29 PM | SYSTEM | - | 🔍 Scanning 2 serial ports for GSM modem...
+✔ 2025-11-05T06:46:29.980Z [..\node\smsService.js:45] 11/5/2025, 2:46:29 PM | SYSTEM | - | ⚙️ Checking COM4...
+✔ 2025-11-05T06:46:30.003Z [..\node\smsService.js:45] 11/5/2025, 2:46:30 PM | SYSTEM | - | ✅ GSM modem detected on COM4
+✔ 2025-11-05T06:46:31.589Z [..\node\smsService.js:45] 11/5/2025, 2:46:31 PM | SYSTEM | - | ⛔ COM4 not valid: ERROR
+✔ 2025-11-05T06:46:31.592Z [..\node\smsService.js:45] 11/5/2025, 2:46:31 PM | SYSTEM | - | 🔌 Port COM4 closed. Retrying...
+✔ 2025-11-05T06:46:31.593Z [..\node\smsService.js:45] 11/5/2025, 2:46:31 PM | SYSTEM | - | ⚙️ Checking COM1...
+✔ 2025-11-05T06:46:32.613Z [..\node\smsService.js:45] 11/5/2025, 2:46:32 PM | SYSTEM | - | ⛔ COM1 not valid (no OK response)
+✔ 2025-11-05T06:46:32.616Z [..\node\smsService.js:45] 11/5/2025, 2:46:32 PM | SYSTEM | - | ❌ No GSM modem detected. Retrying in 10s...
+✔ 2025-11-05T06:46:34.590Z [..\..\index.js:475] Received SIGINT. Shutting down server...
+✔ 2025-11-05T06:46:34.592Z [..\node\db.js:54] Database connection closed
+✔ 2025-11-05T06:46:34.596Z [..\node\smsService.js:45] 11/5/2025, 2:46:34 PM | SYSTEM | - | 🔍 Scanning 2 serial ports for GSM modem...
+✔ 2025-11-05T06:46:34.597Z [..\node\smsService.js:45] 11/5/2025, 2:46:34 PM | SYSTEM | - | ⚙️ Checking COM4...
+✔ 2025-11-05T06:46:34.617Z [..\node\smsService.js:45] 11/5/2025, 2:46:34 PM | SYSTEM | - | ✅ GSM modem detected on COM4
+✔ 2025-11-05T06:46:36.195Z [..\node\smsService.js:45] 11/5/2025, 2:46:36 PM | SYSTEM | - | ⛔ COM4 not valid: ERROR
+✔ 2025-11-05T06:46:36.196Z [..\node\smsService.js:45] 11/5/2025, 2:46:36 PM | SYSTEM | - | 🔌 Port COM4 closed. Retrying...
+✔ 2025-11-05T06:46:36.197Z [..\node\smsService.js:45] 11/5/2025, 2:46:36 PM | SYSTEM | - | ⚙️ Checking COM1...
+✔ 2025-11-05T06:46:37.230Z [..\node\smsService.js:45] 11/5/2025, 2:46:37 PM | SYSTEM | - | ⛔ COM1 not valid (no OK response)
+✔ 2025-11-05T06:46:37.231Z [..\node\smsService.js:45] 11/5/2025, 2:46:37 PM | SYSTEM | - | ❌ No GSM modem detected. Retrying in 10s...
+✔ 2025-11-05T06:50:31.946Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:50:31.947Z [..\..\index.js:248] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T06:50:31.957Z [..\..\index.js:462] Wrote PID 12528 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T06:50:32.154Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:50:32.162Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:50:32.163Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T06:50:32.164Z [..\..\index.js:389] Database initialized successfully
+✔ 2025-11-05T06:50:32.164Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:50:32.171Z [..\..\index.js:409] Server running on http://192.168.1.200:12345
+✔ 2025-11-05T06:50:32.852Z [..\..\index.js:325] 🔌 Client connected: 3Qqz1XQ0Vd72f4H4AAAB | IP: 127.0.0.1
+✔ 2025-11-05T06:50:32.883Z [..\node\smsService.js:45] 11/5/2025, 2:50:32 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T06:50:32.981Z [unknown] Cache cleared
+✔ 2025-11-05T06:50:33.637Z [..\..\index.js:325] 🔌 Client connected: dAQDCrkDTir3fffKAAAE | IP: 192.168.1.200
+✔ 2025-11-05T06:50:33.690Z [..\node\smsService.js:45] 11/5/2025, 2:50:33 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:50:34.007Z [..\..\index.js:325] 🔌 Client connected: hhio6m6BUFdbBd9BAAAF | IP: 192.168.1.200
+✔ 2025-11-05T06:50:34.016Z [..\node\smsService.js:45] 11/5/2025, 2:50:34 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:50:34.390Z [..\node\smsService.js:45] 11/5/2025, 2:50:34 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T06:50:38.722Z [..\node\smsService.js:45] 11/5/2025, 2:50:38 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:50:39.030Z [..\node\smsService.js:45] 11/5/2025, 2:50:39 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:50:43.728Z [..\node\smsService.js:45] 11/5/2025, 2:50:43 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:50:44.044Z [..\node\smsService.js:45] 11/5/2025, 2:50:44 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:50:48.745Z [..\node\smsService.js:45] 11/5/2025, 2:50:48 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:50:49.060Z [..\node\smsService.js:45] 11/5/2025, 2:50:49 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:50:53.760Z [..\node\smsService.js:45] 11/5/2025, 2:50:53 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:50:54.063Z [..\node\smsService.js:45] 11/5/2025, 2:50:54 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:50:58.773Z [..\node\smsService.js:45] 11/5/2025, 2:50:58 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:50:59.076Z [..\node\smsService.js:45] 11/5/2025, 2:50:59 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:03.793Z [..\node\smsService.js:45] 11/5/2025, 2:51:03 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:04.080Z [..\node\smsService.js:45] 11/5/2025, 2:51:04 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:08.809Z [..\node\smsService.js:45] 11/5/2025, 2:51:08 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:09.086Z [..\node\smsService.js:45] 11/5/2025, 2:51:09 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:13.828Z [..\node\smsService.js:45] 11/5/2025, 2:51:13 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:14.096Z [..\node\smsService.js:45] 11/5/2025, 2:51:14 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:18.844Z [..\node\smsService.js:45] 11/5/2025, 2:51:18 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:19.111Z [..\node\smsService.js:45] 11/5/2025, 2:51:19 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:23.853Z [..\node\smsService.js:45] 11/5/2025, 2:51:23 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:24.124Z [..\node\smsService.js:45] 11/5/2025, 2:51:24 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:28.860Z [..\node\smsService.js:45] 11/5/2025, 2:51:28 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:29.127Z [..\node\smsService.js:45] 11/5/2025, 2:51:29 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:33.870Z [..\node\smsService.js:45] 11/5/2025, 2:51:33 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:34.140Z [..\node\smsService.js:45] 11/5/2025, 2:51:34 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:38.876Z [..\node\smsService.js:45] 11/5/2025, 2:51:38 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:39.144Z [..\node\smsService.js:45] 11/5/2025, 2:51:39 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:43.877Z [..\node\smsService.js:45] 11/5/2025, 2:51:43 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:44.153Z [..\node\smsService.js:45] 11/5/2025, 2:51:44 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:48.878Z [..\node\smsService.js:45] 11/5/2025, 2:51:48 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:49.168Z [..\node\smsService.js:45] 11/5/2025, 2:51:49 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:52.251Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:51:52.252Z [..\..\index.js:248] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T06:51:52.397Z [..\..\index.js:452] Stale PID 12528 found in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid. Removing file.
+✔ 2025-11-05T06:51:52.398Z [..\..\index.js:462] Wrote PID 6100 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T06:51:52.427Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:51:52.440Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:51:52.441Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T06:51:52.441Z [..\..\index.js:389] Database initialized successfully
+✔ 2025-11-05T06:51:52.442Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:51:52.448Z [..\..\index.js:409] Server running on http://192.168.1.200:12345
+✔ 2025-11-05T06:51:52.761Z [..\..\index.js:325] 🔌 Client connected: v26phkEbavLR8iAAAAAB | IP: 127.0.0.1
+✔ 2025-11-05T06:51:52.796Z [..\node\smsService.js:45] 11/5/2025, 2:51:52 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T06:51:52.837Z [unknown] Cache cleared
+✔ 2025-11-05T06:51:52.982Z [..\..\index.js:325] 🔌 Client connected: L4q2sdG-HQL0KgG_AAAD | IP: 192.168.1.200
+✔ 2025-11-05T06:51:53.040Z [..\node\smsService.js:45] 11/5/2025, 2:51:53 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:53.326Z [..\..\index.js:325] 🔌 Client connected: 4VLuUUI12xGuLaUfAAAF | IP: 192.168.1.200
+✔ 2025-11-05T06:51:53.336Z [..\node\smsService.js:45] 11/5/2025, 2:51:53 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:54.307Z [..\node\smsService.js:45] 11/5/2025, 2:51:54 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T06:51:58.096Z [..\node\smsService.js:45] 11/5/2025, 2:51:58 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:51:58.340Z [..\node\smsService.js:45] 11/5/2025, 2:51:58 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:52:03.112Z [..\node\smsService.js:45] 11/5/2025, 2:52:03 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:52:03.359Z [..\node\smsService.js:45] 11/5/2025, 2:52:03 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:52:08.118Z [..\node\smsService.js:45] 11/5/2025, 2:52:08 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:52:08.384Z [..\node\smsService.js:45] 11/5/2025, 2:52:08 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:52:13.137Z [..\node\smsService.js:45] 11/5/2025, 2:52:13 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T06:52:13.400Z [..\node\smsService.js:45] 11/5/2025, 2:52:13 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:52:14.643Z [..\node\smsService.js:45] 11/5/2025, 2:52:14 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T06:52:18.412Z [..\node\smsService.js:45] 11/5/2025, 2:52:18 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T06:52:19.993Z [..\node\smsService.js:45] 11/5/2025, 2:52:19 PM | SYSTEM | - | ⚠️ Init failed: ERROR
+✔ 2025-11-05T06:52:22.284Z [..\node\smsService.js:45] 11/5/2025, 2:52:22 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T06:52:27.289Z [..\node\smsService.js:45] 11/5/2025, 2:52:27 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T06:52:28.876Z [..\node\smsService.js:45] 11/5/2025, 2:52:28 PM | SYSTEM | - | ⚠️ Init failed: ERROR
+✔ 2025-11-05T06:52:31.740Z [..\node\smsService.js:45] 11/5/2025, 2:52:31 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T06:52:36.748Z [..\node\smsService.js:45] 11/5/2025, 2:52:36 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T06:52:43.252Z [..\node\smsService.js:45] 11/5/2025, 2:52:43 PM | SYSTEM | - | ⚠️ Init failed: Timeout waiting for response
+✔ 2025-11-05T06:52:46.028Z [..\node\smsService.js:45] 11/5/2025, 2:52:46 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T06:52:51.033Z [..\node\smsService.js:45] 11/5/2025, 2:52:51 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T06:52:56.039Z [..\node\smsService.js:45] 11/5/2025, 2:52:56 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T06:53:01.052Z [..\node\smsService.js:45] 11/5/2025, 2:53:01 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T06:53:06.071Z [..\node\smsService.js:45] 11/5/2025, 2:53:06 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T06:53:11.088Z [..\node\smsService.js:45] 11/5/2025, 2:53:11 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T06:53:33.542Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:53:33.544Z [..\..\index.js:248] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T06:53:33.694Z [..\..\index.js:452] Stale PID 6100 found in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid. Removing file.
+✔ 2025-11-05T06:53:33.695Z [..\..\index.js:462] Wrote PID 3112 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T06:53:33.724Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:53:33.735Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:53:33.735Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T06:53:33.736Z [..\..\index.js:389] Database initialized successfully
+✔ 2025-11-05T06:53:33.736Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:53:33.742Z [..\..\index.js:409] Server running on http://192.168.1.200:12345
+✔ 2025-11-05T06:53:34.043Z [..\..\index.js:325] 🔌 Client connected: 85tQ1TJ25R2o3X0KAAAB | IP: 127.0.0.1
+✔ 2025-11-05T06:53:34.077Z [..\node\smsService.js:45] 11/5/2025, 2:53:34 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T06:53:34.106Z [unknown] Cache cleared
+✔ 2025-11-05T06:53:34.271Z [..\..\index.js:325] 🔌 Client connected: BUY--RxMh5bN5JyWAAAD | IP: 192.168.1.200
+✔ 2025-11-05T06:53:34.308Z [..\node\smsService.js:45] 11/5/2025, 2:53:34 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:53:34.566Z [..\..\index.js:325] 🔌 Client connected: mqS-xw_8hSP6ZPCyAAAF | IP: 192.168.1.200
+✔ 2025-11-05T06:53:34.574Z [..\node\smsService.js:45] 11/5/2025, 2:53:34 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:53:35.591Z [..\node\smsService.js:45] 11/5/2025, 2:53:35 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T06:53:39.345Z [..\node\smsService.js:45] 11/5/2025, 2:53:39 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:53:39.585Z [..\node\smsService.js:45] 11/5/2025, 2:53:39 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:53:44.363Z [..\node\smsService.js:45] 11/5/2025, 2:53:44 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:53:44.595Z [..\node\smsService.js:45] 11/5/2025, 2:53:44 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:53:54.811Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:53:54.812Z [..\..\index.js:248] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T06:53:54.814Z [..\..\index.js:462] Wrote PID 16104 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T06:53:54.846Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:53:54.859Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T06:53:54.860Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T06:53:54.861Z [..\..\index.js:389] Database initialized successfully
+✔ 2025-11-05T06:53:54.861Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T06:53:54.867Z [..\..\index.js:409] Server running on http://192.168.1.200:12345
+✔ 2025-11-05T06:53:55.152Z [..\..\index.js:325] 🔌 Client connected: KUySTp5ZerQz45YUAAAB | IP: 127.0.0.1
+✔ 2025-11-05T06:53:55.185Z [..\node\smsService.js:45] 11/5/2025, 2:53:55 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T06:53:55.222Z [unknown] Cache cleared
+✔ 2025-11-05T06:53:55.376Z [..\..\index.js:325] 🔌 Client connected: aDKjIZ0dkTiS3B8WAAAD | IP: 192.168.1.200
+✔ 2025-11-05T06:53:55.443Z [..\node\smsService.js:45] 11/5/2025, 2:53:55 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:53:55.573Z [..\..\index.js:325] 🔌 Client connected: OWKPPtW6_y5ZJJE3AAAF | IP: 192.168.1.200
+✔ 2025-11-05T06:53:55.582Z [..\node\smsService.js:45] 11/5/2025, 2:53:55 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:53:56.690Z [..\node\smsService.js:45] 11/5/2025, 2:53:56 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T06:54:00.506Z [..\node\smsService.js:45] 11/5/2025, 2:54:00 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:00.587Z [..\node\smsService.js:45] 11/5/2025, 2:54:00 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:05.509Z [..\node\smsService.js:45] 11/5/2025, 2:54:05 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:05.603Z [..\node\smsService.js:45] 11/5/2025, 2:54:05 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:10.518Z [..\node\smsService.js:45] 11/5/2025, 2:54:10 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:10.619Z [..\node\smsService.js:45] 11/5/2025, 2:54:10 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:15.519Z [..\node\smsService.js:45] 11/5/2025, 2:54:15 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:15.634Z [..\node\smsService.js:45] 11/5/2025, 2:54:15 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:20.529Z [..\node\smsService.js:45] 11/5/2025, 2:54:20 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:20.653Z [..\node\smsService.js:45] 11/5/2025, 2:54:20 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:25.534Z [..\node\smsService.js:45] 11/5/2025, 2:54:25 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:25.667Z [..\node\smsService.js:45] 11/5/2025, 2:54:25 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:30.549Z [..\node\smsService.js:45] 11/5/2025, 2:54:30 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:30.672Z [..\node\smsService.js:45] 11/5/2025, 2:54:30 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:35.559Z [..\node\smsService.js:45] 11/5/2025, 2:54:35 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:35.686Z [..\node\smsService.js:45] 11/5/2025, 2:54:35 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:40.565Z [..\node\smsService.js:45] 11/5/2025, 2:54:40 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:40.690Z [..\node\smsService.js:45] 11/5/2025, 2:54:40 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:45.570Z [..\node\smsService.js:45] 11/5/2025, 2:54:45 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:45.702Z [..\node\smsService.js:45] 11/5/2025, 2:54:45 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:50.584Z [..\node\smsService.js:45] 11/5/2025, 2:54:50 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:50.717Z [..\node\smsService.js:45] 11/5/2025, 2:54:50 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:55.602Z [..\node\smsService.js:45] 11/5/2025, 2:54:55 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:54:55.726Z [..\node\smsService.js:45] 11/5/2025, 2:54:55 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:55:00.618Z [..\node\smsService.js:45] 11/5/2025, 2:55:00 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:55:00.726Z [..\node\smsService.js:45] 11/5/2025, 2:55:00 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:55:05.639Z [..\node\smsService.js:45] 11/5/2025, 2:55:05 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:55:05.740Z [..\node\smsService.js:45] 11/5/2025, 2:55:05 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:55:10.659Z [..\node\smsService.js:45] 11/5/2025, 2:55:10 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:55:10.741Z [..\node\smsService.js:45] 11/5/2025, 2:55:10 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:55:15.663Z [..\node\smsService.js:45] 11/5/2025, 2:55:15 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:55:15.757Z [..\node\smsService.js:45] 11/5/2025, 2:55:15 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:55:20.669Z [..\node\smsService.js:45] 11/5/2025, 2:55:20 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T06:55:20.759Z [..\node\smsService.js:45] 11/5/2025, 2:55:20 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T07:03:04.440Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:03:04.442Z [..\..\index.js:248] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T07:03:04.612Z [..\..\index.js:452] Stale PID 16104 found in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid. Removing file.
+✔ 2025-11-05T07:03:04.613Z [..\..\index.js:462] Wrote PID 1408 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T07:03:04.646Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:03:04.656Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:03:04.658Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T07:03:04.658Z [..\..\index.js:389] Database initialized successfully
+✔ 2025-11-05T07:03:04.658Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:03:04.664Z [..\..\index.js:409] Server running on http://192.168.1.200:12345
+✔ 2025-11-05T07:03:05.121Z [..\..\index.js:325] 🔌 Client connected: N1mafyc9JokTsYNYAAAB | IP: 127.0.0.1
+✔ 2025-11-05T07:03:05.153Z [..\node\smsService.js:45] 11/5/2025, 3:03:05 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:03:06.762Z [..\node\smsService.js:45] 11/5/2025, 3:03:06 PM | SYSTEM | - | ⚠️ Init failed: ERROR
+✔ 2025-11-05T07:03:06.763Z [..\node\smsService.js:45] 11/5/2025, 3:03:06 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:03:06.766Z [..\node\smsService.js:45] 11/5/2025, 3:03:06 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:03:06.767Z [..\node\smsService.js:45] 11/5/2025, 3:03:06 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:03:06.767Z [..\node\smsService.js:45] 11/5/2025, 3:03:06 PM | SYSTEM | - | 🧹 Port closed cleanly before retry
+✔ 2025-11-05T07:03:07.038Z [unknown] Cache cleared
+✔ 2025-11-05T07:03:07.525Z [..\..\index.js:325] 🔌 Client connected: mSK3MQLRmvxb1kRFAAAE | IP: 192.168.1.200
+✔ 2025-11-05T07:03:07.534Z [..\node\smsService.js:45] 11/5/2025, 3:03:07 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:03:07.571Z [..\..\index.js:325] 🔌 Client connected: 5TZGEgZjYEz9B8-kAAAF | IP: 192.168.1.200
+✔ 2025-11-05T07:03:07.578Z [..\node\smsService.js:45] 11/5/2025, 3:03:07 PM | SYSTEM | - | ⚙️ Closing stale port before reopening...
+✔ 2025-11-05T07:03:07.581Z [..\node\smsService.js:45] 11/5/2025, 3:03:07 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:03:07.582Z [..\node\smsService.js:45] 11/5/2025, 3:03:07 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:03:07.584Z [..\node\smsService.js:45] 11/5/2025, 3:03:07 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:03:09.114Z [..\node\smsService.js:45] 11/5/2025, 3:03:09 PM | SYSTEM | - | ⚠️ Init failed: ERROR
+✔ 2025-11-05T07:03:09.117Z [..\node\smsService.js:45] 11/5/2025, 3:03:09 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:03:09.118Z [..\node\smsService.js:45] 11/5/2025, 3:03:09 PM | SYSTEM | - | ⚠️ Init failed: ERROR
+✔ 2025-11-05T07:03:09.119Z [..\node\smsService.js:45] 11/5/2025, 3:03:09 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:03:09.123Z [..\node\smsService.js:45] 11/5/2025, 3:03:09 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:03:09.126Z [..\node\smsService.js:45] 11/5/2025, 3:03:09 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:03:09.127Z [..\node\smsService.js:45] 11/5/2025, 3:03:09 PM | SYSTEM | - | 🧹 Port closed cleanly before retry
+✔ 2025-11-05T07:03:11.711Z [..\..\index.js:544] Received UNCAUGHT_EXCEPTION. Shutting down server...
+✔ 2025-11-05T07:03:11.718Z [..\node\db.js:54] Database connection closed
+✔ 2025-11-05T07:03:11.719Z [..\..\index.js:544] Received UNCAUGHT_EXCEPTION. Shutting down server...
+✔ 2025-11-05T07:03:11.746Z [..\..\index.js:544] Received UNCAUGHT_EXCEPTION. Shutting down server...
+✔ 2025-11-05T07:03:11.775Z [..\node\smsService.js:45] 11/5/2025, 3:03:11 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:03:11.945Z [..\node\smsService.js:45] 11/5/2025, 3:03:11 PM | SYSTEM | - | ⚙️ Closing stale port before reopening...
+✔ 2025-11-05T07:03:11.946Z [..\node\smsService.js:45] 11/5/2025, 3:03:11 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:03:11.947Z [..\node\smsService.js:45] 11/5/2025, 3:03:11 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:03:11.949Z [..\node\smsService.js:45] 11/5/2025, 3:03:11 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:03:12.589Z [..\node\smsService.js:45] 11/5/2025, 3:03:12 PM | SYSTEM | - | ⚙️ Closing stale port before reopening...
+✔ 2025-11-05T07:03:12.591Z [..\node\smsService.js:45] 11/5/2025, 3:03:12 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:03:12.591Z [..\node\smsService.js:45] 11/5/2025, 3:03:12 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:03:12.593Z [..\node\smsService.js:45] 11/5/2025, 3:03:12 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:03:13.361Z [..\node\smsService.js:45] 11/5/2025, 3:03:13 PM | SYSTEM | - | ⚠️ Init failed: ERROR
+✔ 2025-11-05T07:03:13.361Z [..\node\smsService.js:45] 11/5/2025, 3:03:13 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:03:13.362Z [..\node\smsService.js:45] 11/5/2025, 3:03:13 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:03:13.363Z [..\node\smsService.js:45] 11/5/2025, 3:03:13 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:03:13.364Z [..\node\smsService.js:45] 11/5/2025, 3:03:13 PM | SYSTEM | - | 🧹 Port closed cleanly before retry
+✔ 2025-11-05T07:03:13.466Z [..\node\smsService.js:45] 11/5/2025, 3:03:13 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:03:13.466Z [..\node\smsService.js:45] 11/5/2025, 3:03:13 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:03:14.055Z [..\..\index.js:544] Received UNCAUGHT_EXCEPTION. Shutting down server...
+✔ 2025-11-05T07:03:14.065Z [..\..\index.js:544] Received UNCAUGHT_EXCEPTION. Shutting down server...
+✔ 2025-11-05T07:03:14.080Z [..\..\index.js:544] Received UNCAUGHT_EXCEPTION. Shutting down server...
+✔ 2025-11-05T07:03:14.096Z [..\..\index.js:544] Received UNCAUGHT_EXCEPTION. Shutting down server...
+✔ 2025-11-05T07:03:14.096Z [..\node\smsService.js:45] 11/5/2025, 3:03:14 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:03:14.097Z [..\node\smsService.js:45] 11/5/2025, 3:03:14 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:03:14.129Z [..\node\smsService.js:45] 11/5/2025, 3:03:14 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:03:14.130Z [..\node\smsService.js:45] 11/5/2025, 3:03:14 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:03:14.131Z [..\node\smsService.js:45] 11/5/2025, 3:03:14 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:03:14.131Z [..\node\smsService.js:45] 11/5/2025, 3:03:14 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:03:14.132Z [..\node\smsService.js:45] 11/5/2025, 3:03:14 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:03:15.635Z [..\node\smsService.js:45] 11/5/2025, 3:03:15 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:03:15.636Z [..\node\smsService.js:45] 11/5/2025, 3:03:15 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:03:16.955Z [..\node\smsService.js:45] 11/5/2025, 3:03:16 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:03:16.957Z [..\node\smsService.js:45] 11/5/2025, 3:03:16 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:03:17.605Z [..\node\smsService.js:45] 11/5/2025, 3:03:17 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:03:17.606Z [..\node\smsService.js:45] 11/5/2025, 3:03:17 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:03:18.290Z [..\..\index.js:544] Received UNCAUGHT_EXCEPTION. Shutting down server...
+✔ 2025-11-05T07:03:18.321Z [..\..\index.js:544] Received UNCAUGHT_EXCEPTION. Shutting down server...
+✔ 2025-11-05T07:03:18.329Z [..\..\index.js:544] Received UNCAUGHT_EXCEPTION. Shutting down server...
+✔ 2025-11-05T07:03:18.377Z [..\node\smsService.js:45] 11/5/2025, 3:03:18 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:03:18.379Z [..\node\smsService.js:45] 11/5/2025, 3:03:18 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:03:18.380Z [..\node\smsService.js:45] 11/5/2025, 3:03:18 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:03:18.380Z [..\node\smsService.js:45] 11/5/2025, 3:03:18 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:03:18.471Z [..\node\smsService.js:45] 11/5/2025, 3:03:18 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:03:18.472Z [..\node\smsService.js:45] 11/5/2025, 3:03:18 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:03:19.106Z [..\node\smsService.js:45] 11/5/2025, 3:03:19 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:03:19.107Z [..\node\smsService.js:45] 11/5/2025, 3:03:19 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:03:19.145Z [..\node\smsService.js:45] 11/5/2025, 3:03:19 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:03:19.145Z [..\node\smsService.js:45] 11/5/2025, 3:03:19 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:03:19.146Z [..\node\smsService.js:45] 11/5/2025, 3:03:19 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:03:19.147Z [..\node\smsService.js:45] 11/5/2025, 3:03:19 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:03:20.636Z [..\node\smsService.js:45] 11/5/2025, 3:03:20 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:03:20.637Z [..\node\smsService.js:45] 11/5/2025, 3:03:20 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:03:21.972Z [..\node\smsService.js:45] 11/5/2025, 3:03:21 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:03:21.973Z [..\node\smsService.js:45] 11/5/2025, 3:03:21 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:03:22.621Z [..\node\smsService.js:45] 11/5/2025, 3:03:22 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:03:22.621Z [..\node\smsService.js:45] 11/5/2025, 3:03:22 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:03:23.389Z [..\node\smsService.js:45] 11/5/2025, 3:03:23 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:23.391Z [..\node\smsService.js:45] 11/5/2025, 3:03:23 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:23.476Z [..\node\smsService.js:45] 11/5/2025, 3:03:23 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:24.117Z [..\node\smsService.js:45] 11/5/2025, 3:03:24 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:24.147Z [..\node\smsService.js:45] 11/5/2025, 3:03:24 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:24.148Z [..\node\smsService.js:45] 11/5/2025, 3:03:24 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:25.639Z [..\node\smsService.js:45] 11/5/2025, 3:03:25 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:26.978Z [..\node\smsService.js:45] 11/5/2025, 3:03:26 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:03:27.623Z [..\node\smsService.js:45] 11/5/2025, 3:03:27 PM | SYSTEM | - | ⚙️ Closing stale port before reopening...
+✔ 2025-11-05T07:03:27.624Z [..\node\smsService.js:45] 11/5/2025, 3:03:27 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:03:27.625Z [..\node\smsService.js:45] 11/5/2025, 3:03:27 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:03:27.627Z [..\node\smsService.js:45] 11/5/2025, 3:03:27 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:03:28.392Z [..\node\smsService.js:45] 11/5/2025, 3:03:28 PM | SYSTEM | - | ⚙️ Closing stale port before reopening...
+✔ 2025-11-05T07:03:28.393Z [..\node\smsService.js:45] 11/5/2025, 3:03:28 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:03:28.394Z [..\node\smsService.js:45] 11/5/2025, 3:03:28 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:03:28.395Z [..\node\smsService.js:45] 11/5/2025, 3:03:28 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:03:28.395Z [..\node\smsService.js:45] 11/5/2025, 3:03:28 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:03:28.397Z [..\node\smsService.js:45] 11/5/2025, 3:03:28 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:03:28.488Z [..\node\smsService.js:45] 11/5/2025, 3:03:28 PM | SYSTEM | - | ⚙️ Closing stale port before reopening...
+✔ 2025-11-05T07:03:28.488Z [..\node\smsService.js:45] 11/5/2025, 3:03:28 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:03:28.489Z [..\node\smsService.js:45] 11/5/2025, 3:03:28 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:03:28.490Z [..\node\smsService.js:45] 11/5/2025, 3:03:28 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:03:28.491Z [..\node\smsService.js:45] 11/5/2025, 3:03:28 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:03:28.493Z [..\node\smsService.js:45] 11/5/2025, 3:03:28 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:03:29.122Z [..\node\smsService.js:45] 11/5/2025, 3:03:29 PM | SYSTEM | - | ⚙️ Closing stale port before reopening...
+✔ 2025-11-05T07:03:29.124Z [..\node\smsService.js:45] 11/5/2025, 3:03:29 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:03:29.124Z [..\node\smsService.js:45] 11/5/2025, 3:03:29 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:03:29.126Z [..\node\smsService.js:45] 11/5/2025, 3:03:29 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:03:29.156Z [..\node\smsService.js:45] 11/5/2025, 3:03:29 PM | SYSTEM | - | ⚙️ Closing stale port before reopening...
+✔ 2025-11-05T07:03:29.157Z [..\node\smsService.js:45] 11/5/2025, 3:03:29 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:03:29.158Z [..\node\smsService.js:45] 11/5/2025, 3:03:29 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:03:29.159Z [..\node\smsService.js:45] 11/5/2025, 3:03:29 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:03:29.160Z [..\node\smsService.js:45] 11/5/2025, 3:03:29 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:03:29.162Z [..\node\smsService.js:45] 11/5/2025, 3:03:29 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:03:30.011Z [..\node\smsService.js:45] 11/5/2025, 3:03:30 PM | SYSTEM | - | ⚠️ Init failed: ERROR
+✔ 2025-11-05T07:03:30.012Z [..\node\smsService.js:45] 11/5/2025, 3:03:30 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:03:30.013Z [..\node\smsService.js:45] 11/5/2025, 3:03:30 PM | SYSTEM | - | ⚠️ Init failed: ERROR
+✔ 2025-11-05T07:03:30.013Z [..\node\smsService.js:45] 11/5/2025, 3:03:30 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:03:30.014Z [..\node\smsService.js:45] 11/5/2025, 3:03:30 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:03:30.015Z [..\node\smsService.js:45] 11/5/2025, 3:03:30 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:03:30.016Z [..\node\smsService.js:45] 11/5/2025, 3:03:30 PM | SYSTEM | - | 🧹 Port closed cleanly before retry
+✔ 2025-11-05T07:03:30.639Z [..\node\smsService.js:45] 11/5/2025, 3:03:30 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:03:30.640Z [..\node\smsService.js:45] 11/5/2025, 3:03:30 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:03:30.643Z [..\node\smsService.js:45] 11/5/2025, 3:03:30 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:03:30.745Z [..\node\smsService.js:45] 11/5/2025, 3:03:30 PM | SYSTEM | - | ⚠️ Init failed: ERROR
+✔ 2025-11-05T07:03:30.746Z [..\node\smsService.js:45] 11/5/2025, 3:03:30 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:03:30.747Z [..\node\smsService.js:45] 11/5/2025, 3:03:30 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:03:30.747Z [..\node\smsService.js:45] 11/5/2025, 3:03:30 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:03:30.748Z [..\node\smsService.js:45] 11/5/2025, 3:03:30 PM | SYSTEM | - | 🧹 Port closed cleanly before retry
+✔ 2025-11-05T07:03:32.154Z [..\node\smsService.js:45] 11/5/2025, 3:03:32 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:03:32.155Z [..\node\smsService.js:45] 11/5/2025, 3:03:32 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:03:32.635Z [..\node\smsService.js:45] 11/5/2025, 3:03:32 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:03:33.405Z [..\node\smsService.js:45] 11/5/2025, 3:03:33 PM | SYSTEM | - | ⚙️ Closing stale port before reopening...
+✔ 2025-11-05T07:03:33.407Z [..\node\smsService.js:45] 11/5/2025, 3:03:33 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:03:33.407Z [..\node\smsService.js:45] 11/5/2025, 3:03:33 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:03:33.408Z [..\node\smsService.js:45] 11/5/2025, 3:03:33 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:03:33.409Z [..\node\smsService.js:45] 11/5/2025, 3:03:33 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:03:33.411Z [..\node\smsService.js:45] 11/5/2025, 3:03:33 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:03:33.505Z [..\node\smsService.js:45] 11/5/2025, 3:03:33 PM | SYSTEM | - | ⚙️ Closing stale port before reopening...
+✔ 2025-11-05T07:03:33.506Z [..\node\smsService.js:45] 11/5/2025, 3:03:33 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:03:33.507Z [..\node\smsService.js:45] 11/5/2025, 3:03:33 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:03:33.508Z [..\node\smsService.js:45] 11/5/2025, 3:03:33 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:03:33.509Z [..\node\smsService.js:45] 11/5/2025, 3:03:33 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:03:33.511Z [..\node\smsService.js:45] 11/5/2025, 3:03:33 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:03:34.139Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | ⚙️ Closing stale port before reopening...
+✔ 2025-11-05T07:03:34.140Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | ⚠️ Init failed: Timeout waiting for response
+✔ 2025-11-05T07:03:34.141Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:03:34.142Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:03:34.142Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:03:34.143Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:03:34.144Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:03:34.146Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:03:34.162Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | ⚙️ Closing stale port before reopening...
+✔ 2025-11-05T07:03:34.165Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:03:34.165Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:03:34.166Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:03:34.167Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:03:34.169Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:03:34.923Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | ⚠️ Init failed: Writing to COM port (WriteFileEx): Access denied
+✔ 2025-11-05T07:03:34.924Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:03:34.925Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | ❌ Port error: Writing to COM port (WriteFileEx): Access denied
+✔ 2025-11-05T07:03:34.926Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | 🔁 Reinitializing GSM (port error access denied)...
+✔ 2025-11-05T07:03:34.926Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:03:34.927Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:03:34.928Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:03:34.929Z [..\node\smsService.js:45] 11/5/2025, 3:03:34 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:03:34.943Z [..\..\index.js:544] Received UNCAUGHT_EXCEPTION. Shutting down server...
+✔ 2025-11-05T07:03:34.994Z [..\..\index.js:544] Received UNCAUGHT_EXCEPTION. Shutting down server...
+✔ 2025-11-05T07:03:35.008Z [..\..\index.js:544] Received UNCAUGHT_EXCEPTION. Shutting down server...
+✔ 2025-11-05T07:03:35.023Z [..\node\smsService.js:45] 11/5/2025, 3:03:35 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:03:35.024Z [..\node\smsService.js:45] 11/5/2025, 3:03:35 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:03:35.025Z [..\node\smsService.js:45] 11/5/2025, 3:03:35 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:35.026Z [..\node\smsService.js:45] 11/5/2025, 3:03:35 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:35.026Z [..\node\smsService.js:45] 11/5/2025, 3:03:35 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:35.655Z [..\node\smsService.js:45] 11/5/2025, 3:03:35 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:03:35.658Z [..\node\smsService.js:45] 11/5/2025, 3:03:35 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:03:35.659Z [..\node\smsService.js:45] 11/5/2025, 3:03:35 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:35.673Z [..\node\smsService.js:45] 11/5/2025, 3:03:35 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:03:35.676Z [..\node\smsService.js:45] 11/5/2025, 3:03:35 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:03:35.677Z [..\..\index.js:544] Received UNCAUGHT_EXCEPTION. Shutting down server...
+✔ 2025-11-05T07:03:35.698Z [..\..\index.js:544] Received UNCAUGHT_EXCEPTION. Shutting down server...
+✔ 2025-11-05T07:03:35.731Z [..\..\index.js:544] Received UNCAUGHT_EXCEPTION. Shutting down server...
+✔ 2025-11-05T07:03:35.750Z [..\node\smsService.js:45] 11/5/2025, 3:03:35 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:03:35.751Z [..\node\smsService.js:45] 11/5/2025, 3:03:35 PM | SYSTEM | - | ⚙️ Closing stale port before reopening...
+✔ 2025-11-05T07:03:35.752Z [..\node\smsService.js:45] 11/5/2025, 3:03:35 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:03:35.753Z [..\node\smsService.js:45] 11/5/2025, 3:03:35 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:03:35.759Z [..\node\smsService.js:45] 11/5/2025, 3:03:35 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:03:37.155Z [..\node\smsService.js:45] 11/5/2025, 3:03:37 PM | SYSTEM | - | ⚙️ Closing stale port before reopening...
+✔ 2025-11-05T07:03:37.156Z [..\node\smsService.js:45] 11/5/2025, 3:03:37 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:03:37.157Z [..\node\smsService.js:45] 11/5/2025, 3:03:37 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:03:37.158Z [..\node\smsService.js:45] 11/5/2025, 3:03:37 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:37.258Z [..\node\smsService.js:45] 11/5/2025, 3:03:37 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:03:37.259Z [..\node\smsService.js:45] 11/5/2025, 3:03:37 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:03:37.260Z [..\node\smsService.js:45] 11/5/2025, 3:03:37 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:03:37.260Z [..\node\smsService.js:45] 11/5/2025, 3:03:37 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:03:38.422Z [..\node\smsService.js:45] 11/5/2025, 3:03:38 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:38.423Z [..\node\smsService.js:45] 11/5/2025, 3:03:38 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:38.522Z [..\node\smsService.js:45] 11/5/2025, 3:03:38 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:38.523Z [..\node\smsService.js:45] 11/5/2025, 3:03:38 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:39.155Z [..\node\smsService.js:45] 11/5/2025, 3:03:39 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:39.156Z [..\node\smsService.js:45] 11/5/2025, 3:03:39 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:39.157Z [..\node\smsService.js:45] 11/5/2025, 3:03:39 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:39.173Z [..\node\smsService.js:45] 11/5/2025, 3:03:39 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:39.174Z [..\node\smsService.js:45] 11/5/2025, 3:03:39 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:39.939Z [..\node\smsService.js:45] 11/5/2025, 3:03:39 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:39.940Z [..\node\smsService.js:45] 11/5/2025, 3:03:39 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:39.941Z [..\node\smsService.js:45] 11/5/2025, 3:03:39 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:39.942Z [..\node\smsService.js:45] 11/5/2025, 3:03:39 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:40.025Z [..\node\smsService.js:45] 11/5/2025, 3:03:40 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:40.027Z [..\node\smsService.js:45] 11/5/2025, 3:03:40 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:40.027Z [..\node\smsService.js:45] 11/5/2025, 3:03:40 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:40.028Z [..\node\smsService.js:45] 11/5/2025, 3:03:40 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:40.673Z [..\node\smsService.js:45] 11/5/2025, 3:03:40 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:40.674Z [..\node\smsService.js:45] 11/5/2025, 3:03:40 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:40.676Z [..\node\smsService.js:45] 11/5/2025, 3:03:40 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:40.760Z [..\node\smsService.js:45] 11/5/2025, 3:03:40 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:42.172Z [..\node\smsService.js:45] 11/5/2025, 3:03:42 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:42.173Z [..\node\smsService.js:45] 11/5/2025, 3:03:42 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:42.272Z [..\node\smsService.js:45] 11/5/2025, 3:03:42 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:42.274Z [..\node\smsService.js:45] 11/5/2025, 3:03:42 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:43.439Z [..\node\smsService.js:45] 11/5/2025, 3:03:43 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:43.440Z [..\node\smsService.js:45] 11/5/2025, 3:03:43 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:43.539Z [..\node\smsService.js:45] 11/5/2025, 3:03:43 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:43.540Z [..\node\smsService.js:45] 11/5/2025, 3:03:43 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:44.169Z [..\node\smsService.js:45] 11/5/2025, 3:03:44 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:44.170Z [..\node\smsService.js:45] 11/5/2025, 3:03:44 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:44.171Z [..\node\smsService.js:45] 11/5/2025, 3:03:44 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:44.190Z [..\node\smsService.js:45] 11/5/2025, 3:03:44 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:44.192Z [..\node\smsService.js:45] 11/5/2025, 3:03:44 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:44.940Z [..\node\smsService.js:45] 11/5/2025, 3:03:44 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:44.941Z [..\node\smsService.js:45] 11/5/2025, 3:03:44 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:44.942Z [..\node\smsService.js:45] 11/5/2025, 3:03:44 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:44.943Z [..\node\smsService.js:45] 11/5/2025, 3:03:44 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:45.042Z [..\node\smsService.js:45] 11/5/2025, 3:03:45 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:45.042Z [..\node\smsService.js:45] 11/5/2025, 3:03:45 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:45.043Z [..\node\smsService.js:45] 11/5/2025, 3:03:45 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:45.044Z [..\node\smsService.js:45] 11/5/2025, 3:03:45 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:45.689Z [..\node\smsService.js:45] 11/5/2025, 3:03:45 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:45.690Z [..\node\smsService.js:45] 11/5/2025, 3:03:45 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:45.691Z [..\node\smsService.js:45] 11/5/2025, 3:03:45 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:45.776Z [..\node\smsService.js:45] 11/5/2025, 3:03:45 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:47.198Z [..\node\smsService.js:45] 11/5/2025, 3:03:47 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:47.199Z [..\node\smsService.js:45] 11/5/2025, 3:03:47 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:47.287Z [..\node\smsService.js:45] 11/5/2025, 3:03:47 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:47.288Z [..\node\smsService.js:45] 11/5/2025, 3:03:47 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:48.455Z [..\node\smsService.js:45] 11/5/2025, 3:03:48 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:48.456Z [..\node\smsService.js:45] 11/5/2025, 3:03:48 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:48.556Z [..\node\smsService.js:45] 11/5/2025, 3:03:48 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:48.557Z [..\node\smsService.js:45] 11/5/2025, 3:03:48 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:49.172Z [..\node\smsService.js:45] 11/5/2025, 3:03:49 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:49.173Z [..\node\smsService.js:45] 11/5/2025, 3:03:49 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:49.174Z [..\node\smsService.js:45] 11/5/2025, 3:03:49 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:49.206Z [..\node\smsService.js:45] 11/5/2025, 3:03:49 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:49.207Z [..\node\smsService.js:45] 11/5/2025, 3:03:49 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:49.956Z [..\node\smsService.js:45] 11/5/2025, 3:03:49 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:49.957Z [..\node\smsService.js:45] 11/5/2025, 3:03:49 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:49.957Z [..\node\smsService.js:45] 11/5/2025, 3:03:49 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:49.958Z [..\node\smsService.js:45] 11/5/2025, 3:03:49 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:50.058Z [..\node\smsService.js:45] 11/5/2025, 3:03:50 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:50.059Z [..\node\smsService.js:45] 11/5/2025, 3:03:50 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:50.060Z [..\node\smsService.js:45] 11/5/2025, 3:03:50 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:50.060Z [..\node\smsService.js:45] 11/5/2025, 3:03:50 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:50.706Z [..\node\smsService.js:45] 11/5/2025, 3:03:50 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:50.707Z [..\node\smsService.js:45] 11/5/2025, 3:03:50 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:50.707Z [..\node\smsService.js:45] 11/5/2025, 3:03:50 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:50.792Z [..\node\smsService.js:45] 11/5/2025, 3:03:50 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:52.204Z [..\node\smsService.js:45] 11/5/2025, 3:03:52 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:52.204Z [..\node\smsService.js:45] 11/5/2025, 3:03:52 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:52.289Z [..\node\smsService.js:45] 11/5/2025, 3:03:52 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:52.290Z [..\node\smsService.js:45] 11/5/2025, 3:03:52 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:53.456Z [..\node\smsService.js:45] 11/5/2025, 3:03:53 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:53.457Z [..\node\smsService.js:45] 11/5/2025, 3:03:53 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:53.572Z [..\node\smsService.js:45] 11/5/2025, 3:03:53 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:53.573Z [..\node\smsService.js:45] 11/5/2025, 3:03:53 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:54.189Z [..\node\smsService.js:45] 11/5/2025, 3:03:54 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:54.190Z [..\node\smsService.js:45] 11/5/2025, 3:03:54 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:54.191Z [..\node\smsService.js:45] 11/5/2025, 3:03:54 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:54.223Z [..\node\smsService.js:45] 11/5/2025, 3:03:54 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:54.224Z [..\node\smsService.js:45] 11/5/2025, 3:03:54 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:54.958Z [..\node\smsService.js:45] 11/5/2025, 3:03:54 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:54.959Z [..\node\smsService.js:45] 11/5/2025, 3:03:54 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:54.960Z [..\node\smsService.js:45] 11/5/2025, 3:03:54 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:54.970Z [..\node\smsService.js:45] 11/5/2025, 3:03:54 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:55.072Z [..\node\smsService.js:45] 11/5/2025, 3:03:55 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:55.073Z [..\node\smsService.js:45] 11/5/2025, 3:03:55 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:55.073Z [..\node\smsService.js:45] 11/5/2025, 3:03:55 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:55.074Z [..\node\smsService.js:45] 11/5/2025, 3:03:55 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:55.722Z [..\node\smsService.js:45] 11/5/2025, 3:03:55 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:55.723Z [..\node\smsService.js:45] 11/5/2025, 3:03:55 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:55.724Z [..\node\smsService.js:45] 11/5/2025, 3:03:55 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:55.793Z [..\node\smsService.js:45] 11/5/2025, 3:03:55 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:57.215Z [..\node\smsService.js:45] 11/5/2025, 3:03:57 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:57.216Z [..\node\smsService.js:45] 11/5/2025, 3:03:57 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:57.305Z [..\node\smsService.js:45] 11/5/2025, 3:03:57 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:57.306Z [..\node\smsService.js:45] 11/5/2025, 3:03:57 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:58.472Z [..\node\smsService.js:45] 11/5/2025, 3:03:58 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:58.473Z [..\node\smsService.js:45] 11/5/2025, 3:03:58 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:58.577Z [..\node\smsService.js:45] 11/5/2025, 3:03:58 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:58.578Z [..\node\smsService.js:45] 11/5/2025, 3:03:58 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:59.204Z [..\node\smsService.js:45] 11/5/2025, 3:03:59 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:59.205Z [..\node\smsService.js:45] 11/5/2025, 3:03:59 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:59.206Z [..\node\smsService.js:45] 11/5/2025, 3:03:59 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:59.225Z [..\node\smsService.js:45] 11/5/2025, 3:03:59 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:59.226Z [..\node\smsService.js:45] 11/5/2025, 3:03:59 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:59.973Z [..\node\smsService.js:45] 11/5/2025, 3:03:59 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:59.974Z [..\node\smsService.js:45] 11/5/2025, 3:03:59 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:59.974Z [..\node\smsService.js:45] 11/5/2025, 3:03:59 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:03:59.975Z [..\node\smsService.js:45] 11/5/2025, 3:03:59 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:00.074Z [..\node\smsService.js:45] 11/5/2025, 3:04:00 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:00.075Z [..\node\smsService.js:45] 11/5/2025, 3:04:00 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:00.076Z [..\node\smsService.js:45] 11/5/2025, 3:04:00 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:00.077Z [..\node\smsService.js:45] 11/5/2025, 3:04:00 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:00.725Z [..\node\smsService.js:45] 11/5/2025, 3:04:00 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:00.726Z [..\node\smsService.js:45] 11/5/2025, 3:04:00 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:00.727Z [..\node\smsService.js:45] 11/5/2025, 3:04:00 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:00.808Z [..\node\smsService.js:45] 11/5/2025, 3:04:00 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:02.220Z [..\node\smsService.js:45] 11/5/2025, 3:04:02 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:02.221Z [..\node\smsService.js:45] 11/5/2025, 3:04:02 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:02.307Z [..\node\smsService.js:45] 11/5/2025, 3:04:02 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:02.308Z [..\node\smsService.js:45] 11/5/2025, 3:04:02 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:03.489Z [..\node\smsService.js:45] 11/5/2025, 3:04:03 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:03.490Z [..\node\smsService.js:45] 11/5/2025, 3:04:03 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:03.589Z [..\node\smsService.js:45] 11/5/2025, 3:04:03 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:03.590Z [..\node\smsService.js:45] 11/5/2025, 3:04:03 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:04.220Z [..\node\smsService.js:45] 11/5/2025, 3:04:04 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:04.221Z [..\node\smsService.js:45] 11/5/2025, 3:04:04 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:04.222Z [..\node\smsService.js:45] 11/5/2025, 3:04:04 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:04.235Z [..\node\smsService.js:45] 11/5/2025, 3:04:04 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:04.236Z [..\node\smsService.js:45] 11/5/2025, 3:04:04 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:04.988Z [..\node\smsService.js:45] 11/5/2025, 3:04:04 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:04.989Z [..\node\smsService.js:45] 11/5/2025, 3:04:04 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:04.990Z [..\node\smsService.js:45] 11/5/2025, 3:04:04 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:04.991Z [..\node\smsService.js:45] 11/5/2025, 3:04:04 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:05.089Z [..\node\smsService.js:45] 11/5/2025, 3:04:05 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:05.090Z [..\node\smsService.js:45] 11/5/2025, 3:04:05 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:05.090Z [..\node\smsService.js:45] 11/5/2025, 3:04:05 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:05.091Z [..\node\smsService.js:45] 11/5/2025, 3:04:05 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:05.738Z [..\node\smsService.js:45] 11/5/2025, 3:04:05 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:05.739Z [..\node\smsService.js:45] 11/5/2025, 3:04:05 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:05.740Z [..\node\smsService.js:45] 11/5/2025, 3:04:05 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:05.810Z [..\node\smsService.js:45] 11/5/2025, 3:04:05 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:07.222Z [..\node\smsService.js:45] 11/5/2025, 3:04:07 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:07.223Z [..\node\smsService.js:45] 11/5/2025, 3:04:07 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:07.224Z [..\node\smsService.js:45] 11/5/2025, 3:04:07 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:04:07.323Z [..\node\smsService.js:45] 11/5/2025, 3:04:07 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:07.324Z [..\node\smsService.js:45] 11/5/2025, 3:04:07 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:07.325Z [..\node\smsService.js:45] 11/5/2025, 3:04:07 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:07.325Z [..\node\smsService.js:45] 11/5/2025, 3:04:07 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:08.505Z [..\node\smsService.js:45] 11/5/2025, 3:04:08 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:08.506Z [..\node\smsService.js:45] 11/5/2025, 3:04:08 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:08.507Z [..\node\smsService.js:45] 11/5/2025, 3:04:08 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:08.508Z [..\node\smsService.js:45] 11/5/2025, 3:04:08 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:08.606Z [..\node\smsService.js:45] 11/5/2025, 3:04:08 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:08.607Z [..\node\smsService.js:45] 11/5/2025, 3:04:08 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:08.608Z [..\node\smsService.js:45] 11/5/2025, 3:04:08 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:08.608Z [..\node\smsService.js:45] 11/5/2025, 3:04:08 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:08.741Z [..\node\smsService.js:45] 11/5/2025, 3:04:08 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:04:08.742Z [..\node\smsService.js:45] 11/5/2025, 3:04:08 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:04:09.229Z [..\node\smsService.js:45] 11/5/2025, 3:04:09 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:09.233Z [..\node\smsService.js:45] 11/5/2025, 3:04:09 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:09.234Z [..\node\smsService.js:45] 11/5/2025, 3:04:09 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:09.240Z [..\node\smsService.js:45] 11/5/2025, 3:04:09 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:09.241Z [..\node\smsService.js:45] 11/5/2025, 3:04:09 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:09.242Z [..\node\smsService.js:45] 11/5/2025, 3:04:09 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:09.274Z [..\node\smsService.js:45] 11/5/2025, 3:04:09 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:09.288Z [..\node\smsService.js:45] 11/5/2025, 3:04:09 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:09.301Z [..\node\smsService.js:45] 11/5/2025, 3:04:09 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:09.309Z [..\node\smsService.js:45] 11/5/2025, 3:04:09 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:10.005Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:10.006Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:10.007Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:10.007Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:10.008Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:10.009Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:10.009Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:10.010Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:10.105Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:10.106Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:10.107Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:10.107Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:10.108Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:10.109Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:10.109Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:10.110Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:10.744Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:10.744Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:10.745Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:10.746Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:10.747Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:10.747Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:10.820Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:10.821Z [..\node\smsService.js:45] 11/5/2025, 3:04:10 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:12.229Z [..\node\smsService.js:45] 11/5/2025, 3:04:12 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:12.230Z [..\node\smsService.js:45] 11/5/2025, 3:04:12 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:12.334Z [..\node\smsService.js:45] 11/5/2025, 3:04:12 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:12.335Z [..\node\smsService.js:45] 11/5/2025, 3:04:12 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:12.336Z [..\node\smsService.js:45] 11/5/2025, 3:04:12 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:12.336Z [..\node\smsService.js:45] 11/5/2025, 3:04:12 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:16.478Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:04:16.480Z [..\..\index.js:248] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T07:04:16.640Z [..\..\index.js:452] Stale PID 1408 found in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid. Removing file.
+✔ 2025-11-05T07:04:16.641Z [..\..\index.js:462] Wrote PID 15120 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T07:04:16.673Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:04:16.682Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:04:16.683Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T07:04:16.683Z [..\..\index.js:389] Database initialized successfully
+✔ 2025-11-05T07:04:16.684Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:04:16.690Z [..\..\index.js:409] Server running on http://192.168.1.200:12345
+✔ 2025-11-05T07:04:17.237Z [unknown] Cache cleared
+✔ 2025-11-05T07:04:17.516Z [..\..\index.js:325] 🔌 Client connected: YGRS-aDiTQlVV76EAAAC | IP: 192.168.1.200
+✔ 2025-11-05T07:04:17.547Z [..\node\smsService.js:45] 11/5/2025, 3:04:17 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:04:17.715Z [..\..\index.js:325] 🔌 Client connected: MZdE4L82vcq7BlL2AAAD | IP: 192.168.1.200
+✔ 2025-11-05T07:04:17.724Z [..\node\smsService.js:45] 11/5/2025, 3:04:17 PM | SYSTEM | - | ⚙️ Closing stale port before reopening...
+✔ 2025-11-05T07:04:17.728Z [..\node\smsService.js:45] 11/5/2025, 3:04:17 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:04:17.729Z [..\node\smsService.js:45] 11/5/2025, 3:04:17 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:04:17.732Z [..\node\smsService.js:45] 11/5/2025, 3:04:17 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:04:18.398Z [..\..\index.js:325] 🔌 Client connected: 1063nrY1k86RfF21AAAF | IP: 127.0.0.1
+✔ 2025-11-05T07:04:18.405Z [..\node\smsService.js:45] 11/5/2025, 3:04:18 PM | SYSTEM | - | ⚙️ Closing stale port before reopening...
+✔ 2025-11-05T07:04:18.408Z [..\node\smsService.js:45] 11/5/2025, 3:04:18 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:04:18.409Z [..\node\smsService.js:45] 11/5/2025, 3:04:18 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:04:18.412Z [..\node\smsService.js:45] 11/5/2025, 3:04:18 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:04:19.174Z [..\node\smsService.js:45] 11/5/2025, 3:04:19 PM | SYSTEM | - | ⚠️ Init failed: ERROR
+✔ 2025-11-05T07:04:19.175Z [..\node\smsService.js:45] 11/5/2025, 3:04:19 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:04:19.176Z [..\node\smsService.js:45] 11/5/2025, 3:04:19 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:04:19.177Z [..\node\smsService.js:45] 11/5/2025, 3:04:19 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:04:19.177Z [..\node\smsService.js:45] 11/5/2025, 3:04:19 PM | SYSTEM | - | 🧹 Port closed cleanly before retry
+✔ 2025-11-05T07:04:19.240Z [..\node\smsService.js:45] 11/5/2025, 3:04:19 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:04:19.241Z [..\node\smsService.js:45] 11/5/2025, 3:04:19 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:04:19.920Z [..\node\smsService.js:45] 11/5/2025, 3:04:19 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:04:19.921Z [..\node\smsService.js:45] 11/5/2025, 3:04:19 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:04:22.739Z [..\node\smsService.js:45] 11/5/2025, 3:04:22 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:04:23.419Z [..\node\smsService.js:45] 11/5/2025, 3:04:23 PM | SYSTEM | - | ⚙️ Closing stale port before reopening...
+✔ 2025-11-05T07:04:23.421Z [..\node\smsService.js:45] 11/5/2025, 3:04:23 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:04:23.422Z [..\node\smsService.js:45] 11/5/2025, 3:04:23 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:04:23.425Z [..\node\smsService.js:45] 11/5/2025, 3:04:23 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:04:24.179Z [..\node\smsService.js:45] 11/5/2025, 3:04:24 PM | SYSTEM | - | ⚙️ Closing stale port before reopening...
+✔ 2025-11-05T07:04:24.181Z [..\node\smsService.js:45] 11/5/2025, 3:04:24 PM | SYSTEM | - | ❌ COM access issue (opening com4: access denied)
+✔ 2025-11-05T07:04:24.182Z [..\node\smsService.js:45] 11/5/2025, 3:04:24 PM | SYSTEM | - | 🔁 Reinitializing GSM (port access denied or busy)...
+✔ 2025-11-05T07:04:24.185Z [..\node\smsService.js:45] 11/5/2025, 3:04:24 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:04:24.196Z [..\node\smsService.js:45] 11/5/2025, 3:04:24 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:04:24.199Z [..\node\smsService.js:45] 11/5/2025, 3:04:24 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:04:24.243Z [..\node\smsService.js:45] 11/5/2025, 3:04:24 PM | SYSTEM | - | ⚙️ Closing stale port before reopening...
+✔ 2025-11-05T07:04:24.295Z [..\node\smsService.js:45] 11/5/2025, 3:04:24 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:04:24.295Z [..\node\smsService.js:45] 11/5/2025, 3:04:24 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:04:24.297Z [..\node\smsService.js:45] 11/5/2025, 3:04:24 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:04:24.924Z [..\node\smsService.js:45] 11/5/2025, 3:04:24 PM | SYSTEM | - | ⚙️ Closing stale port before reopening...
+✔ 2025-11-05T07:04:24.925Z [..\node\smsService.js:45] 11/5/2025, 3:04:24 PM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2025-11-05T07:04:24.926Z [..\node\smsService.js:45] 11/5/2025, 3:04:24 PM | SYSTEM | - | 🔁 Reinitializing GSM (port closed unexpectedly)...
+✔ 2025-11-05T07:04:24.927Z [..\node\smsService.js:45] 11/5/2025, 3:04:24 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:04:24.928Z [..\node\smsService.js:45] 11/5/2025, 3:04:24 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:04:24.929Z [..\node\smsService.js:45] 11/5/2025, 3:04:24 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:04:25.724Z [..\node\smsService.js:45] 11/5/2025, 3:04:25 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:04:25.726Z [..\node\smsService.js:45] 11/5/2025, 3:04:25 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:04:25.799Z [..\node\smsService.js:45] 11/5/2025, 3:04:25 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:04:25.800Z [..\node\smsService.js:45] 11/5/2025, 3:04:25 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:04:26.430Z [..\node\smsService.js:45] 11/5/2025, 3:04:26 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:04:26.431Z [..\node\smsService.js:45] 11/5/2025, 3:04:26 PM | SYSTEM | - | 🔁 Reinitializing GSM (initialization failure)...
+✔ 2025-11-05T07:04:34.655Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:04:34.656Z [..\..\index.js:248] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T07:04:34.789Z [..\..\index.js:452] Stale PID 15120 found in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid. Removing file.
+✔ 2025-11-05T07:04:34.790Z [..\..\index.js:462] Wrote PID 4660 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T07:04:34.817Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:04:34.830Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:04:34.831Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T07:04:34.831Z [..\..\index.js:389] Database initialized successfully
+✔ 2025-11-05T07:04:34.832Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:04:34.838Z [..\..\index.js:409] Server running on http://192.168.1.200:12345
+✔ 2025-11-05T07:04:35.166Z [..\..\index.js:325] 🔌 Client connected: zGB4MxGI2j2yVSDmAAAB | IP: 127.0.0.1
+✔ 2025-11-05T07:04:35.198Z [..\node\smsService.js:45] 11/5/2025, 3:04:35 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:04:35.221Z [unknown] Cache cleared
+✔ 2025-11-05T07:04:35.396Z [..\..\index.js:325] 🔌 Client connected: FlZD8mMEHKeq_x7cAAAD | IP: 192.168.1.200
+✔ 2025-11-05T07:04:35.459Z [..\node\smsService.js:45] 11/5/2025, 3:04:35 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T07:04:35.649Z [..\..\index.js:325] 🔌 Client connected: HjtYzDEUFRqTjAqTAAAF | IP: 192.168.1.200
+✔ 2025-11-05T07:04:35.677Z [..\node\smsService.js:45] 11/5/2025, 3:04:35 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T07:04:36.709Z [..\node\smsService.js:45] 11/5/2025, 3:04:36 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:04:40.473Z [..\node\smsService.js:45] 11/5/2025, 3:04:40 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:40.688Z [..\node\smsService.js:45] 11/5/2025, 3:04:40 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:45.486Z [..\node\smsService.js:45] 11/5/2025, 3:04:45 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:45.705Z [..\node\smsService.js:45] 11/5/2025, 3:04:45 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:50.493Z [..\node\smsService.js:45] 11/5/2025, 3:04:50 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:50.709Z [..\node\smsService.js:45] 11/5/2025, 3:04:50 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:55.502Z [..\node\smsService.js:45] 11/5/2025, 3:04:55 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:04:55.712Z [..\node\smsService.js:45] 11/5/2025, 3:04:55 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:00.506Z [..\node\smsService.js:45] 11/5/2025, 3:05:00 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:00.720Z [..\node\smsService.js:45] 11/5/2025, 3:05:00 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:05.517Z [..\node\smsService.js:45] 11/5/2025, 3:05:05 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:05.725Z [..\node\smsService.js:45] 11/5/2025, 3:05:05 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:10.528Z [..\node\smsService.js:45] 11/5/2025, 3:05:10 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:10.735Z [..\node\smsService.js:45] 11/5/2025, 3:05:10 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:15.541Z [..\node\smsService.js:45] 11/5/2025, 3:05:15 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:15.744Z [..\node\smsService.js:45] 11/5/2025, 3:05:15 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:20.554Z [..\node\smsService.js:45] 11/5/2025, 3:05:20 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:20.760Z [..\node\smsService.js:45] 11/5/2025, 3:05:20 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:25.557Z [..\node\smsService.js:45] 11/5/2025, 3:05:25 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:25.776Z [..\node\smsService.js:45] 11/5/2025, 3:05:25 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:30.567Z [..\node\smsService.js:45] 11/5/2025, 3:05:30 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:30.790Z [..\node\smsService.js:45] 11/5/2025, 3:05:30 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:35.578Z [..\node\smsService.js:45] 11/5/2025, 3:05:35 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:35.799Z [..\node\smsService.js:45] 11/5/2025, 3:05:35 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:40.588Z [..\node\smsService.js:45] 11/5/2025, 3:05:40 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:40.805Z [..\node\smsService.js:45] 11/5/2025, 3:05:40 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:45.604Z [..\node\smsService.js:45] 11/5/2025, 3:05:45 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:45.818Z [..\node\smsService.js:45] 11/5/2025, 3:05:45 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:50.608Z [..\node\smsService.js:45] 11/5/2025, 3:05:50 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:50.820Z [..\node\smsService.js:45] 11/5/2025, 3:05:50 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:55.609Z [..\node\smsService.js:45] 11/5/2025, 3:05:55 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:05:55.825Z [..\node\smsService.js:45] 11/5/2025, 3:05:55 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:06:00.623Z [..\node\smsService.js:45] 11/5/2025, 3:06:00 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:06:00.826Z [..\node\smsService.js:45] 11/5/2025, 3:06:00 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2025-11-05T07:06:05.628Z [..\node\smsService.js:45] 11/5/2025, 3:06:05 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:06:05.838Z [..\node\smsService.js:45] 11/5/2025, 3:06:05 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T07:06:07.136Z [..\node\smsService.js:45] 11/5/2025, 3:06:07 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:06:10.841Z [..\node\smsService.js:45] 11/5/2025, 3:06:10 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T07:06:15.849Z [..\node\smsService.js:45] 11/5/2025, 3:06:15 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T07:06:20.853Z [..\node\smsService.js:45] 11/5/2025, 3:06:20 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T07:06:25.863Z [..\node\smsService.js:45] 11/5/2025, 3:06:25 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T07:06:30.871Z [..\node\smsService.js:45] 11/5/2025, 3:06:30 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T07:06:36.162Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:06:36.164Z [..\..\index.js:248] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T07:06:36.317Z [..\..\index.js:452] Stale PID 4660 found in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid. Removing file.
+✔ 2025-11-05T07:06:36.318Z [..\..\index.js:462] Wrote PID 9476 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T07:06:36.348Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:06:36.356Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:06:36.357Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T07:06:36.357Z [..\..\index.js:389] Database initialized successfully
+✔ 2025-11-05T07:06:36.358Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:06:36.364Z [..\..\index.js:409] Server running on http://192.168.1.200:12345
+✔ 2025-11-05T07:06:36.735Z [..\..\index.js:325] 🔌 Client connected: b6N6WY5lXYq7raoKAAAB | IP: 127.0.0.1
+✔ 2025-11-05T07:06:36.767Z [..\node\smsService.js:45] 11/5/2025, 3:06:36 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:06:37.249Z [unknown] Cache cleared
+✔ 2025-11-05T07:06:37.510Z [..\..\index.js:325] 🔌 Client connected: NjHomlrh8EacYWIHAAAE | IP: 192.168.1.200
+✔ 2025-11-05T07:06:37.533Z [..\node\smsService.js:45] 11/5/2025, 3:06:37 PM | SYSTEM | - | ⚠️ Port COM4 in use by another process
+✔ 2025-11-05T07:06:37.568Z [..\..\index.js:325] 🔌 Client connected: 8XYlyJkzFV4v5-EOAAAF | IP: 192.168.1.200
+✔ 2025-11-05T07:06:37.611Z [..\node\smsService.js:45] 11/5/2025, 3:06:37 PM | SYSTEM | - | ⚠️ Port COM4 in use by another process
+✔ 2025-11-05T07:06:38.469Z [..\node\smsService.js:45] 11/5/2025, 3:06:38 PM | SYSTEM | - | ⚠️ Init failed: ERROR
+✔ 2025-11-05T07:06:38.471Z [..\node\smsService.js:45] 11/5/2025, 3:06:38 PM | SYSTEM | - | 🔁 Reinitializing GSM (init failure)...
+✔ 2025-11-05T07:06:38.476Z [..\..\index.js:544] Received UNHANDLED_REJECTION. Shutting down server...
+✔ 2025-11-05T07:06:38.478Z [..\node\db.js:54] Database connection closed
+✔ 2025-11-05T07:06:41.477Z [..\node\smsService.js:45] 11/5/2025, 3:06:41 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:06:42.566Z [..\node\smsService.js:45] 11/5/2025, 3:06:42 PM | SYSTEM | - | ⚠️ Port COM4 in use by another process
+✔ 2025-11-05T07:06:42.680Z [..\node\smsService.js:45] 11/5/2025, 3:06:42 PM | SYSTEM | - | ⚠️ Port COM4 in use by another process
+✔ 2025-11-05T07:06:43.059Z [..\node\smsService.js:45] 11/5/2025, 3:06:43 PM | SYSTEM | - | ⚠️ Init failed: ERROR
+✔ 2025-11-05T07:06:43.060Z [..\node\smsService.js:45] 11/5/2025, 3:06:43 PM | SYSTEM | - | 🔁 Reinitializing GSM (init failure)...
+✔ 2025-11-05T07:06:43.074Z [..\..\index.js:544] Received UNHANDLED_REJECTION. Shutting down server...
+✔ 2025-11-05T07:06:43.309Z [..\..\index.js:544] Received UNCAUGHT_EXCEPTION. Shutting down server...
+✔ 2025-11-05T07:06:43.358Z [..\..\index.js:544] Received UNCAUGHT_EXCEPTION. Shutting down server...
+✔ 2025-11-05T07:06:43.416Z [..\..\index.js:544] Received UNCAUGHT_EXCEPTION. Shutting down server...
+✔ 2025-11-05T07:08:23.612Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:08:23.614Z [..\..\index.js:248] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T07:08:23.870Z [..\..\index.js:452] Stale PID 9476 found in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid. Removing file.
+✔ 2025-11-05T07:08:23.871Z [..\..\index.js:462] Wrote PID 15640 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T07:08:23.931Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:08:23.939Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:08:23.940Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T07:08:23.941Z [..\..\index.js:389] Database initialized successfully
+✔ 2025-11-05T07:08:23.942Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:08:23.950Z [..\..\index.js:409] Server running on http://192.168.1.200:12345
+✔ 2025-11-05T07:08:24.276Z [unknown] Cache cleared
+✔ 2025-11-05T07:08:24.474Z [..\..\index.js:325] 🔌 Client connected: rc9yLpjACeo4ofY1AAAB | IP: 192.168.1.200
+✔ 2025-11-05T07:08:24.518Z [..\node\smsService.js:45] 11/5/2025, 3:08:24 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2025-11-05T07:08:24.679Z [..\..\index.js:325] 🔌 Client connected: m6joQyPB-NFphmZfAAAD | IP: 192.168.1.200
+✔ 2025-11-05T07:08:24.688Z [..\node\smsService.js:45] 11/5/2025, 3:08:24 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T07:08:26.093Z [..\node\smsService.js:45] 11/5/2025, 3:08:26 PM | SYSTEM | - | ⚠️ Init failed: Port not open
+✔ 2025-11-05T07:08:27.134Z [..\..\index.js:325] 🔌 Client connected: by5xRB46PiBXduFgAAAF | IP: 127.0.0.1
+✔ 2025-11-05T07:08:27.142Z [..\node\smsService.js:45] 11/5/2025, 3:08:27 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: Access denied
+✔ 2025-11-05T07:11:27.292Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:11:27.293Z [..\..\index.js:248] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T07:11:27.429Z [..\..\index.js:452] Stale PID 15640 found in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid. Removing file.
+✔ 2025-11-05T07:11:27.430Z [..\..\index.js:462] Wrote PID 6168 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T07:11:27.459Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:11:27.472Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:11:27.473Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T07:11:27.473Z [..\..\index.js:389] Database initialized successfully
+✔ 2025-11-05T07:11:27.474Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:11:27.479Z [..\..\index.js:409] Server running on http://192.168.1.200:12345
+✔ 2025-11-05T07:11:27.841Z [..\..\index.js:325] 🔌 Client connected: N8Ss1dK2sOxCyRG1AAAB | IP: 127.0.0.1
+✔ 2025-11-05T07:11:27.873Z [..\node\smsService.js:45] 11/5/2025, 3:11:27 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:11:27.875Z [unknown] Cache cleared
+✔ 2025-11-05T07:11:28.119Z [..\..\index.js:325] 🔌 Client connected: Etud5FwVXsFh6XLoAAAE | IP: 192.168.1.200
+✔ 2025-11-05T07:11:28.206Z [..\node\smsService.js:45] 11/5/2025, 3:11:28 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:11:28.250Z [..\..\index.js:325] 🔌 Client connected: uATzdBDHRf2cDPQ-AAAF | IP: 192.168.1.200
+✔ 2025-11-05T07:11:28.294Z [..\node\smsService.js:45] 11/5/2025, 3:11:28 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:11:28.296Z [..\node\smsService.js:45] 11/5/2025, 3:11:28 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:11:28.302Z [..\node\smsService.js:45] 11/5/2025, 3:11:28 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:11:32.775Z [..\..\index.js:380] 🔌 Client disconnected: Etud5FwVXsFh6XLoAAAE | IP: 192.168.1.200
+✔ 2025-11-05T07:11:32.851Z [..\..\index.js:380] 🔌 Client disconnected: uATzdBDHRf2cDPQ-AAAF | IP: 192.168.1.200
+✔ 2025-11-05T07:12:45.827Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:12:45.828Z [..\..\index.js:248] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T07:12:45.830Z [..\..\index.js:462] Wrote PID 4036 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T07:12:45.861Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:12:45.872Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:12:45.872Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T07:12:45.873Z [..\..\index.js:389] Database initialized successfully
+✔ 2025-11-05T07:12:45.881Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:12:45.892Z [..\..\index.js:409] Server running on http://192.168.1.200:12345
+✔ 2025-11-05T07:12:46.327Z [..\..\index.js:325] 🔌 Client connected: ymKtxpewT5zJ9LwAAAAB | IP: 127.0.0.1
+✔ 2025-11-05T07:12:46.359Z [..\node\smsService.js:45] 11/5/2025, 3:12:46 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:12:46.534Z [unknown] Cache cleared
+✔ 2025-11-05T07:12:46.951Z [..\..\index.js:325] 🔌 Client connected: 6gzqPk9TAiUQBIz2AAAD | IP: 192.168.1.200
+✔ 2025-11-05T07:12:47.029Z [..\node\smsService.js:45] 11/5/2025, 3:12:47 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:12:47.070Z [..\node\smsService.js:45] 11/5/2025, 3:12:47 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:12:47.112Z [..\..\index.js:325] 🔌 Client connected: qQwN7i6W5mFi5XOUAAAF | IP: 192.168.1.200
+✔ 2025-11-05T07:12:47.136Z [..\node\smsService.js:45] 11/5/2025, 3:12:47 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:12:47.157Z [..\node\smsService.js:45] 11/5/2025, 3:12:47 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:12:51.362Z [..\node\smsService.js:45] 11/5/2025, 3:12:51 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:12:51.363Z [..\node\smsService.js:45] 11/5/2025, 3:12:51 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:12:52.072Z [..\node\smsService.js:45] 11/5/2025, 3:12:52 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:12:52.073Z [..\node\smsService.js:45] 11/5/2025, 3:12:52 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:12:52.165Z [..\node\smsService.js:45] 11/5/2025, 3:12:52 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:12:52.166Z [..\node\smsService.js:45] 11/5/2025, 3:12:52 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:12:56.381Z [..\node\smsService.js:45] 11/5/2025, 3:12:56 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:12:56.382Z [..\node\smsService.js:45] 11/5/2025, 3:12:56 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:12:57.081Z [..\node\smsService.js:45] 11/5/2025, 3:12:57 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:12:57.081Z [..\node\smsService.js:45] 11/5/2025, 3:12:57 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:12:57.170Z [..\node\smsService.js:45] 11/5/2025, 3:12:57 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:12:57.171Z [..\node\smsService.js:45] 11/5/2025, 3:12:57 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:13:01.392Z [..\node\smsService.js:45] 11/5/2025, 3:13:01 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:01.393Z [..\node\smsService.js:45] 11/5/2025, 3:13:01 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:02.098Z [..\node\smsService.js:45] 11/5/2025, 3:13:02 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:02.104Z [..\node\smsService.js:45] 11/5/2025, 3:13:02 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:02.177Z [..\node\smsService.js:45] 11/5/2025, 3:13:02 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:02.178Z [..\node\smsService.js:45] 11/5/2025, 3:13:02 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:06.406Z [..\node\smsService.js:45] 11/5/2025, 3:13:06 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:07.121Z [..\node\smsService.js:45] 11/5/2025, 3:13:07 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:07.122Z [..\node\smsService.js:45] 11/5/2025, 3:13:07 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:13:07.197Z [..\node\smsService.js:45] 11/5/2025, 3:13:07 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:07.198Z [..\node\smsService.js:45] 11/5/2025, 3:13:07 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:13:11.419Z [..\node\smsService.js:45] 11/5/2025, 3:13:11 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:11.420Z [..\node\smsService.js:45] 11/5/2025, 3:13:11 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:12.133Z [..\node\smsService.js:45] 11/5/2025, 3:13:12 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:12.134Z [..\node\smsService.js:45] 11/5/2025, 3:13:12 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:12.210Z [..\node\smsService.js:45] 11/5/2025, 3:13:12 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:12.211Z [..\node\smsService.js:45] 11/5/2025, 3:13:12 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:16.431Z [..\node\smsService.js:45] 11/5/2025, 3:13:16 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:16.432Z [..\node\smsService.js:45] 11/5/2025, 3:13:16 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:17.149Z [..\node\smsService.js:45] 11/5/2025, 3:13:17 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:17.150Z [..\node\smsService.js:45] 11/5/2025, 3:13:17 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:17.226Z [..\node\smsService.js:45] 11/5/2025, 3:13:17 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:17.228Z [..\node\smsService.js:45] 11/5/2025, 3:13:17 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:21.435Z [..\node\smsService.js:45] 11/5/2025, 3:13:21 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:21.438Z [..\node\smsService.js:45] 11/5/2025, 3:13:21 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:22.152Z [..\node\smsService.js:45] 11/5/2025, 3:13:22 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:22.154Z [..\node\smsService.js:45] 11/5/2025, 3:13:22 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:22.228Z [..\node\smsService.js:45] 11/5/2025, 3:13:22 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:22.230Z [..\node\smsService.js:45] 11/5/2025, 3:13:22 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:26.448Z [..\node\smsService.js:45] 11/5/2025, 3:13:26 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:26.451Z [..\node\smsService.js:45] 11/5/2025, 3:13:26 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:27.166Z [..\node\smsService.js:45] 11/5/2025, 3:13:27 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:27.167Z [..\node\smsService.js:45] 11/5/2025, 3:13:27 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:27.235Z [..\node\smsService.js:45] 11/5/2025, 3:13:27 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:27.236Z [..\node\smsService.js:45] 11/5/2025, 3:13:27 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:31.454Z [..\node\smsService.js:45] 11/5/2025, 3:13:31 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:31.457Z [..\node\smsService.js:45] 11/5/2025, 3:13:31 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:32.168Z [..\node\smsService.js:45] 11/5/2025, 3:13:32 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:32.170Z [..\node\smsService.js:45] 11/5/2025, 3:13:32 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:32.243Z [..\node\smsService.js:45] 11/5/2025, 3:13:32 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:32.245Z [..\node\smsService.js:45] 11/5/2025, 3:13:32 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:36.475Z [..\node\smsService.js:45] 11/5/2025, 3:13:36 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:36.478Z [..\node\smsService.js:45] 11/5/2025, 3:13:36 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:37.185Z [..\node\smsService.js:45] 11/5/2025, 3:13:37 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:37.187Z [..\node\smsService.js:45] 11/5/2025, 3:13:37 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:37.255Z [..\node\smsService.js:45] 11/5/2025, 3:13:37 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:37.256Z [..\node\smsService.js:45] 11/5/2025, 3:13:37 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:41.493Z [..\node\smsService.js:45] 11/5/2025, 3:13:41 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:41.496Z [..\node\smsService.js:45] 11/5/2025, 3:13:41 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:42.187Z [..\node\smsService.js:45] 11/5/2025, 3:13:42 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:42.190Z [..\node\smsService.js:45] 11/5/2025, 3:13:42 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:42.272Z [..\node\smsService.js:45] 11/5/2025, 3:13:42 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:42.273Z [..\node\smsService.js:45] 11/5/2025, 3:13:42 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:46.502Z [..\node\smsService.js:45] 11/5/2025, 3:13:46 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:46.505Z [..\node\smsService.js:45] 11/5/2025, 3:13:46 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:47.204Z [..\node\smsService.js:45] 11/5/2025, 3:13:47 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:47.207Z [..\node\smsService.js:45] 11/5/2025, 3:13:47 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:47.284Z [..\node\smsService.js:45] 11/5/2025, 3:13:47 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:47.287Z [..\node\smsService.js:45] 11/5/2025, 3:13:47 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:51.518Z [..\node\smsService.js:45] 11/5/2025, 3:13:51 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:51.521Z [..\node\smsService.js:45] 11/5/2025, 3:13:51 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:52.217Z [..\node\smsService.js:45] 11/5/2025, 3:13:52 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:52.223Z [..\node\smsService.js:45] 11/5/2025, 3:13:52 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:52.289Z [..\node\smsService.js:45] 11/5/2025, 3:13:52 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:52.291Z [..\node\smsService.js:45] 11/5/2025, 3:13:52 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:56.535Z [..\node\smsService.js:45] 11/5/2025, 3:13:56 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:56.536Z [..\node\smsService.js:45] 11/5/2025, 3:13:56 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:57.236Z [..\node\smsService.js:45] 11/5/2025, 3:13:57 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:57.240Z [..\node\smsService.js:45] 11/5/2025, 3:13:57 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:13:57.299Z [..\node\smsService.js:45] 11/5/2025, 3:13:57 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:13:57.300Z [..\node\smsService.js:45] 11/5/2025, 3:13:57 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:14:01.540Z [..\node\smsService.js:45] 11/5/2025, 3:14:01 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:14:01.543Z [..\node\smsService.js:45] 11/5/2025, 3:14:01 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:14:02.251Z [..\node\smsService.js:45] 11/5/2025, 3:14:02 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:14:02.252Z [..\node\smsService.js:45] 11/5/2025, 3:14:02 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:14:02.306Z [..\node\smsService.js:45] 11/5/2025, 3:14:02 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:14:02.307Z [..\node\smsService.js:45] 11/5/2025, 3:14:02 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:14:06.555Z [..\node\smsService.js:45] 11/5/2025, 3:14:06 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:14:07.256Z [..\node\smsService.js:45] 11/5/2025, 3:14:07 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:14:07.257Z [..\node\smsService.js:45] 11/5/2025, 3:14:07 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:14:07.321Z [..\node\smsService.js:45] 11/5/2025, 3:14:07 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:14:07.323Z [..\node\smsService.js:45] 11/5/2025, 3:14:07 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:14:11.569Z [..\node\smsService.js:45] 11/5/2025, 3:14:11 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:14:11.572Z [..\node\smsService.js:45] 11/5/2025, 3:14:11 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:14:12.267Z [..\node\smsService.js:45] 11/5/2025, 3:14:12 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:14:12.270Z [..\node\smsService.js:45] 11/5/2025, 3:14:12 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:14:12.338Z [..\node\smsService.js:45] 11/5/2025, 3:14:12 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:14:12.340Z [..\node\smsService.js:45] 11/5/2025, 3:14:12 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:14:16.582Z [..\node\smsService.js:45] 11/5/2025, 3:14:16 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:14:16.586Z [..\node\smsService.js:45] 11/5/2025, 3:14:16 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:14:17.270Z [..\node\smsService.js:45] 11/5/2025, 3:14:17 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:14:17.273Z [..\node\smsService.js:45] 11/5/2025, 3:14:17 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:14:17.354Z [..\node\smsService.js:45] 11/5/2025, 3:14:17 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:14:17.355Z [..\node\smsService.js:45] 11/5/2025, 3:14:17 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:14:21.601Z [..\node\smsService.js:45] 11/5/2025, 3:14:21 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:14:21.604Z [..\node\smsService.js:45] 11/5/2025, 3:14:21 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:14:22.285Z [..\node\smsService.js:45] 11/5/2025, 3:14:22 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:14:22.289Z [..\node\smsService.js:45] 11/5/2025, 3:14:22 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:14:22.356Z [..\node\smsService.js:45] 11/5/2025, 3:14:22 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:14:22.359Z [..\node\smsService.js:45] 11/5/2025, 3:14:22 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:48:41.794Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:48:41.795Z [..\..\index.js:248] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T07:48:42.132Z [..\..\index.js:452] Stale PID 4036 found in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid. Removing file.
+✔ 2025-11-05T07:48:42.134Z [..\..\index.js:462] Wrote PID 9720 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T07:48:42.176Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:48:42.182Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:48:42.183Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T07:48:42.183Z [..\..\index.js:389] Database initialized successfully
+✔ 2025-11-05T07:48:42.184Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:48:42.190Z [..\..\index.js:409] Server running on http://192.168.1.200:12345
+✔ 2025-11-05T07:48:42.877Z [unknown] Cache cleared
+✔ 2025-11-05T07:48:43.240Z [..\..\index.js:325] 🔌 Client connected: 3YTTc7s1ArnhavvEAAAB | IP: 192.168.1.200
+✔ 2025-11-05T07:48:43.283Z [..\node\smsService.js:45] 11/5/2025, 3:48:43 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:48:43.899Z [..\..\index.js:325] 🔌 Client connected: KzCEpk0x77GT8HdrAAAD | IP: 192.168.1.200
+✔ 2025-11-05T07:48:43.907Z [..\node\smsService.js:45] 11/5/2025, 3:48:43 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:48:43.909Z [..\node\smsService.js:45] 11/5/2025, 3:48:43 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:48:48.296Z [..\node\smsService.js:45] 11/5/2025, 3:48:48 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:48:48.298Z [..\node\smsService.js:45] 11/5/2025, 3:48:48 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:48:48.918Z [..\node\smsService.js:45] 11/5/2025, 3:48:48 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:48:48.919Z [..\node\smsService.js:45] 11/5/2025, 3:48:48 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:48:53.308Z [..\node\smsService.js:45] 11/5/2025, 3:48:53 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:48:53.309Z [..\node\smsService.js:45] 11/5/2025, 3:48:53 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:48:53.926Z [..\node\smsService.js:45] 11/5/2025, 3:48:53 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:48:53.927Z [..\node\smsService.js:45] 11/5/2025, 3:48:53 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:48:58.320Z [..\node\smsService.js:45] 11/5/2025, 3:48:58 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:48:58.321Z [..\node\smsService.js:45] 11/5/2025, 3:48:58 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:48:58.927Z [..\node\smsService.js:45] 11/5/2025, 3:48:58 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:48:58.929Z [..\node\smsService.js:45] 11/5/2025, 3:48:58 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:49:13.505Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:49:13.506Z [..\..\index.js:248] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T07:49:13.641Z [..\..\index.js:452] Stale PID 9720 found in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid. Removing file.
+✔ 2025-11-05T07:49:13.642Z [..\..\index.js:462] Wrote PID 1316 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T07:49:13.671Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:49:13.684Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:49:13.685Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T07:49:13.687Z [..\..\index.js:389] Database initialized successfully
+✔ 2025-11-05T07:49:13.688Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:49:13.696Z [..\..\index.js:409] Server running on http://192.168.1.200:12345
+✔ 2025-11-05T07:49:14.042Z [unknown] Cache cleared
+✔ 2025-11-05T07:49:14.222Z [..\..\index.js:325] 🔌 Client connected: y6pJdDNgoH9pwTalAAAB | IP: 192.168.1.200
+✔ 2025-11-05T07:49:14.308Z [..\node\smsService.js:45] 11/5/2025, 3:49:14 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:49:14.850Z [..\..\index.js:325] 🔌 Client connected: 18vWAzu1vTgJrJYEAAAD | IP: 192.168.1.200
+✔ 2025-11-05T07:49:14.863Z [..\node\smsService.js:45] 11/5/2025, 3:49:14 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:49:14.876Z [..\node\smsService.js:45] 11/5/2025, 3:49:14 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:49:19.335Z [..\node\smsService.js:45] 11/5/2025, 3:49:19 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:49:19.336Z [..\node\smsService.js:45] 11/5/2025, 3:49:19 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:49:19.887Z [..\node\smsService.js:45] 11/5/2025, 3:49:19 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:49:19.889Z [..\node\smsService.js:45] 11/5/2025, 3:49:19 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:50:05.317Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:50:05.318Z [..\..\index.js:248] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T07:50:05.449Z [..\..\index.js:452] Stale PID 1316 found in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid. Removing file.
+✔ 2025-11-05T07:50:05.450Z [..\..\index.js:462] Wrote PID 15956 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T07:50:05.482Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:50:05.494Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:50:05.495Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T07:50:05.496Z [..\..\index.js:389] Database initialized successfully
+✔ 2025-11-05T07:50:05.496Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:50:05.502Z [..\..\index.js:409] Server running on http://192.168.1.200:12345
+✔ 2025-11-05T07:50:05.828Z [unknown] Cache cleared
+✔ 2025-11-05T07:50:06.023Z [..\..\index.js:325] 🔌 Client connected: dgSgguffTPKwHwjnAAAC | IP: 192.168.1.200
+✔ 2025-11-05T07:50:06.073Z [..\node\smsService.js:45] 11/5/2025, 3:50:06 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:50:06.134Z [..\..\index.js:325] 🔌 Client connected: 5jL-KAwjFoeQPS3tAAAD | IP: 192.168.1.200
+✔ 2025-11-05T07:50:06.143Z [..\node\smsService.js:45] 11/5/2025, 3:50:06 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:50:06.144Z [..\node\smsService.js:45] 11/5/2025, 3:50:06 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:50:11.079Z [..\node\smsService.js:45] 11/5/2025, 3:50:11 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:50:11.080Z [..\node\smsService.js:45] 11/5/2025, 3:50:11 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:50:11.159Z [..\node\smsService.js:45] 11/5/2025, 3:50:11 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:50:11.160Z [..\node\smsService.js:45] 11/5/2025, 3:50:11 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:50:11.588Z [..\..\index.js:380] 🔌 Client disconnected: dgSgguffTPKwHwjnAAAC | IP: 192.168.1.200
+✔ 2025-11-05T07:50:11.684Z [..\..\index.js:380] 🔌 Client disconnected: 5jL-KAwjFoeQPS3tAAAD | IP: 192.168.1.200
+✔ 2025-11-05T07:50:39.493Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:50:39.495Z [..\..\index.js:248] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T07:50:39.497Z [..\..\index.js:462] Wrote PID 14112 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T07:50:39.525Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:50:39.535Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:50:39.536Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T07:50:39.539Z [..\..\index.js:389] Database initialized successfully
+✔ 2025-11-05T07:50:39.541Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:50:39.547Z [..\..\index.js:409] Server running on http://192.168.1.200:12345
+✔ 2025-11-05T07:50:40.026Z [unknown] Cache cleared
+✔ 2025-11-05T07:50:40.213Z [..\..\index.js:325] 🔌 Client connected: SEdOAn0oyiQGIqmUAAAC | IP: 192.168.1.200
+✔ 2025-11-05T07:50:40.256Z [..\node\smsService.js:45] 11/5/2025, 3:50:40 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:50:40.362Z [..\..\index.js:325] 🔌 Client connected: cz8897koe9Rzyy0tAAAD | IP: 192.168.1.200
+✔ 2025-11-05T07:50:40.377Z [..\node\smsService.js:45] 11/5/2025, 3:50:40 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:50:40.384Z [..\node\smsService.js:45] 11/5/2025, 3:50:40 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:50:45.334Z [..\node\smsService.js:45] 11/5/2025, 3:50:45 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:50:45.335Z [..\node\smsService.js:45] 11/5/2025, 3:50:45 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:50:45.395Z [..\node\smsService.js:45] 11/5/2025, 3:50:45 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:50:45.396Z [..\node\smsService.js:45] 11/5/2025, 3:50:45 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:56:30.028Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:56:30.029Z [..\..\index.js:248] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T07:56:30.552Z [..\..\index.js:452] Stale PID 14112 found in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid. Removing file.
+✔ 2025-11-05T07:56:30.553Z [..\..\index.js:462] Wrote PID 11320 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T07:56:30.722Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:56:30.723Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:56:30.724Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T07:56:30.724Z [..\..\index.js:389] Database initialized successfully
+✔ 2025-11-05T07:56:30.725Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:56:30.732Z [..\..\index.js:409] Server running on http://192.168.1.200:12345
+✔ 2025-11-05T07:56:32.378Z [unknown] Cache cleared
+✔ 2025-11-05T07:56:34.485Z [..\..\index.js:325] 🔌 Client connected: DZS0j2Z7qayimHseAAAC | IP: 192.168.1.200
+✔ 2025-11-05T07:56:34.524Z [..\node\smsService.js:45] 11/5/2025, 3:56:34 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:56:34.589Z [..\..\index.js:325] 🔌 Client connected: Fl__CVV6mmvLofsuAAAD | IP: 192.168.1.200
+✔ 2025-11-05T07:56:34.596Z [..\node\smsService.js:45] 11/5/2025, 3:56:34 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:56:34.600Z [..\node\smsService.js:45] 11/5/2025, 3:56:34 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:56:39.531Z [..\node\smsService.js:45] 11/5/2025, 3:56:39 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:56:39.534Z [..\node\smsService.js:45] 11/5/2025, 3:56:39 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:56:39.601Z [..\node\smsService.js:45] 11/5/2025, 3:56:39 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:56:39.602Z [..\node\smsService.js:45] 11/5/2025, 3:56:39 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:56:44.535Z [..\node\smsService.js:45] 11/5/2025, 3:56:44 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:56:44.537Z [..\node\smsService.js:45] 11/5/2025, 3:56:44 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:56:44.619Z [..\node\smsService.js:45] 11/5/2025, 3:56:44 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:56:44.622Z [..\node\smsService.js:45] 11/5/2025, 3:56:44 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:56:49.548Z [..\node\smsService.js:45] 11/5/2025, 3:56:49 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:56:49.550Z [..\node\smsService.js:45] 11/5/2025, 3:56:49 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:56:49.633Z [..\node\smsService.js:45] 11/5/2025, 3:56:49 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:56:49.634Z [..\node\smsService.js:45] 11/5/2025, 3:56:49 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:56:54.551Z [..\node\smsService.js:45] 11/5/2025, 3:56:54 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:56:54.552Z [..\node\smsService.js:45] 11/5/2025, 3:56:54 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:56:54.648Z [..\node\smsService.js:45] 11/5/2025, 3:56:54 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:56:54.653Z [..\node\smsService.js:45] 11/5/2025, 3:56:54 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:56:59.566Z [..\node\smsService.js:45] 11/5/2025, 3:56:59 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:56:59.594Z [..\node\smsService.js:45] 11/5/2025, 3:56:59 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:56:59.656Z [..\node\smsService.js:45] 11/5/2025, 3:56:59 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:56:59.658Z [..\node\smsService.js:45] 11/5/2025, 3:56:59 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:57:14.193Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:57:14.194Z [..\..\index.js:248] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T07:57:14.319Z [..\..\index.js:452] Stale PID 11320 found in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid. Removing file.
+✔ 2025-11-05T07:57:14.320Z [..\..\index.js:462] Wrote PID 12144 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T07:57:14.347Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:57:14.362Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:57:14.363Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T07:57:14.363Z [..\..\index.js:389] Database initialized successfully
+✔ 2025-11-05T07:57:14.364Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:57:14.372Z [..\..\index.js:409] Server running on http://192.168.1.200:12345
+✔ 2025-11-05T07:57:14.824Z [unknown] Cache cleared
+✔ 2025-11-05T07:57:15.035Z [..\..\index.js:325] 🔌 Client connected: BD0Wmxn_T7j7rXe-AAAC | IP: 192.168.1.200
+✔ 2025-11-05T07:57:15.069Z [..\node\smsService.js:45] 11/5/2025, 3:57:15 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:57:15.174Z [..\..\index.js:325] 🔌 Client connected: cLwCBz3g8MMXlULSAAAD | IP: 192.168.1.200
+✔ 2025-11-05T07:57:15.191Z [..\node\smsService.js:45] 11/5/2025, 3:57:15 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:57:15.211Z [..\node\smsService.js:45] 11/5/2025, 3:57:15 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:57:20.167Z [..\node\smsService.js:45] 11/5/2025, 3:57:20 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:57:20.227Z [..\node\smsService.js:45] 11/5/2025, 3:57:20 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:57:20.229Z [..\node\smsService.js:45] 11/5/2025, 3:57:20 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:57:20.232Z [..\node\smsService.js:45] 11/5/2025, 3:57:20 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:57:25.234Z [..\node\smsService.js:45] 11/5/2025, 3:57:25 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:57:25.239Z [..\node\smsService.js:45] 11/5/2025, 3:57:25 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:57:25.244Z [..\node\smsService.js:45] 11/5/2025, 3:57:25 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:57:25.245Z [..\node\smsService.js:45] 11/5/2025, 3:57:25 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:57:30.260Z [..\node\smsService.js:45] 11/5/2025, 3:57:30 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:57:30.366Z [..\node\smsService.js:45] 11/5/2025, 3:57:30 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:57:30.404Z [..\node\smsService.js:45] 11/5/2025, 3:57:30 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:57:30.495Z [..\node\smsService.js:45] 11/5/2025, 3:57:30 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:57:39.529Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:57:39.531Z [..\..\index.js:248] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-05T07:57:39.691Z [..\..\index.js:452] Stale PID 12144 found in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid. Removing file.
+✔ 2025-11-05T07:57:39.692Z [..\..\index.js:462] Wrote PID 3640 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-05T07:57:39.721Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:57:39.732Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-05T07:57:39.742Z [..\node\db.js:25] Database connected
+✔ 2025-11-05T07:57:39.743Z [..\..\index.js:389] Database initialized successfully
+✔ 2025-11-05T07:57:39.744Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-05T07:57:39.760Z [..\..\index.js:409] Server running on http://192.168.1.200:12345
+✔ 2025-11-05T07:58:40.841Z [..\..\index.js:325] 🔌 Client connected: JRWdr8mECykxca2cAAAB | IP: 127.0.0.1
+✔ 2025-11-05T07:58:40.877Z [..\node\smsService.js:45] 11/5/2025, 3:58:40 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:58:45.880Z [..\node\smsService.js:45] 11/5/2025, 3:58:45 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:58:45.881Z [..\node\smsService.js:45] 11/5/2025, 3:58:45 PM | SYSTEM | - | ❌ Port error: Opening COM4: Access denied
+✔ 2025-11-05T07:58:50.891Z [..\node\smsService.js:45] 11/5/2025, 3:58:50 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:58:50.893Z [..\node\smsService.js:45] 11/5/2025, 3:58:50 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:58:55.897Z [..\node\smsService.js:45] 11/5/2025, 3:58:55 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:58:55.898Z [..\node\smsService.js:45] 11/5/2025, 3:58:55 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:59:00.909Z [..\node\smsService.js:45] 11/5/2025, 3:59:00 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:59:00.910Z [..\node\smsService.js:45] 11/5/2025, 3:59:00 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:59:05.925Z [..\node\smsService.js:45] 11/5/2025, 3:59:05 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:59:05.926Z [..\node\smsService.js:45] 11/5/2025, 3:59:05 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:59:10.939Z [..\node\smsService.js:45] 11/5/2025, 3:59:10 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:59:10.940Z [..\node\smsService.js:45] 11/5/2025, 3:59:10 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:59:15.951Z [..\node\smsService.js:45] 11/5/2025, 3:59:15 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:59:15.951Z [..\node\smsService.js:45] 11/5/2025, 3:59:15 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:59:20.965Z [..\node\smsService.js:45] 11/5/2025, 3:59:20 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:59:20.966Z [..\node\smsService.js:45] 11/5/2025, 3:59:20 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:59:25.968Z [..\node\smsService.js:45] 11/5/2025, 3:59:25 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:59:25.969Z [..\node\smsService.js:45] 11/5/2025, 3:59:25 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:59:30.986Z [..\node\smsService.js:45] 11/5/2025, 3:59:30 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:59:30.986Z [..\node\smsService.js:45] 11/5/2025, 3:59:30 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:59:35.996Z [..\node\smsService.js:45] 11/5/2025, 3:59:35 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:59:35.997Z [..\node\smsService.js:45] 11/5/2025, 3:59:35 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:59:40.999Z [..\node\smsService.js:45] 11/5/2025, 3:59:40 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:59:41.000Z [..\node\smsService.js:45] 11/5/2025, 3:59:41 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:59:46.002Z [..\node\smsService.js:45] 11/5/2025, 3:59:46 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:59:46.003Z [..\node\smsService.js:45] 11/5/2025, 3:59:46 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:59:51.007Z [..\node\smsService.js:45] 11/5/2025, 3:59:51 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:59:51.007Z [..\node\smsService.js:45] 11/5/2025, 3:59:51 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T07:59:56.018Z [..\node\smsService.js:45] 11/5/2025, 3:59:56 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T07:59:56.019Z [..\node\smsService.js:45] 11/5/2025, 3:59:56 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:00:01.030Z [..\node\smsService.js:45] 11/5/2025, 4:00:01 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:00:01.031Z [..\node\smsService.js:45] 11/5/2025, 4:00:01 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:00:06.039Z [..\node\smsService.js:45] 11/5/2025, 4:00:06 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:00:06.040Z [..\node\smsService.js:45] 11/5/2025, 4:00:06 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:00:11.051Z [..\node\smsService.js:45] 11/5/2025, 4:00:11 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:00:11.052Z [..\node\smsService.js:45] 11/5/2025, 4:00:11 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:00:16.053Z [..\node\smsService.js:45] 11/5/2025, 4:00:16 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:00:16.054Z [..\node\smsService.js:45] 11/5/2025, 4:00:16 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:00:21.069Z [..\node\smsService.js:45] 11/5/2025, 4:00:21 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:00:21.070Z [..\node\smsService.js:45] 11/5/2025, 4:00:21 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:00:26.074Z [..\node\smsService.js:45] 11/5/2025, 4:00:26 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:00:26.075Z [..\node\smsService.js:45] 11/5/2025, 4:00:26 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:00:31.077Z [..\node\smsService.js:45] 11/5/2025, 4:00:31 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:00:31.078Z [..\node\smsService.js:45] 11/5/2025, 4:00:31 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:00:36.085Z [..\node\smsService.js:45] 11/5/2025, 4:00:36 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:00:36.086Z [..\node\smsService.js:45] 11/5/2025, 4:00:36 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:00:41.091Z [..\node\smsService.js:45] 11/5/2025, 4:00:41 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:00:41.092Z [..\node\smsService.js:45] 11/5/2025, 4:00:41 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:00:46.092Z [..\node\smsService.js:45] 11/5/2025, 4:00:46 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:00:46.093Z [..\node\smsService.js:45] 11/5/2025, 4:00:46 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:00:51.098Z [..\node\smsService.js:45] 11/5/2025, 4:00:51 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:00:51.099Z [..\node\smsService.js:45] 11/5/2025, 4:00:51 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:00:56.100Z [..\node\smsService.js:45] 11/5/2025, 4:00:56 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:00:56.101Z [..\node\smsService.js:45] 11/5/2025, 4:00:56 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:01:01.106Z [..\node\smsService.js:45] 11/5/2025, 4:01:01 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:01:01.107Z [..\node\smsService.js:45] 11/5/2025, 4:01:01 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:01:06.117Z [..\node\smsService.js:45] 11/5/2025, 4:01:06 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:01:06.118Z [..\node\smsService.js:45] 11/5/2025, 4:01:06 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:01:11.122Z [..\node\smsService.js:45] 11/5/2025, 4:01:11 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:01:11.123Z [..\node\smsService.js:45] 11/5/2025, 4:01:11 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:01:16.139Z [..\node\smsService.js:45] 11/5/2025, 4:01:16 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:01:16.139Z [..\node\smsService.js:45] 11/5/2025, 4:01:16 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:01:21.147Z [..\node\smsService.js:45] 11/5/2025, 4:01:21 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:01:21.148Z [..\node\smsService.js:45] 11/5/2025, 4:01:21 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:01:26.148Z [..\node\smsService.js:45] 11/5/2025, 4:01:26 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:01:26.149Z [..\node\smsService.js:45] 11/5/2025, 4:01:26 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:01:31.151Z [..\node\smsService.js:45] 11/5/2025, 4:01:31 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:01:31.152Z [..\node\smsService.js:45] 11/5/2025, 4:01:31 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:01:36.162Z [..\node\smsService.js:45] 11/5/2025, 4:01:36 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:01:36.163Z [..\node\smsService.js:45] 11/5/2025, 4:01:36 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:01:41.173Z [..\node\smsService.js:45] 11/5/2025, 4:01:41 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:01:41.174Z [..\node\smsService.js:45] 11/5/2025, 4:01:41 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:01:46.185Z [..\node\smsService.js:45] 11/5/2025, 4:01:46 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:01:46.187Z [..\node\smsService.js:45] 11/5/2025, 4:01:46 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:01:51.193Z [..\node\smsService.js:45] 11/5/2025, 4:01:51 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:01:51.194Z [..\node\smsService.js:45] 11/5/2025, 4:01:51 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:01:56.196Z [..\node\smsService.js:45] 11/5/2025, 4:01:56 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:01:56.197Z [..\node\smsService.js:45] 11/5/2025, 4:01:56 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:02:01.201Z [..\node\smsService.js:45] 11/5/2025, 4:02:01 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:02:01.202Z [..\node\smsService.js:45] 11/5/2025, 4:02:01 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:02:06.211Z [..\node\smsService.js:45] 11/5/2025, 4:02:06 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:02:06.212Z [..\node\smsService.js:45] 11/5/2025, 4:02:06 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:02:11.221Z [..\node\smsService.js:45] 11/5/2025, 4:02:11 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:02:11.222Z [..\node\smsService.js:45] 11/5/2025, 4:02:11 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:02:16.233Z [..\node\smsService.js:45] 11/5/2025, 4:02:16 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:02:16.234Z [..\node\smsService.js:45] 11/5/2025, 4:02:16 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:02:21.235Z [..\node\smsService.js:45] 11/5/2025, 4:02:21 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:02:21.236Z [..\node\smsService.js:45] 11/5/2025, 4:02:21 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:02:26.239Z [..\node\smsService.js:45] 11/5/2025, 4:02:26 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:02:26.240Z [..\node\smsService.js:45] 11/5/2025, 4:02:26 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:02:31.248Z [..\node\smsService.js:45] 11/5/2025, 4:02:31 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:02:31.249Z [..\node\smsService.js:45] 11/5/2025, 4:02:31 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:02:36.257Z [..\node\smsService.js:45] 11/5/2025, 4:02:36 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:02:36.258Z [..\node\smsService.js:45] 11/5/2025, 4:02:36 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:02:41.260Z [..\node\smsService.js:45] 11/5/2025, 4:02:41 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:02:41.261Z [..\node\smsService.js:45] 11/5/2025, 4:02:41 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:02:46.267Z [..\node\smsService.js:45] 11/5/2025, 4:02:46 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:02:46.268Z [..\node\smsService.js:45] 11/5/2025, 4:02:46 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:02:51.271Z [..\node\smsService.js:45] 11/5/2025, 4:02:51 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:02:51.272Z [..\node\smsService.js:45] 11/5/2025, 4:02:51 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:02:56.276Z [..\node\smsService.js:45] 11/5/2025, 4:02:56 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:02:56.277Z [..\node\smsService.js:45] 11/5/2025, 4:02:56 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:03:01.279Z [..\node\smsService.js:45] 11/5/2025, 4:03:01 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:03:01.280Z [..\node\smsService.js:45] 11/5/2025, 4:03:01 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:03:06.304Z [..\node\smsService.js:45] 11/5/2025, 4:03:06 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:03:06.305Z [..\node\smsService.js:45] 11/5/2025, 4:03:06 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:03:11.307Z [..\node\smsService.js:45] 11/5/2025, 4:03:11 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:03:11.308Z [..\node\smsService.js:45] 11/5/2025, 4:03:11 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:03:16.309Z [..\node\smsService.js:45] 11/5/2025, 4:03:16 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:03:16.310Z [..\node\smsService.js:45] 11/5/2025, 4:03:16 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:03:21.319Z [..\node\smsService.js:45] 11/5/2025, 4:03:21 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:03:21.320Z [..\node\smsService.js:45] 11/5/2025, 4:03:21 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:03:26.333Z [..\node\smsService.js:45] 11/5/2025, 4:03:26 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:03:26.334Z [..\node\smsService.js:45] 11/5/2025, 4:03:26 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:03:31.337Z [..\node\smsService.js:45] 11/5/2025, 4:03:31 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:03:31.338Z [..\node\smsService.js:45] 11/5/2025, 4:03:31 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:03:36.340Z [..\node\smsService.js:45] 11/5/2025, 4:03:36 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:03:36.341Z [..\node\smsService.js:45] 11/5/2025, 4:03:36 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:03:41.349Z [..\node\smsService.js:45] 11/5/2025, 4:03:41 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:03:41.350Z [..\node\smsService.js:45] 11/5/2025, 4:03:41 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:03:46.356Z [..\node\smsService.js:45] 11/5/2025, 4:03:46 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:03:46.357Z [..\node\smsService.js:45] 11/5/2025, 4:03:46 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:03:51.363Z [..\node\smsService.js:45] 11/5/2025, 4:03:51 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:03:51.365Z [..\node\smsService.js:45] 11/5/2025, 4:03:51 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:03:56.369Z [..\node\smsService.js:45] 11/5/2025, 4:03:56 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:03:56.370Z [..\node\smsService.js:45] 11/5/2025, 4:03:56 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:04:01.375Z [..\node\smsService.js:45] 11/5/2025, 4:04:01 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:04:01.376Z [..\node\smsService.js:45] 11/5/2025, 4:04:01 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:04:06.378Z [..\node\smsService.js:45] 11/5/2025, 4:04:06 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:04:06.379Z [..\node\smsService.js:45] 11/5/2025, 4:04:06 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:04:11.383Z [..\node\smsService.js:45] 11/5/2025, 4:04:11 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:04:11.384Z [..\node\smsService.js:45] 11/5/2025, 4:04:11 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:04:16.385Z [..\node\smsService.js:45] 11/5/2025, 4:04:16 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:04:16.386Z [..\node\smsService.js:45] 11/5/2025, 4:04:16 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:04:21.388Z [..\node\smsService.js:45] 11/5/2025, 4:04:21 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:04:21.389Z [..\node\smsService.js:45] 11/5/2025, 4:04:21 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:04:26.402Z [..\node\smsService.js:45] 11/5/2025, 4:04:26 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:04:26.403Z [..\node\smsService.js:45] 11/5/2025, 4:04:26 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:04:31.402Z [..\node\smsService.js:45] 11/5/2025, 4:04:31 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:04:31.403Z [..\node\smsService.js:45] 11/5/2025, 4:04:31 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:04:36.410Z [..\node\smsService.js:45] 11/5/2025, 4:04:36 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:04:36.411Z [..\node\smsService.js:45] 11/5/2025, 4:04:36 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:04:41.426Z [..\node\smsService.js:45] 11/5/2025, 4:04:41 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:04:41.427Z [..\node\smsService.js:45] 11/5/2025, 4:04:41 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:04:46.442Z [..\node\smsService.js:45] 11/5/2025, 4:04:46 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:04:46.442Z [..\node\smsService.js:45] 11/5/2025, 4:04:46 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:04:51.445Z [..\node\smsService.js:45] 11/5/2025, 4:04:51 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:04:51.446Z [..\node\smsService.js:45] 11/5/2025, 4:04:51 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:04:56.446Z [..\node\smsService.js:45] 11/5/2025, 4:04:56 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:04:56.447Z [..\node\smsService.js:45] 11/5/2025, 4:04:56 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:05:01.457Z [..\node\smsService.js:45] 11/5/2025, 4:05:01 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:05:01.458Z [..\node\smsService.js:45] 11/5/2025, 4:05:01 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:05:06.473Z [..\node\smsService.js:45] 11/5/2025, 4:05:06 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:05:06.474Z [..\node\smsService.js:45] 11/5/2025, 4:05:06 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:05:11.479Z [..\node\smsService.js:45] 11/5/2025, 4:05:11 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:05:11.480Z [..\node\smsService.js:45] 11/5/2025, 4:05:11 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:05:16.492Z [..\node\smsService.js:45] 11/5/2025, 4:05:16 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:05:16.493Z [..\node\smsService.js:45] 11/5/2025, 4:05:16 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:05:21.506Z [..\node\smsService.js:45] 11/5/2025, 4:05:21 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:05:21.507Z [..\node\smsService.js:45] 11/5/2025, 4:05:21 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:05:26.515Z [..\node\smsService.js:45] 11/5/2025, 4:05:26 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:05:26.516Z [..\node\smsService.js:45] 11/5/2025, 4:05:26 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:05:31.522Z [..\node\smsService.js:45] 11/5/2025, 4:05:31 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:05:31.523Z [..\node\smsService.js:45] 11/5/2025, 4:05:31 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:05:36.529Z [..\node\smsService.js:45] 11/5/2025, 4:05:36 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:05:36.530Z [..\node\smsService.js:45] 11/5/2025, 4:05:36 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:05:41.535Z [..\node\smsService.js:45] 11/5/2025, 4:05:41 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:05:41.536Z [..\node\smsService.js:45] 11/5/2025, 4:05:41 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:05:46.542Z [..\node\smsService.js:45] 11/5/2025, 4:05:46 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:05:46.543Z [..\node\smsService.js:45] 11/5/2025, 4:05:46 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:05:51.552Z [..\node\smsService.js:45] 11/5/2025, 4:05:51 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:05:51.553Z [..\node\smsService.js:45] 11/5/2025, 4:05:51 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:05:56.553Z [..\node\smsService.js:45] 11/5/2025, 4:05:56 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:05:56.565Z [..\node\smsService.js:45] 11/5/2025, 4:05:56 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:06:01.580Z [..\node\smsService.js:45] 11/5/2025, 4:06:01 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:06:01.581Z [..\node\smsService.js:45] 11/5/2025, 4:06:01 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:06:06.588Z [..\node\smsService.js:45] 11/5/2025, 4:06:06 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:06:06.588Z [..\node\smsService.js:45] 11/5/2025, 4:06:06 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:06:11.602Z [..\node\smsService.js:45] 11/5/2025, 4:06:11 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:06:11.603Z [..\node\smsService.js:45] 11/5/2025, 4:06:11 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:06:16.604Z [..\node\smsService.js:45] 11/5/2025, 4:06:16 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:06:16.605Z [..\node\smsService.js:45] 11/5/2025, 4:06:16 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:06:21.605Z [..\node\smsService.js:45] 11/5/2025, 4:06:21 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:06:21.606Z [..\node\smsService.js:45] 11/5/2025, 4:06:21 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:06:26.607Z [..\node\smsService.js:45] 11/5/2025, 4:06:26 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:06:26.608Z [..\node\smsService.js:45] 11/5/2025, 4:06:26 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:06:31.614Z [..\node\smsService.js:45] 11/5/2025, 4:06:31 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:06:31.615Z [..\node\smsService.js:45] 11/5/2025, 4:06:31 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:06:36.622Z [..\node\smsService.js:45] 11/5/2025, 4:06:36 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:06:36.623Z [..\node\smsService.js:45] 11/5/2025, 4:06:36 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:06:41.633Z [..\node\smsService.js:45] 11/5/2025, 4:06:41 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:06:41.634Z [..\node\smsService.js:45] 11/5/2025, 4:06:41 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:06:46.647Z [..\node\smsService.js:45] 11/5/2025, 4:06:46 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:06:46.648Z [..\node\smsService.js:45] 11/5/2025, 4:06:46 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:06:51.652Z [..\node\smsService.js:45] 11/5/2025, 4:06:51 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:06:51.654Z [..\node\smsService.js:45] 11/5/2025, 4:06:51 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:06:56.657Z [..\node\smsService.js:45] 11/5/2025, 4:06:56 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:06:56.658Z [..\node\smsService.js:45] 11/5/2025, 4:06:56 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:07:01.666Z [..\node\smsService.js:45] 11/5/2025, 4:07:01 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:07:01.667Z [..\node\smsService.js:45] 11/5/2025, 4:07:01 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:07:06.677Z [..\node\smsService.js:45] 11/5/2025, 4:07:06 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:07:06.678Z [..\node\smsService.js:45] 11/5/2025, 4:07:06 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:07:11.696Z [..\node\smsService.js:45] 11/5/2025, 4:07:11 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:07:11.697Z [..\node\smsService.js:45] 11/5/2025, 4:07:11 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:07:16.702Z [..\node\smsService.js:45] 11/5/2025, 4:07:16 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:07:16.703Z [..\node\smsService.js:45] 11/5/2025, 4:07:16 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:07:21.715Z [..\node\smsService.js:45] 11/5/2025, 4:07:21 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:07:21.716Z [..\node\smsService.js:45] 11/5/2025, 4:07:21 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:07:26.727Z [..\node\smsService.js:45] 11/5/2025, 4:07:26 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:07:26.728Z [..\node\smsService.js:45] 11/5/2025, 4:07:26 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:07:31.737Z [..\node\smsService.js:45] 11/5/2025, 4:07:31 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:07:31.738Z [..\node\smsService.js:45] 11/5/2025, 4:07:31 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:07:36.740Z [..\node\smsService.js:45] 11/5/2025, 4:07:36 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:07:36.741Z [..\node\smsService.js:45] 11/5/2025, 4:07:36 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:07:41.749Z [..\node\smsService.js:45] 11/5/2025, 4:07:41 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:07:41.750Z [..\node\smsService.js:45] 11/5/2025, 4:07:41 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:07:46.760Z [..\node\smsService.js:45] 11/5/2025, 4:07:46 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:07:46.761Z [..\node\smsService.js:45] 11/5/2025, 4:07:46 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:07:51.773Z [..\node\smsService.js:45] 11/5/2025, 4:07:51 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:07:51.774Z [..\node\smsService.js:45] 11/5/2025, 4:07:51 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:07:56.775Z [..\node\smsService.js:45] 11/5/2025, 4:07:56 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:07:56.776Z [..\node\smsService.js:45] 11/5/2025, 4:07:56 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:08:01.780Z [..\node\smsService.js:45] 11/5/2025, 4:08:01 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:08:01.781Z [..\node\smsService.js:45] 11/5/2025, 4:08:01 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:08:06.791Z [..\node\smsService.js:45] 11/5/2025, 4:08:06 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:08:06.792Z [..\node\smsService.js:45] 11/5/2025, 4:08:06 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:08:11.806Z [..\node\smsService.js:45] 11/5/2025, 4:08:11 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:08:11.807Z [..\node\smsService.js:45] 11/5/2025, 4:08:11 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:08:16.815Z [..\node\smsService.js:45] 11/5/2025, 4:08:16 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:08:16.816Z [..\node\smsService.js:45] 11/5/2025, 4:08:16 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:08:21.835Z [..\node\smsService.js:45] 11/5/2025, 4:08:21 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:08:21.836Z [..\node\smsService.js:45] 11/5/2025, 4:08:21 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:08:26.855Z [..\node\smsService.js:45] 11/5/2025, 4:08:26 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:08:26.855Z [..\node\smsService.js:45] 11/5/2025, 4:08:26 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:08:31.867Z [..\node\smsService.js:45] 11/5/2025, 4:08:31 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:08:31.869Z [..\node\smsService.js:45] 11/5/2025, 4:08:31 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:08:36.886Z [..\node\smsService.js:45] 11/5/2025, 4:08:36 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:08:36.888Z [..\node\smsService.js:45] 11/5/2025, 4:08:36 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:08:41.895Z [..\node\smsService.js:45] 11/5/2025, 4:08:41 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:08:41.897Z [..\node\smsService.js:45] 11/5/2025, 4:08:41 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:08:46.906Z [..\node\smsService.js:45] 11/5/2025, 4:08:46 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:08:46.907Z [..\node\smsService.js:45] 11/5/2025, 4:08:46 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:08:51.910Z [..\node\smsService.js:45] 11/5/2025, 4:08:51 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:08:51.911Z [..\node\smsService.js:45] 11/5/2025, 4:08:51 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:08:56.917Z [..\node\smsService.js:45] 11/5/2025, 4:08:56 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:08:56.918Z [..\node\smsService.js:45] 11/5/2025, 4:08:56 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:09:01.919Z [..\node\smsService.js:45] 11/5/2025, 4:09:01 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:09:01.920Z [..\node\smsService.js:45] 11/5/2025, 4:09:01 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:09:06.927Z [..\node\smsService.js:45] 11/5/2025, 4:09:06 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:09:06.928Z [..\node\smsService.js:45] 11/5/2025, 4:09:06 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:09:11.947Z [..\node\smsService.js:45] 11/5/2025, 4:09:11 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:09:11.948Z [..\node\smsService.js:45] 11/5/2025, 4:09:11 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:09:16.962Z [..\node\smsService.js:45] 11/5/2025, 4:09:16 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:09:16.963Z [..\node\smsService.js:45] 11/5/2025, 4:09:16 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:09:21.970Z [..\node\smsService.js:45] 11/5/2025, 4:09:21 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:09:21.970Z [..\node\smsService.js:45] 11/5/2025, 4:09:21 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:09:26.991Z [..\node\smsService.js:45] 11/5/2025, 4:09:26 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:09:26.992Z [..\node\smsService.js:45] 11/5/2025, 4:09:26 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:09:32.001Z [..\node\smsService.js:45] 11/5/2025, 4:09:32 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:09:32.002Z [..\node\smsService.js:45] 11/5/2025, 4:09:32 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:09:37.016Z [..\node\smsService.js:45] 11/5/2025, 4:09:37 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:09:37.017Z [..\node\smsService.js:45] 11/5/2025, 4:09:37 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:09:42.032Z [..\node\smsService.js:45] 11/5/2025, 4:09:42 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:09:42.033Z [..\node\smsService.js:45] 11/5/2025, 4:09:42 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:09:47.044Z [..\node\smsService.js:45] 11/5/2025, 4:09:47 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:09:47.045Z [..\node\smsService.js:45] 11/5/2025, 4:09:47 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:09:52.054Z [..\node\smsService.js:45] 11/5/2025, 4:09:52 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:09:52.055Z [..\node\smsService.js:45] 11/5/2025, 4:09:52 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:09:57.070Z [..\node\smsService.js:45] 11/5/2025, 4:09:57 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:09:57.071Z [..\node\smsService.js:45] 11/5/2025, 4:09:57 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:10:02.081Z [..\node\smsService.js:45] 11/5/2025, 4:10:02 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:10:02.082Z [..\node\smsService.js:45] 11/5/2025, 4:10:02 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:10:07.088Z [..\node\smsService.js:45] 11/5/2025, 4:10:07 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:10:07.089Z [..\node\smsService.js:45] 11/5/2025, 4:10:07 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:10:12.095Z [..\node\smsService.js:45] 11/5/2025, 4:10:12 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:10:12.096Z [..\node\smsService.js:45] 11/5/2025, 4:10:12 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:10:17.106Z [..\node\smsService.js:45] 11/5/2025, 4:10:17 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:10:17.107Z [..\node\smsService.js:45] 11/5/2025, 4:10:17 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:10:22.127Z [..\node\smsService.js:45] 11/5/2025, 4:10:22 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:10:22.128Z [..\node\smsService.js:45] 11/5/2025, 4:10:22 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:10:27.132Z [..\node\smsService.js:45] 11/5/2025, 4:10:27 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:10:27.133Z [..\node\smsService.js:45] 11/5/2025, 4:10:27 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:10:32.142Z [..\node\smsService.js:45] 11/5/2025, 4:10:32 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:10:32.143Z [..\node\smsService.js:45] 11/5/2025, 4:10:32 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:10:37.163Z [..\node\smsService.js:45] 11/5/2025, 4:10:37 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:10:37.164Z [..\node\smsService.js:45] 11/5/2025, 4:10:37 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:10:42.171Z [..\node\smsService.js:45] 11/5/2025, 4:10:42 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:10:42.172Z [..\node\smsService.js:45] 11/5/2025, 4:10:42 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:10:47.174Z [..\node\smsService.js:45] 11/5/2025, 4:10:47 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:10:47.175Z [..\node\smsService.js:45] 11/5/2025, 4:10:47 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:10:52.179Z [..\node\smsService.js:45] 11/5/2025, 4:10:52 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:10:52.180Z [..\node\smsService.js:45] 11/5/2025, 4:10:52 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:10:57.183Z [..\node\smsService.js:45] 11/5/2025, 4:10:57 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:10:57.183Z [..\node\smsService.js:45] 11/5/2025, 4:10:57 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:11:02.186Z [..\node\smsService.js:45] 11/5/2025, 4:11:02 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:11:02.187Z [..\node\smsService.js:45] 11/5/2025, 4:11:02 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:11:07.192Z [..\node\smsService.js:45] 11/5/2025, 4:11:07 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:11:07.193Z [..\node\smsService.js:45] 11/5/2025, 4:11:07 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:11:12.202Z [..\node\smsService.js:45] 11/5/2025, 4:11:12 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:11:12.203Z [..\node\smsService.js:45] 11/5/2025, 4:11:12 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:11:17.206Z [..\node\smsService.js:45] 11/5/2025, 4:11:17 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:11:17.207Z [..\node\smsService.js:45] 11/5/2025, 4:11:17 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+✔ 2025-11-05T08:11:22.221Z [..\node\smsService.js:45] 11/5/2025, 4:11:22 PM | SYSTEM | - | ❌ Failed to open COM4: Port is opening
+✔ 2025-11-05T08:11:22.222Z [..\node\smsService.js:45] 11/5/2025, 4:11:22 PM | SYSTEM | - | ❌ Port error: Opening COM4: File not found
+>>>>>>> Stashed changes

@@ -6,6 +6,7 @@ const path = require("path");
 const fs = require("fs");
 const os = require("os");
 const multer = require("multer");
+const { app, BrowserWindow, screen, session, dialog } = require("electron");
 
 // ===== Express & Socket.IO =====
 const express = require("express");
@@ -470,6 +471,74 @@ if (checkAndHandleExistingInstance()) {
 
 writePidFile();
 
+
+// // ===== Electron Window =====
+// let displayWindow = null;
+// let kioskWindow = null;
+// process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
+// function createWindow() {
+// 	// ! DISPLAY WINDOW
+// 	const broadcasturl = `http://${ownip}:${serverPort}/main`;
+// 	const kioskurl = `http://${ownip}:${serverPort}/kiosk`;
+// 	const displays = screen.getAllDisplays();
+// 	let windowOptions = {
+// 		width: 450,
+// 		height: 450,
+// 		autoHideMenuBar: true,
+// 		frame: true,
+// 	};
+
+// 	if (displays.length > 1) {
+// 		const externalDisplay = displays.find(
+// 			(d) => d.bounds.x !== 0 || d.bounds.y !== 0
+// 		);
+// 		if (externalDisplay) {
+// 			windowOptions.x = externalDisplay.bounds.x + 50;
+// 			windowOptions.y = externalDisplay.bounds.y + 50;
+// 		}
+// 	}
+
+// 	displayWindow = new BrowserWindow(windowOptions);
+// 	displayWindow.loadURL(broadcasturl);
+// 	displayWindow.setFullScreen(true);
+// 	displayWindow.on("closed", handleWindowClosed);
+
+// 	// ! KIOSK WINDOW
+// 	if(isWindowed){
+// 		kioskWindow = new BrowserWindow(windowOptions);
+// 		kioskWindow.loadURL(kioskurl);
+// 		kioskWindow.setFullScreen(true);
+// 		kioskWindow.on("closed", handleWindowClosed);
+// 	}
+// }
+
+// function handleWindowClosed() {
+// 	displayWindow = null;
+// 	kioskWindow = null;
+// 	app.quit();
+// }
+
+// // ===== Electron App Events =====
+// app.whenReady().then(createWindow);
+// app.whenReady().then();
+
+// app.on("activate", () => {
+// 	if (BrowserWindow.getAllWindows().length === 0) createWindow();
+// });
+
+// app.on("ready", () => {
+// 	session.defaultSession.clearCache().then(() => {
+// 		console.log("Cache cleared");
+// 	});
+// });
+
+// app.on("before-quit", () => {
+// 	if (fs.existsSync(pidFile)) fs.unlinkSync(pidFile);
+// });
+
+// app.on("window-all-closed", () => {
+// 	app.quit();
+// });
 // ===== Graceful Shutdown =====
 async function gracefulShutdown(signal) {
   console.log(`Received ${signal}. Shutting down server...`);
