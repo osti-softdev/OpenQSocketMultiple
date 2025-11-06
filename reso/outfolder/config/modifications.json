@@ -1,6 +1,6 @@
 {
-    "time_color": "#000000",
-    "time_shadow": "#d48f21",
+    "time_color": "#ffffff",
+    "time_shadow": "#000000",
     "date_color": "#000000",
     "nowserve_color": "#00a8df",
     "nowserve_text_color": "#000000",
@@ -8,7 +8,7 @@
     "service_text_color": "#ffc5ab",
     "counter_color": "#ff8c82",
     "counter_text_color": "#000000",
-    "ticket_color": "#d19d01",
+    "ticket_color": "#9e0000",
     "ticket_text_color": "#ffffff",
     "popup_ticket_color": "#06e8e6",
     "popup_service_color": "#da0603",

@@ -407,11 +407,11 @@
                   <section class="settsubcont settsystemsetting">
                     <span class="setttitles">System Settings</span>
                     <span class="systemsettingdata">
-                        <label for="settdbdataretention">Database Size: <span>30gb</span></label>
+                        <label for="settdbdatadbsize">Database Size: <span class="settdbdatadbsize"></span></label>
 
-                        <label for="settdbdataretention">Data Retention: <input type="number"> days.</label>
-                        <label for="settdbdataretention">Sms Feature: <input type="checkbox"><span>ON</span></label>
-                        <label for="settdbdataretention">Counter Display: <input type="checkbox"> <span>ON</span></label>
+                        <label for="settdataretention">Data Retention: <input type="number" class="settdataretention" min="0"> days.</label>
+                        <label for="settdbdatasmsfeature">Sms Feature: <input type="checkbox" class="settdbdatasmsfeature"><span class="settdbdatasmsfeaturelabel">ON</span></label>
+                        <label for="settdbdatacounter">Counter Display: <input type="checkbox" class="settdbdatacounter"><span class="settdbdatacounterlabel">ON</span></label>
                         <fieldset>
                             <legend>System Type:</legend>
                                 <label for="settdbdataretention">Wired Arduino: <input type="radio"></label>
@@ -455,6 +455,7 @@
     <script src="/js/admin/adminsettingsservices.js"></script>
     <script src="/js/admin/adminsettingscolors.js"></script>
     <script src="/js/admin/adminsettingteller.js"></script>
+    <script src="/js/admin/adminsettingssystem.js"></script>
     <script src="/js/admin/adminsettingsimageuploader.js"></script>
     <script src="/js/admin/adminDashboardSaveCharts.js"></script>
     <script src="/js/admin/dashexports.js"></script>

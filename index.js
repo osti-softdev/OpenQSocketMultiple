@@ -1,5 +1,5 @@
 let tagline = "../../";
-tagline = "./";	
+tagline = "./";	// comment this on deployment
 
 // ===== Core & Built-in =====
 const path = require("path");
@@ -83,6 +83,9 @@ const {
 const {
   settupsettingsaccounts,
 } = require("./reso/node/admin/adminsettingsaccounts");
+const {
+  setupsystemconfigurations,
+} = require("./reso/node/admin/adminsettingssystem");
 const { setupKeyApi, handleKey } = require("./reso/node/insertviaapi");
 const {
   setupSoundSettingsAdmin,
@@ -341,6 +344,7 @@ io.on("connection", (socket) => {
     setupSoundSettingsAdmin(socket, io);
     admincontentSaveChartImage(socket, io);
     settupsettingsservices(socket, io);
+    setupsystemconfigurations(socket, io);
 
     if(smstype==1){
       initializeGSM(io);
