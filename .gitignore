@@ -8,3 +8,4 @@ dist_64
 node_modules
 package-lock.json
 /reso/outfolder/logs
+/reso/outfolder/config
