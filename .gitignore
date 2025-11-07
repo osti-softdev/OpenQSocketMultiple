@@ -7,6 +7,6 @@ dist_32
 dist_64
 node_modules
 package-lock.json
-/reso/outfolder/logs/*.log
+/reso/outfolder/logs/logs.log
 /reso/outfolder/config
 /reso/outfolder/app.pid
