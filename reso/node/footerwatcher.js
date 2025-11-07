@@ -1,34 +1,28 @@
 const fs = require("fs");
 const path = require("path");
 const fsp = require("fs").promises;
-const rootpath =
-	global.outfolderPath || path.join(__dirname, "../../outfolder");
+const rootpath = global.outfolderPath || path.join(__dirname, "../../outfolder");
 
 function setupFooterWatcher(socket, io) {
 	const footerPath = path.join(rootpath, "/config/footer.json");
 	const modsPath = path.join(rootpath, "/config/modifications.json");
 
-	// Send current footer on new connection
+	// Send on new connection
 	sendFooter(socket);
 	sendDisplay(socket);
 
-	// ! Handle updatefooter request
+	// --- Footer update handler
 	socket.on("updatefooter", async () => {
 		try {
 			const data = await fsp.readFile(footerPath, "utf8");
-			const footerData = JSON.parse(data);  
+			const footerData = JSON.parse(data);
 
-			if (footerData.display_update?.update !== undefined) {
+			if (footerData.display_update?.update !== undefined)
 				footerData.display_update.update = 0;
-			} else {
-				console.warn("⚠ display_update key not found in footer.json");
-			}
+			else
+				console.warn("⚠ display_update missing in footer.json");
 
-			await fsp.writeFile(
-				footerPath,
-				JSON.stringify(footerData, null, 4),
-				"utf8"
-			);
+			await fsp.writeFile(footerPath, JSON.stringify(footerData, null, 4));
 			console.log("✅ footer.json display_update set to 0");
 			socket.emit("updatefooterSuccess", footerData);
 		} catch (err) {
@@ -37,69 +31,56 @@ function setupFooterWatcher(socket, io) {
 		}
 	});
 
-// ! Display update handler
+	// --- Display update handler
 	socket.on("updateDisplay", async () => {
 		try {
 			const data = await fsp.readFile(modsPath, "utf8");
-			const DisplayData = JSON.parse(data);  
+			const displayData = JSON.parse(data);
 
-			if (DisplayData.display_update?.update !== undefined) {
-				DisplayData.display_update.update = 0;
-			} else {
-				console.warn("⚠ display_update key not found in Modifications.json");
-			}
+			if (displayData.display_update?.update !== undefined)
+				displayData.display_update.update = 0;
+			else
+				console.warn("⚠ display_update missing in modifications.json");
 
-			await fsp.writeFile(
-				modsPath,
-				JSON.stringify(DisplayData, null, 4),
-				"utf8"
-			);
+			await fsp.writeFile(modsPath, JSON.stringify(displayData, null, 4));
 			console.log("✅ modifications.json display_update set to 0");
-			socket.emit("updatedisplaySuccess", DisplayData);
+			socket.emit("updatedisplaySuccess", displayData);
 		} catch (err) {
 			console.error("❌ Error updating modifications.json:", err);
 			socket.emit("updatedisplayError", "Failed to update modification.json");
 		}
 	});
 
-	// Watch for changes in footer.json and broadcast
-	fs.watch(footerPath, (eventType) => {
-		if (eventType === "change") {
-			sendFooter(io);
-		}
+	// --- Reliable file watchers
+	let footerTimeout = null;
+	let displayTimeout = null;
+
+	fs.watchFile(footerPath, { interval: 500 }, () => {
+		clearTimeout(footerTimeout);
+		footerTimeout = setTimeout(() => sendFooter(io), 300);
 	});
 
-	fs.watch(modsPath, (eventType) => {
-		if (eventType === "change") {
-			sendDisplay(io);
-		}
+	fs.watchFile(modsPath, { interval: 500 }, () => {
+		clearTimeout(displayTimeout);
+		displayTimeout = setTimeout(() => sendDisplay(io), 300);
 	});
 
+	// --- Emitters
 	function sendFooter(target) {
-		fs.readFile(footerPath, "utf8", (err, data) => {
-			if (err) {
-				console.error("Error reading footer.json:", err);
-				return;
-			}
-			try {
-				const config = JSON.parse(data);
-				target.emit("footerUpdated", config);
-			} catch (parseErr) {
-				console.error("Invalid footer.json format:", parseErr);
-			}
-		});
+		readAndEmit(target, footerPath, "footerUpdated");
 	}
 	function sendDisplay(target) {
-		fs.readFile(modsPath, "utf8", (err, data) => {
-			if (err) {
-				console.error("Error reading modifications.json:", err);
-				return;
-			}
+		readAndEmit(target, modsPath, "DisplayUpdated");
+	}
+
+	function readAndEmit(target, filePath, event) {
+		fs.readFile(filePath, "utf8", (err, data) => {
+			if (err) return console.error(`Error reading ${filePath}:`, err);
 			try {
 				const config = JSON.parse(data);
-				target.emit("DisplayUpdated", config);
-			} catch (parseErr) {
-				console.error("Invalid modifications.json format:", parseErr);
+				target.emit(event, config);
+			} catch (e) {
+				console.error(`Invalid JSON in ${filePath}:`, e);
 			}
 		});
 	}

@@ -1,9 +1,9 @@
-const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 const fs = require("fs");
 
 const rootPath = global.outfolderPath || path.join(__dirname, "../../outfolder");
 const dbPath = path.join(rootPath, "config/db.db");
+const envFilePath = path.join(rootPath, "config/.env");
 const { loadConfig } = require("../envconfig");
 
 let watcherAdded = false;
@@ -87,6 +87,42 @@ function setupsystemconfigurations(socket, io) {
 			console.error("❌ Error getting system configs:", err);
 		}
 	});
+
+	socket.on("updateSystemConfig", async (payload) => {
+	try {
+		const { key, value } = payload;
+		if (!key) return;
+
+		// Read current env
+		let envContent = "";
+		if (fs.existsSync(envFilePath)) {
+			envContent = fs.readFileSync(envFilePath, "utf8");
+		}
+
+		// Update or append key=value
+		const regex = new RegExp(`^${key}=.*$`, "m");
+		if (regex.test(envContent)) {
+			envContent = envContent.replace(regex, `${key}=${value}`);
+		} else {
+			envContent += `\n${key}=${value}`;
+		}
+
+		fs.writeFileSync(envFilePath, envContent.trim() + "\n", "utf8");
+		console.log(`✅ Updated .env: ${key}=${value}`);
+
+		// Broadcast reload trigger
+		io.emit("reloadSystem");
+
+		// Optional: delay before relaunch (for file sync)
+		setTimeout(() => {
+			io.emit("relaunchApp");
+			process.exit(0); 
+		}, 1000);
+	} catch (err) {
+		console.error("❌ Failed to update .env:", err);
+		socket.emit("envUpdateError", { message: err.message });
+	}
+});
 }
 
 module.exports = { setupsystemconfigurations };

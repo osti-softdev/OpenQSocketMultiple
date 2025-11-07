@@ -338,7 +338,7 @@ socket.on("DisplayUpdated", (config) => {
 
 function applyDisplayConfig(config) {
   const displayUpdate = config.display_update || {};
-
+	console.log(config)
 	   if (displayUpdate.update === 1) {
         socket.emit("updateDisplay");
         socket.once("updatedisplaySuccess", () => {

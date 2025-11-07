@@ -1564,3 +1564,587 @@
     at StatWatcher.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\calledTicketsWatcher.js:242:22)
     at StatWatcher.emit (node:events:519:28)
     at StatWatcher.onchange (node:internal/fs/watchers:99:8)
+❌ 2025-11-07T06:30:32.266Z [..\node\admin\adminsettingssystem.js:121] ❌ Failed to update .env: ReferenceError: envFilePath is not defined
+    at Socket.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\adminsettingssystem.js:98:21)
+    at Socket.emit (node:events:519:28)
+    at Socket.emitUntyped (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\typed-events.js:69:22)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\socket.js:697:39
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+❌ 2025-11-07T07:01:33.127Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.129Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.143Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.144Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.146Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.152Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.153Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.154Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.154Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.155Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.155Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.156Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.156Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.156Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.157Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.157Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.157Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.157Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.157Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.158Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.158Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.158Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.159Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.159Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.159Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.159Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.159Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.160Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.160Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.160Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.160Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.161Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.161Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.161Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.161Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.162Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.162Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.162Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.162Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.162Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.163Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.163Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.163Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.163Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.164Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.166Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.167Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.167Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.168Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.168Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.168Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.168Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.169Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.169Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.169Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.169Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.170Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.170Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.171Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.171Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.171Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:33.171Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.761Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.762Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.763Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.763Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.763Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.770Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.770Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.771Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.771Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.771Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.772Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.772Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.772Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.773Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.773Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.773Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.774Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.774Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.774Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.774Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.775Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.775Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.775Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.776Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.794Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.826Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.827Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.830Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.841Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.842Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.843Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.843Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.843Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.843Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.844Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.844Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.844Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.858Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.859Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.859Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.860Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.860Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.860Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.861Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.861Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.861Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.861Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.862Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.862Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.863Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.864Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.873Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.875Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.876Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.876Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.876Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.877Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.877Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.878Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.879Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.880Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:01:35.880Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:02:37.559Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:02:37.562Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:02:37.562Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:02:37.563Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:02:37.563Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:11:46.671Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:11:46.673Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:11:46.673Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:11:46.673Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:11:46.673Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:11:46.674Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:11:46.675Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:11:46.676Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:11:46.684Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\admin\footerwatcheradmin.js:100:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T07:11:46.685Z [unknown] Invalid footer.json format: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:85:25
+    at FSReqCallback.readFileAfterClose [as oncomplete] (node:internal/fs/read/context:68:3)
+❌ 2025-11-07T08:10:54.043Z [..\..\node:internal\process\warning:56] (node:792) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 change listeners added to [StatWatcher]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+    at genericNodeError (node:internal/errors:983:15)
+    at wrappedFn (node:internal/errors:537:14)
+    at _addListener (node:events:593:17)
+    at StatWatcher.addListener (node:events:611:10)
+    at Object.watchFile (node:fs:2623:8)
+    at setupFooterWatcher (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:58:5)
+    at Namespace.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\index.js:341:5)
+    at Namespace.emit (node:events:519:28)
+    at Namespace.emitReserved (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\typed-events.js:56:22)
+    at Namespace._doConnect (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\namespace.js:276:14)
+❌ 2025-11-07T08:10:54.046Z [..\..\node:internal\process\warning:56] (node:792) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 change listeners added to [StatWatcher]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+    at genericNodeError (node:internal/errors:983:15)
+    at wrappedFn (node:internal/errors:537:14)
+    at _addListener (node:events:593:17)
+    at StatWatcher.addListener (node:events:611:10)
+    at Object.watchFile (node:fs:2623:8)
+    at setupFooterWatcher (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\footerwatcher.js:63:5)
+    at Namespace.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\index.js:341:5)
+    at Namespace.emit (node:events:519:28)
+    at Namespace.emitReserved (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\typed-events.js:56:22)
+    at Namespace._doConnect (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\namespace.js:276:14)

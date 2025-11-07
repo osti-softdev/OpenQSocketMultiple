@@ -23,6 +23,14 @@ $(document).ready(function () {
         cname: authUser.cname,
         group_name: authUser.group_name,
       });
+
+        socket.emit("gettellersandgroups", {
+        id: authUser.id,
+        cuser: authUser.cuser,
+        cnum: authUser.cnum,
+        cname: authUser.cname,
+        group_name: authUser.group_name,
+      });
     } 
     socket.on("calledtick", function(params) {
       // console.log("Activity Ticket: "+params.statusdata)
@@ -33,7 +41,7 @@ $(document).ready(function () {
         return;
       }
       localStorage.setItem("tellerandgroupsdata", JSON.stringify(data));
-      // console.log("📥 Received teller and groups data:", data);
+      console.log("📥 Received teller and groups data:", data);
     });
 
 
@@ -444,6 +452,7 @@ $(document).on("click", ".telleractbtn", function () {
       return;
     }
     custompopupset("show", "forward", currentCalledTicket, authUser);
+    console.log("Forward Ticket:", currentCalledTicket);
   }
 });
 // ! Logout button

@@ -346,7 +346,15 @@ io.on("connection", (socket) => {
     settupsettingsservices(socket, io);
     setupsystemconfigurations(socket, io);
     setupLoginSocket(socket, io);
-
+    socket.on("relaunchApp", async () => {
+        console.log("♻️ Relaunch command received via socket");
+        try {
+          await gracefulShutdown("RELAUNCH_REQUESTED");
+          relaunchApp();
+        } catch (err) {
+          console.error("Failed to relaunch app:", err.message);
+        }
+      });
     if(smstype==1){
       initializeGSM(io);
     }
@@ -624,27 +632,24 @@ app.on("window-all-closed", () => {
 // ===== Graceful Shutdown =====
 async function gracefulShutdown(signal) {
   console.log(`Received ${signal}. Shutting down server...`);
+
   try {
-    closeDb();
-    if(smstype==1){
-    await cleanupGSMPorts();
-    }
-    if (isArduinoUno) {
-      await cleanupSerialPorts();
-    }
-    await new Promise((resolve, reject) => {
-      server.close((err) => (err ? reject(err) : resolve()));
-    });
-    // FIX: Remove PID file on shutdown
     if (fs.existsSync(pidFile)) {
       fs.unlinkSync(pidFile);
       console.log(`Removed PID file ${pidFile}`);
     }
+    closeDb();
+
+    if (smstype == 1) await cleanupGSMPorts();
+    if (isArduinoUno) await cleanupSerialPorts();
+
+    await new Promise((resolve, reject) => {
+      server.close((err) => (err ? reject(err) : resolve()));
+    });
+
     console.log("✅ Shutdown complete");
-    process.exit(0);
   } catch (err) {
     console.error("❌ Error during shutdown:", err.message);
-    process.exit(1);
   }
 }
 
@@ -661,6 +666,21 @@ process.on("unhandledRejection", (reason, promise) => {
   console.error("Unhandled Rejection at:", promise, "reason:", reason);
   gracefulShutdown("UNHANDLED_REJECTION");
 });
+
+
+let relaunching = false;
+
+function relaunchApp() {
+  if (relaunching) return;
+  relaunching = true;
+  console.log("♻️ Relaunching app...");
+
+  app.relaunch({ args: process.argv.slice(1).concat(["--relaunch"]) });
+  setTimeout(() => {
+    app.exit(0);
+  }, 1000);
+}
+
 
 // Start the server
 startServer();
