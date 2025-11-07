@@ -9,6 +9,9 @@ const { getPHDateTime } = require("./datetime");
 const dbPath = path.join(rootpath, "/config/db.db");
 const voicePath = path.join(rootpath, "/config/soundandvoice.json");
 
+let dbWatcherSet = false;
+let voiceWatcherSet = false;
+
 // --- Get latest calling ticket ---
 async function getCallingTickets() {
 	const { date } = getPHDateTime();
@@ -191,18 +194,38 @@ async function updateCalledTicket(id, counterHist, identifierType) {
 
 // --- Read voice.json ---
 function readVoiceConfig() {
-	try {
-		const data = fs.readFileSync(voicePath, "utf8");
-		return JSON.parse(data);
-	} catch (err) {
-		console.error("❌ Error reading voice.json:", err);
-		return { voice: 0 }; // default
-	}
+  try {
+    if (!fs.existsSync(voicePath)) {
+      console.warn("⚠️ soundandvoice.json not found. Creating default...");
+      fs.writeFileSync(voicePath, JSON.stringify({ voice: 0 }, null, 2));
+      return { voice: 0 };
+    }
+
+    const data = fs.readFileSync(voicePath, "utf8").trim();
+
+    // If file is empty or too short to be valid JSON
+    if (!data || data.length < 2) {
+      console.warn("⚠️ soundandvoice.json is empty. Resetting to default...");
+      fs.writeFileSync(voicePath, JSON.stringify({ voice: 0 }, null, 2));
+      return { voice: 0 };
+    }
+
+    try {
+      return JSON.parse(data);
+    } catch (parseErr) {
+      console.error("⚠️ Invalid JSON detected in soundandvoice.json. Resetting to default...");
+      fs.writeFileSync(voicePath, JSON.stringify({ voice: 0 }, null, 2));
+      return { voice: 0 };
+    }
+
+  } catch (err) {
+    console.error("❌ Critical error reading voice.json:", err);
+    return { voice: 0 };
+  }
 }
 
 // --- Setup all watchers ---
-function setupCalledTicketsWatcher(io, identifierType) {
-	io.on("connection", async (socket) => {
+async function setupCalledTicketsWatcher(socket, io, identifierType) {
 		// Send latest calling ticket immediately
 		await sendCalledTickets(socket);
 
@@ -224,20 +247,25 @@ function setupCalledTicketsWatcher(io, identifierType) {
 				console.error(`❌ Error updating ticket ${id}:`, err);
 			}
 		});
-	});
 
-	// Watch DB for calling ticket changes
-	fs.watchFile(dbPath, { interval: 500 }, async () => {
-		await sendCalledTickets(io);
-	});
+  // Only register global file watchers once
+  if (!dbWatcherSet) {
+    dbWatcherSet = true;
+    fs.watchFile(dbPath, { interval: 500 }, async () => {
+      await sendCalledTickets(io);
+    });
+    console.log("👀 Watching DB changes...");
+  }
 
-	// Watch voice.json for changes
-	fs.watchFile(voicePath, { interval: 500 }, () => {
-		const config = readVoiceConfig();
-		io.emit("voiceConfigUpdate", config);
-		// console.log("🔊 Voice config updated:", config);
-	});
-
+  if (!voiceWatcherSet) {
+    voiceWatcherSet = true;
+    fs.watchFile(voicePath, { interval: 500 }, () => {
+      const config = readVoiceConfig();
+      io.emit("voiceConfigUpdate", config);
+    });
+    console.log("👂 Watching voice config changes...");
+  }
+}
 	async function sendCalledTickets(target) {
 		try {
 			const calledTickets = await getCallingTickets();
@@ -247,6 +275,4 @@ function setupCalledTicketsWatcher(io, identifierType) {
 			target.emit("calledTicketsUpdate", []);
 		}
 	}
-}
-
 module.exports = { setupCalledTicketsWatcher };

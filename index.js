@@ -322,68 +322,153 @@ appExpress.post("/logout", (req, res) => {
 
 // ===== Start Server =====
 // FIX: Add error handling for Socket.IO connection
-io.on("connection", (socket) => {
-  const clientId = socket.id;
-  const ip = getClientIp(socket);
-  console.log(`🔌 Client connected: ${clientId} | IP: ${ip}`);
+// io.on("connection", (socket) => {
+//   const clientId = socket.id;
+//   const ip = getClientIp(socket);
+//   console.log(`🔌 Client connected: ${clientId} | IP: ${ip}`);
 
-  // FIX: Wrap socket handlers in try-catch to prevent unhandled errors
-  try {
-    settupsettingsaccounts(socket, io);
-    admincontent3chartsdata(socket, io);
-    admincontent2averages(socket, io);
-    admincontent4alldata(socket, io);
-    adminoveralldatawatcher(socket, io);
-    setupFooterWatcheradmin(socket, io);
-    setupColorWatcheradmin(socket, io);
-    setupAdminTeller(socket, io);
-    setupAds(socket, io);
-    setupFooterWatcher(socket, io);
-    handleGetAllServices(socket);
-    setupServicesDisplayWatcher(socket, io);
-    setupSoundSettingsAdmin(socket, io);
-    admincontentSaveChartImage(socket, io);
-    settupsettingsservices(socket, io);
-    setupsystemconfigurations(socket, io);
+//   // FIX: Wrap socket handlers in try-catch to prevent unhandled errors
+//   try {
+//     settupsettingsaccounts(socket, io);
+//     admincontent3chartsdata(socket, io);
+//     admincontent2averages(socket, io);
+//     admincontent4alldata(socket, io);
+//     adminoveralldatawatcher(socket, io);
+//     setupFooterWatcheradmin(socket, io);
+//     setupColorWatcheradmin(socket, io);
+//     setupAdminTeller(socket, io);
+//     setupAds(socket, io);
+//     setupFooterWatcher(socket, io);
+//     handleGetAllServices(socket);
+//     setupServicesDisplayWatcher(socket, io);
+//     setupSoundSettingsAdmin(socket, io);
+//     admincontentSaveChartImage(socket, io);
+//     settupsettingsservices(socket, io);
+//     setupsystemconfigurations(socket, io);
+//     setupLoginSocket(socket, io);
 
-    if(smstype==1){
-      initializeGSM(io);
-    }
-      if (isWindowed) {
-      setupLoginSocketteller(socket);
-      setupTellerWatcher(socket, io);
-      initializeWindowedKiosk(socket, io);
+//     if(smstype==1){
+//       initializeGSM(io);
+//     }
+//       if (isWindowed) {
+//       setupLoginSocketteller(socket);
+//       setupTellerWatcher(socket, io);
+//       initializeWindowedKiosk(socket, io);
+//     }
+//     if (isArduinoWifi) {
+//       socket.on("key", async (payload) => {
+//         try {
+//           const key = String(payload?.key ?? payload).trim();
+//           if (!key) {
+//             socket.emit("key:ack", { ok: false, error: "NO_KEY" });
+//             return;
+//           }
+//           const result = await handleKey(key, io);
+//           socket.emit("key:ack", result);
+//         } catch (err) {
+//           socket.emit("key:ack", { ok: false, error: err.message });
+//         }
+//       });
+//     }
+//   } catch (err) {
+//     console.error(`Error in Socket.IO connection handler: ${err.message}`);
+//     socket.emit("error", { message: "Server error during initialization" });
+//     socket.disconnect(true);
+//   }
+
+//   // FIX: Handle socket errors to prevent crashes
+//   socket.on("error", (err) => {
+//     console.error(`Socket error for client ${clientId}: ${err.message}`);
+//   });
+
+//   socket.on("disconnect", () => {
+//     console.log(`🔌 Client disconnected: ${clientId} | IP: ${ip}`);
+//   });
+// });
+
+// Prevent re-registering multiple 'connection' listeners
+if (!io._connectionHandlerSet) {
+  io._connectionHandlerSet = true;
+
+  io.removeAllListeners("connection"); // defensive cleanup
+
+  io.on("connection", (socket) => {
+    const clientId = socket.id;
+    const ip = getClientIp(socket);
+    console.log(`🔌 Client connected: ${clientId} | IP: ${ip}`);
+
+    try {
+      // --- Socket setup (only per connection, not per reload) ---
+      settupsettingsaccounts(socket, io);
+      admincontent3chartsdata(socket, io);
+      admincontent2averages(socket, io);
+      admincontent4alldata(socket, io);
+      adminoveralldatawatcher(socket, io);
+      setupFooterWatcheradmin(socket, io);
+      setupColorWatcheradmin(socket, io);
+      setupAdminTeller(socket, io);
+      setupAds(socket, io);
+      setupFooterWatcher(socket, io);
+      handleGetAllServices(socket);
+      setupServicesDisplayWatcher(socket, io);
+      setupSoundSettingsAdmin(socket, io);
+      admincontentSaveChartImage(socket, io);
+      settupsettingsservices(socket, io);
+      setupsystemconfigurations(socket, io);
+      setupLoginSocket(socket, io);
+
+      if (isArduinoUno) {
+      setupCalledTicketsWatcher(socket, io, "ARDUINO_UNO");
+      initializeSerialPort(socket, io, "ARDUINO_UNO");
     }
     if (isArduinoWifi) {
-      socket.on("key", async (payload) => {
-        try {
-          const key = String(payload?.key ?? payload).trim();
-          if (!key) {
-            socket.emit("key:ack", { ok: false, error: "NO_KEY" });
-            return;
-          }
-          const result = await handleKey(key, io);
-          socket.emit("key:ack", result);
-        } catch (err) {
-          socket.emit("key:ack", { ok: false, error: err.message });
-        }
-      });
     }
-  } catch (err) {
-    console.error(`Error in Socket.IO connection handler: ${err.message}`);
-    socket.emit("error", { message: "Server error during initialization" });
-    socket.disconnect(true);
-  }
 
-  // FIX: Handle socket errors to prevent crashes
-  socket.on("error", (err) => {
-    console.error(`Socket error for client ${clientId}: ${err.message}`);
-  });
+      if (smstype === 1) {
+        initializeGSM(io);
+      }
 
-  socket.on("disconnect", () => {
-    console.log(`🔌 Client disconnected: ${clientId} | IP: ${ip}`);
+      if (isWindowed) {
+        setupLoginSocketteller(socket);
+        setupTellerWatcher(socket, io);
+        initializeWindowedKiosk(socket, io);
+        setupCalledTicketsWatcher(socket, io, "WINDOWED_APPLICATION");
+      }
+
+      if (isArduinoWifi) {
+        // Avoid stacking listeners on this socket
+      setupCalledTicketsWatcher(socket, io, "ARDUINO_WIFI");
+        socket.removeAllListeners("key");
+
+        socket.on("key", async (payload) => {
+          try {
+            const key = String(payload?.key ?? payload).trim();
+            if (!key) {
+              socket.emit("key:ack", { ok: false, error: "NO_KEY" });
+              return;
+            }
+            const result = await handleKey(key, io);
+            socket.emit("key:ack", result);
+          } catch (err) {
+            socket.emit("key:ack", { ok: false, error: err.message });
+          }
+        });
+      }
+    } catch (err) {
+      console.error(`❌ Error in Socket.IO handler: ${err.message}`);
+      socket.emit("error", { message: "Server error during initialization" });
+      socket.disconnect(true);
+    }
+
+    socket.on("error", (err) => {
+      console.error(`⚠️ Socket error [${clientId}]: ${err.message}`);
+    });
+
+    socket.on("disconnect", () => {
+      console.log(`🔌 Client disconnected: ${clientId} | IP: ${ip}`);
+    });
   });
-});
+}
 
 // FIX: Ensure all dependencies are initialized before starting server
 async function startServer() {
@@ -396,17 +481,6 @@ async function startServer() {
     setupLogger();
     setupVideosApi(appExpress);
     setupImagesApi(appExpress, io);
-    setupLoginSocket(io);
-    if (isArduinoUno) {
-      setupCalledTicketsWatcher(io);
-      initializeSerialPort(io, "ARDUINO_UNO");
-    }
-    if (isArduinoWifi) {
-      setupCalledTicketsWatcher(io, "ARDUINO_WIFI");
-    }
-    if (isWindowed) {
-      setupCalledTicketsWatcher(io, "WINDOWED_APPLICATION");
-    }
 
     // Start server
     server.listen(serverPort, () => {

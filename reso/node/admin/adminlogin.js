@@ -25,10 +25,8 @@ function validateLogin(username, password) {
 	});
 }
 
-function setupLoginSocket(io) {
-	io.on("connection", (socket) => {
+function setupLoginSocket(socket, io) {
 		// console.log(`adminlogin.js: Socket connected: ${socket.id}`);
-
 		socket.on("loginAttempt", async ({ username, password }) => {
 			try {
 				const result = await validateLogin(username, password);
@@ -54,7 +52,6 @@ function setupLoginSocket(io) {
 		socket.on("logout", () => {
 			socket.emit("logoutSuccess"); // client just deletes token
 		});
-	});
 }
 
 module.exports = { setupLoginSocket, JWT_SECRET };

@@ -1505,3 +1505,62 @@
 (Use `electron --trace-warnings ...` to show where the warning was created)
 ❌ 2025-11-06T08:41:53.867Z [..\..\node:internal\process\warning:56] (node:11396) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 connection listeners added to [Namespace]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
 (Use `electron --trace-warnings ...` to show where the warning was created)
+❌ 2025-11-07T01:33:26.741Z [..\..\node:internal\process\warning:56] (node:2160) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 connection listeners added to [Namespace]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(Use `electron --trace-warnings ...` to show where the warning was created)
+❌ 2025-11-07T01:35:11.089Z [..\..\node:internal\process\warning:56] (node:16072) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 connection listeners added to [Namespace]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+(Use `electron --trace-warnings ...` to show where the warning was created)
+❌ 2025-11-07T01:36:59.948Z [..\..\node:internal\process\warning:56] (node:15436) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 connection listeners added to [Namespace]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+    at genericNodeError (node:internal/errors:983:15)
+    at wrappedFn (node:internal/errors:537:14)
+    at _addListener (node:events:593:17)
+    at Namespace.addListener (node:events:611:10)
+    at Namespace.on (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\typed-events.js:26:22)
+    at Server.<computed> [as on] (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\index.js:798:33)
+    at loadConfig (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\envconfig.js:34:6)
+    at initializeWindowedKiosk (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\kiosk\kiosk.js:15:17)
+    at Namespace.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\index.js:355:7)
+    at Namespace.emit (node:events:531:35)
+❌ 2025-11-07T01:46:38.361Z [..\..\node:internal\process\warning:56] (node:16012) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 connection listeners added to [Namespace]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+    at genericNodeError (node:internal/errors:983:15)
+    at wrappedFn (node:internal/errors:537:14)
+    at _addListener (node:events:593:17)
+    at Namespace.addListener (node:events:611:10)
+    at Namespace.on (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\typed-events.js:26:22)
+    at Server.<computed> [as on] (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\index.js:798:33)
+    at loadConfig (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\envconfig.js:34:6)
+    at initializeWindowedKiosk (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\kiosk\kiosk.js:15:17)
+    at Namespace.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\index.js:362:9)
+    at Namespace.emit (node:events:531:35)
+❌ 2025-11-07T01:56:28.301Z [..\..\index.js:385] ❌ Error in Socket.IO handler: socket is not defined
+❌ 2025-11-07T01:56:28.402Z [..\..\index.js:385] ❌ Error in Socket.IO handler: socket is not defined
+❌ 2025-11-07T01:56:28.860Z [..\..\index.js:385] ❌ Error in Socket.IO handler: socket is not defined
+❌ 2025-11-07T01:56:29.855Z [..\..\index.js:385] ❌ Error in Socket.IO handler: socket is not defined
+❌ 2025-11-07T01:56:33.753Z [..\..\index.js:385] ❌ Error in Socket.IO handler: socket is not defined
+❌ 2025-11-07T01:58:34.158Z [..\..\index.js:374] Error in Socket.IO connection handler: socket is not defined
+❌ 2025-11-07T01:58:34.232Z [..\..\index.js:374] Error in Socket.IO connection handler: socket is not defined
+❌ 2025-11-07T02:23:32.121Z [..\..\node:internal\process\warning:56] (node:4016) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 change listeners added to [StatWatcher]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+    at genericNodeError (node:internal/errors:983:15)
+    at wrappedFn (node:internal/errors:537:14)
+    at _addListener (node:events:593:17)
+    at StatWatcher.addListener (node:events:611:10)
+    at Object.watchFile (node:fs:2623:8)
+    at setupCalledTicketsWatcher (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\calledTicketsWatcher.js:228:5)
+❌ 2025-11-07T02:25:58.904Z [..\..\node:internal\process\warning:56] (node:11688) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 change listeners added to [StatWatcher]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+    at genericNodeError (node:internal/errors:983:15)
+    at wrappedFn (node:internal/errors:537:14)
+    at _addListener (node:events:593:17)
+    at StatWatcher.addListener (node:events:611:10)
+    at Object.watchFile (node:fs:2623:8)
+    at setupCalledTicketsWatcher (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\calledTicketsWatcher.js:228:5)
+❌ 2025-11-07T02:29:27.532Z [..\node\calledTicketsWatcher.js:56] ❌ Error updating ticket 26716: ReferenceError: updateCalledTicket is not defined
+    at Socket.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\calledTicketsWatcher.js:53:23)
+    at Socket.emit (node:events:519:28)
+    at Socket.emitUntyped (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\typed-events.js:69:22)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\socket.js:697:39
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+❌ 2025-11-07T02:33:01.665Z [..\node\calledTicketsWatcher.js:201] ❌ Error reading voice.json: SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at readVoiceConfig (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\calledTicketsWatcher.js:199:15)
+    at StatWatcher.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\calledTicketsWatcher.js:242:22)
+    at StatWatcher.emit (node:events:519:28)
+    at StatWatcher.onchange (node:internal/fs/watchers:99:8)

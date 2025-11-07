@@ -31,9 +31,7 @@ function loadConfig(io) {
 
 	// Handle Socket.IO connections if io is passed
 	if (io) {
-		io.on("connection", (socket) => {
-			socket.emit("envSMS", { sms: config.MainServer.sms });
-		});
+		io.emit("envSMS", { sms: config.MainServer.sms });
 	}
 
 	return config;
