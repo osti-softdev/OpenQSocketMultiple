@@ -333,7 +333,9 @@ function setServicesDisplay(count) {
 	}
 }
 socket.on("DisplayUpdated", (config) => {
-    applyDisplayConfig(config);
+	setTimeout(() => {
+    applyDisplayConfig(config);		
+	}, 1000);
 });
 
 function applyDisplayConfig(config) {
