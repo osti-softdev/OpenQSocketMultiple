@@ -7,7 +7,7 @@
     "ann_data": {
         "bgcolor": "#0e224e",
         "color": "#ffffff",
-        "speed": 9,
+        "speed": 35,
         "fontsize": 61,
         "fontweight": 900,
         "shadowcolorvalue": "#000000"

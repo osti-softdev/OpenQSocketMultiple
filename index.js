@@ -40,6 +40,7 @@ const {
   setupServicesDisplayWatcher,
 } = require("./reso/node/servicesDisplayWatcher");
 const { setupFooterWatcher } = require("./reso/node/footerwatcher");
+const { setupdisplaycolorwatcher } = require("./reso/node/colorwatcher");
 const {
   setupFooterWatcheradmin,
 } = require("./reso/node/admin/footerwatcheradmin");
@@ -339,6 +340,7 @@ io.on("connection", (socket) => {
     setupAdminTeller(socket, io);
     setupAds(socket, io);
     setupFooterWatcher(socket, io);
+    setupdisplaycolorwatcher(socket, io);
     handleGetAllServices(socket);
     setupServicesDisplayWatcher(socket, io);
     setupSoundSettingsAdmin(socket, io);
