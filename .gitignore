@@ -11,3 +11,7 @@ package-lock.json
 /reso/outfolder/logs/error.log
 /reso/outfolder/config
 /reso/outfolder/app.pid
+reso/outfolder/logs/logs.log
+reso/outfolder/logs/error.log
+reso/outfolder/config
+reso/outfolder/app.pid
