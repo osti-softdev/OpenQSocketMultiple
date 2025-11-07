@@ -404,26 +404,38 @@
 
                     </span>
                 </section>
-                  <section class="settsubcont settsystemsetting">
+                 <section class="settsubcont settsystemsetting">
                     <span class="setttitles">System Settings</span>
                     <span class="systemsettingdata">
-                        <label for="settdbdatadbsize">Database Size: <span class="settdbdatadbsize"></span></label>
-
-                        <label for="settdataretention">Data Retention: <input type="number" class="settdataretention" min="0"> days.</label>
-                        <label for="settdbdatasmsfeature">Sms Feature: <input type="checkbox" class="settdbdatasmsfeature"><span class="settdbdatasmsfeaturelabel">ON</span></label>
-                        <label for="settdbdatacounter">Counter Display: <input type="checkbox" class="settdbdatacounter"><span class="settdbdatacounterlabel">ON</span></label>
+                        <label>Database Size: <span class="settdbdatadbsize"></span></label>
+                        <label>Data Retention: 
+                            <input type="number" class="settdataretention" min="0"> days.
+                        </label>
+                        <label>Sms Feature: 
+                            <input type="checkbox" class="settdbdatasmsfeature">
+                            <span class="settdbdatasmsfeaturelabel">OFF</span>
+                        </label>
+                        <label>Counter Display: 
+                            <input type="checkbox" class="settdbdatacounter">
+                            <span class="settdbdatacounterlabel">OFF</span>
+                        </label>
                         <fieldset>
                             <legend>System Type:</legend>
-                                <label for="settdbdataretention">Wired Arduino: <input type="radio"></label>
-                                <label for="settdbdataretention">Wireless Arduino: <input type="radio"></label>
-                                <label for="settdbdataretention">Window Type: <input type="radio"></label>
-                        </fieldset>  
-                         <fieldset>
+                            <label>Wired Arduino: 
+                                <input class="settdbdatasystemtype" type="radio" name="systemType" value="ARDUINO_UNO">
+                            </label>
+                            <label>Wireless Arduino: 
+                                <input class="settdbdatasystemtype" type="radio" name="systemType" value="ARDUINO_WIFI">
+                            </label>
+                            <label>Window Type: 
+                                <input class="settdbdatasystemtype" type="radio" name="systemType" value="WINDOWED_APPLICATIONS">
+                            </label>
+                        </fieldset>
+                        <fieldset>
                             <legend>Clear Transactions:</legend>
-                                <label for="settdbdataretention">Date From: <input type="date"></label>
-                                <label for="settdbdataretention">Date To: <input type="date"></label>
-                        </fieldset>   
-                        <label for="settdbdataretention">Data Retention: <input type="number"> : days</label>
+                            <label>Date From: <input type="date"></label>
+                            <label>Date To: <input type="date"></label>
+                        </fieldset>
                     </span>
                 </section>
             </div>

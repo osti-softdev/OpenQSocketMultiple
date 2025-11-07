@@ -4,6 +4,7 @@ const fs = require("fs");
 
 const rootPath = global.outfolderPath || path.join(__dirname, "../../outfolder");
 const dbPath = path.join(rootPath, "config/db.db");
+const { loadConfig } = require("../envconfig");
 
 let watcherAdded = false;
 
@@ -40,26 +41,50 @@ async function getDatabaseSize() {
    ⚙️ Socket Setup
 ===================================================== */
 function setupsystemconfigurations(socket, io) {
+	const config = loadConfig(io);
 
-	// 👀 Watch DB for Live Updates
+	const smsType = config?.MainServer?.sms;
+	const systemType = config?.MainServer?.systemType;
+	const counterDisplay = config?.MainServer?.counterDisplay;
+	const databaseRetentionDays = config?.MainServer?.databaseRetentionDays;
+
+	// Watch DB for live updates
 	if (!watcherAdded) {
 		fs.watchFile(dbPath, { interval: 1000 }, async () => {
 			try {
 				const dbsizedata = await getDatabaseSize();
-				socket.emit("dbsizeapi", { data: dbsizedata });
+
+				socket.emit("systemConfigs", {
+					data: {
+						db: dbsizedata,
+						smsType,
+						systemType,
+						counterDisplay,
+						databaseRetentionDays,
+					},
+				});
 			} catch (err) {
-				console.error("❌ Error refreshing tellers:", err);
+				console.error("❌ Error refreshing system configs:", err);
 			}
 		});
 		watcherAdded = true;
 	}
 
-	socket.on("getdbsize", async () => {
+	socket.on("getsysconfigs", async () => {
 		try {
 			const dbsizedata = await getDatabaseSize();
-			socket.emit("dbsizeapi", { data: dbsizedata });
+
+			socket.emit("systemConfigs", {
+				data: {
+					db: dbsizedata,
+					smsType,
+					systemType,
+					counterDisplay,
+					databaseRetentionDays,
+				},
+			});
 		} catch (err) {
-			console.error("❌ Error getting database size:", err);
+			console.error("❌ Error getting system configs:", err);
 		}
 	});
 }

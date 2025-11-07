@@ -19,6 +19,7 @@ function loadConfig(io) {
 			systemType: process.env.SYSTEM_TYPE,
 			sms: process.env.SMS,
 			counterDisplay: process.env.counterDisplay || 0,
+			databaseRetentionDays: process.env.databaseRetentionDays || 0,
 		},
 		DBserver: {
 			hostName: process.env.DB_HOSTNAME,
