@@ -45,8 +45,8 @@ function setupColorWatcheradmin(socket, io) {
 
             await safeWriteJSON(colormodpath, footerData);
 
+
             io.emit("ColorUpdatedadmin", footerData);
-            socket.emit("updateColorconfigSuccess", footerData);
 
             console.log("🎨 Color configuration updated:", colorconfigs);
         } catch (err) {

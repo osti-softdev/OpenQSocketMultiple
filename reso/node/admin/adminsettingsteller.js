@@ -135,6 +135,44 @@ function deleteTeller(id) {
 	});
 }
 
+function addGroup(groupName) {
+    return new Promise((resolve, reject) => {
+        if (!groupName) return reject(new Error("Group name cannot be empty"));
+        const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE);
+        db.get(`SELECT id FROM counter_groups WHERE group_name = ?`, [groupName], (err, row) => {
+            if (err) return reject(err);
+            if (row) return reject(new Error("Group already exists"));
+            db.run(`INSERT INTO counter_groups (group_name) VALUES (?)`, [groupName], function(err) {
+                db.close();
+                if (err) return reject(err);
+                resolve(this.lastID);
+            });
+        });
+    });
+}
+
+function updateGroup(id, newName) {
+    return new Promise((resolve, reject) => {
+        const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE);
+        db.run(`UPDATE counter_groups SET group_name = ? WHERE id = ?`, [newName, id], function(err) {
+            db.close();
+            if (err) return reject(err);
+            resolve(this.changes);
+        });
+    });
+}
+
+function deleteGroup(id) {
+    return new Promise((resolve, reject) => {
+        const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE);
+        db.run(`DELETE FROM counter_groups WHERE id = ?`, [id], function(err) {
+            db.close();
+            if (err) return reject(err);
+            resolve(this.changes);
+        });
+    });
+}
+
 /* =====================================================
    ⚙️ Socket Setup
 ===================================================== */
@@ -226,6 +264,39 @@ function setupAdminTeller(socket, io) {
 			socket.emit("tellerDeleteResult", { message: err.message || "Delete failed", status: "0" });
 		}
 	});
+
+socket.on("addGroup", async (name) => {
+        try {
+            await addGroup(name);
+            const updated = await getAllGroups();
+            io.emit("groupsList", { data: updated, status: "1" });
+            socket.emit("groupAddResult", { message: "Group added", status: "1" });
+        } catch (err) {
+            socket.emit("groupAddResult", { message: err.message, status: "0" });
+        }
+    });
+
+    socket.on("updateGroup", async (data) => {
+        try {
+            await updateGroup(data.id, data.group_name);
+            const updated = await getAllGroups();
+            io.emit("groupsList", { data: updated, status: "1" });
+            socket.emit("groupUpdateResult", { message: "Group updated", status: "1" });
+        } catch (err) {
+            socket.emit("groupUpdateResult", { message: err.message, status: "0" });
+        }
+    });
+
+    socket.on("deleteGroup", async (id) => {
+        try {
+            await deleteGroup(id);
+            const updated = await getAllGroups();
+            io.emit("groupsList", { data: updated, status: "1" });
+            socket.emit("groupDeleteResult", { message: "Group deleted", status: "1" });
+        } catch (err) {
+            socket.emit("groupDeleteResult", { message: err.message, status: "0" });
+        }
+    });
 
 	// 👀 Watch DB for Live Updates
 	if (!watcherAdded) {

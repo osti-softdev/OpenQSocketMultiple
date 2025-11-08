@@ -2,6 +2,7 @@
 // ✅ Listen for configuration updates from server
 socket.on("ColorUpdatedadmin", (config) => {
     const displayUpdate = config.display_update || {};
+    console.log("✅ Color configuration updated successfully.");
 
     if (displayUpdate.update === 1) {
         socket.emit("updatecoloradmin");
@@ -42,12 +43,6 @@ $(".colorsettingIdclass").on("change", function () {
     colorconfigs[configKey] = value;
 
     socket.emit("updateColorconfigadmin", colorconfigs);
-});
-
-// ✅ Handle success/error events
-socket.on("updateColorconfigSuccess", (newConfig) => {
-    console.log("✅ Color configuration updated successfully.");
-    applyConfigadmin(newConfig);
 });
 
 socket.on("updateColorconfigError", (errMsg) => {

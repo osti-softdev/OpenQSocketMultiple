@@ -1,0 +1,26 @@
+❌ 2025-11-08T00:58:15.527Z [..\..\node:internal\process\warning:56] (node:15288) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 change listeners added to [StatWatcher]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+    at genericNodeError (node:internal/errors:983:15)
+    at wrappedFn (node:internal/errors:537:14)
+    at _addListener (node:events:593:17)
+    at StatWatcher.addListener (node:events:611:10)
+    at Object.watchFile (node:fs:2623:8)
+    at setupdisplaycolorwatcher (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\colorwatcher.js:63:5)
+    at Namespace.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\index.js:343:5)
+    at Namespace.emit (node:events:519:28)
+    at Namespace.emitReserved (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\typed-events.js:56:22)
+    at Namespace._doConnect (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\namespace.js:276:14)
+❌ 2025-11-08T02:22:28.857Z [..\node\admin\adminsettingsteller.js:286] ❌ Group save failed: [Error: SQLITE_ERROR: table counter_groups has no column named services] {
+  errno: 1,
+  code: 'SQLITE_ERROR'
+}
+❌ 2025-11-08T02:38:04.792Z [..\..\node:internal\process\warning:56] (node:3796) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 change listeners added to [StatWatcher]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+    at genericNodeError (node:internal/errors:983:15)
+    at wrappedFn (node:internal/errors:537:14)
+    at _addListener (node:events:593:17)
+    at StatWatcher.addListener (node:events:611:10)
+    at Object.watchFile (node:fs:2623:8)
+    at setupdisplaycolorwatcher (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\colorwatcher.js:63:5)
+    at Namespace.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\index.js:343:5)
+    at Namespace.emit (node:events:519:28)
+    at Namespace.emitReserved (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\typed-events.js:56:22)
+    at Namespace._doConnect (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\namespace.js:276:14)
