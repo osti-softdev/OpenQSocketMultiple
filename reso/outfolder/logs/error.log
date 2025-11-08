@@ -24,3 +24,43 @@
     at Namespace.emit (node:events:519:28)
     at Namespace.emitReserved (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\typed-events.js:56:22)
     at Namespace._doConnect (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\namespace.js:276:14)
+❌ 2025-11-08T03:33:39.749Z [..\..\node:internal\process\warning:56] (node:15860) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 change listeners added to [StatWatcher]. MaxListeners is 10. Use emitter.setMaxListeners() to increase limit
+    at genericNodeError (node:internal/errors:983:15)
+    at wrappedFn (node:internal/errors:537:14)
+    at _addListener (node:events:593:17)
+    at StatWatcher.addListener (node:events:611:10)
+    at Object.watchFile (node:fs:2623:8)
+    at setupdisplaycolorwatcher (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\node\colorwatcher.js:63:5)
+    at Namespace.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\index.js:343:5)
+    at Namespace.emit (node:events:519:28)
+    at Namespace.emitReserved (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\typed-events.js:56:22)
+    at Namespace._doConnect (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\socket.io\dist\namespace.js:276:14)
+❌ 2025-11-08T05:01:18.356Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.378Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.393Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.394Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.395Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.405Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.409Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.410Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.411Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.431Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.445Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.446Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.452Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.452Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.454Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.456Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.494Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.523Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.524Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.529Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.533Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.534Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.535Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.536Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.537Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.537Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.538Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.539Z [unknown] soundandvoice.json is empty
+❌ 2025-11-08T05:01:18.539Z [unknown] soundandvoice.json is empty

@@ -21,7 +21,9 @@
     <script src="/libs/jspdf.umd.min.js"></script>
     <script src="/libs/jspdf.plugin.autotable.min.js"></script>
     <script src="/libs/xlsx.full.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css"/>
+    <link rel="stylesheet" href="/css/driverpopup.css"/>
 <script>
     Chart.register(ChartDataLabels);
      Chart.register(ChartZoom);
@@ -55,6 +57,13 @@
                     src="/images/email.png" 
                     alt="mail"
                     onclick="copyToClipboard('sales@osti.com.ph, sales@it-central.com.ph, support.osti@osti.com.ph')">
+
+                <img 
+                    class="helpbtn cntctsimg"
+                    title="Help" 
+                    src="/images/question.png" 
+                    alt="mail"
+                    onclick="driverObj.drive();">
             </div>
 
             <p class="admwelcome"><span class="adminName"></span></p>
@@ -115,9 +124,9 @@
                 </section>
                 <section class="dash-content3">
                     <span class="content3-bthsnav">
-                        <button class="content3btns active" data-content3btnsholder="hour">Hour</button>
-                        <button class="content3btns" data-content3btnsholder="date">Date</button>
-                        <button class="content3btns" data-content3btnsholder="month">Month</button>
+                        <button class="cnt3hour content3btns active" data-content3btnsholder="hour">Hour</button>
+                        <button class="cnt3date content3btns" data-content3btnsholder="date">Date</button>
+                        <button class="cnt3month content3btns" data-content3btnsholder="month">Month</button>
                     </span>
                     <div class="content3-hourpeakchart">
                         <canvas id="timelinechart3"></canvas>
@@ -471,6 +480,7 @@
     <script src="/js/admin/adminsettingsimageuploader.js"></script>
     <script src="/js/admin/adminDashboardSaveCharts.js"></script>
     <script src="/js/admin/dashexports.js"></script>
+    <script src="/js/admin/drivers.js"></script>
     
     <script>
 let barChartContent2;

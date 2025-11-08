@@ -289,3 +289,272 @@
 ✔ 2025-11-08T03:22:16.079Z [..\..\index.js:329] 🔌 Client connected: 50gw5hWRfjSzTzYBAAAR | IP: 127.0.0.1
 ✔ 2025-11-08T03:22:16.350Z [..\node\getads.js:83] [ADS] Client 50gw5hWRfjSzTzYBAAAR requested ad refresh
 ✔ 2025-11-08T03:22:16.410Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T03:33:25.126Z [..\..\index.js:401] 🔌 Client disconnected: 50gw5hWRfjSzTzYBAAAR | IP: 127.0.0.1
+✔ 2025-11-08T03:33:25.304Z [..\..\index.js:329] 🔌 Client connected: YlN1n3wJIWRupmEsAAAT | IP: 127.0.0.1
+✔ 2025-11-08T03:33:39.308Z [..\..\index.js:401] 🔌 Client disconnected: YlN1n3wJIWRupmEsAAAT | IP: 127.0.0.1
+✔ 2025-11-08T03:33:39.740Z [..\..\index.js:329] 🔌 Client connected: BNF5XeGbg73mrvFlAAAV | IP: 127.0.0.1
+✔ 2025-11-08T03:33:39.961Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T03:33:40.069Z [..\node\getads.js:83] [ADS] Client BNF5XeGbg73mrvFlAAAV requested ad refresh
+✔ 2025-11-08T03:39:25.606Z [..\..\index.js:401] 🔌 Client disconnected: BNF5XeGbg73mrvFlAAAV | IP: 127.0.0.1
+✔ 2025-11-08T03:39:25.787Z [..\..\index.js:329] 🔌 Client connected: Gu9_AEXWnsNfuGzvAAAX | IP: 127.0.0.1
+✔ 2025-11-08T03:39:29.354Z [..\..\index.js:401] 🔌 Client disconnected: Gu9_AEXWnsNfuGzvAAAX | IP: 127.0.0.1
+✔ 2025-11-08T03:39:29.753Z [..\..\index.js:329] 🔌 Client connected: XMKbeIqjoBvzfvUuAAAZ | IP: 127.0.0.1
+✔ 2025-11-08T03:39:29.993Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T03:39:30.144Z [..\node\getads.js:83] [ADS] Client XMKbeIqjoBvzfvUuAAAZ requested ad refresh
+✔ 2025-11-08T03:51:15.081Z [..\..\index.js:401] 🔌 Client disconnected: XMKbeIqjoBvzfvUuAAAZ | IP: 127.0.0.1
+✔ 2025-11-08T03:51:15.570Z [..\..\index.js:329] 🔌 Client connected: Vuak-bTKQ52S3J-0AAAb | IP: 127.0.0.1
+✔ 2025-11-08T03:51:15.942Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T03:51:16.075Z [..\node\getads.js:83] [ADS] Client Vuak-bTKQ52S3J-0AAAb requested ad refresh
+✔ 2025-11-08T03:51:32.252Z [..\..\index.js:401] 🔌 Client disconnected: Vuak-bTKQ52S3J-0AAAb | IP: 127.0.0.1
+✔ 2025-11-08T03:51:32.826Z [..\..\index.js:329] 🔌 Client connected: Q9u8A9knGlrgv-VyAAAd | IP: 127.0.0.1
+✔ 2025-11-08T03:51:32.921Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T03:51:33.019Z [..\node\getads.js:83] [ADS] Client Q9u8A9knGlrgv-VyAAAd requested ad refresh
+✔ 2025-11-08T03:52:09.987Z [..\..\index.js:401] 🔌 Client disconnected: Q9u8A9knGlrgv-VyAAAd | IP: 127.0.0.1
+✔ 2025-11-08T03:52:10.482Z [..\..\index.js:329] 🔌 Client connected: 320W8xfTCWqOSDa5AAAf | IP: 127.0.0.1
+✔ 2025-11-08T03:52:10.817Z [..\node\getads.js:83] [ADS] Client 320W8xfTCWqOSDa5AAAf requested ad refresh
+✔ 2025-11-08T03:52:10.867Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T03:52:23.739Z [..\..\index.js:401] 🔌 Client disconnected: 320W8xfTCWqOSDa5AAAf | IP: 127.0.0.1
+✔ 2025-11-08T03:52:24.247Z [..\..\index.js:329] 🔌 Client connected: InGDcKVbG2irpOOuAAAh | IP: 127.0.0.1
+✔ 2025-11-08T03:52:24.542Z [..\node\getads.js:83] [ADS] Client InGDcKVbG2irpOOuAAAh requested ad refresh
+✔ 2025-11-08T03:52:24.568Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T03:53:10.235Z [..\..\index.js:401] 🔌 Client disconnected: InGDcKVbG2irpOOuAAAh | IP: 127.0.0.1
+✔ 2025-11-08T03:53:11.497Z [..\..\index.js:329] 🔌 Client connected: eCSZU5rZzx0e8qajAAAj | IP: 127.0.0.1
+✔ 2025-11-08T03:53:11.671Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T03:53:11.923Z [..\node\getads.js:83] [ADS] Client eCSZU5rZzx0e8qajAAAj requested ad refresh
+✔ 2025-11-08T03:53:23.470Z [..\..\index.js:401] 🔌 Client disconnected: eCSZU5rZzx0e8qajAAAj | IP: 127.0.0.1
+✔ 2025-11-08T03:53:24.062Z [..\..\index.js:329] 🔌 Client connected: 1Qe5o24Fa_-xFzQLAAAl | IP: 127.0.0.1
+✔ 2025-11-08T03:53:24.123Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T03:53:24.198Z [..\node\getads.js:83] [ADS] Client 1Qe5o24Fa_-xFzQLAAAl requested ad refresh
+✔ 2025-11-08T03:55:20.727Z [..\..\index.js:401] 🔌 Client disconnected: 1Qe5o24Fa_-xFzQLAAAl | IP: 127.0.0.1
+✔ 2025-11-08T03:55:21.684Z [..\..\index.js:329] 🔌 Client connected: yKOteIwVVSrn9kfSAAAn | IP: 127.0.0.1
+✔ 2025-11-08T03:55:21.909Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T03:55:22.003Z [..\node\getads.js:83] [ADS] Client yKOteIwVVSrn9kfSAAAn requested ad refresh
+✔ 2025-11-08T03:57:22.578Z [..\..\index.js:401] 🔌 Client disconnected: yKOteIwVVSrn9kfSAAAn | IP: 127.0.0.1
+✔ 2025-11-08T03:57:23.223Z [..\..\index.js:329] 🔌 Client connected: GML-sfW1k2Zsw2cBAAAp | IP: 127.0.0.1
+✔ 2025-11-08T03:57:23.365Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T03:57:23.417Z [..\node\getads.js:83] [ADS] Client GML-sfW1k2Zsw2cBAAAp requested ad refresh
+✔ 2025-11-08T03:57:49.043Z [..\..\index.js:401] 🔌 Client disconnected: GML-sfW1k2Zsw2cBAAAp | IP: 127.0.0.1
+✔ 2025-11-08T03:57:49.585Z [..\..\index.js:329] 🔌 Client connected: h3AUiewn19TISnp4AAAr | IP: 127.0.0.1
+✔ 2025-11-08T03:57:49.859Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T03:57:49.948Z [..\node\getads.js:83] [ADS] Client h3AUiewn19TISnp4AAAr requested ad refresh
+✔ 2025-11-08T03:58:26.222Z [..\..\index.js:401] 🔌 Client disconnected: h3AUiewn19TISnp4AAAr | IP: 127.0.0.1
+✔ 2025-11-08T03:58:26.648Z [..\..\index.js:329] 🔌 Client connected: mogAWAf2I8K0BfUyAAAt | IP: 127.0.0.1
+✔ 2025-11-08T03:58:26.928Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T03:58:27.002Z [..\node\getads.js:83] [ADS] Client mogAWAf2I8K0BfUyAAAt requested ad refresh
+✔ 2025-11-08T03:58:29.972Z [..\..\index.js:401] 🔌 Client disconnected: mogAWAf2I8K0BfUyAAAt | IP: 127.0.0.1
+✔ 2025-11-08T03:58:30.485Z [..\..\index.js:329] 🔌 Client connected: fAOjcz9LpiUOwmBIAAAv | IP: 127.0.0.1
+✔ 2025-11-08T03:58:30.681Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T03:58:30.797Z [..\node\getads.js:83] [ADS] Client fAOjcz9LpiUOwmBIAAAv requested ad refresh
+✔ 2025-11-08T03:58:55.989Z [..\..\index.js:401] 🔌 Client disconnected: fAOjcz9LpiUOwmBIAAAv | IP: 127.0.0.1
+✔ 2025-11-08T03:58:56.527Z [..\..\index.js:329] 🔌 Client connected: ax-2Sfvm6qXbW14bAAAx | IP: 127.0.0.1
+✔ 2025-11-08T03:58:56.730Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T03:58:57.035Z [..\node\getads.js:83] [ADS] Client ax-2Sfvm6qXbW14bAAAx requested ad refresh
+✔ 2025-11-08T03:59:48.840Z [..\..\index.js:401] 🔌 Client disconnected: ax-2Sfvm6qXbW14bAAAx | IP: 127.0.0.1
+✔ 2025-11-08T03:59:49.480Z [..\..\index.js:329] 🔌 Client connected: C1QqXzfmYUI3s5B3AAAz | IP: 127.0.0.1
+✔ 2025-11-08T03:59:49.538Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T03:59:49.731Z [..\node\getads.js:83] [ADS] Client C1QqXzfmYUI3s5B3AAAz requested ad refresh
+✔ 2025-11-08T05:01:06.002Z [..\..\index.js:401] 🔌 Client disconnected: C1QqXzfmYUI3s5B3AAAz | IP: 127.0.0.1
+✔ 2025-11-08T05:01:06.561Z [..\..\index.js:329] 🔌 Client connected: gwKm_HX67eQAPpkmAAA1 | IP: 127.0.0.1
+✔ 2025-11-08T05:01:12.999Z [..\..\index.js:401] 🔌 Client disconnected: gwKm_HX67eQAPpkmAAA1 | IP: 127.0.0.1
+✔ 2025-11-08T05:01:14.328Z [..\..\index.js:329] 🔌 Client connected: E9hQ2F-T6vX2ma4lAAA3 | IP: 127.0.0.1
+✔ 2025-11-08T05:01:14.823Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:01:14.877Z [..\node\getads.js:83] [ADS] Client E9hQ2F-T6vX2ma4lAAA3 requested ad refresh
+✔ 2025-11-08T05:01:17.465Z [..\..\index.js:401] 🔌 Client disconnected: E9hQ2F-T6vX2ma4lAAA3 | IP: 127.0.0.1
+✔ 2025-11-08T05:01:17.920Z [..\..\index.js:329] 🔌 Client connected: RKlYIJ4AK_dXh1YaAAA5 | IP: 127.0.0.1
+✔ 2025-11-08T05:01:18.067Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:01:18.238Z [..\node\getads.js:83] [ADS] Client RKlYIJ4AK_dXh1YaAAA5 requested ad refresh
+✔ 2025-11-08T05:01:18.490Z [..\node\getads.js:71] [ADS] Broadcast 1 ads, volume=0.5
+✔ 2025-11-08T05:01:18.757Z [..\node\getads.js:71] [ADS] Broadcast 1 ads, volume=0.15
+✔ 2025-11-08T05:01:31.837Z [..\..\index.js:401] 🔌 Client disconnected: RKlYIJ4AK_dXh1YaAAA5 | IP: 127.0.0.1
+✔ 2025-11-08T05:01:32.349Z [..\..\index.js:329] 🔌 Client connected: 6KX7txdQV61sEdIGAAA7 | IP: 127.0.0.1
+✔ 2025-11-08T05:01:32.593Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:01:32.645Z [..\node\getads.js:83] [ADS] Client 6KX7txdQV61sEdIGAAA7 requested ad refresh
+✔ 2025-11-08T05:01:44.606Z [..\..\index.js:401] 🔌 Client disconnected: 6KX7txdQV61sEdIGAAA7 | IP: 127.0.0.1
+✔ 2025-11-08T05:01:45.079Z [..\..\index.js:329] 🔌 Client connected: dEGHM35FWh5k-GnEAAA9 | IP: 127.0.0.1
+✔ 2025-11-08T05:01:45.275Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:01:45.406Z [..\node\getads.js:83] [ADS] Client dEGHM35FWh5k-GnEAAA9 requested ad refresh
+✔ 2025-11-08T05:01:57.606Z [..\..\index.js:401] 🔌 Client disconnected: dEGHM35FWh5k-GnEAAA9 | IP: 127.0.0.1
+✔ 2025-11-08T05:01:58.265Z [..\..\index.js:329] 🔌 Client connected: evXGXs8sXdA_F3wvAAA_ | IP: 127.0.0.1
+✔ 2025-11-08T05:01:58.355Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:01:58.444Z [..\node\getads.js:83] [ADS] Client evXGXs8sXdA_F3wvAAA_ requested ad refresh
+✔ 2025-11-08T05:02:30.135Z [..\..\index.js:401] 🔌 Client disconnected: evXGXs8sXdA_F3wvAAA_ | IP: 127.0.0.1
+✔ 2025-11-08T05:02:30.741Z [..\..\index.js:329] 🔌 Client connected: UGhBrb3AxGP2bVkfAABB | IP: 127.0.0.1
+✔ 2025-11-08T05:02:30.951Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:02:31.001Z [..\node\getads.js:83] [ADS] Client UGhBrb3AxGP2bVkfAABB requested ad refresh
+✔ 2025-11-08T05:02:34.751Z [..\..\index.js:401] 🔌 Client disconnected: UGhBrb3AxGP2bVkfAABB | IP: 127.0.0.1
+✔ 2025-11-08T05:02:35.313Z [..\..\index.js:329] 🔌 Client connected: EL4NoXM1CG1pMZH-AABD | IP: 127.0.0.1
+✔ 2025-11-08T05:02:35.430Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:02:35.478Z [..\node\getads.js:83] [ADS] Client EL4NoXM1CG1pMZH-AABD requested ad refresh
+✔ 2025-11-08T05:06:56.111Z [..\..\index.js:401] 🔌 Client disconnected: EL4NoXM1CG1pMZH-AABD | IP: 127.0.0.1
+✔ 2025-11-08T05:06:56.786Z [..\..\index.js:329] 🔌 Client connected: aVNhJ5Qu4gOgjD9dAABF | IP: 127.0.0.1
+✔ 2025-11-08T05:06:56.839Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:06:56.887Z [..\node\getads.js:83] [ADS] Client aVNhJ5Qu4gOgjD9dAABF requested ad refresh
+✔ 2025-11-08T05:10:30.465Z [..\..\index.js:401] 🔌 Client disconnected: aVNhJ5Qu4gOgjD9dAABF | IP: 127.0.0.1
+✔ 2025-11-08T05:10:30.993Z [..\..\index.js:329] 🔌 Client connected: 6LnMskiU16_Pn7YjAABH | IP: 127.0.0.1
+✔ 2025-11-08T05:10:31.221Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:10:31.271Z [..\node\getads.js:83] [ADS] Client 6LnMskiU16_Pn7YjAABH requested ad refresh
+✔ 2025-11-08T05:10:33.163Z [..\..\index.js:401] 🔌 Client disconnected: 6LnMskiU16_Pn7YjAABH | IP: 127.0.0.1
+✔ 2025-11-08T05:10:33.596Z [..\..\index.js:329] 🔌 Client connected: SOcVQUoNKgoO1uCWAABJ | IP: 127.0.0.1
+✔ 2025-11-08T05:10:33.901Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:10:33.937Z [..\node\getads.js:83] [ADS] Client SOcVQUoNKgoO1uCWAABJ requested ad refresh
+✔ 2025-11-08T05:11:43.098Z [..\..\index.js:401] 🔌 Client disconnected: SOcVQUoNKgoO1uCWAABJ | IP: 127.0.0.1
+✔ 2025-11-08T05:11:43.775Z [..\..\index.js:329] 🔌 Client connected: TEfquq2FX8zw0hDhAABL | IP: 127.0.0.1
+✔ 2025-11-08T05:11:43.889Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:11:43.914Z [..\node\getads.js:83] [ADS] Client TEfquq2FX8zw0hDhAABL requested ad refresh
+✔ 2025-11-08T05:19:46.868Z [..\..\index.js:401] 🔌 Client disconnected: TEfquq2FX8zw0hDhAABL | IP: 127.0.0.1
+✔ 2025-11-08T05:19:47.369Z [..\..\index.js:329] 🔌 Client connected: URyVDQTO8Pj3QlIVAABN | IP: 127.0.0.1
+✔ 2025-11-08T05:19:47.616Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:19:47.642Z [..\node\getads.js:83] [ADS] Client URyVDQTO8Pj3QlIVAABN requested ad refresh
+✔ 2025-11-08T05:20:25.439Z [..\..\index.js:401] 🔌 Client disconnected: URyVDQTO8Pj3QlIVAABN | IP: 127.0.0.1
+✔ 2025-11-08T05:20:25.889Z [..\..\index.js:329] 🔌 Client connected: l0-oWrIPk136QPZKAABP | IP: 127.0.0.1
+✔ 2025-11-08T05:20:27.005Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:20:27.064Z [..\node\getads.js:83] [ADS] Client l0-oWrIPk136QPZKAABP requested ad refresh
+✔ 2025-11-08T05:21:00.580Z [..\..\index.js:401] 🔌 Client disconnected: l0-oWrIPk136QPZKAABP | IP: 127.0.0.1
+✔ 2025-11-08T05:21:01.182Z [..\..\index.js:329] 🔌 Client connected: qZlrWnc0mZvqWtjFAABR | IP: 127.0.0.1
+✔ 2025-11-08T05:21:01.349Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:21:01.506Z [..\node\getads.js:83] [ADS] Client qZlrWnc0mZvqWtjFAABR requested ad refresh
+✔ 2025-11-08T05:21:08.618Z [..\..\index.js:401] 🔌 Client disconnected: qZlrWnc0mZvqWtjFAABR | IP: 127.0.0.1
+✔ 2025-11-08T05:21:09.119Z [..\..\index.js:329] 🔌 Client connected: 8LHJB9dl2Bf-ZPJKAABT | IP: 127.0.0.1
+✔ 2025-11-08T05:21:09.411Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:21:09.536Z [..\node\getads.js:83] [ADS] Client 8LHJB9dl2Bf-ZPJKAABT requested ad refresh
+✔ 2025-11-08T05:25:22.345Z [..\..\index.js:401] 🔌 Client disconnected: 8LHJB9dl2Bf-ZPJKAABT | IP: 127.0.0.1
+✔ 2025-11-08T05:25:22.921Z [..\..\index.js:329] 🔌 Client connected: DRhm7hBqI4VuWrt4AABV | IP: 127.0.0.1
+✔ 2025-11-08T05:25:23.291Z [..\node\getads.js:83] [ADS] Client DRhm7hBqI4VuWrt4AABV requested ad refresh
+✔ 2025-11-08T05:25:23.346Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:26:21.093Z [..\..\index.js:401] 🔌 Client disconnected: DRhm7hBqI4VuWrt4AABV | IP: 127.0.0.1
+✔ 2025-11-08T05:26:21.610Z [..\..\index.js:329] 🔌 Client connected: yUPetht2mzkUEBTnAABX | IP: 127.0.0.1
+✔ 2025-11-08T05:26:21.887Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:26:21.902Z [..\node\getads.js:83] [ADS] Client yUPetht2mzkUEBTnAABX requested ad refresh
+✔ 2025-11-08T05:26:33.517Z [..\..\index.js:401] 🔌 Client disconnected: yUPetht2mzkUEBTnAABX | IP: 127.0.0.1
+✔ 2025-11-08T05:26:35.034Z [..\..\index.js:329] 🔌 Client connected: nLNkvjWIzKt9PqS2AABZ | IP: 127.0.0.1
+✔ 2025-11-08T05:26:35.077Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:26:35.132Z [..\node\getads.js:83] [ADS] Client nLNkvjWIzKt9PqS2AABZ requested ad refresh
+✔ 2025-11-08T05:27:23.767Z [..\..\index.js:401] 🔌 Client disconnected: nLNkvjWIzKt9PqS2AABZ | IP: 127.0.0.1
+✔ 2025-11-08T05:27:24.322Z [..\..\index.js:329] 🔌 Client connected: 06XMdvXn7ib814gwAABb | IP: 127.0.0.1
+✔ 2025-11-08T05:27:24.702Z [..\node\getads.js:83] [ADS] Client 06XMdvXn7ib814gwAABb requested ad refresh
+✔ 2025-11-08T05:27:24.767Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:27:36.662Z [..\..\index.js:401] 🔌 Client disconnected: 06XMdvXn7ib814gwAABb | IP: 127.0.0.1
+✔ 2025-11-08T05:27:37.301Z [..\..\index.js:329] 🔌 Client connected: CfGywN5LV2OiVfeTAABd | IP: 127.0.0.1
+✔ 2025-11-08T05:27:37.358Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:27:37.385Z [..\node\getads.js:83] [ADS] Client CfGywN5LV2OiVfeTAABd requested ad refresh
+✔ 2025-11-08T05:28:03.196Z [..\..\index.js:401] 🔌 Client disconnected: CfGywN5LV2OiVfeTAABd | IP: 127.0.0.1
+✔ 2025-11-08T05:28:03.709Z [..\..\index.js:329] 🔌 Client connected: 1_Onr_7YG8_KH9_7AABf | IP: 127.0.0.1
+✔ 2025-11-08T05:28:04.003Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:28:04.089Z [..\node\getads.js:83] [ADS] Client 1_Onr_7YG8_KH9_7AABf requested ad refresh
+✔ 2025-11-08T05:28:57.856Z [..\..\index.js:401] 🔌 Client disconnected: 1_Onr_7YG8_KH9_7AABf | IP: 127.0.0.1
+✔ 2025-11-08T05:28:58.526Z [..\..\index.js:329] 🔌 Client connected: Z9HAONLxBoMwa_XeAABh | IP: 127.0.0.1
+✔ 2025-11-08T05:28:58.594Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:28:58.644Z [..\node\getads.js:83] [ADS] Client Z9HAONLxBoMwa_XeAABh requested ad refresh
+✔ 2025-11-08T05:29:06.164Z [..\..\index.js:401] 🔌 Client disconnected: Z9HAONLxBoMwa_XeAABh | IP: 127.0.0.1
+✔ 2025-11-08T05:29:07.206Z [..\..\index.js:329] 🔌 Client connected: AWezJjA6c8nFcv3mAABj | IP: 127.0.0.1
+✔ 2025-11-08T05:29:07.415Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:29:07.825Z [..\node\getads.js:83] [ADS] Client AWezJjA6c8nFcv3mAABj requested ad refresh
+✔ 2025-11-08T05:30:00.991Z [..\..\index.js:401] 🔌 Client disconnected: AWezJjA6c8nFcv3mAABj | IP: 127.0.0.1
+✔ 2025-11-08T05:30:01.749Z [..\..\index.js:329] 🔌 Client connected: im5LLNcN4cSAm-RnAABl | IP: 127.0.0.1
+✔ 2025-11-08T05:30:01.852Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:30:01.925Z [..\node\getads.js:83] [ADS] Client im5LLNcN4cSAm-RnAABl requested ad refresh
+✔ 2025-11-08T05:30:19.266Z [..\..\index.js:401] 🔌 Client disconnected: im5LLNcN4cSAm-RnAABl | IP: 127.0.0.1
+✔ 2025-11-08T05:30:19.753Z [..\..\index.js:329] 🔌 Client connected: 5tMw38xk50HNnY6CAABn | IP: 127.0.0.1
+✔ 2025-11-08T05:30:19.854Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:30:20.071Z [..\node\getads.js:83] [ADS] Client 5tMw38xk50HNnY6CAABn requested ad refresh
+✔ 2025-11-08T05:30:39.301Z [..\..\index.js:401] 🔌 Client disconnected: 5tMw38xk50HNnY6CAABn | IP: 127.0.0.1
+✔ 2025-11-08T05:30:39.830Z [..\..\index.js:329] 🔌 Client connected: 0QaOmYP77htMUigbAABp | IP: 127.0.0.1
+✔ 2025-11-08T05:30:40.084Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:30:40.112Z [..\node\getads.js:83] [ADS] Client 0QaOmYP77htMUigbAABp requested ad refresh
+✔ 2025-11-08T05:31:24.926Z [..\..\index.js:401] 🔌 Client disconnected: 0QaOmYP77htMUigbAABp | IP: 127.0.0.1
+✔ 2025-11-08T05:31:25.467Z [..\..\index.js:329] 🔌 Client connected: xe4uA5It520t7kNqAABr | IP: 127.0.0.1
+✔ 2025-11-08T05:31:25.504Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:31:25.767Z [..\node\getads.js:83] [ADS] Client xe4uA5It520t7kNqAABr requested ad refresh
+✔ 2025-11-08T05:31:46.207Z [..\..\index.js:401] 🔌 Client disconnected: xe4uA5It520t7kNqAABr | IP: 127.0.0.1
+✔ 2025-11-08T05:31:46.742Z [..\..\index.js:329] 🔌 Client connected: EH2iaAF5lP2x3-i4AABt | IP: 127.0.0.1
+✔ 2025-11-08T05:31:47.078Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:31:47.108Z [..\node\getads.js:83] [ADS] Client EH2iaAF5lP2x3-i4AABt requested ad refresh
+✔ 2025-11-08T05:32:39.177Z [..\..\index.js:401] 🔌 Client disconnected: EH2iaAF5lP2x3-i4AABt | IP: 127.0.0.1
+✔ 2025-11-08T05:32:39.746Z [..\..\index.js:329] 🔌 Client connected: _bFuFxaEoNZAtzOjAABv | IP: 127.0.0.1
+✔ 2025-11-08T05:32:39.999Z [..\node\getads.js:83] [ADS] Client _bFuFxaEoNZAtzOjAABv requested ad refresh
+✔ 2025-11-08T05:32:40.010Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:33:10.303Z [..\..\index.js:401] 🔌 Client disconnected: _bFuFxaEoNZAtzOjAABv | IP: 127.0.0.1
+✔ 2025-11-08T05:33:10.873Z [..\..\index.js:329] 🔌 Client connected: rKQ7gyEjK5e3gxhcAABx | IP: 127.0.0.1
+✔ 2025-11-08T05:33:11.091Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:33:11.145Z [..\node\getads.js:83] [ADS] Client rKQ7gyEjK5e3gxhcAABx requested ad refresh
+✔ 2025-11-08T05:33:27.343Z [..\..\index.js:401] 🔌 Client disconnected: rKQ7gyEjK5e3gxhcAABx | IP: 127.0.0.1
+✔ 2025-11-08T05:33:28.026Z [..\..\index.js:329] 🔌 Client connected: nxkeVahqQF-ZQfR2AABz | IP: 127.0.0.1
+✔ 2025-11-08T05:33:28.369Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:33:28.425Z [..\node\getads.js:83] [ADS] Client nxkeVahqQF-ZQfR2AABz requested ad refresh
+✔ 2025-11-08T05:35:23.644Z [..\..\index.js:401] 🔌 Client disconnected: nxkeVahqQF-ZQfR2AABz | IP: 127.0.0.1
+✔ 2025-11-08T05:35:24.325Z [..\..\index.js:329] 🔌 Client connected: pprLvf7Ek5dgRHdUAAB1 | IP: 127.0.0.1
+✔ 2025-11-08T05:35:24.411Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:35:24.502Z [..\node\getads.js:83] [ADS] Client pprLvf7Ek5dgRHdUAAB1 requested ad refresh
+✔ 2025-11-08T05:37:21.815Z [..\..\index.js:401] 🔌 Client disconnected: pprLvf7Ek5dgRHdUAAB1 | IP: 127.0.0.1
+✔ 2025-11-08T05:37:22.396Z [..\..\index.js:329] 🔌 Client connected: DIUa1QREkPR9O9LvAAB3 | IP: 127.0.0.1
+✔ 2025-11-08T05:37:22.667Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:37:22.733Z [..\node\getads.js:83] [ADS] Client DIUa1QREkPR9O9LvAAB3 requested ad refresh
+✔ 2025-11-08T05:38:06.949Z [..\..\index.js:401] 🔌 Client disconnected: DIUa1QREkPR9O9LvAAB3 | IP: 127.0.0.1
+✔ 2025-11-08T05:38:07.466Z [..\..\index.js:329] 🔌 Client connected: HtCbZTIYRYTWyEs7AAB5 | IP: 127.0.0.1
+✔ 2025-11-08T05:38:07.773Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:38:07.810Z [..\node\getads.js:83] [ADS] Client HtCbZTIYRYTWyEs7AAB5 requested ad refresh
+✔ 2025-11-08T05:39:07.935Z [..\..\index.js:401] 🔌 Client disconnected: HtCbZTIYRYTWyEs7AAB5 | IP: 127.0.0.1
+✔ 2025-11-08T05:39:08.499Z [..\..\index.js:329] 🔌 Client connected: BM2VpxEIWY5gl2m6AAB7 | IP: 127.0.0.1
+✔ 2025-11-08T05:39:08.560Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:39:08.813Z [..\node\getads.js:83] [ADS] Client BM2VpxEIWY5gl2m6AAB7 requested ad refresh
+✔ 2025-11-08T05:40:11.038Z [..\..\index.js:401] 🔌 Client disconnected: BM2VpxEIWY5gl2m6AAB7 | IP: 127.0.0.1
+✔ 2025-11-08T05:40:11.550Z [..\..\index.js:329] 🔌 Client connected: TASsI6L8SPqClgbnAAB9 | IP: 127.0.0.1
+✔ 2025-11-08T05:40:11.826Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:40:11.916Z [..\node\getads.js:83] [ADS] Client TASsI6L8SPqClgbnAAB9 requested ad refresh
+✔ 2025-11-08T05:41:09.105Z [..\..\index.js:401] 🔌 Client disconnected: TASsI6L8SPqClgbnAAB9 | IP: 127.0.0.1
+✔ 2025-11-08T05:41:09.642Z [..\..\index.js:329] 🔌 Client connected: qZoVLgO7RZVWz4ncAAB_ | IP: 127.0.0.1
+✔ 2025-11-08T05:41:09.880Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:41:09.968Z [..\node\getads.js:83] [ADS] Client qZoVLgO7RZVWz4ncAAB_ requested ad refresh
+✔ 2025-11-08T05:41:21.659Z [..\..\index.js:401] 🔌 Client disconnected: qZoVLgO7RZVWz4ncAAB_ | IP: 127.0.0.1
+✔ 2025-11-08T05:41:22.364Z [..\..\index.js:329] 🔌 Client connected: 8O-WpLLXCtAOmRuJAACB | IP: 127.0.0.1
+✔ 2025-11-08T05:41:22.420Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:41:22.510Z [..\node\getads.js:83] [ADS] Client 8O-WpLLXCtAOmRuJAACB requested ad refresh
+✔ 2025-11-08T05:41:22.910Z [..\node\getads.js:71] [ADS] Broadcast 1 ads, volume=0.5
+✔ 2025-11-08T05:42:39.388Z [..\..\index.js:401] 🔌 Client disconnected: 8O-WpLLXCtAOmRuJAACB | IP: 127.0.0.1
+✔ 2025-11-08T05:42:39.992Z [..\..\index.js:329] 🔌 Client connected: zPi0pWHhlptziMvHAACD | IP: 127.0.0.1
+✔ 2025-11-08T05:42:40.228Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:42:40.317Z [..\node\getads.js:83] [ADS] Client zPi0pWHhlptziMvHAACD requested ad refresh
+✔ 2025-11-08T05:44:20.327Z [..\..\index.js:401] 🔌 Client disconnected: zPi0pWHhlptziMvHAACD | IP: 127.0.0.1
+✔ 2025-11-08T05:44:20.896Z [..\..\index.js:329] 🔌 Client connected: GgsQUAZ2EltNw2jCAACF | IP: 127.0.0.1
+✔ 2025-11-08T05:44:21.114Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:44:21.258Z [..\node\getads.js:83] [ADS] Client GgsQUAZ2EltNw2jCAACF requested ad refresh
+✔ 2025-11-08T05:45:28.320Z [..\..\index.js:401] 🔌 Client disconnected: GgsQUAZ2EltNw2jCAACF | IP: 127.0.0.1
+✔ 2025-11-08T05:45:28.929Z [..\..\index.js:329] 🔌 Client connected: jZ9rOGxaImm7V9QlAACH | IP: 127.0.0.1
+✔ 2025-11-08T05:45:29.210Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:45:29.281Z [..\node\getads.js:83] [ADS] Client jZ9rOGxaImm7V9QlAACH requested ad refresh
+✔ 2025-11-08T05:45:55.769Z [..\..\index.js:401] 🔌 Client disconnected: jZ9rOGxaImm7V9QlAACH | IP: 127.0.0.1
+✔ 2025-11-08T05:45:56.343Z [..\..\index.js:329] 🔌 Client connected: Ha0cW7wde1PZ35gJAACJ | IP: 127.0.0.1
+✔ 2025-11-08T05:45:56.524Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:45:56.587Z [..\node\getads.js:83] [ADS] Client Ha0cW7wde1PZ35gJAACJ requested ad refresh
+✔ 2025-11-08T05:47:42.227Z [..\..\index.js:401] 🔌 Client disconnected: Ha0cW7wde1PZ35gJAACJ | IP: 127.0.0.1
+✔ 2025-11-08T05:47:42.796Z [..\..\index.js:329] 🔌 Client connected: Ay0w6_pvoG-8LHM6AACL | IP: 127.0.0.1
+✔ 2025-11-08T05:47:43.034Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:47:43.073Z [..\node\getads.js:83] [ADS] Client Ay0w6_pvoG-8LHM6AACL requested ad refresh
+✔ 2025-11-08T05:51:04.406Z [..\..\index.js:401] 🔌 Client disconnected: Ay0w6_pvoG-8LHM6AACL | IP: 127.0.0.1
+✔ 2025-11-08T05:51:04.977Z [..\..\index.js:329] 🔌 Client connected: ZF4lzb1T3TccxyWKAACN | IP: 127.0.0.1
+✔ 2025-11-08T05:51:05.243Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:51:05.379Z [..\node\getads.js:83] [ADS] Client ZF4lzb1T3TccxyWKAACN requested ad refresh
+✔ 2025-11-08T05:52:40.104Z [..\..\index.js:401] 🔌 Client disconnected: ZF4lzb1T3TccxyWKAACN | IP: 127.0.0.1
+✔ 2025-11-08T05:52:40.874Z [..\..\index.js:329] 🔌 Client connected: K3FILb5CTKIGJIZ3AACP | IP: 127.0.0.1
+✔ 2025-11-08T05:52:40.982Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:52:41.010Z [..\node\getads.js:83] [ADS] Client K3FILb5CTKIGJIZ3AACP requested ad refresh
+✔ 2025-11-08T05:53:01.996Z [..\..\index.js:401] 🔌 Client disconnected: K3FILb5CTKIGJIZ3AACP | IP: 127.0.0.1
+✔ 2025-11-08T05:53:02.499Z [..\..\index.js:329] 🔌 Client connected: SWrA0te8k1Av-QYYAACR | IP: 127.0.0.1
+✔ 2025-11-08T05:53:02.858Z [..\node\getads.js:83] [ADS] Client SWrA0te8k1Av-QYYAACR requested ad refresh
+✔ 2025-11-08T05:53:02.920Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:55:09.656Z [..\..\index.js:401] 🔌 Client disconnected: SWrA0te8k1Av-QYYAACR | IP: 127.0.0.1
+✔ 2025-11-08T05:55:10.408Z [..\..\index.js:329] 🔌 Client connected: 8cvOjzlHFZNomuMjAACT | IP: 127.0.0.1
+✔ 2025-11-08T05:55:10.573Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:55:10.669Z [..\node\getads.js:83] [ADS] Client 8cvOjzlHFZNomuMjAACT requested ad refresh
+✔ 2025-11-08T05:58:41.744Z [..\..\index.js:401] 🔌 Client disconnected: 8cvOjzlHFZNomuMjAACT | IP: 127.0.0.1
+✔ 2025-11-08T05:58:42.316Z [..\..\index.js:329] 🔌 Client connected: wD_djosU_gJo1lLmAACV | IP: 127.0.0.1
+✔ 2025-11-08T05:58:42.488Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:58:42.581Z [..\node\getads.js:83] [ADS] Client wD_djosU_gJo1lLmAACV requested ad refresh
+✔ 2025-11-08T05:58:58.550Z [..\..\index.js:401] 🔌 Client disconnected: wD_djosU_gJo1lLmAACV | IP: 127.0.0.1
+✔ 2025-11-08T05:58:59.232Z [..\..\index.js:329] 🔌 Client connected: kfBYM1LJS1hGxqaTAACX | IP: 127.0.0.1
+✔ 2025-11-08T05:58:59.371Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-08T05:58:59.491Z [..\node\getads.js:83] [ADS] Client kfBYM1LJS1hGxqaTAACX requested ad refresh
+✔ 2025-11-08T06:00:01.546Z [..\..\index.js:401] 🔌 Client disconnected: kfBYM1LJS1hGxqaTAACX | IP: 127.0.0.1
+✔ 2025-11-08T06:00:02.109Z [..\..\index.js:329] 🔌 Client connected: 22yN0F0-8eQLMZc-AACZ | IP: 127.0.0.1
+✔ 2025-11-08T06:00:02.471Z [..\node\getads.js:83] [ADS] Client 22yN0F0-8eQLMZc-AACZ requested ad refresh
+✔ 2025-11-08T06:00:02.565Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
