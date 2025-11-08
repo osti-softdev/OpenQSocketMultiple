@@ -8,19 +8,19 @@ const formatDate = (date) => {
 const today = new Date();
 
 const driverObj = driver({
-  showProgress: true,
-  popoverClass: 'driverjs-theme',
-   showButtons: ['next', 'previous'],
+    showProgress: true,
+    popoverClass: 'driverjs-theme',
+    showButtons: ['next', 'previous'],
   steps: [
     // ! DASHBOARD STEPS
     { element: '.helpbtn', popover: { title: 'Admin Panel tutorials', description: 'Here is the window for system admin configurations . Let\'s walk you through it.', side: "bottom", align: 'start', onNextClick: () => {
             driverObj.moveNext();
         }, }},
-    { element: '.adminbtns', popover: { title: 'Navigation Buttons', description: 'Buttons for Dashboard, Announcements, Advertisements, Settings.', side: "bottom", align: 'start' }},
+    { element: '.adminbtns', popover: { title: 'Navigation Buttons', description: 'Buttons for Dashboard, Announcements, Advertisements, Settings.', side: "bottom", align: 'end' }},
     { element: '.adminName', popover: { title: 'Admin User', description: 'Current admin user.', side: "bottom", align: 'start' }},
-    { element: '.dashboard-date-range', popover: { title: 'Dashboard Date Range', description: 'This is where you can set date range for the data you want to retrieve.', side: "bottom", align: 'start' }},
-    { element: '.dashboard-exports', popover: { title: 'Export Buttons', description: 'You Can export data with charts in PDF,EXCEL,and CSV format.', side: "bottom", align: 'start' }},
-    { element: '.Setting Report date', popover: { title: 'Displaying Existing Data', description: 'Let us try to set a Date and display sample Data', side: "bottom", align: 'start',onNextClick: () => {
+    { element: '.dashboard-date-range', popover: { title: 'Dashboard Date Range', description: 'This is where you can set date range for the data you want to retrieve.', side: "bottom", align: 'center' }},
+    { element: '.dashboard-exports', popover: { title: 'Export Buttons', description: 'You Can export data with charts in PDF,EXCEL,and CSV format.', side: "bottom", align: 'end' }},
+    { element: '.dashboard-date-range', popover: { title: 'Displaying Existing Data', description: 'Let us try to set a Date and display sample Data', side: "bottom", align: 'center',onNextClick: () => {
         $("#startDate").val("2025-01-01");
         socket.emit("requestAdminDataforcontent2averages", { datefrom:'2025-01-01', dateto:formatDate(today) });
 		socket.emit("requestAdminData", { datefrom:'2025-01-01', dateto:formatDate(today) });
@@ -29,19 +29,24 @@ const driverObj = driver({
             driverObj.moveNext();
         }, }},
     { element: '.dash-content1', popover: { title: 'Services', description: 'Services total display.', side: "bottom", align: 'start' }},
-    { element: '.dash-content2', popover: { title: 'Overview and Time Details', description: 'Displayed in this boxes are the total transactions in different statuses, charts and simple analytics..', side: "right-top", align: 'start' }},
-    { element: '.dash-content3', popover: { title: 'Per Hour Transactions.', description: 'Displayed in this first chart is the Feedback(Line Chart) and Queueing(Bar chart).', align: 'start',onNextClick: () => {
+    { element: '.dash-content2', popover: { title: 'Overview and Time Details', description: 'Displayed in this boxes are the total transactions in different statuses, charts and simple analytics.', side: "right-top", align: 'start' }},
+    { element: '.dash-content3', popover: { title: 'Per Hour Transactions.', description: 'Displayed in this first chart is the Feedback(Line Chart) and Queueing(Bar chart) Per Hour.', align: 'start',onNextClick: () => {
 	        $(".cnt3date").click();
         driverObj.moveNext();
         },  }},
-  { element: '.dash-content3', popover: { title: 'Time Charts for Transactions', description: 'Displayed in this boxes are the total transactions in different statuses, charts and simple analytics..', side: "right-top", align: 'start',onNextClick: () => {
-	        $(".cnt3date").click();
+   { element: '.dash-content3', popover: { title: 'Per Date Transactions.', description: 'Displayed in this 2nd chart is the Feedback(Line Chart) and Queueing(Bar chart) Per Date.', align: 'start',onNextClick: () => {
+	        $(".cnt3month").click();
         driverObj.moveNext();
         },  }},
-        // { element: '.helpbtn', popover: { title: 'Settings Steps tutorials', description: 'Here is the window for system admin configurations . Let\'s walk you through it.', side: "bottom", align: 'start', onNextClick: () => {
-        //     $(".admbtnsoptions[data-page='dashboard']").click();
-        //     driverObj.moveNext();
-        // }, }},
+    { element: '.dash-content3', popover: { title: 'Per Month Transactions.', description: 'Displayed in this 3rd chart is the Feedback(Line Chart) and Queueing(Bar chart) Per Month.', side: "right-top", align: 'start' }},
+    { element: '.dash-content4', popover: { title: 'Overall Records.', description: 'This table display the list of all transactions covered between the date range.', side: "right-top", align: 'start' }},
+    
+    // ! ANNOUNCEMENT STEPS
+    {  popover: { title: 'Continue To Announcement Settings?', description: 'Let\'s walk you through it.', side: "bottom", align: 'start', onNextClick: () => {
+        $(".admbtnsoptions[data-page='announcement']").click();
+        driverObj.moveNext();
+    }, }},
+    { element: '.firstannmsg', popover: { title: 'Overall Records.', description: 'This table display the list of all transactions covered between the date range.', side: "right-top", align: 'start' }},
 
 
 
