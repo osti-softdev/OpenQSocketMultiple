@@ -14,7 +14,8 @@ const driverObj = driver({
   steps: [
     // ! DASHBOARD STEPS
     { element: '.helpbtn', popover: { title: 'Admin Panel tutorials', description: 'Here is the window for system admin configurations . Let\'s walk you through it.', side: "bottom", align: 'start', onNextClick: () => {
-            driverObj.moveNext();
+        $(".admbtnsoptions[data-page='dashboard']").click();   
+        driverObj.moveNext();
         }, }},
     { element: '.adminbtns', popover: { title: 'Navigation Buttons', description: 'Buttons for Dashboard, Announcements, Advertisements, Settings.', side: "bottom", align: 'end' }},
     { element: '.adminName', popover: { title: 'Admin User', description: 'Current admin user.', side: "bottom", align: 'start' }},

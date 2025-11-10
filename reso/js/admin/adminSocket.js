@@ -20,7 +20,8 @@ $(document).ready(function () {
 		if (unsatisfiedholder > lastUnsatisfied) {
 			unsatisfiedcount++;
 			if (unsatisfiedcount >= 10) {
-				$.notify("⚠ Warning: Unsatisfied Rating is Rising", "warn");
+        	showMsg("warning", "⚠ Warning: Unsatisfied Rating is Rising");
+
 				unsatisfiedcount = 0;
 			}
 		}
@@ -29,7 +30,7 @@ $(document).ready(function () {
 		if (satisfiedholder > lastSatisfied) {
 			satisfiedcount++;
 			if (satisfiedcount >= 10) {
-				$.notify("✅ Great! Satisfied Rating is Rising", "success");
+        	showMsg("success", "✅ Great! Satisfied Rating is Rising");
 				satisfiedcount = 0;
 			}
 		}
