@@ -8,7 +8,7 @@ $(function () {
         } else if (id === "exportPDF") {
             if (typeof barChartContent2 !== "undefined" && barChartContent2) saveTasks.push(saveChartImage(barChartContent2, "bar_chart"));
             if (typeof hourChart !== "undefined" && hourChart) saveTasks.push(saveChartImage(hourChart, "hourly_chart"));
-            if (typeof dateChart !== "undefined" && dateChart) saveTasks.push(saveChartImage(dateChart, "daily_chart"));
+            if (typeof dailyChart !== "undefined" && dailyChart) saveTasks.push(saveChartImage(dailyChart, "daily_chart"));
             if (typeof monthChart !== "undefined" && monthChart) saveTasks.push(saveChartImage(monthChart, "monthly_chart"));
 
             await Promise.all(saveTasks);
@@ -42,36 +42,40 @@ function generateCSV() {
     const today = new Date().toLocaleDateString();
     // --- Overview Section ---
     const totalCount    = getValue(".content2totalcount", "0");
-    const totalRated    = getValue(".content2totalrated", "0");
+    // const totalRated    = getValue(".content2totalrated", "0");
     const totalServed   = getValue(".content2totalserved", "0");
     const totalUnserved = getValue(".content2totalunserved", "0");
     const mostService   = getValue(".content2commonservice", "None");
-    const mostRating    = getValue(".content2commonrating", "None");
+    // const mostRating    = getValue(".content2commonrating", "None");
 
     csvContent += "Overview\n";
-    csvContent += ["Total Transactions","Total Rated","Total Served","Total Unserved","Most Service","Most Rating"].join(",") + "\n";
-    csvContent += [totalCount,totalRated,totalServed,totalUnserved,mostService,mostRating].map(c=>`"${c}"`).join(",") + "\n\n";
+    // csvContent += ["Total Transactions","Total Rated","Total Served","Total Unserved","Most Service","Most Rating"].join(",") + "\n";
+    csvContent += ["Total Transactions","Total Served","Total Unserved","Most Service"].join(",") + "\n";
+    // csvContent += [totalCount,totalRated,totalServed,totalUnserved,mostService,mostRating].map(c=>`"${c}"`).join(",") + "\n\n";
+    csvContent += [totalCount,totalServed,totalUnserved,mostService].map(c=>`"${c}"`).join(",") + "\n\n";
 
     // --- Service Details Section ---
     const overCar        = getValue("[data-ovrcnt='carwash']", "0");
     const overMotor      = getValue("[data-ovrcnt='motorwash']", "0");
     const overHelmet     = getValue("[data-ovrcnt='helmetwash']", "0");
-    const overSatisfied  = getValue("[data-ovrcnt='satisfied']", "0");
-    const overUnsatisfied= getValue("[data-ovrcnt='unsatisfied']", "0");
+    // const overSatisfied  = getValue("[data-ovrcnt='satisfied']", "0");
+    // const overUnsatisfied= getValue("[data-ovrcnt='unsatisfied']", "0");
 
     csvContent += "Service Details\n";
-    csvContent += ["Carwash","Motorwash","Helmetwash","Satisfied","Unsatisfied"].join(",") + "\n";
-    csvContent += [overCar, overMotor, overHelmet, overSatisfied, overUnsatisfied].map(c=>`"${c}"`).join(",") + "\n\n";
+    // csvContent += ["Carwash","Motorwash","Helmetwash","Satisfied","Unsatisfied"].join(",") + "\n";
+    // csvContent += [overCar, overMotor, overHelmet, overSatisfied, overUnsatisfied].map(c=>`"${c}"`).join(",") + "\n\n";
+    csvContent += ["Carwash","Motorwash","Helmetwash"].join(",") + "\n";
+    csvContent += [overCar, overMotor, overHelmet,].map(c=>`"${c}"`).join(",") + "\n\n";
 
     // --- Feedback Section ---
-    if (latestAveragesfeedback && latestAveragesfeedback.length > 0) {
-        csvContent += "Feedback\n";
-        csvContent += ["Date","Satisfied","Unsatisfied"].join(",") + "\n";
-        latestAveragesfeedback.forEach(fb => {
-            csvContent += [fb.date, fb.satisfied_count || 0, fb.unsatisfied_count || 0].map(c=>`"${c}"`).join(",") + "\n";
-        });
-        csvContent += "\n";
-    }
+    // if (latestAveragesfeedback && latestAveragesfeedback.length > 0) {
+    //     csvContent += "Feedback\n";
+    //     csvContent += ["Date","Satisfied","Unsatisfied"].join(",") + "\n";
+    //     latestAveragesfeedback.forEach(fb => {
+    //         csvContent += [fb.date, fb.satisfied_count || 0, fb.unsatisfied_count || 0].map(c=>`"${c}"`).join(",") + "\n";
+    //     });
+    //     csvContent += "\n";
+    // }
 
     // --- Transactions Avg/Date Section ---
     if (latestAveragestransactions && latestAveragestransactions.length > 0) {
@@ -153,30 +157,32 @@ async function generatePDF() {
 
     // --- Overview + Service Details ---
     const totalCount = getValue(".content2totalcount","0"), totalRated = getValue(".content2totalrated","0");
-    const totalServed = getValue(".content2totalserved","0"), totalUnserved = getValue(".content2totalunserved","0");
+    // const totalServed = getValue(".content2totalserved","0"), totalUnserved = getValue(".content2totalunserved","0");
     const mostService = getValue(".content2commonservice","None"), mostRating = getValue(".content2commonrating","None");
 
     const overCar = getValue("[data-ovrcnt='carwash']","0"), overMotor = getValue("[data-ovrcnt='motorwash']","0");
     const overHelmet = getValue("[data-ovrcnt='helmetwash']","0"), overSatisfied = getValue("[data-ovrcnt='satisfied']","0");
-    const overUnsatisfied = getValue("[data-ovrcnt='unsatisfied']","0");
+    // const overUnsatisfied = getValue("[data-ovrcnt='unsatisfied']","0");
 
     if (yPos + 60 > 270) { pdf.addPage(); yPos = 30; }
 
     pdf.text("Overview",14,yPos);
-    pdf.autoTable({ startY:yPos+5, head:[["Total Transactions","Total Rated","Total Served","Total Unserved","Most Service","Most Rating"]], body:[[totalCount,totalRated,totalServed,totalUnserved,mostService,mostRating]], theme:"grid", styles:{fontSize:10,halign:"center"}, headStyles:{fillColor:[41,128,185],textColor:255} });
+    // pdf.autoTable({ startY:yPos+5, head:[["Total Transactions","Total Rated","Total Served","Total Unserved","Most Service","Most Rating"]], body:[[totalCount,totalRated,totalServed,totalUnserved,mostService,mostRating]], theme:"grid", styles:{fontSize:10,halign:"center"}, headStyles:{fillColor:[41,128,185],textColor:255} });
+    pdf.autoTable({ startY:yPos+5, head:[["Total Transactions","Total Served","Total Unserved","Most Service"]], body:[[totalCount,totalServed,totalUnserved,mostService]], theme:"grid", styles:{fontSize:10,halign:"center"}, headStyles:{fillColor:[41,128,185],textColor:255} });
 
     pdf.text("Service Details",14,pdf.lastAutoTable.finalY+12);
-    pdf.autoTable({ startY: pdf.lastAutoTable.finalY+18, head:[["Carwash","Motorwash","Helmetwash","Satisfied","Unsatisfied"]], body:[[overCar,overMotor,overHelmet,overSatisfied,overUnsatisfied]], theme:"grid", styles:{fontSize:10,halign:"center"}, headStyles:{fillColor:[39,174,96],textColor:255} });
+    // pdf.autoTable({ startY: pdf.lastAutoTable.finalY+18, head:[["Carwash","Motorwash","Helmetwash","Satisfied","Unsatisfied"]], body:[[overCar,overMotor,overHelmet,overSatisfied,overUnsatisfied]], theme:"grid", styles:{fontSize:10,halign:"center"}, headStyles:{fillColor:[39,174,96],textColor:255} });
+    pdf.autoTable({ startY: pdf.lastAutoTable.finalY+18, head:[["Carwash","Motorwash","Helmetwash"]], body:[[overCar,overMotor,overHelmet]], theme:"grid", styles:{fontSize:10,halign:"center"}, headStyles:{fillColor:[39,174,96],textColor:255} });
 
     yPos = pdf.lastAutoTable.finalY + 20;
 
     // --- Feedback Table ---
-    if (latestAveragesfeedback && latestAveragesfeedback.length) {
-        const feedbackData = latestAveragesfeedback.map(fb => [fb.date, fb.satisfied_count||0, fb.unsatisfied_count||0]);
-        pdf.text("Feedback",14,yPos);
-        pdf.autoTable({ startY:yPos+6, head:[["Date","Satisfied","Unsatisfied"]], body:feedbackData, theme:"grid", styles:{fontSize:10,halign:"center"}, headStyles:{fillColor:[241,196,15],textColor:0} });
-        yPos = pdf.lastAutoTable.finalY+20;
-    }
+    // if (latestAveragesfeedback && latestAveragesfeedback.length) {
+    //     const feedbackData = latestAveragesfeedback.map(fb => [fb.date, fb.satisfied_count||0, fb.unsatisfied_count||0]);
+    //     pdf.text("Feedback",14,yPos);
+    //     pdf.autoTable({ startY:yPos+6, head:[["Date","Satisfied","Unsatisfied"]], body:feedbackData, theme:"grid", styles:{fontSize:10,halign:"center"}, headStyles:{fillColor:[241,196,15],textColor:0} });
+    //     yPos = pdf.lastAutoTable.finalY+20;
+    // }
 
     // --- Transactions Avg/Date Table ---
     if (latestAveragestransactions && latestAveragestransactions.length) {
@@ -217,7 +223,8 @@ async function generateExcel() {
     // --- Overview Sheet ---
     const overviewSheetData = [];
     overviewSheetData.push(["--- Overview ---"]);
-    overviewSheetData.push(["Total Transactions","Total Rated","Total Served","Total Unserved","Most Service","Most Rating"]);
+    // overviewSheetData.push(["Total Transactions","Total Rated","Total Served","Total Unserved","Most Service","Most Rating"]);
+    overviewSheetData.push(["Total Transactions","Total Served","Total Unserved","Most Service"]);
     overviewSheetData.push([getValue(".content2totalcount","0"),getValue(".content2totalrated","0"),getValue(".content2totalserved","0"),getValue(".content2totalunserved","0"),getValue(".content2commonservice","None"),getValue(".content2commonrating","None")]);
     overviewSheetData.push([]);
     overviewSheetData.push(["--- Service Details ---"]);

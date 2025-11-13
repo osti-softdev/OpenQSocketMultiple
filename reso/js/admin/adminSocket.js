@@ -100,9 +100,9 @@ $(document).ready(function () {
 		}
 
 		// Append feedback counts
-		$container.append(`
-			<div class="overcounts">😊 Satisfied <span class="overcountdata">${adminoveralldata.satisfied ?? 0}</span></div>
-			<div class="overcounts">😔 Unsatisfied <span class="overcountdata">${adminoveralldata.unsatisfied ?? 0}</span></div>
-		`);
+		// $container.append(`
+		// 	<div class="overcounts">😊 Satisfied <span class="overcountdata">${adminoveralldata.satisfied ?? 0}</span></div>
+		// 	<div class="overcounts">😔 Unsatisfied <span class="overcountdata">${adminoveralldata.unsatisfied ?? 0}</span></div>
+		// `);
 	});
 });

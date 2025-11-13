@@ -10,17 +10,17 @@ $(document).ready(function () {
 	];
 
 	// Feedback colors
-	const feedbackColors = [
-		{ base: "rgba(0, 200, 0, 0.8)" },   // Satisfied
-		{ base: "rgba(200, 0, 0, 0.8)" }    // Unsatisfied
-	];
+	// const feedbackColors = [
+	// 	{ base: "rgba(0, 200, 0, 0.8)" },   // Satisfied
+	// 	{ base: "rgba(200, 0, 0, 0.8)" }    // Unsatisfied
+	// ];
 
 	socket.on("dashadmindataupdate", (adminoveralldata) => {
 		const serviceNames = $.map(adminoveralldata.services, (s) => s.sname);
 		const calledCounts = $.map(adminoveralldata.services, (s) => s.called_count);
 
 		// ✅ Always same order in legend: services → Satisfied → Unsatisfied
-		const labels = [...serviceNames, "Satisfied", "Unsatisfied"];
+		const labels = [...serviceNames, " ", " "];
 
 		// Service dataset colors mapped dynamically
 		const serviceBackgrounds = serviceNames.map(
@@ -45,20 +45,20 @@ $(document).ready(function () {
 							borderColor: serviceBorders.concat([null, null]),
 							borderWidth: 1,
 						},
-						{
-							label: "Satisfied",
-							data: new Array(serviceNames.length).fill(null).concat([adminoveralldata.satisfied, null]),
-							backgroundColor: feedbackColors[0].base,
-							borderColor: feedbackColors[0].base,
-							borderWidth: 1,
-						},
-						{
-							label: "Unsatisfied",
-							data: new Array(serviceNames.length).fill(null).concat([null, adminoveralldata.unsatisfied]),
-							backgroundColor: feedbackColors[1].base,
-							borderColor: feedbackColors[1].base,
-							borderWidth: 1,
-						},
+						// {
+						// 	label: "Satisfied",
+						// 	data: new Array(serviceNames.length).fill(null).concat([adminoveralldata.satisfied, null]),
+						// 	backgroundColor: feedbackColors[0].base,
+						// 	borderColor: feedbackColors[0].base,
+						// 	borderWidth: 1,
+						// },
+						// {
+						// 	label: "Unsatisfied",
+						// 	data: new Array(serviceNames.length).fill(null).concat([null, adminoveralldata.unsatisfied]),
+						// 	backgroundColor: feedbackColors[1].base,
+						// 	borderColor: feedbackColors[1].base,
+						// 	borderWidth: 1,
+						// },
 					],
 				},
 				options: {
@@ -103,10 +103,10 @@ $(document).ready(function () {
 			barChartContent2.data.datasets[0].borderColor = serviceBorders.concat([null, null]);
 
 			// Update Satisfied
-			barChartContent2.data.datasets[1].data = new Array(serviceNames.length).fill(null).concat([adminoveralldata.satisfied, null]);
+			// barChartContent2.data.datasets[1].data = new Array(serviceNames.length).fill(null).concat([adminoveralldata.satisfied, null]);
 
 			// Update Unsatisfied
-			barChartContent2.data.datasets[2].data = new Array(serviceNames.length).fill(null).concat([null, adminoveralldata.unsatisfied]);
+			// barChartContent2.data.datasets[2].data = new Array(serviceNames.length).fill(null).concat([null, adminoveralldata.unsatisfied]);
 
 			barChartContent2.update();
 		}
@@ -143,19 +143,19 @@ $(document).ready(function () {
 		}
 
 		// --- Feedback Section ---
-		$container.append('<div class="title">Feedback</div>');
+		// $container.append('<div class="title">Feedback</div>');
 
-		if (!data.feedback || data.feedback.length === 0) {
-			$container.append("<p>No feedback data available</p>");
-		} else {
-			data.feedback.forEach(fb => {
-				$container.append(`
-					<div class="metric">
-						<span>${fb.date}:</span> Satisfied: ${fb.satisfied_count}, Unsatisfied: ${fb.unsatisfied_count}
-					</div>
-				`);
-			});
-		}
+		// if (!data.feedback || data.feedback.length === 0) {
+		// 	$container.append("<p>No feedback data available</p>");
+		// } else {
+		// 	data.feedback.forEach(fb => {
+		// 		$container.append(`
+		// 			<div class="metric">
+		// 				<span>${fb.date}:</span> Satisfied: ${fb.satisfied_count}, Unsatisfied: ${fb.unsatisfied_count}
+		// 			</div>
+		// 		`);
+		// 	});
+		// }
 
 		// --- Transactions Section ---
 		$container.append('<div class="title">Transactions</div>');

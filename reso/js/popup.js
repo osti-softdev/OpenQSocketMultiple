@@ -68,9 +68,10 @@ function showPopup(ticketData) {
 	const audioElement = $("#audio")[0];
 
 	if (videoElement && !videoElement.paused) videoElement.pause();
+	let ticks = ticketData.sname.replace("_"," ");
 
 	$("#popup").show();
-	$("#counterpop").text(ticketData.sname);
+	$("#counterpop").text(ticks);
 	$("#ticketpop").text(`${ticketData.service}-${ticketData.ticket}`);
 
 	// if (audioElement) {
@@ -98,9 +99,10 @@ function speakTicketTwice(ticketData, onFinish) {
 
 	const serviceCleaned = ticketData.service.replace(/-/g, "");
 	const serviceSeparated = serviceCleaned.split("").join(", ");
+	let ticks = ticketData.sname.replace("_"," ");
 
 	const msg = new SpeechSynthesisUtterance(
-		`Now serving, ${serviceSeparated}${ticketData.ticket}, ${ticketData.sname}`
+		`Now serving, ${serviceSeparated}${ticketData.ticket}, ${ticks}`
 	);
 	msg.voice = voices[voiceConfig.voice] || voices[0];
 	msg.pitch = voiceConfig.voice_pitch || 1;
