@@ -1079,3 +1079,8 @@
 ✔ 2025-11-13T01:37:10.471Z [..\node\admin\colorswatcheradmin.js:51] 🎨 Color configuration updated: { service_color: '#10471d' }
 ✔ 2025-11-13T01:37:20.949Z [..\node\admin\colorswatcheradmin.js:51] 🎨 Color configuration updated: { service_color: '#2500aa' }
 ✔ 2025-11-13T01:37:42.369Z [..\node\admin\colorswatcheradmin.js:51] 🎨 Color configuration updated: { service_color: '#186810' }
+✔ 2025-11-13T01:38:51.263Z [..\..\index.js:401] 🔌 Client disconnected: 5nicoMXQyFcxeWCTAAAH | IP: 192.168.1.200
+✔ 2025-11-13T01:38:51.390Z [..\..\index.js:329] 🔌 Client connected: 3Ox2vcpReb5Q3YFQAAAJ | IP: 192.168.1.200
+✔ 2025-11-13T01:38:52.809Z [..\..\index.js:401] 🔌 Client disconnected: 3Ox2vcpReb5Q3YFQAAAJ | IP: 192.168.1.200
+✔ 2025-11-13T01:38:52.874Z [..\..\index.js:329] 🔌 Client connected: goS_QGrpdf2M9TPZAAAL | IP: 192.168.1.200
+✔ 2025-11-13T02:35:35.375Z [..\node\admin\colorswatcheradmin.js:51] 🎨 Color configuration updated: { kiosk_priority_service_color: '#ffffff' }
