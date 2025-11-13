@@ -51,6 +51,6 @@ $(document).ready(function () {
 	});
 
 	socket.on("reloadSystem", () => {
-		alert("System configuration updated. Application will restart.");
+		showMsg("warning", "System configuration updated. Application will restart.");
 	});
 });

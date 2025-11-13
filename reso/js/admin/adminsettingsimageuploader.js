@@ -57,12 +57,7 @@ function uploadImage(fileInputId, endpoint, statusId, buttonId, filenameId) {
     contentType: false,
     processData: false,
     success: function (response) {
-      Swal.fire({
-        icon: "success",
-        title: "Upload Successful",
-        text: response,
-        width: "40%"
-      });
+      showMsg("success", "Upload Successful");
 
       // 🔹 Reset UI after success
       $(fileInputId).val(""); // clear input
@@ -71,12 +66,7 @@ function uploadImage(fileInputId, endpoint, statusId, buttonId, filenameId) {
       $(buttonId).css("background-color", ""); // reset button color
     },
     error: function (xhr) {
-      Swal.fire({
-        icon: "error",
-        title: "Upload Failed",
-        text: xhr.responseText,
-        width: "40%"
-      });
+       showMsg("error", "Upload Failed");
       $(statusId).css("color", "red").text("Upload failed: " + xhr.responseText);
 
       // 🔹 Keep button red if failed

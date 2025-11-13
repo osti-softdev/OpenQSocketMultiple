@@ -481,6 +481,7 @@
     <script src="/js/admin/adminDashboardSaveCharts.js"></script>
     <script src="/js/admin/dashexports.js"></script>
     <script src="/js/admin/drivers.js"></script>
+    <script src="/js/admin/alert.js"></script>
     
     <script>
 let barChartContent2;
@@ -490,9 +491,9 @@ let monthChart;
 
     function copyToClipboard(text) {
         navigator.clipboard.writeText(text).then(() => {
-        $.notify("Copied to Clipboard", "success");
+            showMsg("success","Copied to Clipboard");
         }).catch(err => {
-        $.notify("Failed to copy to clipboard", "error");
+            showMsg("error","Failed to copy to clipboard");
         });
     }
         // setInterval(() => {

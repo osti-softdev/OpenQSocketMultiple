@@ -26,6 +26,7 @@ tellerContainer.addEventListener("click", async (e) => {
             title: "Delete Teller?",
             text: `Are you sure you want to delete "${teller.cname}"?`,
             icon: "warning",
+            theme: 'auto',
             showCancelButton: true,
             confirmButtonColor: "#d33",
             cancelButtonColor: "#3085d6",
@@ -87,6 +88,7 @@ function renderGroupPopup(groups) {
     Swal.fire({
         title: "🧩 Manage Groups",
         width: 600,
+        theme: 'auto',
         showCancelButton: false,
         showConfirmButton: false,
         html: `
@@ -134,6 +136,7 @@ function renderGroupPopup(groups) {
                     Swal.fire({
                         title: "Edit Group",
                         input: "text",
+                        theme: 'auto',
                         inputValue: oldName,
                         showCancelButton: true,
                         confirmButtonText: "Save",
@@ -149,6 +152,7 @@ function renderGroupPopup(groups) {
                         title: "Delete Group?",
                         text: "This action cannot be undone.",
                         icon: "warning",
+                        theme: 'auto',
                         showCancelButton: true,
                         confirmButtonText: "Delete",
                         confirmButtonColor: "#d33",
@@ -224,17 +228,22 @@ async function openAddTellerPopup() {
         <div style="text-align:left">
             <label><strong>Name</strong></label>
             <input id="new_cname" class="swal2-input" placeholder="Name">
+            <br>
             <label><strong>Counter Number</strong></label>
             <input id="new_cnum" class="swal2-input" placeholder="Counter Number">
+            <br>
             <label><strong>Username</strong></label>
             <input id="new_cuser" class="swal2-input" placeholder="Username">
+            <br>
             <label><strong>Password</strong></label>
             <input id="new_cpass" class="swal2-input" placeholder="Password">
+            <br>
             <label><strong>Status</strong></label>
             <select id="new_cstatus" class="swal2-select" style="width:50%;padding:8px;border-radius:5px;border:1px solid #ccc;">
                 <option value="1" selected>Active</option>
                 <option value="0">Inactive</option>
             </select>
+            <br>
             <label><strong>Group</strong></label>
             <div style="border:1px solid #ddd;border-radius:5px;padding:8px;background:#fafafa;">
                 ${groupHTML}
@@ -285,7 +294,7 @@ async function openEditTellerPopup(teller) {
     const selectedServices = (teller.services || "").split(",").map(s => s.trim());
 
     const checkboxHTML = services.map(s => `
-        <label style="display:flex;align-items:center;gap:6px;margin-bottom:5px;">
+        <label style="flex:1 20%;display:flex;align-items:center;gap:6px;margin-bottom:5px;">
             <input type="checkbox" name="services" value="${s}" ${selectedServices.includes(s) ? "checked" : ""}>
             <span>${s}</span>
         </label>`).join("");
@@ -303,21 +312,27 @@ async function openEditTellerPopup(teller) {
         <div style="text-align:left">
             <label><strong>Name</strong></label>
             <input id="edit_cname" class="swal2-input" value="${teller.cname}">
+            <br>
             <label><strong>Counter Number</strong></label>
             <input id="edit_cnum" class="swal2-input" value="${teller.cnum}">
+            <br>
             <label><strong>Username</strong></label>
             <input id="edit_cuser" class="swal2-input" value="${teller.cuser}">
+            <br>
             <label><strong>Password</strong></label>
             <input id="edit_cpass" class="swal2-input" value="${teller.cpass}">
+            <br>
             <label><strong>Status</strong></label>
             <select id="edit_cstatus" class="swal2-select" style="width:50%;padding:8px;border-radius:5px;border:1px solid #ccc;">
                 <option value="1" ${teller.cstatus == "1" ? "selected" : ""}>Active</option>
                 <option value="0" ${teller.cstatus == "0" ? "selected" : ""}>Inactive</option>
             </select>
+            <br>
             <label><strong>Group</strong></label>
-            <div style="border:1px solid #ddd;border-radius:5px;padding:8px;background:#fafafa;">
+            <div style="max-height:160px;overflow-y:auto;display:flex;flex-wrap:wrap;gap:10px;border:1px solid #ddd;border-radius:5px;background:#fafafa;>
                 ${groupHTML}
             </div>
+            <br>
             <label><strong>Services</strong></label>
             <div style="max-height:160px;overflow-y:auto;display:flex;flex-wrap:wrap;gap:10px;border:1px solid #ddd;border-radius:5px;background:#fafafa;">
                 ${checkboxHTML}

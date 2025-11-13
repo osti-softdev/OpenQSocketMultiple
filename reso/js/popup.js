@@ -60,7 +60,7 @@ async function processQueue() {
 		activeTicketIds.delete(ticket.id);
 		isProcessing = false;
 		processQueue();
-	});
+	}); 
 }
 
 function showPopup(ticketData) {

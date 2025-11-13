@@ -6,16 +6,36 @@ $(document).ready(function () {
       console.warn("Invalid authUser in localStorage, clearing it.");
       localStorage.removeItem("authUser");
     }
+    setInterval(() => {
+      const user = JSON.parse(localStorage.getItem("authUser"));
+      if (!user || !user.cnum || !user.cuser) {
+        console.warn("⚠️ Auth user missing or invalid, auto-logging out...");
+        localStorage.removeItem("authUser");
+        localStorage.removeItem("tellerCreds");
+        window.location.href = "/312Xtellerlogin";
+      }
+    }, 30000); 
 
     if (!authUser) {
+        // Not logged in at all
       window.location.href = "/312Xtellerlogin";
     } else {
-      // Initial UI load
+      // Validate required keys before using them
+      const requiredKeys = ["id", "cname", "cnum", "cuser", "group_name"];
+      const hasMissing = requiredKeys.some(k => !authUser[k]);
+
+      if (hasMissing) {
+        console.warn("⚠️ Incomplete or corrupted authUser detected, logging out...");
+        localStorage.removeItem("authUser");
+        localStorage.removeItem("tellerCreds");
+        window.location.href = "/312Xtellerlogin";
+        return;
+      }
+
+      // Proceed as normal
       $(".titleHtml").text(authUser.cname);
       $(".usercounternum").text("Counter: " + authUser.cnum);
-      // $("#counterUser").text(authUser.cuser);
 
-      // Ask backend for teller services
       socket.emit("gettellerservices", {
         id: authUser.id,
         cuser: authUser.cuser,
@@ -31,7 +51,16 @@ $(document).ready(function () {
         cname: authUser.cname,
         group_name: authUser.group_name,
       });
-    } 
+    }
+
+    socket.on("reconnect", () => {
+      const creds = JSON.parse(localStorage.getItem("tellerCreds"));
+      if (creds) {
+        console.log("🔁 Socket reconnected, re-authenticating...");
+        socket.emit("tellerloginAttempt", creds);
+      }
+    });
+
     socket.on("calledtick", function(params) {
       // console.log("Activity Ticket: "+params.statusdata)
     })

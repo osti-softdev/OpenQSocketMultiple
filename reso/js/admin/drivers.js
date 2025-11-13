@@ -14,6 +14,7 @@ const driverObj = driver({
   steps: [
     // ! DASHBOARD STEPS
     { element: '.helpbtn', popover: { title: 'Admin Panel tutorials', description: 'Here is the window for system admin configurations . Let\'s walk you through it.', side: "bottom", align: 'start', onNextClick: () => {
+            $(".admbtnsoptions[data-page='dashboard']").click();   
             driverObj.moveNext();
         }, }},
     { element: '.adminbtns', popover: { title: 'Navigation Buttons', description: 'Buttons for Dashboard, Announcements, Advertisements, Settings.', side: "bottom", align: 'end' }},
@@ -39,8 +40,56 @@ const driverObj = driver({
         driverObj.moveNext();
         },  }},
     { element: '.dash-content3', popover: { title: 'Per Month Transactions.', description: 'Displayed in this 3rd chart is the Feedback(Line Chart) and Queueing(Bar chart) Per Month.', side: "right-top", align: 'start' }},
-    { element: '.dash-content4', popover: { title: 'Overall Records.', description: 'This table display the list of all transactions covered between the date range.', side: "right-top", align: 'start' }},
-    
+        {
+        element: '.dash-content4',
+        popover: {
+            title: 'Overall Records.',
+            description: 'This table displays the list of all transactions covered between the date range.',
+            side: "right-top",
+            align: 'start',
+            onNextClick: () => {
+                // Trigger the first history button
+                const firstBtn = $('#adminTable').find('.view-history').first();
+                if (firstBtn.length) firstBtn.trigger('click');
+
+                // Wait for the SweetAlert popup to appear, then move to the next step
+                const checkSwal = setInterval(() => {
+                    if ($('.swal2-popup').length) {
+                        clearInterval(checkSwal);
+                        driverObj.moveNext();
+                    }
+                }, 100);
+            }
+        }
+    },
+    {
+        // Highlight the SweetAlert2 popup
+        element: '.swal2-popup',
+        popover: {
+            title: 'Data History',
+            description: 'This popup shows the journey of a specific ticket — who handled it, when, and what actions occurred.',
+            side: "top",
+            align: 'center',
+            onNextClick: () => {
+                // Wait until the confirm button exists
+                const checkBtn = setInterval(() => {
+                    const closeBtn = document.querySelector('.swal2-confirm');
+                    if (closeBtn) {
+                        closeBtn.click(); // Trigger the "Close" button
+                        clearInterval(checkBtn);
+
+                        // Wait for the popup to close before moving next
+                        const checkClose = setInterval(() => {
+                            if (!$('.swal2-container').length) {
+                                clearInterval(checkClose);
+                                driverObj.moveNext();
+                            }
+                        }, 100);
+                    }
+                }, 100);
+            }
+        }
+    },
     // ! ANNOUNCEMENT STEPS
     {  popover: { title: 'Continue To Announcement Settings?', description: 'Let\'s walk you through it.', side: "bottom", align: 'start', onNextClick: () => {
         $(".admbtnsoptions[data-page='announcement']").click();

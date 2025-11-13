@@ -1013,3 +1013,27 @@
 ✔ 2025-11-11T09:24:26.344Z [..\..\index.js:329] 🔌 Client connected: MB3dMziRKexJTdk7AAAE | IP: 192.168.1.20
 ✔ 2025-11-11T09:24:26.378Z [..\..\index.js:329] 🔌 Client connected: nVO2OBq7CpYbe2cVAAAF | IP: 192.168.1.20
 ✔ 2025-11-11T09:24:31.030Z [..\..\index.js:329] 🔌 Client connected: qqradSvXIGrhxfQKAAAH | IP: 192.168.1.13
+✔ 2025-11-13T09:05:13.170Z [..\node\logger.js:83] Logger initialized at: C:\Users\OSTI_ITCENTRAL\Documents\GitHub\OpenQSocketMultiple\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-13T09:05:13.171Z [..\..\index.js:252] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-13T09:05:13.390Z [..\..\index.js:544] Stale PID 18836 found in C:\Users\OSTI_ITCENTRAL\Documents\GitHub\OpenQSocketMultiple\OpenQSocketMultiple\reso\outfolder\app.pid. Removing file.
+✔ 2025-11-13T09:05:13.392Z [..\..\index.js:554] Wrote PID 9724 to C:\Users\OSTI_ITCENTRAL\Documents\GitHub\OpenQSocketMultiple\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-13T09:05:13.483Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-13T09:05:13.484Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-13T09:05:13.484Z [..\node\db.js:25] Database connected
+✔ 2025-11-13T09:05:13.485Z [..\..\index.js:492] Database initialized successfully
+✔ 2025-11-13T09:05:13.485Z [..\node\logger.js:83] Logger initialized at: C:\Users\OSTI_ITCENTRAL\Documents\GitHub\OpenQSocketMultiple\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-13T09:05:13.489Z [..\..\index.js:501] Server running on http://192.168.1.14:12345
+✔ 2025-11-13T09:05:13.769Z [..\..\index.js:329] 🔌 Client connected: rC8zO-bCuWpSXtkBAAAB | IP: 192.168.1.14
+✔ 2025-11-13T09:05:13.799Z [..\node\admin\colorswatcheradmin.js:69] 🟢 Watching color configuration file: C:\Users\OSTI_ITCENTRAL\Documents\GitHub\OpenQSocketMultiple\OpenQSocketMultiple\reso\outfolder\config\modifications.json
+✔ 2025-11-13T09:05:13.861Z [..\node\calledTicketsWatcher.js:257] 👀 Watching DB changes...
+✔ 2025-11-13T09:05:13.861Z [..\node\calledTicketsWatcher.js:266] 👂 Watching voice config changes...
+✔ 2025-11-13T09:05:13.920Z [unknown] Cache cleared
+✔ 2025-11-13T09:05:14.445Z [..\..\index.js:329] 🔌 Client connected: kma0-zOI_YIkkDp8AAAE | IP: 192.168.1.14
+✔ 2025-11-13T09:05:14.490Z [..\..\index.js:329] 🔌 Client connected: hIAbY-as6m5nAlrlAAAF | IP: 192.168.1.14
+✔ 2025-11-13T09:05:17.419Z [..\..\index.js:329] 🔌 Client connected: uR1tTWZQLeGe5l-aAAAH | IP: 192.168.1.14
+✔ 2025-11-13T09:05:21.086Z [..\..\index.js:401] 🔌 Client disconnected: rC8zO-bCuWpSXtkBAAAB | IP: 192.168.1.14
+✔ 2025-11-13T09:05:21.184Z [..\..\index.js:329] 🔌 Client connected: 32qnRGEFzGXkN2g4AAAJ | IP: 192.168.1.14
+✔ 2025-11-13T09:05:26.391Z [..\..\index.js:401] 🔌 Client disconnected: 32qnRGEFzGXkN2g4AAAJ | IP: 192.168.1.14
+✔ 2025-11-13T09:05:32.515Z [..\..\index.js:329] 🔌 Client connected: ZR2R-OMoeiNBnbFuAAAL | IP: 192.168.1.14
+✔ 2025-11-13T09:05:32.615Z [..\node\admin\colorswatcheradmin.js:30] ✅ display_update.reset to 0
+✔ 2025-11-13T09:05:32.677Z [..\node\getads.js:83] [ADS] Client ZR2R-OMoeiNBnbFuAAAL requested ad refresh

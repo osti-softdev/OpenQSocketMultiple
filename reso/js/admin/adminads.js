@@ -64,11 +64,11 @@ function renderAdsList() {
 					body: JSON.stringify({ oldName: name, newName }),
 				});
 				if (!res.ok) throw new Error(await res.text());
-				msg(`Renamed to ${newName}`);
+				showMsg("success",`Renamed to ${newName}`);
 				socket.emit("requestAd");
 			} catch (err) {
 				console.error(err);
-				msg(`Rename failed: ${err.message}`, true);
+				showMsg("error",`Rename failed: ${err.message}`);
 			}
 		});
 
@@ -93,11 +93,11 @@ function renderAdsList() {
 					method: "DELETE",
 				});
 				if (!res.ok) throw new Error(await res.text());
-				msg(`Deleted ${name}`);
+				showMsg("success",`Deleted ${name}`);
 				socket.emit("requestAd");
 			} catch (err) {
 				console.error(err);
-				msg(`Delete failed: ${err.message}`, true);
+				showMsg("error",`Delete failed: ${err.message}`);
 			}
 		});
 
@@ -207,10 +207,7 @@ $(function () {
 		const $button = $(".adsupload");
 
 		if (file) {
-			$.notify(`File: ${file.name}\nClick Upload`, {
-				globalPosition: "top center",
-				className: "warn",
-			});
+			showMsg("info",`File: ${file.name}\nClick Upload`);
 
 			$label.attr("title", file.name);
 			$button.attr("title", file.name).addClass("blink-red");
@@ -232,21 +229,14 @@ $(function () {
 		try {
 			const res = await fetch("/upload-video", { method: "POST", body: fd });
 			if (!res.ok) throw new Error(await res.text());
-			msg("Upload complete.");
 			$button.removeClass("blink-red");
 			$("#videoFile").val("");
-			$.notify("File successfully uploaded", {
-				globalPosition: "top center",
-				className: "success",
-			});
+			showMsg("success","File successfully uploaded");
 			socket.emit("requestAd");
 		} catch (err) {
 			console.error(err);
 			msg(`Upload failed: ${err.message}`, true);
-			$.notify("Failed to upload file", {
-				globalPosition: "top center",
-				className: "error",
-			});
+			showMsg("error","Failed to upload file");
 		}
 	});
 });
