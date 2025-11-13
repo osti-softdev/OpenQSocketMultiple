@@ -8,7 +8,7 @@ $(function () {
         } else if (id === "exportPDF") {
             if (typeof barChartContent2 !== "undefined" && barChartContent2) saveTasks.push(saveChartImage(barChartContent2, "bar_chart"));
             if (typeof hourChart !== "undefined" && hourChart) saveTasks.push(saveChartImage(hourChart, "hourly_chart"));
-            if (typeof dateChart !== "undefined" && dateChart) saveTasks.push(saveChartImage(dateChart, "daily_chart"));
+            if (typeof dailyChart !== "undefined" && dailyChart) saveTasks.push(saveChartImage(dailyChart, "daily_chart"));
             if (typeof monthChart !== "undefined" && monthChart) saveTasks.push(saveChartImage(monthChart, "monthly_chart"));
 
             await Promise.all(saveTasks);
