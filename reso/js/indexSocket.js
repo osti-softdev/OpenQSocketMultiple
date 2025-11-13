@@ -7,35 +7,47 @@ socket.on("imagesupdates", (data) => {
 	}
 });
 
-let counterDisplayer = 1;
-// --- Services Display ---
+let currentDisplayConfig = null;
+let counterDisplayer = null;
+
+socket.on("DisplayUpdated", (config) => {
+    currentDisplayConfig = config; // store latest config
+    applyDisplayConfig(config);
+});
+
 socket.on("servicesDisplayUpdate", (data) => {
-	const { counterDisplay: newCounterDisplay, services } = data || {};
-		counterDisplayer = newCounterDisplay || 0;
-	const $servicesList = $("#servicesDisplay");
-	$servicesList.empty();
-	const $headerDiv = $("<div>").addClass("service-header");
-	$headerDiv.append($("<span>").addClass("tickethead").text("NOW SERVING"));
-	$servicesList.append($headerDiv);
+    const { counterDisplay: newCounterDisplay, services } = data || {};
+    counterDisplayer = newCounterDisplay || 0;
+    const $servicesList = $("#servicesDisplay");
+    $servicesList.empty();
 
-	if(counterDisplayer != 1){
-		services.forEach((service) => {
-			const $rowDiv = $("<div>").addClass("service-row");
-			$rowDiv.append($("<span>").addClass("service-name").html(service.shortSname));
-			$rowDiv.append($("<span>").addClass("service-ticket").text(service.ticket));
-			$servicesList.append($rowDiv);
-		});
-	}else{
-		services.forEach((service) => {
-				const $rowDiv = $("<div>").addClass("service-row");
-				$rowDiv.append($("<span>").addClass("service-name").html(service.shortSname));
-				$rowDiv.append($("<span>").addClass("service-ticket").text(service.ticket));
-				$rowDiv.append($("<span>").addClass("counter").text(service.counter_num));
-				$servicesList.append($rowDiv);
-		});
-	}
+    const $headerDiv = $("<div>").addClass("service-header");
+    $headerDiv.append($("<span>").addClass("tickethead").text("NOW SERVING"));
+    $servicesList.append($headerDiv);
 
-	setServicesDisplay(services.length);
+    if (counterDisplayer != 1) {
+        services.forEach((service) => {
+            const $rowDiv = $("<div>").addClass("service-row");
+            $rowDiv.append($("<span>").addClass("service-name").html(service.shortSname));
+            $rowDiv.append($("<span>").addClass("service-ticket").text(service.ticket));
+            $servicesList.append($rowDiv);
+        });
+    } else {
+        services.forEach((service) => {
+            const $rowDiv = $("<div>").addClass("service-row");
+            $rowDiv.append($("<span>").addClass("service-name").html(service.shortSname));
+            $rowDiv.append($("<span>").addClass("service-ticket").text(service.ticket));
+            $rowDiv.append($("<span>").addClass("counter").text(service.counter_num));
+            $servicesList.append($rowDiv);
+        });
+    }
+
+    setServicesDisplay(services.length);
+
+    // ✅ reapply config colors after rebuilding the DOM
+    if (currentDisplayConfig) {
+        applyDisplayConfig(currentDisplayConfig);
+    }
 });
 
 function setServicesDisplay(count) {
@@ -332,13 +344,9 @@ function setServicesDisplay(count) {
 		});
 	}
 }
-socket.on("DisplayUpdated", (config) => {
-    applyDisplayConfig(config);		
-});
 
 function applyDisplayConfig(config) {
   const displayUpdate = config.display_update || {};
-	console.log(config)
 	   if (displayUpdate.update === 1) {
         socket.emit("updateDisplay");
         socket.once("updatedisplaySuccess", () => {

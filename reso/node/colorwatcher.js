@@ -70,9 +70,7 @@ function setupdisplaycolorwatcher(socket, io) {
 	// 	readAndEmit(target, footerPath, "footerUpdated");
 	// }
 	function sendDisplay(target) {
-		setTimeout(() => {
 		readAndEmit(target, modsPath, "DisplayUpdated");			
-		}, 1000);
 	}
 
 	function readAndEmit(target, filePath, event) {
