@@ -76,6 +76,7 @@ socket.on("adminServices", function(res) {
                 sname: $snameInput.val(),
                 shortSname: $shortName.val(),
                 regular: $regularInput.val(),
+                priority: $priorityInput.val(),
                 status: $statusCheckbox.is(":checked") ? 1 : 0,
                 sched: $schedInput.val()
             };
