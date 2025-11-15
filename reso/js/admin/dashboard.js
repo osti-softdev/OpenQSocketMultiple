@@ -14,18 +14,19 @@ $(document).ready(function () {
 				$("#ann").show();
 				$("#ads").show();
 				$("#settings").show();
-				$(".settservicesupdate").css({
-					"top": "0",
-					"left": "0",
-					"height": "100%",
-					"width": "100%",
-				});
+				// $(".settservicesupdate").css({
+				// 	"top": "0",
+				// 	"left": "0",
+				// 	"height": "100%",
+				// 	"width": "50%",
+				// });
 				$(".setttellertupdate").css({
 					"top": "0",
-					"left": "0",
+					"left": "0%",
 					"height": "100%",
 					"width": "100%",
 				});
+				$(".settservicesupdate").hide();
 				$(".settaccountcreation").hide();
 				$(".settsystemsetting").hide();
 				$(".settcolorupdate").hide();

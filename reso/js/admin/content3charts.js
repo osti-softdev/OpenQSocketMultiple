@@ -1,5 +1,4 @@
 $(document).ready(function () {
-	let withfeedback = 1;
 	
 	// Color palette for bar charts (transactions)
 	const colors = [

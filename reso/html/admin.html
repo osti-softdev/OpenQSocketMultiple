@@ -489,6 +489,9 @@ let hourChart;
 let dailyChart;
 let monthChart;
 
+// ! Feedback Switch
+let withfeedback = 0;
+
     function copyToClipboard(text) {
         navigator.clipboard.writeText(text).then(() => {
         		showMsg("success","Copied to Clipboard");
