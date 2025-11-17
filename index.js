@@ -569,39 +569,46 @@ let displayWindow = null;
 let kioskWindow = null;
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 function createWindow() {
-	// ! DISPLAY WINDOW
-	const broadcasturl = `http://${ownip}:${serverPort}/main`;
-	const kioskurl = `http://${ownip}:${serverPort}/kiosk`;
-	const displays = screen.getAllDisplays();
-	let windowOptions = {
-		width: 450,
-		height: 450,
-		autoHideMenuBar: true,
-		frame: true,
-	};
+    const broadcastUrl = `http://${ownip}:${serverPort}/main`;
+    const kioskUrl = `http://${ownip}:${serverPort}/kiosk`;
 
-	if (displays.length > 1) {
-		const externalDisplay = displays.find(
-			(d) => d.bounds.x !== 0 || d.bounds.y !== 0
-		);
-		if (externalDisplay) {
-			windowOptions.x = externalDisplay.bounds.x + 50;
-			windowOptions.y = externalDisplay.bounds.y + 50;
-		}
-	}
+    const displays = screen.getAllDisplays();
 
-	displayWindow = new BrowserWindow(windowOptions);
-	displayWindow.loadURL(broadcasturl);
-	displayWindow.setFullScreen(true);
-	displayWindow.on("closed", handleWindowClosed);
+    // --- Find external display ---
+    const externalDisplay = displays.find(d => d.bounds.x !== 0 || d.bounds.y !== 0);
 
-	// ! KIOSK WINDOW
-	if(isWindowed){
-		kioskWindow = new BrowserWindow(windowOptions);
-		kioskWindow.loadURL(kioskurl);
-		kioskWindow.setFullScreen(true);
-		kioskWindow.on("closed", handleWindowClosed);
-	}
+    if (!externalDisplay) {
+        console.warn("No extended display found. Display window will open on primary screen.");
+        return;
+    }
+
+    // --- DISPLAY WINDOW on extended screen ---
+    const displayWindowOptions = {
+        x: externalDisplay.bounds.x + 50,
+        y: externalDisplay.bounds.y + 50,
+        width: 450,
+        height: 450,
+        frame: true,
+        autoHideMenuBar: true
+    };
+
+    displayWindow = new BrowserWindow(displayWindowOptions);
+    displayWindow.loadURL(broadcastUrl);
+    displayWindow.setFullScreen(true);
+    displayWindow.on("closed", handleWindowClosed);
+
+    // --- KIOSK WINDOW on primary screen ---
+    if (isWindowed) {
+        kioskWindow = new BrowserWindow({
+            width: 450,
+            height: 450,
+            frame: true,
+            autoHideMenuBar: true
+        });
+        kioskWindow.loadURL(kioskUrl);
+        kioskWindow.setFullScreen(true);
+        kioskWindow.on("closed", handleWindowClosed);
+    }
 }
 
 function handleWindowClosed() {

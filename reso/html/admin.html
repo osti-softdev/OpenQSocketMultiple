@@ -27,6 +27,14 @@
 <script>
     Chart.register(ChartDataLabels);
      Chart.register(ChartZoom);
+
+     let barChartContent2;
+let hourChart;
+let dailyChart;
+let monthChart;
+
+// ==== Feedback Switch ==== 
+let withfeedback = 0;
 </script>
     <link rel="stylesheet" href="/css/admin.css">
     <script src="/socket.io/socket.io.js"></script>
@@ -418,11 +426,15 @@
                     <span class="systemsettingdata">
                         <label>Database Size: <span class="settdbdatadbsize"></span></label>
                         <label>Data Retention: 
-                            <input type="number" class="settdataretention" min="0"> days.
+                            <input type="number" class="settdbdataretention" min="0"> days.
                         </label>
                         <label>Sms Feature: 
                             <input type="checkbox" class="settdbdatasmsfeature">
                             <span class="settdbdatasmsfeaturelabel">OFF</span>
+                        </label>
+                        <label>CFS Switch: 
+                            <input type="checkbox" class="settdbdatafeedbackswitch">
+                            <span class="settdbdatafeedbackswitchlabel">OFF</span>
                         </label>
                         <label>Counter Display: 
                             <input type="checkbox" class="settdbdatacounter">
@@ -461,7 +473,11 @@
         </div>
     </div>
 
-    <script>const socket = io();</script>
+    <script>const socket = io({
+           reconnection: true,
+    reconnectionAttempts: Infinity,
+    reconnectionDelay: 1000,
+    });</script>
     <script type="module" src="/js/admin/modules.js"></script>
     <script src="/js/admin/dashboard.js"></script>
     <script src="/js/admin/adminSocket.js"></script>
@@ -482,20 +498,12 @@
     <script src="/js/admin/dashexports.js"></script>
     <script src="/js/admin/drivers.js"></script>
     <script src="/js/admin/alert.js"></script>
+    <script src="/js/admin/serverloading.js"></script>
     
     <script>
-let barChartContent2;
-let hourChart;
-let dailyChart;
-let monthChart;
-
-// ==== Feedback Switch ==== 
-let withfeedback = 0;
-
     function copyToClipboard(text) {
         navigator.clipboard.writeText(text).then(() => {
         		showMsg("success","Copied to Clipboard");
-
         
         }).catch(err => {
         		showMsg("error","Failed to copy to clipboard");
@@ -504,7 +512,7 @@ let withfeedback = 0;
         // setInterval(() => {
         //     window.location.reload();
         // }, 1000);
-        
+
     </script>
 </body>
 </html>

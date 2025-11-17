@@ -35,11 +35,23 @@ function getValue(selector, fallback = "0") {
     if (txt.includes(":")) return txt.split(":").pop().trim();
     return txt;
 }
+// ---------------- DYNAMIC OVRCOUNT SCANNER ----------------
+function getAllOvrCnt() {
+    const result = {};
 
+    $("[data-ovrcnt]").each(function () {
+        const key = $(this).data("ovrcnt");
+        const value = $(this).text().trim() || $(this).val() || "0";
+        result[key] = value;
+    });
+
+    return result;
+}
 // ---------------- CSV EXPORT ----------------
 function generateCSV() {
     let csvContent = "";
     const today = new Date().toLocaleDateString();
+
     // --- Overview Section ---
     const totalCount    = getValue(".content2totalcount", "0");
     const totalRated    = getValue(".content2totalrated", "0");
@@ -49,39 +61,53 @@ function generateCSV() {
     const mostRating    = getValue(".content2commonrating", "None");
 
     csvContent += "Overview\n";
-    csvContent += ["Total Transactions","Total Rated","Total Served","Total Unserved","Most Service","Most Rating"].join(",") + "\n";
-    csvContent += [totalCount,totalRated,totalServed,totalUnserved,mostService,mostRating].map(c=>`"${c}"`).join(",") + "\n\n";
-
-    // --- Service Details Section ---
-    const overCar        = getValue("[data-ovrcnt='carwash']", "0");
-    const overMotor      = getValue("[data-ovrcnt='motorwash']", "0");
-    const overHelmet     = getValue("[data-ovrcnt='helmetwash']", "0");
-    const overSatisfied  = getValue("[data-ovrcnt='satisfied']", "0");
-    const overUnsatisfied= getValue("[data-ovrcnt='unsatisfied']", "0");
+    if(withfeedback){
+        csvContent += ["Total Transactions","Total Rated","Total Served","Total Unserved","Most Service","Most Rating"].join(",") + "\n";
+        csvContent += [totalCount,totalRated,totalServed,totalUnserved,mostService,mostRating].map(c=>`"${c}"`).join(",") + "\n\n";
+    }else{
+         csvContent += ["Total Transactions","Total Served","Total Unserved","Most Service"].join(",") + "\n";
+        csvContent += [totalCount,totalServed,totalUnserved,mostService].map(c=>`"${c}"`).join(",") + "\n\n";
+    }
+    
+    // ---------------- Dynamic Service Details ----------------
+    const ovrCnt = getAllOvrCnt();
 
     csvContent += "Service Details\n";
-    csvContent += ["Carwash","Motorwash","Helmetwash","Satisfied","Unsatisfied"].join(",") + "\n";
-    csvContent += [overCar, overMotor, overHelmet, overSatisfied, overUnsatisfied].map(c=>`"${c}"`).join(",") + "\n\n";
+    csvContent += Object.keys(ovrCnt).map(k => `"${k}"`).join(",") + "\n";
+    csvContent += Object.values(ovrCnt).map(v => `"${v}"`).join(",") + "\n\n";
 
-    // --- Feedback Section ---
-    if (latestAveragesfeedback && latestAveragesfeedback.length > 0) {
-        csvContent += "Feedback\n";
-        csvContent += ["Date","Satisfied","Unsatisfied"].join(",") + "\n";
-        latestAveragesfeedback.forEach(fb => {
-            csvContent += [fb.date, fb.satisfied_count || 0, fb.unsatisfied_count || 0].map(c=>`"${c}"`).join(",") + "\n";
-        });
-        csvContent += "\n";
+    if(withfeedback){
+        // --- Feedback Section ---
+        if (latestAveragesfeedback && latestAveragesfeedback.length > 0) {
+            csvContent += "Feedback\n";
+            csvContent += ["Date","Satisfied","Unsatisfied"].join(",") + "\n";
+            latestAveragesfeedback.forEach(fb => {
+                csvContent += [fb.date, fb.satisfied_count || 0, fb.unsatisfied_count || 0].map(c=>`"${c}"`).join(",") + "\n";
+            });
+            csvContent += "\n";
+        }
     }
-
+    
     // --- Transactions Avg/Date Section ---
-    if (latestAveragestransactions && latestAveragestransactions.length > 0) {
-        csvContent += "Transactions Avg/Date\n";
-        csvContent += ["Date","Total","Avg/Date"].join(",") + "\n";
-        latestAveragestransactions.forEach(tr => {
-            csvContent += [tr.date, tr.total_transactions || 0, Math.round(tr.average_count_per_date || 0)].map(c=>`"${c}"`).join(",") + "\n";
-        });
-        csvContent += "\n";
-    }
+   // --- Transactions Avg/Date Section ---
+if (latestAveragestransactions && latestAveragestransactions.length > 0) {
+    csvContent += "Transactions Avg/Date\n";
+    csvContent += ["Date","Total"].join(",") + "\n";
+
+    let totalTransactions = 0;
+    let countDates = latestAveragestransactions.length;
+
+    // List all transactions with totals but no avg
+    latestAveragestransactions.forEach(tr => {
+        csvContent += [tr.date, tr.total_transactions || 0].map(c=>`"${c}"`).join(",") + "\n";
+        totalTransactions += tr.total_transactions || 0;
+    });
+
+    // Add the overall average per date only once
+    const avgPerDate = countDates ?  Math.round(totalTransactions / countDates) : 0;
+    csvContent += `,"Average per Date","${avgPerDate}"\n\n`;
+}
+
 
     // --- Time Averages Section ---
     if (latestAverages && latestAverages.length > 0) {
@@ -89,7 +115,8 @@ function generateCSV() {
         csvContent += "Time Averages\n";
         csvContent += headers.join(",") + "\n";
         latestAverages.forEach(row => {
-            csvContent += [row.sname || "", row.average_waiting || "", row.serving_time || "", row.turnaround_time || ""].map(c=>`"${c}"`).join(",") + "\n";
+            csvContent += [row.sname || "", row.average_waiting || "", row.serving_time || "", row.turnaround_time || ""]
+                .map(c=>`"${c}"`).join(",") + "\n";
         });
     }
 
@@ -132,61 +159,152 @@ async function generatePDF() {
     pdf.setFontSize(12);
     pdf.text(`Generated Report – ${today}`, 105, 26, { align: "center" });
 
-    // --- Charts ---
-    const chartFiles = ["/images/charts/bar_chart.png","/images/charts/hourly_chart.png","/images/charts/daily_chart.png","/images/charts/monthly_chart.png"];
-    let yPos = 40, imgWidth = 170, imgHeight = 60;
+    const chartFiles = [
+        "/images/charts/bar_chart.png",
+        "/images/charts/hourly_chart.png",
+        "/images/charts/daily_chart.png",
+        "/images/charts/monthly_chart.png"
+    ];
+
+    let yPos = 40;
+    const imgWidth = 170, imgHeight = 60;
 
     async function getBase64Image(url) {
-        const res = await fetch(url); const blob = await res.blob();
-        return new Promise(resolve => { const reader = new FileReader(); reader.onloadend = () => resolve(reader.result); reader.readAsDataURL(blob); });
+        const res = await fetch(url);
+        const blob = await res.blob();
+        return new Promise(resolve => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result);
+            reader.readAsDataURL(blob);
+        });
     }
 
-    pdf.setFontSize(14); pdf.text("Charts", 14, yPos - 5);
-    for (let f of chartFiles) {
+    pdf.setFontSize(14);
+    pdf.text("Charts", 14, yPos - 5);
+
+    for (const f of chartFiles) {
         try {
             const imgData = await getBase64Image(f);
-            if (yPos + imgHeight > 270) { pdf.addPage(); yPos = 30; }
+            if (yPos + imgHeight > 270) {
+                pdf.addPage();
+                yPos = 30;
+            }
             pdf.addImage(imgData, "PNG", 20, yPos, imgWidth, imgHeight);
             yPos += imgHeight + 15;
-        } catch (e) { console.warn("⚠️ Could not load chart:", f, e); }
+        } catch (e) {
+            console.warn("Chart load failed:", f, e);
+        }
     }
 
-    // --- Overview + Service Details ---
-    const totalCount = getValue(".content2totalcount","0"), totalRated = getValue(".content2totalrated","0");
-    const totalServed = getValue(".content2totalserved","0"), totalUnserved = getValue(".content2totalunserved","0");
-    const mostService = getValue(".content2commonservice","None"), mostRating = getValue(".content2commonrating","None");
+    // ------------------ OVERVIEW ------------------
+    const totalCount = getValue(".content2totalcount", "0");
+    const totalRated = getValue(".content2totalrated", "0");
+    const totalServed = getValue(".content2totalserved", "0");
+    const totalUnserved = getValue(".content2totalunserved", "0");
+    const mostService = getValue(".content2commonservice", "None");
+    const mostRating = getValue(".content2commonrating", "None");
 
-    const overCar = getValue("[data-ovrcnt='carwash']","0"), overMotor = getValue("[data-ovrcnt='motorwash']","0");
-    const overHelmet = getValue("[data-ovrcnt='helmetwash']","0"), overSatisfied = getValue("[data-ovrcnt='satisfied']","0");
-    const overUnsatisfied = getValue("[data-ovrcnt='unsatisfied']","0");
+    if (yPos + 50 > 270) {
+        pdf.addPage();
+        yPos = 30;
+    }
 
-    if (yPos + 60 > 270) { pdf.addPage(); yPos = 30; }
+    pdf.text("Overview", 14, yPos);
 
-    pdf.text("Overview",14,yPos);
-    pdf.autoTable({ startY:yPos+5, head:[["Total Transactions","Total Rated","Total Served","Total Unserved","Most Service","Most Rating"]], body:[[totalCount,totalRated,totalServed,totalUnserved,mostService,mostRating]], theme:"grid", styles:{fontSize:10,halign:"center"}, headStyles:{fillColor:[41,128,185],textColor:255} });
+    let overviewHead, overviewBody;
 
-    pdf.text("Service Details",14,pdf.lastAutoTable.finalY+12);
-    pdf.autoTable({ startY: pdf.lastAutoTable.finalY+18, head:[["Carwash","Motorwash","Helmetwash","Satisfied","Unsatisfied"]], body:[[overCar,overMotor,overHelmet,overSatisfied,overUnsatisfied]], theme:"grid", styles:{fontSize:10,halign:"center"}, headStyles:{fillColor:[39,174,96],textColor:255} });
+    if (withfeedback) {
+        overviewHead = [["Total Transactions","Total Rated","Total Served","Total Unserved","Most Service","Most Rating"]];
+        overviewBody = [[totalCount,totalRated,totalServed,totalUnserved,mostService,mostRating]];
+    } else {
+        overviewHead = [["Total Transactions","Total Served","Total Unserved","Most Service"]];
+        overviewBody = [[totalCount,totalServed,totalUnserved,mostService]];
+    }
+
+    pdf.autoTable({
+        startY: yPos + 5,
+        head: overviewHead,
+        body: overviewBody,
+        theme: "grid",
+        styles: { fontSize: 10, halign: "center" },
+        headStyles: { fillColor: [41, 128, 185], textColor: 255 }
+    });
+
+    // ------------------ SERVICE DETAILS (DYNAMIC) ------------------
+    const ovrCnt = getAllOvrCnt(); // dynamic scanner
+
+    pdf.text("Service Details", 14, pdf.lastAutoTable.finalY + 12);
+
+    pdf.autoTable({
+        startY: pdf.lastAutoTable.finalY + 18,
+        head: [Object.keys(ovrCnt)],
+        body: [Object.values(ovrCnt)],
+        theme: "grid",
+        styles: { fontSize: 10, halign: "center" },
+        headStyles: { fillColor: [39, 174, 96], textColor: 255 }
+    });
 
     yPos = pdf.lastAutoTable.finalY + 20;
 
-    // --- Feedback Table ---
-    if (latestAveragesfeedback && latestAveragesfeedback.length) {
-        const feedbackData = latestAveragesfeedback.map(fb => [fb.date, fb.satisfied_count||0, fb.unsatisfied_count||0]);
-        pdf.text("Feedback",14,yPos);
-        pdf.autoTable({ startY:yPos+6, head:[["Date","Satisfied","Unsatisfied"]], body:feedbackData, theme:"grid", styles:{fontSize:10,halign:"center"}, headStyles:{fillColor:[241,196,15],textColor:0} });
-        yPos = pdf.lastAutoTable.finalY+20;
+    // ------------------ FEEDBACK TABLE ------------------
+    if (withfeedback && latestAveragesfeedback?.length) {
+        const feedbackData = latestAveragesfeedback.map(fb => [
+            fb.date,
+            fb.satisfied_count || 0,
+            fb.unsatisfied_count || 0
+        ]);
+
+        pdf.text("Feedback", 14, yPos);
+
+        pdf.autoTable({
+            startY: yPos + 6,
+            head: [["Date","Satisfied","Unsatisfied"]],
+            body: feedbackData,
+            theme: "grid",
+            styles: { fontSize: 10, halign: "center" },
+            headStyles: { fillColor: [241, 196, 15], textColor: 0 }
+        });
+
+        yPos = pdf.lastAutoTable.finalY + 20;
     }
 
-    // --- Transactions Avg/Date Table ---
-    if (latestAveragestransactions && latestAveragestransactions.length) {
-        const transactionsData = latestAveragestransactions.map(tr => [tr.date, tr.total_transactions||0, Math.round(tr.average_count_per_date||0)]);
-        pdf.text("Transactions Avg/Date",14,yPos);
-        pdf.autoTable({ startY:yPos+6, head:[["Date","Total","Avg/Date"]], body:transactionsData, theme:"grid", styles:{fontSize:10,halign:"center"}, headStyles:{fillColor:[231,76,60],textColor:255} });
-        yPos = pdf.lastAutoTable.finalY+20;
+    // ------------------ TRANSACTIONS AVG/DATE ------------------
+    if (latestAveragestransactions?.length) {
+        // Prepare body without Avg/Date
+        const transactionsBody = latestAveragestransactions.map(tr => [
+            tr.date,
+            tr.total_transactions || 0
+        ]);
+
+        // Calculate overall average per date
+        const totalTransactions = latestAveragestransactions.reduce((sum, tr) => sum + (tr.total_transactions || 0), 0);
+        const countDates = latestAveragestransactions.length;
+        const avgPerDate = countDates ? Math.round(totalTransactions / countDates) : 0;
+
+        pdf.text("Transactions Avg/Date", 14, yPos);
+
+        pdf.autoTable({
+            startY: yPos + 6,
+            head: [["Date", "Total"]],
+            body: transactionsBody,
+            theme: "grid",
+            styles: { fontSize: 10, halign: "center" },
+            headStyles: { fillColor: [231, 76, 60], textColor: 255 }
+        });
+
+        // Add average per date as a single row below the table
+        pdf.autoTable({
+            startY: pdf.lastAutoTable.finalY + 4,
+            head: [["Average per Date", avgPerDate]],
+            theme: "grid",
+            styles: { fontSize: 10, halign: "center" },
+            headStyles: { fillColor: [41, 128, 185], textColor: 255 }
+        });
+
+        yPos = pdf.lastAutoTable.finalY + 20;
     }
 
-    // --- Time Averages ---
+    // ------------------ TIME AVERAGES ------------------
     const averages = [];
     $(".content2-detailsAverage .sname-block").each(function () {
         averages.push([
@@ -196,69 +314,211 @@ async function generatePDF() {
             $(this).find(".metric:eq(2) span:last").text().trim()
         ]);
     });
-    if (averages.length) { if (yPos+50>270){pdf.addPage();yPos=30;} pdf.text("Time Averages",14,yPos); pdf.autoTable({ startY:yPos+6, head:[["Service","Avg Waiting","Avg Serving","Avg Turnaround"]], body:averages, theme:"grid", styles:{fontSize:10,halign:"center"}, headStyles:{fillColor:[142,68,173],textColor:255} }); yPos=pdf.lastAutoTable.finalY+20; }
 
-    // --- Transactions ---
-    if (yPos + 50 > 270) { pdf.addPage(); yPos = 30; }
-    pdf.text("Transactions",14,yPos);
+    if (averages.length) {
+        if (yPos + 50 > 270) {
+            pdf.addPage();
+            yPos = 30;
+        }
+
+        pdf.text("Time Averages", 14, yPos);
+
+        pdf.autoTable({
+            startY: yPos + 6,
+            head: [["Service","Avg Waiting","Avg Serving","Avg Turnaround"]],
+            body: averages,
+            theme: "grid",
+            styles: { fontSize: 10, halign: "center" },
+            headStyles: { fillColor: [142, 68, 173], textColor: 255 }
+        });
+
+        yPos = pdf.lastAutoTable.finalY + 20;
+    }
+
+    // ------------------ TRANSACTIONS TABLE ------------------
+    if (yPos + 50 > 270) {
+        pdf.addPage();
+        yPos = 30;
+    }
+
+    pdf.text("Transactions", 14, yPos);
+
     const table = $('#adminTable').DataTable();
+
     const head = table.columns().header().toArray().map(th => $(th).text().trim());
-    const body = table.rows().data().toArray().map(r => r.map(c => $("<div>").html(c).text().replace(/\s+/g," ").trim()));
-    if (head.length && body.length) pdf.autoTable({ startY:yPos+6, head:[head], body:body, theme:"striped", styles:{fontSize:8,halign:"center"}, headStyles:{fillColor:[231,76,60],textColor:255}, didDrawPage:function(){ pdf.setFontSize(8); pdf.text("Page "+pdf.internal.getNumberOfPages(), pdf.internal.pageSize.width-20, pdf.internal.pageSize.height-10); } });
+    const body = table.rows().data().toArray().map(row =>
+        row.map(c => $("<div>").html(c).text().replace(/\s+/g, " ").trim())
+    );
+
+    if (head.length && body.length) {
+        pdf.autoTable({
+            startY: yPos + 6,
+            head: [head],
+            body: body,
+            theme: "striped",
+            styles: { fontSize: 8, halign: "center" },
+            headStyles: { fillColor: [231, 76, 60], textColor: 255 },
+            didDrawPage: function () {
+                pdf.setFontSize(8);
+                pdf.text("Page " + pdf.internal.getNumberOfPages(),
+                    pdf.internal.pageSize.width - 20,
+                    pdf.internal.pageSize.height - 10
+                );
+            }
+        });
+    }
+
     pdf.save(`OpenQ_Report_${today}.pdf`);
 }
 
 // ---------------- EXCEL EXPORT ----------------
 async function generateExcel() {
     const wb = XLSX.utils.book_new();
-    wb.Props = { Title:"OpenQ Report", Author:"OpenQ System", CreatedDate:new Date() };
+    wb.Props = { 
+        Title: "OpenQ Report",
+        Author: "OpenQ System",
+        CreatedDate: new Date()
+    };
+
     const today = new Date().toLocaleDateString();
 
-    // --- Overview Sheet ---
+    // ------------------ OVERVIEW SHEET ------------------
     const overviewSheetData = [];
+
     overviewSheetData.push(["--- Overview ---"]);
-    overviewSheetData.push(["Total Transactions","Total Rated","Total Served","Total Unserved","Most Service","Most Rating"]);
-    overviewSheetData.push([getValue(".content2totalcount","0"),getValue(".content2totalrated","0"),getValue(".content2totalserved","0"),getValue(".content2totalunserved","0"),getValue(".content2commonservice","None"),getValue(".content2commonrating","None")]);
+
+    let overviewHead, overviewBody;
+
+    if (withfeedback) {
+        overviewHead = [
+            "Total Transactions",
+            "Total Rated",
+            "Total Served",
+            "Total Unserved",
+            "Most Service",
+            "Most Rating"
+        ];
+
+        overviewBody = [
+            getValue(".content2totalcount", "0"),
+            getValue(".content2totalrated", "0"),
+            getValue(".content2totalserved", "0"),
+            getValue(".content2totalunserved", "0"),
+            getValue(".content2commonservice", "None"),
+            getValue(".content2commonrating", "None")
+        ];
+
+    } else {
+        overviewHead = [
+            "Total Transactions",
+            "Total Served",
+            "Total Unserved",
+            "Most Service"
+        ];
+
+        overviewBody = [
+            getValue(".content2totalcount", "0"),
+            getValue(".content2totalserved", "0"),
+            getValue(".content2totalunserved", "0"),
+            getValue(".content2commonservice", "None")
+        ];
+    }
+
+    overviewSheetData.push(overviewHead);
+    overviewSheetData.push(overviewBody);
     overviewSheetData.push([]);
+
+    // ------------------ SERVICE DETAILS (Dynamic) ------------------
+    const ovrCnt = getAllOvrCnt();
     overviewSheetData.push(["--- Service Details ---"]);
-    overviewSheetData.push(["Carwash","Motorwash","Helmetwash","Satisfied","Unsatisfied"]);
-    overviewSheetData.push([getValue("[data-ovrcnt='carwash']","0"),getValue("[data-ovrcnt='motorwash']","0"),getValue("[data-ovrcnt='helmetwash']","0"),getValue("[data-ovrcnt='satisfied']","0"),getValue("[data-ovrcnt='unsatisfied']","0")]);
+    overviewSheetData.push(Object.keys(ovrCnt));
+    overviewSheetData.push(Object.values(ovrCnt));
     overviewSheetData.push([]);
 
-    // Add sheets for Feedback
-    if (latestAveragesfeedback && latestAveragesfeedback.length) {
-        const feedbackData = [["Date","Satisfied","Unsatisfied"]];
-        latestAveragesfeedback.forEach(fb => feedbackData.push([fb.date, fb.satisfied_count||0, fb.unsatisfied_count||0]));
-        wb.SheetNames.push("Feedback");
-        wb.Sheets["Feedback"] = XLSX.utils.aoa_to_sheet(feedbackData);
-    }
-
-    // Add sheets for Transactions Avg
-    if (latestAveragestransactions && latestAveragestransactions.length) {
-        const transactionsData = [["Date","Total","Avg/Date"]];
-        latestAveragestransactions.forEach(tr => transactionsData.push([tr.date, tr.total_transactions||0, Math.round(tr.average_count_per_date||0)]));
-        wb.SheetNames.push("Transactions Avg");
-        wb.Sheets["Transactions Avg"] = XLSX.utils.aoa_to_sheet(transactionsData);
-    }
-
-    // Add Time Averages to Overview sheet
+    // ------------------ TIME AVERAGES ------------------
     if (latestAverages && latestAverages.length) {
         overviewSheetData.push(["--- Time Averages ---"]);
         overviewSheetData.push(["Service","Average Waiting","Serving Time","Turnaround Time"]);
-        latestAverages.forEach(r => overviewSheetData.push([r.sname||"",r.average_waiting||"",r.serving_time||"",r.turnaround_time||""]));
+
+        latestAverages.forEach(r => {
+            overviewSheetData.push([
+                r.sname || "",
+                r.average_waiting || "",
+                r.serving_time || "",
+                r.turnaround_time || ""
+            ]);
+        });
+
+        overviewSheetData.push([]);
     }
 
     // Add Overview sheet
     wb.SheetNames.push("Overview");
     wb.Sheets["Overview"] = XLSX.utils.aoa_to_sheet(overviewSheetData);
 
-    // Add Transactions sheet
-    if (latestRawData && latestRawData.length) {
-        const transactionsData = [["Service Name","Ticket","Status","Time","Start Time","End Time","Date","History"]];
-        latestRawData.forEach(r => transactionsData.push([r.sname||"", (r.service||"")+(r.ticket||""), r.status||"", r.time||"", r.start_time||"", r.end_time||"", r.date||"", r.history||""]));
-        wb.SheetNames.push("Transactions");
-        wb.Sheets["Transactions"] = XLSX.utils.aoa_to_sheet(transactionsData);
+    // ------------------ FEEDBACK SHEET ------------------
+    if (withfeedback && latestAveragesfeedback && latestAveragesfeedback.length) {
+        const feedbackData = [["Date","Satisfied","Unsatisfied"]];
+
+        latestAveragesfeedback.forEach(fb => {
+            feedbackData.push([
+                fb.date,
+                fb.satisfied_count || 0,
+                fb.unsatisfied_count || 0
+            ]);
+        });
+
+        wb.SheetNames.push("Feedback");
+        wb.Sheets["Feedback"] = XLSX.utils.aoa_to_sheet(feedbackData);
     }
 
-    XLSX.writeFile(wb,`OpenQ_Report_${today}.xlsx`);
+    // ------------------ TRANSACTIONS AVERAGE SHEET ------------------
+   if (latestAveragestransactions && latestAveragestransactions.length) {
+        const tData = [["Date", "Total"]]; // Remove Avg/Date from each row
+
+        let totalTransactions = 0;
+        const countDates = latestAveragestransactions.length;
+
+        // Add all transactions with totals
+        latestAveragestransactions.forEach(tr => {
+            tData.push([
+                tr.date,
+                tr.total_transactions || 0
+            ]);
+            totalTransactions += tr.total_transactions || 0;
+        });
+
+        // Calculate overall average per date
+        const avgPerDate = countDates ? (totalTransactions / countDates) : 0;
+
+        // Add a single row for Avg/Date at the bottom
+        tData.push(["Average per Date", avgPerDate]);
+
+        wb.SheetNames.push("Transactions Avg");
+        wb.Sheets["Transactions Avg"] = XLSX.utils.aoa_to_sheet(tData);
+}
+
+    // ------------------ RAW TRANSACTIONS SHEET ------------------
+    if (latestRawData && latestRawData.length) {
+        const rawData = [["Service Name","Ticket","Status","Time","Start Time","End Time","Date","History"]];
+
+        latestRawData.forEach(r => {
+            rawData.push([
+                r.sname || "",
+                (r.service || "") + (r.ticket || ""),
+                r.status || "",
+                r.time || "",
+                r.start_time || "",
+                r.end_time || "",
+                r.date || "",
+                r.history || ""
+            ]);
+        });
+
+        wb.SheetNames.push("Transactions");
+        wb.Sheets["Transactions"] = XLSX.utils.aoa_to_sheet(rawData);
+    }
+
+    // ------------------ SAVE FILE ------------------
+    XLSX.writeFile(wb, `OpenQ_Report_${today}.xlsx`);
 }

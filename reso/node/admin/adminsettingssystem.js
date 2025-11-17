@@ -47,6 +47,7 @@ function setupsystemconfigurations(socket, io) {
 	const systemType = config?.MainServer?.systemType;
 	const counterDisplay = config?.MainServer?.counterDisplay;
 	const databaseRetentionDays = config?.MainServer?.databaseRetentionDays;
+	const feedbackswitch = config?.MainServer?.feedbackswitch;
 
 	// Watch DB for live updates
 	if (!watcherAdded) {
@@ -61,6 +62,7 @@ function setupsystemconfigurations(socket, io) {
 						systemType,
 						counterDisplay,
 						databaseRetentionDays,
+						feedbackswitch
 					},
 				});
 			} catch (err) {
@@ -81,6 +83,7 @@ function setupsystemconfigurations(socket, io) {
 					systemType,
 					counterDisplay,
 					databaseRetentionDays,
+					feedbackswitch
 				},
 			});
 		} catch (err) {

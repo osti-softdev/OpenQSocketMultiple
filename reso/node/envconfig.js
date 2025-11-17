@@ -20,6 +20,7 @@ function loadConfig(io) {
 			sms: process.env.SMS,
 			counterDisplay: process.env.counterDisplay || 0,
 			databaseRetentionDays: process.env.databaseRetentionDays || 0,
+			feedbackswitch: process.env.feedbackswitch || 0,
 		},
 		DBserver: {
 			hostName: process.env.DB_HOSTNAME,

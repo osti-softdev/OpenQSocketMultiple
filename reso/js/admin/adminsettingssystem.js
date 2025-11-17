@@ -5,10 +5,14 @@ $(document).ready(function () {
 		const data = res.data || {};
 		const db = data.db || {};
 
-		console.log("System Configs:", data);
+		console.log(data)
+		const feedbackenabled = data.feedbackswitch == "1" || data.feedbackswitch === true;
+		$(".settdbdatafeedbackswitch").prop("checked", feedbackenabled);
+		$(".settdbdatafeedbackswitchlabel").text(feedbackenabled ? "ON" : "OFF");
+		withfeedback = feedbackenabled;
 
 		$(".settdbdatadbsize").text(db.formatted || "N/A");
-		$(".settdataretention").val(data.databaseRetentionDays || 0);
+		$(".settdbdataretention").val(data.databaseRetentionDays || 0);
 
 		const smsEnabled = data.smsType == "1" || data.smsType === true;
 		$(".settdbdatasmsfeature").prop("checked", smsEnabled);
@@ -38,6 +42,13 @@ $(document).ready(function () {
 		const value = checked ? "1" : "0";
 		$(".settdbdatacounterlabel").text(checked ? "ON" : "OFF"); // 🔹 live label update
 		socket.emit("updateSystemConfig", { key: "counterDisplay", value });
+	});
+	
+	$(".settdbdatafeedbackswitch").on("change", function () {
+		const checked = $(this).is(":checked");
+		const value = checked ? "1" : "0";
+		$(".settdbdatafeedbackswitchlabel").text(checked ? "ON" : "OFF"); // 🔹 live label update
+		socket.emit("updateSystemConfig", { key: "feedbackswitch", value });
 	});
 
 	$(".settdataretention").on("input", function () {
