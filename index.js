@@ -291,6 +291,10 @@ if (isWindowed) {
     setNoCacheHeaders(res);
     res.sendFile(path.join(rootpath, "reso/html/webteller.html"));
   });
+  appExpress.get("/test", (req, res) => {
+    setNoCacheHeaders(res);
+    res.sendFile(path.join(rootpath, "reso/html/test.html"));
+  });
 }
 
 appExpress.get("/main", (req, res) => {
