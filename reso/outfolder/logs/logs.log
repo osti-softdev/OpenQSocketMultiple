@@ -2751,6 +2751,7 @@
 ✔ 2025-11-18T04:59:37.969Z [..\..\index.js:333] 🔌 Client connected: RoW7Z3SqqEQfFfT8AAAX | IP: 192.168.1.200
 ✔ 2025-11-18T04:59:51.507Z [..\..\index.js:405] 🔌 Client disconnected: Qz-M33UroZdJ7TZxAAAL | IP: 192.168.1.200
 ✔ 2025-11-18T04:59:51.606Z [..\..\index.js:333] 🔌 Client connected: 6kLcEmsSuSwuLlxkAAAZ | IP: 192.168.1.200
+<<<<<<< HEAD
 ✔ 2025-11-18T08:38:00.104Z [..\node\logger.js:83] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\logs
 ✔ 2025-11-18T08:38:00.111Z [..\..\index.js:252] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
 ✔ 2025-11-18T08:38:00.115Z [..\..\index.js:558] Wrote PID 8216 to C:\NODE_SOURCES\OpenQSocketMultiple\reso\outfolder\app.pid
@@ -2840,3 +2841,59 @@
 ✔ 2025-11-18T18:27:02.365Z [..\node\calledTicketsWatcher.js:257] 👀 Watching DB changes...
 ✔ 2025-11-18T18:27:02.376Z [..\node\calledTicketsWatcher.js:266] 👂 Watching voice config changes...
 ✔ 2025-11-18T18:27:02.652Z [..\..\index.js:334] 🔌 Client connected: 8iJYSmB4xcomLaz3AAAD | IP: 172.20.10.3
+=======
+✔ 2025-11-18T05:16:17.524Z [..\node\admin\colorswatcheradmin.js:51] 🎨 Color configuration updated: { nowserve_color: '#f2ff09' }
+✔ 2025-11-18T05:16:58.827Z [..\node\admin\colorswatcheradmin.js:51] 🎨 Color configuration updated: { service_color: '#2500aa' }
+✔ 2025-11-18T05:18:54.376Z [..\node\admin\colorswatcheradmin.js:51] 🎨 Color configuration updated: { service_color: '#f6ff00' }
+✔ 2025-11-18T05:19:01.618Z [..\node\admin\colorswatcheradmin.js:51] 🎨 Color configuration updated: { service_text_color: '#000000' }
+✔ 2025-11-18T05:19:10.301Z [..\node\admin\colorswatcheradmin.js:51] 🎨 Color configuration updated: { service_text_color: '#0504aa' }
+✔ 2025-11-18T05:19:25.524Z [..\node\admin\colorswatcheradmin.js:51] 🎨 Color configuration updated: { nowserve_color: '#ffffff' }
+✔ 2025-11-18T05:19:41.239Z [..\node\admin\colorswatcheradmin.js:51] 🎨 Color configuration updated: { ticket_color: '#ffffff' }
+✔ 2025-11-18T05:19:50.297Z [..\node\admin\colorswatcheradmin.js:51] 🎨 Color configuration updated: { ticket_text_color: '#0504aa' }
+✔ 2025-11-18T05:20:07.818Z [..\node\admin\colorswatcheradmin.js:51] 🎨 Color configuration updated: { ticket_color: '#a9a2a2' }
+✔ 2025-11-18T05:20:16.234Z [..\node\admin\colorswatcheradmin.js:51] 🎨 Color configuration updated: { ticket_color: '#cdc6c6' }
+✔ 2025-11-18T05:21:08.672Z [..\..\index.js:405] 🔌 Client disconnected: 6kLcEmsSuSwuLlxkAAAZ | IP: 192.168.1.200
+✔ 2025-11-18T05:21:08.802Z [..\..\index.js:333] 🔌 Client connected: MEvMsbNiB2D-oBP4AAAb | IP: 192.168.1.200
+✔ 2025-11-18T05:22:15.580Z [..\..\index.js:405] 🔌 Client disconnected: MEvMsbNiB2D-oBP4AAAb | IP: 192.168.1.200
+✔ 2025-11-18T05:22:15.712Z [..\..\index.js:333] 🔌 Client connected: jvYqiMGrANzBfleWAAAd | IP: 192.168.1.200
+✔ 2025-11-18T05:22:37.864Z [..\node\admin\colorswatcheradmin.js:51] 🎨 Color configuration updated: { service_text_color: '#f6ff00' }
+✔ 2025-11-18T05:22:41.208Z [..\node\admin\colorswatcheradmin.js:51] 🎨 Color configuration updated: { service_color: '#0504aa' }
+✔ 2025-11-18T05:50:11.722Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-18T05:50:11.725Z [..\..\index.js:252] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-18T05:50:11.884Z [..\..\index.js:548] Stale PID 6148 found in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid. Removing file.
+✔ 2025-11-18T05:50:11.885Z [..\..\index.js:558] Wrote PID 3308 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-18T05:50:11.972Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-18T05:50:11.987Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-18T05:50:11.988Z [..\node\db.js:25] Database connected
+✔ 2025-11-18T05:50:11.988Z [..\..\index.js:496] Database initialized successfully
+✔ 2025-11-18T05:50:11.989Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-18T05:50:11.996Z [..\..\index.js:505] Server running on http://192.168.1.200:12345
+✔ 2025-11-18T05:50:12.418Z [..\..\index.js:333] 🔌 Client connected: BPwt-J0kB1M3NcGkAAAB | IP: 127.0.0.1
+✔ 2025-11-18T05:50:12.441Z [..\node\admin\colorswatcheradmin.js:69] 🟢 Watching color configuration file: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\config\modifications.json
+✔ 2025-11-18T05:50:12.474Z [..\node\calledTicketsWatcher.js:257] 👀 Watching DB changes...
+✔ 2025-11-18T05:50:12.475Z [..\node\calledTicketsWatcher.js:266] 👂 Watching voice config changes...
+✔ 2025-11-18T05:50:12.511Z [unknown] Cache cleared
+✔ 2025-11-18T05:50:12.562Z [..\..\index.js:405] 🔌 Client disconnected: BPwt-J0kB1M3NcGkAAAB | IP: 127.0.0.1
+✔ 2025-11-18T05:50:12.758Z [..\..\index.js:333] 🔌 Client connected: OJzUqPC31sC-6DxqAAAE | IP: 192.168.1.200
+✔ 2025-11-18T05:50:13.029Z [..\..\index.js:333] 🔌 Client connected: aQA6sCeIJJIjUpFKAAAG | IP: 192.168.1.200
+✔ 2025-11-18T05:50:13.137Z [..\..\index.js:333] 🔌 Client connected: dQGoAzLeroc8UILzAAAI | IP: 127.0.0.1
+✔ 2025-11-18T05:50:13.165Z [..\..\index.js:333] 🔌 Client connected: UpsdLiPshMz_j7ZXAAAJ | IP: 127.0.0.1
+✔ 2025-11-18T05:50:14.996Z [..\..\index.js:405] 🔌 Client disconnected: aQA6sCeIJJIjUpFKAAAG | IP: 192.168.1.200
+✔ 2025-11-18T05:51:51.416Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-18T05:51:51.418Z [..\..\index.js:252] Starting server with SYSTEM_TYPE=WINDOWED_APPLICATIONS
+✔ 2025-11-18T05:51:51.420Z [..\..\index.js:558] Wrote PID 11768 to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\app.pid
+✔ 2025-11-18T05:51:51.466Z [..\node\admin\adminDashboardcontent3chartsdata.js:14] ✅ SQLite Connected
+✔ 2025-11-18T05:51:51.475Z [..\node\admin\adminDashboardcontent2averages.js:14] ✅ SQLite Connected
+✔ 2025-11-18T05:51:51.481Z [..\node\db.js:25] Database connected
+✔ 2025-11-18T05:51:51.482Z [..\..\index.js:496] Database initialized successfully
+✔ 2025-11-18T05:51:51.483Z [..\node\logger.js:83] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\logs
+✔ 2025-11-18T05:51:51.489Z [..\..\index.js:505] Server running on http://192.168.1.200:12345
+✔ 2025-11-18T05:51:51.905Z [unknown] Cache cleared
+✔ 2025-11-18T05:51:52.130Z [..\..\index.js:333] 🔌 Client connected: Sn-VwCdtwFsA-wKwAAAC | IP: 192.168.1.200
+✔ 2025-11-18T05:51:52.208Z [..\node\admin\colorswatcheradmin.js:69] 🟢 Watching color configuration file: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\reso\outfolder\config\modifications.json
+✔ 2025-11-18T05:51:52.222Z [..\..\index.js:333] 🔌 Client connected: HoCOkVZ0H64YdYbWAAAD | IP: 192.168.1.200
+✔ 2025-11-18T05:51:52.242Z [..\node\calledTicketsWatcher.js:257] 👀 Watching DB changes...
+✔ 2025-11-18T05:51:52.276Z [..\node\calledTicketsWatcher.js:266] 👂 Watching voice config changes...
+✔ 2025-11-18T05:51:55.075Z [..\..\index.js:333] 🔌 Client connected: mpc-ONZdtb26iDWHAAAG | IP: 127.0.0.1
+✔ 2025-11-18T05:51:55.087Z [..\..\index.js:333] 🔌 Client connected: 0F4x75in4DUqD7gwAAAH | IP: 127.0.0.1
+>>>>>>> 3f89139f5ac9cc59a10681a7edebcb15854000bd
