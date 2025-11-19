@@ -116,11 +116,6 @@ function setupsystemconfigurations(socket, io) {
 		// Broadcast reload trigger
 		io.emit("reloadSystem");
 
-		// Optional: delay before relaunch (for file sync)
-		setTimeout(() => {
-			io.emit("relaunchApp");
-			process.exit(0); 
-		}, 1000);
 	} catch (err) {
 		console.error("❌ Failed to update .env:", err);
 		socket.emit("envUpdateError", { message: err.message });

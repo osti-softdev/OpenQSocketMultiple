@@ -1,4 +1,10 @@
 const socket = io();
+// ! ADS DISPLAY
+let adQueue = [];
+let currentAdIndex = 0;
+let videoElement = null;
+let playing = false;
+let adVolume = 0;
 socket.on("imagesupdates", (data) => {
 	console.log("Image update event:", data);
 
@@ -43,7 +49,11 @@ socket.on("servicesDisplayUpdate", (data) => {
     }
 
     setServicesDisplay(services.length);
-
+	if (services.length > 10) {
+		pausevid();
+	} else {
+		playvid();
+	}
     // ✅ reapply config colors after rebuilding the DOM
     if (currentDisplayConfig) {
         applyDisplayConfig(currentDisplayConfig);
@@ -71,6 +81,7 @@ function setServicesDisplay(count) {
 		$(".video-container").css({
 			"display": "flex",
 		});
+		playvid();
 		$(".content-container").css({
 			"left": "50%",
 			"width": "50%",
@@ -92,6 +103,7 @@ function setServicesDisplay(count) {
 			"width": "100%",
 		})
 	}
+
 	// ! Services Display Size Handler
 	if (count === 1) {
 		$(".service-row").css({
@@ -390,12 +402,7 @@ function applyDisplayConfig(config) {
 		});
 }
 
-// ! ADS DISPLAY
-let adQueue = [];
-let currentAdIndex = 0;
-let videoElement = null;
-let playing = false;
-let adVolume = 0;
+
 
 // --- Ads + Volume handler ---
 socket.on("adsList", (data) => {
@@ -470,3 +477,28 @@ function playNextAd() {
 
 	container.append(videoElement);
 }
+function pausevid() {
+    if (videoElement && videoElement[0]) {
+        videoElement[0].pause();
+        console.log("[ADS] Video paused");
+    }
+}
+
+function playvid() {
+    if (videoElement && videoElement[0] && $(".video-container").is(":visible")) {
+        videoElement[0].play().catch((err) => {
+            console.warn("[ADS] play() failed:", err);
+        });
+        console.log("[ADS] Video playing");
+    }
+}
+// Automatically pause/resume based on container visibility
+setInterval(() => {
+    if (!videoElement || !videoElement[0]) return;
+
+    if ($(".video-container").is(":visible")) {
+        if (videoElement[0].paused) videoElement[0].play().catch(() => {});
+    } else {
+        if (!videoElement[0].paused) videoElement[0].pause();
+    }
+}, 500); // check twice per second

@@ -6,8 +6,8 @@
     },
     "ann_data": {
         "bgcolor": "#0e224e",
-        "color": "#b41316",
-        "speed": 15,
+        "color": "#ffffff",
+        "speed": 35,
         "fontsize": 61,
         "fontweight": 900,
         "shadowcolorvalue": "#000000"

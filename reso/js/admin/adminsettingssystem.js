@@ -63,6 +63,6 @@ $(document).ready(function () {
 
 	socket.on("reloadSystem", () => {
         showMsg("warning", "System configuration updated. Application will restart.");
-
+			socket.emit("relaunchApp");
 	});
 });
