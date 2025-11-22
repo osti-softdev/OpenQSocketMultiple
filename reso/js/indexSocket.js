@@ -1,4 +1,3 @@
-const socket = io();
 // ! ADS DISPLAY
 let adQueue = [];
 let currentAdIndex = 0;
