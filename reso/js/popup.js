@@ -66,12 +66,20 @@ async function processQueue() {
 function showPopup(ticketData) {
 	const videoElement = $("#dep")[0];
 	const audioElement = $("#audio")[0];
+	console.log(ticketData);
 
 	if (videoElement && !videoElement.paused) videoElement.pause();
 	let ticks = ticketData.sname.replace("_"," ");
 	$("#popup").show();
-	$("#counterpop").text(ticks);
-	$("#ticketpop").text(`${ticketData.service}-${ticketData.ticket}`);
+
+	if(counterDisplayer != 1){
+		$("#counterpop").text(ticks);
+		$("#ticketpop").text(`${ticketData.service}-${ticketData.ticket}`);
+	}else{
+		$("#counterpop").text("Counter " + ticketData.counter_num);
+		$("#ticketpop").text(`${ticketData.service}-${ticketData.ticket}`);	
+	}
+	
 
 	// if (audioElement) {
 	// 	audioElement.currentTime = 0;
@@ -100,9 +108,18 @@ function speakTicketTwice(ticketData, onFinish) {
 	const serviceSeparated = serviceCleaned.split("").join(", ");
 	let ticks = ticketData.sname.replace("_"," ");
 
-	const msg = new SpeechSynthesisUtterance(
-		`Now serving, ${serviceSeparated}${ticketData.ticket}, ${ticks}`
-	);
+	let msg = null;
+	
+	if(counterDisplayer != 1){
+		msg = new SpeechSynthesisUtterance(
+			`Now serving, ${serviceSeparated}${ticketData.ticket}, ${ticks}`
+		);
+	}else{
+		msg = new SpeechSynthesisUtterance(
+			`Now serving, ${serviceSeparated}${ticketData.ticket}, Counter ${ticketData.counter_num}`
+		);
+	}
+	
 	msg.voice = voices[voiceConfig.voice] || voices[0];
 	msg.pitch = voiceConfig.voice_pitch || 1;
 	msg.rate = voiceConfig.voice_rate || 1;
