@@ -50,7 +50,7 @@ body {
   top: 5%;
   right: 0;
   height: 5%;
-  width: 20%;
+  width: 40%;
   z-index: 100;
   display: flex;
   justify-content: space-evenly;
@@ -62,7 +62,6 @@ body {
 .mainkioskcontainer .timer .date {
   font-family: Gotham;
   font-size: 2.5rem;
-  font-weight: bold;
 }
 .mainkioskcontainer .timer .time {
   font-family: digital;
