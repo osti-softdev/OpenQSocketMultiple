@@ -6,6 +6,15 @@ window.cachedServices = [];
 window.serviceSchedCheckerStarted = false;
 
 $(document).ready(function () {
+	socket.on("imagesupdates", (data) => {
+        console.log("Image update event:", data);
+
+        if (data.prerefresh) {
+            window.location.reload();
+        }
+    });
+
+	
     socket.on("envSMS", (data) => {
         console.log("Received from server:", data.sms);
         smsSetting = data.sms;
