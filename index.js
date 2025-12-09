@@ -7,6 +7,7 @@ const fs = require("fs");
 const os = require("os");
 const multer = require("multer");
 const { app, BrowserWindow, screen, session, dialog } = require("electron");
+const { exec } = require('child_process');
 
 // ===== Express & Socket.IO =====
 const express = require("express");
@@ -17,7 +18,7 @@ const cookieParser = require("cookie-parser");
 const requestAPI = multer();
 const cors = require("cors");
 const rootpath = path.join(__dirname);
-const OUTFOLDER_PATH = path.join(rootpath, `${tagline}reso/outfolder`);
+const OUTFOLDER_PATH = path.join(rootpath, `${tagline}outfolder`);
 global.outfolderPath = OUTFOLDER_PATH;
 const pidFile = path.join(OUTFOLDER_PATH, "app.pid");
 
@@ -168,7 +169,14 @@ appExpress.use(
     }
   )
 );
-
+appExpress.use(
+  "/outfolder",
+  express.static(path.join(rootpath, "reso/outfolder"), {
+    etag: false,
+    lastModified: false,
+    setHeaders: setNoCacheHeaders,
+  })
+);
 appExpress.use(
   "/js",
   express.static(path.join(rootpath, "reso/js"), {
@@ -291,6 +299,10 @@ if (isWindowed) {
     setNoCacheHeaders(res);
     res.sendFile(path.join(rootpath, "reso/html/webteller.html"));
   });
+  appExpress.get("/test", (req, res) => {
+    setNoCacheHeaders(res);
+    res.sendFile(path.join(rootpath, "reso/html/test.html"));
+  });
 }
 
 appExpress.get("/main", (req, res) => {
@@ -348,15 +360,55 @@ io.on("connection", (socket) => {
     settupsettingsservices(socket, io);
     setupsystemconfigurations(socket, io);
     setupLoginSocket(socket, io);
-    socket.on("relaunchApp", async () => {
-        console.log("♻️ Relaunch command received via socket");
-        try {
-          await gracefulShutdown("RELAUNCH_REQUESTED");
-          relaunchApp();
-        } catch (err) {
-          console.error("Failed to relaunch app:", err.message);
+ socket.on("relaunchApp", async () => {
+  console.log("♻️ Relaunch command received via socket");
+
+  try {
+    // Determine the path of the currently running executable
+    const exePath = process.execPath; // This points to the current .exe
+    console.log(`Relaunching app from path: ${exePath}`);
+
+    // Stop current process
+    if (!fs.existsSync(pidFile)) {
+      console.error(`PID file not found: ${pidFile}`);
+      process.exit(1);
+    }
+
+    const pid = parseInt(fs.readFileSync(pidFile, 'utf8'), 10);
+    if (isNaN(pid)) {
+      console.error(`Invalid PID in ${pidFile}`);
+      process.exit(1);
+    }
+
+    console.log(`Stopping process ${pid}...`);
+
+    if (process.platform === 'win32') {
+      exec(`taskkill /PID ${pid} /F`, (err, stdout, stderr) => {
+        if (err) {
+          console.error('Failed to stop process:', err.message);
+          process.exit(1);
         }
+        try { fs.unlinkSync(pidFile); } catch(e) {}
+        console.log('Stopped.');
       });
+    } else {
+      try {
+        process.kill(pid, 'SIGTERM');
+        try { fs.unlinkSync(pidFile); } catch(e) {}
+        console.log('Stopped.');
+      } catch (err) {
+        console.error('Failed to stop process:', err.message);
+        process.exit(1);
+      }
+    }
+
+    // Quit current app after scheduling relaunch
+    app.quit();
+  } catch (err) {
+    console.error("❌ Failed to relaunch app:", err.message);
+  }
+});
+
     if(smstype==1){
       initializeGSM(io);
     }
@@ -569,39 +621,46 @@ let displayWindow = null;
 let kioskWindow = null;
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 function createWindow() {
-	// ! DISPLAY WINDOW
-	const broadcasturl = `http://${ownip}:${serverPort}/main`;
-	const kioskurl = `http://${ownip}:${serverPort}/kiosk`;
-	const displays = screen.getAllDisplays();
-	let windowOptions = {
-		width: 450,
-		height: 450,
-		autoHideMenuBar: true,
-		frame: true,
-	};
+    const broadcastUrl = `http://${ownip}:${serverPort}/main`;
+    const kioskUrl = `http://${ownip}:${serverPort}/kiosk`;
 
-	if (displays.length > 1) {
-		const externalDisplay = displays.find(
-			(d) => d.bounds.x !== 0 || d.bounds.y !== 0
-		);
-		if (externalDisplay) {
-			windowOptions.x = externalDisplay.bounds.x + 50;
-			windowOptions.y = externalDisplay.bounds.y + 50;
-		}
-	}
+    const displays = screen.getAllDisplays();
 
-	displayWindow = new BrowserWindow(windowOptions);
-	displayWindow.loadURL(broadcasturl);
-	displayWindow.setFullScreen(true);
-	displayWindow.on("closed", handleWindowClosed);
+    // --- Find external display ---
+    const externalDisplay = displays.find(d => d.bounds.x !== 0 || d.bounds.y !== 0);
 
-	// ! KIOSK WINDOW
-	if(isWindowed){
-		kioskWindow = new BrowserWindow(windowOptions);
-		kioskWindow.loadURL(kioskurl);
-		kioskWindow.setFullScreen(true);
-		kioskWindow.on("closed", handleWindowClosed);
-	}
+    // if (!externalDisplay) {
+    //     console.warn("No extended display found. Display window will open on primary screen.");
+    //     return;
+    // }
+
+    // --- DISPLAY WINDOW on extended screen ---
+    const displayWindowOptions = {
+        width: 450,
+        height: 450,
+        frame: true,
+          // x: externalDisplay.bounds.x + 50,
+            // y: externalDisplay.bounds.y + 50,
+        autoHideMenuBar: true
+    };
+
+    displayWindow = new BrowserWindow(displayWindowOptions);
+    displayWindow.loadURL(broadcastUrl);
+    displayWindow.setFullScreen(true);
+    displayWindow.on("closed", handleWindowClosed);
+
+    // --- KIOSK WINDOW on primary screen ---
+    if (isWindowed) {
+        kioskWindow = new BrowserWindow({
+            width: 450,
+            height: 450,
+            frame: true,
+            autoHideMenuBar: true
+        });
+        kioskWindow.loadURL(kioskUrl);
+        kioskWindow.setFullScreen(true);
+        kioskWindow.on("closed", handleWindowClosed);
+    }
 }
 
 function handleWindowClosed() {
@@ -668,20 +727,6 @@ process.on("unhandledRejection", (reason, promise) => {
   console.error("Unhandled Rejection at:", promise, "reason:", reason);
   gracefulShutdown("UNHANDLED_REJECTION");
 });
-
-
-let relaunching = false;
-
-function relaunchApp() {
-  if (relaunching) return;
-  relaunching = true;
-  console.log("♻️ Relaunching app...");
-
-  app.relaunch({ args: process.argv.slice(1).concat(["--relaunch"]) });
-  setTimeout(() => {
-    app.exit(0);
-  }, 1000);
-}
 
 
 // Start the server

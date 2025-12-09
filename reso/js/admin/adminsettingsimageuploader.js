@@ -57,8 +57,7 @@ function uploadImage(fileInputId, endpoint, statusId, buttonId, filenameId) {
     contentType: false,
     processData: false,
     success: function (response) {
-      showMsg("success", "Upload Successful");
-
+        showMsg("success", "Upload Successful");
       // 🔹 Reset UI after success
       $(fileInputId).val(""); // clear input
       $(filenameId).text("No file chosen").attr("title", ""); // reset filename
@@ -66,7 +65,8 @@ function uploadImage(fileInputId, endpoint, statusId, buttonId, filenameId) {
       $(buttonId).css("background-color", ""); // reset button color
     },
     error: function (xhr) {
-       showMsg("error", "Upload Failed");
+        showMsg("error", "Upload Failed");
+
       $(statusId).css("color", "red").text("Upload failed: " + xhr.responseText);
 
       // 🔹 Keep button red if failed

@@ -1,6 +1,7 @@
 {
     "time_color": "#ffffff",
     "time_shadow": "#000000",
+<<<<<<< HEAD
     "date_color": "#ffffff",
     "nowserve_color": "#1c1b6f",
     "nowserve_text_color": "#ffffff",
@@ -10,6 +11,17 @@
     "counter_text_color": "#000000",
     "ticket_color": "#0033a0",
     "ticket_text_color": "#ffffff",
+=======
+    "date_color": "#000000",
+    "nowserve_color": "#ffffff",
+    "nowserve_text_color": "#000000",
+    "service_color": "#0504aa",
+    "service_text_color": "#f6ff00",
+    "counter_color": "#ff8c82",
+    "counter_text_color": "#000000",
+    "ticket_color": "#cdc6c6",
+    "ticket_text_color": "#0504aa",
+>>>>>>> DBP2
     "popup_ticket_color": "#06e8e6",
     "popup_service_color": "#da0603",
     "kiosk_footer_color": "#0e224e",

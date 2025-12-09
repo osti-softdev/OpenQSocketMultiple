@@ -170,6 +170,7 @@ function msg(message, isError = false) {
 		.css("color", isError ? "red" : "green")
 		.show();
 }
+
 // --- Main ---
 $(document).ready(async () => {
 	toggleFFmpegReady(false);

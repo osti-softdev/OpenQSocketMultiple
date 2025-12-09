@@ -17,7 +17,7 @@ $(document).ready(function () {
     }, 30000); 
 
     if (!authUser) {
-        // Not logged in at all
+  // Not logged in at all
       window.location.href = "/312Xtellerlogin";
     } else {
       // Validate required keys before using them
@@ -44,7 +44,7 @@ $(document).ready(function () {
         group_name: authUser.group_name,
       });
 
-        socket.emit("gettellersandgroups", {
+      socket.emit("gettellersandgroups", {
         id: authUser.id,
         cuser: authUser.cuser,
         cnum: authUser.cnum,
@@ -60,6 +60,7 @@ $(document).ready(function () {
         socket.emit("tellerloginAttempt", creds);
       }
     });
+
 
     socket.on("calledtick", function(params) {
       // console.log("Activity Ticket: "+params.statusdata)

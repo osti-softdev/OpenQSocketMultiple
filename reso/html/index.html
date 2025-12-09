@@ -8,6 +8,7 @@
     <script src="/libs/jquery-3.7.1.js"></script>
     <script src="/libs/sweetalert2@11.js"></script>
     <link rel="stylesheet" href="/css/index.css">
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 
 <body onselectstart="return false">
@@ -46,11 +47,13 @@
     <audio id="audio" autoplay>
         <source src="audio/chime2.mp3" type="audio/mpeg">
     </audio>
+    <script>const socket = io();</script>
+    <script src="/js/indexSocket.js" async></script>
+    <script src="/js/footer.js" async></script>
+    <script src="/js/popup.js" async></script>
+    <script src="/js/clock.js" async></script>
+    <script>
 
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/js/indexSocket.js"></script>
-    <script src="/js/footer.js"></script>
-    <script src="/js/popup.js"></script>
-    <script src="/js/clock.js"></script>
+    </script>
 </body>
 </html>

@@ -4,6 +4,17 @@ require_once __DIR__ . '../vendor/autoload.php';
 
 use Mike42\Escpos\Printer;
 use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
+use Mike42\Escpos\EscposImage;
+
+// --- PRINT LOGO ---
+try {
+    $logo = EscposImage::load(__DIR__ . "/../images/dbp.png", false);
+    $printer->setJustification(Printer::JUSTIFY_CENTER);
+    $printer->bitImage($logo, Printer::IMG_DEFAULT);
+    $printer->feed();
+} catch (Exception $e) {
+    // if logo missing
+}
 
 $connector = new WindowsPrintConnector("POS-89");
 $printer = new Printer($connector);
@@ -35,10 +46,10 @@ $printer->setJustification(Printer::JUSTIFY_CENTER);
 $printer->selectPrintMode(Printer::MODE_EMPHASIZED);
 $printer->selectPrintMode(Printer::MODE_DOUBLE_HEIGHT | Printer::MODE_DOUBLE_WIDTH);
 $printer->setFont(Printer::FONT_B);
-$printer->setTextSize(3, 3);
+$printer->setTextSize(3, 2);
 
-$printer->text("CEBU CITY \n");
-$printer->text("GOVERNMENT \n");
+$printer->text("DEVELOPMENT BANK\n");
+$printer->text("OF THE PHILIPPINES\n");
 
 $printer->setTextSize(1, 1);
 $printer->text($date ." ". $time."\n");

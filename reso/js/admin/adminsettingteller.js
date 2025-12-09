@@ -294,7 +294,7 @@ async function openEditTellerPopup(teller) {
     const selectedServices = (teller.services || "").split(",").map(s => s.trim());
 
     const checkboxHTML = services.map(s => `
-        <label style="flex:1 20%;display:flex;align-items:center;gap:6px;margin-bottom:5px;">
+              <label style="flex:1 20%;display:flex;align-items:center;gap:6px;margin-bottom:5px;">
             <input type="checkbox" name="services" value="${s}" ${selectedServices.includes(s) ? "checked" : ""}>
             <span>${s}</span>
         </label>`).join("");
@@ -329,12 +329,12 @@ async function openEditTellerPopup(teller) {
             </select>
             <br>
             <label><strong>Group</strong></label>
-            <div style="max-height:160px;overflow-y:auto;display:flex;flex-wrap:wrap;gap:10px;border:1px solid #ddd;border-radius:5px;background:#fafafa;>
+            <div style="border:1px solid #ddd;border-radius:5px;padding:8px;background:#fafafa;">
                 ${groupHTML}
             </div>
             <br>
             <label><strong>Services</strong></label>
-            <div style="max-height:160px;overflow-y:auto;display:flex;flex-wrap:wrap;gap:10px;border:1px solid #ddd;border-radius:5px;background:#fafafa;">
+            <div style="max-height:160px;overflow-y:auto;display:flex;flex-wrap:wrap;gap:10px;border:1px solid #ddd;border-radius:5px;background:#fafafa;>
                 ${checkboxHTML}
             </div>
         </div>`,
@@ -361,14 +361,4 @@ async function openEditTellerPopup(teller) {
     if (formValues) socket.emit("updateTeller", formValues);
 }
 
-// Helper to show auto-close messages
-function showMsg(type, message) {
-    Swal.fire({
-        icon: type, // 'success' | 'error' | 'warning' | 'info'
-        title: message,
-        showConfirmButton: false,
-        timer: 1500,
-        toast: true,
-        position: "top",
-    });
-}
+

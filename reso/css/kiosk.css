@@ -62,7 +62,6 @@ body {
 .mainkioskcontainer .timer .date {
   font-family: Gotham;
   font-size: 2.5rem;
-  text-shadow: 2px 2px 5px rgb(0, 0, 0);
 }
 .mainkioskcontainer .timer .time {
   font-family: digital;
@@ -343,6 +342,7 @@ body {
   background-repeat: no-repeat;
 }
 .mainkioskcontainer .servicesContainer .category-container div:nth-child(2) {
+  color: black;
   background-image: url("/images/buttons/button_priority.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;

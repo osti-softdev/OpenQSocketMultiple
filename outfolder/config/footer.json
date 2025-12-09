@@ -1,13 +1,13 @@
 {
     "announcements_txt": {
-        "firstann": "WELCOME TO CEBU CITY TRANSPORTATION OFFICE🥰",
-        "secondann": "ALWAYS AT YOUR SERVICE",
-        "thirdann": "Sample third announcement"
+        "firstann": "🥰DEVELOPMENT BANK OF THE PHILIPPINES🥰",
+        "secondann": "WE BUILD POSSIBILITIES",
+        "thirdann": "HERE AT DBP CEBU BRANCH"
     },
     "ann_data": {
-        "bgcolor": "#0e224e",
-        "color": "#b41316",
-        "speed": 15,
+        "bgcolor": "#1400a8",
+        "color": "#ffffff",
+        "speed": 35,
         "fontsize": 61,
         "fontweight": 900,
         "shadowcolorvalue": "#000000"
@@ -15,7 +15,7 @@
     "activated": {
         "ann1": "1",
         "ann2": "1",
-        "ann3": "0"
+        "ann3": "1"
     },
     "display_update": {
         "update": 0

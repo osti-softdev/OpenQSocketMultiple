@@ -47,6 +47,7 @@ function setupsystemconfigurations(socket, io) {
 	const systemType = config?.MainServer?.systemType;
 	const counterDisplay = config?.MainServer?.counterDisplay;
 	const databaseRetentionDays = config?.MainServer?.databaseRetentionDays;
+	const feedbackswitch = config?.MainServer?.feedbackswitch;
 
 	// Watch DB for live updates
 	if (!watcherAdded) {
@@ -61,6 +62,7 @@ function setupsystemconfigurations(socket, io) {
 						systemType,
 						counterDisplay,
 						databaseRetentionDays,
+						feedbackswitch
 					},
 				});
 			} catch (err) {
@@ -81,6 +83,7 @@ function setupsystemconfigurations(socket, io) {
 					systemType,
 					counterDisplay,
 					databaseRetentionDays,
+					feedbackswitch
 				},
 			});
 		} catch (err) {
@@ -113,11 +116,6 @@ function setupsystemconfigurations(socket, io) {
 		// Broadcast reload trigger
 		io.emit("reloadSystem");
 
-		// Optional: delay before relaunch (for file sync)
-		setTimeout(() => {
-			io.emit("relaunchApp");
-			process.exit(0); 
-		}, 1000);
 	} catch (err) {
 		console.error("❌ Failed to update .env:", err);
 		socket.emit("envUpdateError", { message: err.message });

@@ -37,7 +37,7 @@ $(function () {
 
 	socket.on("accountsgather", (msg) => {
 		const isSuccess = msg.status === "1";
-		showMsg(isSuccess ? "success" : "error", res.message);
+        showMsg(isSuccess ? "success" : "error", res.message);
 	});
 
 	socket.emit("getaccounts");

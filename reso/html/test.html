@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YouTube Video Playlist Display</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 20px;
+    }
+
+    .video-container {
+        width: 720px;
+        height: 405px; /* 16:9 aspect ratio */
+        margin-bottom: 20px;
+        background-color: black;
+    }
+
+    #youtube-player {
+        width: 100%;
+        height: 100%;
+    }
+
+    .content {
+        width: 720px;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .content h1 {
+        margin: 0 0 10px;
+        font-size: 24px;
+        color: #333;
+    }
+
+    .content p {
+        margin: 0;
+        font-size: 16px;
+        color: #666;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="video-container">
+        <div id="youtube-player"></div>
+    </div>
+
+    <div class="content">
+        <h1>Now Serving</h1>
+        <p>Ticket display and information panel.</p>
+    </div>
+</div>
+
+<!-- YouTube IFrame API -->
+<script>
+    let tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
+
+    let ytPlayer;
+    let adVolume = 0.5;
+    let currentVideoIndex = 0;
+
+    const videoPlaylist = [
+        'RBkZiAQNmxE',
+        'Vonu4y0JnLU',
+        'm4wllxpGKew', 
+        'orbkg5JH9C8'
+    ];
+
+    function onYouTubeIframeAPIReady() {
+        ytPlayer = new YT.Player('youtube-player', {
+            videoId: videoPlaylist[currentVideoIndex],
+            playerVars: {
+                autoplay: 1,
+                controls: 0,
+                modestbranding: 1,
+                rel: 0,
+                playsinline: 1
+            },
+            events: {
+                onReady: (event) => {
+                    event.target.setVolume(adVolume * 100);
+                    event.target.playVideo();
+                },
+                onStateChange: (event) => {
+                    if(event.data === YT.PlayerState.ENDED) {
+                        playNextVideo();
+                    }
+                }
+            }
+        });
+    }
+
+    function playNextVideo() {
+        currentVideoIndex = (currentVideoIndex + 1) % videoPlaylist.length;
+        ytPlayer.loadVideoById(videoPlaylist[currentVideoIndex]);
+    }
+
+    function setAdVolume(volume) {
+        adVolume = Math.min(Math.max(volume, 0), 1);
+        if(ytPlayer && ytPlayer.setVolume) {
+            ytPlayer.setVolume(adVolume * 100);
+        }
+    }
+</script>
+</body>
+</html>

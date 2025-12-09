@@ -1,5 +1,4 @@
 $(document).ready(function () {
-	let withfeedback = 0;
 	
 	// Color palette for bar charts (transactions)
 	const colors = [
@@ -236,7 +235,7 @@ $(document).ready(function () {
 		});
 
 		let hourDatasets = [...hourBarDatasets];
-		if (withfeedback) {
+	if (withfeedback) {
 		// Hour line datasets for feedback
 		const hourSatisfiedPeak = feedback.hourly.reduce(
 			(max, curr) => (curr.satisfied > max.satisfied ? curr : max),
@@ -357,7 +356,7 @@ $(document).ready(function () {
 				chartConfig(
 					hourLabels,
 					hourDatasets,
-					"Hourly Transactions by Service with Feedback",
+					"Hourly Transactions",
 					true
 				)
 			);
@@ -383,7 +382,7 @@ $(document).ready(function () {
 				chartConfig(
 					dateLabels,
 					dateDatasets,
-					"Daily Transactions by Service with Feedback"
+					"Daily Transactions"
 				)
 			);
 
@@ -409,7 +408,7 @@ $(document).ready(function () {
 				chartConfig(
 					monthLabels,
 					monthDatasets,
-					"Monthly Transactions by Service with Feedback"
+					"Monthly Transactions"
 				)
 			);
 			const resetButton = $("<button>", {

@@ -1,8 +1,8 @@
 {
-    "voice": 3,
+    "voice": 4,
     "voice_rate": 1,
     "voice_pitch": 1,
-    "ad_volume": 0.15,
+    "ad_volume": 0,
     "voice_volume": 1,
     "bell_volume": 1
 }

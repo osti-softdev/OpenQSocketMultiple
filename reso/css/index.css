@@ -54,7 +54,7 @@ body {
   filter: blur(2px);
   background-image: url("/images/bg.png");
   background-position: center center;
-  background-size: cover;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 .main-container .timer {
@@ -68,7 +68,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
   text-align: center;
-  color: #000000;
+  color: #ffffff;
   font-family: "Segoe UI", sans-serif;
 }
 .main-container .timer .date {

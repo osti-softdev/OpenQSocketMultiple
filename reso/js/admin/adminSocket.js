@@ -20,7 +20,8 @@ $(document).ready(function () {
 		if (unsatisfiedholder > lastUnsatisfied) {
 			unsatisfiedcount++;
 			if (unsatisfiedcount >= 10) {
-				showMsg("warning", "⚠ Warning: Unsatisfied Rating is Rising");
+        	showMsg("warning", "⚠ Warning: Unsatisfied Rating is Rising");
+
 				unsatisfiedcount = 0;
 			}
 		}
@@ -29,7 +30,7 @@ $(document).ready(function () {
 		if (satisfiedholder > lastSatisfied) {
 			satisfiedcount++;
 			if (satisfiedcount >= 10) {
-				showMsg("success", "✅ Great! Satisfied Rating is Rising");
+        	showMsg("success", "✅ Great! Satisfied Rating is Rising");
 				satisfiedcount = 0;
 			}
 		}
@@ -42,11 +43,16 @@ $(document).ready(function () {
 		$(".content2totalcount").html(
 			`Total Transactions: <span>${adminoveralldata.overall.total_count || 0}</span>`
 		);
-		$(".content2totalrated").html(
-			`Total Rated: <span>${
-				(adminoveralldata.satisfied || 0) + (adminoveralldata.unsatisfied || 0)
-			}</span>`
-		);
+		if (withfeedback) {
+			$(".content2totalrated").show().html(
+				`Total Rated: <span>${
+					(adminoveralldata.satisfied || 0) + (adminoveralldata.unsatisfied || 0)
+				}</span>`
+			);
+		} else {
+			$(".content2totalrated").hide();
+		}
+		
 		$(".content2totalserved").html(
 			`Total Served: <span>${adminoveralldata.overall.called_count || 0}</span>`
 		);
@@ -82,7 +88,9 @@ $(document).ready(function () {
 				? `Unsatisfied (${unsatisfied})`
 				: `Equal (${satisfied})`;
 
-		$(".content2commonrating").html(`Most Rating: <span>${mostRating}</span>`);
+		if(withfeedback){
+			$(".content2commonrating").html(`Most Rating: <span>${mostRating}</span>`);
+		}
 
 		// 🔹 Dynamically build the overcount data section
 		const $container = $(".dash-content1");
@@ -99,10 +107,14 @@ $(document).ready(function () {
 			});
 		}
 
-		// Append feedback counts
-		// $container.append(`
-		// 	<div class="overcounts">😊 Satisfied <span class="overcountdata">${adminoveralldata.satisfied ?? 0}</span></div>
-		// 	<div class="overcounts">😔 Unsatisfied <span class="overcountdata">${adminoveralldata.unsatisfied ?? 0}</span></div>
-		// `);
+	
+		if(withfeedback){
+			// Append feedback counts
+			$container.append(`
+				<div class="overcounts">😊 Satisfied <span class="overcountdata">${adminoveralldata.satisfied ?? 0}</span></div>
+				<div class="overcounts">😔 Unsatisfied <span class="overcountdata">${adminoveralldata.unsatisfied ?? 0}</span></div>
+			`);
+		}
+		
 	});
 });

@@ -66,10 +66,6 @@ body {
     .date {
         font-family: Gotham;
         font-size: 2.5rem;
-        // font-weight: bold;
-        text-shadow: 2px 2px 5px rgb(0, 0, 0);
-
-        
     }
     .time {
         font-family: digital;
@@ -175,7 +171,7 @@ body {
               }
             &:nth-child(2){
                 // background-color: rgba(28, 133, 16, 0.993);
-                // color: black;
+                color: black;
                 background-image: url("/images/buttons/button_priority.png");
                 background-size: 100% 100%;
                 background-repeat: no-repeat;

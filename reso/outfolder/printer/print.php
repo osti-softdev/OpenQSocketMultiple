@@ -37,8 +37,8 @@ $printer->selectPrintMode(Printer::MODE_DOUBLE_HEIGHT | Printer::MODE_DOUBLE_WID
 $printer->setFont(Printer::FONT_B);
 $printer->setTextSize(3, 3);
 
-$printer->text("CEBU CITY \n");
-$printer->text("GOVERNMENT \n");
+$printer->text("DEVELOPMENT BANK \n");
+$printer->text("OF THE PHILIPINES \n");
 
 $printer->setTextSize(1, 1);
 $printer->text($date ." ". $time."\n");

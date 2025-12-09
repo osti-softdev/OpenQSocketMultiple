@@ -1,4 +1,4 @@
-// --- Admin Ads Player ---
+// ! --- Admin Ads Player ---
 let adminAdsQueue = [];
 let adminCurrentIndex = 0;
 let adminVideoEl = null;
@@ -64,11 +64,12 @@ function renderAdsList() {
 					body: JSON.stringify({ oldName: name, newName }),
 				});
 				if (!res.ok) throw new Error(await res.text());
-				showMsg("success",`Renamed to ${newName}`);
+        		showMsg("success",`Renamed to ${newName}`);
 				socket.emit("requestAd");
 			} catch (err) {
 				console.error(err);
-				showMsg("error",`Rename failed: ${err.message}`);
+        		showMsg("error",`Rename failed: ${err.message}`);
+
 			}
 		});
 
@@ -93,11 +94,12 @@ function renderAdsList() {
 					method: "DELETE",
 				});
 				if (!res.ok) throw new Error(await res.text());
-				showMsg("success",`Deleted ${name}`);
+        		showMsg("success",`Deleted ${name}`);
+
 				socket.emit("requestAd");
 			} catch (err) {
 				console.error(err);
-				showMsg("error",`Delete failed: ${err.message}`);
+        		showMsg("error",`Delete failed: ${err.message}`);
 			}
 		});
 
@@ -209,6 +211,7 @@ $(function () {
 		if (file) {
 			showMsg("info",`File: ${file.name}\nClick Upload`);
 
+
 			$label.attr("title", file.name);
 			$button.attr("title", file.name).addClass("blink-red");
 		} else {
@@ -231,12 +234,14 @@ $(function () {
 			if (!res.ok) throw new Error(await res.text());
 			$button.removeClass("blink-red");
 			$("#videoFile").val("");
-			showMsg("success","File successfully uploaded");
+			
+        showMsg("success","File successfully uploaded");
+
 			socket.emit("requestAd");
 		} catch (err) {
 			console.error(err);
-			msg(`Upload failed: ${err.message}`, true);
-			showMsg("error","Failed to upload file");
+        showMsg("error","Failed to upload file");
+
 		}
 	});
 });
