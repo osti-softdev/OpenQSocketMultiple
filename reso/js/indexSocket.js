@@ -430,7 +430,6 @@ socket.on("adsList", (data) => {
 		playNextAd();
 	}
 });
-
 function playNextAd() {
 	if (!adQueue.length) return;
 
@@ -444,38 +443,42 @@ function playNextAd() {
 	console.log(`[ADS] Playing ad: ${adFile} at volume ${adVolume}`);
 
 	const encodedFile = encodeURIComponent(adFile);
-	const container = $(".ad-slot").empty();
 
-	videoElement = $("<video>")
-		.attr({
-			class: "ad-video",
-			id: "dep",
-			src: `/ads/${encodedFile}`,
-			autoplay: true,
-			playsinline: true,
-		})
-		.prop("controls", false)
-		.prop("muted", adVolume === 0)
-		.prop("volume", adVolume)
-		.css({ width: "100%", height: "100%" })
-		.on("ended", () => {
-			console.log(`[ADS] Finished: ${adFile}`);
-			playNextAd();
-		})
-		.on("play", function () {
-			if (adVolume > 0) {
-				setTimeout(() => {
-					this.muted = false;
-					this.volume = adVolume;
-				}, 100);
-			} else {
-				this.muted = true;
-				this.volume = 0;
-			}
-		});
+	// Use existing hardcoded video element
+	const videoElement = document.getElementById("dep");
 
-	container.append(videoElement);
+	// Stop previous playback safely
+	videoElement.pause();
+	videoElement.removeAttribute("src");
+	videoElement.load();
+
+	// Apply new source
+	videoElement.src = `/ads/${encodedFile}`;
+	videoElement.autoplay = true;
+	videoElement.playsInline = true;
+
+	// Volume logic
+	if (adVolume > 0) {
+		videoElement.muted = false;
+		videoElement.volume = adVolume;
+	} else {
+		videoElement.muted = true;
+		videoElement.volume = 0;
+	}
+
+	// Ensure autoplay actually fires  
+	videoElement.play().catch(err => {
+		console.warn("[ADS] Autoplay blocked, retrying...", err);
+		setTimeout(() => videoElement.play(), 300);
+	});
+
+	// When finished, load next ad
+	videoElement.onended = () => {
+		console.log(`[ADS] Finished: ${adFile}`);
+		playNextAd();
+	};
 }
+
 function pausevid() {
     if (videoElement && videoElement[0]) {
         videoElement[0].pause();
