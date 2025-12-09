@@ -48,7 +48,7 @@ function initializeWindowedKiosk(socket, io) {
 				}
 
 				const nextTicket = (row?.maxTicket || 0) + 1;
-				const history = `[${time}-Topline-Inserted]`;
+				const history = `[${time}-Kiosk-Inserted]`;
 
 				db.run(
 					`INSERT INTO transactions (ticketnum, sname, ticketservice, status, date, time, history, mobile)

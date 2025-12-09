@@ -50,7 +50,7 @@ async function processQueue() {
 	socket.emit("updateCalledTicket", {
 		id: ticket.id,
 		status: "processing",
-		counter_hist: "Topline",
+		counter_hist: "OpenQ",
 	});
 
 	// Speak the ticket twice, then continue

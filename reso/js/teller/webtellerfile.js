@@ -359,8 +359,8 @@ socket.on("tellerhistorydata", (tickets) => {
     title: "Ticket History",
     html: popupHTML,
     width: 700,
-    showCancelButton: true,
-    confirmButtonText: "Save Status",
+    showCancelButton: false,
+    confirmButtonText: "Okay",
     focusConfirm: false,
     didOpen: () => {
       const select = document.getElementById("statusSelect");
