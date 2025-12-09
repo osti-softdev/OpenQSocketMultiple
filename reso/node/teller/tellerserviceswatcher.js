@@ -698,7 +698,7 @@ async function getAllHistoryData(cname) {
     const historyPattern = `%-${cname}-%`;
 
     const query = `
-      SELECT ticketnum, ticketservice, start_time, status, history
+      SELECT ticketnum, ticketservice, start_time, status, history, void_reason
       FROM transactions
       WHERE date = ?
         AND history LIKE ?
@@ -728,6 +728,7 @@ async function getAllHistoryData(cname) {
           ticketservice: row.ticketservice,
           start_time: row.start_time,
           status: row.status,
+          voidreason: row.void_reason,
           history: parsedHistory
         };
       });

@@ -71,7 +71,7 @@ $(document).ready(function () {
         return;
       }
       localStorage.setItem("tellerandgroupsdata", JSON.stringify(data));
-      console.log("📥 Received teller and groups data:", data);
+      // console.log("📥 Received teller and groups data:", data);
     });
 
 
@@ -269,27 +269,128 @@ $(document).on("click", ".tlrnavbtnrec", function () {
     console.log("⚠️ No received tickets available");
   }
 });
-// ! HISTORY BTN
+
+// ! HISTORY BUTTON CLICK
 $(document).on("click", ".historybtn", function () {
-    socket.emit("gettellershistory", {
-      callingcode: "",
-      tickid: "",
-      tickstatus: "",    
-      tickwherestatus: "", 
-      cnum: authUser.cnum,
-      cname: authUser.cname,
-      tickcode: "",
-      dataadditional: "",
-      group_name: authUser.group_name,
-    });
-});
-  socket.on("tellerhistorydata", (data) => {
-    if (!data) {
-      console.warn("⚠️ No History data received");
-      return;
-    }
-    console.log("📥 Received history data:", data);
+  socket.emit("gettellershistory", {
+    callingcode: "",
+    tickid: "",
+    tickstatus: "",
+    tickwherestatus: "",
+    cnum: authUser.cnum,
+    cname: authUser.cname,
+    tickcode: "",
+    dataadditional: "",
+    group_name: authUser.group_name,
   });
+});
+
+// LISTEN FOR RETURNED HISTORY DATA
+socket.on("tellerhistorydata", (tickets) => {
+  console.log(tickets);
+    if (!tickets || !tickets.length) {
+    Swal.fire({
+      title: "Empty",
+      text: "You haven't yet transacted any tickets!",
+      icon: "warning",
+      showCancelButton: false,
+      confirmButtonColor: "#3085d6",
+      confirmButtonText: "Okay!"
+    });
+
+    return; // stop execution to prevent errors
+  }
+
+  // Build table rows based on selected status
+  const buildRows = (filterStatus) => {
+    return tickets
+      .filter((t) => t.status === filterStatus)
+      .map((t) => {
+        const historyHTML = t.history
+          .map(
+            (h) =>
+              `<div style="padding:2px 0;">${h.time} — ${h.user} — ${h.action}</div>`
+          )
+          .join("");
+
+        return `
+          <tr>
+            <td>${t.ticketservice}${t.ticketnum}</td>
+            <td>${t.start_time}</td>
+            <td>${historyHTML}</td>
+          </tr>
+        `;
+      })
+      .join("");
+  };
+
+  // Default status to display
+  let currentStatus = "received";
+
+  const popupHTML = `
+    <div style="text-align:left;">
+      <label style="font-weight:600;">Status</label>
+      <select id="statusSelect" class="swal2-input" style="width:100%;margin-top:5px;">
+        <option value="received">Received</option>
+        <option value="called">Called</option>
+        <option value="held">Held</option>
+        <option value="finished">Finished</option>
+        <option value="voided">Voided</option>
+      </select>
+
+      <hr style="margin:15px 0;">
+
+      <table border="1" width="100%" style="border-collapse:collapse;font-size:14px;">
+        <thead>
+          <tr>
+            <th>Ticket</th>
+            <th>Start Time</th>
+            <th>History</th>
+          </tr>
+        </thead>
+        <tbody id="historyTableBody">
+          ${buildRows(currentStatus)}
+        </tbody>
+      </table>
+    </div>
+  `;
+
+  Swal.fire({
+    title: "Ticket History",
+    html: popupHTML,
+    width: 700,
+    showCancelButton: true,
+    confirmButtonText: "Save Status",
+    focusConfirm: false,
+    didOpen: () => {
+      const select = document.getElementById("statusSelect");
+
+      select.value = currentStatus;
+
+      select.addEventListener("change", (e) => {
+        currentStatus = e.target.value;
+        document.getElementById("historyTableBody").innerHTML =
+          buildRows(currentStatus);
+      });
+    },
+    preConfirm: () => {
+      const selected = document.getElementById("statusSelect").value;
+      return { status: selected };
+    }
+  }).then((result) => {
+    if (result.isConfirmed) {
+      socket.emit("updateticketstatus", {
+        status: result.value.status,
+        cnum: authUser.cnum,
+        cname: authUser.cname,
+        group_name: authUser.group_name,
+      });
+    }
+  });
+});
+
+
+
 // ! Right-click context menu for held list
 $(document).on("contextmenu", ".tlrnavbtnheld", function (e) {
   e.preventDefault();
