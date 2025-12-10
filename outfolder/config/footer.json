@@ -8,8 +8,8 @@
         "bgcolor": "#1400a8",
         "color": "#ffffff",
         "speed": 35,
-        "fontsize": 61,
-        "fontweight": 900,
+        "fontsize": 40,
+        "fontweight": 700,
         "shadowcolorvalue": "#000000"
     },
     "activated": {
