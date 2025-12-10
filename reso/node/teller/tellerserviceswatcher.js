@@ -604,7 +604,7 @@ async function updatecallticket(callingcode, tickid, tickstatus, tickwherestatus
           )
         `;
 
-        db.run(finishPrevQuery, [time, autoFinishEntry, autoFinishEntry, cnum, cname], function (finishErr) {
+        db.run(finishPrevQuery, [time, autoFinishEntry, autoFinishEntry, cnum, cname, date], function (finishErr) {
           if (finishErr) {
             db.run("ROLLBACK");
             db.close();
