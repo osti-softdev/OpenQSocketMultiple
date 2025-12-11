@@ -50,7 +50,7 @@ body {
   top: 5%;
   right: 0;
   height: 5%;
-  width: 40%;
+  width: 20%;
   z-index: 100;
   display: flex;
   justify-content: space-evenly;
@@ -342,7 +342,6 @@ body {
   background-repeat: no-repeat;
 }
 .mainkioskcontainer .servicesContainer .category-container div:nth-child(2) {
-  color: black;
   background-image: url("/images/buttons/button_priority.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -363,6 +362,7 @@ body {
   height: 90%;
   width: 100%;
   display: none;
+  text-wrap: wrap;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
@@ -389,6 +389,7 @@ body {
   position: relative;
   width: 30%;
   height: 30%;
+  padding: 1%;
   font-size: 2.5rem;
   font-family: gorilla, sans-serif;
   font-weight: 900;
@@ -397,6 +398,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  text-wrap: wrap;
   color: #e9e1e1;
   text-shadow: 2px 2px 5px black;
   border-radius: 16px;
@@ -414,7 +416,6 @@ body {
   background-repeat: no-repeat;
 }
 .mainkioskcontainer .servicesContainer .service-container #regularServices:nth-child(2) div, .mainkioskcontainer .servicesContainer .service-container #priorityServices:nth-child(2) div {
-  color: black;
   background-image: url("/images/buttons/button_priority.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
