@@ -124,6 +124,7 @@ body {
 .main-container .video-container .ad-slot {
   position: absolute;
   text-align: center;
+  justify-content: center;
   display: flex;
   left: 0%;
   width: 100%;
