@@ -120,7 +120,6 @@ socket.on("calledticketdata", function (data) {
 //! Listen for updates from backend
 socket.on("updatetellerservices", function(data) {
 if (data) {
-  console.log(data)
 window.latestTellerData = data;
 // console.log("📥 Received teller data:", data);
 $(".tlrnavbtnheld p").text(`[${data.heldCount || 0}]`);
@@ -429,14 +428,26 @@ function showSwalTable(title, rows, timeKey, listType) {
     const t2 = normalizeTime(b[timeKey]);
     return t1 - t2; // earliest first
   });
-
-  let table =
-    '<table style="width:100%;border-collapse:collapse;text-align:left;">' +
-    "<thead><tr>" +
-    "<th style='padding:4px;border-bottom:1px solid #ccc'>Ticket</th>" +
-    "<th style='padding:4px;border-bottom:1px solid #ccc'>Time</th>" +
-    "<th style='padding:4px;border-bottom:1px solid #ccc'>Action</th>" +
-    "</tr></thead><tbody>";
+  let table = null;
+  if(listType === "held"){
+    table =
+      '<table style="width:100%;border-collapse:collapse;text-align:left;">' +
+      "<thead><tr>" +
+      "<th style='padding:4px;border-bottom:1px solid #ccc'>Ticket</th>" +
+      "<th style='padding:4px;border-bottom:1px solid #ccc'>Time</th>" +
+      "<th style='padding:4px;border-bottom:1px solid #ccc'>Call</th>" +
+      "<th style='padding:4px;border-bottom:1px solid #ccc'>Forward</th>" +
+      "</tr></thead><tbody>";
+  }else{
+    table =
+      '<table style="width:100%;border-collapse:collapse;text-align:left;">' +
+      "<thead><tr>" +
+      "<th style='padding:4px;border-bottom:1px solid #ccc'>Ticket</th>" +
+      "<th style='padding:4px;border-bottom:1px solid #ccc'>Time</th>" +
+      "<th style='padding:4px;border-bottom:1px solid #ccc'>Call</th>" +
+      "</tr></thead><tbody>";
+  }
+  
 
   if (rows.length === 0) {
     table +=
@@ -446,12 +457,24 @@ function showSwalTable(title, rows, timeKey, listType) {
       const ticketDisplay = `${r.ticketservice || ""}${r.ticketnum || ""}`;
       const timeDisplay = r[timeKey] || "";
 
-      table +=
-        "<tr>" +
-        `<td style="padding:3px;">${ticketDisplay}</td>` +
-        `<td style="padding:3px;">${timeDisplay}</td>` +
-        `<td style="padding:3px;"><button style="cursor:pointer;padding:3px;width:100%;" class='callBtn'data-service='${r.ticketservice}'  data-id='${r.id}' data-type='${listType}'>Call</button></td>` +
-        "</tr>";
+      if(listType === "held"){
+        table +=
+          "<tr>" +
+          `<td style="padding:3px;">${ticketDisplay}</td>` +
+          `<td style="padding:3px;">${timeDisplay}</td>` +
+          `<td style="padding:3px;"><button style="cursor:pointer;padding:3px;width:100%;" class='callBtn'data-service='${r.ticketservice}'  data-id='${r.id}' data-type='${listType}'>Call</button></td>` +
+          `<td style="padding:3px;"><button style="cursor:pointer;padding:3px;width:100%;" class='listFwdBtn'data-service='${r.ticketservice}' data-ticket='${r.ticketnum}'  data-id='${r.id}' data-type='${listType}'>Forward</button></td>` +
+          "</tr>";
+      }else{
+        table +=
+          "<tr>" +
+          `<td style="padding:3px;">${ticketDisplay}</td>` +
+          `<td style="padding:3px;">${timeDisplay}</td>` +
+          `<td style="padding:3px;"><button style="cursor:pointer;padding:3px;width:100%;" class='callBtn'data-service='${r.ticketservice}'  data-id='${r.id}' data-type='${listType}'>Call</button></td>` +
+          "</tr>";
+      }
+
+      
     });
   }
 
@@ -489,6 +512,18 @@ function showSwalTable(title, rows, timeKey, listType) {
             group_name: authUser.group_name
           });
 
+      Swal.close();
+    });
+
+
+    $(document)
+    .off("click", ".listFwdBtn")
+    .on("click", ".listFwdBtn", function () {
+      const id = $(this).data("id");
+      const ticketservice = $(this).data("service");
+      const ticketnum = $(this).data("ticket");
+      const data = { id: id, ticketservice: ticketservice, ticketnum: ticketnum, status: "held" };
+      custompopupset("show", "forward", data, authUser);
       Swal.close();
     });
 

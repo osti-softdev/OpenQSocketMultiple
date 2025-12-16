@@ -206,16 +206,31 @@ if (tellers.length === 0 && groups.length === 0) {
 
       console.log(selectedCounter);
 
-      socket.emit("getandupdatecalledtick", {
-        callingcode: "forward",
-        tickid: data.id || "",
-        tickstatus: "received",    
-        tickwherestatus: "called", 
-        cnum: authUser.cnum,
-        cname: authUser.cname,
-        tickcode: data.ticketservice,
-        dataadditional: selectedCounter,
-      });
+      if(data.status === "held"){
+        socket.emit("getandupdatecalledtick", {
+          callingcode: "forward",
+          tickid: data.id || "",
+          tickstatus: "received",    
+          tickwherestatus: "held", 
+          cnum: authUser.cnum,
+          cname: authUser.cname,
+          tickcode: data.ticketservice,
+          dataadditional: selectedCounter,
+        });
+      }else{
+        socket.emit("getandupdatecalledtick", {
+          callingcode: "forward",
+          tickid: data.id || "",
+          tickstatus: "received",    
+          tickwherestatus: "called", 
+          cnum: authUser.cnum,
+          cname: authUser.cname,
+          tickcode: data.ticketservice,
+          dataadditional: selectedCounter,
+        });
+      }
+
+      
 
       Custompopup.hide();
       cpoptitle.empty();
