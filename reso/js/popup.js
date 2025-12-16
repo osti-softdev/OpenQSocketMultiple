@@ -78,6 +78,7 @@ function showPopup(ticketData) {
 	}else{
 		$("#counterpop").text("Counter " + ticketData.counter_num);
 		$("#ticketpop").text(`${ticketData.service}-${ticketData.ticket}`);	
+		// $("#ticketpop").text(`${ticketData.service}-${ticketData.ticket}`);	
 	}
 	
 
@@ -116,7 +117,8 @@ function speakTicketTwice(ticketData, onFinish) {
 		);
 	}else{
 		msg = new SpeechSynthesisUtterance(
-			`Now serving, ${serviceSeparated}${ticketData.ticket}, Counter ${ticketData.counter_num}`
+			// `Now serving, ${serviceSeparated}${ticketData.ticket}, Please proceed to counter ${ticketData.counter_num}`
+			`Now serving, ${ticks},${serviceSeparated}${ticketData.ticket}, Please proceed to counter ${ticketData.counter_num}`
 		);
 	}
 	

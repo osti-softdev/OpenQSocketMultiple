@@ -185,14 +185,14 @@ function setServicesDisplay(count) {
 		});
 		$(".service-name").css({
 			"height": "25%",
-			"font-size": "2.5rem"
+			"font-size": "2.2rem"
 		});
 		$(".counter").css({
 			"font-size": "5rem",
 
 		});
 		$(".service-ticket").css({
-			"font-size": "5rem"
+			"font-size": "4.7rem"
 		});
 	}else if (count === 7) {
 		$(".service-row").css({
@@ -201,14 +201,14 @@ function setServicesDisplay(count) {
 		});
 		$(".service-name").css({
 			"height": "25%",
-			"font-size": "2.5rem"
+			"font-size": "2rem"
 		});
 		$(".counter").css({
 			"font-size": "5rem",
 
 		});
 		$(".service-ticket").css({
-			"font-size": "4rem"
+			"font-size": "3.5rem"
 		});
 	}else if(count === 8) {
 		$(".service-row").css({
@@ -217,14 +217,14 @@ function setServicesDisplay(count) {
 		});
 		$(".service-name").css({
 			"height": "25%",
-			"font-size": "2.5rem"
+			"font-size": "2.3rem"
 		});
 		$(".counter").css({
 			"font-size": "5rem",
 
 		});
 		$(".service-ticket").css({
-			"font-size": "4rem"
+			"font-size": "3.8rem"
 		});
 	}else if(count === 9) {
 		$(".service-row").css({
@@ -233,7 +233,7 @@ function setServicesDisplay(count) {
 		});
 		$(".service-name").css({
 			"height": "25%",
-			"font-size": "2.5rem"
+			"font-size": "2.rem"
 		});
 		$(".counter").css({
 			"font-size": "4rem",
@@ -249,7 +249,7 @@ function setServicesDisplay(count) {
 		});
 		$(".service-name").css({
 			"height": "25%",
-			"font-size": "2.5rem"
+			"font-size": "2.3rem"
 		});
 		$(".counter").css({
 			"font-size": "4rem",
@@ -345,7 +345,7 @@ function setServicesDisplay(count) {
 		});
 		$(".service-name").css({
 			"height": "25%",
-			"font-size": "2.5rem"
+			"font-size": "2.3rem"
 		});
 		$(".counter").css({
 			"font-size": "6rem",
