@@ -180,6 +180,32 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
         });
 
         // Get received list (specific to counter_num)
+          // const receivedList = await new Promise((res, rej) => {
+          //   db.all(
+          //     `
+          //     SELECT ticketnum, ticketservice, start_time, id
+          //     FROM transactions
+          //     WHERE status = 'received'
+          //       AND date = ?
+          //       AND (
+          //         -- Case 1: Has counter_num only
+          //         (counter_num IS NOT NULL AND counter_group IS NULL AND counter_num = ?)
+          //         OR
+          //         -- Case 2: Has counter_group only
+          //         (counter_group IS NOT NULL AND counter_num IS NULL AND counter_group = ?)
+          //         OR
+          //         -- Case 3: Has both counter_num and counter_group (prefer specific counter)
+          //         (counter_num IS NOT NULL AND counter_group IS NOT NULL AND counter_num = ?)
+          //       )
+          //     `,
+          //     [date, cnum, group_name, cnum],
+          //     (err, rows) => {
+          //       if (err) return rej(err);
+          //       res(rows || []);
+          //     }
+          //   );
+          // });
+
           const receivedList = await new Promise((res, rej) => {
             db.all(
               `
@@ -188,17 +214,11 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
               WHERE status = 'received'
                 AND date = ?
                 AND (
-                  -- Case 1: Has counter_num only
-                  (counter_num IS NOT NULL AND counter_group IS NULL AND counter_num = ?)
-                  OR
-                  -- Case 2: Has counter_group only
-                  (counter_group IS NOT NULL AND counter_num IS NULL AND counter_group = ?)
-                  OR
-                  -- Case 3: Has both counter_num and counter_group (prefer specific counter)
-                  (counter_num IS NOT NULL AND counter_group IS NOT NULL AND counter_num = ?)
+                  counter_num = ?
+                  OR counter_group = ?
                 )
               `,
-              [date, cnum, group_name, cnum],
+              [date, cnum, group_name],
               (err, rows) => {
                 if (err) return rej(err);
                 res(rows || []);
