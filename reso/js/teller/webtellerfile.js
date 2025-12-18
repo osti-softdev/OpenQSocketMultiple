@@ -81,6 +81,8 @@ let currentCalledTicket = null; // 👈 holds the latest received data
 
 socket.on("calledticketdata", function (data) {
   // Always store the latest data in a variable (even if null)
+  console.log(data)
+
   currentCalledTicket = data;
   // No ticket → stop and clear
   if (!data) {

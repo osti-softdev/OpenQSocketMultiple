@@ -18,7 +18,7 @@
     "kiosk_regular_service_color": "#cbf0ff",
     "kiosk_priority_service_color": "#ffffff",
     "kiosk_service_shadow_color": "#000000",
-    "kiosk_back_color": "darkblue",
+    "kiosk_back_color": "#040c76",
     "kiosk_back_text_color": "#ffffff",
     "display_update": {
         "update": 0

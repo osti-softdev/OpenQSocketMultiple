@@ -16,12 +16,12 @@ function initializeWindowedKiosk(socket, io) {
 
 	let smsType = config?.MainServer?.sms
 			 sendToAllKiosks(socket);
-	if (!watcherAdded) {
-		fs.watchFile(dbPath, { interval: 500 }, async () => {
-			await sendToAllKiosks(io);
-		});
-		watcherAdded = true;
-	}
+	// if (!watcherAdded) {
+	// 	fs.watchFile(dbPath, { interval: 500 }, async () => {
+	// 		await sendToAllKiosks(io);
+	// 	});
+	// 	watcherAdded = true;
+	// }
 
 	socket.on("newServiceTicket", (service) => {
 		const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE, (err) => {

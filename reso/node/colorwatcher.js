@@ -60,7 +60,7 @@ function setupdisplaycolorwatcher(socket, io) {
 	// 	footerTimeout = setTimeout(() => sendFooter(io), 1000);
 	// });
 
-	fs.watchFile(modsPath, { interval: 800 }, () => {
+	fs.watchFile(modsPath, { interval: 30000 }, () => {
 		clearTimeout(displayTimeout);
 		displayTimeout = setTimeout(() => sendDisplay(io), 500);
 	});

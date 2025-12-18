@@ -69,12 +69,16 @@ $(document).ready(function () {
         $regularServices.append(backBtn);
         $priorityServices.append(backBtn);
 
-        $(".back-btn").off("click").on("click", function () {
+
+        setTimeout(() => {
+            applyDisplayConfig(window.currentDisplayConfig);            
+        }, 2000);
+        $(".back-btn").on("click", function () {
             $("#regularServices, #priorityServices").fadeOut(200);
             $(".category-container").fadeIn(200);
         });
 
-        $(".service-button").off("click").on("click", function () {
+        $(".service-button").on("click", function () {
             const sname = $(this).data("sname");
             const ticketservice = $(this).data("ticketservice");
 
@@ -218,33 +222,33 @@ function applyDisplayConfig(config) {
     window.currentDisplayConfig = config; // <-- store colors globally
 
     $(".time").css({
-        "color": config.time_color,
-        "text-shadow": `2px 2px 5px ${config.time_shadow}`,
+        "color": window.currentDisplayConfig.time_color,
+        "text-shadow": `2px 2px 5px ${window.currentDisplayConfig.time_shadow}`,
     });
 
     $(".date").css({
-        "color": config.date_color
+        "color": window.currentDisplayConfig.date_color
     });
 
     $(".regbtn").css({
-        "color": config.kiosk_regular_service_color,
-        "text-shadow": `2px 2px 5px ${config.kiosk_service_shadow_color}`,
+        "color": window.currentDisplayConfig.kiosk_regular_service_color,
+        "text-shadow": `2px 2px 5px ${window.currentDisplayConfig.kiosk_service_shadow_color}`,
     });
 
     $(".priobtn").css({
-        "color": config.kiosk_priority_service_color,
-        "text-shadow": `2px 2px 5px ${config.kiosk_service_shadow_color}`,
+        "color": window.currentDisplayConfig.kiosk_priority_service_color,
+        "text-shadow": `2px 2px 5px ${window.currentDisplayConfig.kiosk_service_shadow_color}`,
     });
 
     $(".footercont").css({
-        "color": config.kiosk_footer_text_color,
-        "background-color": config.kiosk_footer_color,
-        "text-shadow": `2px 2px 5px ${config.kiosk_footer_text_shadow_color}`,
+        "color": window.currentDisplayConfig.kiosk_footer_text_color,
+        "background-color": window.currentDisplayConfig.kiosk_footer_color,
+        "text-shadow": `2px 2px 5px ${window.currentDisplayConfig.kiosk_footer_text_shadow_color}`,
     });
 
     $(".back-btn").css({
-        "color": config.kiosk_back_text_color,
-        "background-color": config.kiosk_back_color,
+        "color": window.currentDisplayConfig.kiosk_back_text_color,
+        "background-color": window.currentDisplayConfig.kiosk_back_color,
     });
 
     if (config.display_update?.update === 1) {
