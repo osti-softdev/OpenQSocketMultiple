@@ -29,6 +29,14 @@ function applyConfig(config) {
         "text-shadow": `2px 2px 5px ${section.shadowcolorvalue}`
     });
 
+    $("#runner2").css({
+        animation: `marquee ${section.speed}s linear infinite`,
+        "font-size": `${section.fontsize}px`,
+        color: section.color,
+        "font-weight": section.fontweight,
+        "text-shadow": `2px 2px 5px ${section.shadowcolorvalue}`
+    });
+
     const separator = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
     let firstann = '';
 
@@ -45,4 +53,5 @@ function applyConfig(config) {
     }
 
     $("#runner").html(firstann);
+    $("#runner2").html(firstann);
 }

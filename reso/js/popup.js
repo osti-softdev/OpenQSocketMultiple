@@ -118,7 +118,7 @@ function speakTicketTwice(ticketData, onFinish) {
 	}else{
 		msg = new SpeechSynthesisUtterance(
 			// `Now serving, ${serviceSeparated}${ticketData.ticket}, Please proceed to counter ${ticketData.counter_num}`
-			`Now serving, ${ticks},${serviceSeparated}${ticketData.ticket}, Please proceed to counter ${ticketData.counter_num}`
+			`Now serving, ${ticks}; ${serviceSeparated}${ticketData.ticket}! Please proceed to counter ${ticketData.counter_num}`
 		);
 	}
 	
