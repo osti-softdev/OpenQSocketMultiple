@@ -308,7 +308,7 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
                     SELECT ticketnum, ticketservice, time, id
                     FROM transactions
                     WHERE ticketservice = ?
-                      AND status IN ('called', 'finished')
+                      AND status IN ('called', 'finished','held','void')
                       AND date = ?
                     ORDER BY time DESC, id DESC
                     LIMIT 1
