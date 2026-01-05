@@ -47,8 +47,11 @@ async function gettellersandgroups(id, cnum, group_name) {
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 =======
+=======
+>>>>>>> Stashed changes
 // ! NO LAST CALLED TICKET FUNCTION
 // async function getTellerServices(id, cuser, cnum, cname, group_name) {
 //   const { date, time } = getPHDateTime();
@@ -231,6 +234,9 @@ async function gettellersandgroups(id, cnum, group_name) {
 // }
 
 // ! UPDATED FUNCTION WITH LAST CALLED TICKET FEATURE
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 async function getTellerServices(id, cuser, cnum, cname, group_name) {
   const { date, time } = getPHDateTime();
@@ -406,6 +412,7 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
         });
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         // Get received list (specific to counter_num)
           // const receivedList = await new Promise((res, rej) => {
           //   db.all(
@@ -437,16 +444,22 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
             db.all(
               `
 =======
+=======
+>>>>>>> Stashed changes
         // 📥 Received
         const receivedList = await new Promise((res, rej) => {
           db.all(
             `
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
               SELECT ticketnum, ticketservice, start_time, id
               FROM transactions
               WHERE status = 'received'
                 AND date = ?
                 AND (
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
                   counter_num = ?
                   OR 
@@ -467,6 +480,14 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
                   OR
                   (counter_num IS NOT NULL AND counter_group IS NOT NULL AND counter_num = ?)
                 )
+=======
+                  (counter_num IS NOT NULL AND counter_group IS NULL AND counter_num = ?)
+                  OR
+                  (counter_group IS NOT NULL AND counter_num IS NULL AND counter_group = ?)
+                  OR
+                  (counter_num IS NOT NULL AND counter_group IS NOT NULL AND counter_num = ?)
+                )
+>>>>>>> Stashed changes
             `,
             [date, cnum, group_name, cnum],
             (err, rows) => {
@@ -475,6 +496,9 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
             }
           );
         });
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
           // 🔒 Mark services not owned by teller (UI-safe)
@@ -501,6 +525,7 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
     });
   });
 }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 
 // async function getTellerServices(id, cuser, cnum, cname, group_name) {
@@ -673,6 +698,10 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
 //     });
 //   });
 // }
+=======
+// ! GET CALLED TICKET FUNCTION END
+
+>>>>>>> Stashed changes
 =======
 // ! GET CALLED TICKET FUNCTION END
 
