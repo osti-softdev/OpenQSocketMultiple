@@ -152,6 +152,7 @@
             }
         }
     }
+    // ! UPDATED 01-05-26 - Teller Data Section
     .tellerdatanav{
         position: absolute;
         top: 60px;
@@ -180,13 +181,17 @@
             width: 50%;
             }
             &:nth-child(2){
-            width: 25%;
+            width: 20%;
             }
             &:nth-child(3){
-            width: 25%;
+            width: 15%;
+            }
+            &:nth-child(4){
+            width: 15%;
             }
         }
     }
+    // ! UPDATED 01-05-26 END
     .tellerdataservices{
         position: absolute;
         top: 80px;
@@ -219,11 +224,28 @@
                 color: var(--text-color);
                 background: var(--card-bg);
             }
+
+            // ! UPDATED 01-05-26 - Added last called ticket style
             .tellerservicename{
                 width: 50%;
             }
+            .tellerservicelastcalled{
+                width: 20%;
+                transform: scale(0.9);
+                border-radius: 4px;
+                background: var(--button4-bg);
+                cursor: pointer;
+                font-weight: 600;
+
+                &:hover{
+                    background: var(--button4-bg-hover);
+                }
+                &:active{
+                    transform: scale(0.8);
+                }
+            }
             .tellerservicereg{
-                width: 25%;
+                width: 15%;
                 transform: scale(0.9);
                 border-radius: 4px;
                 background: var(--button-bg);
@@ -238,7 +260,7 @@
                 }
             }
             .tellerserviceprio{
-                width: 25%;
+                width: 15%;
                 transform: scale(0.9);
                 border-radius: 4px;
                 background: var(--button3-bg);
@@ -253,6 +275,7 @@
                 }
             }
         }
+        // ! UPDATED 01-05-26 END
     }
     .tellercurrentcalled{
         position: absolute;

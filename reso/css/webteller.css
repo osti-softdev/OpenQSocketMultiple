@@ -408,10 +408,13 @@ html:has(#mode-switcher #theme-toggle:checked) {
   width: 50%;
 }
 .maintellercontainer .tellerdatanav ul:nth-child(2) {
-  width: 25%;
+  width: 20%;
 }
 .maintellercontainer .tellerdatanav ul:nth-child(3) {
-  width: 25%;
+  width: 15%;
+}
+.maintellercontainer .tellerdatanav ul:nth-child(4) {
+  width: 15%;
 }
 .maintellercontainer .tellerdataservices {
   position: absolute;
@@ -448,8 +451,22 @@ html:has(#mode-switcher #theme-toggle:checked) {
 .maintellercontainer .tellerdataservices .tellerservice .tellerservicename {
   width: 50%;
 }
+.maintellercontainer .tellerdataservices .tellerservice .tellerservicelastcalled {
+  width: 20%;
+  transform: scale(0.9);
+  border-radius: 4px;
+  background: var(--button4-bg);
+  cursor: pointer;
+  font-weight: 600;
+}
+.maintellercontainer .tellerdataservices .tellerservice .tellerservicelastcalled:hover {
+  background: var(--button4-bg-hover);
+}
+.maintellercontainer .tellerdataservices .tellerservice .tellerservicelastcalled:active {
+  transform: scale(0.8);
+}
 .maintellercontainer .tellerdataservices .tellerservice .tellerservicereg {
-  width: 25%;
+  width: 15%;
   transform: scale(0.9);
   border-radius: 4px;
   background: var(--button-bg);
@@ -463,7 +480,7 @@ html:has(#mode-switcher #theme-toggle:checked) {
   transform: scale(0.8);
 }
 .maintellercontainer .tellerdataservices .tellerservice .tellerserviceprio {
-  width: 25%;
+  width: 15%;
   transform: scale(0.9);
   border-radius: 4px;
   background: var(--button3-bg);

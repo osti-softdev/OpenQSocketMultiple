@@ -144,6 +144,13 @@ if (Array.isArray(data.serviceData)) {
       .addClass('tellerservicename')
       .text(serviceObj.sname || "");
 
+      // ! UPDATED 01-05-26 - Show last called ticket or "—" if none
+    const $lastcalledticket = $('<div></div>')
+      .addClass('tellerservicelastcalled')
+      .attr('data-code', serviceObj.lastcalledservice || "")
+      .text(serviceObj.lastcalleddisplay || "—");
+      // ! UPDATED 01-05-26 END
+
     const $serviceReg = $('<div></div>')
       .addClass('tellerservicereg')
       .attr('data-code', serviceObj.regular || "")
@@ -182,7 +189,7 @@ if (Array.isArray(data.serviceData)) {
           });;
       });
 
-    $serviceDiv.append($servicename, $serviceReg, $servicePrio);
+    $serviceDiv.append($servicename, $lastcalledticket, $serviceReg, $servicePrio);
     $servicesContainer.append($serviceDiv);
   });
 } else {

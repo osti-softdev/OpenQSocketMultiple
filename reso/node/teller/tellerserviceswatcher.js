@@ -46,7 +46,192 @@ async function gettellersandgroups(id, cnum, group_name) {
   });
 }
 
+<<<<<<< Updated upstream
 
+=======
+// ! NO LAST CALLED TICKET FUNCTION
+// async function getTellerServices(id, cuser, cnum, cname, group_name) {
+//   const { date, time } = getPHDateTime();
+
+//   return new Promise((resolve, reject) => {
+//     const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err) => {
+//       if (err) return reject(err);
+//     });
+
+//     const query = `
+//       SELECT id, cname, cuser, cnum, services, group_name 
+//       FROM counters 
+//       WHERE id = ? AND cuser = ? AND cnum = ?
+//     `;
+
+//     db.get(query, [id, cuser, cnum], async (err, row) => {
+//       if (err) {
+//         db.close();
+//         return reject(err);
+//       }
+//       if (!row) {
+//         db.close();
+//         return resolve(null);
+//       }
+
+//       try {
+//         const serviceList = row.services
+//           ? row.services.split(",").map((s) => s.trim())
+//           : [];
+
+//         const serviceData = [];
+
+//         for (const s of serviceList) {
+//           const serviceInfo = await new Promise((res, rej) => {
+//             db.get(
+//               `SELECT regular, priority FROM services WHERE sname = ?`,
+//               [s],
+//               (err, svcRow) => {
+//                 if (err) return rej(err);
+//                 res(svcRow || null);
+//               }
+//             );
+//           });
+
+//           if (serviceInfo) {
+//             const regCount = await new Promise((res, rej) => {
+//               db.get(
+//                 `
+//                   SELECT COUNT(*) as cnt 
+//                   FROM transactions
+//                   WHERE ticketservice = ?
+//                     AND status = 'pending'
+//                     AND date = ?
+//                 `,
+//                 [serviceInfo.regular, date],
+//                 (err, row) => {
+//                   if (err) return rej(err);
+//                   res(row?.cnt || 0);
+//                 }
+//               );
+//             });
+
+//             const priCount = await new Promise((res, rej) => {
+//               db.get(
+//                 `
+//                   SELECT COUNT(*) as cnt 
+//                   FROM transactions
+//                   WHERE ticketservice = ?
+//                     AND status = 'pending'
+//                     AND date = ?
+//                 `,
+//                 [serviceInfo.priority, date],
+//                 (err, row) => {
+//                   if (err) return rej(err);
+//                   res(row?.cnt || 0);
+//                 }
+//               );
+//             });
+
+//             serviceData.push({
+//               sname: s,
+//               regular: serviceInfo.regular,
+//               priority: serviceInfo.priority,
+//               pendingRegular: regCount,
+//               pendingPriority: priCount,
+//             });
+//           } else {
+//             serviceData.push({
+//               sname: s,
+//               regular: null,
+//               priority: null,
+//               pendingRegular: 0,
+//               pendingPriority: 0,
+//             });
+//           }
+//         }
+
+//          // ✅ Create placeholders for filtering by the counter’s services
+//         const placeholders = serviceList.map(() => "?").join(",") || "''";
+
+//         // Get all pending list
+//         const allPendingList = await new Promise((res, rej) => {
+//           db.all(
+//             `
+//               SELECT ticketnum, ticketservice, id, time 
+//               FROM transactions
+//               WHERE status = 'pending'
+//                 AND date = ? AND sname IN (${placeholders})
+//             `,
+//             [date,  ...serviceList],
+//             (err, rows) => {
+//               if (err) return rej(err);
+//               res(rows || []);
+//             }
+//           );
+//         });
+
+//         // Get held list (specific to counter_num)
+//         const heldList = await new Promise((res, rej) => {
+//           db.all(
+//             `
+//               SELECT ticketnum, ticketservice, start_time, id 
+//               FROM transactions
+//               WHERE status = 'held'
+//                 AND counter_num = ? AND counter_user = ?
+//                 AND date = ?
+//             `,
+//             [cnum, cname, date],
+//             (err, rows) => {
+//               if (err) return rej(err);
+//               res(rows || []);
+//             }
+//           );
+//         });
+
+//         // Get received list (specific to counter_num)
+//           const receivedList = await new Promise((res, rej) => {
+//             db.all(
+//               `
+//               SELECT ticketnum, ticketservice, start_time, id
+//               FROM transactions
+//               WHERE status = 'received'
+//                 AND date = ?
+//                 AND (
+//                   -- Case 1: Has counter_num only
+//                   (counter_num IS NOT NULL AND counter_group IS NULL AND counter_num = ?)
+//                   OR
+//                   -- Case 2: Has counter_group only
+//                   (counter_group IS NOT NULL AND counter_num IS NULL AND counter_group = ?)
+//                   OR
+//                   -- Case 3: Has both counter_num and counter_group (prefer specific counter)
+//                   (counter_num IS NOT NULL AND counter_group IS NOT NULL AND counter_num = ?)
+//                 )
+//               `,
+//               [date, cnum, group_name, cnum],
+//               (err, rows) => {
+//                 if (err) return rej(err);
+//                 res(rows || []);
+//               }
+//             );
+//           });
+
+//         db.close();
+//         resolve({
+//           ...row,
+//           serviceData,
+//           totalPending: allPendingList.length,
+//           allPendingList,
+//           heldList,
+//           heldCount: heldList.length,
+//           receivedList,
+//           receivedCount: receivedList.length,
+//         });
+//       } catch (e) {
+//         db.close();
+//         reject(e);
+//       }
+//     });
+//   });
+// }
+
+// ! UPDATED FUNCTION WITH LAST CALLED TICKET FEATURE
+>>>>>>> Stashed changes
 async function getTellerServices(id, cuser, cnum, cname, group_name) {
   const { date, time } = getPHDateTime();
 
@@ -73,7 +258,7 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
 
       try {
         const serviceList = row.services
-          ? row.services.split(",").map((s) => s.trim())
+          ? row.services.split(",").map(s => s.trim())
           : [];
 
         const serviceData = [];
@@ -90,72 +275,110 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
             );
           });
 
+          let pendingRegular = 0;
+          let pendingPriority = 0;
+          let lastCalledTicket = null;
+          let lastCalledService = null;
+          let lastCalledTime = null;
+
           if (serviceInfo) {
-            const regCount = await new Promise((res, rej) => {
-              db.get(
-                `
-                  SELECT COUNT(*) as cnt 
-                  FROM transactions
-                  WHERE ticketservice = ?
-                    AND status = 'pending'
-                    AND date = ?
-                `,
-                [serviceInfo.regular, date],
-                (err, row) => {
-                  if (err) return rej(err);
-                  res(row?.cnt || 0);
-                }
-              );
-            });
+            // 🔢 Pending counts
+            const countPending = (code) =>
+              new Promise((res, rej) => {
+                db.get(
+                  `
+                    SELECT COUNT(*) as cnt
+                    FROM transactions
+                    WHERE ticketservice = ?
+                      AND status = 'pending'
+                      AND date = ?
+                  `,
+                  [code, date],
+                  (err, r) => {
+                    if (err) return rej(err);
+                    res(r?.cnt || 0);
+                  }
+                );
+              });
 
-            const priCount = await new Promise((res, rej) => {
-              db.get(
-                `
-                  SELECT COUNT(*) as cnt 
-                  FROM transactions
-                  WHERE ticketservice = ?
-                    AND status = 'pending'
-                    AND date = ?
-                `,
-                [serviceInfo.priority, date],
-                (err, row) => {
-                  if (err) return rej(err);
-                  res(row?.cnt || 0);
-                }
-              );
-            });
+            pendingRegular = await countPending(serviceInfo.regular);
+            pendingPriority = await countPending(serviceInfo.priority);
 
-            serviceData.push({
-              sname: s,
-              regular: serviceInfo.regular,
-              priority: serviceInfo.priority,
-              pendingRegular: regCount,
-              pendingPriority: priCount,
-            });
-          } else {
-            serviceData.push({
-              sname: s,
-              regular: null,
-              priority: null,
-              pendingRegular: 0,
-              pendingPriority: 0,
-            });
+            // 🧠 Last called / finished (REG + PRIO)
+            const lastTx = (code) =>
+              new Promise((res, rej) => {
+                db.get(
+                  `
+                    SELECT ticketnum, ticketservice, time, id
+                    FROM transactions
+                    WHERE ticketservice = ?
+                      AND status IN ('called', 'finished')
+                      AND date = ?
+                    ORDER BY time DESC, id DESC
+                    LIMIT 1
+                  `,
+                  [code, date],
+                  (err, r) => {
+                    if (err) return rej(err);
+                    res(r || null);
+                  }
+                );
+              });
+
+            const lastReg = await lastTx(serviceInfo.regular);
+            const lastPrio = await lastTx(serviceInfo.priority);
+
+            // 🏆 Pick the latest between reg & prio
+            const candidates = [lastReg, lastPrio].filter(Boolean);
+
+            if (candidates.length) {
+              candidates.sort((a, b) => {
+                if (a.time === b.time) return b.id - a.id;
+                return a.time > b.time ? -1 : 1;
+              });
+
+              lastCalledTicket = candidates[0].ticketnum;
+              lastCalledService = candidates[0].ticketservice;
+              lastCalledTime = candidates[0].time;
+            }
           }
+
+       const lastCalledDisplay =
+  lastCalledService && lastCalledTicket
+    ? `${lastCalledService}${lastCalledTicket}`
+    : null;
+
+          serviceData.push({
+            sname: s,
+            regular: serviceInfo?.regular || null,
+            priority: serviceInfo?.priority || null,
+            pendingRegular,
+            pendingPriority,
+
+            // raw values (still useful)
+            lastcalledservice: lastCalledService,
+            lastcalledticketnum: lastCalledTicket,
+
+            // formatted value for UI
+            lastcalleddisplay: lastCalledDisplay,
+            lastcalledtime: lastCalledTime
+          });
         }
 
-         // ✅ Create placeholders for filtering by the counter’s services
+        // 🔍 Service filter placeholders
         const placeholders = serviceList.map(() => "?").join(",") || "''";
 
-        // Get all pending list
+        // 📋 Pending list
         const allPendingList = await new Promise((res, rej) => {
           db.all(
             `
-              SELECT ticketnum, ticketservice, id, time 
+              SELECT ticketnum, ticketservice, id, time
               FROM transactions
               WHERE status = 'pending'
-                AND date = ? AND sname IN (${placeholders})
+                AND date = ?
+                AND sname IN (${placeholders})
             `,
-            [date,  ...serviceList],
+            [date, ...serviceList],
             (err, rows) => {
               if (err) return rej(err);
               res(rows || []);
@@ -163,14 +386,15 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
           );
         });
 
-        // Get held list (specific to counter_num)
+        // ✋ Held
         const heldList = await new Promise((res, rej) => {
           db.all(
             `
-              SELECT ticketnum, ticketservice, start_time, id 
+              SELECT ticketnum, ticketservice, start_time, id
               FROM transactions
               WHERE status = 'held'
-                AND counter_num = ? AND counter_user = ?
+                AND counter_num = ?
+                AND counter_user = ?
                 AND date = ?
             `,
             [cnum, cname, date],
@@ -181,6 +405,7 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
           );
         });
 
+<<<<<<< Updated upstream
         // Get received list (specific to counter_num)
           // const receivedList = await new Promise((res, rej) => {
           //   db.all(
@@ -211,11 +436,18 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
           let receivedList = await new Promise((res, rej) => {
             db.all(
               `
+=======
+        // 📥 Received
+        const receivedList = await new Promise((res, rej) => {
+          db.all(
+            `
+>>>>>>> Stashed changes
               SELECT ticketnum, ticketservice, start_time, id
               FROM transactions
               WHERE status = 'received'
                 AND date = ?
                 AND (
+<<<<<<< Updated upstream
                   counter_num = ?
                   OR 
                     counter_group = ?
@@ -228,6 +460,22 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
               }
             );
           });
+=======
+                  (counter_num IS NOT NULL AND counter_group IS NULL AND counter_num = ?)
+                  OR
+                  (counter_group IS NOT NULL AND counter_num IS NULL AND counter_group = ?)
+                  OR
+                  (counter_num IS NOT NULL AND counter_group IS NOT NULL AND counter_num = ?)
+                )
+            `,
+            [date, cnum, group_name, cnum],
+            (err, rows) => {
+              if (err) return rej(err);
+              res(rows || []);
+            }
+          );
+        });
+>>>>>>> Stashed changes
 
           // 🔒 Mark services not owned by teller (UI-safe)
           receivedList = receivedList.map(t => ({
@@ -244,7 +492,7 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
           heldList,
           heldCount: heldList.length,
           receivedList,
-          receivedCount: receivedList.length,
+          receivedCount: receivedList.length
         });
       } catch (e) {
         db.close();
@@ -253,6 +501,7 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
     });
   });
 }
+<<<<<<< Updated upstream
 
 // async function getTellerServices(id, cuser, cnum, cname, group_name) {
 //   const { date } = getPHDateTime();
@@ -424,6 +673,10 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
 //     });
 //   });
 // }
+=======
+// ! GET CALLED TICKET FUNCTION END
+
+>>>>>>> Stashed changes
 
 async function getTellerCalledticket(cnum, cname) {
     const { date, time } = getPHDateTime();
