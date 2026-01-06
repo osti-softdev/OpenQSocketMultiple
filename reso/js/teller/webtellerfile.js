@@ -122,6 +122,7 @@ socket.on("calledticketdata", function (data) {
 //! Listen for updates from backend
 socket.on("updatetellerservices", function(data) {
 if (data) {
+  console.log(data);
 window.latestTellerData = data;
 // console.log("📥 Received teller data:", data);
 $(".tlrnavbtnheld p").text(`[${data.heldCount || 0}]`);
@@ -209,6 +210,7 @@ socket.on("reloadtellerservices", () => {
       cuser: authUser.cuser,
       cnum: authUser.cnum,
       cname: authUser.cname,
+      group_name: authUser.group_name,
     });
   }
 });

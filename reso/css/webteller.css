@@ -246,7 +246,7 @@ html:has(#mode-switcher #theme-toggle:checked) {
   position: absolute;
   top: 0%;
   left: 0%;
-  height: 100%;
+  height: 50%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -436,7 +436,7 @@ html:has(#mode-switcher #theme-toggle:checked) {
   display: flex;
   margin-top: 5px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 .maintellercontainer .tellerdataservices .tellerservice div {
   position: relative;
@@ -495,9 +495,9 @@ html:has(#mode-switcher #theme-toggle:checked) {
 }
 .maintellercontainer .tellercurrentcalled {
   position: absolute;
-  bottom: 40px;
+  bottom: 70px;
   left: 0%;
-  height: 20px;
+  height: 40px;
   width: 100%;
   display: flex;
 }
@@ -528,7 +528,7 @@ html:has(#mode-switcher #theme-toggle:checked) {
   position: absolute;
   bottom: 0px;
   left: 0%;
-  height: 40px;
+  height: 70px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -570,6 +570,19 @@ html:has(#mode-switcher #theme-toggle:checked) {
 .maintellercontainer .tellerdataactionbtns div:nth-child(3):hover {
   background: var(--button4-bg-hover);
   cursor: pointer;
+}
+
+.transactionHistory {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  background-color: rgba(194, 23, 23, 0.712);
+  z-index: 1;
 }
 
 .CustomPopup {
@@ -725,6 +738,22 @@ html:has(#mode-switcher #theme-toggle:checked) {
   background-color: brown;
 }
 
+@media screen and (orientation: portrait) {
+  .maintellercontainer {
+    height: 50%;
+  }
+  .transactionHistory {
+    display: flex;
+  }
+}
+@media screen and (orientation: landscape) {
+  .maintellercontainer {
+    height: 100%;
+  }
+  .transactionHistory {
+    display: none;
+  }
+}
 /* -------------------------
    Responsive Breakpoints
 -------------------------- */
