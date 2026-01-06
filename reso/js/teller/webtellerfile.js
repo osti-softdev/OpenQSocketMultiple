@@ -80,8 +80,6 @@ let lastCalledTicket = JSON.parse(localStorage.getItem("lastCalledTicket")) || n
 let currentCalledTicket = null; // 👈 holds the latest received data
 
 socket.on("calledticketdata", function (data) {
-  // Always store the latest data in a variable (even if null)
-  console.log(data)
 
   currentCalledTicket = data;
   // No ticket → stop and clear
@@ -122,7 +120,6 @@ socket.on("calledticketdata", function (data) {
 //! Listen for updates from backend
 socket.on("updatetellerservices", function(data) {
 if (data) {
-  console.log(data);
 window.latestTellerData = data;
 // console.log("📥 Received teller data:", data);
 $(".tlrnavbtnheld p").text(`[${data.heldCount || 0}]`);
@@ -640,3 +637,98 @@ $(document).on("click", ".telleractbtn", function () {
       window.location.href = "/312Xtellerlogin";
     });
 });
+
+
+
+let table;
+
+$(function () {
+  table = $("#transachist-table").DataTable({
+    data: [],                 // ← important
+    columns: [
+      { title: "Ticket" },
+      { title: "Status" },
+      { title: "Counter" },
+      { title: "Start" },
+      { title: "End" }
+    ],
+    ordering: true,
+    searching: false,
+    paging: false,
+    pageLength: 10,
+    lengthChange: false,
+    info: false,
+    autoWidth: false,
+    responsive: false,
+    order: [],
+  });
+});
+
+
+socket.on("transactionHistoryData", (data) => {
+  if (!table) return;
+
+  if (!Array.isArray(data) || data.length === 0) {
+    table.clear().rows.add([[
+      "—",
+      "No transaction history available",
+      "—",
+      "—",
+      "—"
+    ]]).draw();
+    return;
+  }
+
+  const rows = data.map(item => {
+    const ticket = `${item.ticketservice}${item.ticketnum}`;
+
+    let counter = "-";
+    if (item.counter_num) counter = item.counter_num;
+    else if (item.counter_user) counter = item.counter_user;
+    else if (item.status === "received" && item.counter_group)
+      counter = item.counter_group;
+
+    return [
+      ticket,
+      item.status,
+      counter,
+      item.start_time || "-",
+      item.end_time || "-"
+    ];
+  });
+
+  table.clear().rows.add(rows).draw();
+});
+
+const landscapeQuery = window.matchMedia("(orientation: landscape)");
+const $transactionHistory = $(".transactionHistory");
+
+function applyTransactionHistoryLayout() {
+  if (landscapeQuery.matches) {
+    $transactionHistory.addClass("landscape-mode");
+  } else {
+    // Portrait → default CSS wins
+    $transactionHistory
+      .removeClass("landscape-mode")
+      .show();
+  }
+}
+
+// Open button
+$("#transactionsListBtn").on("click", function () {
+  $transactionHistory.show();
+  applyTransactionHistoryLayout();
+});
+
+// Close button (landscape only)
+$(".closebtntransacthist").on("click", function () {
+  if (landscapeQuery.matches) {
+    $transactionHistory.hide();
+  }
+});
+
+// React to rotation
+landscapeQuery.addEventListener("change", applyTransactionHistoryLayout);
+
+// Initial sync (important on page load)
+applyTransactionHistoryLayout();

@@ -9,6 +9,9 @@
       <link rel="stylesheet" href="/libs/jquery-ui-1.14.1/jquery-ui.css">
     <script src="/libs/sweetalert2@11.js"></script>
     <script src="/libs/notify.js"></script>
+    <script src="/libs/jquery.dataTables.min.js"></script>
+      <link rel="stylesheet" href="/libs/jquery.dataTables.min.css">
+    <script src="/libs/notify.js"></script>
   <script src="/socket.io/socket.io.js"></script>
     <link rel="stylesheet" href="/css/webteller.css">
     <script src="/libs/notify.js"></script>
@@ -20,6 +23,7 @@
       </label>
     </div>
     <div class="maintellercontainer">
+    <div id="transactionsListBtn"><i class="material-symbols-rounded" style="font-size: 28px; font-variation-settings:'wght' 900">list</i></div>
     <div id="logoutBtn"><i class="material-symbols-rounded" style="font-size: 28px; font-variation-settings:'wght' 900">logout</i></div>
     <div class="historybtn" title="History"><i class="material-symbols-rounded" style="font-size: 28px; font-variation-settings:'wght' 900">History</i></div>
       <h2 class="usercounternum">COUNTER 1</h2>
@@ -52,7 +56,21 @@
       </div>
     </div>
     <div class="transactionHistory">
-      s
+          <div class="closebtntransacthist"><i class="material-symbols-rounded" style="font-variation-settings:'wght' 900">close</i></div>
+      <div class="transact-wrapper">
+            <table id="transachist-table" class="display" style="width:100%">
+              <thead>
+                <tr>
+                  <th>Ticket</th>
+                  <th>Status</th>
+                  <th>Counter</th>
+                  <th>Start</th>
+                  <th>End</th>
+                </tr>
+              </thead>
+            <tbody></tbody>
+          </table>
+        </div>
     </div>
 
       <div class="CustomPopup">

@@ -274,6 +274,16 @@ html:has(#mode-switcher #theme-toggle:checked) {
 .maintellercontainer #logoutBtn:hover {
   filter: brightness(150%);
 }
+.maintellercontainer #transactionsListBtn {
+  position: absolute;
+  top: 0%;
+  right: 20%;
+  width: auto;
+  cursor: pointer;
+}
+.maintellercontainer #transactionsListBtn:hover {
+  filter: brightness(150%);
+}
 .maintellercontainer .historybtn {
   position: absolute;
   top: 0%;
@@ -419,7 +429,7 @@ html:has(#mode-switcher #theme-toggle:checked) {
 .maintellercontainer .tellerdataservices {
   position: absolute;
   top: 80px;
-  bottom: 60px;
+  bottom: 115px;
   left: 0%;
   width: 100%;
   display: flex;
@@ -581,8 +591,70 @@ html:has(#mode-switcher #theme-toggle:checked) {
   display: flex;
   justify-content: center;
   align-items: start;
-  background-color: rgba(194, 23, 23, 0.712);
   z-index: 1;
+}
+.transactionHistory .closebtntransacthist {
+  position: absolute;
+  top: -6%;
+  right: -2%;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 3rem;
+  font-weight: 900;
+  color: red;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 30%;
+}
+.transactionHistory .transact-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+}
+.transactionHistory .transact-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+.transactionHistory .transact-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 6px;
+}
+.transactionHistory .transact-wrapper #transachist-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.transactionHistory .transact-wrapper #transachist-table th {
+  position: sticky;
+  top: 0%;
+  background: #667eea;
+  color: white;
+  padding: 5px;
+  text-align: left;
+  font-size: 14px;
+}
+.transactionHistory .transact-wrapper #transachist-table td {
+  padding: 8px;
+  border-bottom: 1px solid #ecf0f1;
+  font-size: 14px;
+}
+.transactionHistory.landscape-mode {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: rgb(255, 255, 255);
+  z-index: 100;
+  transform: scale(0.8);
+}
+.transactionHistory.landscape-mode .closebtntransacthist {
+  display: flex;
+}
+.transactionHistory.landscape-mode .transact-wrapper {
+  height: 100%;
 }
 
 .CustomPopup {
@@ -745,6 +817,12 @@ html:has(#mode-switcher #theme-toggle:checked) {
   .transactionHistory {
     display: flex;
   }
+  #transactionsListBtn {
+    display: none;
+  }
+  .closebtntransacthist {
+    display: none;
+  }
 }
 @media screen and (orientation: landscape) {
   .maintellercontainer {
@@ -752,6 +830,12 @@ html:has(#mode-switcher #theme-toggle:checked) {
   }
   .transactionHistory {
     display: none;
+  }
+  #transactionsListBtn {
+    display: flex;
+  }
+  .closebtntransacthist {
+    display: flex;
   }
 }
 /* -------------------------
