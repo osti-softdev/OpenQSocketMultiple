@@ -307,7 +307,7 @@ html:has(#mode-switcher #theme-toggle:checked) {
 .maintellercontainer .tellernavbar ul {
   position: relative;
   display: flex;
-  width: 33%;
+  width: 25%;
   height: 100%;
   align-items: center;
   justify-content: center;
@@ -350,6 +350,13 @@ html:has(#mode-switcher #theme-toggle:checked) {
 }
 .maintellercontainer .tellernavbar ul:nth-child(3):hover {
   background: var(--button-bg-hover);
+  cursor: pointer;
+}
+.maintellercontainer .tellernavbar ul:nth-child(4) {
+  background: var(--button4-bg);
+}
+.maintellercontainer .tellernavbar ul:nth-child(4):hover {
+  background: var(--button4-bg-hover);
   cursor: pointer;
 }
 .maintellercontainer .tellernavbar ul p {
@@ -643,6 +650,7 @@ html:has(#mode-switcher #theme-toggle:checked) {
   left: 0;
   height: 100%;
   width: 100%;
+  color: black;
   display: flex;
   justify-content: center;
   align-items: flex-start;

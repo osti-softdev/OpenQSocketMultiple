@@ -449,7 +449,7 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
 }
 // ! GET CALLED TICKET FUNCTION END
 
-async function getallTransactions() {
+async function getallTransactions(group_name) {
   const { date, time } = getPHDateTime();
   return new Promise((resolve, reject) => {
     const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err) => {
@@ -457,9 +457,9 @@ async function getallTransactions() {
     });
     const query = `
       SELECT ticketnum, ticketservice, status, counter_num, counter_user, counter_group, start_time, end_time
-      FROM transactions WHERE date = ? ORDER by start_time DESC
+      FROM transactions WHERE date = ? AND sgroup = ? ORDER by start_time DESC
     `;
-    db.all(query, [date], (err, rows) => {  
+    db.all(query, [date, group_name], (err, rows) => {  
       db.close();
       if (err) {
         return reject(err);
@@ -468,7 +468,6 @@ async function getallTransactions() {
     });
   });
 }
-
 
 async function getTellerCalledticket(cnum, cname) {
     const { date, time } = getPHDateTime();
@@ -556,6 +555,7 @@ async function updatecallticket(callingcode, tickid, tickstatus, tickwherestatus
               counter_num = ?, 
               counter_user = ?, 
               counter_group = ?,
+              sgroup = ?,
               status = ?, 
               start_time = ?,
               history = CASE
@@ -572,7 +572,7 @@ async function updatecallticket(callingcode, tickid, tickstatus, tickwherestatus
             )
           `;
           const updateParams = [
-            cnum, cname,group_name, tickstatus, time,
+            cnum, cname, group_name, group_name, tickstatus, time,
             startEntry, startEntry,
             tickwherestatus, tickcode, date
           ];
@@ -869,6 +869,7 @@ async function updatecallticket(callingcode, tickid, tickstatus, tickwherestatus
                 counter_num = ?, 
                 counter_user = ?,
                 counter_group = ?,
+                sgroup = ?,
                 start_time = ?,
                 history = CASE
                   WHEN history IS NULL OR history = '' THEN ?
@@ -880,7 +881,7 @@ async function updatecallticket(callingcode, tickid, tickstatus, tickwherestatus
                 AND date = ?
             `;
             params = [
-              tickstatus, cnum, cname,group_name, time,
+              tickstatus, cnum, cname, group_name, group_name, time,
               navCalledEntry, navCalledEntry,
               tickid, tickcode, date
             ];
@@ -892,7 +893,7 @@ async function updatecallticket(callingcode, tickid, tickstatus, tickwherestatus
                 start_time = ?,
                 counter_num = ?, 
                 counter_user = ?,
-                counter_group = ?,
+                sgroup = ?,
                 history = CASE
                   WHEN history IS NULL OR history = '' THEN ?
                   ELSE history || ';' || ?
@@ -904,7 +905,7 @@ async function updatecallticket(callingcode, tickid, tickstatus, tickwherestatus
                 AND date = ?
             `;
             params = [
-              tickstatus, time, cnum, cname, group_name,
+              tickstatus, time, cnum, cname, group_name, group_name,
               navCalledEntry, navCalledEntry,
               tickid, tickcode, cnum, cname, group_name, date
             ];
@@ -1013,8 +1014,7 @@ function setupTellerWatcher(socket, io) {
       const { id, cuser, cnum, cname, group_name } = data;
       const calledticket = await getTellerCalledticket(cnum, cname);
       target.emit("calledticketdata", calledticket);
-
-      const allTransactions = await getallTransactions();
+      const allTransactions = await getallTransactions(group_name);
       target.emit("transactionHistoryData", allTransactions);
     } catch (err) {
       console.error("❌ Error fetching teller services:", err);

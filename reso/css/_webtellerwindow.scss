@@ -72,7 +72,7 @@
         ul{
             position: relative;
             display: flex;
-            width: 33%;
+            width: 25%;
             height: 100%;
             align-items: center;
             justify-content: center;
@@ -118,6 +118,14 @@
 
                 &:hover{
                     background: var(--button-bg-hover);
+                    cursor: pointer;
+                }
+            }
+            &:nth-child(4){
+                background: var(--button4-bg);
+
+                &:hover{
+                    background: var(--button4-bg-hover);
                     cursor: pointer;
                 }
             }
@@ -436,29 +444,27 @@
             }
         }
         &.landscape-mode {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background-color: rgba(255, 255, 255, 1);
+            z-index: 100;
+            transform: scale(0.8);
 
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+            .closebtntransacthist {
+            display: flex;
+            }
 
-    background-color: rgba(255, 255, 255, 1);
-    z-index: 100;
-
-    transform: scale(0.8);
-
-    .closebtntransacthist {
-      display: flex;
-    }
-
-    .transact-wrapper {
-      height: 100%;
-    }
-  }
+            .transact-wrapper {
+            height: 100%;
+            }
+        }
     }
 
 .CustomPopup{
