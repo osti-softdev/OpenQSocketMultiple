@@ -456,7 +456,7 @@ async function getallTransactions(group_name) {
       if (err) return reject(err);
     });
     const query = `
-      SELECT ticketnum, ticketservice, status, counter_num, counter_user, counter_group, start_time, end_time
+      SELECT id, ticketnum, ticketservice, status, counter_num, counter_user, counter_group, start_time, end_time
       FROM transactions WHERE date = ? AND sgroup = ? ORDER by start_time DESC
     `;
     db.all(query, [date, group_name], (err, rows) => {  
@@ -468,6 +468,7 @@ async function getallTransactions(group_name) {
     });
   });
 }
+
 
 async function getTellerCalledticket(cnum, cname) {
     const { date, time } = getPHDateTime();
@@ -572,7 +573,7 @@ async function updatecallticket(callingcode, tickid, tickstatus, tickwherestatus
             )
           `;
           const updateParams = [
-            cnum, cname, group_name, group_name, tickstatus, time,
+            cnum, cname,group_name, group_name, tickstatus, time,
             startEntry, startEntry,
             tickwherestatus, tickcode, date
           ];
@@ -787,6 +788,7 @@ async function updatecallticket(callingcode, tickid, tickstatus, tickwherestatus
             end_time = ?, 
             counter_num = ?, 
             counter_group = ?, 
+            sgroup = ?, 
             counter_user = ?, 
             history = CASE
               WHEN history IS NULL OR history = '' THEN ?
@@ -800,7 +802,7 @@ async function updatecallticket(callingcode, tickid, tickstatus, tickwherestatus
 
         const params = [
           tickstatus, time,
-          counter_num, counter_group, counter_user,
+          counter_num, counter_group,counter_group, counter_user,
           forwardEntry, forwardEntry,
           tickid, tickcode, cnum, cname, date
         ];
@@ -881,7 +883,7 @@ async function updatecallticket(callingcode, tickid, tickstatus, tickwherestatus
                 AND date = ?
             `;
             params = [
-              tickstatus, cnum, cname, group_name, group_name, time,
+              tickstatus, cnum, cname,group_name, group_nam, time,
               navCalledEntry, navCalledEntry,
               tickid, tickcode, date
             ];
@@ -893,6 +895,7 @@ async function updatecallticket(callingcode, tickid, tickstatus, tickwherestatus
                 start_time = ?,
                 counter_num = ?, 
                 counter_user = ?,
+                counter_group = ?,
                 sgroup = ?,
                 history = CASE
                   WHEN history IS NULL OR history = '' THEN ?
@@ -905,7 +908,7 @@ async function updatecallticket(callingcode, tickid, tickstatus, tickwherestatus
                 AND date = ?
             `;
             params = [
-              tickstatus, time, cnum, cname, group_name, group_name,
+              tickstatus, time, cnum, cname,  group_name, group_name,
               navCalledEntry, navCalledEntry,
               tickid, tickcode, cnum, cname, group_name, date
             ];
@@ -1014,6 +1017,7 @@ function setupTellerWatcher(socket, io) {
       const { id, cuser, cnum, cname, group_name } = data;
       const calledticket = await getTellerCalledticket(cnum, cname);
       target.emit("calledticketdata", calledticket);
+
       const allTransactions = await getallTransactions(group_name);
       target.emit("transactionHistoryData", allTransactions);
     } catch (err) {

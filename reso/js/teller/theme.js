@@ -110,7 +110,6 @@ let html = `
   </div>
   <label class="counter-info">SELECT COUNTER 
     <select name="counterselect" id="counterselect">
-      <option value="" disabled selected>Select Counter</option>
     </select>
   </label>
   <div class="errorlogtext"></div>
@@ -123,22 +122,22 @@ const { tellers = [], groups = [] } = tellerAndGroupData;
 const $counterSelect = $("#counterselect");
 
 // Add teller options
-if (tellers.length > 0) {
-  const tellerGroup = $('<optgroup label="Tellers"></optgroup>');
-  tellers.forEach(t => {
-    tellerGroup.append(
-      `<option value="${t.cnum}_n">
-        ${t.cname} (${t.cnum})
-      </option>`
-    );
-  });
-  $counterSelect.append(tellerGroup);
-}
+// if (tellers.length > 0) {
+//   const tellerGroup = $('<optgroup label="Tellers"></optgroup>');
+//   tellers.forEach(t => {
+//     tellerGroup.append(
+//       `<option value="${t.cnum}_n">
+//         ${t.cname} (${t.cnum})
+//       </option>`
+//     );
+//   });
+//   $counterSelect.append(tellerGroup);
+// }
 
-// Add a visual gap between sections
-if (tellers.length > 0 && groups.length > 0) {
-  $counterSelect.append(`<option disabled style="width:100%;">──────────────────────────</option>`);
-}
+// // Add a visual gap between sections
+// if (tellers.length > 0 && groups.length > 0) {
+//   $counterSelect.append(`<option disabled style="width:100%;">──────────────────────────</option>`);
+// }
 
 // Add group options
 if (groups.length > 0) {

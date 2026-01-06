@@ -293,6 +293,13 @@ $(document).on("click", ".historybtn", function () {
   });
 });
 
+$(document).on("click", ".tlrnavbtnhist", function () {
+  if (!window.transactionHistoryData) return;
+
+  const rows = window.transactionHistoryData || [];
+  showSwalTable("Group Tickets", rows, "start_time","transactionsList");
+});
+
 // LISTEN FOR RETURNED HISTORY DATA
 socket.on("tellerhistorydata", (tickets) => {
   console.log(tickets);
@@ -430,7 +437,6 @@ $(document).on("contextmenu", ".tlrnavbtnrec", function (e) {
 // ! Helper to render SweetAlert2 table
 function showSwalTable(title, rows, timeKey, listType) {
   if (!Array.isArray(rows)) rows = [];
-
   rows = [...rows].sort((a, b) => {
     const t1 = normalizeTime(a[timeKey]);
     const t2 = normalizeTime(b[timeKey]);
@@ -446,6 +452,17 @@ function showSwalTable(title, rows, timeKey, listType) {
       "<th style='padding:4px;border-bottom:1px solid #ccc'>Call</th>" +
       "<th style='padding:4px;border-bottom:1px solid #ccc'>Forward</th>" +
       "</tr></thead><tbody>";
+  }else if(listType === "transactionsList"){
+    table =
+        '<table style="width:100%;border-collapse:collapse;text-align:left;">' +
+        "<thead><tr>" +
+        "<th style='padding:4px;border-bottom:1px solid #ccc'>Ticket</th>" +
+        "<th style='padding:4px;border-bottom:1px solid #ccc'>Time</th>" +
+        "<th style='padding:4px;border-bottom:1px solid #ccc'>Status</th>" +
+        "<th style='padding:4px;border-bottom:1px solid #ccc'>Last Call</th>" +
+        "<th style='padding:4px;border-bottom:1px solid #ccc'>Call</th>" +
+        "<th style='padding:4px;border-bottom:1px solid #ccc'>Forward</th>" +
+        "</tr></thead><tbody>";
   }else{
     table =
       '<table style="width:100%;border-collapse:collapse;text-align:left;">' +
@@ -464,7 +481,7 @@ function showSwalTable(title, rows, timeKey, listType) {
     rows.forEach((r) => {
       const ticketDisplay = `${r.ticketservice || ""}${r.ticketnum || ""}`;
       const timeDisplay = r[timeKey] || "";
-
+      const lastCounter = r.counter_num || r.counter_group;
       if(listType === "held"){
         table +=
           "<tr>" +
@@ -473,7 +490,18 @@ function showSwalTable(title, rows, timeKey, listType) {
           `<td style="padding:3px;"><button style="cursor:pointer;padding:3px;width:100%;" class='callBtn'data-service='${r.ticketservice}'  data-id='${r.id}' data-type='${listType}'>Call</button></td>` +
           `<td style="padding:3px;"><button style="cursor:pointer;padding:3px;width:100%;" class='listFwdBtn'data-service='${r.ticketservice}' data-ticket='${r.ticketnum}'  data-id='${r.id}' data-type='${listType}'>Forward</button></td>` +
           "</tr>";
-      }else{
+      }else if(listType === "transactionsList"){
+        table +=
+          "<tr>" +
+          `<td style="padding:3px;">${ticketDisplay}</td>` +
+          `<td style="padding:3px;">${timeDisplay}</td>` +
+          `<td style="padding:3px;">${r.status}</td>` +
+          `<td style="padding:3px;">${lastCounter}</td>` +
+          `<td style="padding:3px;"><button style="cursor:pointer;padding:3px;width:100%;" class='callBtn'data-service='${r.ticketservice}'  data-id='${r.id}' data-type='${listType}'>Call</button></td>` +
+          `<td style="padding:3px;"><button style="cursor:pointer;padding:3px;width:100%;" class='listFwdBtn'data-service='${r.ticketservice}' data-ticket='${r.ticketnum}'  data-id='${r.id}' data-type='${listType}'>Forward</button></td>` +
+          "</tr>";
+      }
+      else{
         table +=
           "<tr>" +
           `<td style="padding:3px;">${ticketDisplay}</td>` +
@@ -507,6 +535,7 @@ function showSwalTable(title, rows, timeKey, listType) {
       const id = $(this).data("id");
       const type = $(this).data("type");
       const ticketservice = $(this).data("service");
+      console.log("Calling Ticket ID:", id);
 
           socket.emit("getandupdatecalledtick", {
             callingcode: "navcall",
@@ -678,10 +707,14 @@ socket.on("transactionHistoryData", (data) => {
     ]]).draw();
     return;
   }
-
+  window.transactionHistoryData = data; 
+  let histdataCount = 0;
+$(".tlrnavbtnhist p").text(`[${data.length || 0}]`);
   const rows = data.map(item => {
     const ticket = `${item.ticketservice}${item.ticketnum}`;
-
+    if(item.status === "received" || item.status === "held" || item.status === "called" || item.status === "finished" || item.status === "voided"){
+    histdataCount++;
+    }
     let counter = "-";
     if (item.counter_num) counter = item.counter_num;
     else if (item.counter_user) counter = item.counter_user;
