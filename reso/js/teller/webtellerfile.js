@@ -63,7 +63,7 @@ $(document).ready(function () {
 
 
     socket.on("calledtick", function(params) {
-      // console.log("Activity Ticket: "+params.statusdata)
+      console.log("Activity Ticket: "+params.statusdata)
     })
     socket.on("updatetellersandgroups", (data) => {
       if (!data) {
@@ -695,9 +695,11 @@ $(function () {
 
 
 socket.on("transactionHistoryData", (data) => {
+  console.log("Transaction History Data:", data);
   if (!table) return;
 
   if (!Array.isArray(data) || data.length === 0) {
+  $(".tlrnavbtnhist p").text(`[0]`);
     table.clear().rows.add([[
       "—",
       "No transaction history available",
