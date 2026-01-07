@@ -488,6 +488,15 @@ async function getTellerCalledticket(cnum, cname) {
   });
 }
 async function updatecallticket(callingcode, tickid, tickstatus, tickwherestatus, cnum, cname, tickcode, dataadditional, group_name) {
+  console.log(callingcode);
+  console.log(tickid);
+  console.log(tickstatus);
+  console.log(tickwherestatus);
+  console.log(cnum);
+  console.log(cname);
+  console.log(tickcode);
+  console.log(dataadditional);
+  console.log(group_name);
   const { date, time } = getPHDateTime();
 
   return new Promise((resolve, reject) => {
@@ -862,7 +871,7 @@ async function updatecallticket(callingcode, tickid, tickstatus, tickwherestatus
                 AND date = ?
             `;
             params = [
-              tickstatus, cnum, cname,group_name, group_nam, time,
+              tickstatus, cnum, cname,group_name, group_name, time,
               navCalledEntry, navCalledEntry,
               tickid, tickcode, date
             ];
@@ -883,13 +892,12 @@ async function updatecallticket(callingcode, tickid, tickstatus, tickwherestatus
               WHERE 
                 id = ? 
                 AND ticketservice = ? 
-                AND (counter_num = ? OR counter_user = ? OR counter_group = ?)
                 AND date = ?
             `;
             params = [
               tickstatus, time, cnum, cname,  group_name, group_name,
               navCalledEntry, navCalledEntry,
-              tickid, tickcode, cnum, cname, group_name, date
+              tickid, tickcode, date
             ];
           }
 
@@ -966,7 +974,6 @@ async function getAllHistoryData(cname) {
     });
   });
 }
-
 async function getallTransactions(group_name, cname) {
   const { date } = getPHDateTime();
 
@@ -1087,6 +1094,7 @@ function setupTellerWatcher(socket, io) {
       const { callingcode, tickid, tickstatus, tickwherestatus, cnum, cname, tickcode, dataadditional, group_name } = data;
       const called = await updatecallticket(callingcode, tickid, tickstatus, tickwherestatus, cnum, cname, tickcode, dataadditional, group_name);
       io.emit("calledtick", called);
+      console.log("✅ Called ticket updated:", called.affected);
     } catch (err) {
       console.error("❌ Error fetching called tickets:", err);
       io.emit("calledtick", null);

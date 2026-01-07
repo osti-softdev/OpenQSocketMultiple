@@ -482,6 +482,12 @@ function showSwalTable(title, rows, timeKey, listType) {
       const ticketDisplay = `${r.ticketservice || ""}${r.ticketnum || ""}`;
       const timeDisplay = r[timeKey] || "";
       const lastCounter = r.counter_num || r.counter_group;
+      let stats = "";
+      if(r.counter_group === authUser.group_name){
+        stats = r.status;
+      }else {
+        stats = "forwarded";
+      }
       if(listType === "held"){
         table +=
           "<tr>" +
@@ -495,7 +501,7 @@ function showSwalTable(title, rows, timeKey, listType) {
           "<tr>" +
           `<td style="padding:3px;">${ticketDisplay}</td>` +
           `<td style="padding:3px;">${timeDisplay}</td>` +
-          `<td style="padding:3px;">${r.status}</td>` +
+          `<td style="padding:3px;">${stats}</td>` +
           `<td style="padding:3px;">${lastCounter}</td>` +
           `<td style="padding:3px;"><button style="cursor:pointer;padding:3px;width:100%;" class='callBtn'data-service='${r.ticketservice}'  data-id='${r.id}' data-type='${listType}'>Call</button></td>` +
           `<td style="padding:3px;"><button style="cursor:pointer;padding:3px;width:100%;" class='listFwdBtn'data-service='${r.ticketservice}' data-ticket='${r.ticketnum}'  data-id='${r.id}' data-type='${listType}'>Forward</button></td>` +
@@ -509,8 +515,6 @@ function showSwalTable(title, rows, timeKey, listType) {
           `<td style="padding:3px;"><button style="cursor:pointer;padding:3px;width:100%;" class='callBtn'data-service='${r.ticketservice}'  data-id='${r.id}' data-type='${listType}'>Call</button></td>` +
           "</tr>";
       }
-
-      
     });
   }
 
