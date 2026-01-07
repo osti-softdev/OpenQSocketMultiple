@@ -297,12 +297,11 @@ $(document).on("click", ".tlrnavbtnhist", function () {
   if (!window.transactionHistoryData) return;
 
   const rows = window.transactionHistoryData || [];
-  showSwalTable("Group Tickets", rows, "start_time","transactionsList");
+  showSwalTable("Group History", rows, "start_time","transactionsList");
 });
 
 // LISTEN FOR RETURNED HISTORY DATA
 socket.on("tellerhistorydata", (tickets) => {
-  console.log(tickets);
     if (!tickets || !tickets.length) {
     Swal.fire({
       title: "Empty",
@@ -440,7 +439,7 @@ function showSwalTable(title, rows, timeKey, listType) {
   rows = [...rows].sort((a, b) => {
     const t1 = normalizeTime(a[timeKey]);
     const t2 = normalizeTime(b[timeKey]);
-    return t1 - t2; // earliest first
+    return t2 - t1; // earliest first
   });
   let table = null;
   if(listType === "held"){
@@ -699,7 +698,6 @@ $(function () {
 
 
 socket.on("transactionHistoryData", (data) => {
-  console.log("Transaction History Data:", data);
   if (!table) return;
 
   if (!Array.isArray(data) || data.length === 0) {
