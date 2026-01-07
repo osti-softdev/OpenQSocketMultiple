@@ -449,27 +449,6 @@ async function getTellerServices(id, cuser, cnum, cname, group_name) {
 }
 // ! GET CALLED TICKET FUNCTION END
 
-async function getallTransactions(group_name) {
-  const { date, time } = getPHDateTime();
-  return new Promise((resolve, reject) => {
-    const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err) => {
-      if (err) return reject(err);
-    });
-    const query = `
-      SELECT id, ticketnum, ticketservice, status, counter_num, counter_user, counter_group, start_time, end_time
-      FROM transactions WHERE date = ? AND sgroup = ? ORDER by start_time DESC
-    `;
-    db.all(query, [date, group_name], (err, rows) => {  
-      db.close();
-      if (err) {
-        return reject(err);
-      }
-      resolve(rows || []);
-    });
-  });
-}
-
-
 async function getTellerCalledticket(cnum, cname) {
     const { date, time } = getPHDateTime();
   return new Promise((resolve, reject) => {
@@ -988,6 +967,53 @@ async function getAllHistoryData(cname) {
   });
 }
 
+async function getallTransactions(group_name, cname) {
+  const { date } = getPHDateTime();
+
+  return new Promise((resolve, reject) => {
+    const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err) => {
+      if (err) return reject(err);
+    });
+
+    const query = `
+      SELECT 
+        id,
+        ticketnum,
+        ticketservice,
+        status,
+        counter_num,
+        counter_user,
+        history,
+        counter_group,
+        start_time,
+        end_time
+      FROM transactions
+      WHERE date = ?
+        AND (sgroup = ? OR history LIKE ?)
+      ORDER BY start_time DESC
+    `;
+
+    // Matches patterns like: -TELLER 1-
+    const historyPattern = `%-${cname}-%`;
+
+    db.all(
+      query,
+      [date, group_name, historyPattern],
+      (err, rows) => {
+        db.close();
+
+        if (err) {
+          return reject(err);
+        }
+
+        resolve(rows || []);
+      }
+    );
+  });
+}
+
+
+
 /**
  * Setup watcher for teller data updates
  */
@@ -1018,7 +1044,7 @@ function setupTellerWatcher(socket, io) {
       const calledticket = await getTellerCalledticket(cnum, cname);
       target.emit("calledticketdata", calledticket);
 
-      const allTransactions = await getallTransactions(group_name);
+      const allTransactions = await getallTransactions(group_name, cname);
       target.emit("transactionHistoryData", allTransactions);
     } catch (err) {
       console.error("❌ Error fetching teller services:", err);
