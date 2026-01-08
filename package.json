@@ -1,6 +1,6 @@
 {
 	"name": "openq",
-	"version": "1.0.0",
+	"version": "1.2.1",
 	"description": "this queue system is for DBP",
 	"main": "index.js",
 	"bin": "index.js",
