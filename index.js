@@ -627,20 +627,20 @@ function createWindow() {
     const displays = screen.getAllDisplays();
 
     // --- Find external display ---
-    const externalDisplay = displays.find(d => d.bounds.x !== 0 || d.bounds.y !== 0);
+    // const externalDisplay = displays.find(d => d.bounds.x !== 0 || d.bounds.y !== 0);
 
-    if (!externalDisplay) {
-        console.warn("No extended display found. Display window will open on primary screen.");
-        return;
-    }
+    // if (!externalDisplay) {
+    //     console.warn("No extended display found. Display window will open on primary screen.");
+    //     return;
+    // }
 
     // --- DISPLAY WINDOW on extended screen ---
     const displayWindowOptions = {
         width: 450,
         height: 450,
         frame: true,
-        x: externalDisplay.bounds.x + 50,
-        y: externalDisplay.bounds.y + 50,
+        // x: externalDisplay.bounds.x + 50,
+        // y: externalDisplay.bounds.y + 50,
         autoHideMenuBar: true
     };
 
