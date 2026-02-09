@@ -110,9 +110,9 @@ async function initializeSerialPort(io) {
 				const topline = "Topline"; // adjust if you want dynamic
 
 				// === Ticket creation (2..9) ===
-				if (/^[2-9]$/.test(key)) {
+				if (/^[3-9]$/.test(key)) {
 					const services = await getAllServices();
-					const index = parseInt(key) - 2; // "2" => service[0]
+					const index = parseInt(key) - 3; // "2" => service[0]
 					const service = services[index];
 
 					if (!service || !service.regular) {
@@ -276,9 +276,10 @@ async function initializeSerialPort(io) {
 				}
 
 				// === Feedback (5,6) === stays same...
-				else if (["5", "6"].includes(key)) {
+				else if (["1", "2"].includes(key)) {
+					console.log(`ℹ️ [${portInfo.path}] Feedback received: "${key}"`);
 					let query, params;
-					if (key === "5") {
+					if (key === "1") {
 						query = `INSERT INTO feedback (satisfied, date, time) VALUES (1, ?, ?)`;
 						params = [date, time];
 					} else {
