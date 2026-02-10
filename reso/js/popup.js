@@ -101,7 +101,7 @@ function hidePopup() {
 function speakTicketTwice(ticketData, onFinish) {
 	const synth = window.speechSynthesis;
 	if (!voices.length) voices = synth.getVoices();
-
+	console.log(voices)
 	const audioElement = $("#audio")[0];
 	if (audioElement) audioElement.volume = voiceConfig.bell_volume || 1;
 
@@ -122,7 +122,7 @@ function speakTicketTwice(ticketData, onFinish) {
 		);
 	}
 	
-	msg.voice = voices[voiceConfig.voice] || voices[0];
+	msg.voice = voices[4];
 	msg.pitch = voiceConfig.voice_pitch || 1;
 	msg.rate = voiceConfig.voice_rate || 1;
 	msg.volume = voiceConfig.voice_volume || 1;
