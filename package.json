@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"bin": "index.js",
 	"scripts": {
-		"start": "electron --trace-warnings .",
+		"start": "node index.js",
 		"dev": "node --inspect index.js",
 		"stop": "node tools/stop.js"
 	},
@@ -22,7 +22,6 @@
 		"cors": "^2.8.5",
 		"crc": "^4.3.2",
 		"dotenv": "^17.2.3",
-		"electron": "^39.1.0",
 		"express": "^5.1.0",
 		"ini": "^5.0.0",
 		"jsonwebtoken": "^9.0.2",
