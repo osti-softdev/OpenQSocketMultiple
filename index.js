@@ -566,21 +566,31 @@ if (!fs.existsSync(OUTFOLDER_PATH)) {
 
 function isProcessRunning(pid) {
   try {
-    // FIX: Use more reliable process check on Windows
     if (os.platform() === "win32") {
-      // Use tasklist command to check if the PID is a node.exe process
       const { execSync } = require("child_process");
-      const result = execSync(`tasklist /FI "PID eq ${pid}" /FO CSV`, { encoding: "utf-8" });
-      return result.includes("node.exe");
+      const result = execSync(
+        `tasklist /FI "PID eq ${pid}" /FO CSV`,
+        { encoding: "utf-8" }
+      );
+      return result.toLowerCase().includes("node.exe");
     } else {
+      // Check if PID exists
       process.kill(pid, 0);
-      return true;
+
+      // Verify it's actually OUR node process
+      const cmdlinePath = `/proc/${pid}/cmdline`;
+
+      if (fs.existsSync(cmdlinePath)) {
+        const cmdline = fs.readFileSync(cmdlinePath, "utf-8");
+        return cmdline.includes("node") && cmdline.includes("index.js");
+      }
+
+      return false;
     }
   } catch (err) {
     return false;
   }
 }
-
 function checkAndHandleExistingInstance() {
   if (fs.existsSync(pidFile)) {
     const pid = parseInt(fs.readFileSync(pidFile, "utf-8"), 10);
