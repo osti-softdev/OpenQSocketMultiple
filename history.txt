@@ -85,8 +85,6 @@ osti@osti:~ $ history
    70  cd ..
    71  ls
    72  rm -rf OpenQSocketMultiple
-   73  ls
-   74  git clone https://github.com/osti-softdev/OpenQSocketMultiple.git
    75  ls
    76  cd OpenQSocketMultiple
    77  ls
@@ -123,7 +121,6 @@ osti@osti:~ $ history
   108  ls
   109  rm -rf OpenQSocketMultiple
   110  ls
-  111  git clone --branch TOPLINE --single-branch https://github.com/osti-softdev/OpenQSocketMultiple.git
   112  ls
   113  cd OpenQSocketMultiple
   114  ls
@@ -197,43 +194,6 @@ osti@osti:~ $ history
   182  ls
   183  nano .gitignore
   184  git add .
-  185  git commit  -m "Adding PM2"
-  186  git config --global user.email "dev@osti.com.ph"
-  187  git config --global user.name "osti-softdev"
-  188  Omit --global
-  189  git commit  -m "Adding PM2"
-  190  git push origin TOPLINE
-  191  osti@osti:~/OpenQSocketMultiple $ git push origin TOPLINE
-  192  Username for 'https://github.com': osti-softdev
-  193  Password for 'https://osti-softdev@github.com':
-  194  remote: Permission to osti-softdev/OpenQSocketMultiple.git denied to osti-softdev.
-  195  fatal: unable to access 'https://github.com/osti-softdev/OpenQSocketMultiple.git/': The requested URL returned error: 403
-  196  osti@osti:~/OpenQSocketMultiple $ git push origin TOPLINE
-  197  Username for 'https://github.com': osti-softdev
-  198  Password for 'https://osti-softdev@github.com':
-  199  remote: Invalid username or token. Password authentication is not supported for Git operations.
-  200  fatal: Authentication failed for 'https://github.com/osti-softdev/OpenQSocketMultiple.git/'
-  201  osti@osti:~/OpenQSocketMultiple $osti@osti:~/OpenQSocketMultiple $ git push origin TOPLINE
-  202  Username for 'https://github.com': osti-softdev
-  203  Password for 'https://osti-softdev@github.com':
-  204  remote: Permission to osti-softdev/OpenQSocketMultiple.git denied to osti-softdev.
-  205  fatal: unable to access 'https://github.com/osti-softdev/OpenQSocketMultiple.git/': The requested URL returned error: 403
-  206  osti@osti:~/OpenQSocketMultiple $ git push origin TOPLINE
-  207  Username for 'https://github.com': osti-softdev
-  208  Password for 'https://osti-softdev@github.com':
-  209  remote: Invalid username or token. Password authentication is not supported for Git operations.
-  210  fatal: Authentication failed for 'https://github.com/osti-softdev/OpenQSocketMultiple.git/'
-  211  osti@osti:~/OpenQSocketMultiple $osti@osti:~/OpenQSocketMultiple $ git push origin TOPLINE
-  212  Username for 'https://github.com': osti-softdev
-  213  Password for 'https://osti-softdev@github.com':
-  214  remote: Permission to osti-softdev/OpenQSocketMultiple.git denied to osti-softdev.
-  215  fatal: unable to access 'https://github.com/osti-softdev/OpenQSocketMultiple.git/': The requested URL returned error: 403
-  216  osti@osti:~/OpenQSocketMultiple $ git push origin TOPLINE
-  217  Username for 'https://github.com': osti-softdev
-  218  Password for 'https://osti-softdev@github.com':
-  219  remote: Invalid username or token. Password authentication is not supported for Git operations.
-  220  fatal: Authentication failed for 'https://github.com/osti-softdev/OpenQSocketMultiple.git/'
-  221  osti@osti:~/OpenQSocketMultiple $ git push origin TOPLINE
   222  git push origin TOPLINE
   224  git push origin TOPLINE
   225  git credetial reject
