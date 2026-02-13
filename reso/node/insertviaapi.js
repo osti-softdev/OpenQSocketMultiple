@@ -5,7 +5,7 @@ const path = require("path");
 const rootpath =
 	global.outfolderPath || path.join(__dirname, "../../outfolder");
 const dbPath = path.join(rootpath, "/config/db.db");
-const { executephp } = require("./printer");
+// const { executephp } = require("./printer");
 
 const { getAllServices } = require("./db");
 const { getPHDateTime } = require("./datetime");
@@ -69,7 +69,7 @@ async function handleKey(key, io) {
 			const row = await dbGet(
 				db,
 				`SELECT MAX(ticketnum) as maxTicket FROM transactions 
-           WHERE sname = ? AND ticketservice = ? AND date = ?`,
+   			        WHERE sname = ? AND ticketservice = ? AND date = ?`,
 				[service.sname, service.regular, date]
 			);
 
@@ -86,7 +86,7 @@ async function handleKey(key, io) {
 			db.close();
 
 			const displayText = `${service.regular}${ticketNumber}`;
-				executephp(service.regular,ticketNumber,service.sname);
+			//	executephp(service.regular,ticketNumber,service.sname);
 			
 			io.emit("ticket:new", {
 				ticketnum: ticketNumber,
@@ -148,7 +148,7 @@ async function handleKey(key, io) {
 				const pending = await dbGet(
 					db,
 					`SELECT id FROM transactions WHERE status = 'pending' AND sname = ? AND ticketservice = ? AND date = ? 
-           ORDER BY date ASC, time ASC LIMIT 1`,
+          				 ORDER BY date ASC, time ASC LIMIT 1`,
 					[service.sname, service.regular, date]
 				);
 				if (!pending) {
@@ -183,7 +183,7 @@ async function handleKey(key, io) {
 			const calling = await dbGet(
 				db,
 				`SELECT id FROM transactions WHERE status = 'called' AND date = ? 
-         ORDER BY start_time DESC LIMIT 1`,
+			         ORDER BY start_time DESC LIMIT 1`,
 				[date]
 			);
 			if (!calling) {
@@ -194,9 +194,9 @@ async function handleKey(key, io) {
 			await dbRun(
 				db,
 				`UPDATE transactions 
-         SET status = 'calling',
-             history = CASE WHEN history IS NULL OR history = '' THEN ? ELSE history || ';' || ? END
-         WHERE id = ?`,
+         			SET status = 'calling',
+             				history = CASE WHEN history IS NULL OR history = '' THEN ? ELSE history || ';' || ? END
+         			WHERE id = ?`,
 				[historyEntry, historyEntry, calling.id]
 			);
 
@@ -218,7 +218,7 @@ async function handleKey(key, io) {
 			const calling = await dbGet(
 				db,
 				`SELECT id FROM transactions WHERE status = 'called' AND date = ? 
-         ORDER BY start_time DESC LIMIT 1`,
+        			 ORDER BY start_time DESC LIMIT 1`,
 				[date]
 			);
 			if (!calling) {
