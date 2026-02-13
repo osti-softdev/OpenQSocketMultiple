@@ -148,7 +148,7 @@ async function initializeSerialPort(io) {
 								(err) => {
 									if (!err) {
 										const displayText = `${service.regular}${ticketNumber}`;
-										executephp(service.regular,ticketNumber,service.sname);
+								//		executephp(service.regular,ticketNumber,service.sname);
 										if (port && port.isOpen) {
 											port.write(displayText + "\n", (err) => {
 												if (err) console.error("❌ Write error:", err.message);
