@@ -169,7 +169,7 @@ appExpress.use(
     }
   )
 );
-app.use("/outfolder", (req, res, next) => {
+appExpress.use("/outfolder", (req, res, next) => {
   if (req.path.startsWith("/ads/")) return next(); // skip ads
   express.static(path.join(rootpath, "reso/outfolder"), {
     etag: false,
