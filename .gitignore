@@ -19,3 +19,15 @@ nginx
 nginx-src
 /nginx
 /nginx-src
+# .gitignore (add or append these lines)
+
+# Nginx runtime / logs / temp files
+nginx/logs/
+nginx/logs/*.log
+outfolder/temp/
+outfolder/temp/*
+client_body_temp/
+fastcgi_temp/
+proxy_temp/
+uwsgi_temp/
+scgi_temp/
