@@ -15,10 +15,6 @@ reso/outfolder/logs/logs.log
 reso/outfolder/logs/error.log
 reso/outfolder/config
 reso/outfolder/app.pid
-nginx
-nginx-src
-/nginx
-/nginx-src
 # .gitignore (add or append these lines)
 
 # Nginx runtime / logs / temp files
