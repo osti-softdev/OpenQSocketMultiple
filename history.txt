@@ -235,12 +235,10 @@ osti@osti:~ $ history
   220  fatal: Authentication failed for 'https://github.com/osti-softdev/OpenQSocketMultiple.git/'
   221  osti@osti:~/OpenQSocketMultiple $ git push origin TOPLINE
   222  git push origin TOPLINE
-  223  git remote set-url origin https://osti-softdev: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@github.com/osti-softdev/OpenQSocketMultiple.git
   224  git push origin TOPLINE
   225  git credetial reject
   226  git credential reject
-  227  git push origin TOPLINE
-  228  git remote set-url origin https://osti-softdev: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@github.com/osti-softdev/OpenQSocketMultiple.git
+
   229  git push origin TOPLINE
   230  pm2 monit
   231  pm2 list
