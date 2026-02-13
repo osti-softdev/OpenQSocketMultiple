@@ -445,17 +445,14 @@ function playNextAd() {
 	const encodedFile = encodeURIComponent(adFile);
 
 	// Use existing hardcoded video element
-	const videoElement = document.getElementById("dep");
+		videoElement = document.getElementById("dep");
 
 	// Stop previous playback safely
-	videoElement.pause();
-	videoElement.removeAttribute("src");
-	videoElement.load();
-
-	// Apply new source
-	videoElement.src = `/ads/${encodedFile}`;
+	videoElement.src = `http://localhost/ads/${encodedFile}`;
 	videoElement.autoplay = true;
 	videoElement.playsInline = true;
+	videoElement.load();
+	videoElement.play().catch(() => { });
 
 	// Volume logic
 	if (adVolume > 0) {
@@ -495,12 +492,15 @@ function playvid() {
     }
 }
 // Automatically pause/resume based on container visibility
-setInterval(() => {
-    if (!videoElement || !videoElement[0]) return;
+const observer = new MutationObserver(() => {
+	if (!$(".video-container").is(":visible")) {
+		videoElement.pause();
+	} else {
+		videoElement.play().catch(() => { });
+	}
+});
 
-    if ($(".video-container").is(":visible")) {
-        if (videoElement[0].paused) videoElement[0].play().catch(() => {});
-    } else {
-        if (!videoElement[0].paused) videoElement[0].pause();
-    }
-}, 500); // check twice per second
+observer.observe(document.querySelector(".video-container"), {
+	attributes: true,
+	attributeFilter: ["style", "class"]
+});
