@@ -57,6 +57,7 @@ appExpress.use(session({
         sameSite: 'strict'
     }
 }));
+
 appExpress.use('/', require('./backend/routes/pages'));
 appExpress.use('/api', require('./backend/routes/AkioskApi')(io));
 appExpress.use('/api', require('./backend/routes/AdisplayApi')(io));

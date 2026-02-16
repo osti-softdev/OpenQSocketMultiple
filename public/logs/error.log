@@ -822,3 +822,63 @@ Require stack:
     at ModuleWrap.<anonymous> (node:internal/modules/esm/translators:234:7)
     at ModuleJob.run (node:internal/modules/esm/module_job:217:25)
     at async ModuleLoader.import (node:internal/modules/esm/loader:316:24)
+❌ 2026-02-16T13:51:07.577Z [backend\routes\AtellerApi.js:22] Database error during login: Error: SQLITE_ERROR: no such table: tellers
+--> in Database#get('SELECT * FROM tellers WHERE username = ?', [ 'clc' ], [Function (anonymous)])
+    at C:\NODE_SOURCES\OpenQSocketMultiple\backend\routes\AtellerApi.js:20:10
+    at Layer.handleRequest (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\index.js:291:5) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-02-16T13:54:25.558Z [backend\routes\AtellerApi.js:25] Database error during login: Error: SQLITE_ERROR: no such column: counter_number
+--> in Database#get('SELECT * FROM accounts WHERE username = ? AND counter_number = ?', [ 'clc', '1' ], [Function (anonymous)])
+    at C:\NODE_SOURCES\OpenQSocketMultiple\backend\routes\AtellerApi.js:20:12
+    at Layer.handleRequest (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\index.js:291:5) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-02-16T14:05:46.051Z [backend\routes\AtellerApi.js:25] Database error during login: Error: SQLITE_ERROR: no such column: username
+--> in Database#get('SELECT * FROM counters WHERE username = ?', [ 'clc' ], [Function (anonymous)])
+    at C:\NODE_SOURCES\OpenQSocketMultiple\backend\routes\AtellerApi.js:20:12
+    at Layer.handleRequest (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\index.js:291:5) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-02-16T14:05:49.116Z [backend\routes\AtellerApi.js:25] Database error during login: Error: SQLITE_ERROR: no such column: username
+--> in Database#get('SELECT * FROM counters WHERE username = ?', [ 'clc' ], [Function (anonymous)])
+    at C:\NODE_SOURCES\OpenQSocketMultiple\backend\routes\AtellerApi.js:20:12
+    at Layer.handleRequest (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (C:\NODE_SOURCES\OpenQSocketMultiple\node_modules\router\index.js:291:5) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}

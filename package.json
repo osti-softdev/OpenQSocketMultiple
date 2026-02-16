@@ -5,10 +5,9 @@
 	"main": "index.js",
 	"bin": "index.js",
 	"scripts": {
-		"start": "electron --trace-warnings .",
+		"start": "node index.js",
 		"dev": "node --inspect index.js",
-		"stop": "node tools/stop.js",
-		"build": "electron-builder"
+		"stop": "node tools/stop.js"
 	},
 	"author": "Cade Lawrenzo Cana & Wenjoy Ybas",
 	"license": "ISC",

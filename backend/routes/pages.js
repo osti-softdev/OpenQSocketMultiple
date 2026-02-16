@@ -21,7 +21,7 @@ function requireAuth(req, res, next) {
     res.sendFile(path.join(rootpath, "public/html","kiosk.html"));
   });
   pageRouter.get("/312Xtellerlogin", (req, res) => {
-    res.sendFile(path.join(rootpath, "public/html","webtellerlogin.html"));
+    res.sendFile(path.join(rootpath, "public/html","caller.html"));
   });
   pageRouter.get("/312XtellerWindow", (req, res) => {
     res.sendFile(path.join(rootpath, "public/html","webteller.html"));
