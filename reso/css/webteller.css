@@ -570,10 +570,12 @@ html:has(#mode-switcher #theme-toggle:checked) {
   overflow: hidden;
   font-size: 1.6rem;
   text-shadow: 2px 2px 5px black;
-  background: var(--button5-bg);
 }
 .maintellercontainer .tellerdataactionbtns div:active {
   transform: scale(0.8);
+}
+.maintellercontainer .tellerdataactionbtns div {
+  background: var(--button5-bg);
 }
 .maintellercontainer .tellerdataactionbtns div:hover {
   background: var(--button5-bg-hover);

@@ -16,7 +16,6 @@
 		"@ffmpeg/core": "^0.12.10",
 		"@ffmpeg/core-mt": "^0.12.10",
 		"@ffmpeg/ffmpeg": "^0.12.15",
-		"@serialport/parser-readline": "^13.0.0",
 		"axios": "^1.12.2",
 		"body-parser": "^2.2.0",
 		"cookie-parser": "^1.4.7",
@@ -29,45 +28,7 @@
 		"mime": "^4.1.0",
 		"moment-timezone": "^0.6.0",
 		"multer": "^2.0.2",
-		"serialport": "^13.0.0",
-		"serialport-gsm": "^4.0.1",
 		"socket.io": "^4.8.1",
-		"sqlite3": "^5.1.7",
-		"websocket": "^1.0.35"
-	},
-	"build": {
-		"appId": "com.dbpopenq.sque",
-		"productName": "OpenQ System",
-		"directories": {
-			"output": "dist_64"
-		},
-		"win": {
-			"target": {
-				"target": "nsis",
-				"arch": [
-					"x64"
-				]
-			},
-			"icon": "./favicon.ico",
-			"extraFiles": [
-				{
-					"from": "./outfolder",
-					"to": "./outfolder"
-				},
-				{
-					"from": "./favicon.ico",
-					"to": "."
-				}
-			]
-		},
-		"nsis": {
-			"oneClick": false,
-			"perMachine": true,
-			"allowToChangeInstallationDirectory": true
-		}
-	},
-	"devDependencies": {
-		"electron": "^39.1.0",
-		"electron-builder": "^26.0.12"
+		"sqlite3": "^5.1.7"
 	}
 }

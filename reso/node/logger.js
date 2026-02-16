@@ -4,7 +4,7 @@ const path = require("path");
 
 // Ensure log directory exists
 const rootpath =
-	global.outfolderPath || path.join(__dirname, "../../outfolder");
+	global.ROOT_PATH;
 const logDir = path.join(rootpath, "logs");
 fs.mkdirSync(logDir, { recursive: true });
 
