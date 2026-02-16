@@ -9,7 +9,7 @@ const http = require("http");
 const socketIo = require("socket.io");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-
+const session = require('express-session');
 const appExpress = express();
 const server = http.createServer(appExpress);
 const io = socketIo(server);
@@ -35,13 +35,40 @@ appExpress.use(cors());
 appExpress.use(express.json());
 appExpress.use(cookieParser());
 appExpress.use(express.urlencoded({ extended: true }));
-
-appExpress.use('/', require('./backend/routes/pages'));
-appExpress.use('/api', require('./backend/routes/api')(io));
-
 appExpress.use((req, res, next) => {
     express.static(path.join(rootpath, 'public'))(req, res, next);
 });
+appExpress.use('/ads', express.static(path.join(__dirname, 'public/ads'), {
+  setHeaders: (res, path) => {
+    if (path.endsWith('.mp4')) {
+      res.setHeader('Content-Type', 'video/mp4');
+    }
+  }
+}));
+
+appExpress.use(session({
+    secret: 'asdasdasd-weqweqewe-cdvfretvert-asdrace323c23-c234234cf3324234-2026asds',   // change this!
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        httpOnly: true,          // prevents JS access
+        secure: false,           // ← set true in production + HTTPS
+        maxAge: 1000 * 60 * 60,  // 1 hour
+        sameSite: 'strict'
+    }
+}));
+appExpress.use('/', require('./backend/routes/pages'));
+appExpress.use('/api', require('./backend/routes/AkioskApi')(io));
+appExpress.use('/api', require('./backend/routes/AdisplayApi')(io));
+appExpress.use('/api', require('./backend/routes/AtellerApi')(io));
+
+
+// ^ Video API
+const { setupAds } = require("./backend/routes/getads");
+const adsModule = setupAds(io);
+
+// --- Setup videos API ---
+require("./backend/routes/videos")(appExpress, adsModule);
 
 // const { test, setupAds, initialize: initAdsManager } = require("./reso/node/getads");
 // const { handleGetAllServices } = require("./reso/node/getallservices");
