@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+  <title>Teller Login</title>
+   <link rel="stylesheet" href="/css/webteller.css">
+<script src="/libs/jquery-3.7.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+</head>
+<body onselectstart="return false;">
+      <div class="loginmaincontainerteller">
+        <div id="mode-switcher">
+          <label>
+            <input type="checkbox" id="theme-toggle" /> <p class="spanitheme"></p>
+          </label>
+        </div>
+      <canvas id="canvas-bgteller"></canvas>
+        <div class="login-containerteller">
+            <h2>Teller Login</h2>
+
+            <form>
+            <div class="form-groupteller">
+                <label for="Counter_teller">Counter</label>
+                <input type="text" id="counter_teller" placeholder="Enter Counter Number" required />
+            </div>
+            <div class="form-groupteller">
+                <label for="username_teller">Username</label>
+                <input type="text" id="username_teller" placeholder="Enter username" required />
+            </div>
+            <div class="form-groupteller password-group">
+                <label for="password_teller">Password</label>
+                <input type="password" id="password_teller" placeholder="Enter password" required />
+                <span class="toggle-password">Show</span>
+            </div>
+            <button type="submit" class="login-button_teller">Login</button>
+            </form>
+        </div>
+    </div>
+
+   
+
+      <script src="/js/teller/weblogin.js"></script>
+      <script src="/js/teller/theme.js"></script>
+</body>
+</html>

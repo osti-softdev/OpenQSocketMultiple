@@ -1,0 +1,500 @@
+/* Teller Portal SCSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: #f9fafb;
+  color: #111827;
+  min-height: 100vh;
+}
+
+/* ==================
+   Login Section
+   ================== */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.login-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 420px;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.login-header .logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 10px;
+}
+.login-header h1 {
+  font-size: 28px;
+  color: #111827;
+  margin-bottom: 5px;
+}
+.login-header p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.error-text {
+  color: #dc2626;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  background: #fee2e2;
+  padding: 10px;
+  border-radius: 6px;
+  display: none;
+}
+
+/* ==================
+   Layout & Sidebar
+   ================== */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 260px;
+  background: white;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  z-index: 50;
+}
+.sidebar .sidebar-header {
+  padding: 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+.sidebar .sidebar-header .logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: #667eea;
+}
+.sidebar .teller-profile {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+.sidebar .teller-profile .avatar {
+  width: 40px;
+  height: 40px;
+  background: #667eea;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+.sidebar .teller-profile .profile-info h3 {
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.sidebar .teller-profile .profile-info p {
+  font-size: 12px;
+  color: #666;
+}
+.sidebar .sidebar-nav {
+  flex: 1;
+  padding: 20px 10px;
+}
+.sidebar .sidebar-nav .nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 4px;
+  border: none;
+  background: none;
+  color: #4b5563;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.sidebar .sidebar-nav .nav-item:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+.sidebar .sidebar-nav .nav-item.active {
+  background: #eff6ff;
+  color: #2563eb;
+}
+.sidebar .sidebar-nav .nav-item svg {
+  opacity: 0.7;
+}
+.sidebar .sidebar-footer {
+  padding: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.content {
+  flex: 1;
+  margin-left: 260px;
+  padding: 32px;
+  background: #f9fafb;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+.content-header h2 {
+  font-size: 24px;
+  color: #111827;
+}
+.content-header p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* ==================
+   Dashboard Grid
+   ================== */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.card .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.card .card-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Use existing styles for ticket display and buttons */
+.current-ticket-card {
+  text-align: center;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+#current-ticket-display {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px 0;
+}
+#current-ticket-display .no-ticket-state {
+  color: #9ca3af;
+}
+#current-ticket-display .no-ticket-state .icon-circle {
+  background: #f3f4f6;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: #d1d5db;
+}
+#current-ticket-display .active-ticket-info .ticket-num-large {
+  font-size: 72px;
+  font-weight: 800;
+  color: #2563eb;
+  line-height: 1;
+}
+#current-ticket-display .active-ticket-info .ticket-service-name {
+  font-size: 24px;
+  color: #4b5563;
+  margin-top: 10px;
+}
+
+.ticket-footer {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 20px;
+}
+
+.ticket-action-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.service-box {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 20px;
+}
+.service-box h4 {
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.service-box .service-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 13px;
+  color: #6b7280;
+}
+.service-box .service-stats .count {
+  font-weight: 600;
+  color: #2563eb;
+}
+.service-box .service-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* Queue List */
+.queue-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+.queue-list .empty-list {
+  text-align: center;
+  padding: 30px;
+  color: #9ca3af;
+  font-size: 14px;
+}
+.queue-list .queue-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #f3f4f6;
+}
+.queue-list .queue-item:last-child {
+  border-bottom: none;
+}
+.queue-list .queue-item .queue-item-info h4 {
+  font-size: 16px;
+  font-weight: 600;
+}
+.queue-list .queue-item .queue-item-info span {
+  font-size: 12px;
+  color: #6b7280;
+}
+.queue-list .queue-item.priority {
+  background: #fef2f2;
+  border-left: 3px solid #ef4444;
+}
+
+/* Common Components */
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #374151;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.btn {
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn.btn-primary {
+  background: #2563eb;
+  color: white;
+}
+.btn.btn-primary:hover {
+  background: #1d4ed8;
+}
+.btn.btn-secondary {
+  background: #6b7280;
+  color: white;
+}
+.btn.btn-secondary:hover {
+  background: #4b5563;
+}
+.btn.btn-success {
+  background: #10b981;
+  color: white;
+}
+.btn.btn-success:hover {
+  background: #059669;
+}
+.btn.btn-danger {
+  background: #ef4444;
+  color: white;
+}
+.btn.btn-danger:hover {
+  background: #dc2626;
+}
+.btn.btn-warning {
+  background: #f59e0b;
+  color: white;
+}
+.btn.btn-warning:hover {
+  background: #d97706;
+}
+.btn.btn-info {
+  background: #3b82f6;
+  color: white;
+}
+.btn.btn-info:hover {
+  background: #2563eb;
+}
+.btn.w-full {
+  width: 100%;
+}
+.btn.logout-btn {
+  width: 100%;
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fee2e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.btn.logout-btn:hover {
+  background: #fee2e2;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 12px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.modal .modal-header {
+  padding: 20px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal .modal-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+.modal .modal-header button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #9ca3af;
+  cursor: pointer;
+}
+.modal .modal-body {
+  padding: 20px;
+}
+.modal .modal-footer {
+  padding: 20px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .content {
+    margin-left: 0;
+    padding: 20px;
+  }
+  .sidebar {
+    display: none;
+  }
+  /* Mobile sidebar not implemented yet */
+}/*# sourceMappingURL=tel.css.map */

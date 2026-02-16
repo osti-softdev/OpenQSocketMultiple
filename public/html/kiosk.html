@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Queue Kiosk</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="/libs/jquery-3.7.1.js"></script>
+    <script src="/libs/jquery-ui-1.14.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/libs/jquery-ui-1.14.1/jquery-ui.css">
+    <script src="/libs/sweetalert2@11.js"></script>
+    <link rel="stylesheet" href="/css/kiosk.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body onselectstart="return false">
+    <div class="mainkioskcontainer">
+        <!-- ! HEADER -->
+        <div class="header-container">
+            <div class="companyLogo"></div>
+        </div>
+
+        <!-- ! TIME -->
+         <div class="timer">
+            <!-- <div class="date"></div> -->
+            <div class="time"></div>
+        </div>
+
+        <!-- ! GET TICKET BUTTON -->
+        <div class="servicesContainer">
+            <div class="category-container">
+                <div class="category-btn regbtn" data-categtype="reg">Regular</div>
+                <div class="category-btn priobtn" data-categtype="prio">Priority</div>
+            </div>
+            <div class="service-container">
+                <div id="regularServices" style="display: none;"></div>
+                <div id="priorityServices" style="display: none;"></div>
+            </div>
+        </div>
+
+        <!-- ! FOOTER -->
+        <div class="footercont">
+            PLEASE GET YOUR QUEUE TICKET HERE
+        </div>
+    </div>
+     
+    <script>const socket = io();</script>
+    <script src="/js/clock.js"></script>
+    <script src="/js/kiosk/kioskfunctions.js"></script>
+    <script>
+        // setInterval(() => {
+        //     window.location.reload();
+        // }, 2000);
+    </script>
+</body>
+</html>

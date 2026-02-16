@@ -1,0 +1,29 @@
+{
+    "time_color": "#ffffff",
+    "time_shadow": "#000000",
+    "date_color": "#ffffff",
+    "nowserve_color": "#040c76",
+    "nowserve_text_color": "#ffffff",
+    "service_color": "#0504aa",
+    "service_text_color": "#ffffff",
+    "counter_color": "#ab0404",
+    "counter_text_color": "#ffffff",
+    "ticket_color": "#cdc6c6",
+    "ticket_text_color": "#000000",
+    "popup_ticket_color": "#06e8e6",
+    "popup_service_color": "#da0603",
+    "kiosk_footer_color": "#0033a0",
+    "kiosk_footer_text_color": "#ffffff",
+    "kiosk_footer_text_shadow_color": "#000000",
+    "kiosk_regular_service_color": "#cbf0ff",
+    "kiosk_priority_service_color": "#ffffff",
+    "kiosk_service_shadow_color": "#000000",
+    "kiosk_back_color": "#040c76",
+    "kiosk_back_text_color": "#ffffff",
+    "display_update": {
+        "update": 0
+    },
+    "ann_data": {
+        "counter_color": "#413939"
+    }
+}
