@@ -34,10 +34,8 @@ module.exports = function createTellerApiRouter(io) {
                 console.log('User found, verifying password...');
 
                 try {
-                    // ⚠️ IMPORTANT: Use bcrypt in production
-                    // const passwordMatch = bcrypt.compareSync(password, teller.password);
-
                     if (password === teller.cpass) {
+                        req.session.teller = teller;
                         req.session.teller = {
                             id: teller.id,
                             username: teller.cname,
@@ -67,22 +65,23 @@ module.exports = function createTellerApiRouter(io) {
   // =========================
   // & ACCOUNT SESSION CHECKER
   // =========================
+
   router.get('/check-session', (req, res) => {
-      if (req.session.teller) {
-          res.json({
-              loggedIn: true,
-              teller: {
-                  id: req.session.teller.id,
-                  username: req.session.teller.cname,
-                  counter_number: req.session.teller.cnum,
-                  services: req.session.teller.services,
-                  group_name: req.session.teller.group_name,
-              }
-          });
-      } else {
-          res.json({ loggedIn: false });
-      }
-  });
+        if (req.session.teller) {
+            res.json({
+                loggedIn: true,
+                teller: {
+                    id: req.session.teller.id,
+                    username: req.session.teller.username,
+                    counter_number: req.session.teller.counter_number,
+                    services: req.session.teller.services,
+                    group_name: req.session.teller.group_name,
+                }
+            });
+        } else {
+            res.json({ loggedIn: false });
+        }
+    });
 
   // =========================
   // & ACCOUNT logout
@@ -91,6 +90,38 @@ module.exports = function createTellerApiRouter(io) {
       req.session.destroy();
       res.json({ success: true });
   });
+
+  router.get('/tickets/waiting', (req, res) => {
+        const { date } = getPHDateTime();
+        const services = req.query.services
+            ? req.query.services.split(',')
+            : [];
+
+        if (services.length === 0) {
+            return res.json([]);
+        }
+
+        const placeholders = services.map(() => '?').join(',');
+
+        const query = `
+            SELECT *
+            FROM transactions
+            WHERE status = 'pending'
+            AND sname IN (${placeholders})
+            AND DATE(created_at) = ?
+            ORDER BY priority DESC, created_at ASC
+        `;
+
+        const params = [...services, date];
+
+        db.all(query, params, (err, tickets) => {
+            if (err) {
+                return res.status(500).json({ error: 'Database error' });
+            }
+            res.json(tickets);
+        });
+    });
+
 
     return router;
 };

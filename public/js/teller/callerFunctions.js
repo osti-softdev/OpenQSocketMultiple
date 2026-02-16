@@ -9,6 +9,7 @@ function checkSession() {
                     return;
                 }
                 currentTeller = response.teller;
+                console.log('Session valid for teller:', currentTeller);
                 showTellerSection();
                 initDashboard();
             } else {
@@ -66,7 +67,7 @@ function showTellerSection() {
     $('#tellerSec').show();
     $('#counter-number').text("Counter "+currentTeller.counter_number);
     $('#teller-username').text(currentTeller.username);
-    $('#avatar-initials').text(currentTeller.username.charAt(0).toUpperCase());
+    // $('#avatar-initials').text(currentTeller.username.charAt(0).toUpperCase());
 }
 // ^ Load queue data
 function loadQueueData() {
@@ -274,6 +275,7 @@ function createServiceBoxes() {
     $grid.empty();
 
     const services = currentTeller.services.split(',');
+    console.log('Creating service boxes for:', services);
     services.forEach(service => {
         const $box = $('<div>').addClass('service-box').attr('id', `service-box-${service}`);
         $box.html(`
