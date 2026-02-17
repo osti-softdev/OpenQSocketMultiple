@@ -186,7 +186,6 @@ module.exports = function createTellerApiRouter(io) {
     const { date } = getPHDateTime();
 
       const { ticketId, tellerId, counterNumber, counter_group, counter_user, mode } = req.body;
-    console.table(req.body)
       if (mode === 'auto') {
           // Get teller's services
           db.get('SELECT services FROM counters WHERE id = ?', [tellerId], (err, teller) => {
@@ -218,7 +217,6 @@ module.exports = function createTellerApiRouter(io) {
                   if (!ticket) {
                       return res.json({ success: false, message: 'No tickets in queue' });
                   }
-                  console.table(ticket)
                   callTicket(ticket.id, tellerId, counterNumber, counter_group, counter_user, res);
               });
           });
