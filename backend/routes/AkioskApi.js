@@ -30,7 +30,7 @@ module.exports = function createKioskApiRouter(io) {
 
   // ^ INSERT NEW TICKET
   router.post("/newServiceTicket", async (req, res) => {
-    const { sname, ticketservice } = req.body;
+    const { sname, ticketservice, selectedType } = req.body;
     const { date, time } = getPHDateTime();
 
     if (!sname || !ticketservice) {
@@ -54,9 +54,9 @@ module.exports = function createKioskApiRouter(io) {
 
       // Insert new ticket
       const result = await db.runAsync(
-        `INSERT INTO transactions (ticketnum, sname, ticketservice, status, date, time, history)
-        VALUES (?, ?, ?, 'pending', ?, ?, ?)`,
-        [nextTicket, sname, ticketservice, date, time, history]
+        `INSERT INTO transactions (ticketnum, sname, ticketservice, status, date, time, history, priority, sgroup)
+        VALUES (?, ?, ?, 'pending', ?, ?, ?, ?, ?)`,
+        [nextTicket, sname, ticketservice, date, time, history, selectedType, sname]
       );
 
       // Success response
@@ -71,7 +71,7 @@ module.exports = function createKioskApiRouter(io) {
           status: 'pending'
         }
       });
-
+      io.emit("ticket_voided");
       // You can trigger printer / socket here
       // io.emit("new-ticket", { ... });
 

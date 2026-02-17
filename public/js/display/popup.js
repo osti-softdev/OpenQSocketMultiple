@@ -11,6 +11,9 @@ let ticketQueue = [];
 let isProcessing = false;
 let activeTicketIds = new Set();
 
+socket.on("calledticketsArrived", function() {
+	getCalledTickets();
+});
 getCalledTickets();
 async function getCalledTickets() {
     try {

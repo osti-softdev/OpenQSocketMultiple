@@ -10,7 +10,6 @@ $(document).ready(function () {
     // Login form handler
     $('#login-form').submit(function (e) {
         e.preventDefault();
-        const counter_number = $('#counter_number').val();
         const username = $('#username').val();
         const password = $('#password').val();
 
@@ -18,7 +17,7 @@ $(document).ready(function () {
             url: '/api/login',
             method: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify({ counter_number, username, password }),
+            data: JSON.stringify({ username, password }),
             success: function (response) {
                 if (response.success) {
                     if (response.teller.role === 'admin') {
@@ -47,11 +46,6 @@ $(document).ready(function () {
 
     socket.on('ticket_called', () => loadQueueData());
     socket.on('ticket_completed', () => loadQueueData());
-    socket.on('ticket_recalled', (ticket) => {
-        if (currentTicket && currentTicket.id === ticket.id) {
-            currentTicket = ticket;
-        }
-    });
     socket.on('ticket_held', () => {
         loadQueueData();
         loadHeldTickets();
@@ -68,21 +62,7 @@ $(document).ready(function () {
     // Complete button
     $('#complete-btn').click(function () {
         if (!currentTicket) return;
-
-        $.ajax({
-            url: '/api/tickets/complete',
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({ ticketId: currentTicket.id }),
-            success: function () {
-                currentTicket = null;
-                stopDurationTimer();
-                clearCurrentTicket();
-                loadQueueData();
-                loadHeldTickets();
-                loadForwardedTickets();
-            }
-        });
+        completeTicket();
     });
 
     // & Recall button

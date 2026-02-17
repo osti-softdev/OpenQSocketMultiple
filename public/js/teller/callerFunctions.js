@@ -9,7 +9,6 @@ function checkSession() {
                     return;
                 }
                 currentTeller = response.teller;
-                console.log('Session valid for teller:', currentTeller);
                 showTellerSection();
                 initDashboard();
             } else {
@@ -30,9 +29,13 @@ function initDashboard() {
         url: '/api/tickets/called',
         method: 'GET',
         success: function (tickets) {
-            const myTicket = tickets.find(t => t.teller_id === currentTeller.id);
+            console.table(tickets)
+            console.table(currentTeller)
+            const myTicket = tickets.find(
+                t => Number(t.counter_num) === Number(currentTeller.counter_number)
+            );
             if (myTicket) {
-                 if(myTicket.status === 'held' || myTicket.status === 'forwarded' || myTicket.status === 'voided' || myTicket.status === 'completed') {
+                if(myTicket.status === 'held' || myTicket.status === 'received' || myTicket.status === 'voided' || myTicket.status === 'finished') {
                     return;
                 }
                 currentTicket = myTicket;
@@ -78,6 +81,7 @@ function loadQueueData() {
         method: 'GET',
         data: { services: currentTeller.services },
         success: function (tickets) {
+            console.table(tickets)
             displayWaitingQueue(tickets);
             updatePendingCounts(tickets);
         }
@@ -240,7 +244,8 @@ function loadHistory() {
 }
 // ^ Update last called tickets
 function updateLastCalled(calledTickets) {
-    const services = currentTeller.services.split(',');
+        const services = currentTeller.services.split(',').map(s => s.trim());
+
     services.forEach(service => {
         const lastTicket = calledTickets.find(t => t.service === service);
         $(`#service-box-${service} .last`).text(lastTicket ? lastTicket.ticket_number : '-');
@@ -248,18 +253,18 @@ function updateLastCalled(calledTickets) {
 }
 // ^ Display current ticket
 function displayCurrentTicket(ticket) {
-    if(ticket.status === 'held' || ticket.status === 'forwarded' || ticket.status === 'voided' || ticket.status === 'completed') {
+    if(ticket.status === 'held' || ticket.status === 'forwarded' || ticket.status === 'voided' || ticket.status === 'finished') {
         return;
     }
     const $display = $('.currentCalledTicket');
     $display.html(`
         <div class="active-ticket-info">
-            <div class="ticket-num-large">${ticket.ticket_number}</div>
-            <div class="ticket-service-name">${ticket.service}</div>
+            <div class="ticket-num-large">${ticket.ticketservice}${ticket.ticketnum}</div>
+            <div class="ticket-service-name">${ticket.sname}</div>
         </div>
     `);
-    $('#start-time').text(formatTime(ticket.called_at));
-    startDurationTimer(ticket.called_at);
+    $('#start-time').text(ticket.start_time);
+    startDurationTimer(ticket.start_time,ticket.date);
 }
 // ^ Clear Current Ticket
 function clearCurrentTicket() {
@@ -274,8 +279,8 @@ function createServiceBoxes() {
     const $grid = $('.servicesManage');
     $grid.empty();
 
-    const services = currentTeller.services.split(',');
-    console.log('Creating service boxes for:', services);
+        const services = currentTeller.services.split(',').map(s => s.trim());
+
     services.forEach(service => {
         const $box = $('<div>').addClass('service-box').attr('id', `service-box-${service}`);
         $box.html(`
@@ -298,9 +303,9 @@ function createServiceBoxes() {
 }
 // ^ Update pending counts
 function updatePendingCounts(tickets) {
-    const services = currentTeller.services.split(',');
+        const services = currentTeller.services.split(',').map(s => s.trim());
     services.forEach(service => {
-        const serviceTickets = tickets.filter(t => t.service === service);
+        const serviceTickets = tickets.filter(t => t.sname === service);
         const total = serviceTickets.length;
         const reg = serviceTickets.filter(t => t.priority === 0).length;
         const pri = serviceTickets.filter(t => t.priority === 1).length;
@@ -327,10 +332,10 @@ function displayWaitingQueue(tickets) {
         const $item = $(`
             <div class="queue-item ${isPriority ? 'priority' : ''}">
                 <div class="queue-item-info">
-                    <h4>${ticket.ticket_number}</h4>
-                    <span>${ticket.service}</span>
+                    <h4>${ticket.ticketservice}${ticket.ticketnum}</h4>
+                    <span>${ticket.sname}</span>
                 </div>
-                    <span>${ticket.created_at}</span>
+                    <span>${ticket.date} : ${ticket.time}</span>
                 <button class="btn btn-primary btn-sm">Call</button>
             </div>
         `);
@@ -343,7 +348,9 @@ function displayWaitingQueue(tickets) {
 function callNext(type, service = null) {
     const data = {
         tellerId: currentTeller.id,
-        counterNumber: currentTeller.counter_number
+        counterNumber: currentTeller.counter_number,
+        counter_group: currentTeller.group_name,
+        counter_user: currentTeller.username
     };
 
     if (type === 'auto') {
@@ -374,7 +381,9 @@ function callSpecificTicket(ticketId) {
     executeCall({
         ticketId: ticketId,
         tellerId: currentTeller.id,
-        counterNumber: currentTeller.counter_number
+        counterNumber: currentTeller.counter_number,
+        counter_group: currentTeller.group_name,
+        counter_user: currentTeller.username
     });
 }
 // ^ Call EXCECUTE
@@ -403,14 +412,27 @@ function recallTicket() {
         url: '/api/tickets/recall',
         method: 'POST',
         contentType: 'application/json',
-        data: JSON.stringify({ ticketId: currentTicket.id }),
+        data: JSON.stringify({ ticketId: currentTicket.id, cname: currentTeller.username, cnum: currentTeller.counter_number }),
         success: function(response) {
-            if (response.success) {
-                currentTicket = response.ticket;
-                // alert('Ticket recalled successfully!');
-            }
+          
         }
     });
+}
+function completeTicket() {
+    $.ajax({
+            url: '/api/tickets/complete',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ ticketId: currentTicket.id, cname: currentTeller.username, cnum: currentTeller.counter_number }),
+            success: function () {
+                currentTicket = null;
+                stopDurationTimer();
+                clearCurrentTicket();
+                loadQueueData();
+                loadHeldTickets();
+                loadForwardedTickets();
+            }
+        });
 }
 // ^ Hold a Ticket
 function holdTicket() {
@@ -452,18 +474,30 @@ function resumeHeldTicket(ticketId) {
     });
 }
 // ^ TIMER
-function startDurationTimer(startTime) {
+function startDurationTimer(startTime, ticketDate) {
     stopDurationTimer();
-    const start = new Date(startTime).getTime();
+
+    // Combine date + time properly
+    const start = new Date(`${ticketDate}T${startTime}`).getTime();
+
+    if (isNaN(start)) {
+        console.error("Invalid start time:", startTime);
+        return;
+    }
 
     durationInterval = setInterval(() => {
-        const now = new Date().getTime();
+        const now = Date.now();
         const diff = now - start;
+
         const mins = Math.floor(diff / 60000);
         const secs = Math.floor((diff % 60000) / 1000);
-        $('#duration-timer').text(`${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`);
+
+        $('#duration-timer').text(
+            `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`
+        );
     }, 1000);
 }
+
 // ^ Stop Timer
 function stopDurationTimer() {
     if (durationInterval) clearInterval(durationInterval);

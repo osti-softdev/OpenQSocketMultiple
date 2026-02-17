@@ -882,3 +882,333 @@ Require stack:
   code: 'SQLITE_ERROR',
   __augmented: true
 }
+❌ 2026-02-17T01:26:08.627Z [node_modules\express\lib\application.js:617] ReferenceError: getPHDateTime is not defined
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:95:26
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5)
+    at router.handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:186:3)
+❌ 2026-02-17T01:26:14.491Z [node_modules\express\lib\application.js:617] ReferenceError: getPHDateTime is not defined
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:95:26
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5)
+    at router.handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:186:3)
+❌ 2026-02-17T01:26:27.743Z [node_modules\express\lib\application.js:617] ReferenceError: getPHDateTime is not defined
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:95:26
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5)
+    at router.handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:186:3)
+❌ 2026-02-17T01:26:45.518Z [node_modules\express\lib\application.js:617] ReferenceError: getPHDateTime is not defined
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:95:26
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5)
+    at router.handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:186:3)
+❌ 2026-02-17T01:26:48.747Z [node_modules\express\lib\application.js:617] ReferenceError: getPHDateTime is not defined
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:95:26
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5)
+    at router.handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:186:3)
+❌ 2026-02-17T01:26:48.970Z [node_modules\express\lib\application.js:617] ReferenceError: getPHDateTime is not defined
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:95:26
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5)
+    at router.handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:186:3)
+❌ 2026-02-17T01:27:21.299Z [node_modules\express\lib\application.js:617] ReferenceError: getPHDateTime is not defined
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:95:26
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5)
+    at router.handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:186:3)
+❌ 2026-02-17T01:27:21.953Z [node_modules\express\lib\application.js:617] ReferenceError: getPHDateTime is not defined
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:95:26
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5)
+    at router.handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:186:3)
+❌ 2026-02-17T01:27:22.140Z [node_modules\express\lib\application.js:617] ReferenceError: getPHDateTime is not defined
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:95:26
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5)
+    at router.handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:186:3)
+❌ 2026-02-17T01:34:29.426Z [node_modules\express\lib\application.js:617] ReferenceError: getPHDateTime is not defined
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:95:26
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5)
+    at router.handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:186:3)
+❌ 2026-02-17T01:35:41.950Z [node_modules\express\lib\application.js:617] ReferenceError: getPHDateTime is not defined
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:95:26
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5)
+    at router.handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:186:3)
+❌ 2026-02-17T02:24:55.805Z [backend\routes\AtellerApi.js:152] Error: SQLITE_ERROR: no such table: tickets
+--> in Database#all('\n' +
+  '        SELECT t.sname, t.ticket_number, t.date, t.status\n' +
+  '        FROM tickets t\n' +
+  '        INNER JOIN (\n' +
+  '            SELECT sname, MAX(start_time) AS last_called_at\n' +
+  '            FROM tickets\n' +
+  "            WHERE status IN ('calling', 'held', 'forwarded', 'finished')\n" +
+  '              AND date = ?\n' +
+  '            GROUP BY sname\n' +
+  '        ) latest\n' +
+  '        ON t.sname = latest.sname\n' +
+  '        AND t.start_time = latest.last_called_at\n' +
+  '        ORDER BY t.sname\n' +
+  '    ', [ '2026-02-17' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:150:8
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-02-17T02:24:57.038Z [backend\routes\AtellerApi.js:221] Error auto-completing previous ticket: [Error: SQLITE_ERROR: no such table: tickets] {
+  errno: 1,
+  code: 'SQLITE_ERROR'
+}
+❌ 2026-02-17T02:26:10.225Z [backend\routes\AtellerApi.js:152] Error: SQLITE_ERROR: no such table: tickets
+--> in Database#all('\n' +
+  '        SELECT t.sname, t.ticket_number, t.date, t.status\n' +
+  '        FROM tickets t\n' +
+  '        INNER JOIN (\n' +
+  '            SELECT sname, MAX(start_time) AS last_called_at\n' +
+  '            FROM tickets\n' +
+  "            WHERE status IN ('calling', 'held', 'forwarded', 'finished')\n" +
+  '              AND date = ?\n' +
+  '            GROUP BY sname\n' +
+  '        ) latest\n' +
+  '        ON t.sname = latest.sname\n' +
+  '        AND t.start_time = latest.last_called_at\n' +
+  '        ORDER BY t.sname\n' +
+  '    ', [ '2026-02-17' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:150:8
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-02-17T02:26:45.554Z [backend\routes\AtellerApi.js:152] Error: SQLITE_ERROR: no such table: tickets
+--> in Database#all('\n' +
+  '        SELECT t.sname, t.ticket_number, t.date, t.status\n' +
+  '        FROM tickets t\n' +
+  '        INNER JOIN (\n' +
+  '            SELECT sname, MAX(start_time) AS last_called_at\n' +
+  '            FROM tickets\n' +
+  "            WHERE status IN ('calling', 'held', 'forwarded', 'finished')\n" +
+  '              AND date = ?\n' +
+  '            GROUP BY sname\n' +
+  '        ) latest\n' +
+  '        ON t.sname = latest.sname\n' +
+  '        AND t.start_time = latest.last_called_at\n' +
+  '        ORDER BY t.sname\n' +
+  '    ', [ '2026-02-17' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:150:8
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-02-17T02:27:26.842Z [backend\routes\AtellerApi.js:152] Error: SQLITE_ERROR: no such table: tickets
+--> in Database#all('\n' +
+  '        SELECT t.sname, t.ticket_number, t.date, t.status\n' +
+  '        FROM transactions t\n' +
+  '        INNER JOIN (\n' +
+  '            SELECT sname, MAX(start_time) AS last_called_at\n' +
+  '            FROM tickets\n' +
+  "            WHERE status IN ('calling', 'held', 'forwarded', 'finished')\n" +
+  '              AND date = ?\n' +
+  '            GROUP BY sname\n' +
+  '        ) latest\n' +
+  '        ON t.sname = latest.sname\n' +
+  '        AND t.start_time = latest.last_called_at\n' +
+  '        ORDER BY t.sname\n' +
+  '    ', [ '2026-02-17' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:150:8
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-02-17T02:27:49.777Z [backend\routes\AtellerApi.js:152] Error: SQLITE_ERROR: no such column: t.ticket_number
+--> in Database#all('\n' +
+  '        SELECT t.sname, t.ticket_number, t.date, t.status\n' +
+  '        FROM transactions t\n' +
+  '        INNER JOIN (\n' +
+  '            SELECT sname, MAX(start_time) AS last_called_at\n' +
+  '            FROM transactions\n' +
+  "            WHERE status IN ('calling', 'held', 'forwarded', 'finished')\n" +
+  '              AND date = ?\n' +
+  '            GROUP BY sname\n' +
+  '        ) latest\n' +
+  '        ON t.sname = latest.sname\n' +
+  '        AND t.start_time = latest.last_called_at\n' +
+  '        ORDER BY t.sname\n' +
+  '    ', [ '2026-02-17' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:150:8
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-02-17T02:29:20.373Z [backend\routes\AtellerApi.js:152] Error: SQLITE_ERROR: no such column: t.ticket_num
+--> in Database#all('\n' +
+  '        SELECT t.sname, t.ticket_num, t.date, t.status\n' +
+  '        FROM transactions t\n' +
+  '        INNER JOIN (\n' +
+  '            SELECT sname, MAX(start_time) AS last_called_at\n' +
+  '            FROM transactions\n' +
+  "            WHERE status IN ('calling', 'held', 'forwarded', 'finished')\n" +
+  '              AND date = ?\n' +
+  '            GROUP BY sname\n' +
+  '        ) latest\n' +
+  '        ON t.sname = latest.sname\n' +
+  '        AND t.start_time = latest.last_called_at\n' +
+  '        ORDER BY t.sname\n' +
+  '    ', [ '2026-02-17' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:150:8
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-02-17T03:18:55.512Z [backend\routes\AdisplayApi.js:211] [updateCalledTickets] Failed: {
+  error: 'SQLITE_BUSY: database is locked',
+  stack: 'Error: SQLITE_BUSY: database is locked\n' +
+    "--> in Statement#run([ '11:18:38', 'TELLER', '2', null, 27142 ], [Function (anonymous)])\n" +
+    '    at Database.<anonymous> (E:\\SOURCE_CODES\\NODE\\OpenQSocketMultiple\\node_modules\\sqlite3\\lib\\sqlite3.js:76:19)\n' +
+    '    at Database.<anonymous> (E:\\SOURCE_CODES\\NODE\\OpenQSocketMultiple\\node_modules\\sqlite3\\lib\\sqlite3.js:20:19)\n' +
+    '    at E:\\SOURCE_CODES\\NODE\\OpenQSocketMultiple\\backend\\utilities\\db.js:294:8\n' +
+    '    at new Promise (<anonymous>)\n' +
+    '    at db.runAsync (E:\\SOURCE_CODES\\NODE\\OpenQSocketMultiple\\backend\\utilities\\db.js:293:3)\n' +
+    '    at E:\\SOURCE_CODES\\NODE\\OpenQSocketMultiple\\backend\\routes\\AdisplayApi.js:157:18',
+  ticketId: 27142,
+  time: '11:18:38'
+}
+❌ 2026-02-17T03:35:21.932Z [backend\routes\AkioskApi.js:79] Error creating ticket: SQLITE_BUSY: database is locked
+❌ 2026-02-17T03:50:14.899Z [backend\routes\AkioskApi.js:79] Error creating ticket: SQLITE_ERROR: 8 values for 9 columns
+❌ 2026-02-17T06:14:42.199Z [node_modules\express\lib\application.js:617] ReferenceError: counter_user is not defined
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:337:37
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5)
+    at router.handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:186:3)
+❌ 2026-02-17T06:14:43.150Z [node_modules\express\lib\application.js:617] ReferenceError: counter_user is not defined
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:337:37
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5)
+    at router.handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:186:3)

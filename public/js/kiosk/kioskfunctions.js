@@ -1,4 +1,5 @@
 let services = [];
+let selectedType = null;
 
 $(document).ready(async function () {
    await loadServices();
@@ -28,9 +29,11 @@ $(document).ready(async function () {
         if (category === "reg") {
             $("#priorityServices").hide();
             $("#regularServices").css({ display: "flex" });
+        selectedType = 0;
         } else if (category === "prio") {
             $("#regularServices").hide();
             $("#priorityServices").css({ display: "flex" });
+        selectedType = 1;
         }
     });
 
@@ -100,6 +103,7 @@ $(document).ready(async function () {
     $(".back-btn").off("click").on("click", function () {   // .off() prevents duplicate handlers
         $("#regularServices, #priorityServices").fadeOut(200);
         $(".category-container").fadeIn(200);
+        selectedType = null;
     });
 
     // Click handler for active (non-locked) buttons only
@@ -119,7 +123,7 @@ $(document).ready(async function () {
             url: '/api/newServiceTicket',
             method: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify({ sname, ticketservice }),
+            data: JSON.stringify({ sname, ticketservice, selectedType }),
             success: function (response) {
                 if (response.success) {
                     setTimeout(() => {
@@ -144,6 +148,7 @@ $(document).ready(async function () {
 
                         $("#regularServices, #priorityServices").fadeOut(200);
                         $(".category-container").fadeIn(200);
+                        selectedType = null;
                     }, 1500);
                 } else {
                     Swal.fire('Error', response.error || 'Failed to generate ticket', 'error');
