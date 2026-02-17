@@ -575,7 +575,5 @@ module.exports = function createTellerApiRouter(io) {
             res.json(rows);
         });
     });
-
-
     return router;
 };
