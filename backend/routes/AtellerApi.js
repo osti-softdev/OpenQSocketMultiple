@@ -156,12 +156,12 @@ module.exports = function createTellerApiRouter(io) {
     const { date } = getPHDateTime();
 
     const sql = `
-        SELECT t.sname, t.ticketnum, t.date, t.status
+        SELECT t.sname, t.ticketnum, ticketservice, t.date, t.status
         FROM transactions t
         INNER JOIN (
             SELECT sname, MAX(start_time) AS last_called_at
             FROM transactions
-            WHERE status IN ('calling', 'held', 'received', 'finished')
+            WHERE status IN ('calling', 'called', 'held', 'received', 'finished')
               AND date = ?
             GROUP BY sname
         ) latest
@@ -217,16 +217,16 @@ module.exports = function createTellerApiRouter(io) {
                   if (!ticket) {
                       return res.json({ success: false, message: 'No tickets in queue' });
                   }
-                  callTicket(ticket.id, tellerId, counterNumber, counter_group, counter_user, res);
+                  callTicket(ticket.id, counterNumber, counter_group, counter_user, res);
               });
           });
       } else {
-          callTicket(ticketId, tellerId, counterNumber, counter_group, counter_user,  res);
+          callTicket(ticketId, counterNumber, counter_group, counter_user,  res);
       }
   });
 
   // ^ Function To call a ticket
-function callTicket(ticketId, tellerId, counterNumber, counter_group, counter_user,  res) {
+  function callTicket(ticketId, counterNumber, counter_group, counter_user,  res) {
   const { date, time } = getPHDateTime();
     const finishEntry = `[${time}-${counter_user}-${counterNumber}-AutoFinished]`;
 
@@ -249,7 +249,7 @@ function callTicket(ticketId, tellerId, counterNumber, counter_group, counter_us
       if (err) {
         console.error('Error auto-completing previous ticket:', err);
       } else if (this.changes > 0) {
-        io.emit('ticket_completed', { tellerId });
+        io.emit('ticket_completed');
       }
     const startEntry = `[${time}-${counter_user}-${counterNumber}-Called]`;
 
@@ -292,7 +292,7 @@ function callTicket(ticketId, tellerId, counterNumber, counter_group, counter_us
                 return res.status(500).json({ error: 'Ticket not found' });
               }
 
-              io.emit('ticket_called', ticket);
+              io.emit('ticket_called');
               res.json({ success: true, ticket });
             }
           );
@@ -300,7 +300,7 @@ function callTicket(ticketId, tellerId, counterNumber, counter_group, counter_us
       );
     }
   );
-}
+  }
 
   // =========================
   // & Recall A Ticket
@@ -329,7 +329,178 @@ function callTicket(ticketId, tellerId, counterNumber, counter_group, counter_us
                 io.emit('calledticketsArrived');
                 res.json({ success: true });
         });
+  });
+
+  // =========================
+  // & Resume Ticket
+  // =========================
+  router.post('/tickets/resume', (req, res) => {
+    const { ticketId, counterNumber, counter_group, counter_user } = req.body;
+    callTicket(ticketId, counterNumber, counter_group, counter_user, res);
+  });
+
+  // =========================
+  // & Hold A Ticket
+  // =========================
+  router.post('/tickets/hold', (req, res) => {
+    const { ticketId, cname, cnum } = req.body;
+    const { date, time } = getPHDateTime();
+    const heldEntry = `[${time}-${cname}-${cnum}-Held]`;
+
+    db.run(`
+        UPDATE transactions 
+        SET status = 'held',
+            start_time = ?,
+            history = CASE
+              WHEN history IS NULL OR history = '' THEN ?
+              ELSE history || ';' || ?
+            END
+        WHERE id = ?
+          AND date = ?
+    `,
+    [time, heldEntry, heldEntry, ticketId, date],
+    function (err) {
+        if (err) {
+            return res.status(500).json({ error: 'Failed to hold ticket' });
+        }
+            io.emit('ticket_held');
+            res.json({ success: true });
     });
+  });
+
+  // =========================
+  // & Held Tickets
+  // =========================
+  router.get('/tickets/held', (req, res) => {
+    const { tellerId } = req.query;
+    const { date } = getPHDateTime();
+
+    db.all(`SELECT * FROM transactions 
+            WHERE status = 'held' AND counter_num = ? AND date = ?
+            ORDER BY start_time ASC`,
+        [tellerId, date],
+        (err, tickets) => {
+            if (err) {
+                return res.status(500).json({ error: 'Database error' });
+            }
+            res.json(tickets);
+        });
+  });
+
+  // =========================
+  // & Void A ticket
+  // =========================
+  router.post('/tickets/void', (req, res) => {
+    const { ticketId, reason, notes, cname, cnum } = req.body;
+    const voidReason = notes ? `${reason}: ${notes}` : reason;
+    const { date, time } = getPHDateTime();
+    const voidEntry = `[${time}-${cname}-${cnum}-Voided]`;
+
+    db.run(`
+        UPDATE transactions 
+        SET status = 'voided',
+            void_reason = ?,
+            end_time = ?,
+            history = CASE
+              WHEN history IS NULL OR history = '' THEN ?
+              ELSE history || ';' || ?
+            END
+        WHERE id = ?
+          AND date = ?
+    `,
+    [voidReason, time, voidEntry, voidEntry, ticketId, date],
+    function (err) {
+        if (err) {
+            return res.status(500).json({ error: 'Failed to void ticket' });
+        }
+
+        io.emit('ticket_voided');
+        res.json({ success: true });
+    });
+  });
+
+  // =========================
+  // & Forward A ticket
+  // =========================
+  router.post('/tickets/forward', (req, res) => {
+    const { ticketId, fromTellerId, toTellerId, toGroupId, note } = req.body;
+    const { date, time } = getPHDateTime();
+    const now = `${date} ${time}`;
+
+    // Update ticket status
+    db.run(`UPDATE tickets 
+            SET status = 'forwarded', forwarded_from = ?, forwarded_to = ?
+            WHERE id = ? AND DATE(created_at) = ?`,
+        [fromTellerId, toTellerId || toGroupId, ticketId, date],
+        function (err) {
+            if (err) {
+                return res.status(500).json({ error: 'Failed to forward ticket' });
+            }
+
+            // Log forwarding — use full datetime `now`, not date-only
+            db.run(`INSERT INTO forwarded_tickets (ticket_id, from_teller_id, to_teller_id, to_group_id, note, forwarded_at)
+                    VALUES (?, ?, ?, ?, ?, ?)`,
+                [ticketId, fromTellerId, toTellerId, toGroupId, note, now],
+                (err) => {
+                    if (err) {
+                        console.error('Error logging forwarded ticket:', err);
+                    }
+
+                    db.get('SELECT * FROM tickets WHERE id = ? AND DATE(created_at) = ?', [ticketId, date], (err, ticket) => {
+                        if (err || !ticket) {
+                            return res.status(500).json({ error: 'Ticket not found' });
+                        }
+
+                        io.emit('ticket_forwarded', {
+                            ticket: ticket,
+                            toTellerId: toTellerId,
+                            toGroupId: toGroupId
+                        });
+                        res.json({ success: true });
+                    });
+                });
+        });
+  });
+
+  // =========================
+  // & Forwarded Tickets
+  // =========================
+  router.get('/tickets/forwarded', (req, res) => {
+    const { tellerId, groupId } = req.query;
+    const { date } = getPHDateTime();
+
+    let query = `SELECT t.*, ft.note, ft.forwarded_at, 
+                t_from.username as from_teller_name
+                FROM tickets t
+                JOIN forwarded_tickets ft ON t.id = ft.ticket_id
+                LEFT JOIN tellers t_from ON ft.from_teller_id = t_from.id
+                WHERE t.status = 'forwarded' AND (`;
+    
+    let params = [];
+    let conditions = [];
+
+    if (tellerId) {
+        conditions.push('ft.to_teller_id = ?');
+        params.push(tellerId);
+    }
+    
+    if (groupId) {
+        conditions.push('ft.to_group_id = ?');
+        params.push(groupId);
+    }
+
+    query += conditions.join(' OR ') + ') AND DATE(ft.forwarded_at) = ? ORDER BY ft.forwarded_at DESC';
+
+    params.push(date);
+
+    db.all(query, params, (err, tickets) => {
+        if (err) {
+            return res.status(500).json({ error: 'Database error' });
+        }
+        res.json(tickets);
+    });
+  });
+
 
   // =========================
   // & Complete A Ticket

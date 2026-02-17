@@ -29,8 +29,6 @@ function initDashboard() {
         url: '/api/tickets/called',
         method: 'GET',
         success: function (tickets) {
-            console.table(tickets)
-            console.table(currentTeller)
             const myTicket = tickets.find(
                 t => Number(t.counter_num) === Number(currentTeller.counter_number)
             );
@@ -70,7 +68,7 @@ function showTellerSection() {
     $('#tellerSec').show();
     $('#counter-number').text("Counter "+currentTeller.counter_number);
     $('#teller-username').text(currentTeller.username);
-    // $('#avatar-initials').text(currentTeller.username.charAt(0).toUpperCase());
+    $('#avatar-initials').text(currentTeller.username.charAt(0).toUpperCase());
 }
 // ^ Load queue data
 function loadQueueData() {
@@ -81,7 +79,6 @@ function loadQueueData() {
         method: 'GET',
         data: { services: currentTeller.services },
         success: function (tickets) {
-            console.table(tickets)
             displayWaitingQueue(tickets);
             updatePendingCounts(tickets);
         }
@@ -107,7 +104,7 @@ function loadQueueData() {
 function loadHeldTickets() {
     if (!currentTeller) return;
 
-    $.get('/api/tickets/held', { tellerId: currentTeller.id }, function(tickets) {
+    $.get('/api/tickets/held', { tellerId: currentTeller.counter_number }, function(tickets) {
         const $queue = $('#held-queue');
         $queue.empty();
 
@@ -125,8 +122,8 @@ function loadHeldTickets() {
             const $item = $(`
                 <div class="queue-item ${isPriority ? 'priority' : ''}">
                     <div class="queue-item-info">
-                        <h4>${ticket.ticket_number}</h4>
-                        <span>${ticket.service}</span>
+                        <h4>${ticket.ticketservice}${ticket.ticketnum}</h4>
+                        <span>${ticket.sname}</span>
                     </div>
                     <div class="queue-actions">
                         <button class="btn btn-secondary btn-sm forward-held-btn">Forward</button>
@@ -247,8 +244,8 @@ function updateLastCalled(calledTickets) {
         const services = currentTeller.services.split(',').map(s => s.trim());
 
     services.forEach(service => {
-        const lastTicket = calledTickets.find(t => t.service === service);
-        $(`#service-box-${service} .last`).text(lastTicket ? lastTicket.ticket_number : '-');
+        const lastTicket = calledTickets.find(t => t.sname === service);
+        $(`#service-box-${service} .last`).text(lastTicket ? lastTicket.ticketservice+lastTicket.ticketnum : '-');
     });
 }
 // ^ Display current ticket
@@ -380,7 +377,6 @@ function callNext(type, service = null) {
 function callSpecificTicket(ticketId) {
     executeCall({
         ticketId: ticketId,
-        tellerId: currentTeller.id,
         counterNumber: currentTeller.counter_number,
         counter_group: currentTeller.group_name,
         counter_user: currentTeller.username
@@ -440,10 +436,7 @@ function holdTicket() {
         url: '/api/tickets/hold',
         method: 'POST',
         contentType: 'application/json',
-        data: JSON.stringify({ 
-            ticketId: currentTicket.id,
-            tellerId: currentTeller.id
-        }),
+        data: JSON.stringify({ ticketId: currentTicket.id, cname: currentTeller.username, cnum: currentTeller.counter_number }),
         success: function() {
             currentTicket = null;
             clearCurrentTicket();
@@ -460,8 +453,9 @@ function resumeHeldTicket(ticketId) {
         contentType: 'application/json',
         data: JSON.stringify({ 
             ticketId: ticketId,
-            tellerId: currentTeller.id,
-            counterNumber: currentTeller.counter_number
+            counterNumber: currentTeller.counter_number,
+            counter_group: currentTeller.group_name,
+            counter_user: currentTeller.username
         }),
         success: function(response) {
             if (response.success) {
@@ -497,7 +491,6 @@ function startDurationTimer(startTime, ticketDate) {
         );
     }, 1000);
 }
-
 // ^ Stop Timer
 function stopDurationTimer() {
     if (durationInterval) clearInterval(durationInterval);
@@ -585,7 +578,9 @@ function confirmVoid() {
         data: JSON.stringify({
             ticketId: currentTicket.id,
             reason: reason,
-            notes: notes
+            notes: notes,
+            cname: currentTeller.username, 
+            cnum: currentTeller.counter_number 
         }),
         success: function() {
             $('#void-modal').hide();
