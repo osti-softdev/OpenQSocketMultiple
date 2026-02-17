@@ -325,9 +325,23 @@ module.exports = function createTellerApiRouter(io) {
             if (err) {
                 return res.status(500).json({ error: 'Failed to recall ticket' });
             }
-
-                io.emit('calledticketsArrived');
-                res.json({ success: true });
+                    db.get(
+                        `
+                        SELECT *
+                        FROM transactions
+                        WHERE id = ?
+                        AND date = ?
+                        `,
+                        [ticketId, date],
+                        (err, ticket) => {
+                        if (err || !ticket) {
+                            return res.status(500).json({ error: 'Ticket not found' });
+                        }
+                        io.emit('calledticketsArrived');
+                        io.emit('ticket_called');
+                        res.json({ success: true, ticket });
+                        }
+                    );
         });
   });
 
@@ -501,7 +515,6 @@ module.exports = function createTellerApiRouter(io) {
     });
   });
 
-
   // =========================
   // & Complete A Ticket
   // =========================
@@ -531,6 +544,37 @@ module.exports = function createTellerApiRouter(io) {
             res.json({ success: true });
         });
   });
+
+   // =========================
+  // & Ticket History
+  // =========================
+ router.get('/tickets/history', (req, res) => {
+    const { counterNumber, limit } = req.query;
+    const queryLimit = limit || 20;
+    const { date } = getPHDateTime();
+
+        let query = `
+            SELECT *
+            FROM transactions
+            WHERE status IN ('finished', 'voided', 'held', 'received')
+            AND date = ?
+        `;
+
+        let params = [date];
+
+        if (counterNumber) {
+            query += ` AND counter_num = ?`;
+            params.push(counterNumber);
+        }
+
+        query += ` ORDER BY end_time DESC LIMIT ?`;
+        params.push(queryLimit);
+
+        db.all(query, params, (err, rows) => {
+            if (err) return res.status(500).json({ error: err.message });
+            res.json(rows);
+        });
+    });
 
 
     return router;

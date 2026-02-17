@@ -182,7 +182,9 @@ function loadForwardedTickets() {
 }
 // ^ Load History
 function loadHistory() {
-    $.get('/api/tickets/history', { tellerId: currentTeller.id }, function (tickets) {
+    $.get('/api/tickets/history', { 
+          counterNumber: currentTeller.counter_number,
+    }, function (tickets) {
         const $list = $('#history-list');
         $list.empty();
         if (tickets.length === 0) {
@@ -191,34 +193,41 @@ function loadHistory() {
         }
 
         tickets.forEach(t => {
-            const start = new Date(t.called_at);
-            const end = new Date(t.completed_at);
-            const duration = Math.floor((end - start) / 1000);
-            const mins = Math.floor(duration / 60);
-            const secs = duration % 60;
+            if (!t.start_time || !t.end_time) {
+                return;
+            }
+            const startDate = new Date(`${t.date}T${t.start_time}`);
+            const endDate   = new Date(`${t.date}T${t.end_time}`);
+
+            if (isNaN(startDate) || isNaN(endDate)) {
+                return;
+            }
+            const durationSeconds = Math.floor((endDate - startDate) / 1000);
+
+            const mins = Math.floor(durationSeconds / 60);
+            const secs = durationSeconds % 60;
 
             const $row = $(`
                 <tr>
-                    <td><strong>${t.ticket_number}</strong></td>
-                    <td>${t.service}</td>
-                    <td>${formatTime(t.called_at)}</td>
-                    <td>${formatTime(t.completed_at)}</td>
+                    <td><strong>${t.ticketservice}${t.ticketnum}</strong></td>
+                    <td>${t.ticketservice}</td>
+                    <td>${t.start_time}</td>
+                    <td>${t.end_time}</td>
                     <td>${mins}m ${secs}s</td>
                     <td>
-                        <button class="btn btn-primary btn-sm call-again-btn">Call Again</button>
+                        <button class="btn btn-primary btn-sm call-again-btn">
+                            Call Again
+                        </button>
                     </td>
                 </tr>
             `);
+
             
             $row.find('.call-again-btn').click(function() {
                 if (currentTicket) {
                     alert('Please complete or hold your current ticket first.');
                     return;
                 }
-                // Call specific ticket again (Recall logic but for finished ticket -> effectively a new call or re-activation)
-                // Using recall endpoint might work if backend allows recalling completed tickets?
-                // The prompt says "call it again", implying re-serving.
-                // Let's use recallTicket logic but passing this ID.
                 $.ajax({
                     url: '/api/tickets/recall',
                     method: 'POST',

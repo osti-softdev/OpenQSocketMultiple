@@ -202,3 +202,82 @@
 ✔ 2026-02-17T08:56:30.369Z [node:events:508] [ADS] Client connected: 87A3rcGMda3h15PFAAAC
 ✔ 2026-02-17T08:56:30.375Z [node:events:508] [ADS] Client connected: Hl130Yqv6YQ2KLmqAAAE
 ✔ 2026-02-17T08:56:30.382Z [node:events:508] [ADS] Client connected: uXKusUVOD4ZcEE6YAAAF
+✔ 2026-02-17T08:57:40.386Z [node:events:508] [ADS] Client disconnected: Hl130Yqv6YQ2KLmqAAAE
+✔ 2026-02-17T08:57:40.480Z [node:events:508] [ADS] Client connected: uAc-Soyoue7W7z7BAAAH
+✔ 2026-02-17T08:57:40.571Z [node:events:508] [ADS] Client disconnected: uAc-Soyoue7W7z7BAAAH
+✔ 2026-02-17T08:57:40.625Z [node:events:508] [ADS] Client connected: JdlsOYLGsD_Oko_0AAAJ
+✔ 2026-02-17T08:57:40.764Z [node:events:508] [ADS] Client disconnected: JdlsOYLGsD_Oko_0AAAJ
+✔ 2026-02-17T08:57:40.812Z [node:events:508] [ADS] Client connected: d_s0Iz426yX1CYgkAAAL
+✔ 2026-02-17T08:57:43.083Z [backend\routes\AtellerApi.js:19] Login attempt for: cade
+✔ 2026-02-17T08:57:43.085Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-02-17T08:57:43.085Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-02-17T09:02:33.198Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-02-17T09:02:33.224Z [node_modules\dotenv\lib\main.js:142] [dotenv@17.2.4] injecting env (1) from backend\config\.env [2m-- tip: 📡 add observability to secrets: https://dotenvx.com/ops[0m
+✔ 2026-02-17T09:02:33.408Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-02-17T09:02:33.419Z [unknown-location] Connected to SQLite database
+✔ 2026-02-17T09:02:33.448Z [node:events:508] [ADS] Client connected: YOys8vVabdmfVKmhAAAD
+✔ 2026-02-17T09:02:33.451Z [node:events:508] [ADS] Client connected: FLWJA8VcZEkPfuQiAAAE
+✔ 2026-02-17T09:02:33.453Z [node:events:508] [ADS] Client connected: Mmifjj2FI6cJRTmfAAAF
+✔ 2026-02-17T09:02:36.963Z [node:events:508] [ADS] Client disconnected: YOys8vVabdmfVKmhAAAD
+✔ 2026-02-17T09:02:37.015Z [node:events:508] [ADS] Client connected: _JqFlsElfe8VPUolAAAH
+✔ 2026-02-17T09:02:39.228Z [backend\routes\AtellerApi.js:19] Login attempt for: cade
+✔ 2026-02-17T09:02:39.230Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-02-17T09:02:39.230Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-02-17T09:03:04.624Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-02-17T09:03:04.645Z [node_modules\dotenv\lib\main.js:142] [dotenv@17.2.4] injecting env (1) from backend\config\.env [2m-- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild[0m
+✔ 2026-02-17T09:03:04.820Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-02-17T09:03:04.830Z [unknown-location] Connected to SQLite database
+✔ 2026-02-17T09:03:04.850Z [node:events:508] [ADS] Client connected: 1_rkVtW_gQbYVkb3AAAD
+✔ 2026-02-17T09:03:04.858Z [node:events:508] [ADS] Client connected: 6yZ8n99HGk9PnE6LAAAE
+✔ 2026-02-17T09:03:04.860Z [node:events:508] [ADS] Client connected: awhQEsbhS9wJ2cjJAAAF
+✔ 2026-02-17T09:03:06.776Z [node:events:508] [ADS] Client disconnected: 6yZ8n99HGk9PnE6LAAAE
+✔ 2026-02-17T09:03:06.821Z [node:events:508] [ADS] Client connected: _Akyv-WexOnOcuKhAAAH
+✔ 2026-02-17T09:03:09.389Z [backend\routes\AtellerApi.js:19] Login attempt for: cade
+✔ 2026-02-17T09:03:09.390Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-02-17T09:03:09.391Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-02-17T09:03:42.494Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-02-17T09:03:42.514Z [node_modules\dotenv\lib\main.js:142] [dotenv@17.2.4] injecting env (1) from backend\config\.env [2m-- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit[0m
+✔ 2026-02-17T09:03:42.684Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-02-17T09:03:42.687Z [unknown-location] Connected to SQLite database
+✔ 2026-02-17T09:03:42.718Z [node:events:508] [ADS] Client connected: -4i1vs688E9KSX5FAAAD
+✔ 2026-02-17T09:03:42.721Z [node:events:508] [ADS] Client connected: vqs_k7MfeUNDox78AAAE
+✔ 2026-02-17T09:03:42.729Z [node:events:508] [ADS] Client connected: J21jqJFY0ucv0Z3pAAAF
+✔ 2026-02-17T09:03:47.302Z [node:events:508] [ADS] Client disconnected: -4i1vs688E9KSX5FAAAD
+✔ 2026-02-17T09:03:47.347Z [node:events:508] [ADS] Client connected: iBXLd4IqcmRwyZ4rAAAH
+✔ 2026-02-17T09:03:49.778Z [backend\routes\AtellerApi.js:19] Login attempt for: cade
+✔ 2026-02-17T09:03:49.779Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-02-17T09:03:49.779Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-02-17T09:04:48.928Z [node:events:508] [ADS] Client disconnected: iBXLd4IqcmRwyZ4rAAAH
+✔ 2026-02-17T09:04:48.977Z [node:events:508] [ADS] Client connected: lO_8RAEGznAp4B3VAAAJ
+✔ 2026-02-17T09:05:13.942Z [node:events:508] [ADS] Client disconnected: lO_8RAEGznAp4B3VAAAJ
+✔ 2026-02-17T09:05:14.019Z [node:events:508] [ADS] Client connected: Ax2YLWdSjpAT6huWAAAL
+✔ 2026-02-17T09:05:14.875Z [node:events:508] [ADS] Client disconnected: Ax2YLWdSjpAT6huWAAAL
+✔ 2026-02-17T09:05:14.915Z [node:events:508] [ADS] Client connected: LB_2IokF7QrPCoOqAAAN
+✔ 2026-02-17T09:05:53.949Z [node:events:508] [ADS] Client disconnected: LB_2IokF7QrPCoOqAAAN
+✔ 2026-02-17T09:05:53.999Z [node:events:508] [ADS] Client connected: -ipmmPzA9IaiSdUJAAAP
+✔ 2026-02-17T09:06:22.119Z [node:events:508] [ADS] Client disconnected: -ipmmPzA9IaiSdUJAAAP
+✔ 2026-02-17T09:06:22.191Z [node:events:508] [ADS] Client connected: m5zwQ1y6GyOq1KhtAAAR
+✔ 2026-02-17T09:06:24.860Z [node:events:508] [ADS] Client disconnected: m5zwQ1y6GyOq1KhtAAAR
+✔ 2026-02-17T09:06:24.907Z [node:events:508] [ADS] Client connected: Tb-f6mBJC887T2rgAAAT
+✔ 2026-02-17T09:06:56.223Z [node:events:508] [ADS] Client disconnected: Tb-f6mBJC887T2rgAAAT
+✔ 2026-02-17T09:06:56.271Z [node:events:508] [ADS] Client connected: aAp2JnYO_AhaO4FIAAAV
+✔ 2026-02-17T09:07:55.449Z [node:events:508] [ADS] Client disconnected: aAp2JnYO_AhaO4FIAAAV
+✔ 2026-02-17T09:07:55.500Z [node:events:508] [ADS] Client connected: Vb7WKxoAiR2vXNv9AAAX
+✔ 2026-02-17T09:08:50.712Z [node:events:508] [ADS] Client disconnected: Vb7WKxoAiR2vXNv9AAAX
+✔ 2026-02-17T09:08:50.760Z [node:events:508] [ADS] Client connected: gtS2H3zXd1ubBwyXAAAZ
+✔ 2026-02-17T09:08:55.931Z [node:events:508] [ADS] Client disconnected: gtS2H3zXd1ubBwyXAAAZ
+✔ 2026-02-17T09:08:55.978Z [node:events:508] [ADS] Client connected: 5ddju-iOQxKA64pHAAAb
+✔ 2026-02-17T09:11:11.748Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-02-17T09:11:11.769Z [node_modules\dotenv\lib\main.js:142] [dotenv@17.2.4] injecting env (1) from backend\config\.env [2m-- tip: 🔄 add secrets lifecycle management: https://dotenvx.com/ops[0m
+✔ 2026-02-17T09:11:11.958Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-02-17T09:11:11.961Z [unknown-location] Connected to SQLite database
+✔ 2026-02-17T09:11:11.987Z [node:events:508] [ADS] Client connected: uV-sKpmocM2kmNkGAAAD
+✔ 2026-02-17T09:11:12.002Z [node:events:508] [ADS] Client connected: D7eTHJU_hriy1XvOAAAE
+✔ 2026-02-17T09:11:12.019Z [node:events:508] [ADS] Client connected: cySF0GsOxhduE7-5AAAF
+✔ 2026-02-17T09:11:13.508Z [node:events:508] [ADS] Client disconnected: D7eTHJU_hriy1XvOAAAE
+✔ 2026-02-17T09:11:13.552Z [node:events:508] [ADS] Client connected: wTH0u30r1MGxzDgnAAAH
+✔ 2026-02-17T09:11:16.145Z [backend\routes\AtellerApi.js:19] Login attempt for: cade
+✔ 2026-02-17T09:11:16.147Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-02-17T09:11:16.147Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-02-17T09:11:45.993Z [node:events:508] [ADS] Client disconnected: wTH0u30r1MGxzDgnAAAH
+✔ 2026-02-17T09:11:46.328Z [node:events:508] [ADS] Client connected: y4V-H_Ye8sSQMXHdAAAJ
