@@ -51,6 +51,20 @@ $(document).ready(function () {
         loadHeldTickets();
     });
     socket.on('ticket_forwarded', (data) => {
+        console.log('Forward event:', data);
+
+    const isForThisTeller =
+        Number(data.toTellerId) === Number(currentTeller.id);
+
+    const isForThisGroup =
+        Number(data.toGroupId) === Number(currentTeller.group_id);
+
+    if (isForThisTeller || isForThisGroup) {
+        showMsgForwarded(
+            'success',
+            `You received ticket ${data.ticket.ticketservice}${data.ticket.ticketnum} : ${data.note}`
+        );
+    }
         loadQueueData();
         loadForwardedTickets();
     });

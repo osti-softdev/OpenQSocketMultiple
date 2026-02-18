@@ -54,9 +54,9 @@ module.exports = function createKioskApiRouter(io) {
 
       // Insert new ticket
       const result = await db.runAsync(
-        `INSERT INTO transactions (ticketnum, sname, ticketservice, status, date, time, history, priority, sgroup)
-        VALUES (?, ?, ?, 'pending', ?, ?, ?, ?, ?)`,
-        [nextTicket, sname, ticketservice, date, time, history, selectedType, sname]
+        `INSERT INTO transactions (ticketnum, sname, ticketservice, status, date, time, history, priority)
+        VALUES (?, ?, ?, 'pending', ?, ?, ?, ?)`,
+        [nextTicket, sname, ticketservice, date, time, history, selectedType]
       );
 
       // Success response

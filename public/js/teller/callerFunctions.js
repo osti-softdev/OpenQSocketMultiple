@@ -167,8 +167,8 @@ function loadForwardedTickets() {
             const $item = $(`
                 <div class="queue-item ${isPriority ? 'priority' : ''}">
                     <div class="queue-item-info">
-                        <h4>${ticket.ticket_number}</h4>
-                        <span>${ticket.service} - From: ${ticket.from_teller_name}</span>
+                        <h4>${ticket.ticketservice}${ticket.ticketnum}</h4>
+                        <span>${ticket.sname} - From: ${ticket.from_teller_name}</span>
                         ${ticket.note ? `<small>${ticket.note}</small>` : ''}
                     </div>
                     <button class="btn btn-primary btn-sm">Call</button>
@@ -183,7 +183,7 @@ function loadForwardedTickets() {
 // ^ Load History
 function loadHistory() {
     $.get('/api/tickets/history', { 
-          counterNumber: currentTeller.counter_number,
+          counterNumber: currentTeller.counter_number, cname: currentTeller.username,
     }, function (tickets) {
         const $list = $('#history-list');
         $list.empty();
@@ -462,6 +462,7 @@ function resumeHeldTicket(ticketId) {
         contentType: 'application/json',
         data: JSON.stringify({ 
             ticketId: ticketId,
+            tellerId: currentTeller.id,
             counterNumber: currentTeller.counter_number,
             counter_group: currentTeller.group_name,
             counter_user: currentTeller.username
@@ -518,12 +519,12 @@ function formatTime(isoString) {
 }
 function openForwardModal() {
     // Load tellers
-    $.get('/api/tellers/list', { groupId: currentTeller.group_id }, function(tellers) {
+    $.get('/api/tellers/list', { groupId: currentTeller.group_id, id: currentTeller.id }, function(tellers) {
         const $select = $('#forward-teller-id');
         $select.find('option:not(:first)').remove();
         tellers.forEach(t => {
             if (t.id !== currentTeller.id) {
-                $select.append(`<option value="${t.id}">${t.username} (Counter ${t.counter_number})</option>`);
+                $select.append(`<option value="${t.id}">${t.cname} (Counter ${t.cnum})</option>`);
             }
         });
     });
@@ -533,7 +534,7 @@ function openForwardModal() {
         const $select = $('#forward-group-id');
         $select.find('option:not(:first)').remove();
         groups.forEach(g => {
-            $select.append(`<option value="${g.id}">${g.name}</option>`);
+            $select.append(`<option value="${g.id}">${g.group_name}</option>`);
         });
     });
 

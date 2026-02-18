@@ -1,0 +1,22 @@
+❌ 2026-02-18T02:39:26.527Z [backend\routes\AkioskApi.js:79] Error creating ticket: SQLITE_ERROR: table transactions has no column named sgroup
+❌ 2026-02-18T02:39:50.327Z [backend\routes\AkioskApi.js:79] Error creating ticket: SQLITE_ERROR: 9 values for 8 columns
+❌ 2026-02-18T03:05:51.278Z [backend\routes\AtellerApi.js:476] Error upserting forwarded ticket: [Error: SQLITE_ERROR: ON CONFLICT clause does not match any PRIMARY KEY or UNIQUE constraint] {
+  errno: 1,
+  code: 'SQLITE_ERROR'
+}
+❌ 2026-02-18T03:08:23.663Z [node_modules\sqlite3\lib\trace.js:25] Error auto-completing previous ticket: Error: SQLITE_BUSY: database is locked
+--> in Statement#run([
+  '11:08:07',
+  '[11:08:07-TELLER 1-1-AutoFinished]',
+  '[11:08:07-TELLER 1-1-AutoFinished]',
+  1,
+  '2026-02-18'
+], [Function (anonymous)])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:76:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at callTicket (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:236:6)
+    at Statement.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:222:19) {
+  errno: 5,
+  code: 'SQLITE_BUSY',
+  __augmented: true
+}

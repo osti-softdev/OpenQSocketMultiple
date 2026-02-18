@@ -42,7 +42,8 @@ module.exports = function createTellerApiRouter(io) {
                             username: teller.cname,
                             counter_number: teller.cnum,
                             services: teller.services,
-                            group_name: teller.group_name
+                            group_name: teller.group_name,
+                            group_id: teller.group_id
                         };
 
                         console.log('Login successful for:', username);
@@ -77,6 +78,7 @@ module.exports = function createTellerApiRouter(io) {
                     counter_number: req.session.teller.counter_number,
                     services: req.session.teller.services,
                     group_name: req.session.teller.group_name,
+                    group_id: req.session.teller.group_id,
                 }
             });
         } else {
@@ -217,16 +219,16 @@ module.exports = function createTellerApiRouter(io) {
                   if (!ticket) {
                       return res.json({ success: false, message: 'No tickets in queue' });
                   }
-                  callTicket(ticket.id, counterNumber, counter_group, counter_user, res);
+                  callTicket(ticket.id, tellerId, counterNumber, counter_group, counter_user, res);
               });
           });
       } else {
-          callTicket(ticketId, counterNumber, counter_group, counter_user,  res);
+          callTicket(ticketId, tellerId, counterNumber, counter_group, counter_user,  res);
       }
   });
 
   // ^ Function To call a ticket
-  function callTicket(ticketId, counterNumber, counter_group, counter_user,  res) {
+  function callTicket(ticketId, tellerId, counterNumber, counter_group, counter_user,  res) {
   const { date, time } = getPHDateTime();
     const finishEntry = `[${time}-${counter_user}-${counterNumber}-AutoFinished]`;
 
@@ -240,11 +242,11 @@ module.exports = function createTellerApiRouter(io) {
               WHEN history IS NULL OR history = '' THEN ?
               ELSE history || ';' || ?
             END
-    WHERE counter_num = ?
+    WHERE teller_id = ?
       AND status = 'calling'
       AND date = ?
     `,
-    [time, finishEntry, finishEntry,counterNumber, date],
+    [time, finishEntry, finishEntry, tellerId, date],
     function (err) {
       if (err) {
         console.error('Error auto-completing previous ticket:', err);
@@ -258,6 +260,7 @@ module.exports = function createTellerApiRouter(io) {
         `
         UPDATE transactions
         SET status = 'calling',
+            teller_id = ?,
             counter_num = ?,
             start_time = ?,
             counter_user = ?,
@@ -269,7 +272,7 @@ module.exports = function createTellerApiRouter(io) {
         WHERE id = ?
           AND date = ?
         `,
-        [counterNumber, time, counter_user, counter_group, startEntry, startEntry, ticketId, date],
+        [tellerId, counterNumber, time, counter_user, counter_group, startEntry, startEntry, ticketId, date],
         function (err) {
           if (err) {
             return res.status(500).json({ error: 'Failed to call ticket' });
@@ -349,8 +352,8 @@ module.exports = function createTellerApiRouter(io) {
   // & Resume Ticket
   // =========================
   router.post('/tickets/resume', (req, res) => {
-    const { ticketId, counterNumber, counter_group, counter_user } = req.body;
-    callTicket(ticketId, counterNumber, counter_group, counter_user, res);
+    const { ticketId,tellerId, counterNumber, counter_group, counter_user } = req.body;
+    callTicket(ticketId, tellerId, counterNumber, counter_group, counter_user, res);
   });
 
   // =========================
@@ -364,7 +367,7 @@ module.exports = function createTellerApiRouter(io) {
     db.run(`
         UPDATE transactions 
         SET status = 'held',
-            start_time = ?,
+            end_time = ?,
             history = CASE
               WHEN history IS NULL OR history = '' THEN ?
               ELSE history || ';' || ?
@@ -439,28 +442,48 @@ module.exports = function createTellerApiRouter(io) {
   router.post('/tickets/forward', (req, res) => {
     const { ticketId, fromTellerId, toTellerId, toGroupId, note } = req.body;
     const { date, time } = getPHDateTime();
-    const now = `${date} ${time}`;
 
     // Update ticket status
-    db.run(`UPDATE tickets 
-            SET status = 'forwarded', forwarded_from = ?, forwarded_to = ?
-            WHERE id = ? AND DATE(created_at) = ?`,
-        [fromTellerId, toTellerId || toGroupId, ticketId, date],
+    db.run(`UPDATE transactions 
+            SET status = 'received', forwarded_from = ?, forwarded_to = ?, end_time = ?
+            WHERE id = ? AND date = ?`,
+        [fromTellerId, toTellerId || toGroupId, time, ticketId, date],
         function (err) {
             if (err) {
                 return res.status(500).json({ error: 'Failed to forward ticket' });
             }
+           db.get(
+            `SELECT id FROM forwarded_tickets WHERE ticket_id = ?`,
+            [ticketId],
+            (err, row) => {
+                if (err) {
+                    console.error(err);
+                    return res.status(500).json({ error: 'DB error' });
+                }
 
-            // Log forwarding — use full datetime `now`, not date-only
-            db.run(`INSERT INTO forwarded_tickets (ticket_id, from_teller_id, to_teller_id, to_group_id, note, forwarded_at)
-                    VALUES (?, ?, ?, ?, ?, ?)`,
-                [ticketId, fromTellerId, toTellerId, toGroupId, note, now],
-                (err) => {
-                    if (err) {
-                        console.error('Error logging forwarded ticket:', err);
-                    }
+                if (row) {
+                    // UPDATE
+                    db.run(`
+                        UPDATE forwarded_tickets
+                        SET from_teller_id = ?,
+                            to_teller_id = ?,
+                            to_group_id = ?,
+                            note = ?,
+                            forwarded_at = ?
+                        WHERE ticket_id = ?
+                    `,
+                    [fromTellerId, toTellerId, toGroupId, note, date, ticketId]);
+                } else {
+                    // INSERT
+                    db.run(`
+                        INSERT INTO forwarded_tickets
+                        (ticket_id, from_teller_id, to_teller_id, to_group_id, note, forwarded_at)
+                        VALUES (?, ?, ?, ?, ?, ?)
+                    `,
+                    [ticketId, fromTellerId, toTellerId, toGroupId, note, date]);
+        }
 
-                    db.get('SELECT * FROM tickets WHERE id = ? AND DATE(created_at) = ?', [ticketId, date], (err, ticket) => {
+                    db.get('SELECT * FROM transactions WHERE id = ? AND date = ?', [ticketId, date], (err, ticket) => {
                         if (err || !ticket) {
                             return res.status(500).json({ error: 'Ticket not found' });
                         }
@@ -468,7 +491,8 @@ module.exports = function createTellerApiRouter(io) {
                         io.emit('ticket_forwarded', {
                             ticket: ticket,
                             toTellerId: toTellerId,
-                            toGroupId: toGroupId
+                            toGroupId: toGroupId,
+                            note:note
                         });
                         res.json({ success: true });
                     });
@@ -482,13 +506,15 @@ module.exports = function createTellerApiRouter(io) {
   router.get('/tickets/forwarded', (req, res) => {
     const { tellerId, groupId } = req.query;
     const { date } = getPHDateTime();
+    console.log(tellerId)
+    console.log(groupId)
 
     let query = `SELECT t.*, ft.note, ft.forwarded_at, 
-                t_from.username as from_teller_name
-                FROM tickets t
+                t_from.cname as from_teller_name
+                FROM transactions t
                 JOIN forwarded_tickets ft ON t.id = ft.ticket_id
-                LEFT JOIN tellers t_from ON ft.from_teller_id = t_from.id
-                WHERE t.status = 'forwarded' AND (`;
+                LEFT JOIN counters t_from ON ft.from_teller_id = t_from.id
+                WHERE t.status = 'received' AND (`;
     
     let params = [];
     let conditions = [];
@@ -503,7 +529,7 @@ module.exports = function createTellerApiRouter(io) {
         params.push(groupId);
     }
 
-    query += conditions.join(' OR ') + ') AND DATE(ft.forwarded_at) = ? ORDER BY ft.forwarded_at DESC';
+    query += conditions.join(' OR ') + ') AND date = ? ORDER BY ft.forwarded_at DESC';
 
     params.push(date);
 
@@ -515,6 +541,31 @@ module.exports = function createTellerApiRouter(io) {
     });
   });
 
+   // =========================
+  // & Tellers List
+  // =========================
+  router.get('/tellers/list', (req, res) => {
+    const { id } = req.query;
+    
+    let query = 'SELECT id, cname, cnum,group_name, group_id FROM counters WHERE id != ?';
+    let params = [id];
+
+    db.all(query, params, (err, tellers) => {
+        if (err) {
+            return res.status(500).json({ error: 'Database error' });
+        }
+        res.json(tellers);
+    });
+  });
+
+  //   ! -------- GROUPS -------- !
+  // & Groups List for Admin
+  router.get('/admin/groups', (req, res) => {
+    db.all('SELECT * FROM counter_groups', (err, rows) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json(rows);
+    });
+  });
   // =========================
   // & Complete A Ticket
   // =========================
@@ -549,31 +600,34 @@ module.exports = function createTellerApiRouter(io) {
   // & Ticket History
   // =========================
  router.get('/tickets/history', (req, res) => {
-    const { counterNumber, limit } = req.query;
-    const queryLimit = limit || 20;
+    const { counterNumber, cname, limit } = req.query;
+    const queryLimit = Number(limit) || 20;
     const { date } = getPHDateTime();
 
-        let query = `
-            SELECT *
-            FROM transactions
-            WHERE status IN ('finished', 'voided', 'held', 'received')
-            AND date = ?
-        `;
+    let query = `
+        SELECT *
+        FROM transactions
+        WHERE date = ?
+    `;
 
-        let params = [date];
+    let params = [date];
 
-        if (counterNumber) {
-            query += ` AND counter_num = ?`;
-            params.push(counterNumber);
+    if (counterNumber) {
+        query += ` AND history LIKE ?`;
+        params.push(`%-${cname}-%`);
+    }
+
+    query += ` ORDER BY start_time DESC LIMIT ?`;
+    params.push(queryLimit);
+
+    db.all(query, params, (err, rows) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
         }
-
-        query += ` ORDER BY end_time DESC LIMIT ?`;
-        params.push(queryLimit);
-
-        db.all(query, params, (err, rows) => {
-            if (err) return res.status(500).json({ error: err.message });
-            res.json(rows);
-        });
+        res.json(rows);
     });
+});
+
+
     return router;
 };
