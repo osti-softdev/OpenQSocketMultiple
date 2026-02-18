@@ -23,30 +23,21 @@ function requireAuth(req, res, next) {
   pageRouter.get("/312Xtellerlogin", (req, res) => {
     res.sendFile(path.join(rootpath, "public/html","caller.html"));
   });
-  pageRouter.get("/312XtellerWindow", (req, res) => {
-    res.sendFile(path.join(rootpath, "public/html","webteller.html"));
+  pageRouter.get('/admin', (req, res) => {
+    res.sendFile(path.join(rootpath, 'public/html', 'admin_login.html'));
   });
-  pageRouter.get("/312Xadmin", (req, res) => {
-    res.clearCookie("auth", {
-        httpOnly: true,
-        secure: false,
-        sameSite: "lax",
-        path: "/",
-    });
-    res.sendFile(path.join(rootpath, "public/html","login.html"));
+  pageRouter.get('/admin/dashboard', (req, res) => {
+    res.sendFile(path.join(rootpath, 'public/html', 'admin.html'));
   });
   pageRouter.get("/312xdashboard", requireAuth, (req, res) => {
     res.sendFile(path.join(rootpath, "public/html","admin.html"));
   });
-
   pageRouter.get("/display", (req, res) => {
     res.sendFile(path.join(rootpath, "public/html","index.html"));
   });
-
   pageRouter.get("/", (req, res) => {
     res.redirect("/display");
   });
-
   pageRouter.post("/setAuthCookie", express.json(), (req, res) => {
     const { token } = req.body;
     res.cookie("auth", token, {
@@ -56,11 +47,6 @@ function requireAuth(req, res, next) {
       path: "/",
       maxAge: 3600000, // 1 hour
     });
-    res.sendStatus(200);
-  });
-
-  pageRouter.post("/logout", (req, res) => {
-    res.clearCookie("auth");
     res.sendStatus(200);
   });
 

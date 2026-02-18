@@ -3,6 +3,10 @@ let currentDisplayConfig = null;
 $(document).ready(function() {
 	getDisplayServices();
 });
+
+socket.on("calledticketsArrived", function() {
+	getDisplayServices();
+});
 // Recommended version – clean and easy to understand
 async function getDisplayServices() {
     try {

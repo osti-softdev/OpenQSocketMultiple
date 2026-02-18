@@ -20,10 +20,6 @@ $(document).ready(function () {
             data: JSON.stringify({ username, password }),
             success: function (response) {
                 if (response.success) {
-                    if (response.teller.role === 'admin') {
-                        $('#login-error').text('Please use the admin login page').show();
-                        return;
-                    }
                     currentTeller = response.teller;
                     showTellerSection();
                     initDashboard();
@@ -168,7 +164,47 @@ $(document).ready(function () {
 
     $(".historyBtn").on('click', function() {
         switchManager(activeManager === 'history' ? 'services' : 'history');
-
     })
+
+    $('.avatar').click(function () {
+        Swal.fire({
+            title: 'Logout?',
+            text: 'Are you sure you want to continue logging out?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, Logout',
+            cancelButtonText: 'Cancel',
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+                reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '/api/logout',
+                    method: 'POST',
+                    success: function () {
+                        currentTeller = null;
+                        currentTicket = null;
+                        stopDurationTimer();
+                        showLoginSection();
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Logged Out',
+                            timer: 1500,
+                            showConfirmButton: false
+                        });
+                    },
+                    error: function () {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Logout Failed',
+                            text: 'Something went wrong. Please try again.'
+                        });
+                    }
+                });
+            }
+        });
+    });
+
 });
 

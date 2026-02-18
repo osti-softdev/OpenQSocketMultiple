@@ -18,7 +18,7 @@ async function fetchFile(file) {
         throw new Error('fetchFile: Invalid input type');
     }
 }
-
+ 
 window.ffmpegInstance = ffmpegInstance;
 window.fetchFile = fetchFile;
 

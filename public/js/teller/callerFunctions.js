@@ -225,7 +225,7 @@ function loadHistory() {
             
             $row.find('.call-again-btn').click(function() {
                 if (currentTicket) {
-                    alert('Please complete or hold your current ticket first.');
+                    showMsg("warning", `Please complete or hold your current ticket first.`);
                     return;
                 }
                 $.ajax({
@@ -373,7 +373,7 @@ function callNext(type, service = null) {
                 if (nextTicket) {
                     callSpecificTicket(nextTicket.id);
                 } else {
-                    alert(`No ${type} tickets for ${service}`);
+                    showMsg("warning", `No ${type} tickets for ${service}`);
                 }
             }
         });
@@ -406,7 +406,7 @@ function executeCall(data) {
                 loadHeldTickets();
                 loadForwardedTickets();
             } else {
-                alert(response.message || 'No tickets available');
+                    showMsg("warning", `${response.message || 'No tickets available'}`);
             }
         }
     });
@@ -419,10 +419,11 @@ function recallTicket() {
         contentType: 'application/json',
         data: JSON.stringify({ ticketId: currentTicket.id, cname: currentTeller.username, cnum: currentTeller.counter_number }),
         success: function(response) {
-          
+            showMsg("info", `Ticket recalled`);
         }
     });
 }
+// ^ Complete a Ticket
 function completeTicket() {
     $.ajax({
             url: '/api/tickets/complete',
@@ -436,6 +437,7 @@ function completeTicket() {
                 loadQueueData();
                 loadHeldTickets();
                 loadForwardedTickets();
+                // showMsg("info", `Ticket ${currentTicket} finished`);
             }
         });
 }
@@ -451,6 +453,7 @@ function holdTicket() {
             clearCurrentTicket();
             loadQueueData();
             loadHeldTickets();
+            // showMsg("info", `Ticket ${currentTicket} held`);
         }
     });
 }
@@ -473,6 +476,8 @@ function resumeHeldTicket(ticketId) {
                 displayCurrentTicket(currentTicket);
                 loadQueueData();
                 loadHeldTickets();
+
+            // showMsg("info", `Ticket ${currentTicket} called`);
             }
         }
     });
@@ -517,6 +522,7 @@ function formatTime(isoString) {
     if (!isoString) return '-';
     return new Date(isoString).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
+// ^ Forwarding modal show
 function openForwardModal() {
     // Load tellers
     $.get('/api/tellers/list', { groupId: currentTeller.group_id, id: currentTeller.id }, function(tellers) {
@@ -540,7 +546,7 @@ function openForwardModal() {
 
     $('#forward-modal').show();
 }
-
+// ^ Forward a Ticket
 function confirmForward() {
     const targetType = $('#forward-target-type').val();
     const toTellerId = targetType === 'teller' ? $('#forward-teller-id').val() : null;
@@ -548,7 +554,7 @@ function confirmForward() {
     const note = $('#forward-note').val();
 
     if (!toTellerId && !toGroupId) {
-        alert('Please select a teller or group');
+           showMsg("warning", "Please select a teller or group");
         return;
     }
 
@@ -568,15 +574,15 @@ function confirmForward() {
             currentTicket = null;
             clearCurrentTicket();
             loadQueueData();
-            // alert('Ticket forwarded successfully!');
+           showMsg("success", "Ticket sent ✅")
         }
     });
 }
-
+// ^ Void modal show
 function openVoidModal() {
     $('#void-modal').show();
 }
-
+// ^ Void a Ticket
 function confirmVoid() {
     const reason = $('#void-reason').val();
     const notes = $('#void-notes').val();
@@ -597,7 +603,8 @@ function confirmVoid() {
             currentTicket = null;
             clearCurrentTicket();
             loadQueueData();
-            // alert('Ticket voided');
+           showMsg("success", "Ticket voided successfully");
         }
     });
 }
+

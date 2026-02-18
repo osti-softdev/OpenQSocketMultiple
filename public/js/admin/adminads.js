@@ -19,94 +19,98 @@ function filenameToUrl(name) {
 }
 
 function renderAdsList() {
-	$adsList.empty();
+    $adsList.empty();
 
-	if (!adminAdsQueue.length) {
-		$adsList.append(
-			$('<div style="padding:12px;opacity:.7;">No videos in /ads folder.</div>')
-		);
-		return;
-	}
+    if (!adminAdsQueue.length) {
+        $adsList.append(
+            $('<div style="padding:12px;opacity:.7;">No videos in /ads folder.</div>')
+        );
+        return;
+    }
 
-	adminAdsQueue.forEach((name, idx) => {
-		const $row = $(`<div class="ad-item">${name}</div>`);
-		const $rename = $('<button class="rename-btn">Rename</button>');
-		const $delete = $('<button class="delete-btn">Delete</button>');
+    adminAdsQueue.forEach((name, idx) => {
+        const $row = $(`<div class="adsitem"></div>`);
+        const $labelCont = $(`<div class="labelCont">${name}</div>`);
+        const $buttonCont = $('<div class="btnCont"></div>');
+        const $rename = $('<button class="rename-btn">Rename</button>');
+        const $delete = $('<button class="delete-btn">Delete</button>');
 
-		// play on title click
-		$row.on("click", () => {
-			playByIndex(idx, true);
-		});
+        // Play on title click
+        $row.on("click", function () {
+            playByIndex(idx, true);
+            // Use jQuery this (function() scope)
+            $(this).addClass('active').siblings().removeClass('active');
+        });
 
-		// rename
-		$rename.on("click", async (e) => {
-			e.stopPropagation();
-			const ext = name.substring(name.lastIndexOf("."));
-			const base = name.slice(0, -ext.length);
+        // Rename
+        $rename.on("click", async (e) => {
+            e.stopPropagation();
+            const ext = name.substring(name.lastIndexOf("."));
+            const base = name.slice(0, -ext.length);
 
-			const { value: newBase } = await Swal.fire({
-				title: "Rename video",
-				input: "text",
-				inputLabel: "Enter new name (without extension):",
-				inputValue: base,
-				showCancelButton: true,
-				confirmButtonText: "Rename",
-			});
+            const { value: newBase } = await Swal.fire({
+                title: "Rename video",
+                input: "text",
+                inputLabel: "Enter new name (without extension):",
+                inputValue: base,
+                showCancelButton: true,
+                confirmButtonText: "Rename",
+            });
 
-			if (!newBase) return;
-			const newName = `${newBase}${ext}`;
-			if (newName === name) return;
+            if (!newBase) return;
+            const newName = `${newBase}${ext}`;
+            if (newName === name) return;
 
-			try {
-				const res = await fetch("/rename-video", {
-					method: "PUT",
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify({ oldName: name, newName }),
-				});
-				if (!res.ok) throw new Error(await res.text());
-        		showMsg("success",`Renamed to ${newName}`);
-				socket.emit("requestAd");
-			} catch (err) {
-				console.error(err);
-        		showMsg("error",`Rename failed: ${err.message}`);
+            try {
+                const res = await fetch("/rename-video", {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ oldName: name, newName }),
+                });
+                if (!res.ok) throw new Error(await res.text());
+                showMsg("success", `Renamed to ${newName}`);
+            } catch (err) {
+                console.error(err);
+                showMsg("error", `Rename failed: ${err.message}`);
+            }
+        });
 
-			}
-		});
+        // Delete
+        $delete.on("click", async (e) => {
+            e.stopPropagation();
+            const result = await Swal.fire({
+                title: "Are you sure?",
+                text: `Delete "${name}"?`,
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6",
+                confirmButtonText: "Yes, delete it!",
+            });
 
-		// delete
-		$delete.on("click", async (e) => {
-			e.stopPropagation();
+            if (!result.isConfirmed) return;
 
-			const result = await Swal.fire({
-				title: "Are you sure?",
-				text: `Delete "${name}"?`,
-				icon: "warning",
-				showCancelButton: true,
-				confirmButtonColor: "#d33",
-				cancelButtonColor: "#3085d6",
-				confirmButtonText: "Yes, delete it!",
-			});
+            try {
+                const res = await fetch(`/delete-video/${encodeURIComponent(name)}`, {
+                    method: "DELETE",
+                });
+                if (!res.ok) throw new Error(await res.text());
+                showMsg("success", `Deleted ${name}`);
+            } catch (err) {
+                console.error(err);
+                showMsg("error", `Delete failed: ${err.message}`);
+            }
+        });
 
-			if (!result.isConfirmed) return;
+        // Append buttons
+        $buttonCont.append($rename, $delete);
+        $row.append($labelCont, $buttonCont);
 
-			try {
-				const res = await fetch(`/delete-video/${encodeURIComponent(name)}`, {
-					method: "DELETE",
-				});
-				if (!res.ok) throw new Error(await res.text());
-        		showMsg("success",`Deleted ${name}`);
+        // Mark active
+        if (idx === adminCurrentIndex) $row.addClass("active");
 
-				socket.emit("requestAd");
-			} catch (err) {
-				console.error(err);
-        		showMsg("error",`Delete failed: ${err.message}`);
-			}
-		});
-
-		$row.append($rename, $delete);
-		if (idx === adminCurrentIndex) $row.addClass("active");
-		$adsList.append($row);
-	});
+        $adsList.append($row);
+    });
 }
 
 function markActive() {
@@ -219,29 +223,64 @@ $(function () {
 		}
 	});
 
-	$("#uploadForm").on("submit", async (e) => {
-		e.preventDefault();
-		const $button = $(".adsupload");
-		const file = $("#videoFile").prop("files")[0];
-		if (!file) return msg("Pick a video first.", true);
+	$("#videoUploadForm").on("submit", function (e) {
+    e.preventDefault();
 
-		const fd = new FormData();
-		fd.append("video", file);
-		lastUploadedFile = file.name;
+    const $button = $(".adsupload");
+    const file = $("#videoFile").prop("files")[0];
+    const $uploadText = $("#uploadText");
+    const $uploadFill = $("#uploadBarFill");
 
-		try {
-			const res = await fetch("/upload-video", { method: "POST", body: fd });
-			if (!res.ok) throw new Error(await res.text());
-			$button.removeClass("blink-red");
-			$("#videoFile").val("");
-			
-        showMsg("success","File successfully uploaded");
+    if (!file) return msg("Pick a video first.", true);
 
-			socket.emit("requestAd");
-		} catch (err) {
-			console.error(err);
-        showMsg("error","Failed to upload file");
+    lastUploadedFile = file.name;
 
-		}
-	});
+    const fd = new FormData();
+    fd.append("video", file);
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "/upload-video", true);
+
+    // Upload progress
+    xhr.upload.onprogress = function (event) {
+        if (event.lengthComputable) {
+            const percent = Math.round((event.loaded / event.total) * 100);
+            $uploadText.text(`Uploading: ${percent}%`);
+            $uploadFill.css("width", percent + "%");
+        }
+    };
+
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            showMsg("success", "File successfully uploaded");
+            $button.removeClass("blink-red");
+            $("#videoFile").val("");
+            $uploadText.text("Upload complete!");
+            $uploadFill.css("width", "100%");
+            setTimeout(() => { 
+                $uploadText.text(""); 
+                $uploadFill.css("width", "0%"); 
+            }, 2000);
+            socket.emit("requestAd");
+        } else {
+            console.error(xhr.responseText);
+            $uploadText.text(`Upload failed: ${xhr.responseText}`);
+            showMsg("error", "Failed to upload file");
+            $uploadFill.css("width", "0%");
+        }
+    };
+
+    xhr.onerror = function () {
+        $uploadText.text("Upload failed due to network error.");
+        showMsg("error", "Upload failed due to network error.");
+        $uploadFill.css("width", "0%");
+    };
+
+    xhr.send(fd);
+
+    // Initial state
+    $uploadText.text(`Uploading ${file.name}: 0%`);
+    $uploadFill.css("width", "0%");
+});
+
 });

@@ -20,3 +20,250 @@
   code: 'SQLITE_BUSY',
   __augmented: true
 }
+❌ 2026-02-18T04:19:51.461Z [backend\routes\AdisplayApi.js:85] Error in /getServicesDisplay: Error: SQLITE_ERROR: no such column: sgroup
+--> in Database#all('\n' +
+  '        WITH ranked AS (\n' +
+  '            SELECT\n' +
+  '                ticketservice,\n' +
+  '                ticketnum,\n' +
+  '                counter_num,\n' +
+  '                counter_group,\n' +
+  '                sgroup,\n' +
+  '                counter_user,\n' +
+  '                status,\n' +
+  '                ROW_NUMBER() OVER (\n' +
+  '                    PARTITION BY sgroup\n' +
+  '                    ORDER BY start_time DESC, ticketnum DESC\n' +
+  '                ) AS rn\n' +
+  '            FROM transactions\n' +
+  '            WHERE date = ?\n' +
+  "              AND status IN ('calling','finished','called','held','voided')\n" +
+  '        )\n' +
+  '        SELECT *\n' +
+  '        FROM ranked\n' +
+  '        WHERE rn = 1;\n' +
+  '    ', [ '2026-02-18' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:279:8
+    at new Promise (<anonymous>)
+    at db.allAsync (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:278:3)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AdisplayApi.js:53:42 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-02-18T04:19:52.597Z [backend\routes\AdisplayApi.js:85] Error in /getServicesDisplay: Error: SQLITE_ERROR: no such column: sgroup
+--> in Database#all('\n' +
+  '        WITH ranked AS (\n' +
+  '            SELECT\n' +
+  '                ticketservice,\n' +
+  '                ticketnum,\n' +
+  '                counter_num,\n' +
+  '                counter_group,\n' +
+  '                sgroup,\n' +
+  '                counter_user,\n' +
+  '                status,\n' +
+  '                ROW_NUMBER() OVER (\n' +
+  '                    PARTITION BY sgroup\n' +
+  '                    ORDER BY start_time DESC, ticketnum DESC\n' +
+  '                ) AS rn\n' +
+  '            FROM transactions\n' +
+  '            WHERE date = ?\n' +
+  "              AND status IN ('calling','finished','called','held','voided')\n" +
+  '        )\n' +
+  '        SELECT *\n' +
+  '        FROM ranked\n' +
+  '        WHERE rn = 1;\n' +
+  '    ', [ '2026-02-18' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:279:8
+    at new Promise (<anonymous>)
+    at db.allAsync (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:278:3)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AdisplayApi.js:53:42 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-02-18T04:19:53.805Z [backend\routes\AdisplayApi.js:85] Error in /getServicesDisplay: Error: SQLITE_ERROR: no such column: sgroup
+--> in Database#all('\n' +
+  '        WITH ranked AS (\n' +
+  '            SELECT\n' +
+  '                ticketservice,\n' +
+  '                ticketnum,\n' +
+  '                counter_num,\n' +
+  '                counter_group,\n' +
+  '                sgroup,\n' +
+  '                counter_user,\n' +
+  '                status,\n' +
+  '                ROW_NUMBER() OVER (\n' +
+  '                    PARTITION BY sgroup\n' +
+  '                    ORDER BY start_time DESC, ticketnum DESC\n' +
+  '                ) AS rn\n' +
+  '            FROM transactions\n' +
+  '            WHERE date = ?\n' +
+  "              AND status IN ('calling','finished','called','held','voided')\n" +
+  '        )\n' +
+  '        SELECT *\n' +
+  '        FROM ranked\n' +
+  '        WHERE rn = 1;\n' +
+  '    ', [ '2026-02-18' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:279:8
+    at new Promise (<anonymous>)
+    at db.allAsync (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:278:3)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AdisplayApi.js:53:42 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-02-18T04:20:45.738Z [backend\routes\AdisplayApi.js:83] Error in /getServicesDisplay: Error: SQLITE_ERROR: no such column: sgroup
+--> in Database#all('\n' +
+  '        WITH ranked AS (\n' +
+  '            SELECT\n' +
+  '                ticketservice,\n' +
+  '                ticketnum,\n' +
+  '                counter_num,\n' +
+  '                counter_group,\n' +
+  '                counter_user,\n' +
+  '                status,\n' +
+  '                ROW_NUMBER() OVER (\n' +
+  '                    PARTITION BY sgroup\n' +
+  '                    ORDER BY start_time DESC, ticketnum DESC\n' +
+  '                ) AS rn\n' +
+  '            FROM transactions\n' +
+  '            WHERE date = ?\n' +
+  "              AND status IN ('calling','finished','called','held','voided')\n" +
+  '        )\n' +
+  '        SELECT *\n' +
+  '        FROM ranked\n' +
+  '        WHERE rn = 1;\n' +
+  '    ', [ '2026-02-18' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:279:8
+    at new Promise (<anonymous>)
+    at db.allAsync (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:278:3)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AdisplayApi.js:52:42 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-02-18T04:20:47.036Z [backend\routes\AdisplayApi.js:83] Error in /getServicesDisplay: Error: SQLITE_ERROR: no such column: sgroup
+--> in Database#all('\n' +
+  '        WITH ranked AS (\n' +
+  '            SELECT\n' +
+  '                ticketservice,\n' +
+  '                ticketnum,\n' +
+  '                counter_num,\n' +
+  '                counter_group,\n' +
+  '                counter_user,\n' +
+  '                status,\n' +
+  '                ROW_NUMBER() OVER (\n' +
+  '                    PARTITION BY sgroup\n' +
+  '                    ORDER BY start_time DESC, ticketnum DESC\n' +
+  '                ) AS rn\n' +
+  '            FROM transactions\n' +
+  '            WHERE date = ?\n' +
+  "              AND status IN ('calling','finished','called','held','voided')\n" +
+  '        )\n' +
+  '        SELECT *\n' +
+  '        FROM ranked\n' +
+  '        WHERE rn = 1;\n' +
+  '    ', [ '2026-02-18' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:279:8
+    at new Promise (<anonymous>)
+    at db.allAsync (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:278:3)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AdisplayApi.js:52:42 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-02-18T04:26:27.599Z [backend\routes\AdisplayApi.js:84] Error in /getServicesDisplay: Error: SQLITE_ERROR: no such column: couter_group
+--> in Database#all('\n' +
+  '        WITH ranked AS (\n' +
+  '            SELECT\n' +
+  '                ticketservice,\n' +
+  '                ticketnum,\n' +
+  '                sname,\n' +
+  '                counter_num,\n' +
+  '                counter_group,\n' +
+  '                counter_user,\n' +
+  '                status,\n' +
+  '                ROW_NUMBER() OVER (\n' +
+  '                    PARTITION BY couter_group\n' +
+  '                    ORDER BY start_time DESC, ticketnum DESC\n' +
+  '                ) AS rn\n' +
+  '            FROM transactions\n' +
+  '            WHERE date = ?\n' +
+  "              AND status IN ('calling','finished','called','held','voided')\n" +
+  '        )\n' +
+  '        SELECT *\n' +
+  '        FROM ranked\n' +
+  '        WHERE rn = 1;\n' +
+  '    ', [ '2026-02-18' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:279:8
+    at new Promise (<anonymous>)
+    at db.allAsync (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:278:3)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AdisplayApi.js:53:42 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-02-18T04:26:28.584Z [backend\routes\AdisplayApi.js:84] Error in /getServicesDisplay: Error: SQLITE_ERROR: no such column: couter_group
+--> in Database#all('\n' +
+  '        WITH ranked AS (\n' +
+  '            SELECT\n' +
+  '                ticketservice,\n' +
+  '                ticketnum,\n' +
+  '                sname,\n' +
+  '                counter_num,\n' +
+  '                counter_group,\n' +
+  '                counter_user,\n' +
+  '                status,\n' +
+  '                ROW_NUMBER() OVER (\n' +
+  '                    PARTITION BY couter_group\n' +
+  '                    ORDER BY start_time DESC, ticketnum DESC\n' +
+  '                ) AS rn\n' +
+  '            FROM transactions\n' +
+  '            WHERE date = ?\n' +
+  "              AND status IN ('calling','finished','called','held','voided')\n" +
+  '        )\n' +
+  '        SELECT *\n' +
+  '        FROM ranked\n' +
+  '        WHERE rn = 1;\n' +
+  '    ', [ '2026-02-18' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:279:8
+    at new Promise (<anonymous>)
+    at db.allAsync (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:278:3)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AdisplayApi.js:53:42 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-02-18T04:26:28.902Z [backend\routes\AdisplayApi.js:84] Error in /getServicesDisplay: Error: SQLITE_ERROR: no such column: couter_group
+--> in Database#all('\n' +
+  '        WITH ranked AS (\n' +
+  '            SELECT\n' +
+  '                ticketservice,\n' +
+  '                ticketnum,\n' +
+  '                sname,\n' +
+  '                counter_num,\n' +
+  '                counter_group,\n' +
+  '                counter_user,\n' +
+  '                status,\n' +
+  '                ROW_NUMBER() OVER (\n' +
+  '                    PARTITION BY couter_group\n' +
+  '                    ORDER BY start_time DESC, ticketnum DESC\n' +
+  '                ) AS rn\n' +
+  '            FROM transactions\n' +
+  '            WHERE date = ?\n' +
+  "              AND status IN ('calling','finished','called','held','voided')\n" +
+  '        )\n' +
+  '        SELECT *\n' +
+  '        FROM ranked\n' +
+  '        WHERE rn = 1;\n' +
+  '    ', [ '2026-02-18' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:279:8
+    at new Promise (<anonymous>)
+    at db.allAsync (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:278:3)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AdisplayApi.js:53:42 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-02-18T07:09:50.578Z [node_modules\express\lib\application.js:617] Error: ENOENT: no such file or directory, stat 'E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\html\login.html'

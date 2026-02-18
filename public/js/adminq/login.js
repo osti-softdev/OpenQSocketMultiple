@@ -1,6 +1,6 @@
 $(document).ready(function () {
-	console.log("login.js: Document ready, initializing Socket.IO");
 	const socket = io();
+	let currentAdmin = null;
 
 	$(".toggle-password").on("click", function () {
 		const passwordInput = $("#password");
@@ -18,6 +18,25 @@ $(document).ready(function () {
 			alert("Please enter both username and password");
 			return;
 		}
+		$.ajax({
+            url: '/api/loginAdmin',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ username, password }),
+            success: function (response) {
+                if (response.success) {
+                    currentTeller = response.teller;
+                    showTellerSection();
+                    initDashboard();
+                } else {
+                    $('#login-error').text(response.message);
+                }
+            },
+            error: function (xhr) {
+                const error = xhr.responseJSON ? xhr.responseJSON.message : 'Login failed';
+                $('#login-error').text(error).show();
+            }
+        });
 
 		socket.emit("loginAttempt", { username, password });
 	});

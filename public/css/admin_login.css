@@ -1,0 +1,157 @@
+/* Teller Portal SCSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: #f9fafb;
+  color: #111827;
+  min-height: 100vh;
+}
+
+/* ==================
+   Login Section
+   ================== */
+.admin-login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+.admin-login-container .admin-login-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 420px;
+}
+.admin-login-container .admin-login-card .login-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.admin-login-container .admin-login-card .login-header .logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 10px;
+}
+.admin-login-container .admin-login-card .login-header h1 {
+  font-size: 28px;
+  color: #111827;
+  margin-bottom: 5px;
+}
+.admin-login-container .error-text {
+  color: #dc2626;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  background: #fee2e2;
+  padding: 10px;
+  border-radius: 6px;
+  display: none;
+}
+
+/* Common Components */
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #374151;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.btn {
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn.btn-primary {
+  background: #2563eb;
+  color: white;
+}
+.btn.btn-primary:hover {
+  background: #1d4ed8;
+}
+.btn.btn-secondary {
+  background: #6b7280;
+  color: white;
+}
+.btn.btn-secondary:hover {
+  background: #4b5563;
+}
+.btn.btn-success {
+  background: #10b981;
+  color: white;
+}
+.btn.btn-success:hover {
+  background: #059669;
+}
+.btn.btn-danger {
+  background: #ef4444;
+  color: white;
+}
+.btn.btn-danger:hover {
+  background: #dc2626;
+}
+.btn.btn-warning {
+  background: #f59e0b;
+  color: white;
+}
+.btn.btn-warning:hover {
+  background: #d97706;
+}
+.btn.btn-info {
+  background: #3b82f6;
+  color: white;
+}
+.btn.btn-info:hover {
+  background: #2563eb;
+}
+.btn.w-full {
+  width: 100%;
+}
+.btn.logout-btn {
+  width: 100%;
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fee2e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.btn.logout-btn:hover {
+  background: #fee2e2;
+}/*# sourceMappingURL=admin_login.css.map */

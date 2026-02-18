@@ -62,6 +62,7 @@ appExpress.use('/', require('./backend/routes/pages'));
 appExpress.use('/api', require('./backend/routes/AkioskApi')(io));
 appExpress.use('/api', require('./backend/routes/AdisplayApi')(io));
 appExpress.use('/api', require('./backend/routes/AtellerApi')(io));
+appExpress.use('/api', require('./backend/routes/AadminApi')(io));
 
 
 // ^ Video API
@@ -70,93 +71,3 @@ const adsModule = setupAds(io);
 
 // --- Setup videos API ---
 require("./backend/routes/videos")(appExpress, adsModule);
-
-// const { test, setupAds, initialize: initAdsManager } = require("./reso/node/getads");
-// const { handleGetAllServices } = require("./reso/node/getallservices");
-// const {
-//   setupServicesDisplayWatcher,
-// } = require("./reso/node/servicesDisplayWatcher");
-// const { setupFooterWatcher } = require("./reso/node/footerwatcher");
-// const { setupdisplaycolorwatcher } = require("./reso/node/colorwatcher");
-// const {
-//   setupFooterWatcheradmin,
-// } = require("./reso/node/admin/footerwatcheradmin");
-// const {
-//   setupColorWatcheradmin,
-// } = require("./reso/node/admin/colorswatcheradmin");
-// const {
-//   setupAdminTeller,
-// } = require("./reso/node/admin/adminsettingsteller");
-// const {
-//   setupCalledTicketsWatcher,
-// } = require("./reso/node/calledTicketsWatcher");
-// const {
-//   adminoveralldatawatcher,
-// } = require("./reso/node/admin/adminDashboardData");
-// const {
-//   admincontent3chartsdata,
-// } = require("./reso/node/admin/adminDashboardcontent3chartsdata");
-// const {
-//   admincontent2averages,
-// } = require("./reso/node/admin/adminDashboardcontent2averages");
-// const {
-//   admincontent4alldata,
-// } = require("./reso/node/admin/adminDashboardcontent4");
-// const {
-//   admincontentSaveChartImage,
-// } = require("./reso/node/admin/adminSaveChartImage");
-// const {
-//   settupsettingsservices,
-// } = require("./reso/node/admin/adminsettingservices");
-// const {
-//   initializeWindowedKiosk,
-// } = require("./reso/node/kiosk/kiosk");
-// const {
-//   setupLoginSocket,
-//   JWT_SECRET,
-// } = require("./reso/node/admin/adminlogin");
-// const {
-//   setupLoginSocketteller,
-// } = require("./reso/node/teller/tellerlogin");
-// const {
-//   settupsettingsaccounts,
-// } = require("./reso/node/admin/adminsettingsaccounts");
-// const {
-//   setupsystemconfigurations,
-// } = require("./reso/node/admin/adminsettingssystem");
-// const {
-//   setupSoundSettingsAdmin,
-// } = require("./reso/node/admin/adminvoiceandvolume");
-// const { setupTellerWatcher } = require("./reso/node/teller/tellerserviceswatcher");
-
-// MULTERS
-// const setupVideosApi = require("./reso/node/expressAPI/videos");
-// const setupImagesApi = require("./reso/node/expressAPI/images");
-
-
-
-
-// FIX: Add error handling for Socket.IO connection
-
-    // settupsettingsaccounts(socket, io);
-    // admincontent3chartsdata(socket, io);
-    // admincontent2averages(socket, io);
-    // admincontent4alldata(socket, io);
-    // adminoveralldatawatcher(socket, io);
-    // setupFooterWatcheradmin(socket, io);
-    // setupColorWatcheradmin(socket, io);
-    // setupAdminTeller(socket, io);
-    // setupAds(socket, io);
-    // setupFooterWatcher(socket, io);
-    // setupdisplaycolorwatcher(socket, io);
-    // handleGetAllServices(socket);
-    // setupServicesDisplayWatcher(socket, io);
-    // setupSoundSettingsAdmin(socket, io);
-    // admincontentSaveChartImage(socket, io);
-    // settupsettingsservices(socket, io);
-    // setupLoginSocket(socket, io);
-    
-      // setupLoginSocketteller(socket);
-      // setupTellerWatcher(socket, io);
-      // initializeWindowedKiosk(socket, io);
-      // setupCalledTicketsWatcher(socket, io, "WINDOWED_APPLICATION");

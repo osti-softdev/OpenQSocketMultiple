@@ -10,24 +10,24 @@ module.exports = function createTellerApiRouter(io) {
     const db = require(path.join(rootpath, 'utilities/db'));
     const { getPHDateTime } = require(path.join(rootpath, 'utilities/datetime'));
 
-    // =========================
+  // =========================
   // & Account login
   // =========================
-  router.post('/login', (req, res) => {
+  router.post('/loginAdmin', (req, res) => {
     const { username, password } = req.body;
 
     console.log('Login attempt for:', username);
 
     db.get(
-        'SELECT * FROM counters WHERE cuser = ?',
+        'SELECT * FROM accounts WHERE username = ?',
         [username],
-        (err, teller) => {
+        (err, admin) => {
             if (err) {
                 console.error('Database error during login:', err);
                 return res.status(500).json({ success: false, message: 'Database error' });
             }
 
-            if (!teller) {
+            if (!admin) {
                 console.log('User not found:', username);
                 return res.status(401).json({ success: false, message: 'Invalid username or password' });
             }
@@ -35,22 +35,20 @@ module.exports = function createTellerApiRouter(io) {
             console.log('User found, verifying password...');
 
             try {
-                if (password === teller.cpass) {
-                    req.session.teller = teller;
-                    req.session.teller = {
-                        id: teller.id,
-                        username: teller.cname,
-                        counter_number: teller.cnum,
-                        services: teller.services,
-                        group_name: teller.group_name,
-                        group_id: teller.group_id
+                if (password === admin.password) {
+                    req.session.admin = admin;
+                    req.session.admin = {
+                        id: admin.id,
+                        username: admin.name,
+                        status: admin.status,
+                        role: admin.role
                     };
 
                     console.log('Login successful for:', username);
 
                     return res.json({
                         success: true,
-                        teller: req.session.teller
+                        admin: req.session.admin
                     });
                 } else {
                     console.log('Password mismatch for:', username);
@@ -67,34 +65,21 @@ module.exports = function createTellerApiRouter(io) {
   // =========================
   // & ACCOUNT SESSION CHECKER
   // =========================
-
-  router.get('/check-session', (req, res) => {
-        if (req.session.teller) {
+  router.get('/check-session-admin', (req, res) => {
+        if (req.session.admin) {
             res.json({
                 loggedIn: true,
-                teller: {
-                    id: req.session.teller.id,
-                    username: req.session.teller.username,
-                    counter_number: req.session.teller.counter_number,
-                    services: req.session.teller.services,
-                    group_name: req.session.teller.group_name,
-                    group_id: req.session.teller.group_id,
+                admin: {
+                    id: req.session.admin.id,
+                    username: req.session.admin.username,
+                    status: req.session.admin.status,
+                    role: req.session.admin.role
                 }
             });
         } else {
             res.json({ loggedIn: false });
         }
   });
-
-  // =========================
-  // & ACCOUNT logout
-  // =========================
-router.post('/logout', (req, res) => {
-    if (req.session.admin) req.session.admin = null;
-    if (req.session.teller) req.session.teller = null;
-    res.clearCookie('auth');
-    res.json({ success: true });
-});
 
   // =========================
   // & Waiting Tickets

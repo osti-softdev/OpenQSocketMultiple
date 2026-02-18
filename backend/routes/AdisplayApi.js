@@ -27,13 +27,13 @@ module.exports = function createDisplayApiRouter(io) {
             SELECT
                 ticketservice,
                 ticketnum,
+                sname,
                 counter_num,
                 counter_group,
-                sgroup,
                 counter_user,
                 status,
                 ROW_NUMBER() OVER (
-                    PARTITION BY sgroup
+                    PARTITION BY counter_group
                     ORDER BY start_time DESC, ticketnum DESC
                 ) AS rn
             FROM transactions
@@ -55,7 +55,7 @@ module.exports = function createDisplayApiRouter(io) {
         // 3. Map transactions by sgroup for fast lookup
         const txMap = {};
         transactionRows.forEach(tx => {
-            txMap[tx.sgroup] = tx;
+            txMap[tx.counter_group] = tx;
         });
 
         // 4. Merge: match service.sname === transaction.sgroup
@@ -71,7 +71,6 @@ module.exports = function createDisplayApiRouter(io) {
                 status: tx ? tx.status : null,
                 counter_num: tx ? tx.counter_num : null,
                 counter_group: tx ? tx.counter_group : null,
-                sgroup: tx ? tx.sgroup : null,
                 counter_user: tx ? tx.counter_user : null
             };
         });
