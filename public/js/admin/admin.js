@@ -87,6 +87,7 @@ function loadLiveDashboard() {
     $('#last-updated').text(now.toLocaleTimeString());
 
     $.get('/api/admin/dashboard/live', function(data) {
+        console.table(data);
         // 1. Stats Cards
         if (data.stats) {
             $('#live-total').text(data.stats.total_tickets || 0);
@@ -108,7 +109,7 @@ function loadLiveDashboard() {
                 $serviceGrid.append(`
                     <div class="service-live-card ${statusClass}">
                         <div class="service-name">
-                            ${s.name}
+                            ${s.sname}
                             <span class="status-indicator ${s.waiting_count > 0 ? 'busy' : 'idle'}">${s.waiting_count > 0 ? 'Active' : 'Idle'}</span>
                         </div>
                         <div class="service-metrics">
@@ -143,8 +144,8 @@ function loadLiveDashboard() {
                 const statusClass = t.status_code === 'busy' ? 'busy' : 'idle';
                 $tellerList.append(`
                     <tr>
-                        <td><strong>${t.username}</strong></td>
-                        <td>Counter ${t.counter_number}</td>
+                        <td><strong>${t.cname}</strong></td>
+                        <td>Counter ${t.cnum}</td>
                         <td><span class="status-indicator ${statusClass}">${t.status}</span></td>
                         <td>${t.served_today || 0}</td>
                         <td>${t.avg_service_time ? Math.round(t.avg_service_time) + ' min' : '-'}</td>
@@ -169,12 +170,12 @@ function loadLiveDashboard() {
 
     function createServiceChart(data) {
         const ctx = document.getElementById('serviceChart');
-        if (charts.service) charts.service.destroy();
+        if (charts.sname) charts.sname.destroy();
         
-        charts.service = new Chart(ctx, {
+        charts.sname = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: data.map(d => d.service),
+                labels: data.map(d => d.sname),
                 datasets: [{
                     data: data.map(d => d.count),
                     backgroundColor: [
@@ -195,65 +196,65 @@ function loadLiveDashboard() {
         });
     }
 
-function createStatusChart(data) {
-    const ctx = document.getElementById('statusChart');
-    if (!ctx) return;
+    function createStatusChart(data) {
+        const ctx = document.getElementById('statusChart');
+        if (!ctx) return;
 
-    if (charts.status) {
-        charts.status.destroy();
-        charts.status = null;
-    }
+        if (charts.status) {
+            charts.status.destroy();
+            charts.status = null;
+        }
 
-    const statusColors = {
-        'waiting': '#fbbf24',
-        'calling': '#3b82f6',
-        'completed': '#10b981',
-        'held': '#8b5cf6',
-        'forwarded': '#ec4899',
-        'voided': '#ef4444'
-    };
+        const statusColors = {
+            'waiting': '#fbbf24',
+            'calling': '#3b82f6',
+            'completed': '#10b981',
+            'held': '#8b5cf6',
+            'forwarded': '#ec4899',
+            'voided': '#ef4444'
+        };
 
-    charts.status = new Chart(ctx.getContext('2d'), {
-        type: 'bar',
-        data: {
-            labels: data.map(d =>
-                d.status.charAt(0).toUpperCase() + d.status.slice(1)
-            ),
-            datasets: [{
-                label: 'Total Tickets',
-                data: data.map(d => d.count),
-                backgroundColor: data.map(d =>
-                    statusColors[d.status] || '#6b7280'
+        charts.status = new Chart(ctx.getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: data.map(d =>
+                    d.status.charAt(0).toUpperCase() + d.status.slice(1)
                 ),
-                borderRadius: 6,
-                barThickness: 20
-            }]
-        },
-        options: {
-            indexAxis: 'y',   // 🔥 THIS MAKES IT HORIZONTAL
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: false
-                }
+                datasets: [{
+                    label: 'Total Tickets',
+                    data: data.map(d => d.count),
+                    backgroundColor: data.map(d =>
+                        statusColors[d.status] || '#6b7280'
+                    ),
+                    borderRadius: 6,
+                    barThickness: 20
+                }]
             },
-            scales: {
-                x: {                // X is now the value axis
-                    beginAtZero: true,
-                    ticks: {
-                        stepSize: 1
+            options: {
+                indexAxis: 'y',   // 🔥 THIS MAKES IT HORIZONTAL
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
                     }
                 },
-                y: {                // Y is now the label axis
-                    grid: {
-                        display: false
+                scales: {
+                    x: {                // X is now the value axis
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    },
+                    y: {                // Y is now the label axis
+                        grid: {
+                            display: false
+                        }
                     }
                 }
             }
-        }
-    });
-}
+        });
+    }
 
     function createHourlyChart(data) {
         const ctx = document.getElementById('hourlyChart');

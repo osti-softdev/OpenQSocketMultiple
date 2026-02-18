@@ -267,3 +267,143 @@
   __augmented: true
 }
 ❌ 2026-02-18T07:09:50.578Z [node_modules\express\lib\application.js:617] Error: ENOENT: no such file or directory, stat 'E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\html\login.html'
+❌ 2026-02-18T09:29:00.835Z [backend\routes\AadminApi.js:268] Hourly analytics query error: Error: SQLITE_ERROR: no such table: tickets
+--> in Database#all('\n' +
+  '        SELECT \n' +
+  "            strftime('%H', date || ' ' || time) AS hour,\n" +
+  '            CASE \n' +
+  "                WHEN CAST(strftime('%M', date || ' ' || time) AS INTEGER) < 30 \n" +
+  "                THEN '00' \n" +
+  "                ELSE '30' \n" +
+  '            END AS minute_block,\n' +
+  '            COUNT(*) AS count\n' +
+  '        FROM tickets\n' +
+  '        WHERE date = ?\n' +
+  '        GROUP BY hour, minute_block\n' +
+  '        ORDER BY hour, minute_block\n' +
+  '    ', [ '2026-02-18' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:251:8
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-02-18T09:29:05.586Z [backend\routes\AadminApi.js:268] Hourly analytics query error: Error: SQLITE_ERROR: no such table: tickets
+--> in Database#all('\n' +
+  '        SELECT \n' +
+  "            strftime('%H', date || ' ' || time) AS hour,\n" +
+  '            CASE \n' +
+  "                WHEN CAST(strftime('%M', date || ' ' || time) AS INTEGER) < 30 \n" +
+  "                THEN '00' \n" +
+  "                ELSE '30' \n" +
+  '            END AS minute_block,\n' +
+  '            COUNT(*) AS count\n' +
+  '        FROM tickets\n' +
+  '        WHERE date = ?\n' +
+  '        GROUP BY hour, minute_block\n' +
+  '        ORDER BY hour, minute_block\n' +
+  '    ', [ '2026-02-18' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:251:8
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-02-18T09:29:35.569Z [backend\routes\AadminApi.js:268] Hourly analytics query error: Error: SQLITE_ERROR: no such table: tickets
+--> in Database#all('\n' +
+  '        SELECT \n' +
+  "            strftime('%H', date || ' ' || time) AS hour,\n" +
+  '            CASE \n' +
+  "                WHEN CAST(strftime('%M', date || ' ' || time) AS INTEGER) < 30 \n" +
+  "                THEN '00' \n" +
+  "                ELSE '30' \n" +
+  '            END AS minute_block,\n' +
+  '            COUNT(*) AS count\n' +
+  '        FROM tickets\n' +
+  '        WHERE date = ?\n' +
+  '        GROUP BY hour, minute_block\n' +
+  '        ORDER BY hour, minute_block\n' +
+  '    ', [ '2026-02-18' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:251:8
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-02-18T09:29:43.177Z [backend\routes\AadminApi.js:266] Hourly analytics query error: Error: SQLITE_ERROR: no such table: tickets
+--> in Database#all('\n' +
+  '        SELECT \n' +
+  "            strftime('%H', date || ' ' || time) AS hour,\n" +
+  '            CASE \n' +
+  "                WHEN CAST(strftime('%M', date || ' ' || time) AS INTEGER) < 30 \n" +
+  "                THEN '00' \n" +
+  "                ELSE '30' \n" +
+  '            END AS minute_block,\n' +
+  '            COUNT(*) AS count\n' +
+  '        FROM tickets\n' +
+  '        WHERE date = ?\n' +
+  '        GROUP BY hour, minute_block\n' +
+  '        ORDER BY hour, minute_block\n' +
+  '    ', [ '2026-02-18' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:249:8
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-02-18T09:29:47.863Z [backend\routes\AadminApi.js:266] Hourly analytics query error: Error: SQLITE_ERROR: no such table: tickets
+--> in Database#all('\n' +
+  '        SELECT \n' +
+  "            strftime('%H', date || ' ' || time) AS hour,\n" +
+  '            CASE \n' +
+  "                WHEN CAST(strftime('%M', date || ' ' || time) AS INTEGER) < 30 \n" +
+  "                THEN '00' \n" +
+  "                ELSE '30' \n" +
+  '            END AS minute_block,\n' +
+  '            COUNT(*) AS count\n' +
+  '        FROM tickets\n' +
+  '        WHERE date = ?\n' +
+  '        GROUP BY hour, minute_block\n' +
+  '        ORDER BY hour, minute_block\n' +
+  '    ', [ '2026-02-18' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:249:8
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15
+    at processParams (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:582:12)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:291:5) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
