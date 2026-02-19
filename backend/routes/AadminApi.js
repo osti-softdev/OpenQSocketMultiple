@@ -136,7 +136,7 @@ module.exports = function createTellerApiRouter(io) {
                 END) as avg_turnaround_time,
 
                 MAX(CASE 
-                    WHEN t.status = 'calling'
+                    WHEN (t.status = 'calling' OR t.status = 'called')
                     AND date = ?
                     THEN t.ticketservice || t.ticketnum
                 END) as serving_ticket
@@ -242,7 +242,7 @@ module.exports = function createTellerApiRouter(io) {
         });
     });
   });
-
+  // & Per Hour Analytics for Today+
   router.get('/admin/analytics/hourly', (req, res) => {
     const { date} = getPHDateTime();
 
@@ -270,6 +270,78 @@ module.exports = function createTellerApiRouter(io) {
         res.json(rows);
     });
   });
+
+  // ! -------- SERVICES -------- !
+  // & Services List for Admin  
+  router.get('/admin/services', (req, res) => {
+    db.all('SELECT * FROM services', (err, rows) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json(rows);
+    });
+  });
+  // & Add Service
+  router.post('/admin/services', (req, res) => {
+    const { name, prefix, priority_prefix, cutoff_time } = req.body;
+    db.run(`INSERT INTO services (sname, regular, priority, sched) VALUES (?, ?, ?, ?)`,
+        [name, prefix, priority_prefix, cutoff_time],
+        function (err) {
+            if (err) return res.status(500).json({ error: err.message });
+            res.json({ success: true, id: this.lastID });
+            io.emit('service_update'); // Emit service update event
+        });
+  });
+  // & Edit Service
+  router.put('/admin/services/:id', (req, res) => {
+    const { name, prefix, priority_prefix, cutoff_time, is_active } = req.body;
+    db.run(`UPDATE services SET sname = ?, regular = ?, priority = ?, sched = ?, status = ? WHERE id = ?`,
+        [name, prefix, priority_prefix, cutoff_time, is_active, req.params.id],
+        (err) => {
+            if (err) return res.status(500).json({ error: err.message });
+            res.json({ success: true });
+            io.emit('service_update'); // Emit service update event
+        });
+  });
+  // & Delete Service
+  router.delete('/admin/services/:id', (req, res) => {
+        db.run('DELETE FROM services WHERE id = ?', [req.params.id], (err) => {
+            if (err) return res.status(500).json({ error: err.message });
+            res.json({ success: true });
+            io.emit('service_update'); // Emit service update event
+        });
+  });  
+
+  //   ! -------- GROUPS -------- !
+  // & Groups List for Admin
+  router.get('/admin/groups', (req, res) => {
+    db.all('SELECT * FROM counter_groups', (err, rows) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json(rows);
+    });
+  });
+  // & Add Group
+  router.post('/admin/groups', (req, res) => {
+    const { name } = req.body;
+    db.run('INSERT INTO counter_groups (group_name) VALUES (?)', [name], function(err) {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json({ success: true, id: this.lastID });
+    });
+  });
+  // & Edit Group
+  router.put('/admin/groups/:id', (req, res) => {
+    const { name } = req.body;
+    db.run('UPDATE counter_groups SET group_name = ? WHERE id = ?', [name, req.params.id], (err) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json({ success: true });
+    });
+  });
+  // & Delete Group
+  router.delete('/admin/groups/:id', (req, res) => {
+    db.run('DELETE FROM counter_groups WHERE id = ?', [req.params.id], (err) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json({ success: true });
+    });
+  });
+
 
     return router;
 };

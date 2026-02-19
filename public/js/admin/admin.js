@@ -9,6 +9,10 @@ $(document).ready(function () {
         const tab = $(this).data('tab');
         switchTab(tab);
     });
+
+     socket.on('service_update', async function (data) {
+        loadServices();
+    });
     switchTab('dashboard')
     // & MODAL CLOSE
     $('.close-modal').click(() => $('#modal-overlay').hide());
@@ -330,11 +334,11 @@ function loadServices() {
         services.forEach(s => {
             $list.append(`
                 <tr>
-                    <td>${s.name}</td>
-                    <td>${s.prefix}</td>
-                    <td>${s.priority_prefix}</td>
-                    <td>${s.cutoff_time || '-'}</td>
-                    <td><span class="status-badge ${s.is_active ? 'status-active' : 'status-inactive'}">${s.is_active ? 'Active' : 'Inactive'}</span></td>
+                    <td>${s.sname}</td>
+                    <td>${s.regular}</td>
+                    <td>${s.priority}</td>
+                    <td>${s.sched || '-'}</td>
+                    <td><span class="status-badge ${s.status ? 'status-active' : 'status-inactive'}">${s.status === 1 ? 'Active' : 'Inactive'}</span></td>
                     <td class="actions">
                         <button class="btn btn-sm btn-primary" onclick="editService(${s.id})">Edit</button>
                         <button class="btn btn-sm btn-danger" onclick="deleteService(${s.id})">Delete</button>
@@ -344,9 +348,7 @@ function loadServices() {
         });
     });
 }
-    socket.on('service_update', async function (data) {
-        loadServices();
-    });
+   
 // & ===== SERVICE ACTIONS =====
 function editService(id) {
     $.get('/api/admin/services', (services) => {
@@ -397,12 +399,13 @@ function deleteTeller(id) {
 // ~ ===== GROUPS =====
 function loadGroups() {
     $.get('/api/admin/groups', function (groups) {
+        console.table(groups)
         const $list = $('#groups-list').empty();
         groups.forEach(g => {
             $list.append(`
                 <tr>
                     <td>${g.id}</td>
-                    <td>${g.name}</td>
+                    <td>${g.group_name}</td>
                     <td class="actions">
                         <button class="btn btn-sm btn-danger" onclick="deleteGroup(${g.id})">Delete</button>
                     </td>
@@ -520,11 +523,11 @@ function openModal(type = currentTab, data = null) {
 
     if (type === 'services') {
         $form.html(`
-            <div class="form-group"><label>Service Name</label><input type="text" id="s-name" class="form-control" value="${data?.name || ''}"></div>
-            <div class="form-group"><label>Regular Letter/Prefix</label><input type="text" id="s-prefix" class="form-control" value="${data?.prefix || ''}"></div>
-            <div class="form-group"><label>Priority Letter/Prefix</label><input type="text" id="s-priority" class="form-control" value="${data?.priority_prefix || ''}"></div>
-            <div class="form-group"><label>Cutoff Time (HH:mm)</label><input type="time" id="s-cutoff" class="form-control" value="${data?.cutoff_time || ''}"></div>
-            <div class="form-group"><label><input type="checkbox" id="s-active" ${data?.is_active === 0 ? '' : 'checked'}> Is Active</label></div>
+            <div class="form-group"><label>Service Name</label><input type="text" id="s-name" class="form-control" value="${data?.sname || ''}"></div>
+            <div class="form-group"><label>Regular Letter/Prefix</label><input type="text" id="s-prefix" class="form-control" value="${data?.regular || ''}"></div>
+            <div class="form-group"><label>Priority Letter/Prefix</label><input type="text" id="s-priority" class="form-control" value="${data?.priority || ''}"></div>
+            <div class="form-group"><label>Cutoff Time (HH:mm)</label><input type="time" id="s-cutoff" class="form-control" value="${data?.sched || ''}"></div>
+            <div class="form-group"><label><input type="checkbox" id="s-active" ${data?.status === 1 ? 'checked' : ''}> Is Active</label></div>
         `);
     } else if (type === 'tellers') {
         $.get('/api/admin/groups', (groups) => {
