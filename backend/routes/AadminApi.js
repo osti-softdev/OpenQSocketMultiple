@@ -342,6 +342,97 @@ module.exports = function createTellerApiRouter(io) {
     });
   });
 
+    //   ! -------- TELLERS -------- !
+  // & Tellers List for Admin
+  router.get('/admin/tellers', (req, res) => {
+    db.all(`SELECT t.*, tg.group_name as group_name FROM counters t 
+            LEFT JOIN counter_groups tg ON t.group_id = tg.id`, (err, rows) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json(rows);
+    });
+  });
+  // & Add Tellers 
+  router.post('/admin/tellers', (req, res) => {
+    const { username, password, counter_number, services, group_id, role } = req.body;
+
+    if (!username || !password) {
+        return res.status(400).json({ error: 'Username and password are required' });
+    }
+
+    const finalRole = role || 'teller';
+    const isAdmin = finalRole === 'admin';
+
+    const hashedPassword = bcrypt.hashSync(password, 10);
+
+    const finalCounter = isAdmin ? null : counter_number;
+    const finalServices = isAdmin ? '' : services;
+    const finalGroup = isAdmin ? null : group_id;
+
+    db.run(
+        `INSERT INTO tellers
+         (username, password, counter_number, services, group_id, role)
+         VALUES (?, ?, ?, ?, ?, ?)`,
+        [
+            username,
+            hashedPassword,
+            finalCounter,
+            finalServices,
+            finalGroup,
+            finalRole
+        ],
+        function (err) {
+            if (err) {
+                console.error(err);
+                return res.status(500).json({ error: err.message });
+            }
+            res.json({ success: true, id: this.lastID });
+        }
+    );
+  });
+  //   & Edit Tellers
+  router.put('/admin/tellers/:id', (req, res) => {
+    const { username, counter_number, services, group_id, role, password } = req.body;
+
+    const finalRole = role || 'teller';
+    const isAdmin = finalRole === 'admin';
+
+    const finalCounter = isAdmin ? null : counter_number;
+    const finalServices = isAdmin ? '' : services;
+    const finalGroup = isAdmin ? null : group_id;
+
+    if (password) {
+        const hashedPassword = bcrypt.hashSync(password, 10);
+
+        db.run(
+            `UPDATE tellers
+             SET username = ?, password = ?, counter_number = ?, services = ?, group_id = ?, role = ?
+             WHERE id = ?`,
+            [username, hashedPassword, finalCounter, finalServices, finalGroup, finalRole, req.params.id],
+            err => {
+                if (err) return res.status(500).json({ error: err.message });
+                res.json({ success: true });
+            }
+        );
+    } else {
+        db.run(
+            `UPDATE tellers
+             SET username = ?, counter_number = ?, services = ?, group_id = ?, role = ?
+             WHERE id = ?`,
+            [username, finalCounter, finalServices, finalGroup, finalRole, req.params.id],
+            err => {
+                if (err) return res.status(500).json({ error: err.message });
+                res.json({ success: true });
+            }
+        );
+    }
+  });
+  // & Delete Tellers
+  router.delete('/admin/tellers/:id', (req, res) => {
+    db.run('DELETE FROM counters WHERE id = ?', [req.params.id], (err) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json({ success: true });
+    });
+  });
 
     return router;
 };

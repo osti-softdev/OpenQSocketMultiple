@@ -348,7 +348,6 @@ function loadServices() {
         });
     });
 }
-   
 // & ===== SERVICE ACTIONS =====
 function editService(id) {
     $.get('/api/admin/services', (services) => {
@@ -365,15 +364,17 @@ function deleteService(id) {
 // ~ ===== TELLERS =====
 function loadTellers() {
     $.get('/api/admin/tellers', function (tellers) {
+        console.table(tellers)
         const $list = $('#tellers-list').empty();
         tellers.forEach(t => {
+            const isActive = Number(t.cstatus) === 1;
             $list.append(`
                 <tr>
-                    <td>${t.username}</td>
-                    <td>${t.counter_number}</td>
+                    <td>${t.cname}</td>
+                    <td>${t.cnum}</td>
                     <td>${t.group_name || 'None'}</td>
                     <td>${t.services}</td>
-                    <td>${t.role}</td>
+                    <td><span class="status-badge ${isActive ? 'status-active' : 'status-inactive'}">${isActive ? 'Active' : 'Inactive'}</span></td>
                     <td class="actions">
                         <button class="btn btn-sm btn-primary" onclick="editTeller(${t.id})">Edit</button>
                         <button class="btn btn-sm btn-danger" onclick="deleteTeller(${t.id})">Delete</button>
@@ -531,31 +532,15 @@ function openModal(type = currentTab, data = null) {
         `);
     } else if (type === 'tellers') {
         $.get('/api/admin/groups', (groups) => {
-            let groupOpts = groups.map(g => `<option value="${g.id}" ${data?.group_id == g.id ? 'selected' : ''}>${g.name}</option>`).join('');
+            let groupOpts = groups.map(g => `<option value="${g.id}" ${data?.group_id == g.id ? 'selected' : ''}>${g.group_name}</option>`).join('');
             $form.html(`
-                <div class="form-group"><label>Username</label><input type="text" id="t-user" class="form-control" value="${data?.username || ''}"></div>
+                <div class="form-group"><label>Username</label><input type="text" id="t-user" class="form-control" value="${data?.cname || ''}"></div>
                 <div class="form-group"><label>Password ${data ? '(Leave blank to keep same)' : ''}</label><input type="password" id="t-pass" class="form-control"></div>
-                <div class="form-group" id="t-counter-group"><label>Counter Number</label><input type="number" id="t-counter" class="form-control" value="${data?.counter_number || ''}"></div>
+                <div class="form-group" id="t-counter-group"><label>Counter Number</label><input type="number" id="t-counter" class="form-control" value="${data?.cnum || ''}"></div>
                 <div class="form-group" id="t-group-group"><label>Group</label><select id="t-group" class="form-control"><option value="">-- No Group --</option>${groupOpts}</select></div>
-                <div class="form-group"><label>Role</label><select id="t-role" class="form-control"><option value="teller" ${data?.role === 'teller' ? 'selected' : ''}>Teller</option><option value="admin" ${data?.role === 'admin' ? 'selected' : ''}>Admin</option></select></div>
                 <div class="form-group" id="t-services-group"><label>Assigned Services (Comma separated)</label><input type="text" id="t-services" class="form-control" value="${data?.services || ''}" placeholder="CASHIER,LABORATORY"></div>
+                <div class="form-group"><label><input type="checkbox" id="t-active" ${Number(data?.cstatus) === 1 ? 'checked' : ''}> Is Active</label></div>
             `);
-
-            // Role change handler
-            $('#t-role').change(function () {
-                if ($(this).val() === 'admin') {
-                    $('#t-services-group').hide();
-                    $('#t-counter-group').hide();
-                    $('#t-group-group').hide();
-                } else {
-                    $('#t-services-group').show();
-                    $('#t-counter-group').show();
-                    $('#t-group-group').show();
-                }
-            });
-
-            // Trigger immediately to set initial state
-            $('#t-role').trigger('change');
         });
     } else if (type === 'groups') {
         $form.html(`<div class="form-group"><label>Group Name</label><input type="text" id="g-name" class="form-control"></div>`);

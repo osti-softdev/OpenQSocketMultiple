@@ -559,13 +559,6 @@ router.post('/logout', (req, res) => {
   });
 
   //   ! -------- GROUPS -------- !
-  // & Groups List for Admin
-  router.get('/admin/groups', (req, res) => {
-    db.all('SELECT * FROM counter_groups', (err, rows) => {
-        if (err) return res.status(500).json({ error: err.message });
-        res.json(rows);
-    });
-  });
   // =========================
   // & Complete A Ticket
   // =========================
