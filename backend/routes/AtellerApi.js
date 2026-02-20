@@ -442,14 +442,18 @@ router.post('/logout', (req, res) => {
   // & Forward A ticket
   // =========================
   router.post('/tickets/forward', (req, res) => {
-    const { ticketId, fromTellerId, toTellerId, toGroupId, note } = req.body;
+    const { ticketId, fromTellerId, toTellerId, toGroupId, note, cname, cnum } = req.body;
     const { date, time } = getPHDateTime();
+    const forwardEntry = `[${time}-${cname}-${cnum}-Forwarded]`;
 
     // Update ticket status
     db.run(`UPDATE transactions 
-            SET status = 'received', forwarded_from = ?, forwarded_to = ?, end_time = ?
+            SET status = 'received', forwarded_from = ?, forwarded_to = ?, end_time = ?, history = CASE
+              WHEN history IS NULL OR history = '' THEN ?
+              ELSE history || ';' || ?
+            END
             WHERE id = ? AND date = ?`,
-        [fromTellerId, toTellerId || toGroupId, time, ticketId, date],
+        [fromTellerId, toTellerId || toGroupId, time, forwardEntry, forwardEntry, ticketId, date],
         function (err) {
             if (err) {
                 return res.status(500).json({ error: 'Failed to forward ticket' });

@@ -91,7 +91,6 @@ function loadLiveDashboard() {
     $('#last-updated').text(now.toLocaleTimeString());
 
     $.get('/api/admin/dashboard/live', function(data) {
-        console.table(data);
         // 1. Stats Cards
         if (data.stats) {
             $('#live-total').text(data.stats.total_tickets || 0);
@@ -324,7 +323,6 @@ function getCanvas(id) {
 // ~ ===== SERVICES =====
 function loadServices() {
     $.get('/api/admin/services', function (services) {
-        console.log(services)
         if(services.length === 16){
             $('#addServiceBtn').hide();
         }else{
@@ -364,7 +362,6 @@ function deleteService(id) {
 // ~ ===== TELLERS =====
 function loadTellers() {
     $.get('/api/admin/tellers', function (tellers) {
-        console.table(tellers)
         const $list = $('#tellers-list').empty();
         tellers.forEach(t => {
             const isActive = Number(t.cstatus) === 1;
@@ -400,7 +397,6 @@ function deleteTeller(id) {
 // ~ ===== GROUPS =====
 function loadGroups() {
     $.get('/api/admin/groups', function (groups) {
-        console.table(groups)
         const $list = $('#groups-list').empty();
         groups.forEach(g => {
             $list.append(`
@@ -442,10 +438,10 @@ function saveSettings() {
         method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(payload),
-        success: () => alert('Settings saved!'),
+        success: () => showMsg('success', 'Settings saved!'),
         error: (xhr) => {
             console.error(xhr.responseText);
-            alert('Failed to save settings');
+            showMsg('error', 'Failed to save settings');
         }
     });
 }
@@ -467,13 +463,13 @@ function loadTicketHistory(search = '') {
             
             $list.append(`
                 <tr>
-                    <td><strong>${t.ticket_number}</strong></td>
-                    <td>${t.service}</td>
+                    <td><strong>${t.ticketservice}${t.ticketnum}</strong></td>
+                    <td>${t.sname}</td>
                     <td><span class="status-badge status-${t.status}">${t.status}</span></td>
-                    <td>${t.teller_name || '-'}</td>
-                    <td>${formatDateTime(t.created_at)}</td>
-                    <td>${t.called_at ? formatDateTime(t.called_at) : '-'}</td>
-                    <td>${t.completed_at ? formatDateTime(t.completed_at) : '-'}</td>
+                    <td>${t.counter_user     || '-'}</td>
+                    <td>${t.date}</td>
+                    <td>${t.start_time ? t.start_time : '-'}</td>
+                    <td>${t.end_time ? t.end_time : '-'}</td>
                     <td>${duration}</td>
                     <td>
                         <div class="actions">
@@ -486,28 +482,74 @@ function loadTicketHistory(search = '') {
     });
 }
 // & ===== View Ticket History =====
-window.viewTicketDetails = function(id) {
-    $.get(`/api/admin/tickets/details/${id}`, function(data) {
-        const $timeline = $('#ticket-journey-timeline').empty();
-        
+window.viewTicketDetails = function (id) {
+    $.get(`/api/admin/tickets/details/${id}`, function (data) {
+        const $timeline = $('#ticket-journey-timeline');
+        $timeline.empty();
+
         if (!data.timeline || data.timeline.length === 0) {
             $timeline.html('<p>No history available.</p>');
         } else {
             data.timeline.forEach(event => {
+
+                const isInserted = event.event && event.event.toLowerCase().includes('inserted');
+                const isVoided = event.event && event.event.toLowerCase().includes('void');
+                const isAutofinished = event.event && event.event.toLowerCase().includes('autofinished');
+                const isCalled = event.event && event.event.toLowerCase().includes('called');
+                const isRecalled = event.event && event.event.toLowerCase().includes('recalled');
+                const isHeld = event.event && event.event.toLowerCase().includes('held');
+                const isforwarded = event.event && event.event.toLowerCase().includes('forwarded');
+                
+                const inserted = "Inserted 🟢";
+                const finished = "Auto-finished ✅";
+                const called = "Called 🔊";
+                const recalled = "Recalled 🔁";
+                const forwarded = "Forwarded ➡️";
+                const held = "Held ✋";
+                const voided = "Voided ❌";
+                    if(isInserted){
+                        event.event = inserted;
+                    }else if(isAutofinished){
+                        event.event = finished;
+                    }else if(isCalled){
+                        event.event = called;
+                    }
+                    else if(isRecalled){
+                        event.event = recalled;
+                    }
+                    else if(isHeld){
+                        event.event = held;
+                    }
+                    else if(isforwarded){
+                        event.event = forwarded;
+                    }
+                    else if(isVoided){
+                        event.event = voided;
+                    }
+                const textColor = isVoided ? '#dc3545' : 'inherit';
+                const markerColor = isVoided ? '#dc3545' : '';
+
                 $timeline.append(`
                     <div class="timeline-item">
-                        <div class="timeline-marker"></div>
+                        <div class="timeline-marker" style="background-color: ${markerColor};"></div>
                         <div class="timeline-content">
-                            <h4>${event.event}</h4>
-                            <span>${formatDateTime(event.time)}</span>
-                            <p>${event.details}</p>
+                            <h4 style="color: ${textColor};">${event.event}</h4>
+                            <span>${event.time}</span>
+                            <p>
+                                ${event.counter
+                                    ? `${event.actor} (Counter ${event.counter})`
+                                    : event.actor}
+                            </p>
                         </div>
                     </div>
                 `);
             });
         }
-        
+
         $('#ticket-modal-overlay').show();
+    }).fail(function (err) {
+        console.error('Failed to load ticket details:', err);
+        showMsg('error', 'Unable to load ticket history.');
     });
 };
 
@@ -553,63 +595,96 @@ function openModal(type = currentTab, data = null) {
     }
 
     else if (type === 'tellers') {
-        // Load groups first before rendering
-        $.get('/api/admin/groups')
-            .done((groups) => {
 
-                const groupOptions = groups.map(g => `
-                    <option value="${g.id}" ${Number(data?.group_id) === Number(g.id) ? 'selected' : ''}>
-                        ${g.group_name}
-                    </option>
-                `).join('');
+    // Load groups + services in parallel
+    $.when(
+        $.get('/api/admin/groups'),
+        $.get('/api/services')
+    ).done((groupsRes, servicesRes) => {
 
-                $form.html(`
-                    <div class="form-group">
-                        <label>Username</label>
-                        <input type="text" id="t-user" class="form-control" value="${data?.cname || ''}">
-                    </div>
+        const groups = groupsRes[0];
+        const servicesData = servicesRes[0];
 
-                    <div class="form-group">
-                        <label>Password ${data ? '(Leave blank to keep same)' : ''}</label>
-                        <input type="password" id="t-pass" class="form-control">
-                    </div>
+        const services = servicesData.success ? servicesData.data : [];
 
-                    <div class="form-group">
-                        <label>Counter Number</label>
-                        <input type="number" id="t-counter" class="form-control" 
-                            value="${data?.cnum ?? ''}">
-                    </div>
+        const selectedServices = data?.services
+            ? data.services.split(',').map(s => s.trim())
+            : [];
 
-                    <div class="form-group">
-                        <label>Group</label>
-                        <select id="t-group" class="form-control">
-                            <option value="">-- No Group --</option>
-                            ${groupOptions}
-                        </select>
-                    </div>
+        const groupOptions = groups.map(g => `
+            <option value="${g.id}" ${Number(data?.group_id) === Number(g.id) ? 'selected' : ''}>
+                ${g.group_name}
+            </option>
+        `).join('');
 
-                    <div class="form-group">
-                        <label>Assigned Services (Comma separated)</label>
-                        <input type="text" id="t-services" class="form-control"
-                            value="${data?.services || ''}"
-                            placeholder="CASHIER,LABORATORY">
-                    </div>
+        const serviceCheckboxes = services.map(s => {
+            const isChecked = selectedServices.includes(s.sname);
+            return `
+                <div class="form-check">
+                    <input 
+                        type="checkbox"
+                        class="form-check-input t-service-checkbox"
+                        id="service-${s.id}"
+                        value="${s.sname}"
+                        ${isChecked ? 'checked' : ''}
+                    >
+                    <label class="form-check-label" for="service-${s.id}">
+                        ${s.sname}
+                    </label>
+                </div>
+            `;
+        }).join('');
 
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" id="t-active"
-                                ${Number(data?.cstatus) === 1 ? 'checked' : ''}>
-                            Is Active
-                        </label>
-                    </div>
-                `);
-            })
-            .fail(() => {
-                alert('Failed to load groups');
-            });
-    }
+        $form.html(`
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" id="t-name" class="form-control" value="${data?.cname || ''}">
+            </div>
 
-    else if (type === 'groups') {
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" id="t-user" class="form-control" value="${data?.cuser || ''}">
+            </div>
+
+            <div class="form-group">
+                <label>Password ${data ? '(Leave blank to keep same)' : ''}</label>
+                <input type="password" id="t-pass" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>Counter Number</label>
+                <input type="number" id="t-counter" class="form-control" 
+                    value="${data?.cnum ?? ''}">
+            </div>
+
+            <div class="form-group">
+                <label>Group</label>
+                <select id="t-group" class="form-control">
+                    <option value="">-- No Group --</option>
+                    ${groupOptions}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Assigned Services</label>
+                <div class="service-checkbox-wrapper" style="max-height:200px;overflow-y:auto;">
+                    ${serviceCheckboxes}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="t-active"
+                        ${Number(data?.cstatus) === 1 ? 'checked' : ''}>
+                    Is Active
+                </label>
+            </div>
+        `);
+
+    }).fail(() => {
+        showMsg('error', 'Failed to load groups or services');
+    });
+} else if (type === 'groups') {
         $form.html(`
             <div class="form-group">
                 <label>Group Name</label>
@@ -652,19 +727,36 @@ function saveItem() {
 
     else if (currentTab === 'tellers') {
 
+        const name = $('#t-name').val().trim();
         const username = $('#t-user').val().trim();
         const rawCounter = $('#t-counter').val();
         const rawPassword = $('#t-pass').val();
         const rawGroup = $('#t-group').val();
 
+        const selectedServices = $('.t-service-checkbox:checked')
+            .map(function () {
+                return $(this).val();
+            })
+            .get();
+
+            
         if (!username) {
-            alert('Username is required');
+            showMsg('error', 'Username is required');
+            return;
+        }
+        if (!name) {
+            showMsg('error', 'Name is required');
+            return;
+        }
+        if (!rawCounter) {
+            showMsg('error', 'Counter number is required');
             return;
         }
 
         const payload = {
+            name,
             username,
-            services: $('#t-services').val().trim(),
+            services: selectedServices.join(','), // keep DB compatible
             group_id: rawGroup ? parseInt(rawGroup, 10) : null,
             counter_number: rawCounter ? parseInt(rawCounter, 10) : null,
             is_active: $('#t-active').is(':checked') ? 1 : 0
@@ -692,7 +784,7 @@ function saveItem() {
             },
             error: (xhr) => {
                 console.error(xhr.responseText);
-                alert('Failed to save teller');
+                showMsg('error', 'Failed to save teller');
             }
         });
     }
@@ -701,7 +793,7 @@ function saveItem() {
 
         const name = $('#g-name').val().trim();
         if (!name) {
-            alert('Group name is required');
+            showMsg('error', 'Group name is required');
             return;
         }
 

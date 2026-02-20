@@ -81,6 +81,7 @@ module.exports = function createTellerApiRouter(io) {
         }
   });
 
+  // ! -------- DASHBOARD -------- !
   // =========================
   // & DASHBOARD LIVE
   // =========================
@@ -96,7 +97,7 @@ module.exports = function createTellerApiRouter(io) {
                 COUNT(CASE WHEN (t.status = 'calling' OR t.status = 'called') AND t.date = ? THEN 1 END) AS serving_count,
                 COUNT(CASE WHEN t.status = 'finished' AND t.date = ? THEN 1 END) AS completed_count,
                 AVG(CASE WHEN t.status = 'finished' AND t.date = ? 
-                        THEN (strftime('%s', t.date || ' ' || t.start_time) - strftime('%s', t.date || ' ' || t.time)) / 60.0 
+                        THEN (strftime('%s',  t.start_time) - strftime('%s', t.time)) / 60.0 
                         END) AS avg_wait_time
                 FROM services s
                 LEFT JOIN transactions t 
@@ -205,41 +206,55 @@ module.exports = function createTellerApiRouter(io) {
   // =========================
   router.get('/admin/analytics/overview', (req, res) => {
     const stats = {};
+    const { date } = getPHDateTime(); // e.g., '2026-02-20'
 
-    // 1️⃣ Total tickets
-    db.get(`SELECT COUNT(*) as total FROM transactions`, (err, row) => {
+    // 1️⃣ Total tickets for today
+    db.get(`SELECT COUNT(*) as total FROM transactions WHERE date = ?`, [date], (err, row) => {
         if (err) return res.status(500).json({ error: err.message });
         stats.totalTickets = row.total;
 
-        // 2️⃣ Tickets by status
-        db.all(`SELECT status, COUNT(*) as count FROM transactions GROUP BY status`, (err, rows) => {
-            if (err) return res.status(500).json({ error: err.message });
-            stats.byStatus = rows;
-
-            // 3️⃣ Tickets by service
-            db.all(`SELECT ticketservice as sname, COUNT(*) as count FROM transactions GROUP BY ticketservice`, (err, rows) => {
+        // 2️⃣ Tickets by status for today
+        db.all(
+            `SELECT status, COUNT(*) as count FROM transactions WHERE date = ? GROUP BY status`,
+            [date],
+            (err, rows) => {
                 if (err) return res.status(500).json({ error: err.message });
-                stats.byService = rows;
+                stats.byStatus = rows;
 
-                // 4️⃣ Average service time per service (in minutes)
-                db.all(`
-                    SELECT ticketservice as sname,
-                        AVG(
-                            (strftime('%s', date || ' ' || end_time) - strftime('%s', date || ' ' || start_time)) / 60.0
-                        ) AS avg_minutes
-                    FROM transactions
-                    WHERE status = 'finished'
-                        AND start_time IS NOT NULL
-                        AND end_time IS NOT NULL
-                    GROUP BY ticketservice
-                `, (err, rows) => {
-                    if (err) return res.status(500).json({ error: err.message });
-                    stats.avgServiceTime = rows;
+                // 3️⃣ Tickets by service for today
+                db.all(
+                    `SELECT ticketservice as sname, COUNT(*) as count FROM transactions WHERE date = ? GROUP BY ticketservice`,
+                    [date],
+                    (err, rows) => {
+                        if (err) return res.status(500).json({ error: err.message });
+                        stats.byService = rows;
 
-                    res.json(stats);
-                });
-            });
-        });
+                        // 4️⃣ Average service time per service for today
+                        db.all(
+                            `
+                            SELECT ticketservice as sname,
+                                AVG(
+                                    (strftime('%s', date || ' ' || end_time) - strftime('%s', date || ' ' || start_time)) / 60.0
+                                ) AS avg_minutes
+                            FROM transactions
+                            WHERE status = 'finished'
+                                AND start_time IS NOT NULL
+                                AND end_time IS NOT NULL
+                                AND date = ?
+                            GROUP BY ticketservice
+                            `,
+                            [date],
+                            (err, rows) => {
+                                if (err) return res.status(500).json({ error: err.message });
+                                stats.avgServiceTime = rows;
+
+                                res.json(stats);
+                            }
+                        );
+                    }
+                );
+            }
+        );
     });
   });
   // & Per Hour Analytics for Today+
@@ -353,32 +368,27 @@ module.exports = function createTellerApiRouter(io) {
   });
   // & Add Tellers 
   router.post('/admin/tellers', (req, res) => {
-    const { username, password, counter_number, services, group_id, role } = req.body;
+    const { name, username, password, counter_number, services, group_id, is_active } = req.body;
 
     if (!username || !password) {
         return res.status(400).json({ error: 'Username and password are required' });
     }
 
-    const finalRole = role || 'teller';
-    const isAdmin = finalRole === 'admin';
 
-    const hashedPassword = bcrypt.hashSync(password, 10);
-
-    const finalCounter = isAdmin ? null : counter_number;
-    const finalServices = isAdmin ? '' : services;
-    const finalGroup = isAdmin ? null : group_id;
+    // const hashedPassword = bcrypt.hashSync(password, 10);
 
     db.run(
-        `INSERT INTO tellers
-         (username, password, counter_number, services, group_id, role)
-         VALUES (?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO counters
+         (cname, cuser, cpass, cnum, services, group_id, cstatus)
+         VALUES (?, ?, ?, ?, ?, ?, ?)`,
         [
+            name,
             username,
-            hashedPassword,
-            finalCounter,
-            finalServices,
-            finalGroup,
-            finalRole
+            password,
+            counter_number,
+            services,
+            group_id,
+            is_active
         ],
         function (err) {
             if (err) {
@@ -391,23 +401,17 @@ module.exports = function createTellerApiRouter(io) {
   });
   //   & Edit Tellers
   router.put('/admin/tellers/:id', (req, res) => {
-    const { username, counter_number, services, group_id, role, password } = req.body;
+    const { name, username, counter_number, services, group_id, is_active, password } = req.body;
 
-    const finalRole = role || 'teller';
-    const isAdmin = finalRole === 'admin';
-
-    const finalCounter = isAdmin ? null : counter_number;
-    const finalServices = isAdmin ? '' : services;
-    const finalGroup = isAdmin ? null : group_id;
 
     if (password) {
-        const hashedPassword = bcrypt.hashSync(password, 10);
+        // const hashedPassword = bcrypt.hashSync(password, 10);
 
         db.run(
-            `UPDATE tellers
-             SET username = ?, password = ?, counter_number = ?, services = ?, group_id = ?, role = ?
+            `UPDATE counters
+             SET cname = ?, cuser = ?, cpass = ?, cnum = ?, services = ?, group_id = ?, cstatus = ?
              WHERE id = ?`,
-            [username, hashedPassword, finalCounter, finalServices, finalGroup, finalRole, req.params.id],
+            [name, username, password, counter_number, services, group_id, is_active, req.params.id],
             err => {
                 if (err) return res.status(500).json({ error: err.message });
                 res.json({ success: true });
@@ -415,10 +419,10 @@ module.exports = function createTellerApiRouter(io) {
         );
     } else {
         db.run(
-            `UPDATE tellers
-             SET username = ?, counter_number = ?, services = ?, group_id = ?, role = ?
+            `UPDATE counters
+             SET cname = ?, cuser = ?, cnum = ?, services = ?, group_id = ?, cstatus = ?
              WHERE id = ?`,
-            [username, finalCounter, finalServices, finalGroup, finalRole, req.params.id],
+            [name, username, counter_number, services, group_id, is_active, req.params.id],
             err => {
                 if (err) return res.status(500).json({ error: err.message });
                 res.json({ success: true });
@@ -434,5 +438,163 @@ module.exports = function createTellerApiRouter(io) {
     });
   });
 
+  //   ! -------- Ticket history -------- !
+  // & get all tickets
+  router.get('/admin/tickets/all', (req, res) => {
+    const { limit, offset, search } = req.query;
+
+    const queryLimit = parseInt(limit) || 100;
+    const queryOffset = parseInt(offset) || 0;
+
+    let query = `
+        SELECT 
+            t.*, 
+            counter.cname as teller_name,
+            ((strftime('%s', t.end_time) - strftime('%s', t.start_time)) / 60.0) as duration_minutes
+        FROM transactions t
+        LEFT JOIN counters counter ON t.teller_id = counter.id
+        WHERE 1=1
+    `;
+
+    let params = [];
+
+    if (search) {
+        query += `
+            AND (
+                t.ticketnum LIKE ?
+                OR t.ticketservice LIKE ?
+                OR (t.ticketservice || t.ticketnum) LIKE ?
+            )
+        `;
+        const likeSearch = `%${search}%`;
+        params.push(likeSearch, likeSearch, likeSearch);
+    }
+
+    query += ` ORDER BY t.time DESC LIMIT ? OFFSET ?`;
+    params.push(queryLimit, queryOffset);
+
+    db.all(query, params, (err, rows) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json(rows);
+    });
+  });
+  // & get ticket details
+  router.get('/admin/tickets/details/:id', (req, res) => {
+    const ticketId = req.params.id;
+
+    db.get('SELECT * FROM transactions WHERE id = ?', [ticketId], (err, ticket) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+
+        if (!ticket) {
+            return res.status(404).json({ error: 'Ticket not found' });
+        }
+
+        const timeline = [];
+
+        if (ticket.history) {
+            const entries = ticket.history.split(';').filter(Boolean);
+
+            entries.forEach(entry => {
+                const clean = entry.replace(/[\[\]]/g, '');
+                const parts = clean.split('-');
+
+                // Expected format:
+                // [time-actor-counter-action]
+                if (parts.length >= 4) {
+                    const time = parts[0];
+                    const actor = parts[1];
+                    const counter = parts[2];
+                    const action = parts.slice(3).join('-'); // in case action has dash
+
+                    timeline.push({
+                        event: action,
+                        time: time,
+                        actor: actor,
+                        counter: counter,
+                        details: `${actor} - Counter ${counter}`
+                    });
+                } else if (parts.length === 3) {
+                    // For kiosk or entries without counter
+                    const time = parts[0];
+                    const actor = parts[1];
+                    const action = parts[2];
+
+                    timeline.push({
+                        event: action,
+                        time: time,
+                        actor: actor,
+                        counter: null,
+                        details: `${actor}`
+                    });
+                }
+            });
+        }
+
+        res.json({
+            ticket_id: ticket.id,
+            timeline
+        });
+    });
+  });
+
+  //   ! -------- SETTINGS -------- !
+  // & settings
+  router.get('/settings', (req, res) => {
+    db.all('SELECT * FROM settings', (err, settings) => {
+        if (err) {
+            return res.status(500).json({ error: 'Database error' });
+        }
+        const settingsObj = {};
+        settings.forEach(setting => {
+            settingsObj[setting.key] = setting.value;
+        });
+        res.json(settingsObj);
+    });
+  });
+  // & Save Settings
+  router.post('/settings', (req, res) => {
+    const settings = req.body;
+
+    if (!settings || typeof settings !== 'object') {
+        return res.status(400).json({ error: 'Invalid settings payload' });
+    }
+
+    try {
+        Object.entries(settings).forEach(([key, value]) => {
+            // First try to update the value for the key
+            db.run(
+                `UPDATE settings SET value = ? WHERE key = ?`,
+                [value ?? '', key],
+                function(err) {
+                    if (err) {
+                        console.error(`Failed to update setting ${key}:`, err);
+                        return;
+                    }
+
+                    // If no row was updated, insert new row
+                    if (this.changes === 0) {
+                        db.run(
+                            `INSERT INTO settings (key, value) VALUES (?, ?)`,
+                            [key, value ?? ''],
+                            (err2) => {
+                                if (err2) console.error(`Failed to insert setting ${key}:`, err2);
+                            }
+                        );
+                    }
+
+                    // Emit the update regardless
+                    io.emit('settings_updated', { key, value });
+                }
+            );
+        });
+
+        res.json({ success: true });
+    } catch (err) {
+        console.error('Failed to update settings:', err);
+        res.status(500).json({ error: 'Failed to update settings' });
+    }
+  });
     return router;
 };

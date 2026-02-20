@@ -228,20 +228,7 @@ function loadHistory() {
                     showMsg("warning", `Please complete or hold your current ticket first.`);
                     return;
                 }
-                $.ajax({
-                    url: '/api/tickets/recall',
-                    method: 'POST',
-                    contentType: 'application/json',
-                    data: JSON.stringify({ ticketId: t.id }),
-                    success: function(response) {
-                        if (response.success) {
-                            currentTicket = response.ticket;
-                            displayCurrentTicket(currentTicket);
-                            // Switch to dashboard
-                            $('.nav-item[data-tab="dashboard"]').click();
-                        }
-                    }
-                });
+                    callSpecificTicket(t.id);
             });
 
             $list.append($row);
@@ -567,7 +554,9 @@ function confirmForward() {
             fromTellerId: currentTeller.id,
             toTellerId: toTellerId,
             toGroupId: toGroupId,
-            note: note
+            note: note,
+            cname: currentTeller.username,
+            cnum: currentTeller.counter_number
         }),
         success: function() {
             $('#forward-modal').hide();

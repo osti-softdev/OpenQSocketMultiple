@@ -411,3 +411,47 @@
   errno: 1,
   code: 'SQLITE_ERROR'
 }
+❌ 2026-02-20T03:37:10.274Z [backend\routes\AadminApi.js:379] [Error: SQLITE_ERROR: table counters has no column named username] {
+  errno: 1,
+  code: 'SQLITE_ERROR'
+}
+❌ 2026-02-20T05:30:22.521Z [node_modules\sqlite3\lib\trace.js:25] Error auto-completing previous ticket: Error: SQLITE_BUSY: database is locked
+--> in Statement#run([
+  '13:30:06',
+  '[13:30:06-TELLER 2-2-AutoFinished]',
+  '[13:30:06-TELLER 2-2-AutoFinished]',
+  undefined,
+  '2026-02-20'
+], [Function (anonymous)])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:76:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at callTicket (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:238:6)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:228:11
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11) {
+  errno: 5,
+  code: 'SQLITE_BUSY',
+  __augmented: true
+}
+❌ 2026-02-20T05:30:38.929Z [node_modules\sqlite3\lib\trace.js:25] Error auto-completing previous ticket: Error: SQLITE_BUSY: database is locked
+--> in Statement#run([
+  '13:30:07',
+  '[13:30:07-TELLER 2-2-AutoFinished]',
+  '[13:30:07-TELLER 2-2-AutoFinished]',
+  undefined,
+  '2026-02-20'
+], [Function (anonymous)])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:76:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at callTicket (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:238:6)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:228:11
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11) {
+  errno: 5,
+  code: 'SQLITE_BUSY',
+  __augmented: true
+}
