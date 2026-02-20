@@ -407,3 +407,7 @@
   code: 'SQLITE_ERROR',
   __augmented: true
 }
+❌ 2026-02-20T01:29:49.666Z [backend\routes\AadminApi.js:385] [Error: SQLITE_ERROR: no such table: tellers] {
+  errno: 1,
+  code: 'SQLITE_ERROR'
+}

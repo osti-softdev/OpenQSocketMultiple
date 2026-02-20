@@ -2308,3 +2308,26 @@
 ✔ 2026-02-19T17:08:00.450Z [node:events:518] [ADS] Client connected: -qI_A3CiTBOjfSQ6AAAb
 ✔ 2026-02-19T17:09:37.102Z [node:events:518] [ADS] Client disconnected: -qI_A3CiTBOjfSQ6AAAb
 ✔ 2026-02-19T17:09:37.582Z [node:events:518] [ADS] Client connected: caykjWFaKs4UiNLoAAAd
+✔ 2026-02-19T17:11:16.368Z [node:events:518] [ADS] Client disconnected: iWzj99myx0sGtkoPAAAC
+✔ 2026-02-19T17:11:16.392Z [node:events:518] [ADS] Client disconnected: caykjWFaKs4UiNLoAAAd
+✔ 2026-02-20T00:55:32.288Z [node:events:518] [ADS] Client connected: MmD9P7NPXhSzYKUhAAAg
+✔ 2026-02-20T00:55:32.422Z [node:events:518] [ADS] Client connected: J-T_mjjf9mygDtxaAAAh
+✔ 2026-02-20T00:56:11.634Z [backend\utilities\logger.js:142] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\public\logs
+✔ 2026-02-20T00:56:11.660Z [node_modules\dotenv\lib\main.js:139] [dotenv@17.3.1] injecting env (1) from backend\config\.env [2m-- tip: ⚙️  enable debug logging with { debug: true }[0m
+✔ 2026-02-20T00:56:11.917Z [node:events:632] Queue System running on http://localhost:12341
+✔ 2026-02-20T00:56:11.927Z [unknown-location] Connected to SQLite database
+✔ 2026-02-20T00:56:11.975Z [node:events:518] [ADS] Client connected: i3oDLI4foElYPoNeAAAB
+✔ 2026-02-20T00:56:12.853Z [node:events:518] [ADS] Client connected: q2WEt7w0TvDerqOOAAAD
+✔ 2026-02-20T00:56:15.982Z [node:events:518] [ADS] Client disconnected: i3oDLI4foElYPoNeAAAB
+✔ 2026-02-20T00:56:16.392Z [node:events:518] [ADS] Client connected: vrVqldL9Ur_QbZ2oAAAF
+✔ 2026-02-20T00:56:16.597Z [node:events:518] [ADS] Client disconnected: vrVqldL9Ur_QbZ2oAAAF
+✔ 2026-02-20T00:56:21.314Z [backend\routes\AadminApi.js:19] Login attempt for: admin
+✔ 2026-02-20T00:56:21.315Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-02-20T00:56:21.316Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-02-20T00:56:22.000Z [node:events:518] [ADS] Client connected: kYiFsVvJV1nw5x2WAAAH
+✔ 2026-02-20T01:24:09.061Z [node:events:518] [ADS] Client disconnected: kYiFsVvJV1nw5x2WAAAH
+✔ 2026-02-20T01:24:09.523Z [node:events:518] [ADS] Client connected: QL1MFxravnvLiNAgAAAJ
+✔ 2026-02-20T01:24:45.699Z [node:events:518] [ADS] Client disconnected: QL1MFxravnvLiNAgAAAJ
+✔ 2026-02-20T01:24:45.999Z [node:events:518] [ADS] Client connected: peAfzQj9yM5ZtVm5AAAL
+✔ 2026-02-20T01:29:24.040Z [node:events:518] [ADS] Client disconnected: peAfzQj9yM5ZtVm5AAAL
+✔ 2026-02-20T01:29:24.873Z [node:events:518] [ADS] Client connected: bdiP-kB3GGenl5v0AAAN

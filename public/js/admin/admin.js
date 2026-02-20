@@ -519,70 +519,160 @@ $('.close-ticket-modal').click(function() {
 // & ===== MODAL FUNCTIONS =====
 function openModal(type = currentTab, data = null) {
     editId = data ? data.id : null;
-    const $form = $('#admin-form').empty();
+
+    const $form = $('#admin-form');
+    $form.empty();
+
     $('#modal-title').text((data ? 'Edit ' : 'Add ') + type.slice(0, -1));
 
     if (type === 'services') {
         $form.html(`
-            <div class="form-group"><label>Service Name</label><input type="text" id="s-name" class="form-control" value="${data?.sname || ''}"></div>
-            <div class="form-group"><label>Regular Letter/Prefix</label><input type="text" id="s-prefix" class="form-control" value="${data?.regular || ''}"></div>
-            <div class="form-group"><label>Priority Letter/Prefix</label><input type="text" id="s-priority" class="form-control" value="${data?.priority || ''}"></div>
-            <div class="form-group"><label>Cutoff Time (HH:mm)</label><input type="time" id="s-cutoff" class="form-control" value="${data?.sched || ''}"></div>
-            <div class="form-group"><label><input type="checkbox" id="s-active" ${data?.status === 1 ? 'checked' : ''}> Is Active</label></div>
+            <div class="form-group">
+                <label>Service Name</label>
+                <input type="text" id="s-name" class="form-control" value="${data?.sname || ''}">
+            </div>
+            <div class="form-group">
+                <label>Regular Letter/Prefix</label>
+                <input type="text" id="s-prefix" class="form-control" value="${data?.regular || ''}">
+            </div>
+            <div class="form-group">
+                <label>Priority Letter/Prefix</label>
+                <input type="text" id="s-priority" class="form-control" value="${data?.priority || ''}">
+            </div>
+            <div class="form-group">
+                <label>Cutoff Time (HH:mm)</label>
+                <input type="time" id="s-cutoff" class="form-control" value="${data?.sched || ''}">
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="s-active" ${Number(data?.status) === 1 ? 'checked' : ''}>
+                    Is Active
+                </label>
+            </div>
         `);
-    } else if (type === 'tellers') {
-        $.get('/api/admin/groups', (groups) => {
-            let groupOpts = groups.map(g => `<option value="${g.id}" ${data?.group_id == g.id ? 'selected' : ''}>${g.group_name}</option>`).join('');
-            $form.html(`
-                <div class="form-group"><label>Username</label><input type="text" id="t-user" class="form-control" value="${data?.cname || ''}"></div>
-                <div class="form-group"><label>Password ${data ? '(Leave blank to keep same)' : ''}</label><input type="password" id="t-pass" class="form-control"></div>
-                <div class="form-group" id="t-counter-group"><label>Counter Number</label><input type="number" id="t-counter" class="form-control" value="${data?.cnum || ''}"></div>
-                <div class="form-group" id="t-group-group"><label>Group</label><select id="t-group" class="form-control"><option value="">-- No Group --</option>${groupOpts}</select></div>
-                <div class="form-group" id="t-services-group"><label>Assigned Services (Comma separated)</label><input type="text" id="t-services" class="form-control" value="${data?.services || ''}" placeholder="CASHIER,LABORATORY"></div>
-                <div class="form-group"><label><input type="checkbox" id="t-active" ${Number(data?.cstatus) === 1 ? 'checked' : ''}> Is Active</label></div>
-            `);
-        });
-    } else if (type === 'groups') {
-        $form.html(`<div class="form-group"><label>Group Name</label><input type="text" id="g-name" class="form-control"></div>`);
+    }
+
+    else if (type === 'tellers') {
+        // Load groups first before rendering
+        $.get('/api/admin/groups')
+            .done((groups) => {
+
+                const groupOptions = groups.map(g => `
+                    <option value="${g.id}" ${Number(data?.group_id) === Number(g.id) ? 'selected' : ''}>
+                        ${g.group_name}
+                    </option>
+                `).join('');
+
+                $form.html(`
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="t-user" class="form-control" value="${data?.cname || ''}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password ${data ? '(Leave blank to keep same)' : ''}</label>
+                        <input type="password" id="t-pass" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Counter Number</label>
+                        <input type="number" id="t-counter" class="form-control" 
+                            value="${data?.cnum ?? ''}">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Group</label>
+                        <select id="t-group" class="form-control">
+                            <option value="">-- No Group --</option>
+                            ${groupOptions}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Assigned Services (Comma separated)</label>
+                        <input type="text" id="t-services" class="form-control"
+                            value="${data?.services || ''}"
+                            placeholder="CASHIER,LABORATORY">
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="t-active"
+                                ${Number(data?.cstatus) === 1 ? 'checked' : ''}>
+                            Is Active
+                        </label>
+                    </div>
+                `);
+            })
+            .fail(() => {
+                alert('Failed to load groups');
+            });
+    }
+
+    else if (type === 'groups') {
+        $form.html(`
+            <div class="form-group">
+                <label>Group Name</label>
+                <input type="text" id="g-name" class="form-control" value="${data?.group_name || ''}">
+            </div>
+        `);
     }
 
     $('#modal-overlay').show();
     $('#save-btn').off('click').on('click', saveItem);
 }
+
 // & ===== SAVE ITEM (CREATE/EDIT) =====
 function saveItem() {
+
     if (currentTab === 'services') {
+
         const payload = {
-            name: $('#s-name').val(),
-            prefix: $('#s-prefix').val(),
-            priority_prefix: $('#s-priority').val(),
+            name: $('#s-name').val().trim(),
+            prefix: $('#s-prefix').val().trim(),
+            priority_prefix: $('#s-priority').val().trim(),
             cutoff_time: $('#s-cutoff').val(),
             is_active: $('#s-active').is(':checked') ? 1 : 0
         };
+
         const url = editId ? `/api/admin/services/${editId}` : '/api/admin/services';
         const method = editId ? 'PUT' : 'POST';
 
-        $.ajax({ url, method, contentType: 'application/json', data: JSON.stringify(payload), success: () => { $('#modal-overlay').hide(); loadServices(); } });
-    } else if (currentTab === 'tellers') {
+        $.ajax({
+            url,
+            method,
+            contentType: 'application/json',
+            data: JSON.stringify(payload),
+            success: () => {
+                $('#modal-overlay').hide();
+                loadServices();
+            }
+        });
+    }
 
-        const role = $('#t-role').val();
+    else if (currentTab === 'tellers') {
 
+        const username = $('#t-user').val().trim();
         const rawCounter = $('#t-counter').val();
         const rawPassword = $('#t-pass').val();
+        const rawGroup = $('#t-group').val();
+
+        if (!username) {
+            alert('Username is required');
+            return;
+        }
 
         const payload = {
-            username: $('#t-user').val().trim(),
-            role,
-            services: role === 'admin' ? '' : $('#t-services').val(),
-            group_id: role === 'admin' ? null : ($('#t-group').val() || null),
-            counter_number: role === 'admin'
-                ? null
-                : (rawCounter ? parseInt(rawCounter, 10) : null)
+            username,
+            services: $('#t-services').val().trim(),
+            group_id: rawGroup ? parseInt(rawGroup, 10) : null,
+            counter_number: rawCounter ? parseInt(rawCounter, 10) : null,
+            is_active: $('#t-active').is(':checked') ? 1 : 0
         };
 
-        // Only send password if user typed one
-        if (rawPassword) {
-            payload.password = rawPassword;
+        // Only send password if provided
+        if (rawPassword && rawPassword.trim() !== '') {
+            payload.password = rawPassword.trim();
         }
 
         const url = editId
@@ -605,16 +695,29 @@ function saveItem() {
                 alert('Failed to save teller');
             }
         });
-    } else if (currentTab === 'groups') {
+    }
+
+    else if (currentTab === 'groups') {
+
+        const name = $('#g-name').val().trim();
+        if (!name) {
+            alert('Group name is required');
+            return;
+        }
+
         $.ajax({
             url: '/api/admin/groups',
             method: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify({ name: $('#g-name').val() }),
-            success: () => { $('#modal-overlay').hide(); loadGroups(); }
+            data: JSON.stringify({ name }),
+            success: () => {
+                $('#modal-overlay').hide();
+                loadGroups();
+            }
         });
     }
 }
+
 // ^ UTILITY FUNCTIONS 
 function formatDateTime(isoString) {
     if (!isoString) return '-';
