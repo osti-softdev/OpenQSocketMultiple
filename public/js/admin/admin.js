@@ -13,7 +13,7 @@ $(document).ready(function () {
      socket.on('service_update', async function (data) {
         loadServices();
     });
-    switchTab('dashboard')
+    switchTab('dashboard');
     // & MODAL CLOSE
     $('.close-modal').click(() => $('#modal-overlay').hide());
 
@@ -354,9 +354,42 @@ function editService(id) {
     });
 }
 // & ===== DELETE SERVICE =====
-function deleteService(id) {
-    if (confirm('Delete this service?')) {
-        $.ajax({ url: `/api/admin/services/${id}`, method: 'DELETE', success: loadServices });
+async function deleteService(id) {
+    const result = await Swal.fire({
+        title: 'Delete this service?',
+        text: 'This action cannot be undone.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it',
+        cancelButtonText: 'Cancel',
+        reverseButtons: true,
+        focusCancel: true
+    });
+
+    if (!result.isConfirmed) return;
+
+    try {
+        await $.ajax({
+            url: `/api/admin/services/${id}`,
+            method: 'DELETE'
+        });
+
+        await Swal.fire({
+            icon: 'success',
+            title: 'Deleted!',
+            text: 'The service has been removed.',
+            timer: 1500,
+            showConfirmButton: false
+        });
+
+        loadServices();
+
+    } catch (err) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Failed to delete the service.'
+        });
     }
 }
 // ~ ===== TELLERS =====
@@ -390,9 +423,40 @@ function editTeller(id) {
 }
 // & ===== DELETE TELLER =====
 function deleteTeller(id) {
-    if (confirm('Delete this teller?')) {
-        $.ajax({ url: `/api/admin/tellers/${id}`, method: 'DELETE', success: loadTellers });
-    }
+    Swal.fire({
+        title: 'Delete this teller?',
+        text: 'This action cannot be undone.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it',
+        cancelButtonText: 'Cancel',
+        reverseButtons: true,
+        focusCancel: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: `/api/admin/tellers/${id}`,
+                method: 'DELETE',
+                success: function () {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Deleted!',
+                        text: 'The teller has been removed.',
+                        timer: 1500,
+                        showConfirmButton: false
+                    });
+                    loadTellers();
+                },
+                error: function () {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Failed to delete the teller.'
+                    });
+                }
+            });
+        }
+    });
 }
 // ~ ===== GROUPS =====
 function loadGroups() {
@@ -413,9 +477,40 @@ function loadGroups() {
 }
 // & ===== DELETE GROUP =====
 function deleteGroup(id) {
-    if (confirm('Delete this group?')) {
-        $.ajax({ url: `/api/admin/groups/${id}`, method: 'DELETE', success: loadGroups });
-    }
+    Swal.fire({
+        title: 'Delete this group?',
+        text: 'This action cannot be undone.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it',
+        cancelButtonText: 'Cancel',
+        reverseButtons: true,
+        focusCancel: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: `/api/admin/groups/${id}`,
+                method: 'DELETE',
+                success: function () {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Deleted!',
+                        text: 'The group has been removed.',
+                        timer: 1500,
+                        showConfirmButton: false
+                    });
+                    loadGroups();
+                },
+                error: function () {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Something went wrong while deleting.'
+                    });
+                }
+            });
+        }
+    });
 }
 // ~ ===== SETTINGS =====
 function loadSettings() {
@@ -473,7 +568,7 @@ function loadTicketHistory(search = '') {
                     <td>${duration}</td>
                     <td>
                         <div class="actions">
-                            <button class="btn btn-sm btn-primary" onclick="viewTicketDetails(${t.id})" style="margin-left: 5px;">View Journey</button>
+                            <button class="btn btn-sm btn-primary" onclick="viewTicketDetails(${t.id})" style="margin-left: 5px;">Journey</button>
                         </div>
                     </td>
                 </tr>

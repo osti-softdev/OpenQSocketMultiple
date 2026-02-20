@@ -5,13 +5,10 @@
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    position: fixed; // Prevents rubber-band scroll on iOS
-    top: 0;
-    left: 0;
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    color: #111827;
+    min-height: 100vh;
 }
 
 .layout {
@@ -31,8 +28,6 @@ html, body {
     display: flex;
     flex-direction: column;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-    transition: transform 0.3s ease;
 
     .sidebar-header {
         padding: 24px 20px;
@@ -89,132 +84,6 @@ html, body {
             &:hover {
                 background: rgba(255, 255, 255, 0.2);
             }
-        }
-    }
-}
-
-// Sidebar toggle button (hidden on desktop)
-.sidebar-toggle {
-    display: none;
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    border: none;
-    cursor: pointer;
-    z-index: 500;
-    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.5);
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s, box-shadow 0.2s;
-
-    span,
-    span::before,
-    span::after {
-        display: block;
-        width: 22px;
-        height: 2px;
-        background: white;
-        margin: 0 auto;
-        border-radius: 2px;
-        transition: all 0.3s ease;
-        position: relative;
-    }
-
-    span::before,
-    span::after {
-        content: '';
-        position: absolute;
-        left: 0;
-    }
-
-    span::before { top: -7px; }
-    span::after  { top: 7px; }
-
-    &:hover {
-        transform: scale(1.08);
-        box-shadow: 0 6px 24px rgba(102, 126, 234, 0.7);
-    }
-
-    &.open {
-        span {
-            background: transparent;
-            &::before { transform: rotate(45deg); top: 0; }
-            &::after  { transform: rotate(-45deg); top: 0; }
-        }
-    }
-}
-// Floating vertical nav menu (mobile/tablet)
-.floating-nav {
-    display: none;
-    position: fixed;
-    bottom: 90px;
-    right: 24px;
-    z-index: 450;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 10px;
-    pointer-events: none;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-
-    &.open {
-        opacity: 1;
-        transform: translateY(0);
-        pointer-events: all;
-    }
-
-    .fnav-item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        cursor: pointer;
-        background: none;
-        border: none;
-        padding: 0;
-
-        .fnav-label {
-            background: rgba(30, 20, 60, 0.88);
-            color: white;
-            font-size: 13px;
-            font-weight: 600;
-            padding: 6px 14px;
-            border-radius: 20px;
-            white-space: nowrap;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-            letter-spacing: 0.3px;
-            backdrop-filter: blur(6px);
-        }
-
-        .fnav-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            box-shadow: 0 3px 12px rgba(102, 126, 234, 0.45);
-            flex-shrink: 0;
-            transition: transform 0.15s;
-        }
-
-        &:hover .fnav-icon {
-            transform: scale(1.12);
-        }
-
-        &.active .fnav-icon {
-            background: linear-gradient(135deg, #fff, #e0e7ff);
-            .fnav-emoji { filter: drop-shadow(0 0 3px #667eea); }
-        }
-
-        &.fnav-logout .fnav-icon {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
         }
     }
 }
@@ -358,7 +227,7 @@ html, body {
                             .stat-card {
                                 position: relative;
                                 height: 100%;
-                                flex: 1;
+                                flex: 1 20%;
                                 background: white;
                                 border-radius: 12px;
                                 padding: 24px;
@@ -520,11 +389,28 @@ html, body {
                                 color: #111827;
                             }
 
+                            .card-header {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                height: 10%;
+                                width: 100%;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                margin-bottom: 20px;
+                                padding: 20px;
+
+                                h3 {
+                                    margin-bottom: 0;
+                                }
+                            }
+
                             .table-container {
                                 position: absolute;
-                                top: 0%;
+                                top: 10%;
                                 left: 0;
-                                height: 100%;
+                                height: 90%;
                                 width: 100%;
                                 max-height: 100%;
                                 overflow: hidden;
@@ -1362,181 +1248,15 @@ textarea.form-control {
             }
 }
 
-.rotate-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: #111;
-    z-index: 99999;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    .rotate-content {
-        text-align: center;
-        color: #fff;
-
-        .rotate-icon {
-            font-size: 60px;
-            display: block;
-            margin-bottom: 16px;
-            animation: spin 2s linear infinite;
-        }
-
-        p {
-            font-size: 16px;
-            opacity: 0.8;
-        }
-    }
+// ! tablet responsiveness landscape
+@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
 }
-
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
+//  ! Mobile responsiveness landscape
+@media screen and (max-width: 767px) and (orientation: landscape) {
 }
-
-// Show overlay on phones in landscape
-@media screen and (max-height: 500px) and (orientation: landscape) {
-    .rotate-overlay { display: flex; }
+// ! tablet responsiveness portrait
+@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
 }
-
-// // ! tablet responsiveness landscape
-// @media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
-
-// }
-// // ! tablet responsiveness portrait
-// @media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
-// }
 // ! Mobile responsiveness portrait
-
-@media screen and (max-width: 767px) and (orientation: portrait) {
-
-    .sidebar { display: none; }
-    .sidebar-toggle { display: flex; bottom: 20px; right: 20px; width: 52px; height: 52px; }
-    .floating-nav   { display: flex; bottom: 82px; right: 20px; }
-
-    .content {
-        left: 0;
-        width: 100%;
-        height: 100%;
-
-        .content-header {
-            height: 8%;
-
-            h2 { font-size: 17px; }
-
-            #current-user { font-size: 11px; margin-right: 8px !important; }
-        }
-
-        .tab-content {
-            top: 8%;
-            height: 92%;
-        }
-        .dashsecContainer{
-            .dashSection1{
-
-                .stats-grid {
-                        gap: 0px !important;
-                    .stat-card {
-                        padding: 0px !important; 
-                        width: 33.3% !important;
-                        padding: 16px !important;
-                        .stat-icon  { font-size: 22px !important; margin-right: 8px !important; }
-                        .stat-info h3 { font-size: 20px !important; }
-                        .stat-info p  { font-size: 11px !important; }
-                    }
-                }
-                .section-title1 { 
-                  font-size: 14px !important;
-                }
-
-                .live-grid {
-                    gap: 0px !important;
-                    .service-live-card {
-                        padding: 10px !important;
-                        flex: 1 33.3% !important;
-                        width: 100% !important;
-
-                        .service-name { font-size: 14px !important; }
-                        .service-metrics .metric strong { font-size: 15px !important; }
-                    }
-                }
-                .section-title2 { font-size: 14px !important; }
-                .card-teller-dashboard {
-                    width: 100% !important;
-                    display: flex !important;
-                    .admin-table {
-                        text-align: center !important;
-                        th, td { 
-                        text-align: center !important;
-                            font-size: 11px !important; 
-                            padding: 8px !important; }
-                    }
-                }
-                .card-chart-dashboard {
-                    display: none !important;
-                    top: 100% !important;
-                    width: 100% !important;
-                    left: 0 !important;
-                    padding: 8px !important;
-                    .chart-container1 {
-                        border-right: none !important;
-                    }
-                     .chart-container2, .chart-container3 {
-                        padding: 8px !important;
-                     }
-                        .chart-container1 {
-                            border-right: none !important;
-                        }
-                }
-            }
-        }
-        .card {
-            overflow: auto !important;
-            padding: 12px !important;
-
-            .card-header {
-                height: 10% !important;
-                padding: 10px !important;
-
-                h3 { font-size: 15px !important; }
-
-                input.form-control {
-                    font-size: 12px !important;
-                    padding: 6px 10px !important;
-                }
-            }
-
-            .table-container { 
-                top: 10% !important; 
-                height: 90% !important;
-            overflow: auto !important;
-            }
-
-            .admin-table {
-                overflow: auto !important;
-                width: 100% !important;
-                th, td { 
-                    width: 90px !important;
-                    font-size: 12px !important; 
-                    padding: 6px !important; 
-
-                    button{
-                        padding: 10px !important;
-                        font-size: 11px !important;
-                    }
-                }
-            }
-        }
-    }
-
-    .modal-overlay .modal {
-        width: 97%;
-        max-height: 92%;
-
-        .modal-header { padding: 14px 16px; h3 { font-size: 16px; } }
-        .modal-body   { padding: 14px 16px; }
-        .modal-footer { padding: 12px 16px; }
-    }
+@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
 }

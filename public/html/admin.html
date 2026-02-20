@@ -87,10 +87,10 @@
                                         <tr>
                                             <th>Teller</th>
                                             <th>Counter</th>
-                                            <th>Current Status</th>
-                                            <th>Served Today</th>
+                                            <th>Status</th>
+                                            <th>Served</th>
                                             <th>Avg Handling</th>
-                                            <th>Avg Turnaround</th>
+                                            <th>Avg Turns</th>
                                         </tr>
                                     </thead>
                                     <tbody id="teller-live-list">
@@ -113,10 +113,7 @@
                                     <canvas id="hourlyChart"></canvas>
                                 </div>
                             </div> 
-                    </section>
-                    <!-- <section class="dashSection2">
-                    
-                    </section> -->
+                        </section>
                 </div>
                 
             </div>
@@ -306,12 +303,124 @@
             </div>
         </div>
     </div>
+
+    <button class="sidebar-toggle" id="fabToggle" aria-label="Open menu">
+        <span></span>
+    </button>
+
+
+<nav class="floating-nav" id="floatingNav">
+  <button class="fnav-item" data-tab="dashboard">
+    <span class="fnav-label">Dashboard</span>
+    <span class="fnav-icon"><span class="fnav-emoji">📊</span></span>
+  </button>
+  <button class="fnav-item" data-tab="history">
+    <span class="fnav-label">Ticket History</span>
+    <span class="fnav-icon"><span class="fnav-emoji">🎫</span></span>
+  </button>
+  <button class="fnav-item" data-tab="services">
+    <span class="fnav-label">Services</span>
+    <span class="fnav-icon"><span class="fnav-emoji">🛠️</span></span>
+  </button>
+  <button class="fnav-item" data-tab="tellers">
+    <span class="fnav-label">Tellers</span>
+    <span class="fnav-icon"><span class="fnav-emoji">👥</span></span>
+  </button>
+  <button class="fnav-item" data-tab="groups">
+    <span class="fnav-label">Groups</span>
+    <span class="fnav-icon"><span class="fnav-emoji">👨‍👩‍👧‍👦</span></span>
+  </button>
+  <button class="fnav-item" data-tab="settings">
+    <span class="fnav-label">Settings</span>
+    <span class="fnav-icon"><span class="fnav-emoji">⚙️</span></span>
+  </button>
+  <button class="fnav-item fnav-logout" id="fnavLogout">
+    <span class="fnav-label">Logout</span>
+    <span class="fnav-icon"><span class="fnav-emoji">🚪</span></span>
+  </button>
+</nav>
+
+<div class="rotate-overlay">
+    <div class="rotate-content">
+        <i class="rotate-icon">⟳</i>
+        <p>Landscape mode not allowed, stay on portrait mode</p>
+    </div>
+</div>
 </body>
 <script>
 const socket = io();
 setInterval(() => {
     // location.reload();
-}, 1000);
+}, 2000);
+$(function () {
+    const $fab  = $('#fabToggle');
+    const $fnav = $('#floatingNav');
+
+    function openSidebar() {
+        $fnav.addClass('open');
+        $fab.addClass('open');
+    }
+
+    function closeSidebar() {
+        $fnav.removeClass('open');
+        $fab.removeClass('open');
+    }
+
+    $(document).on('click', function (e) {
+    if ($fnav.hasClass('open')) {
+            const clickedOutside = !$(e.target).closest('#floatingNav, #fabToggle').length;
+            if (clickedOutside) {
+                closeSidebar();
+            }
+        }
+    });
+
+    function toggleSidebar() {
+        const isOpen = $fnav.hasClass('open');
+        isOpen ? closeSidebar() : openSidebar();
+    }
+
+    // Toggle floating nav
+    $fab.on('click', toggleSidebar);
+
+    // Floating nav item click → switch tab + close sidebar
+    $fnav.on('click', '.fnav-item[data-tab]', function () {
+        const tab = $(this).data('tab');
+
+        // Reuse your existing tab switch logic
+        switchTab(tab);
+
+        // Update active state
+        $fnav.find('.fnav-item').removeClass('active');
+        $(this).addClass('active');
+
+        // Auto-close sidebar
+        closeSidebar();
+    });
+
+    // Sync active state when desktop sidebar is used
+    $('.sidebar-nav').on('click', '.nav-item[data-tab]', function () {
+        const tab = $(this).data('tab');
+
+        $fnav.find('.fnav-item').removeClass('active');
+        $fnav.find(`.fnav-item[data-tab="${tab}"]`).addClass('active');
+
+        // Also close floating sidebar (important for mobile UX)
+        closeSidebar();
+    });
+
+    // Logout button
+    $('#fnavLogout').on('click', function () {
+        logout();
+        closeSidebar();
+    });
+
+    // Set initial active item
+    const activeTab = $('.sidebar-nav .nav-item.active').data('tab');
+    if (activeTab) {
+        $fnav.find(`.fnav-item[data-tab="${activeTab}"]`).addClass('active');
+    }
+});
 </script>
 <script src="/js/admin/admin.js"></script>
 <script src="/js/admin/adminads.js"></script>
