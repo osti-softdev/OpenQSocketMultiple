@@ -2652,3 +2652,32 @@
 ✔ 2026-02-20T06:31:36.836Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
 ✔ 2026-02-20T06:31:36.836Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
 ✔ 2026-02-20T06:31:36.970Z [node:events:508] [ADS] Client connected: QfuZJ9DxQ1kMHGJnAAAH
+✔ 2026-02-20T14:29:58.944Z [backend\utilities\logger.js:142] Logger initialized at: C:\NODE_SOURCES\OpenQSocketMultiple\public\logs
+✔ 2026-02-20T14:29:58.976Z [node_modules\dotenv\lib\main.js:139] [dotenv@17.3.1] injecting env (1) from backend\config\.env [2m-- tip: ⚙️  write to custom object with { processEnv: myObject }[0m
+✔ 2026-02-20T14:29:59.252Z [node:events:632] Queue System running on http://localhost:12341
+✔ 2026-02-20T14:29:59.253Z [unknown-location] Connected to SQLite database
+✔ 2026-02-20T14:30:16.098Z [backend\routes\AadminApi.js:19] Login attempt for: admin
+✔ 2026-02-20T14:30:16.101Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-02-20T14:30:16.102Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-02-20T14:30:16.338Z [node:events:518] [ADS] Client connected: RFk-VLTfj1mI5ED5AAAB
+✔ 2026-02-20T14:33:25.961Z [node:events:518] [ADS] Client disconnected: RFk-VLTfj1mI5ED5AAAB
+✔ 2026-02-20T14:33:26.059Z [node:events:518] [ADS] Client connected: q3U5o3xz1RnYwEkxAAAD
+✔ 2026-02-20T14:33:26.606Z [node:events:518] [ADS] Client disconnected: q3U5o3xz1RnYwEkxAAAD
+✔ 2026-02-20T14:33:26.713Z [node:events:518] [ADS] Client connected: MWvcVd0aGucY2XwpAAAF
+✔ 2026-02-20T14:33:27.034Z [node:events:518] [ADS] Client disconnected: MWvcVd0aGucY2XwpAAAF
+✔ 2026-02-20T14:33:27.131Z [node:events:518] [ADS] Client connected: tfyZ9xB9-Een-NsrAAAH
+✔ 2026-02-20T14:33:27.308Z [node:events:518] [ADS] Client disconnected: tfyZ9xB9-Een-NsrAAAH
+✔ 2026-02-20T14:33:27.375Z [node:events:518] [ADS] Client connected: q8PJ8vNia8xCFjxhAAAJ
+✔ 2026-02-20T14:33:27.464Z [node:events:518] [ADS] Client disconnected: q8PJ8vNia8xCFjxhAAAJ
+✔ 2026-02-20T14:33:27.533Z [node:events:518] [ADS] Client connected: 6B-1mS4mGnXhv0xMAAAL
+✔ 2026-02-20T14:33:28.683Z [node:events:518] [ADS] Client disconnected: 6B-1mS4mGnXhv0xMAAAL
+✔ 2026-02-20T14:33:28.745Z [node:events:518] [ADS] Client connected: w5myvl7cgu467jE4AAAN
+✔ 2026-02-20T14:38:15.563Z [node:events:518] [ADS] Client disconnected: w5myvl7cgu467jE4AAAN
+✔ 2026-02-20T14:38:15.824Z [node:events:518] [ADS] Client connected: ItE4xQiByZo3YYikAAAP
+✔ 2026-02-20T14:39:08.316Z [node:events:518] [ADS] Client disconnected: ItE4xQiByZo3YYikAAAP
+✔ 2026-02-20T14:39:08.524Z [node:events:518] [ADS] Client connected: k7Hz4OrkdWuFNe0QAAAR
+✔ 2026-02-20T14:39:08.651Z [node:events:518] [ADS] Client disconnected: k7Hz4OrkdWuFNe0QAAAR
+✔ 2026-02-20T14:39:08.820Z [node:events:518] [ADS] Client connected: NAcfAT6tpSjcDpcgAAAT
+✔ 2026-02-20T14:39:08.926Z [node:events:518] [ADS] Client disconnected: NAcfAT6tpSjcDpcgAAAT
+✔ 2026-02-20T14:39:09.430Z [node:events:518] [ADS] Client connected: 9brBud30wkCrSerGAAAV
+✔ 2026-02-20T14:39:12.460Z [node:events:518] [ADS] Client disconnected: 9brBud30wkCrSerGAAAV
