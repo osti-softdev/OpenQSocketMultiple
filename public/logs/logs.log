@@ -2681,3 +2681,36 @@
 ✔ 2026-02-20T14:39:08.926Z [node:events:518] [ADS] Client disconnected: NAcfAT6tpSjcDpcgAAAT
 ✔ 2026-02-20T14:39:09.430Z [node:events:518] [ADS] Client connected: 9brBud30wkCrSerGAAAV
 ✔ 2026-02-20T14:39:12.460Z [node:events:518] [ADS] Client disconnected: 9brBud30wkCrSerGAAAV
+✔ 2026-02-21T00:50:11.457Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-02-21T00:50:11.597Z [node_modules\dotenv\lib\main.js:142] [dotenv@17.2.4] injecting env (1) from backend\config\.env [2m-- tip: ⚙️  enable debug logging with { debug: true }[0m
+✔ 2026-02-21T00:50:12.213Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-02-21T00:50:12.216Z [unknown-location] Connected to SQLite database
+✔ 2026-02-21T00:50:28.841Z [backend\routes\AadminApi.js:19] Login attempt for: admin
+✔ 2026-02-21T00:50:28.854Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-02-21T00:50:28.854Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-02-21T00:50:29.047Z [node:events:508] [ADS] Client connected: 3p5m4uTqXIcadwEnAAAB
+✔ 2026-02-21T00:52:37.667Z [node:events:508] [ADS] Client connected: TFYfq7aaE6LfJP31AAAD
+✔ 2026-02-21T00:52:39.231Z [node:events:508] [ADS] Client connected: yiFkwCgDFQMOkhmjAAAF
+✔ 2026-02-21T00:52:39.518Z [node:events:508] [ADS] Client connected: OTYxlR2ozkE-P4orAAAH
+✔ 2026-02-21T02:25:08.973Z [node:events:508] [ADS] Client disconnected: 3p5m4uTqXIcadwEnAAAB
+✔ 2026-02-21T02:25:09.179Z [node:events:508] [ADS] Client connected: WpV2gtIu1BQZW_ZAAAAJ
+✔ 2026-02-21T02:25:09.616Z [node:events:508] [ADS] Client disconnected: WpV2gtIu1BQZW_ZAAAAJ
+✔ 2026-02-21T02:25:14.606Z [backend\routes\AadminApi.js:19] Login attempt for: admin
+✔ 2026-02-21T02:25:14.607Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-02-21T02:25:14.607Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-02-21T02:25:14.671Z [node:events:508] [ADS] Client connected: Ee6Y0GveCwubN9AzAAAL
+✔ 2026-02-21T02:26:39.302Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-02-21T02:26:39.320Z [node_modules\dotenv\lib\main.js:142] [dotenv@17.2.4] injecting env (1) from backend\config\.env [2m-- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }[0m
+✔ 2026-02-21T02:26:39.485Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-02-21T02:26:39.489Z [unknown-location] Connected to SQLite database
+✔ 2026-02-21T02:26:39.523Z [node:events:508] [ADS] Client connected: LaAq0fbwhlD5K6AEAAAE
+✔ 2026-02-21T02:26:39.525Z [node:events:508] [ADS] Client connected: 8m4sD4Lf0aJharjYAAAF
+✔ 2026-02-21T02:26:39.528Z [node:events:508] [ADS] Client connected: rFt4M5lpzgqO2YyIAAAG
+✔ 2026-02-21T02:26:39.534Z [node:events:508] [ADS] Client connected: boLbW0-QXqGi3tz6AAAH
+✔ 2026-02-21T02:26:40.337Z [node:events:508] [ADS] Client disconnected: 8m4sD4Lf0aJharjYAAAF
+✔ 2026-02-21T02:26:40.377Z [node:events:508] [ADS] Client connected: 5kLShFnKJKEMmD5YAAAJ
+✔ 2026-02-21T02:26:40.486Z [node:events:508] [ADS] Client disconnected: 5kLShFnKJKEMmD5YAAAJ
+✔ 2026-02-21T02:26:45.391Z [backend\routes\AadminApi.js:19] Login attempt for: admin
+✔ 2026-02-21T02:26:45.392Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-02-21T02:26:45.392Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-02-21T02:26:45.442Z [node:events:508] [ADS] Client connected: B9i-kg5jwX7rXuM3AAAL

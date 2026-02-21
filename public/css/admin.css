@@ -1239,6 +1239,157 @@ textarea.form-control {
     display: flex;
   }
 }
+@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  .sidebar {
+    display: none;
+  }
+  .sidebar-toggle {
+    display: flex;
+    bottom: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+  }
+  .floating-nav {
+    display: flex;
+    bottom: 82px;
+    right: 20px;
+  }
+  .content {
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .content .content-header {
+    height: 8%;
+  }
+  .content .content-header h2 {
+    font-size: 17px;
+  }
+  .content .content-header #current-user {
+    font-size: 11px;
+    margin-right: 8px !important;
+  }
+  .content .tab-content {
+    top: 8%;
+    height: 92%;
+  }
+  .content .dashsecContainer .dashSection1 .stats-grid {
+    gap: 0px !important;
+  }
+  .content .dashsecContainer .dashSection1 .stats-grid .stat-card {
+    padding: 0px !important;
+    width: 33.3% !important;
+    padding: 16px !important;
+  }
+  .content .dashsecContainer .dashSection1 .stats-grid .stat-card .stat-icon {
+    font-size: 22px !important;
+    margin-right: 8px !important;
+  }
+  .content .dashsecContainer .dashSection1 .stats-grid .stat-card .stat-info h3 {
+    font-size: 20px !important;
+  }
+  .content .dashsecContainer .dashSection1 .stats-grid .stat-card .stat-info p {
+    font-size: 11px !important;
+  }
+  .content .dashsecContainer .dashSection1 .section-title1 {
+    font-size: 14px !important;
+  }
+  .content .dashsecContainer .dashSection1 .live-grid {
+    gap: 0px !important;
+  }
+  .content .dashsecContainer .dashSection1 .live-grid .service-live-card {
+    padding: 10px !important;
+    flex: 1 33.3% !important;
+    width: 100% !important;
+  }
+  .content .dashsecContainer .dashSection1 .live-grid .service-live-card .service-name {
+    font-size: 14px !important;
+  }
+  .content .dashsecContainer .dashSection1 .live-grid .service-live-card .service-metrics .metric strong {
+    font-size: 15px !important;
+  }
+  .content .dashsecContainer .dashSection1 .section-title2 {
+    font-size: 14px !important;
+  }
+  .content .dashsecContainer .dashSection1 .card-teller-dashboard {
+    width: 100% !important;
+    display: flex !important;
+  }
+  .content .dashsecContainer .dashSection1 .card-teller-dashboard .admin-table {
+    text-align: center !important;
+  }
+  .content .dashsecContainer .dashSection1 .card-teller-dashboard .admin-table th, .content .dashsecContainer .dashSection1 .card-teller-dashboard .admin-table td {
+    text-align: center !important;
+    font-size: 11px !important;
+    padding: 8px !important;
+  }
+  .content .dashsecContainer .dashSection1 .card-chart-dashboard {
+    display: none !important;
+    top: 100% !important;
+    width: 100% !important;
+    left: 0 !important;
+    padding: 8px !important;
+  }
+  .content .dashsecContainer .dashSection1 .card-chart-dashboard .chart-container1 {
+    border-right: none !important;
+  }
+  .content .dashsecContainer .dashSection1 .card-chart-dashboard .chart-container2, .content .dashsecContainer .dashSection1 .card-chart-dashboard .chart-container3 {
+    padding: 8px !important;
+  }
+  .content .dashsecContainer .dashSection1 .card-chart-dashboard .chart-container1 {
+    border-right: none !important;
+  }
+  .content .card {
+    overflow: auto !important;
+    padding: 12px !important;
+  }
+  .content .card .card-header {
+    height: 10% !important;
+    padding: 10px !important;
+  }
+  .content .card .card-header h3 {
+    font-size: 15px !important;
+  }
+  .content .card .card-header input.form-control {
+    font-size: 12px !important;
+    padding: 6px 10px !important;
+  }
+  .content .card .table-container {
+    top: 10% !important;
+    height: 90% !important;
+    overflow: auto !important;
+  }
+  .content .card .admin-table {
+    overflow: auto !important;
+    width: 100% !important;
+  }
+  .content .card .admin-table th, .content .card .admin-table td {
+    width: 90px !important;
+    font-size: 12px !important;
+    padding: 6px !important;
+  }
+  .content .card .admin-table th button, .content .card .admin-table td button {
+    padding: 10px !important;
+    font-size: 11px !important;
+  }
+  .modal-overlay .modal {
+    width: 97%;
+    max-height: 92%;
+  }
+  .modal-overlay .modal .modal-header {
+    padding: 14px 16px;
+  }
+  .modal-overlay .modal .modal-header h3 {
+    font-size: 16px;
+  }
+  .modal-overlay .modal .modal-body {
+    padding: 14px 16px;
+  }
+  .modal-overlay .modal .modal-footer {
+    padding: 12px 16px;
+  }
+}
 @media screen and (max-width: 767px) and (orientation: portrait) {
   .sidebar {
     display: none;

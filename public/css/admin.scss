@@ -1406,8 +1406,135 @@ textarea.form-control {
 
 // }
 // // ! tablet responsiveness portrait
-// @media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
-// }
+@media screen and (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+
+    .sidebar { display: none; }
+    .sidebar-toggle { display: flex; bottom: 20px; right: 20px; width: 52px; height: 52px; }
+    .floating-nav   { display: flex; bottom: 82px; right: 20px; }
+
+    .content {
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        .content-header {
+            height: 8%;
+
+            h2 { font-size: 17px; }
+
+            #current-user { font-size: 11px; margin-right: 8px !important; }
+        }
+
+        .tab-content {
+            top: 8%;
+            height: 92%;
+        }
+        .dashsecContainer{
+            .dashSection1{
+                .stats-grid {
+                        gap: 0px !important;
+                    .stat-card {
+                        padding: 0px !important; 
+                        width: 33.3% !important;
+                        padding: 16px !important;
+                        .stat-icon  { font-size: 22px !important; margin-right: 8px !important; }
+                        .stat-info h3 { font-size: 20px !important; }
+                        .stat-info p  { font-size: 11px !important; }
+                    }
+                }
+                .section-title1 { 
+                  font-size: 14px !important;
+                }
+
+                .live-grid {
+                    gap: 0px !important;
+                    .service-live-card {
+                        padding: 10px !important;
+                        flex: 1 33.3% !important;
+                        width: 100% !important;
+
+                        .service-name { font-size: 14px !important; }
+                        .service-metrics .metric strong { font-size: 15px !important; }
+                    }
+                }
+                .section-title2 { font-size: 14px !important; }
+                .card-teller-dashboard {
+                    width: 100% !important;
+                    display: flex !important;
+                    .admin-table {
+                        text-align: center !important;
+                        th, td { 
+                        text-align: center !important;
+                            font-size: 11px !important; 
+                            padding: 8px !important; }
+                    }
+                }
+                .card-chart-dashboard {
+                    display: none !important;
+                    top: 100% !important;
+                    width: 100% !important;
+                    left: 0 !important;
+                    padding: 8px !important;
+                    .chart-container1 {
+                        border-right: none !important;
+                    }
+                     .chart-container2, .chart-container3 {
+                        padding: 8px !important;
+                     }
+                        .chart-container1 {
+                            border-right: none !important;
+                        }
+                }
+            }
+        }
+        .card {
+            overflow: auto !important;
+            padding: 12px !important;
+
+            .card-header {
+                height: 10% !important;
+                padding: 10px !important;
+
+                h3 { font-size: 15px !important; }
+
+                input.form-control {
+                    font-size: 12px !important;
+                    padding: 6px 10px !important;
+                }
+            }
+
+            .table-container { 
+                top: 10% !important; 
+                height: 90% !important;
+            overflow: auto !important;
+            }
+
+            .admin-table {
+                overflow: auto !important;
+                width: 100% !important;
+                th, td { 
+                    width: 90px !important;
+                    font-size: 12px !important; 
+                    padding: 6px !important; 
+
+                    button{
+                        padding: 10px !important;
+                        font-size: 11px !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .modal-overlay .modal {
+        width: 97%;
+        max-height: 92%;
+
+        .modal-header { padding: 14px 16px; h3 { font-size: 16px; } }
+        .modal-body   { padding: 14px 16px; }
+        .modal-footer { padding: 12px 16px; }
+    }
+}
 // ! Mobile responsiveness portrait
 
 @media screen and (max-width: 767px) and (orientation: portrait) {

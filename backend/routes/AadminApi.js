@@ -296,9 +296,9 @@ module.exports = function createTellerApiRouter(io) {
   });
   // & Add Service
   router.post('/admin/services', (req, res) => {
-    const { name, prefix, priority_prefix, cutoff_time } = req.body;
-    db.run(`INSERT INTO services (sname, regular, priority, sched) VALUES (?, ?, ?, ?)`,
-        [name, prefix, priority_prefix, cutoff_time],
+    const { name, prefix, priority_prefix, is_active, cutoff_time } = req.body;
+    db.run(`INSERT INTO services (sname, regular, priority, status, sched) VALUES (?, ?, ?, ?, ?)`,
+        [name, prefix, priority_prefix, is_active, cutoff_time],
         function (err) {
             if (err) return res.status(500).json({ error: err.message });
             res.json({ success: true, id: this.lastID });
