@@ -2774,3 +2774,108 @@
 ✔ 2026-02-21T03:06:05.631Z [node:events:508] [ADS] Client disconnected: QZpPZFAldvoAlFxeAAAj
 ✔ 2026-02-21T03:06:05.673Z [node:events:508] [ADS] Client connected: 1saIVR6W67o78c-dAAAl
 ✔ 2026-02-21T03:06:49.854Z [node:events:508] [ADS] Client disconnected: JizCVwhh2NQuGa1IAAAb
+✔ 2026-02-21T04:04:18.752Z [node:events:508] [ADS] Client connected: qN4cB6kyFMibVaqFAAAn
+✔ 2026-02-21T04:04:55.514Z [node:events:508] [ADS] Client disconnected: qN4cB6kyFMibVaqFAAAn
+✔ 2026-02-21T04:04:55.660Z [node:events:508] [ADS] Client connected: POtMyNbxpGwGny8-AAAp
+✔ 2026-02-21T04:10:55.779Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-02-21T04:10:55.842Z [node_modules\dotenv\lib\main.js:142] [dotenv@17.2.4] injecting env (1) from backend\config\.env [2m-- tip: 🔄 add secrets lifecycle management: https://dotenvx.com/ops[0m
+✔ 2026-02-21T04:10:56.306Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-02-21T04:10:56.309Z [unknown-location] Connected to SQLite database
+✔ 2026-02-21T04:10:56.338Z [node:events:508] [ADS] Client connected: SEe1-y-Q6af8rPHNAAAE
+✔ 2026-02-21T04:10:56.344Z [node:events:508] [ADS] Client connected: K14zC6IbKRX-39nBAAAF
+✔ 2026-02-21T04:10:56.346Z [node:events:508] [ADS] Client connected: pdLK_9ik7woNc4PfAAAG
+✔ 2026-02-21T04:10:56.351Z [node:events:508] [ADS] Client connected: dQqUKBb9fN8Fj383AAAH
+✔ 2026-02-21T04:10:58.277Z [backend\routes\AkioskApi.js:25] ┌─────────┬────┬─────────────────────┬─────────┬──────────┬────────┬─────────────────────┬────────────┐
+│ (index) │ id │ sname               │ regular │ priority │ status │ shortSname          │ sched      │
+├─────────┼────┼─────────────────────┼─────────┼──────────┼────────┼─────────────────────┼────────────┤
+│ 0       │ [33m1[39m  │ [32m'TELLER'[39m            │ [32m'T'[39m     │ [32m'PPTEL'[39m  │ [33m1[39m      │ [32m'Teller'[39m            │ [32m'12:01:45'[39m │
+│ 1       │ [33m2[39m  │ [32m'SALARY_LOAN'[39m       │ [32m'SL'[39m    │ [32m'PSL'[39m    │ [33m1[39m      │ [32m'Salary Loan'[39m       │ [32m''[39m         │
+│ 2       │ [33m3[39m  │ [32m'VERIFICATION'[39m      │ [32m'V'[39m     │ [32m'PV'[39m     │ [33m1[39m      │ [32m'Verification'[39m      │ [32m''[39m         │
+│ 3       │ [33m4[39m  │ [32m'NEW_ACCOUNTS'[39m      │ [32m'NA'[39m    │ [32m'PNA'[39m    │ [33m1[39m      │ [32m'New Accounts'[39m      │ [32m''[39m         │
+│ 4       │ [33m5[39m  │ [32m'MDS'[39m               │ [32m'MDS'[39m   │ [32m'PMDS'[39m   │ [33m1[39m      │ [32m'MDS'[39m               │ [32m''[39m         │
+│ 5       │ [33m6[39m  │ [32m'PASSBOOK_UPDATING'[39m │ [32m'PU'[39m    │ [32m'PPU'[39m    │ [33m1[39m      │ [32m'PASSBOOK UPDATING'[39m │ [32m''[39m         │
+└─────────┴────┴─────────────────────┴─────────┴──────────┴────────┴─────────────────────┴────────────┘
+✔ 2026-02-21T04:10:58.281Z [node:events:508] [ADS] Client connected: uuV7TvURsJsSabFoAAAJ
+✔ 2026-02-21T04:12:22.638Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-02-21T04:12:22.657Z [node_modules\dotenv\lib\main.js:142] [dotenv@17.2.4] injecting env (1) from backend\config\.env [2m-- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }[0m
+✔ 2026-02-21T04:12:22.823Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-02-21T04:12:22.827Z [unknown-location] Connected to SQLite database
+✔ 2026-02-21T04:12:22.854Z [node:events:508] [ADS] Client connected: gP7jNxIP3gNv7m1YAAAE
+✔ 2026-02-21T04:12:22.856Z [node:events:508] [ADS] Client connected: WqIYN_ybMuxQCwhSAAAF
+✔ 2026-02-21T04:12:22.860Z [node:events:508] [ADS] Client connected: xcdJThh0671lvCVZAAAG
+✔ 2026-02-21T04:12:22.861Z [node:events:508] [ADS] Client connected: xs87SQnYUZqIxfOgAAAH
+✔ 2026-02-21T04:12:27.366Z [node:events:508] [ADS] Client connected: MupuR1lslYXZuNvmAAAJ
+✔ 2026-02-21T04:12:27.367Z [backend\routes\AkioskApi.js:25] [
+  {
+    id: 1,
+    sname: 'TELLER',
+    regular: 'T',
+    priority: 'PPTEL',
+    status: 1,
+    shortSname: 'Teller',
+    sched: '12:01:45'
+  },
+  {
+    id: 2,
+    sname: 'SALARY_LOAN',
+    regular: 'SL',
+    priority: 'PSL',
+    status: 1,
+    shortSname: 'Salary Loan',
+    sched: ''
+  },
+  {
+    id: 3,
+    sname: 'VERIFICATION',
+    regular: 'V',
+    priority: 'PV',
+    status: 1,
+    shortSname: 'Verification',
+    sched: ''
+  },
+  {
+    id: 4,
+    sname: 'NEW_ACCOUNTS',
+    regular: 'NA',
+    priority: 'PNA',
+    status: 1,
+    shortSname: 'New Accounts',
+    sched: ''
+  },
+  {
+    id: 5,
+    sname: 'MDS',
+    regular: 'MDS',
+    priority: 'PMDS',
+    status: 1,
+    shortSname: 'MDS',
+    sched: ''
+  },
+  {
+    id: 6,
+    sname: 'PASSBOOK_UPDATING',
+    regular: 'PU',
+    priority: 'PPU',
+    status: 1,
+    shortSname: 'PASSBOOK UPDATING',
+    sched: ''
+  }
+]
+✔ 2026-02-21T04:13:35.698Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-02-21T04:13:35.716Z [node_modules\dotenv\lib\main.js:142] [dotenv@17.2.4] injecting env (1) from backend\config\.env [2m-- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit[0m
+✔ 2026-02-21T04:13:35.877Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-02-21T04:13:35.880Z [unknown-location] Connected to SQLite database
+✔ 2026-02-21T04:13:35.950Z [node:events:508] [ADS] Client connected: sZgX2hftzSFx1zm3AAAC
+✔ 2026-02-21T04:13:36.000Z [node:events:508] [ADS] Client connected: _KRI5KCoIawRiNckAAAF
+✔ 2026-02-21T04:13:36.031Z [node:events:508] [ADS] Client connected: 8rongbeL3kZSAAdnAAAG
+✔ 2026-02-21T04:13:36.033Z [node:events:508] [ADS] Client connected: ugj11AmRn_0_uWlYAAAH
+✔ 2026-02-21T04:13:36.206Z [node:events:508] [ADS] Client connected: WELKRqYp6Y8jOgGVAAAJ
+✔ 2026-02-21T04:13:37.544Z [node:events:508] [ADS] Client disconnected: sZgX2hftzSFx1zm3AAAC
+✔ 2026-02-21T04:13:37.610Z [node:events:508] [ADS] Client connected: R-h59E1TgW6HlVMhAAAL
+✔ 2026-02-21T04:13:37.624Z [backend\routes\AkioskApi.js:25] TELLER
+✔ 2026-02-21T04:21:53.752Z [node:events:508] [ADS] Client disconnected: R-h59E1TgW6HlVMhAAAL
+✔ 2026-02-21T04:21:57.622Z [backend\routes\AadminApi.js:19] Login attempt for: admin
+✔ 2026-02-21T04:21:57.623Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-02-21T04:21:57.623Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-02-21T04:21:57.779Z [node:events:508] [ADS] Client connected: NDDIO-ab1kEwUSl3AAAN
+✔ 2026-02-21T04:24:57.386Z [node:events:508] [ADS] Client disconnected: NDDIO-ab1kEwUSl3AAAN

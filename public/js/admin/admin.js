@@ -525,7 +525,7 @@ function saveSettings() {
     const payload = {
         announcement: $('#setting-announcement').val(),
         announcement2: $('#setting-announcement2').val(),
-        announcement3: $('#setting-announcement3').val()
+        announcement3: $('#setting-announcement3').val(),
     };
 
     $.ajax({

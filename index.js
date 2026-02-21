@@ -47,7 +47,7 @@ appExpress.use('/ads', express.static(path.join(__dirname, 'public/ads'), {
 }));
 
 appExpress.use(session({
-    secret: 'asdasdasd-weqweqewe-cdvfretvert-asdrace323c23-c234234cf3324234-2026asds',   // change this!
+    secret: 'asdasdasd-wejjks9qweqewe-cdvfretvert-asdrace323c23-c234234cf3324234-2026asds',   // change this!
     resave: false,
     saveUninitialized: false,
     cookie: {
