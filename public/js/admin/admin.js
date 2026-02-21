@@ -332,7 +332,7 @@ function loadServices() {
         services.forEach(s => {
             $list.append(`
                 <tr>
-                    <td>${s.sname}</td>
+                    <td>${s.shortSname}</td>
                     <td>${s.regular}</td>
                     <td>${s.priority}</td>
                     <td>${s.sched || '-'}</td>
@@ -665,8 +665,12 @@ function openModal(type = currentTab, data = null) {
     if (type === 'services') {
         $form.html(`
             <div class="form-group">
-                <label>Service Name</label>
+                <label>Service Name (no spacing & use underscores)</label>
                 <input type="text" id="s-name" class="form-control" value="${data?.sname || ''}">
+            </div>
+            <div class="form-group">
+                <label>Service Name Display</label>
+                <input type="text" id="s-name-display" class="form-control" value="${data?.shortSname || ''}">
             </div>
             <div class="form-group">
                 <label>Regular Letter/Prefix</label>
@@ -799,6 +803,7 @@ function saveItem() {
 
         const payload = {
             name: $('#s-name').val().trim(),
+            shortSname: $('#s-name-display').val().trim(),
             prefix: $('#s-prefix').val().trim(),
             priority_prefix: $('#s-priority').val().trim(),
             cutoff_time: $('#s-cutoff').val(),

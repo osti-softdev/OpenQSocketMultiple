@@ -111,7 +111,6 @@ module.exports = function createTellerApiRouter(io) {
         });
     });
 
-
     const tellerPromise = new Promise((resolve) => {
         db.all(`
             SELECT 
@@ -296,9 +295,9 @@ module.exports = function createTellerApiRouter(io) {
   });
   // & Add Service
   router.post('/admin/services', (req, res) => {
-    const { name, prefix, priority_prefix, is_active, cutoff_time } = req.body;
-    db.run(`INSERT INTO services (sname, regular, priority, status, sched) VALUES (?, ?, ?, ?, ?)`,
-        [name, prefix, priority_prefix, is_active, cutoff_time],
+    const { name, shortSname, prefix, priority_prefix, is_active, cutoff_time } = req.body;
+    db.run(`INSERT INTO services (sname, shortSname, regular, priority, status, sched) VALUES (?, ?, ?, ?, ?, ?)`,
+        [name, shortSname, prefix, priority_prefix, is_active, cutoff_time],
         function (err) {
             if (err) return res.status(500).json({ error: err.message });
             res.json({ success: true, id: this.lastID });
@@ -307,9 +306,9 @@ module.exports = function createTellerApiRouter(io) {
   });
   // & Edit Service
   router.put('/admin/services/:id', (req, res) => {
-    const { name, prefix, priority_prefix, cutoff_time, is_active } = req.body;
-    db.run(`UPDATE services SET sname = ?, regular = ?, priority = ?, sched = ?, status = ? WHERE id = ?`,
-        [name, prefix, priority_prefix, cutoff_time, is_active, req.params.id],
+    const { name, shortSname, prefix, priority_prefix, cutoff_time, is_active } = req.body;
+    db.run(`UPDATE services SET sname = ?, shortSname = ?, regular = ?, priority = ?, sched = ?, status = ? WHERE id = ?`,
+        [name, shortSname, prefix, priority_prefix, cutoff_time, is_active, req.params.id],
         (err) => {
             if (err) return res.status(500).json({ error: err.message });
             res.json({ success: true });
