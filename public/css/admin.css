@@ -1524,6 +1524,108 @@ textarea.form-control {
     padding: 10px !important;
     font-size: 11px !important;
   }
+  .content .card-settings {
+    margin: 0px !important;
+    padding: 0px !important;
+  }
+  .content .card-settings #settings-form {
+    margin: 0px !important;
+    padding: 0px !important;
+    height: 100% !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: start !important;
+    align-items: start !important;
+    gap: 0px !important;
+  }
+  .content .card-settings #settings-form .form-group {
+    width: 100% !important;
+    margin: 0 !important;
+    height: 30% !important;
+    transform: scale(0.9);
+  }
+  .content .card-settings #settings-form .form-group label {
+    font-size: 18px !important;
+  }
+  .content .card-settings #settings-form .form-group input.form-control {
+    font-size: 16px !important;
+    padding: 6px !important;
+  }
+  .content .card-settings #settings-form button {
+    position: absolute !important;
+    top: 85% !important;
+    right: 1%;
+    background-color: #2563eb !important;
+    color: white !important;
+    border: none !important;
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+    font-size: 14px !important;
+    padding: 8px 12px !important;
+    font-size: 0.85rem !important;
+  }
+  .content .adsmain .adsmainconfigtitle p {
+    font-size: 16px !important;
+  }
+  .content .adsmain .adsmainconfigtitle #videoUploadForm {
+    width: 40% !important;
+  }
+  .content .adsmain .adsmainconfigtitle #videoUploadForm p {
+    font-size: 10px;
+  }
+  .content .adsmain .adsmainconfigtitle #videoUploadForm .file-label {
+    height: 90% !important;
+    text-align: center !important;
+    font-size: 0.85rem !important;
+  }
+  .content .adsmain .adsmainconfigtitle #videoUploadForm input[type=file] {
+    height: 90% !important;
+  }
+  .content .adsmain .adsmainconfigtitle #videoUploadForm button[type=submit] {
+    top: 0 !important;
+    height: 90% !important;
+    padding: 6px 10px !important;
+    font-size: 0.85rem !important;
+  }
+  .content .adsmain .adsmainconfigtitle #uploadStatus #uploadText {
+    font-size: 0.75rem !important;
+  }
+  .content .adsmain .adslist {
+    height: 40% !important;
+    width: 100% !important;
+  }
+  .content .adsmain .adslist .adsitem {
+    height: 30px !important;
+    font-size: 0.9rem !important;
+  }
+  .content .adsmain .adslist .adsitem .labelCont {
+    text-indent: 8px !important;
+  }
+  .content .adsmain .adslist .adsitem .btnCont {
+    width: 40% !important;
+  }
+  .content .adsmain .adslist .adsitem .btnCont button {
+    padding: 8px !important;
+    font-size: 0.85rem !important;
+  }
+  .content .adsmain .videocontainer {
+    overflow: hidden !important;
+    top: 40% !important;
+    left: 0 !important;
+    height: 60% !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .content .adsmain .videocontainer video {
+    width: 80% !important;
+    height: auto !important;
+  }
   .modal-overlay .modal {
     width: 97%;
     max-height: 92%;

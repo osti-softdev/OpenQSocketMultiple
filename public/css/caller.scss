@@ -4,7 +4,13 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+html, body {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
 body {
     font-family: 'Inter', 'Segoe UI', sans-serif;
     background: #f9fafb;
@@ -545,9 +551,10 @@ body {
         }
         .actionbtns{
             position: absolute;
-            top: 80%;
+            top: 70%;
+            bottom: 0%;
             width: 100%;
-            height: 20%;
+            height: auto;
             background-color: red;
             display: flex;
             justify-content: center;
@@ -815,3 +822,88 @@ body {
             }
         }
     }   
+
+@media screen and (max-width: 767px){
+    .tellerNav{
+            .teller-info{
+                .teller-details{
+                    display: none;
+                }
+            }
+        }
+
+    .tellerContent{
+        .navBtns{
+            div{
+                font-size: 12px;
+                padding: 0;
+                height: 80%;
+                width: 22%;
+            }
+        }
+        .servicesManage{
+                max-height: 60% !important;
+                background-color: red !important;
+            .service-box{
+                .service-stats{
+                    .stat-item{
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+        .pendingManage{
+            .queue-item{
+                .queue-item-info{
+                    h4{
+                        font-size: 14px;
+                    }
+                    span{
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+        .actionbtns{
+            top: 70% !important;
+            height: 30% !important;
+            bottom: 0% !important;
+
+            .time-meta{
+                top: 0 !important;
+                left: 0 !important;
+                max-height: 50% !important;
+                width: 50% !important;
+                font-size: 12px !important;
+            }
+            .currentCalledTicket{
+                top: 0 !important;
+                left: 50% !important;
+                max-height: 50% !important;
+                width: 50% !important;
+
+                .active-ticket-info {
+                    .ticket-num-large {
+                        font-size: 4vw !important;
+                    }
+
+                    .ticket-service-name {
+                        font-size: 3vw !important;
+                    }
+                }
+            }
+            .ticket-action-buttons{
+                top: 50% !important;
+                left: 0 !important;
+                max-height: 50% !important;
+                width: 100% !important;
+
+                button{
+                    font-size: 3vw !important;
+                    height: 90% !important;
+                    width: 18% !important;
+                }
+            }
+        }
+    }
+}
