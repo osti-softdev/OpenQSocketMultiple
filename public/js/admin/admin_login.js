@@ -15,7 +15,7 @@ $(document).ready(function () {
             contentType: 'application/json',
             data: JSON.stringify({ username, password }),
             success: function (response) {
-                if (response.success) {
+                 if (response.success) {
                     currentAdmin = response.admin;
                     window.location.href = '/admin/dashboard';
                 } else {
