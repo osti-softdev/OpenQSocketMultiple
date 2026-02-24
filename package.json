@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"bin": "index.js",
 	"scripts": {
-		"start": "electron .",
+		"start": "node index.js",
 		"dev": "node --inspect index.js",
 		"stop": "node tools/stop.js"
 	},
