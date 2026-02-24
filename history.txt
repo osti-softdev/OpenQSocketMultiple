@@ -1,0 +1,799 @@
+Microsoft Windows [Version 10.0.19045.6466]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Neptune>ssh osti@192.168.1.39
+osti@192.168.1.39's password:
+Linux osti 6.12.62+rpt-rpi-2712 #1 SMP PREEMPT Debian 1:6.12.62-1+rpt1 (2025-12-18) aarch64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Fri Feb 13 14:48:05 2026 from 192.168.1.200
+osti@osti:~ $ history
+    1  SUDO RAPI-CONFIG
+    2  sudo raspi-config
+    3  sudo systemctl start ssh
+    4  sudo systemctl status ssh
+    5  sudo raspi-config
+    6  cat /etc/ssh/ssd_config | grep -i PasswordAuthentication
+    7  cat /etc/ssh/sshd_config | grep -i PasswordAuthentication
+    8  sudo raspi-config
+    9  whoami
+   10  ls /home
+   11  sudo passwd pi
+   12  sud
+   13  nano /etc/ssh/sshd_config
+   14  npm -v
+   15  curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+   16  sudo apt install -y nodejs
+   17  sudo apt update
+   18  sudo apt upgrade
+   19  npde -v
+   20  node -v
+   21  npm -v
+   22  ls
+   23  cp r /mnt/e/source_codes/node/OpenQSocketMultiple
+   24  cp -r /mnt/e/source_codes/node/OpenQSocketMultiple
+   25  cp -r /mnt/e/source_codes/node/OpenQSocketMultiple ~/
+   26  cp -r /mnt/e/SOURCE_CODES/NODE/OpenQSocketMultiple ~/
+   27  cp -r /mnt/E/SOURCE_CODES/NODE/OpenQSocketMultiple ~/
+   28  cp -r /mnt/e/SOURCE_CODES/NODE/OpenQSocketMultiple ~/
+   29  clear
+   30  sudo apt intall git
+   31  sudo apt-intall git
+   32  git
+   33  sudo apt intall git -y
+   34  sudo apt install git -y
+   35  git clone https://github.com/osti-softdev/OpenQSocketMultiple.git
+   36  ls
+   37  cd OpenQSocketMultiple
+   38  ls
+   39  npm install
+   40  npm install -g npm@11.10.0
+   41  raspi-config
+   42  sudo su
+   43  sudo npm install -g npm@11.10.0
+   44  npm install
+   45  node -v
+   46  cls
+   47  clear
+   48  python3
+   49  python3 -m ensurepip --upgrade
+   50  sudo apt install python3-venv python3-dev build-essential
+   51  npm install -g node-gyp@latest
+   52  sudo npm install -g node-gyp@latest
+   53  node-gyp -v
+   54  ls
+   55  npm insta;;
+   56  npm install
+   57  ls
+   58  python3 -m venv venv
+   59  source venv/bin/activate
+   60  pip install --upgrade pip setuptools wheel
+   61  npm install
+   62  ls
+   63  nano package.json
+   64  npm install
+   65  ls
+   66  nano index.js
+   67  npm start
+   68  clear
+   69  ls
+   70  cd ..
+   71  ls
+   72  rm -rf OpenQSocketMultiple
+   75  ls
+   76  cd OpenQSocketMultiple
+   77  ls
+   78  nano package.json
+   79  ls
+   80  npm install
+   81  nano package.json
+   82  pip install --upgrade pip setuptools wheel
+   83  source venv/bin/activate
+   84  deactivate
+   85  npm install
+   86  sudo apt install python3-venv pyhon3-dev build-essential
+   87  sudo apt install python3-venv python3-dev build-essential
+   88  python3 -m venv venv
+   89  source venv/bin/activate
+   90  pip install --upgrade pip setuptools wheel
+   91  npm install
+   92  deactivate
+   93  npm start
+   94  nano package.json
+   95  source venv/bin/activate
+   96  ls
+   97  rm -rf node_modules
+   98  ls
+   99  rm -rf package-lock.json
+  100  ls
+  101  npm install
+  102  ls
+  103  deactivate
+  104  npm start
+  105  nano index.js
+  106  ls
+  107  cd ..
+  108  ls
+  109  rm -rf OpenQSocketMultiple
+  110  ls
+  112  ls
+  113  cd OpenQSocketMultiple
+  114  ls
+  115  nano package.json
+  116  nano index.js
+  117  ls
+  118  python3 -m venv venv
+  119  s
+  120  source venv/bin/activate
+  121  pip install --upgrade pip setuptools wheel
+  122  npm install
+  123  ls
+  124  npm start
+  125  cls
+  126  ls
+  127  clear
+  128  ls
+  129  npm start
+  130  npm install pm2
+  131  pm2
+  132  npm install -g pm2
+  133  sudo npm install -g pm2
+  134  pm2
+  135  pm2 start index.js
+  136  pm2 list
+  137  pm2 save
+  138  pm2 startup
+  139  deactivate
+  140  pm2
+  141  pm2 list
+  142  pm2 save
+  143  pm2 startup
+  144  sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u osti --hp /home/osti
+  145  ls
+  146  pm2 list
+  147  pm2 start index.js --name index
+  148  systemctl --user status pm2-osti
+  149  sudo systemctl --user status pm2-osti
+  150  sudo systemctl status pm2-osti
+  151  sudo journalctl -u pm2-osti -e     # last 100–200 lines (most recent)
+  152  ti -b
+  153  # or full
+  154  sudo journalctl -u pm2-osti --no-pager
+  155  pm2 resurrect
+  156  pm2 list
+  157  pm2 save
+  158  chown -R osti:osti ~/.pm2
+  159  chmod -R u+rw ~/.pm2
+  160  pm2 save
+  161  sudo systemctl daemon-reload
+  162  sudo systemctl restart pm2-osti
+  163  sudo reboot
+  164  ls
+  165  pm2 resurrect
+  166  ls
+  167  pm2 list
+  168  sudo systemctl daemon-reload
+  169  sudo systemctl restart pm2-osti
+  170  pm2 list
+  171  sudo raspi-config
+  172  ls
+  173  cd OpenQSocketMultiple
+  174  ls
+  175  cat
+  176  git
+  177  git remote -v
+  178  git branch
+  179  git branch -r
+  180  git status
+  181  git diff
+  182  ls
+  183  nano .gitignore
+  184  git add .
+  222  git push origin TOPLINE
+  224  git push origin TOPLINE
+  225  git credetial reject
+  226  git credential reject
+
+  229  git push origin TOPLINE
+  230  pm2 monit
+  231  pm2 list
+  232  pm2 monitor
+  233  pm2 monit
+  234  ls
+  235  cd reso
+  236  ls
+  237  cd node
+  238  ls
+  239  cd serialport.js
+  240  nano serialport.js
+  241  cd ..
+  242  ls
+  243  cd html
+  244  ls
+  245  nano index.html
+  246  ls
+  247  cd ..
+  248  pm2 resurrect
+  249  ls
+  250  sudo reboot
+  251  sudo apt install htop -y
+  252  htop
+  253  pm2 list
+  254  pm2 logs
+  255  cls
+  256  cd OpenQSocketMultiple
+  257  ls
+  258  nano index.js
+  259  git pull origin TOPLINE
+  260  git pull
+  261  nano index.js
+  262  ls
+  263  pm2 index
+  264  pm2 list
+  265  pm2 delete index
+  266  pm2 start index.js --name openQ
+  267  pm2 save
+  268  pm2 startup
+  269  sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u osti --hp /home/osti
+  270  sudo reboot
+  271  pm2 logs
+  272  htop
+  273  pm2 monit
+  274  sudo rapi-config
+  275  sudo raspi-config
+  276  ip a
+  277  sudo rfkill block wifi
+  278  ip a
+  279  sudo nano /etc/dhcpcd.conf
+  280  ifconfig
+  281  sudo reboot
+  282  ifconfig
+  283  sudo nano /boot/firmware/config.txt
+  284  sudo reboot
+  285  mtui
+  286  nmtui
+  287  ifconfig
+  288  sudo nmtui
+  289  sudo reboot
+  290  ifconfig
+  291  sudo rfkill unblock wifi
+  292  ifconfig
+  293  sudo nano /boot/firmware/config.txt
+  294  ifconfig
+  295  sudo nano /etc/dhcpcd.conf
+  296  sudo reboot
+  297  sudo nmtui
+  298  ifconfig
+  299  sudo nmtui
+  300  ifconfig
+  301  cd ..
+  302  cd
+  303  ls
+  304  cd OpenQSocketMultiple
+  305  ls
+  306  sudo apt update
+  307  sudo apt upgrade
+  308  sudo apt install nginx
+  309  ls
+  310  sudo anno /etc/systemd/system/nginx.service
+  311  sudo nano /etc/systemd/system/nginx.service
+  312  sudo systemctl daemon-reload
+  313  sudo systemctl enable nginx
+  314  sudo systemctl start nginx
+  315  sudo systemctl status nginx
+  316  mkdir -p /home/osti/OpenQSocketMultiple/temp/client_body_temp
+  317  mkdir -p /home/osti/OpenQSocketMultiple/temp/proxy_temp
+  318  mkdir -p /home/osti/OpenQSocketMultiple/temp/fastcgi_temp
+  319  chown -R www-data:www-data /home/osti/OpenQSocketMultiple/temp
+  320  ls
+  321  cd outfolder
+  322  ls
+  323  chown -R www-data:www-data /home/osti/OpenQSocketMultiple/outfolder/ads
+  324  sudo chown -R www-data:www-data /home/osti/OpenQSocketMultiple/outfolder/ads
+  325  cd /etc
+  326  ls
+  327  cd nginx
+  328  ls
+  329  mv nginx.conf nginx1.conf
+  330  sudo mv nginx.conf nginx1.conf
+  331  ls
+  332  nano nginx.conf
+  333  cd /etc/nginx
+  334  ls
+  335  sudo nano nginx.conf
+  336  sudo nginx -t
+  337  cd ..
+  338  cd..
+  339  cd ..
+  340  cd OpenQSocketMultiple
+  341  ls
+  342  cd home
+  343  ls
+  344  cd osti
+  345  ls
+  346  cd OpenQSocketMultiple
+  347  ls
+  348  mkdir -p /home/osti/OpenQSocketMultiple/outfolder/temp/client_body_temp
+  349  mkdir -p /home/osti/OpenQSocketMultiple/outfolder/temp/proxy_temp
+  350  mkdir -p /home/osti/OpenQSocketMultiple/outfolder/temp/fastcgi_temp
+  351  chown -R www-data:www-data /home/osti/OpenQSocketMultiple/outfolder/temp
+  352  sudo mkdir -p /home/osti/OpenQSocketMultiple/outfolder/temp/client_body_temp
+  353  SocketMultiple/outfolder/temp
+  354  cls
+  355  clear
+  356  ls
+  357  cd outfolder
+  358  ;s
+  359  ls
+  360  cd temp
+  361  ls
+  362  cd ..
+  363  sudo chown -R www-data:www-data /home/osti/OpenQSocketMultiple/outfolder/temp
+  364  ls
+  365  cd ..
+  366  rm -rf temp
+  367  ls
+  368  pm2 list
+  369  nginx -t
+  370  sudo nginx -t
+  371  sudo systemctl restart nginx
+  372  sudo systemctl status nginx.service
+  373  nano /etc/systemd/system/ngi
+  374  sudo nano /etc/systemd/system/nginx.service
+  375  sudo systemctl daemon-reload
+  376  sudo systemctl start nginx.service
+  377  sudo systemctl status nginx.service
+  378  sudo systemctl restart nginx
+  379  sudo journalctl -xeu nginx.service
+  380  ls
+  381  sudo nginx -t
+  382  sudo systemctl status nginx.service
+  383  mkdir -p /home/osti/OpenQSocketMultiple/temp/{client_body_temp,proxy_temp,fastcgi_temp}
+  384  chown -R www-data:www-data /home/osti/OpenQSocketMultiple/temp
+  385  chmod -R 750 /home/osti/OpenQSocketMultiple/temp
+  386  cd /etc/nginx
+  387  ls
+  388  sudo nano nginx.conf
+  389  nginx -t
+  390  sudo nginx -t
+  391  sudo systemctl start nginx
+  392  sudo nano /etc/systemd/system/nginx.service
+  393  mkdir -p /home/osti/OpenQSocketMultiple/nginx/logs
+  394  mkdir -p /home/osti/OpenQSocketMultiple/temp/{client_body_temp,proxy_temp,fastcgi_temp}
+  395  chown -R osti:osti /home/osti/OpenQSocketMultiple/nginx
+  396  chown -R osti:osti /home/osti/OpenQSocketMultiple/temp
+  397  chmod -R 750 /home/osti/OpenQSocketMultiple/nginx/logs
+  398  sudo systemctl daemon-reload
+  399  mkdir -p /home/osti/OpenQSocketMultiple/temp/{client_body_temp,proxy_temp,fastcgi_temp}
+  400  sudo systemctl daemon-reload
+  401  sudo systemctl start nginx
+  402  sudo nginx -t
+  403  cd ..
+  404  cd home
+  405  ls
+  406  cd osti
+  407  cd OpenQSocketMultiple
+  408  ls
+  409  sudo nano /etc/nginx/nginx.conf
+  410  mkdir -p /home/osti/OpenQSocketMultiple/temp/{client_body_temp,proxy_temp,fastcgi_temp}
+  411  mkdir -p /home/osti/OpenQSocketMultiple/nginx/logs
+  412  chown -R osti:osti /home/osti/OpenQSocketMultiple/temp
+  413  chown -R osti:osti /home/osti/OpenQSocketMultiple/nginx/logs
+  414  chmod -R 750 /home/osti/OpenQSocketMultiple/temp
+  415  chmod -R 750 /home/osti/OpenQSocketMultiple/nginx/logs
+  416  mkdir -p /home/osti/OpenQSocketMultiple/temp/{client_body_temp,proxy_temp,fastcgi_temp}
+  417  mkdir -p /home/osti/OpenQSocketMultiple/nginx/logs
+  418  chown -R osti:osti /home/osti/OpenQSocketMultiple/temp
+  419  chown -R osti:osti /home/osti/OpenQSocketMultiple/nginx/logs
+  420  chmod -R 750 /home/osti/OpenQSocketMultiple/temp
+  421  chmod -R 750 /home/osti/OpenQSocketMultiple/nginx/logs
+  422  /home/osti/OpenQSocketMultiple/nginx/nginx -t -c /home/osti/OpenQSocketMultiple/nginx/conf/nginx.conf
+  423  sudo apt update
+  424  sudo nginx -t -c /home/osti/OpenQSocketMultiple/nginx/conf/nginx.conf
+  425  le/nginx/conf/nginx.conf
+  426  sudo nginx -t -c /home/osti/OpenQSocketMultiple/nginx/conf/nginx.conf
+  427  sudo nginx -c /home/osti/OpenQSocketMultiple/nginx/conf/nginx.conf
+  428  cls
+  429  apt uninstall nginx
+  430  sudo apt uninstall nginx
+  431  sudo apt uninstall nginxls -l /home/osti/OpenQSocketMultiple/nginx/conf/nginx.conf
+  432  ls -l /home/osti/OpenQSocketMultiple/nginx/conf/nginx.conf
+  433  sudo nginx -t -c /home/osti/OpenQSocketMultiple/nginx/conf/nginx.conf
+  434  sudo apt install curl gnupg2 ca-certificates lsb-release debian-archive-keyring
+  435  curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor     | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
+  436  gpg --dry-run --quiet --no-keyring --import --import-options import-show /usr/share/keyrings/nginx-archive-keyring.gpg
+  437  sudo apt update
+  438  apt upgrade
+  439  sudo apt upgrade
+  440  ls
+  441  cd nginx
+  442  ls
+  443  sudo systemctl stop nginx
+  444  sudo systemctl disable nginx
+  445  sudo apt remove --purge nginx nginx-common -y
+  446  sudo apt autoremove -y
+  447  ls
+  448  rm -rf logs
+  449  ls
+  450  sudo apt install build-essential libpcre3 libpcre3-dev zlib1g zlib1g-dev libssl-dev -y
+  451  ls
+  452  osti@osti:~/OpenQSocketMultiple/nginx $ sudo apt install build-essential libpcre3 libpcre3-dev zlib1g zlib1g-dev libssl-dev -y
+  453  wnload/nginx-1.26.1.tar.gz   # or latest version
+  454  tar -xzf nginx-1.26.1.tar.gz
+  455  cd nginx-1.26.1
+  456  ./configure --prefix=$HOME/OpenQSocketMultiple/nginx --with-http_ssl_mwget http://nginx.org/download/nginx-1.26.1.tar.gz   # or latest version
+  457  tar -xzf nginx-1.26.1.tar.gz
+  458  cd nginx-1.26.1
+  459  odule                         nQSocketMultiple/nginx --with-http_ssl_m
+  460  make
+  461  make install
+  462  Package libpcre3-dev is not available, but is referred to by another package.
+  463  This may mean that the package is missing, has been obsoleted, or
+  464  is only available from another source
+  465  Error: Unable to locate package libpcre3
+  466  Error: Package 'libpcre3-dev' has no installation candidate
+  467  osti@osti:~/OpenQSocketMultiple/nginx $ ls
+  468  osti@osti:~/OpenQSocketMultiple/nginx $
+  469  sudo apt update
+  470  sudo apt install -y build-essential zlib1g-dev libssl-dev libpcre3 libpcre3-dev wget
+  471  sudo nano /etc/apt/sources.list
+  472  sudo apt update
+  473  sudo apt install -y gnupg2
+  474  curl -fsSL https://archive.raspbian.org/raspbian.public.key | gpg --dearmor | sudo tee /usr/share/keyrings/raspbian-archive-keyring.gpg > /dev/null
+  475  sudo nano /etc/apt/sources.list
+  476  sudo apt update
+  477  sudo nano /etc/apt/sources.list
+  478  sudo apt update
+  479  sudo apt full-upgrade -y
+  480  sudo nano /etc/apt/sources.list
+  481  sudo apt update
+  482  deb [trusted=yes] http://raspbian.raspberrypi.org/raspbian bullseye main contrib non-free rpi
+  483  sudo nano /etc/apt/sources.list
+  484  sudo apt update
+  485  sudo nano /etc/apt/sources.list
+  486  sudo apt update
+  487  ls
+  488  cd OpenQSocketMultiple
+  489  ls
+  490  cd nginx
+  491  ls
+  492  sudo apt install -y build-essential libpcre3 libpcre3-dev zlib1g-dev libssl-dev wge
+  493  sudo apt install -y build-essential libpcre3 libpcre3-dev zlib1g-dev libssl-dev wget
+  494  cd ..
+  495  rm -rf nginx
+  496  mkdir -p nginx-src
+  497  ls
+  498  cd nginx-src
+  499  ls
+  500  wget http://nginx.org/download/nginx-1.26.1.tar.gz
+  501  tar -xzf nginx-1.26.1.tar.gz
+  502  ls
+  503  cd nginx-1.26.1
+  504  ls
+  505  ./configure --prefix=$HOME/OpenQSocketMultiple/nginx             --with-http_ssl_module             --with-http_v2_module             --with-http_gzip_static_module
+  506  cd ..
+  507  mkdir -p deps
+  508  cd deps
+  509  wget https://ftp.pcre.org/pub/pcre/pcre-8.45.tar.gz
+  510  tar -xzf pcre-8.45.tar.gz
+  511  cd pcre-8.45
+  512  ./configure --prefix=$HOME/OpenQSocketMultiple/deps/pcre --enable-utf --enable-unicode-properties
+  513  make
+  514  make install
+  515  cd ..
+  516  cd ~/OpenQSocketMultiple/nginx-src/nginx-1.26.1
+  517  ./configure --prefix=$HOME/OpenQSocketMultiple/nginx             --with-http_ssl_module             --with-http_v2_module             --with-http_gzip_static_module             --with-pcre=$HOME/OpenQSocketMultiple/deps/pcre
+  518  make
+  519  make install
+  520  cd ~/OpenQSocketMultiple/deps
+  521  wget https://ftp.pcre.org/pub/pcre/pcre-8.45.tar.gz
+  522  tar -xzf pcre-8.45.tar.gz
+  523  mv pcre-8.45 pcre   # rename to match what Nginx expects
+  524  cd ~/OpenQSocketMultiple/deps
+  525  wget https://github.com/PhilipHazel/pcre2/releases/download/pcre2-10.42/pcre2-10.42.tar.gz
+  526  tar -xzf pcre2-10.42.tar.gz
+  527  mv pcre2-10.42 pcre
+  528  cd ~/OpenQSocketMultiple/nginx-src/nginx-1.26.1
+  529  ./configure --prefix=$HOME/OpenQSocketMultiple/nginx             --with-http_ssl_module             --with-http_v2_module             --with-http_gzip_static_module             --with-pcre=$HOME/OpenQSocketMultiple/deps/pcre
+  530  make
+  531  make install
+  532  $HOME/OpenQSocketMultiple/nginx/sbin/nginx -t -c $HOME/OpenQSocketMultiple/nginx/conf/nginx.conf
+  533  sudo $HOME/OpenQSocketMultiple/nginx/sbin/nginx -c $HOME/OpenQSocketMultiple/nginx/conf/nginx.conf
+  534  sudo lsof -i :80
+  535  sudo netstat -tulpn | grep :80
+  536  cd ls
+  537  ls
+  538  cd conf
+  539  ls
+  540  sudo nano nginx.conf
+  541  sudo mv nginx.conf ninx2.conf
+  542  ls
+  543  sudo nano nginx.conf
+  544  mkdir -p ~/OpenQSocketMultiple/temp/client_body_temp
+  545  mkdir -p ~/OpenQSocketMultiple/temp/proxy_temp
+  546  mkdir -p ~/OpenQSocketMultiple/temp/fastcgi_temp
+  547  ls
+  548  cd ..
+  549  cd..
+  550  cd ..
+  551  ls
+  552  cd nginx
+  553  ls
+  554  cd ..
+  555  sudo ~/OpenQSocketMultiple/nginx/sbin/nginx -c ~/OpenQSocketMultiple/nginx/conf/nginx.conf
+  556  sudo ~/OpenQSocketMultiple/nginx/sbin/nginx -s stop
+  557  pm2 list
+  558  sudo ~/OpenQSocketMultiple/nginx/sbin/nginx -c ~/OpenQSocketMultiple/nginx/conf/nginx.conf
+  559  sudo netstat -tulpn | grep :80
+  560  ls
+  561  cd outfolder
+  562  cd ads
+  563  ls
+  564  cd ..
+  565  cd nginx-src
+  566  ls
+  567  cd nginx-1.26.1
+  568  ls
+  569  cd conf
+  570  ls
+  571  sudo nano nginx.conf
+  572  sudo chown -R osti:osti /home/osti/OpenQSocketMultiple/outfolder/ads
+  573  ultiple/outfolder/ads
+  574  sudo chown -R osti:osti /home/osti/OpenQSocketMultiple/outfolder/ads
+  575  sudo chmod -R 755 /home/osti/OpenQSocketMultiple/outfolder/ads
+  576  sudo /home/osti/OpenQSocketMultiple/nginx/sbin/nginx -s reload
+  577  cd ..
+  578  ls
+  579  cd nginx
+  580  ls
+  581  cd conf
+  582  ls
+  583  sudo nano nginx.conf
+  584  mv nginx.conf nginx1.conf
+  585  sudo nano nginx.conf
+  586  sudo /home/osti/OpenQSocketMultiple/nginx/sbin/nginx -s reload
+  587  git add .
+  588  cd ..
+  589  git add .
+  590  git commit -m "adding nginx"
+  591  git push origin TOPLINE
+  592  git pull origin TOPLINE
+  593  git pull
+  594  ls
+  595  cd reso
+  596  ls
+  597  cd node
+  598  ls
+  599  cd expressAPI
+  600  ls
+  601  nano videos.js
+  602  cd ..
+  603  cd..
+  604  cd ..
+  605  git pull origin TOPLINE
+  606  git pull
+  607  pm2 resurrect
+  608  pm2 list
+  609  pm2 restart openQ\
+  610  pm2 restart openQ
+  611  pm2 list
+  612  pm2 logs
+  613  sudo nano index.js
+  614  pm2 logs
+  615  pm2 restart openQ
+  616  pm2 logs
+  617  ls
+  618  cd reso
+  619  ls
+  620  cd js
+  621  ls
+  622  sudo nano indexSocket.js
+  623  cd ..
+  624  pm2 restart openQ
+  625  pm2 list
+  626  pm2 logs
+  627  cd reso/node
+  628  ls
+  629  sudo nano insertviaapi.js
+  630  cd ..
+  631  cd outfolder
+  632  ls
+  633  cd config
+  634  ls
+  635  sudo nano config.ini
+  636  nano soundandvoice.json
+  637  nano modifications.json
+  638  ls
+  639  sudo nano config.ini
+  640  sudo nano .env
+  641  cd ..
+  642  pm2 restart openQ
+  643  pm2 logs
+  644  sudo systemctl daemon-reload
+  645  sudo systemctl start openq-nginx
+  646  sudo nano /etc/systemd/system/openq-nginx.service
+  647  sudo systemctl daemon-reload
+  648  sudo systemctl start openq-nginx
+  649  sudo systemctl status openq-nginx.service
+  650  sudo nano /etc/systemd/system/openq-nginx.service
+  651  chmod -R 755 ~/OpenQSocketMultiple/nginx/logs
+  652  chmod -R 755 ~/OpenQSocketMultiple/temp
+  653  sudo ~/OpenQSocketMultiple/nginx/sbin/nginx -c ~/OpenQSocketMultiple/nginx/conf/nginx.conf
+  654  sudo systemctl stop open-nginx
+  655  sudo systemctl stop nginx
+  656  sudo systemctl daemon-reload
+  657  sudo systemctl enable openq-nginx
+  658  sudo systemctl start openq-nginx
+  659  sudo systemctl status openq-nginx
+  660  osti@osti:~/OpenQSocketMultiple $ sudo systemctl daemon-reload
+  661  osti@osti:~/OpenQSocketMultiple $ sudo systemctl enable openq-nginx
+  662  Created symlink '/etc/systemd/system/multi-user.target.wants/openq-nginx.service' → '/etc/systemd/system/openq-nginx.service'.
+  663  osti@osti:~/OpenQSocketMultiple $ sudo systemctl start openq-nginx
+  664  Job for openq-nginx.service failed because the control process exited with error code.
+  665  See "systemctl status openq-nginx.service" and "journalctl -xeu openq-nginx.service" for details.
+  666  osti@osti:~/OpenQSocketMultiple $ sudo systemctl status openq-nginx
+  667  × openq-nginx.service - OpenQSocketMultiple Nginx Service
+  668  Feb 13 13:29:07 osti systemd[1]: openq-nginx.service: Scheduled restart job, restart counter is at 5.
+  669  Feb 13 13:29:07 osti systemd[1]: openq-nginx.service: Start request repeated too quickly.
+  670  Feb 13 13:29:07 osti systemd[1]: openq-nginx.service: Failed with result 'exit-code'.
+  671  Feb 13 13:29:07 osti systemd[1]: Failed to start openq-nginx.service - OpenQSocketMultiple Nginx Service.
+  672  osti@osti:~/OpenQSocketMultiple $osti@osti:~/OpenQSocketMultiple $ sudo systemctl daemon-reload
+  673  osti@osti:~/OpenQSocketMultiple $ sudo systemctl enable openq-nginx
+  674  Created symlink '/etc/systemd/system/multi-user.target.wants/openq-nginx.service' → '/etc/systemd/system/openq-nginx.service'.
+  675  osti@osti:~/OpenQSocketMultiple $ sudo systemctl start openq-nginx
+  676  Job for openq-nginx.service failed because the control process exited with error code.
+  677  See "systemctl status openq-nginx.service" and "journalctl -xeu openq-nginx.service" for details.
+  678  osti@osti:~/OpenQSocketMultiple $ sudo systemctl status openq-nginx
+  679  × openq-nginx.service - OpenQSocketMultiple Nginx Service
+  680  Feb 13 13:29:07 osti systemd[1]: openq-nginx.service: Scheduled restart job, restart counter is at 5.
+  681  Feb 13 13:29:07 osti systemd[1]: openq-nginx.service: Start request repeated too quickly.
+  682  Feb 13 13:29:07 osti systemd[1]: openq-nginx.service: Failed with result 'exit-code'.
+  683  Feb 13 13:29:07 osti systemd[1]: Failed to start openq-nginx.service - OpenQSocketMultiple Nginx Service.
+  684  osti@osti:~/OpenQSocketMultiple $sudo ~/OpenQSocketMultiple/nginx/sbin/nginx -c ~/OpenQSocketMultiple/nginx/conf/nginx.conf
+  685  ls
+  686  cd nginx
+  687  ls
+  688  cd conf
+  689  ls
+  690  sudo ~/OpenQSocketMultiple/nginx/sbin/nginx -c ~/OpenQSocketMultiple/nginx/conf/nginx.conf
+  691  sudo pkill nginx
+  692  sudo ~/OpenQSocketMultiple/nginx/sbin/nginx -t -c ~/OpenQSocketMultiple/nginx/conf/nginx.conf
+  693  clear
+  694  cd ..
+  695  cd osti
+  696  ls
+  697  cd OpenQSocketMultiple
+  698  ls
+  699  cd nginx
+  700  cd conf
+  701  ls
+  702  sudo nano nginx.conf
+  703  # Make sure nginx user can read the files
+  704  sudo chmod -R 755 /home/osti/OpenQSocketMultiple/outfolder/ads
+  705  sudo chmod 755 /home/osti/OpenQSocketMultiple/outfolder
+  706  ls -l /home/osti/OpenQSocketMultiple/outfolder/ads/lightfuels2.mp4
+  707  sudo ufw status
+  708  sudo netstat -tulpn | grep :80
+  709  cd ..
+  710  sudo netstat -tulpn | grep :80
+  711  curl -I http://127.0.0.1/ads/lightfuels2.mp4
+  712  sudo pkill nginx
+  713  sudo netstat -tulpn | grep :80
+  714  sudo kill -9 <PID>
+  715  sudo ~/OpenQSocketMultiple/nginx/sbin/nginx -c ~/OpenQSocketMultiple/nginx/conf/nginx.conf
+  716  ps aux | grep nginx
+  717  osti@osti:~/OpenQSocketMultiple $ sudo ~/OpenQSocketMultiple/nginx/sbin/nginx -c ~/OpenQSocketMultiple/nginx/conf/nginx.conf
+  718  osti@osti:~/OpenQSocketMultiple $ ps aux | grep nginx
+  719  root        1077  0.0  0.0  12736  2864 ?        Ss   13:48   0:00 nginx: master process /home/osti/OpenQSocketMultiple/nginx/sbin/nginx -c /home/osti/OpenQSocketMultiple/nginx/conf/nginx.conf
+  720  osti        1078  0.0  0.0  13200  3744 ?        S    13:48   0:00 nginx: worker process
+  721  osti        1080  0.0  0.0   6384  2112 pts/0    S+   13:48   0:00 grep --color=auto nginx
+  722  osti@osti:~/OpenQSocketMultiple $curl -I http://127.0.0.1/ads/lightfuels2.mp4
+  723  osti@osti:~/OpenQSocketMultiple $ ps aux | grep ngi
+  724  osti@osti:~/OpenQSocketMultiple $ ps aux | grep nginxsudo nano /etc/systemd/system/openq-nginx.service
+  725  sudo nano /etc/systemd/system/openq-nginx.service
+  726  sudo pkill -f /home/osti/OpenQSocketMultiple/nginx/sbin/nginx
+  727  sudo rm -f /home/osti/OpenQSocketMultiple/nginx/logs/nginx.pid
+  728  sudo systemctl daemon-reload
+  729  sudo systemctl enable openq-nginx
+  730  sudo systemctl start openq-nginx
+  731  sudo systemctl status openq-nginx
+  732  osti@osti:~ $ sudo systemctl status openq-nginx
+  733  × openq-nginx.service - OpenQSocketMultiple Nginx Service
+  734  Feb 13 13:54:08 osti systemd[1]: openq-nginx.service: Scheduled restart job, restart counter is at 5.
+  735  Feb 13 13:54:08 osti systemd[1]: openq-nginx.service: Start request repeated too quickly.
+  736  Feb 13 13:54:08 osti systemd[1]: openq-nginx.service: Failed with result 'exit-code'.
+  737  Feb 13 13:54:08 osti systemd[1]: Failed to start openq-nginx.service - OpenQSocketMultiple Nginx Service.
+  738  osti@osti:~ $ sudo systemctl status openq-nginx
+  739  × openq-nginx.service - OpenQSocketMultiple Nginx Service
+  740  Feb 13 13:54:08 osti systemd[1]: openq-nginx.service: Scheduled restart job, restart counter is at 5.
+  741  Feb 13 13:54:08 osti systemd[1]: openq-nginx.service: Start request repeated too quickly.
+  742  Feb 13 13:54:08 osti systemd[1]: openq-nginx.service: Failed with result 'exit-code'.
+  743  Feb 13 13:54:08 osti systemd[1]: Failed to start openq-nginx.service - OpenQSocketMultiple Nginx Service.
+  744  osti@osti:~ $ls -l /home/osti/OpenQSocketMultiple/nginx/logs/nginx.pid
+  745  ls -l /home/osti/OpenQSocketMultiple/nginx/logs/nginx.pid
+  746  sudo touch /home/osti/OpenQSocketMultiple/nginx/logs/nginx.pid
+  747  ple/nginx/logs/nginx.pid
+  748  sudo touch /home/osti/OpenQSocketMultiple/nginx/logs/nginx.pid
+  749  sudo chown osti:osti /home/osti/OpenQSocketMultiple/nginx/logs/nginx.pid
+  750  sudo pkill -f /home/osti/OpenQSocketMultiple/nginx/sbin/nginx
+  751  sudo rm -f /home/osti/OpenQSocketMultiple/nginx/logs/nginx.pid
+  752  sudo systemctl daemon-reload
+  753  sudo systemctl enable openq-nginx
+  754  sudo systemctl start openq-nginx
+  755  sudo systemctl status openq-nginx
+  756  sudo nano /etc/systemd/system/openq-nginx.service
+  757  sudo pkill -f /home/osti/OpenQSocketMultiple/nginx/sbin/nginx
+  758  sudo rm -f /home/osti/OpenQSocketMultiple/nginx/logs/nginx.pid
+  759  sudo systemctl daemon-reload
+  760  sudo systemctl enable openq-nginx
+  761  sudo systemctl start openq-nginx
+  762  sudo systemctl status openq-nginx
+  763  pm2 monit
+  764  htop
+  765  pm2 list
+  766  htop
+  767  pm2 monit
+  768  htop
+  769  pm2 monit
+  770  clear
+  771  git add .
+  772  cd OpenQSocketMultiple
+  773  git add .
+  774  sudo git add .
+  775  sudo git commit -m "add config"
+  776  sudo git config --global user.email dev@osti.com.ph
+  777  sudo git config --global user.name osti-softdev
+  778  sudo git add .
+  779  sudo git commit -m "add config"
+  780  sudo git push origin TOPLINE
+  781  sudo nano /etc/systemd/system/openq-nginx.service
+  782  history
+  783  64;227;36M0;7;24M0;26;30m64;61;30M64;61;30M64;61;30M64;61;30M64;61;30M0;21;15M0;57;26m0;44;50M0;24;32m2;24;29M2;24;29m2;21;23M2;21;23m0;10;5M0;14;8m64;145;45M64;148;45M64;149;46M64;149;46M64;149;46M64;149;46M64;149;46M64;149;46M0;112;57
+  784  history > ~/myhist
+  785  ls
+  786  cd ..
+  787  cd
+  788  ..
+  789  cd ..
+  790  ;s
+  791  ls
+  792  cd ..
+  793  ls
+  794  cd ~
+  795  ls
+  796  nano myhist
+  797  cp -r myhist OpenQSOcketMultiple
+  798  ls
+  799  cp -r myhist OpenQSocketMultiple
+  800  ls
+  801  cd OpenQSocketMuliple
+  802  ls
+  803  cd OpenQSocketMultiple
+  804  ls
+  805  git add .
+  806  sudo git add .
+  807  sudo git commit -m "kajsdas"
+  808  sudo git push origin TOPLINE
+  809  ls
+  810  mv myhist myhist.txt
+  811  ls
+  812  nano myhist.txt
+  813  sudo git add .
+  814  sudo git commit -m "kajsdasasd"
+  815  sudo git push origin TOPLINE
+  816  rm myhist.txt
+  817  ls
+  818  sudo git push origin TOPLINE
+  819  sudo git add .
+  820  sudo git commit -m "kajsdasasd"
+  821  sudo git push origin TOPLINE
+  822  ls
+  823  cls
+  824  clear
+  825  history
+osti@osti:~ $
