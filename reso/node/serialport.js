@@ -2,12 +2,11 @@ const { SerialPort } = require("serialport");
 const { ReadlineParser } = require("@serialport/parser-readline");
 const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
-const rootpath =
-	global.outfolderPath || path.join(__dirname, "../../outfolder");
+const rootpath = global.outfolderPath || path.join(__dirname, "../../outfolder");
 const dbPath = path.join(rootpath, "/config/db.db");
 const { getAllServices } = require("./db");
 const { getPHDateTime } = require("./datetime");
-const { executephp } = require("./printer");
+// const { executephp } = require("./printer");
 
 
 // Store multiple ports
