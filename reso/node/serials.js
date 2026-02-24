@@ -137,17 +137,8 @@ function openArduinoPort(portInfo, io) {
           RETURNING ticketnum, sname, ticketservice, status
         `;
         db.get(query, [startTime, historyEntry, historyEntry, service.sname, service.regular, date], (err, row) => {
-          if (err){ console.error("Update error:", err.message);
-} else if (!row) {
-            // ✅ No matching tcket found
-            if (port && port.isOpen) {
-                port.write("No Ticket\n", (err) => {
-                    if (err) console.error("Write error:", err.message);
-                });
-            }
-
-       } else if (row && port.isOpen) port.write(JSON.stringify(row) + "\n");
-console.table(row);
+          if (err) console.error("Update error:", err.message);
+          else if (row && port.isOpen) port.write(JSON.stringify(row) + "\n");
           db.close();
         });
       }
@@ -162,18 +153,9 @@ console.table(row);
           RETURNING ticketnum, sname, ticketservice, status
         `;
         db.get(query, [historyEntry, historyEntry, date], (err, row) => {
-          if (err) { console.error("Update # error:", err.message);
-} else if (!row) {
-            // ✅ No maching ticket found
-            if (port && port.isOpen) {
-                port.write("No Ticket\n", (err) => {
-                    if (err) console.error("Write error:", err.message);
-                });
-            }
-
-        } else if (row && port.isOpen) port.write(JSON.stringify(row) + "\n");
-console.table(row);
-  db.close();
+          if (err) console.error("Update # error:", err.message);
+          else if (row && port.isOpen) port.write(JSON.stringify(row) + "\n");
+          db.close();
         });
       }
 
@@ -187,19 +169,9 @@ console.table(row);
           RETURNING ticketnum, sname, ticketservice, status
         `;
         db.get(query, [time, historyEntry, historyEntry, date], (err, row) => {
-          if (err) { console.error("Update 0 error:", err.message);
-} else if (!row) {
-            // ✅ No matching ticket found
-            if (port && port.isOpen) {
-                port.write("No Ticket\n", (err) => {
-                    if (err) console.error("Write error:", err.message);
-                });
-            }
-
-console.log("No Ticket");
-    }   else if (row && port.isOpen) port.write(JSON.stringify(row) + "\n");
-console.table(row);
- db.close();
+          if (err) console.error("Update 0 error:", err.message);
+          else if (row && port.isOpen) port.write(JSON.stringify(row) + "\n");
+          db.close();
         });
       }
 
