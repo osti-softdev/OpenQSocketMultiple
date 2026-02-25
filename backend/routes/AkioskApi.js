@@ -9,6 +9,8 @@ module.exports = function createKioskApiRouter(io) {
   const db = require(path.join(rootpath, 'utilities/db'));
   const { getPHDateTime } = require(path.join(rootpath, 'utilities/datetime'));
   const footerPath = path.join(rootpath, "/config/footer.json");
+  const { executephp } = require(path.join(rootpath, 'utilities/printer'));
+
 
   // & KIOSK
   // ^ GET ALL SERVICES FOR KIOSK
@@ -59,6 +61,11 @@ module.exports = function createKioskApiRouter(io) {
         [nextTicket, sname, ticketservice, date, time, history, selectedType]
       );
 
+        try {
+          await executephp(ticketservice, nextTicket, sname);
+        } catch (printError) {
+          console.error("Printer Error:", printError.message);
+        }
       // Success response
       res.json({
         success: true,

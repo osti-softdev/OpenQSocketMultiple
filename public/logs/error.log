@@ -1,1 +1,3 @@
 ❌ 2026-02-21T04:04:37.050Z [backend\routes\AkioskApi.js:79] Error creating ticket: SQLITE_BUSY: database is locked
+❌ 2026-02-25T02:40:22.128Z [backend\routes\AkioskApi.js:82] Error creating ticket: executephp is not a function
+❌ 2026-02-25T02:42:03.642Z [backend\routes\AkioskApi.js:67] Printer Error: executephp is not a function

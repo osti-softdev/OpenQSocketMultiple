@@ -6180,3 +6180,31 @@
 ✔ 2026-02-23T04:12:02.468Z [node:events:508] [ADS] Client disconnected: RNDKOWWgjwKeHPyXAAzB
 ✔ 2026-02-23T05:00:20.743Z [node:events:508] [ADS] Client connected: Bild75HpT8PW3EOXAAzD
 ✔ 2026-02-23T05:00:48.119Z [node:events:508] [ADS] Client disconnected: Bild75HpT8PW3EOXAAzD
+✔ 2026-02-25T02:33:07.673Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-02-25T02:33:07.802Z [node_modules\dotenv\lib\main.js:142] [dotenv@17.2.4] injecting env (1) from backend\config\.env [2m-- tip: 🔑 add access controls to secrets: https://dotenvx.com/ops[0m
+✔ 2026-02-25T02:33:08.133Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-02-25T02:33:08.136Z [unknown-location] Connected to SQLite database
+✔ 2026-02-25T02:33:32.525Z [node:events:508] [ADS] Client connected: wkqv26ArKMD5fUvVAAAB
+✔ 2026-02-25T02:33:32.854Z [node:events:508] [ADS] Client disconnected: wkqv26ArKMD5fUvVAAAB
+✔ 2026-02-25T02:33:35.459Z [node:events:508] [ADS] Client connected: JURnDK2U_sjJ45zLAAAD
+✔ 2026-02-25T02:33:36.309Z [node:events:508] [ADS] Client connected: WdNURrHSd36sOvArAAAF
+✔ 2026-02-25T02:40:20.289Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-02-25T02:40:20.309Z [node_modules\dotenv\lib\main.js:142] [dotenv@17.2.4] injecting env (1) from backend\config\.env [2m-- tip: 🔑 add access controls to secrets: https://dotenvx.com/ops[0m
+✔ 2026-02-25T02:40:20.473Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-02-25T02:40:20.477Z [unknown-location] Connected to SQLite database
+✔ 2026-02-25T02:40:20.504Z [node:events:508] [ADS] Client connected: 6mAqR_GslbL9zGRlAAAC
+✔ 2026-02-25T02:40:20.512Z [node:events:508] [ADS] Client connected: -GLMjrxINoWyjmefAAAD
+✔ 2026-02-25T02:41:58.312Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-02-25T02:41:58.330Z [node_modules\dotenv\lib\main.js:142] [dotenv@17.2.4] injecting env (1) from backend\config\.env [2m-- tip: 🔑 add access controls to secrets: https://dotenvx.com/ops[0m
+✔ 2026-02-25T02:41:58.503Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-02-25T02:41:58.506Z [unknown-location] Connected to SQLite database
+✔ 2026-02-25T02:41:58.532Z [node:events:508] [ADS] Client connected: 3MFoHuglvjuF39iIAAAB
+✔ 2026-02-25T02:42:00.815Z [node:events:508] [ADS] Client connected: iaM0PWVdO57X6WABAAAD
+✔ 2026-02-25T02:42:01.969Z [node:events:508] [ADS] Client disconnected: 3MFoHuglvjuF39iIAAAB
+✔ 2026-02-25T02:42:02.206Z [node:events:508] [ADS] Client connected: M9uLnZBQZEh7FgTUAAAF
+✔ 2026-02-25T02:43:11.204Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-02-25T02:43:11.224Z [node_modules\dotenv\lib\main.js:142] [dotenv@17.2.4] injecting env (1) from backend\config\.env [2m-- tip: ⚙️  override existing env vars with { override: true }[0m
+✔ 2026-02-25T02:43:11.398Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-02-25T02:43:11.402Z [unknown-location] Connected to SQLite database
+✔ 2026-02-25T02:43:11.426Z [node:events:508] [ADS] Client connected: rIfzv3bvzA19IBa-AAAC
+✔ 2026-02-25T02:43:11.434Z [node:events:508] [ADS] Client connected: kYTFDI66YV_Mc1oZAAAD
