@@ -19,10 +19,11 @@
             </div>
             <nav class="sidebar-nav">
                 <button class="nav-item active" data-tab="dashboard">📊 Dashboard</button>
-                <!-- <button class="nav-item" data-tab="reports">📈 Reports</button> -->
+                <button class="nav-item" data-tab="reports">📈 Reports</button>
                 <button class="nav-item" data-tab="history">🎫 History</button>
                 <button class="nav-item" data-tab="services">🛠️ Services</button>
                 <button class="nav-item" data-tab="tellers">👥 Tellers</button>
+                <button class="nav-item" data-tab="accounts">👤 Accounts</button>
                 <button class="nav-item" data-tab="groups">👨‍👩‍👧‍👦 Groups</button>
                 <button class="nav-item" data-tab="settings">⚙️ Settings</button>
             </nav>
@@ -195,6 +196,29 @@
                     </div>
                 </div>
             </div>
+            <!-- ^ ACCOUNTS TAB -->
+            <div id="accounts-tab" class="tab-content">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Accounts</h3>
+                        <button class="btn btn-primary btn-sm" onclick="openModal('accounts')">+ Add Account</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Username</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="accounts-list"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
             <!-- ^ GROUPS TAB -->
             <div id="groups-tab" class="tab-content">
                 <div class="card">
@@ -311,6 +335,10 @@
     <span class="fnav-label">Dashboard</span>
     <span class="fnav-icon"><span class="fnav-emoji">📊</span></span>
   </button>
+ <button class="fnav-item" data-tab="reports">
+    <span class="fnav-label">Ticket Reports</span>
+    <span class="fnav-icon"><span class="fnav-emoji">📊</span></span>
+  </button>
   <button class="fnav-item" data-tab="history">
     <span class="fnav-label">Ticket History</span>
     <span class="fnav-icon"><span class="fnav-emoji">🎫</span></span>
@@ -322,6 +350,10 @@
   <button class="fnav-item" data-tab="tellers">
     <span class="fnav-label">Tellers</span>
     <span class="fnav-icon"><span class="fnav-emoji">👥</span></span>
+  </button>
+   <button class="fnav-item" data-tab="accounts">
+    <span class="fnav-label">Accounts</span>
+    <span class="fnav-icon"><span class="fnav-emoji">👤</span></span>
   </button>
   <button class="fnav-item" data-tab="groups">
     <span class="fnav-label">Groups</span>
@@ -374,7 +406,6 @@ $(function () {
 
     function toggleSidebar() {
         const isOpen = $fnav.hasClass('open');
-        console.log("🚀 ~ toggleSidebar ~ isOpen:", isOpen)
         isOpen ? closeSidebar() : openSidebar();
     }
 

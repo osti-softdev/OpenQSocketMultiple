@@ -437,6 +437,103 @@ module.exports = function createTellerApiRouter(io) {
     });
   });
 
+
+
+      //   ! -------- Accounts -------- !
+  // & Accounts List for Admin
+  router.get('/admin/accounts', (req, res) => {
+    db.all(`SELECT * FROM accounts`, (err, rows) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json(rows);
+    });
+  });
+  // & Add Accounts 
+  router.post('/admin/accounts', (req, res) => {
+    const { name, username, password, role, is_active } = req.body;
+
+    if (!username || !password) {
+        return res.status(400).json({ error: 'Username and password are required' });
+    }
+
+
+    // const hashedPassword = bcrypt.hashSync(password, 10);
+
+    db.run(
+        `INSERT INTO accounts
+         (name, username, password, role, status)
+         VALUES (?, ?, ?, ?, ?)`,
+        [
+            name,
+            username,
+            password,
+            role,
+            is_active
+        ],
+        function (err) {
+            if (err) {
+                console.error(err);
+                return res.status(500).json({ error: err.message });
+            }
+            res.json({ success: true, id: this.lastID });
+        }
+    );
+  });
+  //   & Edit Accounts
+  router.put('/admin/accounts/:id', (req, res) => {
+    const { name, username, role, is_active, password } = req.body;
+
+
+    if (password) {
+        // const hashedPassword = bcrypt.hashSync(password, 10);
+
+        db.run(
+            `UPDATE accounts
+             SET name = ?, username = ?, password = ?, role = ?, status = ?
+             WHERE id = ?`,
+            [name, username, password, role, is_active, req.params.id],
+            err => {
+                if (err) return res.status(500).json({ error: err.message });
+                res.json({ success: true });
+            }
+        );
+    } else {
+        db.run(
+            `UPDATE accounts
+             SET name = ?, username = ?, role = ?, status = ?
+             WHERE id = ?`,
+            [name, username, role, is_active, req.params.id],
+            err => {
+                if (err) return res.status(500).json({ error: err.message });
+                res.json({ success: true });
+            }
+        );
+    }
+  });
+  // & Delete Accounts
+  router.delete('/admin/accounts/:id', (req, res) => {
+    db.run('DELETE FROM accounts WHERE id = ?', [req.params.id], (err) => {
+        if (err) return res.status(500).json({ error: err.message });
+        res.json({ success: true });
+    });
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   //   ! -------- Ticket history -------- !
   // & get all tickets
   router.get('/admin/tickets/all', (req, res) => {

@@ -61,11 +61,11 @@ module.exports = function createKioskApiRouter(io) {
         [nextTicket, sname, ticketservice, date, time, history, selectedType]
       );
 
-        try {
-          await executephp(ticketservice, nextTicket, sname);
-        } catch (printError) {
-          console.error("Printer Error:", printError.message);
-        }
+        // try {
+        //   await executephp(ticketservice, nextTicket, sname);
+        // } catch (printError) {
+        //   console.error("Printer Error:", printError.message);
+        // }
       // Success response
       res.json({
         success: true,

@@ -13,7 +13,7 @@ $(document).ready(function () {
      socket.on('service_update', async function (data) {
         loadServices();
     });
-    switchTab('dashboard');
+    switchTab('reports');
     // & MODAL CLOSE
     $('.close-modal').click(() => $('#modal-overlay').hide());
 
@@ -60,6 +60,7 @@ function switchTab(tab) {
         'history': 'Ticket History',
         'services': 'Services Management',
         'tellers': 'Tellers Management',
+        'Accounts': 'Accounts Management',
         'groups': 'Teller Groups',
         'settings': 'General Settings'
     };
@@ -72,6 +73,7 @@ function switchTab(tab) {
     else if (tab === 'history') loadTicketHistory();
     else if (tab === 'services') loadServices();
     else if (tab === 'tellers') loadTellers();
+    else if (tab === 'accounts') loadAccounts();
     else if (tab === 'groups') loadGroups();
     else if (tab === 'settings') loadSettings();
 }
@@ -458,6 +460,74 @@ function deleteTeller(id) {
         }
     });
 }
+
+// ~ ===== Accounts =====
+function loadAccounts() {
+    $.get('/api/admin/accounts', function (accounts) {
+        console.log(accounts);
+        const $list = $('#accounts-list').empty();
+        accounts.forEach(t => {
+            const isActive = Number(t.status) === 1;
+            $list.append(`
+                <tr>
+                    <td>${t.name}</td>
+                    <td>${t.username}</td>
+                    <td>${t.role || 'None'}</td>
+                    <td><span class="status-badge ${isActive ? 'status-active' : 'status-inactive'}">${isActive ? 'Active' : 'Inactive'}</span></td>
+                    <td class="actions">
+                        <button class="btn btn-sm btn-primary" onclick="editAccount(${t.id})">Edit</button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteAccount(${t.id})">Delete</button>
+                    </td>
+                </tr>
+            `);
+        });
+    });
+}
+// & EDIT ACCOUNT
+function editAccount(id) {
+    $.get('/api/admin/accounts', (accounts) => {
+        const t = accounts.find(x => x.id === id);
+        openModal('accounts', t);
+    });
+}
+// & ===== DELETE ACCOUNT =====
+function deleteAccount(id) {
+    Swal.fire({
+        title: 'Delete this account?',
+        text: 'This action cannot be undone.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it',
+        cancelButtonText: 'Cancel',
+        reverseButtons: true,
+        focusCancel: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: `/api/admin/accounts/${id}`,
+                method: 'DELETE',
+                success: function () {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Deleted!',
+                        text: 'The account has been removed.',
+                        timer: 1500,
+                        showConfirmButton: false
+                    });
+                    loadAccounts();
+                },
+                error: function () {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Failed to delete the account.'
+                    });
+                }
+            });
+        }
+    });
+}
+
 // ~ ===== GROUPS =====
 function loadGroups() {
     $.get('/api/admin/groups', function (groups) {
@@ -692,7 +762,6 @@ function openModal(type = currentTab, data = null) {
             </div>
         `);
     }
-
     else if (type === 'tellers') {
 
     // Load groups + services in parallel
@@ -783,7 +852,49 @@ function openModal(type = currentTab, data = null) {
     }).fail(() => {
         showMsg('error', 'Failed to load groups or services');
     });
-} else if (type === 'groups') {
+    }else if (type === 'accounts') {
+        $form.html(`
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" id="ac-name" class="form-control" value="${data?.name || ''}">
+            </div>
+
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" id="ac-user" class="form-control" value="${data?.username || ''}">
+            </div>
+
+            <div class="form-group">
+                <label>Password ${data ? '(Leave blank to keep same)' : ''}</label>
+                <input type="password" id="ac-pass" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>Role</label>
+              ${(() => {
+                    const roles = ['superadmin', 'admin', 'user'];
+                    return `
+                        <select id="ac-role" class="form-control">
+                            ${roles.map(role => `
+                                <option value="${role}" 
+                                    ${data?.role === role ? 'selected' : ''}>
+                                    ${role.charAt(0).toUpperCase() + role.slice(1)}
+                                </option>
+                            `).join('')}
+                        </select>
+                    `;
+                })()}
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="ac-active"
+                        ${Number(data?.status) === 1 ? 'checked' : ''}>
+                    Is Active
+                </label>
+            </div>
+        `);
+    }  else if (type === 'groups') {
         $form.html(`
             <div class="form-group">
                 <label>Group Name</label>
@@ -791,7 +902,6 @@ function openModal(type = currentTab, data = null) {
             </div>
         `);
     }
-
     $('#modal-overlay').show();
     $('#save-btn').off('click').on('click', saveItem);
 }
@@ -821,6 +931,7 @@ function saveItem() {
             success: () => {
                 $('#modal-overlay').hide();
                 loadServices();
+                showMsg('success', 'Service saved successfully');
             }
         });
     }
@@ -881,10 +992,67 @@ function saveItem() {
             success: () => {
                 $('#modal-overlay').hide();
                 loadTellers();
+                showMsg('success', 'Teller saved successfully');
             },
             error: (xhr) => {
                 console.error(xhr.responseText);
                 showMsg('error', 'Failed to save teller');
+            }
+        });
+    }
+
+    else if (currentTab === 'accounts') {
+
+        const rawname = $('#ac-name').val().trim();
+        const rawusername = $('#ac-user').val().trim();
+        const rawrole = $('#ac-role').val();
+        const rawPassword = $('#ac-pass').val();
+        const rawactive = $('#ac-active').is(':checked') ? 1 : 0;
+            
+        if (!rawusername) {
+            showMsg('error', 'Username is required');
+            return;
+        }
+        if (!rawname) {
+            showMsg('error', 'Name is required');
+            return;
+        }
+        if (!rawrole) {
+            showMsg('error', 'Role is required');
+            return;
+        }
+
+        const payload = {
+            name: rawname,
+            username: rawusername,
+            role: rawrole,
+            is_active: rawactive
+        };
+
+        // Only send password if provided
+        if (rawPassword && rawPassword.trim() !== '') {
+            payload.password = rawPassword.trim();
+        }
+
+        const url = editId
+            ? `/api/admin/accounts/${editId}`
+            : '/api/admin/accounts';
+
+        const method = editId ? 'PUT' : 'POST';
+
+        $.ajax({
+            url,
+            method,
+            contentType: 'application/json',
+            data: JSON.stringify(payload),
+            success: () => {
+                $('#modal-overlay').hide();
+                loadAccounts();
+                showMsg('success', 'Account saved successfully');
+            },
+            error: (xhr) => {
+                console.error(xhr.responseText);
+                showMsg('error', 'Failed to save account');
             }
         });
     }
@@ -905,6 +1073,7 @@ function saveItem() {
             success: () => {
                 $('#modal-overlay').hide();
                 loadGroups();
+                showMsg('success', 'Group created successfully');
             }
         });
     }
