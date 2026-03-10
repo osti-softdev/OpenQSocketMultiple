@@ -61,7 +61,7 @@ body {
   }
   .timer {
     position: absolute;
-    top: 5%;
+    top: 5.5%;
     right: 0;
     height: 5%;
     width: 40%;
@@ -223,12 +223,13 @@ body {
           position: absolute;
           top: 0%;
           width: 100%;
-          height: 20%;
+          height: 40% !important;
           display: flex;
+          text-align: center;
           justify-content: center;
           align-items: center;
           background-color: #f0b940;
-          font-size: 3rem;
+          font-size: 1.5vw !important;
           font-weight: bolder;
           font-family: Verdana, Geneva, Tahoma, sans-serif;
           text-transform: uppercase;
@@ -236,10 +237,10 @@ body {
 
         .counter {
           position: absolute;
-          top: 25%;
+          top: 40%;
           left: 0%;
           width: 25%;
-          height: 75%;
+          height: 60%;
           background-color: lightcoral;
           justify-content: center;
           align-items: center;
@@ -250,10 +251,10 @@ body {
         }
         .service-ticket {
           position: absolute;
-          top: 25%;
+          top: 40%;
           right: 0%;
           width: 100%;
-          height: 75%;
+          height: 60%;
           background-color: #192a54;
           color: rgb(253, 251, 251);
           justify-content: center;
