@@ -12,7 +12,7 @@ $(document).ready(function () {
         e.preventDefault();
         const username = $('#username').val();
         const password = $('#password').val();
-
+        
         $.ajax({
             url: '/api/login',
             method: 'POST',
