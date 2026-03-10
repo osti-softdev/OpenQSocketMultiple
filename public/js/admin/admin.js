@@ -17,11 +17,6 @@ $(document).ready(function () {
     // & MODAL CLOSE
     $('.close-modal').click(() => $('#modal-overlay').hide());
 
-    // & SETTINGS FORM SUBMISSION
-    $('#settings-form').submit(function (e) {
-        e.preventDefault();
-        saveSettings();
-    });
     
     // & HISTORY SEARCH INPUT
      $('#history-search').on('input', function() {
@@ -590,6 +585,11 @@ function loadSettings() {
         $('#setting-announcement3').val(settings.announcement3);
     });
 }
+// & SETTINGS FORM SUBMISSION
+    $('#settings-form').submit(function (e) {
+        e.preventDefault();
+        saveSettings();
+    });
 // & ===== SAVE SETTINGS =====
 function saveSettings() {
     const payload = {

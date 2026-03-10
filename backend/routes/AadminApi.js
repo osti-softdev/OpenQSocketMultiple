@@ -517,23 +517,6 @@ module.exports = function createTellerApiRouter(io) {
     });
   });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   //   ! -------- Ticket history -------- !
   // & get all tickets
   router.get('/admin/tickets/all', (req, res) => {
