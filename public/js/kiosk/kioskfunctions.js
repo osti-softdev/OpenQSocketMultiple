@@ -74,7 +74,8 @@ $(document).ready(async function () {
                     data-sname="${service.sname}"
                     data-ticketservice="${service.regular}"
                     ${isLocked ? 'disabled' : ''}>
-                    ${service.shortSname}
+                    ${service.shortSname} <br>
+                    ${service.sub_sname || ''}
                     ${isLocked ? `<span class="lock-label">${lockReason}</span>` : ''}
                 </button>
             `);
@@ -87,7 +88,8 @@ $(document).ready(async function () {
                     data-sname="${service.sname}"
                     data-ticketservice="${service.priority}"
                     ${isLocked ? 'disabled' : ''}>
-                    ${service.shortSname}
+                    ${service.shortSname} <br>
+                    ${service.sub_sname || ''}
                     ${isLocked ? `<span class="lock-label">${lockReason}</span>` : ''}
                 </button>
             `);

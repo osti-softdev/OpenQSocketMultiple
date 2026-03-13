@@ -82,6 +82,7 @@ module.exports = function createTellerApiRouter(io) {
   });
 
   // ! -------- DASHBOARD -------- !
+
   // =========================
   // & DASHBOARD LIVE
   // =========================
@@ -200,9 +201,11 @@ module.exports = function createTellerApiRouter(io) {
         .then(() => res.json(result))
         .catch(err => res.status(500).json({ error: err.message }));
   });
+
   // =========================
   // & OVERVIEW
   // =========================
+
   router.get('/admin/analytics/overview', (req, res) => {
     const stats = {};
     const { date } = getPHDateTime(); // e.g., '2026-02-20'
@@ -256,6 +259,7 @@ module.exports = function createTellerApiRouter(io) {
         );
     });
   });
+
   // & Per Hour Analytics for Today+
   router.get('/admin/analytics/hourly', (req, res) => {
     const { date} = getPHDateTime();
@@ -293,28 +297,31 @@ module.exports = function createTellerApiRouter(io) {
         res.json(rows);
     });
   });
+
   // & Add Service
   router.post('/admin/services', (req, res) => {
-    const { name, shortSname, prefix, priority_prefix, is_active, cutoff_time } = req.body;
-    db.run(`INSERT INTO services (sname, shortSname, regular, priority, status, sched) VALUES (?, ?, ?, ?, ?, ?)`,
-        [name, shortSname, prefix, priority_prefix, is_active, cutoff_time],
+    const { name, shortSname, sub_sname, prefix, priority_prefix, is_active, cutoff_time } = req.body;
+    db.run(`INSERT INTO services (sname, shortSname, sub_sname, regular, priority, status, sched) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+        [name, shortSname, sub_sname, prefix, priority_prefix, is_active, cutoff_time],
         function (err) {
             if (err) return res.status(500).json({ error: err.message });
             res.json({ success: true, id: this.lastID });
             io.emit('service_update'); // Emit service update event
         });
   });
+
   // & Edit Service
   router.put('/admin/services/:id', (req, res) => {
-    const { name, shortSname, prefix, priority_prefix, cutoff_time, is_active } = req.body;
-    db.run(`UPDATE services SET sname = ?, shortSname = ?, regular = ?, priority = ?, sched = ?, status = ? WHERE id = ?`,
-        [name, shortSname, prefix, priority_prefix, cutoff_time, is_active, req.params.id],
+    const { name, shortSname, sub_sname, prefix, priority_prefix, cutoff_time, is_active } = req.body;
+    db.run(`UPDATE services SET sname = ?, shortSname = ?, sub_sname = ?, regular = ?, priority = ?, sched = ?, status = ? WHERE id = ?`,
+        [name, shortSname, sub_sname, prefix, priority_prefix, cutoff_time, is_active, req.params.id],
         (err) => {
             if (err) return res.status(500).json({ error: err.message });
             res.json({ success: true });
             io.emit('service_update'); // Emit service update event
         });
   });
+  
   // & Delete Service
   router.delete('/admin/services/:id', (req, res) => {
         db.run('DELETE FROM services WHERE id = ?', [req.params.id], (err) => {
@@ -332,6 +339,7 @@ module.exports = function createTellerApiRouter(io) {
         res.json(rows);
     });
   });
+
   // & Add Group
   router.post('/admin/groups', (req, res) => {
     const { name } = req.body;
@@ -340,6 +348,7 @@ module.exports = function createTellerApiRouter(io) {
         res.json({ success: true, id: this.lastID });
     });
   });
+
   // & Edit Group
   router.put('/admin/groups/:id', (req, res) => {
     const { name } = req.body;
@@ -348,6 +357,7 @@ module.exports = function createTellerApiRouter(io) {
         res.json({ success: true });
     });
   });
+
   // & Delete Group
   router.delete('/admin/groups/:id', (req, res) => {
     db.run('DELETE FROM counter_groups WHERE id = ?', [req.params.id], (err) => {
@@ -365,6 +375,7 @@ module.exports = function createTellerApiRouter(io) {
         res.json(rows);
     });
   });
+
   // & Add Tellers 
   router.post('/admin/tellers', (req, res) => {
     const { name, username, password, counter_number, services, group_id, is_active } = req.body;
@@ -398,6 +409,7 @@ module.exports = function createTellerApiRouter(io) {
         }
     );
   });
+
   //   & Edit Tellers
   router.put('/admin/tellers/:id', (req, res) => {
     const { name, username, counter_number, services, group_id, is_active, password } = req.body;
@@ -429,6 +441,7 @@ module.exports = function createTellerApiRouter(io) {
         );
     }
   });
+
   // & Delete Tellers
   router.delete('/admin/tellers/:id', (req, res) => {
     db.run('DELETE FROM counters WHERE id = ?', [req.params.id], (err) => {
@@ -436,8 +449,6 @@ module.exports = function createTellerApiRouter(io) {
         res.json({ success: true });
     });
   });
-
-
 
       //   ! -------- Accounts -------- !
   // & Accounts List for Admin
@@ -447,6 +458,7 @@ module.exports = function createTellerApiRouter(io) {
         res.json(rows);
     });
   });
+
   // & Add Accounts 
   router.post('/admin/accounts', (req, res) => {
     const { name, username, password, role, is_active } = req.body;
@@ -478,6 +490,7 @@ module.exports = function createTellerApiRouter(io) {
         }
     );
   });
+
   //   & Edit Accounts
   router.put('/admin/accounts/:id', (req, res) => {
     const { name, username, role, is_active, password } = req.body;
@@ -509,6 +522,7 @@ module.exports = function createTellerApiRouter(io) {
         );
     }
   });
+
   // & Delete Accounts
   router.delete('/admin/accounts/:id', (req, res) => {
     db.run('DELETE FROM accounts WHERE id = ?', [req.params.id], (err) => {
@@ -557,6 +571,7 @@ module.exports = function createTellerApiRouter(io) {
         res.json(rows);
     });
   });
+
   // & get ticket details
   router.get('/admin/tickets/details/:id', (req, res) => {
     const ticketId = req.params.id;
@@ -632,6 +647,7 @@ module.exports = function createTellerApiRouter(io) {
         res.json(settingsObj);
     });
   });
+  
   // & Save Settings
   router.post('/settings', (req, res) => {
     const settings = req.body;

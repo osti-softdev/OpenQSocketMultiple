@@ -13,6 +13,7 @@ socket.on("adminServices", function(res) {
         $("<span>", { text: "Reg", class: "header-col" }),
         $("<span>", { text: "Prio", class: "header-col" }),
         $("<span>", { text: "Short Name", class: "header-col" }),
+        $("<span>", { text: "Sub Name", class: "header-col" }),
         $("<span>", { text: "Status", class: "header-col" }),
         $("<span>", { text: "Sched", class: "header-col" })
     );
@@ -48,6 +49,12 @@ socket.on("adminServices", function(res) {
             class: "regular-input",
             value: service.shortSname
         });
+
+        const $subName = $("<input>", {
+            type: "text",
+            class: "subname-input",
+            value: service.sub_sname
+        });
         // status checkbox
         const $statusCheckbox = $("<input>", {
             type: "checkbox",
@@ -75,6 +82,7 @@ socket.on("adminServices", function(res) {
                 id: service.id,
                 sname: $snameInput.val(),
                 shortSname: $shortName.val(),
+                sub_sname: $subName.val(),
                 regular: $regularInput.val(),
                 priority: $priorityInput.val(),
                 status: $statusCheckbox.is(":checked") ? 1 : 0,
@@ -90,6 +98,7 @@ socket.on("adminServices", function(res) {
                 id: service.id,
                 sname: $snameInput.val(),
                 shortSname: $shortName.val(),
+                sub_sname: $subName.val(),
                 regular: $regularInput.val(),
                 priority: $priorityInput.val(),
                 status: $statusCheckbox.is(":checked") ? 1 : 0,
@@ -105,6 +114,7 @@ socket.on("adminServices", function(res) {
                 id: service.id,
                 sname: $snameInput.val(),
                 shortSname: $shortName.val(),
+                sub_sname: $subName.val(),
                 regular: $regularInput.val(),
                 priority: $priorityInput.val(),
                 status: $statusCheckbox.is(":checked") ? 1 : 0,
@@ -120,6 +130,7 @@ socket.on("adminServices", function(res) {
                 id: service.id,
                 sname: $snameInput.val(),
                 shortSname: $shortName.val(),
+                sub_sname: $subName.val(),
                 regular: $regularInput.val(),
                 priority: $priorityInput.val(),
                 status: $statusCheckbox.is(":checked") ? 1 : 0,
@@ -135,6 +146,7 @@ socket.on("adminServices", function(res) {
                 id: service.id,
                 sname: $snameInput.val(),
                 shortSname: $shortName.val(),
+                sub_sname: $subName.val(),
                 regular: $regularInput.val(),
                 priority: $priorityInput.val(),
                 status: $statusCheckbox.is(":checked") ? 1 : 0,
@@ -150,6 +162,7 @@ socket.on("adminServices", function(res) {
                 id: service.id,
                 sname: $snameInput.val(),
                 shortSname: $shortName.val(),
+                sub_sname: $subName.val(),
                 regular: $regularInput.val(),
                 priority: $priorityInput.val(),
                 status: $statusCheckbox.is(":checked") ? 1 : 0,
@@ -160,6 +173,7 @@ socket.on("adminServices", function(res) {
 
         $row.append(
             $snameInput,
+            $subName,
             $regularInput,
             $priorityInput,
             $shortName,
@@ -171,8 +185,8 @@ socket.on("adminServices", function(res) {
     });
 });
 
-// Response after update
-socket.on("servicesgather", function(res) {
-    console.log(res.message);
-});
+    // Response after update
+    socket.on("servicesgather", function(res) {
+        console.log(res.message);
+    });
 });

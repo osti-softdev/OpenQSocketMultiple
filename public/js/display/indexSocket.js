@@ -53,9 +53,14 @@ function displayServicesCards(services) {
         $rowDiv.append(
             $("<span>")
                 .addClass("service-name")
-                .html(service.shortSname || service.sname || '—')
+                .html(service.shortSname || '—')
         );
 
+		$rowDiv.append(
+            $("<span>")
+                .addClass("sub-name")
+                .html(service.sub_sname || '—')
+        );
         // Ticket number
         const ticketText = service.ticket || '--';
         $rowDiv.append(

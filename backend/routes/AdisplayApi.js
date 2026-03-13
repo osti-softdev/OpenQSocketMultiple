@@ -16,7 +16,7 @@ module.exports = function createDisplayApiRouter(io) {
     const { date } = getPHDateTime();
 
     const servicesQuery = `
-        SELECT sname, shortSname
+        SELECT sname, shortSname, sub_sname
         FROM services
         WHERE status = 1
         ORDER BY id
@@ -65,6 +65,7 @@ module.exports = function createDisplayApiRouter(io) {
             return {
                 sname: service.sname,
                 shortSname: service.shortSname,
+                sub_sname: service.sub_sname,
                 ticket: tx && tx.ticketservice && tx.ticketnum
                     ? `${tx.ticketservice}-${tx.ticketnum}`
                     : "--",

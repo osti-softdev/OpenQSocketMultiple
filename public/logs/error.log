@@ -1,3 +1,99 @@
 ❌ 2026-02-21T04:04:37.050Z [backend\routes\AkioskApi.js:79] Error creating ticket: SQLITE_BUSY: database is locked
 ❌ 2026-02-25T02:40:22.128Z [backend\routes\AkioskApi.js:82] Error creating ticket: executephp is not a function
 ❌ 2026-02-25T02:42:03.642Z [backend\routes\AkioskApi.js:67] Printer Error: executephp is not a function
+❌ 2026-03-13T03:08:05.963Z [backend\routes\AdisplayApi.js:85] Error in /getServicesDisplay: Error: SQLITE_ERROR: no such column: sub_sname
+--> in Database#all('\n' +
+  '        WITH ranked AS (\n' +
+  '            SELECT\n' +
+  '                ticketservice,\n' +
+  '                ticketnum,\n' +
+  '                sname,\n' +
+  '                sub_sname,\n' +
+  '                counter_num,\n' +
+  '                counter_group,\n' +
+  '                counter_user,\n' +
+  '                status,\n' +
+  '                ROW_NUMBER() OVER (\n' +
+  '                    PARTITION BY counter_group\n' +
+  '                    ORDER BY start_time DESC, ticketnum DESC\n' +
+  '                ) AS rn\n' +
+  '            FROM transactions\n' +
+  '            WHERE date = ?\n' +
+  "              AND status IN ('calling','finished','called','held','voided')\n" +
+  '        )\n' +
+  '        SELECT *\n' +
+  '        FROM ranked\n' +
+  '        WHERE rn = 1;\n' +
+  '    ', [ '2026-03-13' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:279:8
+    at new Promise (<anonymous>)
+    at db.allAsync (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:278:3)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AdisplayApi.js:54:42 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-03-13T03:08:07.021Z [backend\routes\AdisplayApi.js:85] Error in /getServicesDisplay: Error: SQLITE_ERROR: no such column: sub_sname
+--> in Database#all('\n' +
+  '        WITH ranked AS (\n' +
+  '            SELECT\n' +
+  '                ticketservice,\n' +
+  '                ticketnum,\n' +
+  '                sname,\n' +
+  '                sub_sname,\n' +
+  '                counter_num,\n' +
+  '                counter_group,\n' +
+  '                counter_user,\n' +
+  '                status,\n' +
+  '                ROW_NUMBER() OVER (\n' +
+  '                    PARTITION BY counter_group\n' +
+  '                    ORDER BY start_time DESC, ticketnum DESC\n' +
+  '                ) AS rn\n' +
+  '            FROM transactions\n' +
+  '            WHERE date = ?\n' +
+  "              AND status IN ('calling','finished','called','held','voided')\n" +
+  '        )\n' +
+  '        SELECT *\n' +
+  '        FROM ranked\n' +
+  '        WHERE rn = 1;\n' +
+  '    ', [ '2026-03-13' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:279:8
+    at new Promise (<anonymous>)
+    at db.allAsync (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:278:3)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AdisplayApi.js:54:42 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-03-13T03:08:07.732Z [backend\routes\AdisplayApi.js:85] Error in /getServicesDisplay: Error: SQLITE_ERROR: no such column: sub_sname
+--> in Database#all('\n' +
+  '        WITH ranked AS (\n' +
+  '            SELECT\n' +
+  '                ticketservice,\n' +
+  '                ticketnum,\n' +
+  '                sname,\n' +
+  '                sub_sname,\n' +
+  '                counter_num,\n' +
+  '                counter_group,\n' +
+  '                counter_user,\n' +
+  '                status,\n' +
+  '                ROW_NUMBER() OVER (\n' +
+  '                    PARTITION BY counter_group\n' +
+  '                    ORDER BY start_time DESC, ticketnum DESC\n' +
+  '                ) AS rn\n' +
+  '            FROM transactions\n' +
+  '            WHERE date = ?\n' +
+  "              AND status IN ('calling','finished','called','held','voided')\n" +
+  '        )\n' +
+  '        SELECT *\n' +
+  '        FROM ranked\n' +
+  '        WHERE rn = 1;\n' +
+  '    ', [ '2026-03-13' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:279:8
+    at new Promise (<anonymous>)
+    at db.allAsync (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:278:3)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AdisplayApi.js:54:42 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}

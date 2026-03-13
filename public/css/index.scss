@@ -61,8 +61,8 @@ body {
   }
   .timer {
     position: absolute;
-    top: 5.5%;
-    right: 0;
+    top: 15%;
+    left: 5%;
     height: 5%;
     width: 40%;
     z-index: 100;
@@ -92,10 +92,10 @@ body {
     height: 10%;
     display: flex;
     background-image: url("/images/banner.png");
-    background-size: 100% 100%;
-    background-position: center center;
+    background-size: auto 100%;
+    background-position: start center;
     background-repeat: no-repeat;
-    background-color: aquamarine;
+    // background-color: rgb(255, 255, 255);
 
     .companyLogo {
         position: absolute;
@@ -117,11 +117,13 @@ body {
   }
   .video-container {
     position: absolute;
-    top: 10%;
+    top: 20%;
     left: 0;
     width: 50%;
-    height: 83%;
-    // background-color:rgb(252, 252, 252);
+    height: 70%;
+    max-width: 50%;
+    max-height: 70%;
+    overflow: hidden;
     display: flex;  
     align-items: center;
     justify-content: center;
@@ -147,11 +149,10 @@ body {
   }
   .content-container {
     position: absolute;
-    top: 10%;
+    top: 0%;
     left: 50%;
     width: 50%;
-    height: 83%;
-    // background-color:violet;
+    height: 93%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -222,14 +223,32 @@ body {
         .service-name {
           position: absolute;
           top: 0%;
-          width: 100%;
+          left: 25%;
+          width: 75%;
           height: 40% !important;
           display: flex;
           text-align: center;
           justify-content: center;
           align-items: center;
           background-color: #f0b940;
-          font-size: 1.5vw !important;
+          font-size: 1.3vw !important;
+          font-weight: bolder;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          text-transform: uppercase;
+        }
+
+        .sub-name {
+          position: absolute;
+          top: 0%;
+          left:0%;
+          width: 25%;
+          height: 40% !important;
+          display: flex;
+          text-align: center;
+          justify-content: center;
+          align-items: center;
+          background-color: #f0b940;
+          font-size: 1vw !important;
           font-weight: bolder;
           font-family: Verdana, Geneva, Tahoma, sans-serif;
           text-transform: uppercase;

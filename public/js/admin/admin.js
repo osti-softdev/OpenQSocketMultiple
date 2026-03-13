@@ -14,18 +14,20 @@ $(document).ready(function () {
         loadServices();
     });
     switchTab('reports');
+});
     // & MODAL CLOSE
     $('.close-modal').click(() => $('#modal-overlay').hide());
 
-    
     // & HISTORY SEARCH INPUT
      $('#history-search').on('input', function() {
         const search = $(this).val();
         loadTicketHistory(search);
     });
-
-});
-
+    // & SETTINGS FORM SUBMISSION
+    $('#settings-form').submit(function (e) {
+        e.preventDefault();
+        saveSettings();
+    });
 // ^ CHECK ADMIN SESSION
 function checkAdmin() {
     $.get('/api/check-session-admin', function (res) {
@@ -330,6 +332,7 @@ function loadServices() {
             $list.append(`
                 <tr>
                     <td>${s.shortSname}</td>
+                    <td>${s.sub_sname}</td>
                     <td>${s.regular}</td>
                     <td>${s.priority}</td>
                     <td>${s.sched || '-'}</td>
@@ -585,11 +588,6 @@ function loadSettings() {
         $('#setting-announcement3').val(settings.announcement3);
     });
 }
-// & SETTINGS FORM SUBMISSION
-    $('#settings-form').submit(function (e) {
-        e.preventDefault();
-        saveSettings();
-    });
 // & ===== SAVE SETTINGS =====
 function saveSettings() {
     const payload = {
@@ -741,6 +739,10 @@ function openModal(type = currentTab, data = null) {
             <div class="form-group">
                 <label>Service Name Display</label>
                 <input type="text" id="s-name-display" class="form-control" value="${data?.shortSname || ''}">
+            </div>
+            <div class="form-group">
+                <label>Sub Name Display</label>
+                <input type="text" id="sub-name-display" class="form-control" value="${data?.sub_sname || ''}">
             </div>
             <div class="form-group">
                 <label>Regular Letter/Prefix</label>
@@ -914,6 +916,7 @@ function saveItem() {
         const payload = {
             name: $('#s-name').val().trim(),
             shortSname: $('#s-name-display').val().trim(),
+            sub_sname: $('#sub-name-display').val().trim(),
             prefix: $('#s-prefix').val().trim(),
             priority_prefix: $('#s-priority').val().trim(),
             cutoff_time: $('#s-cutoff').val(),
