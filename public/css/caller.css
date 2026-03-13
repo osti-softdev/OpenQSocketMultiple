@@ -211,9 +211,11 @@ body {
   cursor: pointer;
   transition: background-color 0.2s;
 }
-.tellerPage .tellerContent .servicesManage .service-box .service-stats h4 {
+.tellerPage .tellerContent .servicesManage .service-box .service-stats h5 {
   position: absolute;
   left: 0;
+  display: flex;
+  text-wrap: wrap;
   width: 28%;
 }
 .tellerPage .tellerContent .servicesManage .service-box .service-stats .stat-item {

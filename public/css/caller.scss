@@ -224,9 +224,11 @@ body {
                     cursor: pointer;
                     transition: background-color 0.2s;
 
-                    h4{
+                    h5{
                         position: absolute;
                         left: 0;
+                        display: flex;
+                        text-wrap: wrap;
                         width: 28%;
                     }
                     .stat-item{

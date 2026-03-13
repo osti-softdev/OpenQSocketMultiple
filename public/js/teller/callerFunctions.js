@@ -277,9 +277,11 @@ function createServiceBoxes() {
 
     services.forEach(service => {
         const $box = $('<div>').addClass('service-box').attr('id', `service-box-${service}`);
+        const Sname = service.replace(/_/g, " ");
+        
         $box.html(`
             <div class="service-stats">
-                <h4>${service}</h4>
+                <h5>${Sname}</h5>
                 <div class="stat-item">Last: <span class="last">-</span></div>
             </div>
                 <div class="service-btns">
