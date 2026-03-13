@@ -210,7 +210,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: scale(0.97);
+  transform: scale(0.98);
 }
 .main-container .content-container #servicesDisplay .service-row .service-name {
   position: absolute;

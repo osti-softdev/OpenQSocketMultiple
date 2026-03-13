@@ -48,14 +48,18 @@ function displayServicesCards(services) {
 
     services.forEach((service) => {
         const $rowDiv = $("<div>").addClass("service-row");
+		const serviceName = service.shortSname || '—';
 
-        // Service name (short)
-        $rowDiv.append(
-            $("<span>")
-                .addClass("service-name")
-                .html(service.shortSname || '—')
-        );
+		const $serviceName = $("<span>")
+			.addClass("service-name")
+			.html(serviceName);
+		// attach length as data attribute
+		$serviceName.attr("data-length", serviceName.length);
 
+		$rowDiv.append($serviceName);
+		if (serviceName.length <= 16) {
+			$serviceName.css("font-size", "3vw");
+		}
 		$rowDiv.append(
             $("<span>")
                 .addClass("sub-name")
@@ -78,7 +82,7 @@ function displayServicesCards(services) {
     if (typeof setServicesDisplay === 'function') {
         setServicesDisplay(services.length);
     }
-
+	adjustServiceNameFont();
     // Video control logic
     if (services.length > 10) {
         if (typeof pausevid === 'function') pausevid();
@@ -113,12 +117,21 @@ function setServicesDisplay(count) {
 			"display": "none",
 		})
 		$(".content-container").css({
+			"top": "10%",
+			"height":"83%",
 			"left": "0%",
 			"width": "100%",
 		})
 		$("#sub_popup").css({
 			"left": "0%",
 			"width": "100%",
+		}),
+		$(".service-header").css({
+			"display": "none",
+		})
+		$(".timer").css({
+			"left": "60%",
+			"top": "5%",
 		})
 	}
 
@@ -279,7 +292,7 @@ function setServicesDisplay(count) {
 		});
 	}else if(count === 11) {
 		$(".service-row").css({
-			"height": "23%",
+			"height": "24%",
 			"width": "33.3%",
 		});
 		$(".service-name").css({
@@ -295,7 +308,7 @@ function setServicesDisplay(count) {
 		});
 	}else if(count === 12) {
 		$(".service-row").css({
-			"height": "23%",
+			"height": "24%",
 			"width": "33.3%",
 		});
 		$(".service-name").css({
@@ -374,7 +387,27 @@ function setServicesDisplay(count) {
 		});
 	}
 }
+	// Adjust font size based on service name length
+function adjustServiceNameFont() {
+    $(".service-name").each(function () {
 
+        const length = $(this).text().trim().length;
+
+        let size;
+
+        if (length <= 12) {
+            size = "2.3rem";
+        } else if (length <= 16) {
+            size = "2.5rem";
+        } else if (length <= 22) {
+            size = "2rem";
+        } else {
+            size = "1.5rem";
+        }
+
+        this.style.setProperty("font-size", size, "important");
+    });
+}
 function applyDisplayConfig(config) {
   const displayUpdate = config.display_update || {};
 	   if (displayUpdate.update === 1) {
