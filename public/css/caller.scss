@@ -611,10 +611,12 @@ body {
                     .ticket-service-name {
                         height: 100%;
                         width: 50%;
-                        font-size: 3vw;
+                        font-size: 2.5vw;
                         color: #000000;
                         align-items: center;
                         justify-content: center;
+                        text-wrap: wrap;
+                        overflow: hidden;
                         display: flex;
                         transform: scale(0.95);
                         background-color: #c3c5cac7;

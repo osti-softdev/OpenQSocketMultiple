@@ -250,10 +250,11 @@ function displayCurrentTicket(ticket) {
         return;
     }
     const $display = $('.currentCalledTicket');
+    const ticketSname = ticket.sname.replace(/_/g, " ");
     $display.html(`
         <div class="active-ticket-info">
             <div class="ticket-num-large">${ticket.ticketservice}${ticket.ticketnum}</div>
-            <div class="ticket-service-name">${ticket.sname}</div>
+            <div class="ticket-service-name">${ticketSname}</div>
         </div>
     `);
     $('#start-time').text(ticket.start_time);

@@ -554,10 +554,12 @@ body {
 .tellerPage .tellerContent .actionbtns .currentCalledTicket .active-ticket-info .ticket-service-name {
   height: 100%;
   width: 50%;
-  font-size: 3vw;
+  font-size: 2.5vw;
   color: #000000;
   align-items: center;
   justify-content: center;
+  text-wrap: wrap;
+  overflow: hidden;
   display: flex;
   transform: scale(0.95);
   background-color: rgba(195, 197, 202, 0.7803921569);
