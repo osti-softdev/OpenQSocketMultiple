@@ -648,15 +648,22 @@ router.get('/settings', (req, res) => {
         const settingsObj = {};
 
         settings.forEach(setting => {
+            let parsedValue;
+            try {
+                parsedValue = JSON.parse(setting.value);
+            } catch (e) {
+                parsedValue = setting.value; // use as-is if not JSON
+            }
+
             settingsObj[setting.key] = {
-                value: setting.value,
+                value: parsedValue,
                 status: setting.status
             };
         });
 
         res.json(settingsObj);
     });
-});
+})
   
   // & Save Settings
   router.post('/settings', (req, res) => {
@@ -667,30 +674,31 @@ router.get('/settings', (req, res) => {
     }
 
     try {
-        Object.entries(settings).forEach(([key, value]) => {
-            // First try to update the value for the key
+        Object.entries(settings).forEach(([key, data]) => {
+            // Extract value and status from the object
+            const value = typeof data === 'object' ? (data.value ?? '') : (data ?? '');
+            const status = typeof data === 'object' ? (data.status ?? 0) : 0;
+
             db.run(
-                `UPDATE settings SET value = ? WHERE key = ?`,
-                [value ?? '', key],
+                `UPDATE settings SET value = ?, status = ? WHERE key = ?`,
+                [value, status, key],
                 function(err) {
                     if (err) {
                         console.error(`Failed to update setting ${key}:`, err);
                         return;
                     }
 
-                    // If no row was updated, insert new row
                     if (this.changes === 0) {
                         db.run(
-                            `INSERT INTO settings (key, value) VALUES (?, ?)`,
-                            [key, value ?? ''],
+                            `INSERT INTO settings (key, value, status) VALUES (?, ?, ?)`,
+                            [key, value, status],
                             (err2) => {
                                 if (err2) console.error(`Failed to insert setting ${key}:`, err2);
                             }
                         );
                     }
 
-                    // Emit the update regardless
-                    io.emit('settings_updated', { key, value });
+                    io.emit('settings_updated', { key, value, status });
                     io.emit('footerUpdated');
                 }
             );
@@ -701,6 +709,6 @@ router.get('/settings', (req, res) => {
         console.error('Failed to update settings:', err);
         res.status(500).json({ error: 'Failed to update settings' });
     }
-  });
+});
     return router;
 };
