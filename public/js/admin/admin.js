@@ -13,7 +13,7 @@ $(document).ready(function () {
      socket.on('service_update', async function (data) {
         loadServices();
     });
-    switchTab('reports');
+    switchTab('settings');
 });
     // & MODAL CLOSE
     $('.close-modal').click(() => $('#modal-overlay').hide());
@@ -583,9 +583,9 @@ function deleteGroup(id) {
 // ~ ===== SETTINGS =====
 function loadSettings() {
     $.get('/api/settings', function (settings) {
-        $('#setting-announcement').val(settings.announcement);
-        $('#setting-announcement2').val(settings.announcement2);
-        $('#setting-announcement3').val(settings.announcement3);
+        $('#setting-announcement').val(settings.announcement.value);
+        $('#setting-announcement2').val(settings.announcement2.value);
+        $('#setting-announcement3').val(settings.announcement3.value);
     });
 }
 // & ===== SAVE SETTINGS =====

@@ -307,6 +307,7 @@ module.exports = function createTellerApiRouter(io) {
             if (err) return res.status(500).json({ error: err.message });
             res.json({ success: true, id: this.lastID });
             io.emit('service_update'); // Emit service update event
+            io.emit('calledticketsArrived');
         });
   });
 
@@ -319,6 +320,7 @@ module.exports = function createTellerApiRouter(io) {
             if (err) return res.status(500).json({ error: err.message });
             res.json({ success: true });
             io.emit('service_update'); // Emit service update event
+            io.emit('calledticketsArrived');
         });
   });
   
@@ -328,6 +330,7 @@ module.exports = function createTellerApiRouter(io) {
             if (err) return res.status(500).json({ error: err.message });
             res.json({ success: true });
             io.emit('service_update'); // Emit service update event
+            io.emit('calledticketsArrived');
         });
   });  
 
@@ -636,18 +639,24 @@ module.exports = function createTellerApiRouter(io) {
 
   //   ! -------- SETTINGS -------- !
   // & settings
-  router.get('/settings', (req, res) => {
+router.get('/settings', (req, res) => {
     db.all('SELECT * FROM settings', (err, settings) => {
         if (err) {
             return res.status(500).json({ error: 'Database error' });
         }
+
         const settingsObj = {};
+
         settings.forEach(setting => {
-            settingsObj[setting.key] = setting.value;
+            settingsObj[setting.key] = {
+                value: setting.value,
+                status: setting.status
+            };
         });
+
         res.json(settingsObj);
     });
-  });
+});
   
   // & Save Settings
   router.post('/settings', (req, res) => {
@@ -682,6 +691,7 @@ module.exports = function createTellerApiRouter(io) {
 
                     // Emit the update regardless
                     io.emit('settings_updated', { key, value });
+                    io.emit('footerUpdated');
                 }
             );
         });

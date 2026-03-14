@@ -663,7 +663,9 @@ html, body {
   width: 100%;
   background: rgb(226, 218, 218);
   border-radius: 12px;
-  padding: 24px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
   box-shadow: 0px 4px 8px rgb(0, 0, 0);
   overflow: hidden;
 }
@@ -681,6 +683,83 @@ html, body {
 }
 .content .tab-content .card-settings .card-header h3 {
   margin-bottom: 0;
+}
+.content .tab-content .card-settings #settings-form {
+  height: 100%;
+  width: 80%;
+  overflow: hidden;
+}
+.content .tab-content .card-settings #settings-form .settings-form-group {
+  height: 25%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-right: 3px solid rgba(99, 95, 95, 0.527);
+}
+.content .tab-content .card-settings #settings-form .settings-form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+}
+.content .tab-content .card-settings #settings-form .settings-form-group input[type=text] {
+  width: 80%;
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.content .tab-content .card-settings #settings-form .settings-form-group input[type=checkbox] {
+  width: 10%;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.content .tab-content .card-settings #settings-form .settings-form-group span {
+  width: 10%;
+}
+.content .tab-content .card-settings #settings-form .settingannbtn {
+  height: 20%;
+  width: 20%;
+  border: none;
+  justify-content: center;
+  align-items: center;
+}
+.content .tab-content .card-settings #settings-form2 {
+  height: 100%;
+  width: 20%;
+  overflow: hidden;
+}
+.content .tab-content .card-settings #settings-form2 .settings-form-group2 {
+  height: 33%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.content .tab-content .card-settings #settings-form2 .settings-form-group2 label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin: 6px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 30%;
+}
+.content .tab-content .card-settings #settings-form2 .settings-form-group2 input {
+  height: 100%;
+  width: 50%;
+  border-radius: 8px;
+  font-size: 14px;
+  padding: 0px;
+  border: none;
 }
 .content .tab-content .adsmain {
   position: absolute;

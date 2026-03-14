@@ -260,7 +260,7 @@ function setServicesDisplay(count) {
 		});
 	}else if(count === 9) {
 		$(".service-row").css({
-			"height": "18%",
+			"height": "19%",
 			"width": "50%",
 		});
 		$(".service-name").css({
@@ -276,7 +276,7 @@ function setServicesDisplay(count) {
 		});
 	}else if(count === 10) {
 		$(".service-row").css({
-			"height": "18%",
+			"height": "19%",
 			"width": "50%",
 		});
 		$(".service-name").css({
@@ -324,7 +324,7 @@ function setServicesDisplay(count) {
 		});
 	}else if(count === 13) {
 		$(".service-row").css({
-			"height": "18%",
+			"height": "19%",
 			"width": "33.3%",
 		});
 		$(".service-name").css({
