@@ -72,7 +72,6 @@ function getConfig() {
 
 function applyConfig(config) {
 
-    console.log(config);
 
     const separator = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
     let announcementText = '';
@@ -93,6 +92,19 @@ function applyConfig(config) {
         if (announcementText !== '') announcementText += separator;
         announcementText += config.announcement3.value;
     }
+
+
+        $("#marquee_parent").css("background-color", config.annbgcolor.value);
+        $("#runner").css({
+            animation: `marquee ${config.annspeed.value}s linear infinite`,
+            color: config.anntextcolor.value,
+        });
+
+        $("#runner2").css({
+           animation: `marquee ${config.annspeed.value}s linear infinite`,
+           color: config.anntextcolor.value,
+        });
+
 
     $("#runner").html(announcementText);
     $("#runner2").html(announcementText);

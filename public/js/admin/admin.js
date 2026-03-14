@@ -600,7 +600,6 @@ function deleteGroup(id) {
 // ~ ===== SETTINGS =====
 function loadSettings() {
     $.get('/api/settings', function (settings) {
-        console.log(settings)
         // Announcement 1
         $('#setting-announcement').val(settings.announcement?.value ?? '');
         $('#setting-announcement-status').prop('checked', settings.announcement?.status === 1);
