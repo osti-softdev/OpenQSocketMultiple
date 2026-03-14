@@ -782,7 +782,7 @@ function openModal(type = currentTab, data = null) {
             : [];
 
         const groupOptions = groups.map(g => `
-            <option value="${g.id}" ${Number(data?.group_id) === Number(g.id) ? 'selected' : ''}>
+            <option value="${g.id}" data-group-name="${g.group_name}" ${Number(data?.group_id) === Number(g.id) ? 'selected' : ''}>
                 ${g.group_name}
             </option>
         `).join('');
@@ -946,6 +946,7 @@ function saveItem() {
         const rawCounter = $('#t-counter').val();
         const rawPassword = $('#t-pass').val();
         const rawGroup = $('#t-group').val();
+        const groupName = $('#t-group option:selected').data('group-name') || 'None';
 
         const selectedServices = $('.t-service-checkbox:checked')
             .map(function () {
@@ -972,6 +973,7 @@ function saveItem() {
             username,
             services: selectedServices.join(','), // keep DB compatible
             group_id: rawGroup ? parseInt(rawGroup, 10) : null,
+            groupName: groupName,
             counter_number: rawCounter ? parseInt(rawCounter, 10) : null,
             is_active: $('#t-active').is(':checked') ? 1 : 0
         };

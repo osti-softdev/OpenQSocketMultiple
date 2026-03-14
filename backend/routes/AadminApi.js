@@ -378,7 +378,7 @@ module.exports = function createTellerApiRouter(io) {
 
   // & Add Tellers 
   router.post('/admin/tellers', (req, res) => {
-    const { name, username, password, counter_number, services, group_id, is_active } = req.body;
+    const { name, username, password, counter_number, services, group_id, group_name, is_active } = req.body;
 
     if (!username || !password) {
         return res.status(400).json({ error: 'Username and password are required' });
@@ -389,7 +389,7 @@ module.exports = function createTellerApiRouter(io) {
 
     db.run(
         `INSERT INTO counters
-         (cname, cuser, cpass, cnum, services, group_id, cstatus)
+         (cname, cuser, cpass, cnum, services, group_id, group_name, cstatus)
          VALUES (?, ?, ?, ?, ?, ?, ?)`,
         [
             name,
@@ -398,6 +398,7 @@ module.exports = function createTellerApiRouter(io) {
             counter_number,
             services,
             group_id,
+            group_name,
             is_active
         ],
         function (err) {
@@ -412,7 +413,7 @@ module.exports = function createTellerApiRouter(io) {
 
   //   & Edit Tellers
   router.put('/admin/tellers/:id', (req, res) => {
-    const { name, username, counter_number, services, group_id, is_active, password } = req.body;
+    const { name, username, counter_number, services, group_id, groupName, is_active, password } = req.body;
 
 
     if (password) {
@@ -420,9 +421,9 @@ module.exports = function createTellerApiRouter(io) {
 
         db.run(
             `UPDATE counters
-             SET cname = ?, cuser = ?, cpass = ?, cnum = ?, services = ?, group_id = ?, cstatus = ?
+             SET cname = ?, cuser = ?, cpass = ?, cnum = ?, services = ?, group_id = ?,group_name = ?, cstatus = ?
              WHERE id = ?`,
-            [name, username, password, counter_number, services, group_id, is_active, req.params.id],
+            [name, username, password, counter_number, services, group_id, groupName, is_active, req.params.id],
             err => {
                 if (err) return res.status(500).json({ error: err.message });
                 res.json({ success: true });
@@ -431,9 +432,9 @@ module.exports = function createTellerApiRouter(io) {
     } else {
         db.run(
             `UPDATE counters
-             SET cname = ?, cuser = ?, cnum = ?, services = ?, group_id = ?, cstatus = ?
+             SET cname = ?, cuser = ?, cnum = ?, services = ?, group_id = ?,group_name = ?, cstatus = ?
              WHERE id = ?`,
-            [name, username, counter_number, services, group_id, is_active, req.params.id],
+            [name, username, counter_number, services, group_id, groupName, is_active, req.params.id],
             err => {
                 if (err) return res.status(500).json({ error: err.message });
                 res.json({ success: true });
