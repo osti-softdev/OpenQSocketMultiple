@@ -9,7 +9,10 @@ $(document).ready(function () {
         const tab = $(this).data('tab');
         switchTab(tab);
     });
-
+    $('.settingsmenubtn').click(function () {
+        const tab = $(this).data('settingstab');
+        settingstabs(tab);
+    });
      socket.on('service_update', async function (data) {
         loadServices();
     });
@@ -80,7 +83,9 @@ function switchTab(tab) {
     };
 
     $('#tab-title').text(titles[tab]);
-
+    if(tab !== 'settings'){
+        $('.settingsMenu').slideUp(100);
+    }
     // Load data for the tab
     if (tab === 'dashboard') loadDashboard();
     else if (tab === 'reports') loadReports();
@@ -89,8 +94,28 @@ function switchTab(tab) {
     else if (tab === 'tellers') loadTellers();
     else if (tab === 'accounts') loadAccounts();
     else if (tab === 'groups') loadGroups();
-    else if (tab === 'settings') loadSettings();
+    else if (tab === 'settings') {
+        $('.settingsMenu').slideDown(200);
+        loadSettings();
+    }
 }
+function settingstabs(tab) {
+    $('.settingsmenubtn').removeClass('active');
+    $(`.settingsmenubtn[data-settingstab="${tab}"]`).addClass('active');
+    $('.settabs').removeClass('activetab');
+    $(`#${tab}-settab`).addClass('activetab');
+    console.log(tab)
+    // Load data for the tab
+    if (tab === 'announcement') {
+    }
+    else if (tab === 'advertisement') {
+    }
+    else if (tab === 'images'){
+    }
+    else if (tab === 'fontsizes'){
+    }
+}
+
 // ^ ===== LOADING AREA ====== ^ 
 
 // & ===== DASHBOARD =====
