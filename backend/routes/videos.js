@@ -69,6 +69,7 @@ module.exports = function setupVideosApi(app, adsModule) {
         if (!req.file) return res.status(400).send("No file uploaded or invalid format");
         adsModule.refreshAds();
         res.send(`Video uploaded successfully: ${req.file.filename}`);
+        adsModule.refreshAds();
     });
 
     // Rename
@@ -86,6 +87,7 @@ module.exports = function setupVideosApi(app, adsModule) {
             fs.renameSync(src, dst);
             adsModule.refreshAds();
             res.send("OK");
+            adsModule.refreshAds();
         } catch (e) {
             console.error(e);
             res.status(500).send("Rename failed");
@@ -99,6 +101,7 @@ module.exports = function setupVideosApi(app, adsModule) {
             if (err) return res.status(500).send("Failed to delete video");
             adsModule.refreshAds();
             res.send(`Video ${req.params.videoName} deleted successfully`);
+            adsModule.refreshAds();
         });
     });
 

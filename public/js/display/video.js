@@ -8,7 +8,7 @@ socket.on("adsList", (data) => {
 	if (!data || !Array.isArray(data.ads) || !data.ads.length) return;
 	const oldQueue = adQueue.join(",");
 	adQueue = [...data.ads];
-
+console.log(data)
 	// clamp volume between 0-1
 	adVolume = Math.min(Math.max(data.volume || 0, 0), 1);
 

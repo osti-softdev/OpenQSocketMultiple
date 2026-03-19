@@ -2,6 +2,10 @@ let services = [];
 let selectedType = null;
 
 $(document).ready(async function () {
+socket.on('service_update', async function () {
+        loadServices();
+});
+
    await loadServices();
 
    async function loadServices() {
