@@ -75,10 +75,11 @@ function openArduinoPort(portInfo, io) {
       const { date, time } = getPHDateTime();
       const topline = "Topline";
 
-      // === Ticket creation 2..9 ===
-      if (/^[2-9]$/.test(key)) {
+      // === Ticket creation 2..4 ===
+      if (/^[2-4]$/.test(key)) {
         const services = await getAllServices();
         const index = parseInt(key) - 2;
+        console.log(index);
         const service = services[index];
         if (!service || !service.regular) return db.close();
 
@@ -97,7 +98,7 @@ function openArduinoPort(portInfo, io) {
 
             db.run(
               `INSERT INTO transactions (ticketnum, sname, ticketservice, status, date, time, history) VALUES (?,?,?,?,?,?,?)`,
-              [ticketNumber, service.sname, service.regular, date, date, time, historyEntry],
+              [ticketNumber, service.sname, service.regular, "pending", date, time, historyEntry],
               (err) => {
                 if (!err && port.isOpen) {
                   const displayText = `${service.regular}${ticketNumber}`;
@@ -113,44 +114,75 @@ function openArduinoPort(portInfo, io) {
         );
       }
 
-      // === Call next ticket A,B,C,D ===
-      else if (/^[ABCD]$/.test(key)) {
-        const services = await getAllServices();
-        const startTime = time;
-        const historyEntry = `${time}-${topline}-Calling`;
+      // === Call next ticket (A,B,C,D) ===
+				else if (/^[ABCD]$/.test(key)) {
+					const startTime = time;
+					const historyEntry = `${time}-${topline}-Calling`;
+          console.log(`Calling next ticket for key ${key}...`);
+					if (key === "A") {
+						const query = `
+							UPDATE transactions 
+							SET status = 'calling',  counter_user=?, start_time = ?, 
+								history = CASE 
+									WHEN history IS NULL OR history = '' THEN ? 
+									ELSE history || ';' || ? END
+							WHERE id = (
+								SELECT id FROM transactions 
+								WHERE status = 'pending' AND date = ?
+								ORDER BY date ASC, time ASC
+								LIMIT 1
+							)
+							RETURNING ticketnum, sname, ticketservice, status
+						`;
+						db.get(query, [topline, startTime, historyEntry, historyEntry, date], (err, row) => {
+							if (err) console.error("Update error:", err.message);
+							else if (row && port.isOpen) port.write(JSON.stringify(row) + "\n");
+							db.close();
+						});
+					} else {
+						const services = await getAllServices();
+						const index = key.charCodeAt(0) - "B".charCodeAt(0); // B=0, C=1, D=2
+						const service = services[index];
+						if (!service || !service.regular) {
+							db.close();
+							return;
+						}
 
-        let index, service;
-        if (key === "A") {
-          index = 0;
-          service = services[index];
-        } else {
-          index = key.charCodeAt(0) - "B".charCodeAt(0);
-          service = services[index];
-        }
-
-        if (!service || !service.regular) return db.close();
-
-        const query = `
-          UPDATE transactions
-          SET status='calling', start_time=?, history=CASE WHEN history IS NULL OR history='' THEN ? ELSE history||';'||? END
-          WHERE id=(SELECT id FROM transactions WHERE status='pending' AND sname=? AND ticketservice=? AND date=? ORDER BY date ASC,time ASC LIMIT 1)
-          RETURNING ticketnum, sname, ticketservice, status
-        `;
-        db.get(query, [startTime, historyEntry, historyEntry, service.sname, service.regular, date], (err, row) => {
-          if (err){ console.error("Update error:", err.message);
-} else if (!row) {
-            // ✅ No matching tcket found
+						const query = `
+							UPDATE transactions 
+							SET status = 'calling', counter_user='Designated Counter', start_time = ?, 
+								history = CASE 
+									WHEN history IS NULL OR history = '' THEN ? 
+									ELSE history || ';' || ? END
+							WHERE id = (
+								SELECT id FROM transactions 
+								WHERE status = 'pending' 
+								AND sname = ? AND ticketservice = ? AND date = ?
+								ORDER BY date ASC, time ASC
+								LIMIT 1
+							)
+							RETURNING ticketnum, sname, ticketservice, status
+						`;
+						db.get(
+							query,
+							[startTime, historyEntry, historyEntry, service.sname, service.regular, date],
+							(err, row) => {
+								if (err) {
+                  console.error("Update error:", err.message);
+								} else if (!row) {
+            // ✅ No maching ticket found
             if (port && port.isOpen) {
                 port.write("No Ticket\n", (err) => {
                     if (err) console.error("Write error:", err.message);
                 });
             }
 
-       } else if (row && port.isOpen) port.write(JSON.stringify(row) + "\n");
-console.table(row);
+                } else if (row && port.isOpen) port.write(JSON.stringify(row) + "\n");
+        console.table(row);
           db.close();
-        });
-      }
+                });
+              }
+    }
 
       // === Recalling (#) ===
       else if (key === "#") {
