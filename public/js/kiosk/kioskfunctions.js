@@ -128,6 +128,8 @@ $(document).ready(async function () {
             data: JSON.stringify({ sname, ticketservice, selectedType }),
             success: function (response) {
                 if (response.success) {
+                const responseSname = response.ticket.sname?.replace(/_/g, ' ') || '';
+
                     setTimeout(() => {
                         Swal.fire({
                             title: `<span style="font-size:20px;color:green;font-weight:bold;">Ticket Printed Successfully</span>`,
@@ -138,7 +140,7 @@ $(document).ready(async function () {
                                         <span style="color:black;">${response.ticket.ticketnum}</span>
                                     </span>
                                     <p style="font-size:28px;margin-top:20px;font-weight:600;">
-                                        ${response.ticket.sname}
+                                        ${responseSname}
                                     </p>
                                 </div>
                             `,
