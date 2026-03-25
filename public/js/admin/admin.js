@@ -153,7 +153,7 @@ function loadLiveDashboard() {
                 $serviceGrid.append(`
                     <div class="service-live-card ${statusClass}">
                         <div class="service-name">
-                            ${s.sname}
+                            ${s.shortSname}
                             <span class="status-indicator ${s.waiting_count > 0 ? 'busy' : 'idle'}">${s.waiting_count > 0 ? 'Active' : 'Idle'}</span>
                         </div>
                         <div class="service-metrics">

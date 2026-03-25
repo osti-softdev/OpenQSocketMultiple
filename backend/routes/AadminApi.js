@@ -94,6 +94,7 @@ module.exports = function createTellerApiRouter(io) {
         db.all(`
             SELECT 
                 s.sname,
+                s.shortSname,
                 COUNT(CASE WHEN t.status = 'pending' AND t.date = ? THEN 1 END) AS waiting_count,
                 COUNT(CASE WHEN (t.status = 'calling' OR t.status = 'called') AND t.date = ? THEN 1 END) AS serving_count,
                 COUNT(CASE WHEN t.status = 'finished' AND t.date = ? THEN 1 END) AS completed_count,
