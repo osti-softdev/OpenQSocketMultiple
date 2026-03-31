@@ -16,7 +16,7 @@ $(document).ready(function () {
      socket.on('service_update', async function (data) {
         loadServices();
     });
-    switchTab('settings');
+    switchTab('reports');
 });
     // & MODAL CLOSE
     $('.close-modal').click(() => $('#modal-overlay').hide());
