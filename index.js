@@ -34,6 +34,10 @@ const {
   initializeSerialPort,
   cleanupSerialPorts,
 } = require("./reso/node/serialport");
+const {
+  initializeGPIO,
+  cleanupGPIO,
+} = require("./reso/node/gpiobuttons");
 const { setupLogger } = require("./reso/node/logger");
 const { test, setupAds, initialize: initAdsManager } = require("./reso/node/getads");
 const { handleGetAllServices } = require("./reso/node/getallservices");
@@ -243,6 +247,7 @@ const SYSTEM_TYPES = {
   ARDUINO_UNO: "ARDUINO_UNO",
   ARDUINO_WIFI: "ARDUINO_WIFI",
   WINDOWED_APPLICATIONS: "WINDOWED_APPLICATIONS",
+  RASPBERRY_PI_GPIO: "RASPBERRY_PI_GPIO",
 };
 // normalize/validate system_type
 let system_type = (config?.MainServer?.systemType || SYSTEM_TYPES.WINDOWED_APPLICATIONS)
@@ -263,6 +268,7 @@ console.log(`Starting server with SYSTEM_TYPE=${system_type}`);
 const isArduinoUno = system_type === SYSTEM_TYPES.ARDUINO_UNO;
 const isArduinoWifi = system_type === SYSTEM_TYPES.ARDUINO_WIFI;
 const isWindowed = system_type === SYSTEM_TYPES.WINDOWED_APPLICATIONS;
+const isRaspberryPiGpio = system_type === SYSTEM_TYPES.RASPBERRY_PI_GPIO;
 
 // ===== Routes =====
 if (isArduinoWifi) {
@@ -415,6 +421,10 @@ io.on("connection", (socket) => {
     if (isArduinoUno) {
       setupCalledTicketsWatcher(socket, io, "ARDUINO_UNO");
       initializeSerialPort(socket, io, "ARDUINO_UNO");
+    }
+    if (isRaspberryPiGpio) {
+      setupCalledTicketsWatcher(socket, io, "RASPBERRY_PI_GPIO");
+      initializeGPIO(io);
     }
       if (isWindowed) {
       setupLoginSocketteller(socket);
@@ -713,6 +723,7 @@ async function gracefulShutdown(signal) {
 
     if (smstype == 1) await cleanupGSMPorts();
     if (isArduinoUno) await cleanupSerialPorts();
+    if (isRaspberryPiGpio) await cleanupGPIO();
 
     await new Promise((resolve, reject) => {
       server.close((err) => (err ? reject(err) : resolve()));
