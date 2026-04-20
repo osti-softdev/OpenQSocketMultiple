@@ -34,9 +34,7 @@
 		"serialport-gsm": "^4.0.1",
 		"socket.io": "^4.8.1",
 		"sqlite3": "^5.1.7",
-		"websocket": "^1.0.35"
-	},
-	"optionalDependencies": {
+		"websocket": "^1.0.35",
 		"onoff": "^6.3.0"
 	}
 }

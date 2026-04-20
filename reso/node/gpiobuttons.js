@@ -1,8 +1,8 @@
 // reso/node/gpiobuttons.js
-// Raspberry Pi GPIO Button Handler
-// Replaces serial/Arduino button input with direct GPIO pins
+// Raspberry Pi GPIO Button Handler (Pi 5 Optimized)
+// Uses a Python bridge to leverage gpiozero for reliable Pi 5 support
 
-const { Gpio } = require("onoff");
+const { spawn } = require("child_process");
 const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 const { getAllServices } = require("./db");
@@ -11,26 +11,8 @@ const { getPHDateTime } = require("./datetime");
 const rootpath = global.outfolderPath || path.join(__dirname, "../../outfolder");
 const dbPath = path.join(rootpath, "config/db.db");
 
-// === GPIO Configuration ===
-// Map button names to GPIO pin numbers and their corresponding key values
-// Wiring: Button connects GPIO pin → GND (active-low with pull-up resistor)
-// This matches gpiozero's pull_up=True configuration
-const GPIO_BUTTON_CONFIG = {
-  btn2: { pin: 17, key: "2" },     // Ticket service 2
-  btn3: { pin: 27, key: "3" },     // Ticket service 3
-  btn4: { pin: 22, key: "4" },     // Ticket service 4
-  btnA: { pin: 10, key: "A" },     // Call next (Service A)
-  btnB: { pin: 9, key: "B" },      // Call next (Service B)
-  btnC: { pin: 11, key: "C" },     // Call next (Service C)
-  btnD: { pin: 5, key: "D" },      // Call next (Service D)
-  btnRecall: { pin: 6, key: "#" }, // Recall last ticket
-  btnVoid: { pin: 13, key: "0" },  // Void ticket
-  btnSatisfied: { pin: 19, key: "5" },   // Satisfied feedback
-  btnUnsatisfied: { pin: 26, key: "6" }, // Unsatisfied feedback
-};
-
 // === State ===
-let gpioButtons = new Map(); // { buttonName: Gpio instance }
+let pythonProcess = null;
 let isShuttingDown = false;
 
 // === Process button press (same logic as serialport.js) ===
@@ -47,7 +29,10 @@ async function processButtonPress(key) {
       const services = await getAllServices();
       const index = parseInt(key) - 2;
       const service = services[index];
-      if (!service || !service.regular) return db.close();
+      if (!service || !service.regular) {
+        db.close();
+        return;
+      }
 
       db.get(
         `SELECT MAX(ticketnum) as maxTicket FROM transactions WHERE sname=? AND ticketservice=? AND date=?`,
@@ -208,69 +193,63 @@ async function processButtonPress(key) {
   }
 }
 
-// === Setup GPIO button ===
-function setupGpioButton(buttonName, config) {
-  try {
-    console.log(`📌 Setting up GPIO button: ${buttonName} on pin ${config.pin}`);
-    
-    // Create GPIO input with pull-down resistor (active high)
-    const gpio = new Gpio(config.pin, "in", "both", { debounceTimeout: 50 });
-
-    // Watch for button press
-    // NOTE: Using active-low logic (pull_up=True) - button pulls GPIO LOW when pressed
-    // If your buttons are wired to 3.3V instead of GND, change "value === 0" to "value === 1"
-    gpio.watch((err, value) => {
-      if (err) {
-        console.error(`❌ GPIO error on pin ${config.pin}:`, err);
-        return;
-      }
-      // value = 0 means button pressed (active-low with pull-up resistor)
-      if (value === 0) {
-        processButtonPress(config.key);
-      }
-    });
-
-    gpioButtons.set(buttonName, gpio);
-    console.log(`✅ GPIO button ${buttonName} ready on pin ${config.pin}`);
-  } catch (err) {
-    console.error(`❌ Failed to setup GPIO button ${buttonName}:`, err.message);
-  }
-}
-
-// === Initialize all GPIO buttons ===
+// === Initialize Python Bridge ===
 function initializeGPIO(io) {
-  console.log("\n🚀 Initializing Raspberry Pi GPIO buttons...");
+  console.log("\n🚀 Initializing Raspberry Pi 5 GPIO Bridge (via Python)...");
   
-  if (gpioButtons.size > 0) {
-    console.log("⚠️  GPIO buttons already initialized");
+  if (pythonProcess) {
+    console.log("⚠️  GPIO Bridge already running");
     return;
   }
 
-  for (const [buttonName, config] of Object.entries(GPIO_BUTTON_CONFIG)) {
-    setupGpioButton(buttonName, config);
-  }
+  // Path to the bridge script
+  const bridgePath = path.join(__dirname, "../../gpio_bridge.py");
 
-  console.log(`\n✨ GPIO button system ready with ${gpioButtons.size} buttons`);
+  // Spawn Python process
+  pythonProcess = spawn("python3", [bridgePath]);
+
+  // Handle incoming data (KEY:X)
+  pythonProcess.stdout.on("data", (data) => {
+    const lines = data.toString().split("\n");
+    for (const line of lines) {
+      if (line.startsWith("KEY:")) {
+        const key = line.substring(4).trim();
+        processButtonPress(key);
+      }
+    }
+  });
+
+  // Handle errors/debug from Python
+  pythonProcess.stderr.on("data", (data) => {
+    const msg = data.toString().trim();
+    if (msg.startsWith("DEBUG:")) {
+      console.log(`🐍 Python Bridge: ${msg.substring(6)}`);
+    } else {
+      console.error(`❌ Python Bridge Error: ${msg}`);
+    }
+  });
+
+  pythonProcess.on("close", (code) => {
+    if (!isShuttingDown) {
+      console.warn(`⚠️  Python Bridge exited with code ${code}. Restarting in 5s...`);
+      pythonProcess = null;
+      setTimeout(() => initializeGPIO(io), 5000);
+    }
+  });
+
+  console.log("✨ Node.js is now listening to the Python GPIO Bridge");
 }
 
 // === Cleanup GPIO on shutdown ===
 async function cleanupGPIO() {
   isShuttingDown = true;
-  console.log("\n🛑 Cleaning up GPIO buttons...");
+  console.log("\n🛑 Stopping Python GPIO Bridge...");
 
-  for (let [buttonName, gpio] of gpioButtons) {
-    try {
-      if (!gpio.unexported()) {
-        gpio.unexport();
-      }
-      console.log(`✅ Unexported GPIO button: ${buttonName}`);
-    } catch (err) {
-      console.error(`❌ Error unexporting ${buttonName}:`, err.message);
-    }
+  if (pythonProcess) {
+    pythonProcess.kill();
+    pythonProcess = null;
   }
 
-  gpioButtons.clear();
-  isShuttingDown = false;
   console.log("✅ GPIO cleanup complete");
 }
 
