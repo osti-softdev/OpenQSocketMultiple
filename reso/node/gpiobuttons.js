@@ -13,6 +13,8 @@ const dbPath = path.join(rootpath, "config/db.db");
 
 // === GPIO Configuration ===
 // Map button names to GPIO pin numbers and their corresponding key values
+// Wiring: Button connects GPIO pin → GND (active-low with pull-up resistor)
+// This matches gpiozero's pull_up=True configuration
 const GPIO_BUTTON_CONFIG = {
   btn2: { pin: 17, key: "2" },     // Ticket service 2
   btn3: { pin: 27, key: "3" },     // Ticket service 3
@@ -214,14 +216,16 @@ function setupGpioButton(buttonName, config) {
     // Create GPIO input with pull-down resistor (active high)
     const gpio = new Gpio(config.pin, "in", "both", { debounceTimeout: 50 });
 
-    // Watch for button press (rising edge = LOW to HIGH transition)
+    // Watch for button press
+    // NOTE: Using active-low logic (pull_up=True) - button pulls GPIO LOW when pressed
+    // If your buttons are wired to 3.3V instead of GND, change "value === 0" to "value === 1"
     gpio.watch((err, value) => {
       if (err) {
         console.error(`❌ GPIO error on pin ${config.pin}:`, err);
         return;
       }
-      // value = 1 means button pressed (rising edge on active-high button)
-      if (value === 1) {
+      // value = 0 means button pressed (active-low with pull-up resistor)
+      if (value === 0) {
         processButtonPress(config.key);
       }
     });

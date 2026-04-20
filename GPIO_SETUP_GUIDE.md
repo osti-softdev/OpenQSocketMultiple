@@ -32,16 +32,17 @@ The following GPIO pins are used for button inputs:
 - GPIO header pins on your Raspberry Pi
 - Optional: pull-down resistors (if buttons are not internally pulldown)
 
-### Wiring Method 1: Active-High Configuration (Recommended)
+### Wiring Method 1: Active-Low Configuration (CURRENT SETUP - Matches Python gpiozero)
 1. Connect one side of each button to the corresponding **GPIO pin** (see table above)
-2. Connect the other side to **3.3V power** on the Raspberry Pi
-3. **Note:** The code expects the GPIO to go HIGH (3.3V) when the button is pressed
-
-### Wiring Method 2: Active-Low Configuration (Modify Code)
-If your buttons connect to GND instead:
-1. Connect one side of each button to the corresponding GPIO pin
 2. Connect the other side to **GND** (Ground)
-3. Modify the `gpiobuttons.js` watcher logic to detect `value === 0` instead of `value === 1`
+3. **This is the current configuration** - code detects `value === 0` when button is pressed
+4. **This matches your Python code:** `button = Button(17, pull_up=True)`
+
+### Wiring Method 2: Active-High Configuration (Alternative)
+If you want to wire buttons to 3.3V instead:
+1. Connect one side of each button to the corresponding GPIO pin
+2. Connect the other side to **3.3V power** on the Raspberry Pi
+3. Modify `reso/node/gpiobuttons.js` line 227 to detect `value === 1` instead of `value === 0`
 
 ### Typical Raspberry Pi GPIO Header Layout
 ```
