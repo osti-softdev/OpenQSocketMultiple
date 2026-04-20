@@ -436,7 +436,11 @@ io.on("connection", (socket) => {
     }
     if (isRaspberryPiGpio) {
       setupCalledTicketsWatcher(socket, io, "RASPBERRY_PI_GPIO");
-      initializeGPIO(io);
+      if (initializeGPIO) {
+        initializeGPIO(io);
+      } else {
+        console.warn("⚠️  GPIO module not loaded - buttons may not work");
+      }
     }
       if (isWindowed) {
       setupLoginSocketteller(socket);
@@ -735,7 +739,7 @@ async function gracefulShutdown(signal) {
 
     if (smstype == 1) await cleanupGSMPorts();
     if (isArduinoUno) await cleanupSerialPorts();
-    if (isRaspberryPiGpio) await cleanupGPIO();
+    if (isRaspberryPiGpio && cleanupGPIO) await cleanupGPIO();
 
     await new Promise((resolve, reject) => {
       server.close((err) => (err ? reject(err) : resolve()));
