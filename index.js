@@ -34,10 +34,9 @@ const {
   initializeSerialPort,
   cleanupSerialPorts,
 } = require("./reso/node/serialport");
-const {
-  initializeGPIO,
-  cleanupGPIO,
-} = require("./reso/node/gpiobuttons");
+// GPIO module loaded conditionally (optional, only on Raspberry Pi)
+let initializeGPIO = null;
+let cleanupGPIO = null;
 const { setupLogger } = require("./reso/node/logger");
 const { test, setupAds, initialize: initAdsManager } = require("./reso/node/getads");
 const { handleGetAllServices } = require("./reso/node/getallservices");
@@ -269,6 +268,19 @@ const isArduinoUno = system_type === SYSTEM_TYPES.ARDUINO_UNO;
 const isArduinoWifi = system_type === SYSTEM_TYPES.ARDUINO_WIFI;
 const isWindowed = system_type === SYSTEM_TYPES.WINDOWED_APPLICATIONS;
 const isRaspberryPiGpio = system_type === SYSTEM_TYPES.RASPBERRY_PI_GPIO;
+
+// Conditionally load GPIO module only on Raspberry Pi
+if (isRaspberryPiGpio) {
+  try {
+    const gpioModule = require("./reso/node/gpiobuttons");
+    initializeGPIO = gpioModule.initializeGPIO;
+    cleanupGPIO = gpioModule.cleanupGPIO;
+    console.log("✅ GPIO module loaded");
+  } catch (err) {
+    console.error("❌ Failed to load GPIO module:", err.message);
+    console.warn("⚠️  GPIO functionality may not be available");
+  }
+}
 
 // ===== Routes =====
 if (isArduinoWifi) {

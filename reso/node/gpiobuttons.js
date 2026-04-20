@@ -2,7 +2,7 @@
 // Raspberry Pi GPIO Button Handler
 // Replaces serial/Arduino button input with direct GPIO pins
 
-const Gpio = require("onoff").Gpio;
+const { Gpio } = require("onoff");
 const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 const { getAllServices } = require("./db");
