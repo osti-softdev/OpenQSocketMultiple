@@ -68,7 +68,7 @@ body {
 
             &:hover {
                 filter: brightness(100%);
-            }
+            } 
             &:active {
                 transform: scale(0.9);
             }
@@ -267,7 +267,7 @@ body {
                     flex-wrap: wrap;
                     align-items: end;
                     justify-content: end;
-
+                    scrollbar-width: thin;
 
                     .content3-bthsnav{
                         top: 1%;

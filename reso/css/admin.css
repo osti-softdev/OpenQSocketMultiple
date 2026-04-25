@@ -373,41 +373,61 @@ body {
   transform: scale(0.95);
   overflow-y: auto;
 }
-.adminbody .dashmain .dash-content2 .content2-detailsAverage .title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #007bff;
-  margin-bottom: 5px;
+.adminbody .dashmain .dash-content2 .content2-detailsAverage table {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background-color: transparent;
+}
+.adminbody .dashmain .dash-content2 .content2-detailsAverage table thead {
+  background-color: white;
+}
+.adminbody .dashmain .dash-content2 .content2-detailsAverage table thead th {
+  padding: 10px;
   text-align: center;
+  font-weight: bold;
+  font-size: 0.8rem;
 }
-.adminbody .dashmain .dash-content2 .content2-detailsAverage .cards-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
+.adminbody .dashmain .dash-content2 .content2-detailsAverage table tbody {
+  overflow-y: auto;
 }
-.adminbody .dashmain .dash-content2 .content2-detailsAverage .cards-wrapper .sname-block {
-  flex: 1 1 50%;
-  background-color: #f8f8f8;
-  border-radius: 10px;
-  padding: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.adminbody .dashmain .dash-content2 .content2-detailsAverage table tbody td {
+  padding: 8px;
+  text-align: center;
+  word-wrap: break-word;
+  text-wrap: wrap;
+  font-size: 0.8rem;
 }
-.adminbody .dashmain .dash-content2 .content2-detailsAverage .cards-wrapper .sname-block:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+.adminbody .dashmain .dash-content2 .content2-detailsAverage table tbody tr:nth-child(even) {
+  background-color: white;
 }
-.adminbody .dashmain .dash-content2 .content2-detailsAverage .cards-wrapper .sname-block h3 {
-  margin-bottom: 8px;
-  font-size: 1.2rem;
-  color: #007bff;
+.adminbody .dashmain .dash-content2 .content2-detailsAverage table .view-history {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
-.adminbody .dashmain .dash-content2 .content2-detailsAverage .cards-wrapper .sname-block .metric {
-  display: flex;
-  justify-content: space-between;
-  font-weight: 500;
-  font-size: 0.95rem;
-  margin: 4px 0;
+.adminbody .dashmain .dash-content2 .content2-detailsAverage table .view-history:hover {
+  background: linear-gradient(135deg, #0056b3, #004099);
+  transform: scale(1.05);
+}
+.adminbody .dashmain .dash-content2 .content2-detailsAverage table .view-history:active {
+  transform: scale(0.95);
+}
+.adminbody .dashmain .dash-content2 .content2-detailsAverage .dataTables_wrapper {
+  width: 100%;
+  height: 100%;
+}
+.adminbody .dashmain .dash-content2 .content2-detailsAverage .dataTables_scrollBody {
+  max-height: calc(100% - 40px);
+  overflow-y: auto;
 }
 .adminbody .dashmain .dash-content3 {
   position: absolute;
@@ -501,7 +521,7 @@ body {
   position: absolute;
   top: 60%;
   left: 30%;
-  width: 70%;
+  width: 30%;
   height: 40%;
   display: flex;
   flex-direction: column;
@@ -530,6 +550,7 @@ body {
   padding: 10px;
   text-align: center;
   font-weight: bold;
+  font-size: 12px;
 }
 .adminbody .dashmain .dash-content4 table tbody {
   overflow-y: auto;
@@ -538,6 +559,8 @@ body {
   padding: 8px;
   text-align: center;
   word-wrap: break-word;
+  text-wrap: wrap;
+  font-size: 10px;
 }
 .adminbody .dashmain .dash-content4 table tbody tr:nth-child(even) {
   background-color: white;
@@ -545,7 +568,7 @@ body {
 .adminbody .dashmain .dash-content4 table .view-history {
   display: inline-block;
   padding: 6px 12px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   color: #fff;
   background: linear-gradient(135deg, #007bff, #0056b3);
@@ -1846,6 +1869,7 @@ body {
     flex-wrap: wrap;
     align-items: end;
     justify-content: end;
+    scrollbar-width: thin;
   }
   .admin-container .adminbody .dashmain .dash-content3 .content3-bthsnav {
     top: 1%;
