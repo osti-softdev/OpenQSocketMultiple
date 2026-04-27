@@ -36,6 +36,7 @@ async function getTellersData(start, length, order, search, datefrom, dateto) {
             c.total_voided = 0;
             let totalServingSecs = 0, servingCount = 0;
             let totalWaitingSecs = 0, waitingCount = 0;
+            let totalTurnaroundSecs = 0, turnaroundCount = 0;
 
             transactions.forEach(t => {
                 let hStr = t.history || '';
@@ -75,8 +76,33 @@ async function getTellersData(start, length, order, search, datefrom, dateto) {
                 }
             });
 
+            let myTransactions = transactions.filter(t => t.history && t.history.includes(c.cname));
+            for(let i=0; i < myTransactions.length - 1; i++){
+                let curr = myTransactions[i];
+                let next = myTransactions[i+1];
+                
+                // Extract curr end_time for this teller
+                let currEndStep = curr.history ? curr.history.split(';').filter(Boolean).map(item => {
+                    const parts = item.replace(/[\[\]]/g, '').split('-');
+                    return { time: parts[0], actor: parts[1], action: parts.slice(2).join('-') };
+                }).find(s => s.actor === c.cname && (s.action.startsWith('Finish') || s.action.startsWith('AutoFinish') || s.action.startsWith('Forward') || s.action.startsWith('Held'))) : null;
+
+                // Extract next start_time for this teller
+                let nextStartStep = next.history ? next.history.split(';').filter(Boolean).map(item => {
+                    const parts = item.replace(/[\[\]]/g, '').split('-');
+                    return { time: parts[0], actor: parts[1], action: parts.slice(2).join('-') };
+                }).find(s => s.actor === c.cname && s.action === 'Called') : null;
+
+                if (currEndStep && nextStartStep) {
+                    let diff = Math.abs(timeToSeconds(nextStartStep.time) - timeToSeconds(currEndStep.time));
+                    totalTurnaroundSecs += diff;
+                    turnaroundCount++;
+                }
+            }
+
             const avgServing = servingCount > 0 ? totalServingSecs / servingCount : 0;
             const avgWaiting = waitingCount > 0 ? totalWaitingSecs / waitingCount : 0;
+            const avgTurnaround = turnaroundCount > 0 ? totalTurnaroundSecs / turnaroundCount : 0;
             
             const toStr = (secs) => {
                 const h = Math.floor(secs / 3600);
@@ -87,9 +113,10 @@ async function getTellersData(start, length, order, search, datefrom, dateto) {
             
             c.avg_serving_time = toStr(avgServing);
             c.avg_waiting_time = toStr(avgWaiting);
+            c.avg_turnaround_time = toStr(avgTurnaround);
         });
 
-        const columns = ["cname", "cnum", "total_served", "total_voided", "avg_serving_time", "avg_waiting_time"];
+        const columns = ["cname", "cnum", "total_served", "total_voided", "avg_serving_time", "avg_turnaround_time", "avg_waiting_time"];
         const orderCol = columns[order[0].column] || "cname";
         const orderDir = order[0].dir === "desc" ? -1 : 1;
         
@@ -143,35 +170,51 @@ async function getTellerDetails(cnum, cname, datefrom, dateto) {
 
           if (!hStr) return;
 
+          // FIX: use parts.slice(2).join('-') so actions like "Void(No-show)" or "Forwarded(TELLER)" are captured fully
           const steps = hStr.split(';').filter(Boolean).map(item => {
               const clean = item.replace(/[\[\]]/g, '');
               const parts = clean.split('-');
-              return { time: parts[0], actor: parts[1], action: parts[2] };
+              return { time: parts[0], actor: parts[1], action: parts.slice(2).join('-') };
           });
 
-          const calledIndex = steps.findIndex(s => s.actor === cname && s.action === 'Called');
-          const isVoided = steps.some(s => s.actor === cname && s.action === 'Voided');
-          const isServed = calledIndex !== -1;
+          // FIX: count ALL "Called" occurrences by this teller (not just the first)
+          const calledSteps = steps.filter(s => s.actor === cname && s.action === 'Called');
+          // FIX: match all Void variants (Voided, Void(No-show), etc.)
+          const voidedSteps = steps.filter(s => s.actor === cname && s.action.startsWith('Void'));
 
-          if (isServed || isVoided) {
+          const calledCount = calledSteps.length;
+          const voidedCount = voidedSteps.length;
+
+          if (calledCount > 0 || voidedCount > 0) {
               if (!chartMap[t.date]) chartMap[t.date] = { date: t.date, served: 0, voided: 0 };
-              if (isServed) chartMap[t.date].served++;
-              if (isVoided) chartMap[t.date].voided++;
+              // FIX: add ALL calls, not just 1 per ticket
+              chartMap[t.date].served += calledCount;
+              chartMap[t.date].voided += voidedCount;
 
-              if (isServed) {
+              if (calledCount > 0) {
                   const s = (t.sname || '').replace(/_/g, ' ');
                   if (!pieMap[s]) pieMap[s] = 0;
-                  pieMap[s]++;
+                  // FIX: count all calls for this service, not just 1
+                  pieMap[s] += calledCount;
               }
 
+              // Use first Called step for start time
+              const firstCalledIdx = steps.findIndex(s => s.actor === cname && s.action === 'Called');
               let updatedStartTime = t.start_time;
               let updatedEndTime = t.end_time;
 
-              if (calledIndex !== -1) {
-                  updatedStartTime = steps[calledIndex].time;
-                  const endStep = steps.slice(calledIndex + 1).find(s => s.actor === cname && ['Finished', 'Forwarded', 'Held'].includes(s.action));
-                  if (endStep) updatedEndTime = endStep.time;
-                  else updatedEndTime = '';
+              if (firstCalledIdx !== -1) {
+                  updatedStartTime = steps[firstCalledIdx].time;
+                  // FIX: use startsWith to match AutoFinished, Forwarded(TELLER), etc.
+                  const endStep = steps.slice(firstCalledIdx + 1).find(s =>
+                      s.actor === cname && (
+                          s.action.startsWith('Finish') ||
+                          s.action.startsWith('AutoFinish') ||
+                          s.action.startsWith('Forward') ||
+                          s.action.startsWith('Held')
+                      )
+                  );
+                  updatedEndTime = endStep ? endStep.time : '';
               }
 
               historyRows.push({
@@ -181,8 +224,11 @@ async function getTellerDetails(cnum, cname, datefrom, dateto) {
                   status: t.status,
                   start_time: updatedStartTime,
                   end_time: updatedEndTime,
+                  time: t.time,
                   date: t.date,
-                  history: hStr
+                  history: hStr,
+                  calledCount,
+                  voidedCount
               });
           }
       });
@@ -190,7 +236,7 @@ async function getTellerDetails(cnum, cname, datefrom, dateto) {
       const chartData = Object.values(chartMap).sort((a,b) => a.date.localeCompare(b.date));
       const pieData = Object.keys(pieMap).map(k => ({ service: k, count: pieMap[k] }));
       
-      resolve({ chartData, pieData, historyRows: historyRows.slice(0, 50) });
+      resolve({ chartData, pieData, historyRows: historyRows.slice(0, 100) });
     });
   });
 }
@@ -216,7 +262,9 @@ function admincontent2tellers(socket, io) {
       datefrom = datefrom || today;
       dateto = dateto || today;
 
+      console.log(`📊 Fetching teller details for ${cname} (C#${cnum}) from ${datefrom} to ${dateto}`);
       const result = await getTellerDetails(cnum, cname, datefrom, dateto);
+      console.log(`✅ Found ${result.historyRows.length} history rows for ${cname}`);
       socket.emit("tellerDetailsData", result);
     } catch (err) {
       console.error("❌ Error fetching teller details:", err);

@@ -70,6 +70,9 @@ const {
   admincontent2tellers,
 } = require("./reso/node/admin/adminDashboardcontent2tellers");
 const {
+  admincontent3services,
+} = require("./reso/node/admin/adminDashboardcontent3services");
+const {
   admincontentSaveChartImage,
 } = require("./reso/node/admin/adminSaveChartImage");
 const {
@@ -349,6 +352,7 @@ io.on("connection", (socket) => {
     admincontent3chartsdata(socket, io);
     admincontent2averages(socket, io);
     admincontent2tellers(socket, io);
+    admincontent3services(socket, io);
     admincontent4alldata(socket, io);
     adminoveralldatawatcher(socket, io);
     setupFooterWatcheradmin(socket, io);

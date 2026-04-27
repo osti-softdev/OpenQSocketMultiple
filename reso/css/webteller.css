@@ -294,6 +294,16 @@ html:has(#mode-switcher #theme-toggle:checked) {
 .maintellercontainer .historybtn:hover {
   filter: brightness(150%);
 }
+.maintellercontainer .reportbtn {
+  position: absolute;
+  top: 0%;
+  left: 10%;
+  width: auto;
+  cursor: pointer;
+}
+.maintellercontainer .reportbtn:hover {
+  filter: brightness(150%);
+}
 .maintellercontainer .tellernavbar {
   position: absolute;
   top: 30px;
@@ -598,7 +608,7 @@ html:has(#mode-switcher #theme-toggle:checked) {
   left: 0%;
   height: 50%;
   width: 100%;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: start;
   z-index: 1;
@@ -847,6 +857,17 @@ html:has(#mode-switcher #theme-toggle:checked) {
   }
   .closebtntransacthist {
     display: flex;
+  }
+}
+@media screen and (min-width: 50px) {
+  .transactionHistory {
+    display: none;
+  }
+  #transactionsListBtn {
+    display: none;
+  }
+  .closebtntransacthist {
+    display: none;
   }
 }
 /* -------------------------

@@ -344,24 +344,25 @@
             position: absolute;
             top: 60%;
             left: 30%;
-            width: 30%;
+            width: 70%;
             height: 40%;
             display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
+            flex-direction: row;
+            justify-content: space-between;
             align-items: stretch; // allow child to stretch full width
             transform: scale(0.95);
             color: $boxesfontcolor;
             font-family: $fontfam;
             background-color: $boxescolors;
             padding: 15px;
-
             border-radius: 10px;
             overflow-y: auto;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            gap: 15px; // spacing between the two tables
+
 
             table {
-                width: 100%; // fill container width
+                width: 100% !important; // fill container width
                 height: 100%; // fill container height
                 border-collapse: collapse;
                 table-layout: fixed; // ensures columns fit container width
@@ -369,6 +370,9 @@
 
                 thead {
                     background-color: lighten($boxescolors, 10%);
+                    position: sticky;
+                    top: 0;
+                    z-index: 10;
 
                     th {
                         padding: 10px;
@@ -395,7 +399,8 @@
                 }
 
                 // Style for the "View" button in the history column
-                .view-history {
+                .view-history,
+                .view-service-details {
                     display: inline-block;
                     padding: 6px 12px;
                     font-size: 12px;
@@ -418,16 +423,15 @@
                 }
             }
 
-            // Make DataTables wrapper fill container
+            // Make DataTables wrapper fill container equally
             .dataTables_wrapper {
-                width: 100%;
+                flex: 1;
+                width: 50%;
                 height: 100%;
-            }
-
-            // Scroll inside table if content overflows
-            .dataTables_scrollBody {
-                max-height: calc(100% - 40px); // adjust for header height
+                display: flex;
+                flex-direction: column;
                 overflow-y: auto;
+                overflow-x: hidden;
             }
         }
     }

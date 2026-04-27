@@ -521,11 +521,11 @@ body {
   position: absolute;
   top: 60%;
   left: 30%;
-  width: 30%;
+  width: 70%;
   height: 40%;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: stretch;
   transform: scale(0.95);
   color: black;
@@ -535,9 +535,10 @@ body {
   border-radius: 10px;
   overflow-y: auto;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  gap: 15px;
 }
 .adminbody .dashmain .dash-content4 table {
-  width: 100%;
+  width: 100% !important;
   height: 100%;
   border-collapse: collapse;
   table-layout: fixed;
@@ -545,6 +546,9 @@ body {
 }
 .adminbody .dashmain .dash-content4 table thead {
   background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 .adminbody .dashmain .dash-content4 table thead th {
   padding: 10px;
@@ -565,7 +569,8 @@ body {
 .adminbody .dashmain .dash-content4 table tbody tr:nth-child(even) {
   background-color: white;
 }
-.adminbody .dashmain .dash-content4 table .view-history {
+.adminbody .dashmain .dash-content4 table .view-history,
+.adminbody .dashmain .dash-content4 table .view-service-details {
   display: inline-block;
   padding: 6px 12px;
   font-size: 12px;
@@ -577,20 +582,23 @@ body {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-.adminbody .dashmain .dash-content4 table .view-history:hover {
+.adminbody .dashmain .dash-content4 table .view-history:hover,
+.adminbody .dashmain .dash-content4 table .view-service-details:hover {
   background: linear-gradient(135deg, #0056b3, #004099);
   transform: scale(1.05);
 }
-.adminbody .dashmain .dash-content4 table .view-history:active {
+.adminbody .dashmain .dash-content4 table .view-history:active,
+.adminbody .dashmain .dash-content4 table .view-service-details:active {
   transform: scale(0.95);
 }
 .adminbody .dashmain .dash-content4 .dataTables_wrapper {
-  width: 100%;
+  flex: 1;
+  width: 50%;
   height: 100%;
-}
-.adminbody .dashmain .dash-content4 .dataTables_scrollBody {
-  max-height: calc(100% - 40px);
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 .adminbody .annmain {
   position: relative;

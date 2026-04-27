@@ -100,7 +100,7 @@ $(document).ready(function () {
 		if (adminoveralldata.services && adminoveralldata.services.length > 0) {
 			adminoveralldata.services.forEach((srv) => {
 				$container.append(`
-					<div class="overcounts">
+					<div class="overcounts" data-ovrcnt="${srv.sname}">
 						${srv.sname} <span class="overcountdata">${srv.called_count || 0}</span>
 					</div>
 				`);
@@ -111,8 +111,8 @@ $(document).ready(function () {
 		if(withfeedback){
 			// Append feedback counts
 			$container.append(`
-				<div class="overcounts">😊 Satisfied <span class="overcountdata">${adminoveralldata.satisfied ?? 0}</span></div>
-				<div class="overcounts">😔 Unsatisfied <span class="overcountdata">${adminoveralldata.unsatisfied ?? 0}</span></div>
+				<div class="overcounts" data-ovrcnt="Satisfied">😊 Satisfied <span class="overcountdata">${adminoveralldata.satisfied ?? 0}</span></div>
+				<div class="overcounts" data-ovrcnt="Unsatisfied">😔 Unsatisfied <span class="overcountdata">${adminoveralldata.unsatisfied ?? 0}</span></div>
 			`);
 		}
 		
