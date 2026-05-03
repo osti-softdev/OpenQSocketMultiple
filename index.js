@@ -110,8 +110,8 @@ const {
   getClientIp,
 } = require("./reso/node/security");
 const {
-    initializeGSM,
-    cleanupGSMPorts,
+  initializeGSM,
+  cleanupGSMPorts,
 } = require("./reso/node/smsService");
 
 // MULTERS
@@ -368,63 +368,63 @@ io.on("connection", (socket) => {
     settupsettingsservices(socket, io);
     setupsystemconfigurations(socket, io);
     setupLoginSocket(socket, io);
- socket.on("relaunchApp", async () => {
-  console.log("♻️ Relaunch command received via socket");
+    socket.on("relaunchApp", async () => {
+      console.log("♻️ Relaunch command received via socket");
 
-  try {
-    // Determine the path of the currently running executable
-    const exePath = process.execPath; // This points to the current .exe
-    console.log(`Relaunching app from path: ${exePath}`);
+      try {
+        // Determine the path of the currently running executable
+        const exePath = process.execPath; // This points to the current .exe
+        console.log(`Relaunching app from path: ${exePath}`);
 
-    // Stop current process
-    if (!fs.existsSync(pidFile)) {
-      console.error(`PID file not found: ${pidFile}`);
-      process.exit(1);
-    }
-
-    const pid = parseInt(fs.readFileSync(pidFile, 'utf8'), 10);
-    if (isNaN(pid)) {
-      console.error(`Invalid PID in ${pidFile}`);
-      process.exit(1);
-    }
-
-    console.log(`Stopping process ${pid}...`);
-
-    if (process.platform === 'win32') {
-      exec(`taskkill /PID ${pid} /F`, (err, stdout, stderr) => {
-        if (err) {
-          console.error('Failed to stop process:', err.message);
+        // Stop current process
+        if (!fs.existsSync(pidFile)) {
+          console.error(`PID file not found: ${pidFile}`);
           process.exit(1);
         }
-        try { fs.unlinkSync(pidFile); } catch(e) {}
-        console.log('Stopped.');
-      });
-    } else {
-      try {
-        process.kill(pid, 'SIGTERM');
-        try { fs.unlinkSync(pidFile); } catch(e) {}
-        console.log('Stopped.');
+
+        const pid = parseInt(fs.readFileSync(pidFile, 'utf8'), 10);
+        if (isNaN(pid)) {
+          console.error(`Invalid PID in ${pidFile}`);
+          process.exit(1);
+        }
+
+        console.log(`Stopping process ${pid}...`);
+
+        if (process.platform === 'win32') {
+          exec(`taskkill /PID ${pid} /F`, (err, stdout, stderr) => {
+            if (err) {
+              console.error('Failed to stop process:', err.message);
+              process.exit(1);
+            }
+            try { fs.unlinkSync(pidFile); } catch (e) { }
+            console.log('Stopped.');
+          });
+        } else {
+          try {
+            process.kill(pid, 'SIGTERM');
+            try { fs.unlinkSync(pidFile); } catch (e) { }
+            console.log('Stopped.');
+          } catch (err) {
+            console.error('Failed to stop process:', err.message);
+            process.exit(1);
+          }
+        }
+
+        // Quit current app after scheduling relaunch
+        app.quit();
       } catch (err) {
-        console.error('Failed to stop process:', err.message);
-        process.exit(1);
+        console.error("❌ Failed to relaunch app:", err.message);
       }
-    }
+    });
 
-    // Quit current app after scheduling relaunch
-    app.quit();
-  } catch (err) {
-    console.error("❌ Failed to relaunch app:", err.message);
-  }
-});
-
-    if(smstype==1){
+    if (smstype == 1) {
       initializeGSM(io);
     }
     if (isArduinoUno) {
       setupCalledTicketsWatcher(socket, io, "ARDUINO_UNO");
       initializeSerialPort(socket, io, "ARDUINO_UNO");
     }
-      if (isWindowed) {
+    if (isWindowed) {
       setupLoginSocketteller(socket);
       setupTellerWatcher(socket, io);
       initializeWindowedKiosk(socket, io);
@@ -629,52 +629,52 @@ let displayWindow = null;
 let kioskWindow = null;
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 function createWindow() {
-    const broadcastUrl = `http://${ownip}:${serverPort}/main`;
-    const kioskUrl = `http://${ownip}:${serverPort}/kiosk`;
+  const broadcastUrl = `http://${ownip}:${serverPort}/main`;
+  const kioskUrl = `http://${ownip}:${serverPort}/kiosk`;
 
-    const displays = screen.getAllDisplays();
+  const displays = screen.getAllDisplays();
 
-    // --- Find external display ---
-    // const externalDisplay = displays.find(d => d.bounds.x !== 0 || d.bounds.y !== 0);
+  // --- Find external display ---
+  // const externalDisplay = displays.find(d => d.bounds.x !== 0 || d.bounds.y !== 0);
 
-    // if (!externalDisplay) {
-    //     console.warn("No extended display found. Display window will open on primary screen.");
-    //     return;
-    // }
+  // if (!externalDisplay) {
+  //     console.warn("No extended display found. Display window will open on primary screen.");
+  //     return;
+  // }
 
-    // --- DISPLAY WINDOW on extended screen ---
-    const displayWindowOptions = {
-        width: 450,
-        height: 450,
-        frame: true,
-        // x: externalDisplay.bounds.x + 50,
-        // y: externalDisplay.bounds.y + 50,
-        autoHideMenuBar: true
-    };
+  // --- DISPLAY WINDOW on extended screen ---
+  const displayWindowOptions = {
+    width: 450,
+    height: 450,
+    frame: true,
+    // x: externalDisplay.bounds.x + 50,
+    // y: externalDisplay.bounds.y + 50,
+    autoHideMenuBar: true
+  };
 
-    displayWindow = new BrowserWindow(displayWindowOptions);
-    displayWindow.loadURL(broadcastUrl);
-    displayWindow.setFullScreen(true);
-    displayWindow.on("closed", handleWindowClosed);
+  displayWindow = new BrowserWindow(displayWindowOptions);
+  displayWindow.loadURL(broadcastUrl);
+  displayWindow.setFullScreen(true);
+  displayWindow.on("closed", handleWindowClosed);
 
-    // --- KIOSK WINDOW on primary screen ---
-    if (isWindowed) {
-        kioskWindow = new BrowserWindow({
-            width: 450,
-            height: 450,
-            frame: true,
-            autoHideMenuBar: true
-        });
-        kioskWindow.loadURL(kioskUrl);
-        kioskWindow.setFullScreen(true);
-        kioskWindow.on("closed", handleWindowClosed);
-    }
+  // --- KIOSK WINDOW on primary screen ---
+  if (isWindowed) {
+    kioskWindow = new BrowserWindow({
+      width: 450,
+      height: 450,
+      frame: true,
+      autoHideMenuBar: true
+    });
+    kioskWindow.loadURL(kioskUrl);
+    kioskWindow.setFullScreen(true);
+    kioskWindow.on("closed", handleWindowClosed);
+  }
 }
 
 function handleWindowClosed() {
-	displayWindow = null;
-	kioskWindow = null;
-	app.quit();
+  displayWindow = null;
+  kioskWindow = null;
+  app.quit();
 }
 
 // ===== Electron App Events =====
@@ -682,21 +682,21 @@ app.whenReady().then(createWindow);
 app.whenReady().then();
 
 app.on("activate", () => {
-	if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  if (BrowserWindow.getAllWindows().length === 0) createWindow();
 });
 
 app.on("ready", () => {
-	session.defaultSession.clearCache().then(() => {
-		console.log("Cache cleared");
-	});
+  session.defaultSession.clearCache().then(() => {
+    console.log("Cache cleared");
+  });
 });
 
 app.on("before-quit", () => {
-	if (fs.existsSync(pidFile)) fs.unlinkSync(pidFile);
+  if (fs.existsSync(pidFile)) fs.unlinkSync(pidFile);
 });
 
 app.on("window-all-closed", () => {
-	app.quit();
+  app.quit();
 });
 // ===== Graceful Shutdown =====
 async function gracefulShutdown(signal) {
