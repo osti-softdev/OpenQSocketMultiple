@@ -17,7 +17,7 @@ let isShuttingDown = false;
 
 // === Process button press (same logic as serialport.js) ===
 async function processButtonPress(key) {
-  console.log(`🔘 Button pressed: ${key}`);
+  // console.log(`🔘 Button pressed: ${key}`);
 
   try {
     const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE);
@@ -196,7 +196,7 @@ async function processButtonPress(key) {
 // === Initialize Python Bridge ===
 function initializeGPIO(io) {
   console.log("\n🚀 Initializing Raspberry Pi 5 GPIO Bridge (via Python)...");
-  
+
   if (pythonProcess) {
     console.log("⚠️  GPIO Bridge already running");
     return;
