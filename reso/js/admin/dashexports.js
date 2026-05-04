@@ -140,26 +140,11 @@ async function generateCSV() {
     const mostRating = getValue(".content2commonrating", "None");
 
     csvContent += "Overview\n";
-    if (withfeedback) {
-        csvContent += ["Total Transactions", "Total Rated", "Total Served", "Total Unserved", "Most Service", "Most Rating"].join(",") + "\n";
-        csvContent += [totalCount, totalRated, totalServed, totalUnserved, mostService, mostRating].map(c => `"${c}"`).join(",") + "\n\n";
-    } else {
-        csvContent += ["Total Transactions", "Total Served", "Total Unserved", "Most Service"].join(",") + "\n";
-        csvContent += [totalCount, totalServed, totalUnserved, mostService].map(c => `"${c}"`).join(",") + "\n\n";
-    }
+    csvContent += ["Total Transactions", "Total Served", "Total Unserved", "Most Service"].join(",") + "\n";
+    csvContent += [totalCount, totalServed, totalUnserved, mostService].map(c => `"${c}"`).join(",") + "\n\n";
 
 
-    if (withfeedback) {
-        // --- Feedback Section ---
-        if (latestAveragesfeedback && latestAveragesfeedback.length > 0) {
-            csvContent += "Feedback\n";
-            csvContent += ["Date", "Satisfied", "Unsatisfied"].join(",") + "\n";
-            latestAveragesfeedback.forEach(fb => {
-                csvContent += [fb.date, fb.satisfied_count || 0, fb.unsatisfied_count || 0].map(c => `"${c}"`).join(",") + "\n";
-            });
-            csvContent += "\n";
-        }
-    }
+
 
     // --- Transactions Avg/Date Section ---
     // --- Transactions Avg/Date Section ---
@@ -530,13 +515,8 @@ async function generatePDF(mode = "overall", target = null, targetName = null) {
         const avgGlobalWaiting = cgWaiting ? formatSecs(gWaiting / cgWaiting) : "00:00:00";
         const avgGlobalTurnaround = cgTurnaround ? formatSecs(gTurnaround / cgTurnaround) : "00:00:00";
 
-        if (withfeedback) {
-            overviewHead = [["Total Transactions", "Total Rated", "Total Served", "Total Voided", "Total Unserved", "Most Service", "Most Rating"]];
-            overviewBody = [[totalCount, totalRated, totalServed, totalVoided, totalUnserved, mostService, mostRating]];
-        } else {
-            overviewHead = [["Total Transactions", "Total Served", "Total Voided", "Total Unserved", "Most Service"]];
-            overviewBody = [[totalCount, totalServed, totalVoided, totalUnserved, mostService]];
-        }
+        overviewHead = [["Total Transactions", "Total Served", "Total Voided", "Total Unserved", "Most Service"]];
+        overviewBody = [[totalCount, totalServed, totalVoided, totalUnserved, mostService]];
         
         pdf.autoTable({
             startY: yPos + 5,
@@ -562,27 +542,7 @@ async function generatePDF(mode = "overall", target = null, targetName = null) {
         yPos = pdf.lastAutoTable.finalY + 20;
 
 
-        // ------------------ FEEDBACK TABLE ------------------
-        if (withfeedback && latestAveragesfeedback?.length) {
-            const feedbackData = latestAveragesfeedback.map(fb => [
-                fb.date,
-                fb.satisfied_count || 0,
-                fb.unsatisfied_count || 0
-            ]);
 
-            pdf.text("Feedback", 14, yPos);
-
-            pdf.autoTable({
-                startY: yPos + 6,
-                head: [["Date", "Satisfied", "Unsatisfied"]],
-                body: feedbackData,
-                theme: "grid",
-                styles: { fontSize: 10, halign: "center" },
-                headStyles: { fillColor: [241, 196, 15], textColor: 0 }
-            });
-
-            yPos = pdf.lastAutoTable.finalY + 20;
-        }
 
         // ------------------ TRANSACTIONS AVG/DATE ------------------
         if (latestAveragestransactions?.length) {
@@ -855,44 +815,21 @@ async function generateExcel(mode = "overall", target = null, targetName = null)
 
         let overviewHead, overviewBody;
 
-        if (withfeedback) {
-            overviewHead = [
-                "Total Transactions",
-                "Total Rated",
-                "Total Served",
-                "Total Voided",
-                "Total Unserved",
-                "Most Service",
-                "Most Rating"
-            ];
+        overviewHead = [
+            "Total Transactions",
+            "Total Served",
+            "Total Voided",
+            "Total Unserved",
+            "Most Service"
+        ];
 
-            overviewBody = [
-                getValue(".content2totalcount", "0"),
-                getValue(".content2totalrated", "0"),
-                getValue(".content2totalserved", "0"),
-                getValue(".content2totalvoided", "0"),
-                getValue(".content2totalunserved", "0"),
-                getValue(".content2commonservice", "None"),
-                getValue(".content2commonrating", "None")
-            ];
-
-        } else {
-            overviewHead = [
-                "Total Transactions",
-                "Total Served",
-                "Total Voided",
-                "Total Unserved",
-                "Most Service"
-            ];
-
-            overviewBody = [
-                getValue(".content2totalcount", "0"),
-                getValue(".content2totalserved", "0"),
-                getValue(".content2totalvoided", "0"),
-                getValue(".content2totalunserved", "0"),
-                getValue(".content2commonservice", "None")
-            ];
-        }
+        overviewBody = [
+            getValue(".content2totalcount", "0"),
+            getValue(".content2totalserved", "0"),
+            getValue(".content2totalvoided", "0"),
+            getValue(".content2totalunserved", "0"),
+            getValue(".content2commonservice", "None")
+        ];
 
         if (mode === "overall") {
             overviewSheetData.push(overviewHead);
@@ -978,21 +915,7 @@ async function generateExcel(mode = "overall", target = null, targetName = null)
             }
         }
 
-        // ------------------ FEEDBACK SHEET ------------------
-        if (mode === "overall" && withfeedback && latestAveragesfeedback && latestAveragesfeedback.length) {
-            const feedbackData = [["Date", "Satisfied", "Unsatisfied"]];
 
-            latestAveragesfeedback.forEach(fb => {
-                feedbackData.push([
-                    fb.date,
-                    fb.satisfied_count || 0,
-                    fb.unsatisfied_count || 0
-                ]);
-            });
-
-            wb.SheetNames.push("Feedback");
-            wb.Sheets["Feedback"] = XLSX.utils.aoa_to_sheet(feedbackData);
-        }
 
         // ------------------ TRANSACTIONS AVERAGE SHEET ------------------
         // ------------------ TRANSACTIONS AVERAGE SHEET ------------------

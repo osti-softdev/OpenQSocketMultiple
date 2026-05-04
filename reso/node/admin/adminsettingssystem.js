@@ -43,11 +43,8 @@ async function getDatabaseSize() {
 function setupsystemconfigurations(socket, io) {
 	const config = loadConfig(io);
 
-	const smsType = config?.MainServer?.sms;
-	const systemType = config?.MainServer?.systemType;
 	const counterDisplay = config?.MainServer?.counterDisplay;
 	const databaseRetentionDays = config?.MainServer?.databaseRetentionDays;
-	const feedbackswitch = config?.MainServer?.feedbackswitch;
 
 	// Watch DB for live updates
 	if (!watcherAdded) {
@@ -58,11 +55,8 @@ function setupsystemconfigurations(socket, io) {
 				socket.emit("systemConfigs", {
 					data: {
 						db: dbsizedata,
-						smsType,
-						systemType,
 						counterDisplay,
-						databaseRetentionDays,
-						feedbackswitch
+						databaseRetentionDays
 					},
 				});
 			} catch (err) {
@@ -79,11 +73,8 @@ function setupsystemconfigurations(socket, io) {
 			socket.emit("systemConfigs", {
 				data: {
 					db: dbsizedata,
-					smsType,
-					systemType,
 					counterDisplay,
-					databaseRetentionDays,
-					feedbackswitch
+					databaseRetentionDays
 				},
 			});
 		} catch (err) {

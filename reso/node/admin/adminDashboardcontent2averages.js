@@ -17,9 +17,6 @@ const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE, (err) => {
 	db.run("CREATE INDEX IF NOT EXISTS idx_trans_date ON transactions(date)");
 	db.run("CREATE INDEX IF NOT EXISTS idx_trans_status ON transactions(status)");
 	db.run("CREATE INDEX IF NOT EXISTS idx_trans_sname ON transactions(sname)");
-	db.run("CREATE INDEX IF NOT EXISTS idx_feedback_date ON feedback(date)");
-	db.run("CREATE INDEX IF NOT EXISTS idx_feedback_satisfied ON feedback(satisfied)");
-	db.run("CREATE INDEX IF NOT EXISTS idx_feedback_unsatisfied ON feedback(unsatisfied)");
 });
 
 function allAsync(query, params = []) {
@@ -69,16 +66,6 @@ async function getAdminData(datefrom, dateto) {
 `;
 
 
-	const feedbackQuery = `
-		SELECT 
-			date,
-			SUM(CASE WHEN satisfied = 1 THEN 1 ELSE 0 END) AS satisfied_count,
-			SUM(CASE WHEN unsatisfied = 1 THEN 1 ELSE 0 END) AS unsatisfied_count
-		FROM feedback
-		WHERE date BETWEEN ? AND ?
-		GROUP BY date
-		ORDER BY date;
-	`;
 
 	const transactionsQuery = `
 	SELECT 
@@ -103,15 +90,13 @@ async function getAdminData(datefrom, dateto) {
 `;
 
 	// 🔹 Run queries in parallel (faster)
-	const [timeRows, feedbackRows, transactionRows] = await Promise.all([
+	const [timeRows, transactionRows] = await Promise.all([
 		allAsync(timeAveragesQuery, [datefrom, dateto]),
-		allAsync(feedbackQuery, [datefrom, dateto]),
 		allAsync(transactionsQuery, [datefrom, dateto, datefrom, dateto]),
 	]);
 
 	return {
 		timeAverages: timeRows,
-		feedback: feedbackRows,
 		transactions: transactionRows,
 	};
 }
@@ -156,7 +141,6 @@ function admincontent2averages(socket, io) {
 			console.error("❌ Error fetching admin data:", err);
 			target.emit("dashadmincontent2dataaverages", {
 				timeAverages: [],
-				feedback: [],
 				transactions: [],
 			});
 		}

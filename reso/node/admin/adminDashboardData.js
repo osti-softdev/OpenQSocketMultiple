@@ -56,26 +56,11 @@ async function getadmindata(datefrom, dateto) {
         { called_count: 0, pending_count: 0, voided_count:0, total_count: 0 }
       );
 
-      const feedbackQuery = `
-        SELECT
-          COALESCE(SUM(CASE WHEN satisfied = 1 THEN 1 ELSE 0 END), 0) AS satisfied,
-          COALESCE(SUM(CASE WHEN unsatisfied = 1 THEN 1 ELSE 0 END), 0) AS unsatisfied
-        FROM feedback
-        WHERE date BETWEEN ? AND ?
-      `;
-
-      db.get(feedbackQuery, [datefrom, dateto], (err, feedbackRow) => {
-        db.close();
-        if (err) return reject(err);
-
-        resolve({
-          datefrom,
-          dateto,
-          services: rows || [],
-          overall,
-          satisfied: feedbackRow?.satisfied || 0,
-          unsatisfied: feedbackRow?.unsatisfied || 0,
-        });
+      resolve({
+        datefrom,
+        dateto,
+        services: rows || [],
+        overall,
       });
     });
   });

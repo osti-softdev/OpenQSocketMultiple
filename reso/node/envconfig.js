@@ -16,11 +16,8 @@ function loadConfig(io) {
 	const config = {
 		MainServer: {
 			port: process.env.MAIN_SERVER_PORT,
-			systemType: process.env.SYSTEM_TYPE,
-			sms: process.env.SMS,
 			counterDisplay: process.env.counterDisplay || 0,
 			databaseRetentionDays: process.env.databaseRetentionDays || 0,
-			feedbackswitch: process.env.feedbackswitch || 0,
 		},
 		DBserver: {
 			hostName: process.env.DB_HOSTNAME,
@@ -33,7 +30,7 @@ function loadConfig(io) {
 
 	// Handle Socket.IO connections if io is passed
 	if (io) {
-		io.emit("envSMS", { sms: config.MainServer.sms });
+		// Removed envSMS emission
 	}
 
 	return config;

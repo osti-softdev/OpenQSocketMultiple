@@ -39,9 +39,6 @@ async function gettimedatacharts(datefrom, dateto) {
     hourRows,
     dateRows,
     monthRows,
-    hourFeedback,
-    dateFeedback,
-    monthFeedback,
   ] = await Promise.all([
     allAsync(
       `
@@ -82,45 +79,7 @@ async function gettimedatacharts(datefrom, dateto) {
     `,
       [datefrom, dateto]
     ),
-    // feedback tables unchanged unless you want to filter feedback by services
-    allAsync(
-      `
-      SELECT strftime('%H', time) AS hour,
-             SUM(satisfied) AS satisfied,
-             SUM(unsatisfied) AS unsatisfied
-      FROM feedback
-      WHERE date BETWEEN ? AND ?
-      GROUP BY hour
-      ORDER BY hour
-    `,
-      [datefrom, dateto]
-    ),
-    allAsync(
-      `
-      SELECT date AS date,
-             SUM(satisfied) AS satisfied,
-             SUM(unsatisfied) AS unsatisfied
-      FROM feedback
-      WHERE date BETWEEN ? AND ?
-      GROUP BY date
-      ORDER BY date
-    `,
-      [datefrom, dateto]
-    ),
-    allAsync(
-      `
-      SELECT strftime('%Y-%m', date) AS month,
-             SUM(satisfied) AS satisfied,
-             SUM(unsatisfied) AS unsatisfied
-      FROM feedback
-      WHERE date BETWEEN ? AND ?
-      GROUP BY month
-      ORDER BY month
-    `,
-      [datefrom, dateto]
-    ),
   ]);
-
 
   // 🔹 Unique service names
   const snames = [
@@ -146,9 +105,8 @@ async function gettimedatacharts(datefrom, dateto) {
     return acc;
   }, {});
 
-  // 🔹 Daily + Feedback alignment
+  // 🔹 Daily alignment
   const all_dates = new Set(dateRows.map((r) => r.date));
-  dateFeedback.forEach((r) => all_dates.add(r.date));
   const unique_dates = [...all_dates].sort();
 
   const daily = snames.reduce((acc, sname) => {
@@ -159,15 +117,8 @@ async function gettimedatacharts(datefrom, dateto) {
     return acc;
   }, {});
 
-  const daily_feedback = unique_dates.map((d) => ({
-    date: d,
-    satisfied: dateFeedback.find((r) => r.date === d)?.satisfied || 0,
-    unsatisfied: dateFeedback.find((r) => r.date === d)?.unsatisfied || 0,
-  }));
-
-  // 🔹 Monthly + Feedback alignment
+  // 🔹 Monthly alignment
   const all_months = new Set(monthRows.map((r) => r.month));
-  monthFeedback.forEach((r) => all_months.add(r.month));
   const unique_months = [...all_months].sort();
 
   const monthly = snames.reduce((acc, sname) => {
@@ -178,36 +129,11 @@ async function gettimedatacharts(datefrom, dateto) {
     return acc;
   }, {});
 
-  const monthly_feedback = unique_months.map((m) => ({
-    month: m,
-    satisfied: monthFeedback.find((r) => r.month === m)?.satisfied || 0,
-    unsatisfied: monthFeedback.find((r) => r.month === m)?.unsatisfied || 0,
-  }));
-
-  // 🔹 Hourly feedback fill
-  const hourly_feedback = Array.from({ length: 24 }, (_, i) => ({
-    hour: String(i).padStart(2, "0"),
-    satisfied: 0,
-    unsatisfied: 0,
-  }));
-  hourFeedback.forEach((r) => {
-    const idx = parseInt(r.hour);
-    if (!isNaN(idx)) {
-      hourly_feedback[idx].satisfied = r.satisfied || 0;
-      hourly_feedback[idx].unsatisfied = r.unsatisfied || 0;
-    }
-  });
-
   return {
     snames,
     hourly,
     daily,
     monthly,
-    feedback: {
-      hourly: hourly_feedback,
-      daily: daily_feedback,
-      monthly: monthly_feedback,
-    },
   };
 }
 
@@ -242,7 +168,6 @@ function admincontent3chartsdata(socket, io) {
           hourly: {},
           daily: {},
           monthly: {},
-          feedback: { hourly: [], daily: [], monthly: [] },
         });
       }
     }
@@ -263,7 +188,6 @@ async function sendadmindataforcontent3(target, datefrom, dateto) {
       hourly: {},
       daily: {},
       monthly: {},
-      feedback: { hourly: [], daily: [], monthly: [] },
     });
   }
 }

@@ -9,11 +9,7 @@ $(document).ready(function () {
 		{ border: "rgba(255, 99, 132, 1)", background: "rgba(255, 99, 132, 0.8)" }   // extra
 	];
 
-	// Feedback colors
-	const feedbackColors = [
-		{ base: "rgba(0, 200, 0, 0.8)" },   // Satisfied
-		{ base: "rgba(200, 0, 0, 0.8)" }    // Unsatisfied
-	];
+
 
 	socket.on("dashadmindataupdate", (adminoveralldata) => {
 		const serviceNames = $.map(adminoveralldata.services, (s) => s.sname);
@@ -21,9 +17,7 @@ $(document).ready(function () {
 
 		// --- Build labels properly ---
 		let labels = [...serviceNames];
-		if (withfeedback) {
-			labels.push("Satisfied", "Unsatisfied");
-		}
+
 
 		// Service dataset colors mapped dynamically
 		const serviceBackgrounds = serviceNames.map(
@@ -43,29 +37,11 @@ $(document).ready(function () {
 					datasets: [
 						{
 							label: "Services",
-							data: calledCounts.concat(withfeedback ? [null, null] : []),
-							backgroundColor: serviceBackgrounds.concat(withfeedback ? [null, null] : []),
-							borderColor: serviceBorders.concat(withfeedback ? [null, null] : []),
+							data: calledCounts,
+							backgroundColor: serviceBackgrounds,
+							borderColor: serviceBorders,
 							borderWidth: 1,
-						},
-						{
-							label: "Satisfied",
-							data: withfeedback
-								? new Array(serviceNames.length).fill(null).concat([adminoveralldata.satisfied, null])
-								: [],
-							backgroundColor: feedbackColors[0].base,
-							borderColor: feedbackColors[0].base,
-							borderWidth: 1,
-						},
-						{
-							label: "Unsatisfied",
-							data: withfeedback
-								? new Array(serviceNames.length).fill(null).concat([null, adminoveralldata.unsatisfied])
-								: [],
-							backgroundColor: feedbackColors[1].base,
-							borderColor: feedbackColors[1].base,
-							borderWidth: 1,
-						},
+						}
 					],
 				},
 				options: {
@@ -107,19 +83,9 @@ $(document).ready(function () {
 			barChartContent2.data.labels = labels;
 
 			// Update service dataset
-			barChartContent2.data.datasets[0].data = calledCounts.concat(withfeedback ? [null, null] : []);
-			barChartContent2.data.datasets[0].backgroundColor = serviceBackgrounds.concat(withfeedback ? [null, null] : []);
-			barChartContent2.data.datasets[0].borderColor = serviceBorders.concat(withfeedback ? [null, null] : []);
-
-			// Update Satisfied
-			barChartContent2.data.datasets[1].data = withfeedback
-				? new Array(serviceNames.length).fill(null).concat([adminoveralldata.satisfied, null])
-				: [];
-
-			// Update Unsatisfied
-			barChartContent2.data.datasets[2].data = withfeedback
-				? new Array(serviceNames.length).fill(null).concat([null, adminoveralldata.unsatisfied])
-				: [];
+			barChartContent2.data.datasets[0].data = calledCounts;
+			barChartContent2.data.datasets[0].backgroundColor = serviceBackgrounds;
+			barChartContent2.data.datasets[0].borderColor = serviceBorders;
 
 			barChartContent2.update();
 		}

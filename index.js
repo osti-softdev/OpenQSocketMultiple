@@ -30,10 +30,7 @@ const io = socketIo(server, {
 });
 
 // ===== Local Modules =====
-const {
-  initializeSerialPort,
-  cleanupSerialPorts,
-} = require("./reso/node/serialport");
+
 const { setupLogger } = require("./reso/node/logger");
 const { test, setupAds, initialize: initAdsManager } = require("./reso/node/getads");
 const { handleGetAllServices } = require("./reso/node/getallservices");
@@ -94,7 +91,7 @@ const {
 const {
   setupsystemconfigurations,
 } = require("./reso/node/admin/adminsettingssystem");
-const { setupKeyApi, handleKey } = require("./reso/node/insertviaapi");
+
 const {
   setupSoundSettingsAdmin,
 } = require("./reso/node/admin/adminvoiceandvolume");
@@ -109,10 +106,7 @@ const {
   blockSensitiveRoutes,
   getClientIp,
 } = require("./reso/node/security");
-const {
-  initializeGSM,
-  cleanupGSMPorts,
-} = require("./reso/node/smsService");
+
 
 // MULTERS
 const setupVideosApi = require("./reso/node/expressAPI/videos");
@@ -243,37 +237,10 @@ if (!fs.existsSync(path.join(OUTFOLDER_PATH, "audio"))) {
 setupLogger();
 const config = loadConfig(io);
 const serverPort = config?.MainServer?.port || 3000;
-const smstype = config?.MainServer?.sms || 0;
-// define system type constants
-const SYSTEM_TYPES = {
-  ARDUINO_UNO: "ARDUINO_UNO",
-  ARDUINO_WIFI: "ARDUINO_WIFI",
-  WINDOWED_APPLICATIONS: "WINDOWED_APPLICATIONS",
-};
-// normalize/validate system_type
-let system_type = (config?.MainServer?.systemType || SYSTEM_TYPES.WINDOWED_APPLICATIONS)
-  .toString()
-  .trim()
-  .toUpperCase();
-
-if (!Object.values(SYSTEM_TYPES).includes(system_type)) {
-  console.warn(
-    `Unknown SYSTEM_TYPE "${system_type}" in config. Falling back to ${SYSTEM_TYPES.WINDOWED_APPLICATIONS}.`
-  );
-  system_type = SYSTEM_TYPES.WINDOWED_APPLICATIONS;
-}
-
-console.log(`Starting server with SYSTEM_TYPE=${system_type}`);
-
-// convenience booleans (useful later)
-const isArduinoUno = system_type === SYSTEM_TYPES.ARDUINO_UNO;
-const isArduinoWifi = system_type === SYSTEM_TYPES.ARDUINO_WIFI;
-const isWindowed = system_type === SYSTEM_TYPES.WINDOWED_APPLICATIONS;
+// System type is Windowed Applications
+console.log(`Starting server with WINDOWED_APPLICATIONS`);
 
 // ===== Routes =====
-if (isArduinoWifi) {
-  appExpress.use("/api", setupKeyApi(io));
-}
 
 appExpress.get("/312Xadmin", (req, res) => {
   setNoCacheHeaders(res);
@@ -292,7 +259,6 @@ appExpress.get("/whoami", requireAuth, (req, res) => {
   res.json(req.user);
 });
 
-if (isWindowed) {
   appExpress.get("/kiosk", (req, res) => {
     setNoCacheHeaders(res);
     res.sendFile(path.join(rootpath, "reso/html/kiosk.html"));
@@ -309,7 +275,6 @@ if (isWindowed) {
     setNoCacheHeaders(res);
     res.sendFile(path.join(rootpath, "reso/html/test.html"));
   });
-}
 
 appExpress.get("/main", (req, res) => {
   setNoCacheHeaders(res);
@@ -417,35 +382,10 @@ io.on("connection", (socket) => {
       }
     });
 
-    if (smstype == 1) {
-      initializeGSM(io);
-    }
-    if (isArduinoUno) {
-      setupCalledTicketsWatcher(socket, io, "ARDUINO_UNO");
-      initializeSerialPort(socket, io, "ARDUINO_UNO");
-    }
-    if (isWindowed) {
-      setupLoginSocketteller(socket);
-      setupTellerWatcher(socket, io);
-      initializeWindowedKiosk(socket, io);
-      setupCalledTicketsWatcher(socket, io, "WINDOWED_APPLICATION");
-    }
-    if (isArduinoWifi) {
-      setupCalledTicketsWatcher(socket, io, "ARDUINO_WIFI");
-      socket.on("key", async (payload) => {
-        try {
-          const key = String(payload?.key ?? payload).trim();
-          if (!key) {
-            socket.emit("key:ack", { ok: false, error: "NO_KEY" });
-            return;
-          }
-          const result = await handleKey(key, io);
-          socket.emit("key:ack", result);
-        } catch (err) {
-          socket.emit("key:ack", { ok: false, error: err.message });
-        }
-      });
-    }
+    setupLoginSocketteller(socket);
+    setupTellerWatcher(socket, io);
+    initializeWindowedKiosk(socket, io);
+    setupCalledTicketsWatcher(socket, io, "WINDOWED_APPLICATION");
   } catch (err) {
     console.error(`Error in Socket.IO connection handler: ${err.message}`);
     socket.emit("error", { message: "Server error during initialization" });
@@ -658,17 +598,15 @@ function createWindow() {
   displayWindow.on("closed", handleWindowClosed);
 
   // --- KIOSK WINDOW on primary screen ---
-  if (isWindowed) {
-    kioskWindow = new BrowserWindow({
-      width: 450,
-      height: 450,
-      frame: true,
-      autoHideMenuBar: true
-    });
-    kioskWindow.loadURL(kioskUrl);
-    kioskWindow.setFullScreen(true);
-    kioskWindow.on("closed", handleWindowClosed);
-  }
+  kioskWindow = new BrowserWindow({
+    width: 450,
+    height: 450,
+    frame: true,
+    autoHideMenuBar: true
+  });
+  kioskWindow.loadURL(kioskUrl);
+  kioskWindow.setFullScreen(true);
+  kioskWindow.on("closed", handleWindowClosed);
 }
 
 function handleWindowClosed() {
@@ -708,9 +646,6 @@ async function gracefulShutdown(signal) {
       console.log(`Removed PID file ${pidFile}`);
     }
     closeDb();
-
-    if (smstype == 1) await cleanupGSMPorts();
-    if (isArduinoUno) await cleanupSerialPorts();
 
     await new Promise((resolve, reject) => {
       server.close((err) => (err ? reject(err) : resolve()));

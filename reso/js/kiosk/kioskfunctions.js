@@ -1,7 +1,5 @@
-let smsSetting = null;
 window.snameholder = null;
 window.ticketserviceholder = null;
-window.mobileno = null;
 window.cachedServices = [];
 window.serviceSchedCheckerStarted = false;
 window.currentDisplayConfig = {}; // <-- ADDED TO STORE COLORS
@@ -14,9 +12,6 @@ $(document).ready(function () {
         }
     });
 
-    socket.on("envSMS", (data) => {
-        smsSetting = data.sms;
-    });
 
     $(".category-btn").on("click", function () {
         const category = $(this).data("categtype");
@@ -82,20 +77,14 @@ $(document).ready(function () {
             const sname = $(this).data("sname");
             const ticketservice = $(this).data("ticketservice");
 
-            if (smsSetting != "1") {
-                Swal.fire({
-                    title: "Processing...",
-                    html: "<p>Inserting and Printing your ticket, please wait...</p>",
-                    allowOutsideClick: false,
-                    showConfirmButton: false,
-                    didOpen: () => Swal.showLoading(),
-                });
-                socket.emit("newServiceTicket", { sname, ticketservice, mobile: "" });
-            } else {
-                window.snameholder = sname;
-                window.ticketserviceholder = ticketservice;
-                $(".mobilemain").css("display", "flex");
-            }
+            Swal.fire({
+                title: "Processing...",
+                html: "<p>Inserting and Printing your ticket, please wait...</p>",
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                didOpen: () => Swal.showLoading(),
+            });
+            socket.emit("newServiceTicket", { sname, ticketservice, mobile: "" });
         });
 
         setServicesKiosk(services.length);
@@ -140,8 +129,6 @@ $(document).ready(function () {
                 showConfirmButton: false,
             });
 
-            $(".mobilemain").hide();
-            $("#mobileNo").val("");
             $("#regularServices, #priorityServices").fadeOut(200);
             $(".category-container").fadeIn(200);
 
@@ -265,8 +252,6 @@ let inactivityTimer;
 function resetInactivityTimer() {
     clearTimeout(inactivityTimer);
     inactivityTimer = setTimeout(() => {
-        $(".mobilemain").hide();
-        $("#mobileNo").val("");
         $("#regularServices, #priorityServices").fadeOut(200);
         $(".category-container").fadeIn(200);
     }, 30000);

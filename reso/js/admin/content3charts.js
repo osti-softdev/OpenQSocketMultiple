@@ -10,25 +10,7 @@ $(document).ready(function () {
 		},
 	];
 
-	// Color palette for feedback lines (base colors for gradients)
-	const feedbackColors = [
-		{ base: "rgba(0, 255, 0, 1)", shadow: "rgba(0, 255, 0, 0.09)" }, // Green for satisfied, shadow fades to transparent
-		{ base: "rgba(255, 0, 0, 1)", shadow: "rgba(255, 0, 0, 0.09)" }, // Red for unsatisfied, shadow fades to transparent
-		{ base: "rgba(0, 0, 0, 1)", shadow: "rgba(255, 0, 0, 0.09)" }, // Red for unsatisfied, shadow fades to transparent
-	];
 
-	// Helper function to create a gradient for lines
-	const createGradient = (ctx, chartArea, baseColor, shadowColor) => {
-		const gradient = ctx.createLinearGradient(
-			0,
-			chartArea.top,
-			0,
-			chartArea.bottom
-		);
-		gradient.addColorStop(0, baseColor); // Top: solid base color (line)
-		gradient.addColorStop(1, shadowColor); // Bottom: fully transparent
-		return gradient;
-	};
 
 	// Helper function to create a bar dataset
 	const createBarDataset = (sname, data, peak, index, timeType) => {
@@ -52,40 +34,7 @@ $(document).ready(function () {
 		};
 	};
 
-	// Helper function to create a line dataset with gradient
-	const createLineDataset = (labelPrefix, data, peak, timeType, colorIndex) => {
-		const peakLabel =
-			timeType === "hourly"
-				? `${parseInt(peak.hour) % 12 || 12}:00 ${parseInt(peak.hour) < 12 ? "AM" : "PM"
-				}`
-				: timeType === "daily"
-					? peak.date
-					: peak.month;
-		const countKey =
-			labelPrefix.toLowerCase() === "satisfied" ? "satisfied" : "unsatisfied";
-		return {
-			type: "line",
-			label: `${labelPrefix} (Peak: ${peakLabel}, ${peak[countKey]})`,
-			data,
-			backgroundColor: function (context) {
-				const chart = context.chart;
-				const { ctx, chartArea } = chart;
-				if (!chartArea) return feedbackColors[colorIndex].shadow; // Fallback
-				return createGradient(
-					ctx,
-					chartArea,
-					feedbackColors[colorIndex].base,
-					feedbackColors[colorIndex].shadow
-				);
-			},
-			borderColor: feedbackColors[colorIndex].base, // Solid line color
-			borderWidth: 2,
-			fill: true,
-			tension: 0.5,
-			pointRadius: 4,
-			pointBackgroundColor: feedbackColors[2].base,
-		};
-	};
+
 
 	// Helper function to check if arrays are equal
 	const arraysEqual = (arr1, arr2) => {
@@ -235,34 +184,6 @@ $(document).ready(function () {
 		});
 
 		let hourDatasets = [...hourBarDatasets];
-		if (withfeedback) {
-			// Hour line datasets for feedback
-			const hourSatisfiedPeak = feedback.hourly.reduce(
-				(max, curr) => (curr.satisfied > max.satisfied ? curr : max),
-				{ hour: "00", satisfied: 0 }
-			);
-			const hourUnsatisfiedPeak = feedback.hourly.reduce(
-				(max, curr) => (curr.unsatisfied > max.unsatisfied ? curr : max),
-				{ hour: "00", unsatisfied: 0 }
-			);
-			const hourLineDatasets = [
-				createLineDataset(
-					"Satisfied",
-					feedback.hourly.map((h) => h.satisfied),
-					hourSatisfiedPeak,
-					"hourly",
-					0
-				),
-				createLineDataset(
-					"Unsatisfied",
-					feedback.hourly.map((h) => h.unsatisfied),
-					hourUnsatisfiedPeak,
-					"hourly",
-					1
-				),
-			];
-			hourDatasets = [...hourBarDatasets, ...hourLineDatasets];
-		}
 		// Date labels and bar datasets
 		const dateLabels = [
 			...new Set(snames.flatMap((sname) => daily[sname].map((d) => d.date))),
@@ -277,34 +198,6 @@ $(document).ready(function () {
 		});
 
 		let dateDatasets = [...dateBarDatasets];
-		if (withfeedback) {
-			// Date line datasets for feedback
-			const dateSatisfiedPeak = feedback.daily.reduce(
-				(max, curr) => (curr.satisfied > max.satisfied ? curr : max),
-				{ date: "", satisfied: 0 }
-			);
-			const dateUnsatisfiedPeak = feedback.daily.reduce(
-				(max, curr) => (curr.unsatisfied > max.unsatisfied ? curr : max),
-				{ date: "", unsatisfied: 0 }
-			);
-			const dateLineDatasets = [
-				createLineDataset(
-					"Satisfied",
-					feedback.daily.map((d) => d.satisfied),
-					dateSatisfiedPeak,
-					"daily",
-					0
-				),
-				createLineDataset(
-					"Unsatisfied",
-					feedback.daily.map((d) => d.unsatisfied),
-					dateUnsatisfiedPeak,
-					"daily",
-					1
-				),
-			];
-			dateDatasets = [...dateBarDatasets, ...dateLineDatasets];
-		}
 		// Month labels and bar datasets
 		const monthLabels = [
 			...new Set(snames.flatMap((sname) => monthly[sname].map((m) => m.month))),
@@ -320,34 +213,6 @@ $(document).ready(function () {
 
 
 		let monthDatasets = [...monthBarDatasets];
-		if (withfeedback) {
-			// Month line datasets for feedback
-			const monthSatisfiedPeak = feedback.monthly.reduce(
-				(max, curr) => (curr.satisfied > max.satisfied ? curr : max),
-				{ month: "", satisfied: 0 }
-			);
-			const monthUnsatisfiedPeak = feedback.monthly.reduce(
-				(max, curr) => (curr.unsatisfied > max.unsatisfied ? curr : max),
-				{ month: "", unsatisfied: 0 }
-			);
-			const monthLineDatasets = [
-				createLineDataset(
-					"Satisfied",
-					feedback.monthly.map((m) => m.satisfied),
-					monthSatisfiedPeak,
-					"monthly",
-					0
-				),
-				createLineDataset(
-					"Unsatisfied",
-					feedback.monthly.map((m) => m.unsatisfied),
-					monthUnsatisfiedPeak,
-					"monthly",
-					1
-				),
-			];
-			monthDatasets = [...monthBarDatasets, ...monthLineDatasets];
-		}
 		// Update or initialize charts
 		if (!hourChart) {
 			const ctx = $("#timelinechart3")[0].getContext("2d");
@@ -438,12 +303,9 @@ $(document).ready(function () {
 			needsUpdate = true;
 		}
 
-		// Remove datasets not in current snames or feedback (conditionally)
+		// Remove datasets not in current snames
 		chart.data.datasets = chart.data.datasets.filter((ds) => {
-			const isService = snames.some((sname) => ds.label.startsWith(sname));
-			const isFeedback = ds.label.startsWith("Satisfied") || ds.label.startsWith("Unsatisfied");
-			// ✅ Only keep feedback if withfeedback is enabled
-			return isService || (withfeedback && isFeedback);
+			return snames.some((sname) => ds.label.startsWith(sname));
 		});
 
 		// --- Update/Add service bar datasets ---
@@ -469,28 +331,7 @@ $(document).ready(function () {
 			}
 		});
 
-		// --- Update/Add feedback datasets ---
-		if (withfeedback) {
-			["Satisfied", "Unsatisfied"].forEach((labelPrefix, idx) => {
-				const newFeedback = newDatasets.find((ds) =>
-					ds.label.startsWith(labelPrefix)
-				);
-				let existingFeedback = chart.data.datasets.find((ds) =>
-					ds.label.startsWith(labelPrefix)
-				);
 
-				if (existingFeedback) {
-					existingFeedback.data = newFeedback.data;
-					existingFeedback.label = newFeedback.label;
-					existingFeedback.backgroundColor = newFeedback.backgroundColor;
-					existingFeedback.borderColor = newFeedback.borderColor;
-					needsUpdate = true;
-				} else {
-					chart.data.datasets.push(newFeedback);
-					needsUpdate = true;
-				}
-			});
-		}
 
 		// --- Sort legend order ---
 		chart.data.datasets.sort((a, b) => {
@@ -501,8 +342,6 @@ $(document).ready(function () {
 				return serviceIndexA - serviceIndexB;
 			if (serviceIndexA !== -1) return -1;
 			if (serviceIndexB !== -1) return 1;
-			if (a.label.startsWith("Satisfied")) return -1;
-			if (b.label.startsWith("Satisfied")) return 1;
 			return 0;
 		});
 

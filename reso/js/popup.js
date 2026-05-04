@@ -1,6 +1,6 @@
 // --- Called Tickets Popup with Queue ---
 let voiceConfig = {
-	voice: 0,
+	voice: 13,
 	voice_rate: 1,
 	voice_pitch: 1,
 	voice_volume: 1,
@@ -69,18 +69,18 @@ function showPopup(ticketData) {
 	console.log(ticketData);
 
 	if (videoElement && !videoElement.paused) videoElement.pause();
-	let ticks = ticketData.sname.replace("_"," ");
+	let ticks = ticketData.sname.replace("_", " ");
 	$("#popup").show();
 
-	if(counterDisplayer != 1){
+	if (counterDisplayer != 1) {
 		$("#counterpop").text(ticks);
 		$("#ticketpop").text(`${ticketData.service}-${ticketData.ticket}`);
-	}else{
+	} else {
 		$("#counterpop").text("Counter " + ticketData.counter_num);
-		$("#ticketpop").text(`${ticketData.service}-${ticketData.ticket}`);	
+		$("#ticketpop").text(`${ticketData.service}-${ticketData.ticket}`);
 		// $("#ticketpop").text(`${ticketData.service}-${ticketData.ticket}`);	
 	}
-	
+
 
 	// if (audioElement) {
 	// 	audioElement.currentTime = 0;
@@ -107,22 +107,22 @@ function speakTicketTwice(ticketData, onFinish) {
 
 	const serviceCleaned = ticketData.service.replace(/-/g, " ");
 	const serviceSeparated = serviceCleaned.split("").join(", ");
-	let ticks = ticketData.sname.replace("_"," ");
+	let ticks = ticketData.sname.replace("_", " ");
 
 	let msg = null;
-	
-	if(counterDisplayer != 1){
+
+	if (counterDisplayer != 1) {
 		msg = new SpeechSynthesisUtterance(
 			`Now serving, ${serviceSeparated}${ticketData.ticket}, ${ticks}`
 		);
-	}else{
+	} else {
 		msg = new SpeechSynthesisUtterance(
 			// `Now serving, ${serviceSeparated}${ticketData.ticket}, Please proceed to counter ${ticketData.counter_num}`
 			`Now serving, ${ticks}; ${serviceSeparated}${ticketData.ticket}! Please proceed to counter ${ticketData.counter_num}`
 		);
 	}
-	
-	msg.voice = voices[4];
+
+	msg.voice = voices[13];
 	msg.pitch = voiceConfig.voice_pitch || 1;
 	msg.rate = voiceConfig.voice_rate || 1;
 	msg.volume = voiceConfig.voice_volume || 1;

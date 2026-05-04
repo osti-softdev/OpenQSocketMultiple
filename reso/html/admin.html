@@ -33,8 +33,6 @@ let hourChart;
 let dailyChart;
 let monthChart;
 
-// ==== Feedback Switch ==== 
-let withfeedback = 0;
 </script>
     <link rel="stylesheet" href="/css/admin.css">
     <script src="/socket.io/socket.io.js"></script>
@@ -114,7 +112,7 @@ let withfeedback = 0;
                         <div class="content2analysis">
                             <div>
                                 <span class="content2totalcount"></span>
-                                <span class="content2totalrated"></span>
+
                                 <span class="content2totalserved"></span>
                                 <span class="content2totalvoided"></span>
                                 <span class="content2totalunserved"></span>
@@ -122,7 +120,7 @@ let withfeedback = 0;
                             
                             <div>
                                 <span class="content2commonservice"></span>
-                                <span class="content2commonrating"></span>
+
                             </div>
                           
                         </div>
@@ -460,30 +458,7 @@ let withfeedback = 0;
                         <label>Data Retention: 
                             <input type="number" class="settdbdataretention" min="0"> days.
                         </label>
-                        <label>Sms Feature: 
-                            <input type="checkbox" class="settdbdatasmsfeature">
-                            <span class="settdbdatasmsfeaturelabel">OFF</span>
-                        </label>
-                        <label>CFS Switch: 
-                            <input type="checkbox" class="settdbdatafeedbackswitch">
-                            <span class="settdbdatafeedbackswitchlabel">OFF</span>
-                        </label>
-                        <label>Counter Display: 
-                            <input type="checkbox" class="settdbdatacounter">
-                            <span class="settdbdatacounterlabel">OFF</span>
-                        </label>
-                        <fieldset>
-                            <legend>System Type:</legend>
-                            <label>Wired Arduino: 
-                                <input class="settdbdatasystemtype" type="radio" name="systemType" value="ARDUINO_UNO">
-                            </label>
-                            <label>Wireless Arduino: 
-                                <input class="settdbdatasystemtype" type="radio" name="systemType" value="ARDUINO_WIFI">
-                            </label>
-                            <label>Window Type: 
-                                <input class="settdbdatasystemtype" type="radio" name="systemType" value="WINDOWED_APPLICATIONS">
-                            </label>
-                        </fieldset>
+
                         <fieldset>
                             <legend>Clear Transactions:</legend>
                             <label>Date From: <input type="date"></label>
