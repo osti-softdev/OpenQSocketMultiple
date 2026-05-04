@@ -436,11 +436,6 @@ io.on("connection", (socket) => {
     }
     if (isRaspberryPiGpio) {
       setupCalledTicketsWatcher(socket, io, "RASPBERRY_PI_GPIO");
-      if (initializeGPIO) {
-        initializeGPIO(io);
-      } else {
-        console.warn("⚠️  GPIO module not loaded - buttons may not work");
-      }
     }
       if (isWindowed) {
       setupLoginSocketteller(socket);
@@ -577,6 +572,11 @@ async function startServer() {
     // Start server
     server.listen(serverPort, () => {
       console.log(`Server running on http://${ownip}:${serverPort}`);
+      
+      // Initialize Hardware Bridges immediately on startup
+      if (isRaspberryPiGpio && initializeGPIO) {
+        initializeGPIO(io);
+      }
     });
   } catch (err) {
     console.error("Failed to start server:", err.message);
