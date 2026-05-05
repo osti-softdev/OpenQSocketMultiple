@@ -367,9 +367,9 @@ async function generatePDF(mode = "overall", target = null, targetName = null) {
             });
 
             // Turn-around time: end_time of current row and start_time of next row
-            for(let i = 0; i < specificData.historyRows.length - 1; i++) {
+            for (let i = 0; i < specificData.historyRows.length - 1; i++) {
                 let curr = specificData.historyRows[i];
-                let next = specificData.historyRows[i+1];
+                let next = specificData.historyRows[i + 1];
                 if (curr.end_time && next.start_time) {
                     let diff = Math.abs(timeToSeconds(next.start_time) - timeToSeconds(curr.end_time));
                     tTurnaround += diff;
@@ -491,7 +491,7 @@ async function generatePDF(mode = "overall", target = null, targetName = null) {
         pdf.text("Overview", 14, yPos);
 
         let overviewHead, overviewBody;
-        
+
         // Fetch all transactions early to calculate global averages
         const globalTxData = await getAllTransactionsData();
         let gServing = 0, cgServing = 0, gWaiting = 0, cgWaiting = 0, gTurnaround = 0, cgTurnaround = 0;
@@ -512,9 +512,9 @@ async function generatePDF(mode = "overall", target = null, targetName = null) {
                 }
             });
 
-            for(let i=0; i < globalTxData.length - 1; i++){
+            for (let i = 0; i < globalTxData.length - 1; i++) {
                 let curr = globalTxData[i];
-                let next = globalTxData[i+1];
+                let next = globalTxData[i + 1];
                 if (curr.end_time && next.start_time) {
                     let diff = Math.abs(timeToSec(next.start_time) - timeToSec(curr.end_time));
                     gTurnaround += diff;
@@ -524,7 +524,7 @@ async function generatePDF(mode = "overall", target = null, targetName = null) {
         }
         const formatSecs = (secs) => {
             const h = Math.floor(secs / 3600), m = Math.floor((secs % 3600) / 60), s = Math.floor(secs % 60);
-            return `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+            return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
         };
         const avgGlobalServing = cgServing ? formatSecs(gServing / cgServing) : "00:00:00";
         const avgGlobalWaiting = cgWaiting ? formatSecs(gWaiting / cgWaiting) : "00:00:00";
@@ -537,7 +537,7 @@ async function generatePDF(mode = "overall", target = null, targetName = null) {
             overviewHead = [["Total Transactions", "Total Served", "Total Voided", "Total Unserved", "Most Service"]];
             overviewBody = [[totalCount, totalServed, totalVoided, totalUnserved, mostService]];
         }
-        
+
         pdf.autoTable({
             startY: yPos + 5,
             head: overviewHead,
@@ -546,10 +546,10 @@ async function generatePDF(mode = "overall", target = null, targetName = null) {
             styles: { fontSize: 10, halign: "center" },
             headStyles: { fillColor: [41, 128, 185], textColor: 255 }
         });
-        
+
         const avgHead = [["Avg. Serving Time", "Avg. Turn-around Time", "Avg. Waiting Time"]];
         const avgBody = [[avgGlobalServing, avgGlobalTurnaround, avgGlobalWaiting]];
-        
+
         pdf.autoTable({
             startY: pdf.lastAutoTable.finalY + 5,
             head: avgHead,
@@ -771,9 +771,9 @@ async function generateExcel(mode = "overall", target = null, targetName = null)
                     }
                 });
 
-                for(let i = 0; i < specificData.historyRows.length - 1; i++) {
+                for (let i = 0; i < specificData.historyRows.length - 1; i++) {
                     let curr = specificData.historyRows[i];
-                    let next = specificData.historyRows[i+1];
+                    let next = specificData.historyRows[i + 1];
                     if (curr.end_time && next.start_time) {
                         let diff = Math.abs(timeToSeconds(next.start_time) - timeToSeconds(curr.end_time));
                         tTurnaround += diff;
@@ -785,14 +785,14 @@ async function generateExcel(mode = "overall", target = null, targetName = null)
                 const h = Math.floor(secs / 3600);
                 const m = Math.floor((secs % 3600) / 60);
                 const s = Math.floor(secs % 60);
-                return `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+                return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
             };
 
             overviewSheetData.push(["Total Served", "Total Voided", "Average Serving Time", "Average Waiting Time", "Average Turn-around Time"]);
             overviewSheetData.push([
-                totalServed, 
-                totalVoided, 
-                cServing ? toStr(tServing / cServing) : "00:00:00", 
+                totalServed,
+                totalVoided,
+                cServing ? toStr(tServing / cServing) : "00:00:00",
                 cWaiting ? toStr(tWaiting / cWaiting) : "00:00:00",
                 cTurnaround ? toStr(tTurnaround / cTurnaround) : "00:00:00"
             ]);
@@ -898,7 +898,7 @@ async function generateExcel(mode = "overall", target = null, targetName = null)
             overviewSheetData.push(overviewHead);
             overviewSheetData.push(overviewBody);
             overviewSheetData.push([]);
-            
+
             const globalTxData = await getAllTransactionsData();
             let gServing = 0, cgServing = 0, gWaiting = 0, cgWaiting = 0, gTurnaround = 0, cgTurnaround = 0;
             function timeToSec(timeStr) {
@@ -918,9 +918,9 @@ async function generateExcel(mode = "overall", target = null, targetName = null)
                     }
                 });
 
-                for(let i=0; i < globalTxData.length - 1; i++){
+                for (let i = 0; i < globalTxData.length - 1; i++) {
                     let curr = globalTxData[i];
-                    let next = globalTxData[i+1];
+                    let next = globalTxData[i + 1];
                     if (curr.end_time && next.start_time) {
                         let diff = Math.abs(timeToSec(next.start_time) - timeToSec(curr.end_time));
                         gTurnaround += diff;
@@ -930,12 +930,12 @@ async function generateExcel(mode = "overall", target = null, targetName = null)
             }
             const formatSecs = (secs) => {
                 const h = Math.floor(secs / 3600), m = Math.floor((secs % 3600) / 60), s = Math.floor(secs % 60);
-                return `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+                return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
             };
             const avgGlobalServing = cgServing ? formatSecs(gServing / cgServing) : "00:00:00";
             const avgGlobalWaiting = cgWaiting ? formatSecs(gWaiting / cgWaiting) : "00:00:00";
             const avgGlobalTurnaround = cgTurnaround ? formatSecs(gTurnaround / cgTurnaround) : "00:00:00";
-            
+
             overviewSheetData.push(["Avg. Serving Time", "Avg. Turn-around Time", "Avg. Waiting Time"]);
             overviewSheetData.push([avgGlobalServing, avgGlobalTurnaround, avgGlobalWaiting]);
 

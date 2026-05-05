@@ -1,23 +1,24 @@
 $(document).ready(function () {
 	// --- Color palettes ---
 	const colors = [
-		{ border: "rgba(0, 170, 255, 1)", background: "rgba(0, 170, 255, 0.8)" },
-		{ border: "rgba(255, 206, 86, 1)", background: "rgba(255, 206, 86, 0.8)" },
-		{ border: "rgba(19, 58, 58, 1)", background: "rgba(19, 58, 58, 0.8)" },
-		{ border: "rgba(153, 102, 255, 1)", background: "rgba(153, 102, 255, 0.8)" },
+		{ border: "rgba(15, 85, 121, 1)", background: "rgba(0, 170, 255, 0.8)" },
+		{ border: "rgba(109, 86, 27, 1)", background: "rgba(243, 179, 17, 0.8)" },
+		{ border: "rgba(19, 58, 21, 1)", background: "rgba(56, 206, 26, 0.8)" },
+		{ border: "rgba(58, 38, 99, 1)", background: "rgba(153, 102, 255, 0.8)" },
 		{ border: "rgba(75, 192, 192, 1)", background: "rgba(75, 192, 192, 0.8)" },   // extra
 		{ border: "rgba(255, 99, 132, 1)", background: "rgba(255, 99, 132, 0.8)" }   // extra
 	];
 
 	// Feedback colors
 	const feedbackColors = [
-		{ base: "rgba(0, 200, 0, 0.8)" },   // Satisfied
-		{ base: "rgba(200, 0, 0, 0.8)" }    // Unsatisfied
+		{ base: "rgba(0, 255, 0, 1)" },   // Satisfied
+		{ base: "rgba(255, 0, 0, 1)" }    // Unsatisfied
 	];
 
 	socket.on("dashadmindataupdate", (adminoveralldata) => {
-		const serviceNames = $.map(adminoveralldata.services, (s) => s.sname);
-		const calledCounts = $.map(adminoveralldata.services, (s) => s.called_count);
+		const activeServices = adminoveralldata.services.filter(s => s.called_count > 0);
+		const serviceNames = $.map(activeServices, (s) => s.sname.replace(/_/g, " "));
+		const calledCounts = $.map(activeServices, (s) => s.called_count);
 
 		// --- Build labels properly ---
 		let labels = [...serviceNames];

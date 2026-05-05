@@ -153,7 +153,7 @@ function initServiceTable(tableId) {
                         const sname_str = row.sname?.replace(/_/g, " ") || "";
                         return [
                             sname_str,
-                            row.shortSname || "",
+                            `${row.regular || 0} - ${row.priority || 0}`,
                             row.total_served || 0,
                             row.total_voided || 0,
                             row.serving_tellers || "-",

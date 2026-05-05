@@ -41,7 +41,7 @@ $(document).ready(function () {
 					: peak.month;
 		return {
 			type: "line",
-			label: `${sname} Transactions (Peak: ${peakLabel}, ${peak.count})`,
+			label: `${sname.replace(/_/g, " ")} Transactions (Peak: ${peakLabel}, ${peak.count})`,
 			data,
 			backgroundColor: colors[index % colors.length].background,
 			borderColor: colors[index % colors.length].border,
@@ -216,7 +216,6 @@ $(document).ready(function () {
 	// Socket event listener for data updates
 	socket.on("dashadmincontent3data", (admincontent3data) => {
 		const { snames, hourly, daily, monthly, feedback } = admincontent3data;
-
 		// Hour labels (24-hour format with AM/PM)
 		const hourLabels = Array.from({ length: 24 }, (_, i) => {
 			const hour = i % 12 === 0 ? 12 : i % 12;
@@ -440,7 +439,7 @@ $(document).ready(function () {
 
 		// Remove datasets not in current snames or feedback (conditionally)
 		chart.data.datasets = chart.data.datasets.filter((ds) => {
-			const isService = snames.some((sname) => ds.label.startsWith(sname));
+			const isService = snames.some((sname) => ds.label.startsWith(sname.replace(/_/g, " ")));
 			const isFeedback = ds.label.startsWith("Satisfied") || ds.label.startsWith("Unsatisfied");
 			// ✅ Only keep feedback if withfeedback is enabled
 			return isService || (withfeedback && isFeedback);
@@ -448,9 +447,10 @@ $(document).ready(function () {
 
 		// --- Update/Add service bar datasets ---
 		snames.forEach((sname, index) => {
-			const newDataset = newDatasets.find((ds) => ds.label.startsWith(sname));
+			const formattedSname = sname.replace(/_/g, " ");
+			const newDataset = newDatasets.find((ds) => ds.label.startsWith(formattedSname));
 			let existingDataset = chart.data.datasets.find((ds) =>
-				ds.label.startsWith(sname)
+				ds.label.startsWith(formattedSname)
 			);
 
 			if (existingDataset) {
@@ -494,8 +494,8 @@ $(document).ready(function () {
 
 		// --- Sort legend order ---
 		chart.data.datasets.sort((a, b) => {
-			const serviceIndexA = snames.findIndex((s) => a.label.startsWith(s));
-			const serviceIndexB = snames.findIndex((s) => b.label.startsWith(s));
+			const serviceIndexA = snames.findIndex((s) => a.label.startsWith(s.replace(/_/g, " ")));
+			const serviceIndexB = snames.findIndex((s) => b.label.startsWith(s.replace(/_/g, " ")));
 
 			if (serviceIndexA !== -1 && serviceIndexB !== -1)
 				return serviceIndexA - serviceIndexB;

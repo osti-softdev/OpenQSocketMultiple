@@ -73,17 +73,19 @@ $(document).ready(function () {
 	function initialize_dates() {
 		let datefrom = startDate;
 		let dateto = endDate;
-		
+
 		socket.emit("requestAdminDataforcontent2averages", { datefrom, dateto });
 		socket.emit("requestAdminData", { datefrom, dateto });
 		socket.emit("requestAdminDataforcontent3", { datefrom, dateto });
-        socket.emit('requestAdminDataforcontent4alldata', { datefrom, dateto });
+		socket.emit('requestAdminDataforcontent4alldata', { datefrom, dateto });
+		displaytable4();
 	}
 	initialize_dates();
 	// Request new data when user changes dates
 	$("#startDate, #endDate").on("input", function () {
 		let datefrom = $("#startDate").val();
 		let dateto = $("#endDate").val();
+		displaytable4();
 		// Validate dates
 		if (!datefrom || !dateto) {
 			console.warn("Invalid date range selected");
@@ -104,7 +106,7 @@ $(document).ready(function () {
 		socket.emit("requestAdminDataforcontent2averages", { datefrom, dateto });
 		socket.emit("requestAdminData", { datefrom, dateto });
 		socket.emit("requestAdminDataforcontent3", { datefrom, dateto });
-        socket.emit('requestAdminDataforcontent4alldata', { datefrom, dateto });
+		socket.emit('requestAdminDataforcontent4alldata', { datefrom, dateto });
 
 	});
 
@@ -176,34 +178,34 @@ $(document).ready(function () {
 		}
 	});
 
-	 $(".content3-hourpeakchart").addClass("active");
-    $(".content3btns[data-content3btnsholder='hour']").addClass("active");
+	$(".content3-hourpeakchart").addClass("active");
+	$(".content3btns[data-content3btnsholder='hour']").addClass("active");
 	// ! Admin Content3 Buttons
 	$(".content3btns").on("click", function () {
-    const chartcontainer = $(this).data("content3btnsholder");
+		const chartcontainer = $(this).data("content3btnsholder");
 
-    // toggle button active state
-    $(this).addClass("active").siblings().removeClass("active");
+		// toggle button active state
+		$(this).addClass("active").siblings().removeClass("active");
 
-    // hide all chart containers first
-    $(".content3-hourpeakchart, .content3-datepeakchart, .content3-monthpeakchart")
-        .removeClass("active");
+		// hide all chart containers first
+		$(".content3-hourpeakchart, .content3-datepeakchart, .content3-monthpeakchart")
+			.removeClass("active");
 
-    // show only the selected one
-    if (chartcontainer === "hour") {
-        $(".content3-hourpeakchart").addClass("active");
-    } else if (chartcontainer === "date") {
-        $(".content3-datepeakchart").addClass("active");
-    } else if (chartcontainer === "month") {
-        $(".content3-monthpeakchart").addClass("active");
-    }
-});
+		// show only the selected one
+		if (chartcontainer === "hour") {
+			$(".content3-hourpeakchart").addClass("active");
+		} else if (chartcontainer === "date") {
+			$(".content3-datepeakchart").addClass("active");
+		} else if (chartcontainer === "month") {
+			$(".content3-monthpeakchart").addClass("active");
+		}
+	});
 
 	function headeradjust(param) {
-		if(param === "adjust"){
-		$(".adminbtns").addClass("activerespond");
-		}else{
-		$(".adminbtns").removeClass("activerespond");
+		if (param === "adjust") {
+			$(".adminbtns").addClass("activerespond");
+		} else {
+			$(".adminbtns").removeClass("activerespond");
 		}
 	}
 	function hideobject(params) {
@@ -216,8 +218,8 @@ $(document).ready(function () {
 	$(".admbtnsoptions[data-page='dashboard']").click();
 
 	// --- Load last page or fallback to dashboard ---
-const lastPage = localStorage.getItem("lastPage") || "dashboard";
-$(`.admbtnsoptions[data-page='${lastPage}']`).click();
+	const lastPage = localStorage.getItem("lastPage") || "dashboard";
+	$(`.admbtnsoptions[data-page='${lastPage}']`).click();
 
 	$(".logoutbtn").on("click", function () {
 		localStorage.clear();
