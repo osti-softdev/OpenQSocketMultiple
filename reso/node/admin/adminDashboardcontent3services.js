@@ -24,7 +24,7 @@ async function getServicesData(start, length, order, search, datefrom, dateto) {
       params = [`%${search}%`, `%${search}%`];
     }
 
-    db.all(`SELECT id, sname, shortSname FROM services ${where} AND status = 1`, params, (err, servicesList) => {
+    db.all(`SELECT id, sname,regular, priority, shortSname FROM services ${where} AND status = 1`, params, (err, servicesList) => {
       if (err) { db.close(); return reject(err); }
 
       db.all(`SELECT sname as t_sname, time, start_time, end_time, status, history, counter_num FROM transactions WHERE date BETWEEN ? AND ?`, [datefrom, dateto], (err, transactions) => {
@@ -92,27 +92,27 @@ async function getServicesData(start, length, order, search, datefrom, dateto) {
           });
 
           let myTransactions = transactions.filter(t => t.t_sname === s.sname);
-          for(let i=0; i < myTransactions.length - 1; i++){
-              let curr = myTransactions[i];
-              let next = myTransactions[i+1];
+          for (let i = 0; i < myTransactions.length - 1; i++) {
+            let curr = myTransactions[i];
+            let next = myTransactions[i + 1];
 
-              // Extract curr end_time
-              let currEndStep = curr.history ? curr.history.split(';').filter(Boolean).map(item => {
-                const parts = item.replace(/[\[\]]/g, '').split('-');
-                return { time: parts[0], actor: parts[1], action: parts[2] };
-              }).find(st => ['Finished', 'Forwarded', 'Held'].includes(st.action)) : null;
+            // Extract curr end_time
+            let currEndStep = curr.history ? curr.history.split(';').filter(Boolean).map(item => {
+              const parts = item.replace(/[\[\]]/g, '').split('-');
+              return { time: parts[0], actor: parts[1], action: parts[2] };
+            }).find(st => ['Finished', 'Forwarded', 'Held'].includes(st.action)) : null;
 
-              // Extract next start_time
-              let nextStartStep = next.history ? next.history.split(';').filter(Boolean).map(item => {
-                const parts = item.replace(/[\[\]]/g, '').split('-');
-                return { time: parts[0], actor: parts[1], action: parts[2] };
-              }).find(st => st.action === 'Called') : null;
+            // Extract next start_time
+            let nextStartStep = next.history ? next.history.split(';').filter(Boolean).map(item => {
+              const parts = item.replace(/[\[\]]/g, '').split('-');
+              return { time: parts[0], actor: parts[1], action: parts[2] };
+            }).find(st => st.action === 'Called') : null;
 
-              if (currEndStep && nextStartStep) {
-                  let diff = Math.abs(timeToSeconds(nextStartStep.time) - timeToSeconds(currEndStep.time));
-                  totalTurnaroundSecs += diff;
-                  turnaroundCount++;
-              }
+            if (currEndStep && nextStartStep) {
+              let diff = Math.abs(timeToSeconds(nextStartStep.time) - timeToSeconds(currEndStep.time));
+              totalTurnaroundSecs += diff;
+              turnaroundCount++;
+            }
           }
 
           const avgServing = servingCount > 0 ? totalServingSecs / servingCount : 0;
@@ -132,7 +132,7 @@ async function getServicesData(start, length, order, search, datefrom, dateto) {
           s.serving_tellers = Array.from(tellersSet).join(', ');
         });
 
-        const columns = ["sname", "shortSname", "total_served", "total_voided", "serving_tellers", "avg_serving_time", "avg_turnaround_time", "avg_waiting_time"];
+        const columns = ["sname", "initials", "total_served", "total_voided", "serving_tellers", "avg_serving_time", "avg_turnaround_time", "avg_waiting_time"];
         const orderCol = columns[order[0].column] || "sname";
         const orderDir = order[0].dir === "desc" ? -1 : 1;
 

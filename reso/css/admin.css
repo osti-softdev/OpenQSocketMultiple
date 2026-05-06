@@ -402,7 +402,8 @@ body {
 .adminbody .dashmain .dash-content2 .content2-detailsAverage table tbody tr:nth-child(even) {
   background-color: white;
 }
-.adminbody .dashmain .dash-content2 .content2-detailsAverage table .view-history {
+.adminbody .dashmain .dash-content2 .content2-detailsAverage table .view-history,
+.adminbody .dashmain .dash-content2 .content2-detailsAverage table .view-teller-details {
   display: inline-block;
   padding: 6px 12px;
   font-size: 12px;
@@ -414,11 +415,13 @@ body {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-.adminbody .dashmain .dash-content2 .content2-detailsAverage table .view-history:hover {
+.adminbody .dashmain .dash-content2 .content2-detailsAverage table .view-history:hover,
+.adminbody .dashmain .dash-content2 .content2-detailsAverage table .view-teller-details:hover {
   background: linear-gradient(135deg, #0056b3, #004099);
   transform: scale(1.05);
 }
-.adminbody .dashmain .dash-content2 .content2-detailsAverage table .view-history:active {
+.adminbody .dashmain .dash-content2 .content2-detailsAverage table .view-history:active,
+.adminbody .dashmain .dash-content2 .content2-detailsAverage table .view-teller-details:active {
   transform: scale(0.95);
 }
 .adminbody .dashmain .dash-content2 .content2-detailsAverage .dataTables_wrapper {
@@ -591,9 +594,23 @@ body {
 .adminbody .dashmain .dash-content4 table .view-service-details:active {
   transform: scale(0.95);
 }
-.adminbody .dashmain .dash-content4 .dataTables_wrapper {
+.adminbody .dashmain .dash-content4 .content4-table-container {
   flex: 1;
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.adminbody .dashmain .dash-content4 .content4-table-container h3 {
+  margin: 0 0 10px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid white;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.adminbody .dashmain .dash-content4 .content4-table-container .dataTables_wrapper {
+  flex: 1;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
