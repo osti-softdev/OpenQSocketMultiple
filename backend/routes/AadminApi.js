@@ -711,5 +711,169 @@ router.get('/settings', (req, res) => {
         res.status(500).json({ error: 'Failed to update settings' });
     }
 });
+
+  // ! -------- REPORTS -------- !
+  // & Get Reports with Date Range
+  router.get('/admin/reports/data', (req, res) => {
+    const { dateFrom, dateTo } = req.query;
+
+    if (!dateFrom || !dateTo) {
+        return res.status(400).json({ error: 'dateFrom and dateTo are required' });
+    }
+
+    const reports = {};
+
+    // 1. Summary Statistics
+    const summaryPromise = new Promise((resolve) => {
+        db.get(`
+            SELECT 
+                COUNT(*) as total_tickets,
+                COUNT(CASE WHEN status = 'finished' THEN 1 END) as completed_tickets,
+                COUNT(CASE WHEN status = 'pending' THEN 1 END) as pending_tickets,
+                COUNT(CASE WHEN status = 'calling' OR status = 'called' THEN 1 END) as serving_tickets,
+                AVG(CASE 
+                    WHEN status = 'finished' AND start_time IS NOT NULL AND end_time IS NOT NULL
+                    THEN (strftime('%s', end_time) - strftime('%s', start_time)) / 60.0
+                    END) as avg_service_time_minutes,
+                AVG(CASE 
+                    WHEN status = 'finished' AND start_time IS NOT NULL AND time IS NOT NULL
+                    THEN (strftime('%s', end_time) - strftime('%s', time)) / 60.0
+                    END) as avg_turnaround_time_minutes
+            FROM transactions
+            WHERE date BETWEEN ? AND ?
+        `, [dateFrom, dateTo], (err, row) => {
+            if (err) console.error('Summary query error:', err);
+            else reports.summary = row;
+            resolve();
+        });
+    });
+
+    // 2. Tickets by Service
+    const byServicePromise = new Promise((resolve) => {
+        db.all(`
+            SELECT 
+                t.ticketservice as service_code,
+                s.shortSname as service_name,
+                COUNT(*) as ticket_count,
+                COUNT(CASE WHEN t.status = 'finished' THEN 1 END) as completed,
+                COUNT(CASE WHEN t.status = 'pending' THEN 1 END) as pending,
+                AVG(CASE 
+                    WHEN t.status = 'finished' AND t.start_time IS NOT NULL AND t.end_time IS NOT NULL
+                    THEN (strftime('%s', t.end_time) - strftime('%s', t.start_time)) / 60.0
+                    END) as avg_service_time_minutes
+            FROM transactions t
+            LEFT JOIN services s ON t.sname = s.sname
+            WHERE t.date BETWEEN ? AND ?
+            GROUP BY t.ticketservice
+            ORDER BY ticket_count DESC
+        `, [dateFrom, dateTo], (err, rows) => {
+            if (err) console.error('By service query error:', err);
+            else reports.byService = rows || [];
+            resolve();
+        });
+    });
+
+    // 3. Tickets by Teller
+    const byTellerPromise = new Promise((resolve) => {
+        db.all(`
+            SELECT 
+                t.teller_id,
+                c.cname as teller_name,
+                c.cnum as counter_number,
+                COUNT(*) as tickets_served,
+                COUNT(CASE WHEN t.status = 'finished' THEN 1 END) as completed,
+                AVG(CASE 
+                    WHEN t.status = 'finished' AND t.start_time IS NOT NULL AND t.end_time IS NOT NULL
+                    THEN (strftime('%s', t.end_time) - strftime('%s', t.start_time)) / 60.0
+                    END) as avg_service_time_minutes
+            FROM transactions t
+            LEFT JOIN counters c ON t.teller_id = c.id
+            WHERE t.date BETWEEN ? AND ?
+            GROUP BY t.teller_id
+            ORDER BY tickets_served DESC
+        `, [dateFrom, dateTo], (err, rows) => {
+            if (err) console.error('By teller query error:', err);
+            else reports.byTeller = rows || [];
+            resolve();
+        });
+    });
+
+    // 4. Tickets by Status
+    const byStatusPromise = new Promise((resolve) => {
+        db.all(`
+            SELECT 
+                status,
+                COUNT(*) as count
+            FROM transactions
+            WHERE date BETWEEN ? AND ?
+            GROUP BY status
+        `, [dateFrom, dateTo], (err, rows) => {
+            if (err) console.error('By status query error:', err);
+            else reports.byStatus = rows || [];
+            resolve();
+        });
+    });
+
+    // 5. Daily Trends
+    const dailyTrendsPromise = new Promise((resolve) => {
+        db.all(`
+            SELECT 
+                date,
+                COUNT(*) as daily_tickets,
+                COUNT(CASE WHEN status = 'finished' THEN 1 END) as daily_completed,
+                AVG(CASE 
+                    WHEN status = 'finished' AND start_time IS NOT NULL AND end_time IS NOT NULL
+                    THEN (strftime('%s', end_time) - strftime('%s', start_time)) / 60.0
+                    END) as daily_avg_service_time
+            FROM transactions
+            WHERE date BETWEEN ? AND ?
+            GROUP BY date
+            ORDER BY date
+        `, [dateFrom, dateTo], (err, rows) => {
+            if (err) console.error('Daily trends query error:', err);
+            else reports.dailyTrends = rows || [];
+            resolve();
+        });
+    });
+
+    // 6. Detailed Transactions
+    const detailedPromise = new Promise((resolve) => {
+        db.all(`
+            SELECT 
+                t.id,
+                t.date,
+                t.time,
+                t.ticketservice as service_code,
+                s.shortSname as service_name,
+                t.status,
+                c.cname as teller_name,
+                CASE 
+                    WHEN t.status = 'finished' AND t.start_time IS NOT NULL AND t.end_time IS NOT NULL
+                    THEN (strftime('%s', t.end_time) - strftime('%s', t.start_time)) / 60.0
+                    ELSE NULL
+                END as service_time_minutes,
+                CASE 
+                    WHEN t.status = 'finished' AND t.start_time IS NOT NULL AND t.time IS NOT NULL
+                    THEN (strftime('%s', t.end_time) - strftime('%s', t.time)) / 60.0
+                    ELSE NULL
+                END as turnaround_time_minutes
+            FROM transactions t
+            LEFT JOIN services s ON t.sname = s.sname
+            LEFT JOIN counters c ON t.teller_id = c.id
+            WHERE t.date BETWEEN ? AND ?
+            ORDER BY t.date DESC, t.time DESC
+            LIMIT 1000
+        `, [dateFrom, dateTo], (err, rows) => {
+            if (err) console.error('Detailed transactions query error:', err);
+            else reports.detailedTransactions = rows || [];
+            resolve();
+        });
+    });
+
+    Promise.all([summaryPromise, byServicePromise, byTellerPromise, byStatusPromise, dailyTrendsPromise, detailedPromise])
+        .then(() => res.json(reports))
+        .catch(err => res.status(500).json({ error: err.message }));
+  });
+
     return router;
 };

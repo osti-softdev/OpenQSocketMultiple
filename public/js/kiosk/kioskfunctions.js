@@ -20,6 +20,7 @@ socket.on('service_update', async function () {
         }
         services = response.data;  
         loadServicesBtns(services);
+        serviceChecker(services);
         },
         error: function (xhr, status, error) {
         console.error('Failed to load services:', error);
@@ -252,3 +253,38 @@ function resetInactivityTimer() {
 $(document).on("click touchstart keydown", resetInactivityTimer);
 
 $(document).ready(resetInactivityTimer);
+
+// Global interval ID for service checker
+let serviceCheckerInterval = null;
+
+function serviceChecker(services) {
+    // Clear any existing interval to avoid duplicates
+    if (serviceCheckerInterval !== null) {
+        clearInterval(serviceCheckerInterval);
+    }
+
+    // Check every second (1000ms)
+    serviceCheckerInterval = setInterval(function() {
+        const now = new Date();
+        services.forEach((service) => {
+            if (service.sched) {
+                const [hours, minutes] = service.sched.split(':').map(Number);
+                const cutoff = new Date(now);
+                cutoff.setHours(hours, minutes, 0, 0);
+                const isLocked = now > cutoff;
+
+                $(`.service-button[data-sname="${service.sname}"]`).each(function () {
+                    if (isLocked) {
+                        $(this).addClass("locked").attr("disabled", true);
+                        if ($(this).find(".lock-label").length === 0) {
+                            $(this).append('<span class="lock-label">Cutoff reached</span>');
+                        }
+                    } else {
+                        $(this).removeClass("locked").attr("disabled", false);
+                        $(this).find(".lock-label").remove();
+                    }
+                });
+            }
+        });
+    }, 1000); // Check every 1 second
+}

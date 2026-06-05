@@ -97,3 +97,251 @@
   code: 'SQLITE_ERROR',
   __augmented: true
 }
+❌ 2026-06-05T01:42:09.930Z [backend\routes\AadminApi.js:770] By service query error: Error: SQLITE_ERROR: ambiguous column name: status
+--> in Database#all('\n' +
+  '            SELECT \n' +
+  '                ticketservice as service_code,\n' +
+  '                s.shortSname as service_name,\n' +
+  '                COUNT(*) as ticket_count,\n' +
+  "                COUNT(CASE WHEN status = 'finished' THEN 1 END) as completed,\n" +
+  "                COUNT(CASE WHEN status = 'pending' THEN 1 END) as pending,\n" +
+  '                AVG(CASE \n' +
+  "                    WHEN status = 'finished' AND start_time IS NOT NULL AND end_time IS NOT NULL\n" +
+  "                    THEN (strftime('%s', end_time) - strftime('%s', start_time)) / 60.0\n" +
+  '                    END) as avg_service_time_minutes\n' +
+  '            FROM transactions t\n' +
+  '            LEFT JOIN services s ON t.sname = s.sname\n' +
+  '            WHERE t.date BETWEEN ? AND ?\n' +
+  '            GROUP BY ticketservice\n' +
+  '            ORDER BY ticket_count DESC\n' +
+  '        ', [ '2025-12-28', '2026-06-05' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:753:12
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:752:30
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-06-05T01:43:35.363Z [backend\routes\AadminApi.js:770] By service query error: Error: SQLITE_ERROR: ambiguous column name: status
+--> in Database#all('\n' +
+  '            SELECT \n' +
+  '                ticketservice as service_code,\n' +
+  '                s.shortSname as service_name,\n' +
+  '                COUNT(*) as ticket_count,\n' +
+  "                COUNT(CASE WHEN status = 'finished' THEN 1 END) as completed,\n" +
+  "                COUNT(CASE WHEN status = 'pending' THEN 1 END) as pending,\n" +
+  '                AVG(CASE \n' +
+  "                    WHEN status = 'finished' AND start_time IS NOT NULL AND end_time IS NOT NULL\n" +
+  "                    THEN (strftime('%s', end_time) - strftime('%s', start_time)) / 60.0\n" +
+  '                    END) as avg_service_time_minutes\n' +
+  '            FROM transactions t\n' +
+  '            LEFT JOIN services s ON t.sname = s.sname\n' +
+  '            WHERE t.date BETWEEN ? AND ?\n' +
+  '            GROUP BY ticketservice\n' +
+  '            ORDER BY ticket_count DESC\n' +
+  '        ', [ '2026-05-29', '2026-06-05' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:753:12
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:752:30
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-06-05T01:44:31.846Z [backend\routes\AadminApi.js:770] By service query error: Error: SQLITE_ERROR: ambiguous column name: status
+--> in Database#all('\n' +
+  '            SELECT \n' +
+  '                ticketservice as service_code,\n' +
+  '                s.shortSname as service_name,\n' +
+  '                COUNT(*) as ticket_count,\n' +
+  "                COUNT(CASE WHEN status = 'finished' THEN 1 END) as completed,\n" +
+  "                COUNT(CASE WHEN status = 'pending' THEN 1 END) as pending,\n" +
+  '                AVG(CASE \n' +
+  "                    WHEN status = 'finished' AND start_time IS NOT NULL AND end_time IS NOT NULL\n" +
+  "                    THEN (strftime('%s', end_time) - strftime('%s', start_time)) / 60.0\n" +
+  '                    END) as avg_service_time_minutes\n' +
+  '            FROM transactions t\n' +
+  '            LEFT JOIN services s ON t.sname = s.sname\n' +
+  '            WHERE t.date BETWEEN ? AND ?\n' +
+  '            GROUP BY ticketservice\n' +
+  '            ORDER BY ticket_count DESC\n' +
+  '        ', [ '2026-05-29', '2026-06-05' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:753:12
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:752:30
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-06-05T01:44:32.997Z [backend\routes\AadminApi.js:770] By service query error: Error: SQLITE_ERROR: ambiguous column name: status
+--> in Database#all('\n' +
+  '            SELECT \n' +
+  '                ticketservice as service_code,\n' +
+  '                s.shortSname as service_name,\n' +
+  '                COUNT(*) as ticket_count,\n' +
+  "                COUNT(CASE WHEN status = 'finished' THEN 1 END) as completed,\n" +
+  "                COUNT(CASE WHEN status = 'pending' THEN 1 END) as pending,\n" +
+  '                AVG(CASE \n' +
+  "                    WHEN status = 'finished' AND start_time IS NOT NULL AND end_time IS NOT NULL\n" +
+  "                    THEN (strftime('%s', end_time) - strftime('%s', start_time)) / 60.0\n" +
+  '                    END) as avg_service_time_minutes\n' +
+  '            FROM transactions t\n' +
+  '            LEFT JOIN services s ON t.sname = s.sname\n' +
+  '            WHERE t.date BETWEEN ? AND ?\n' +
+  '            GROUP BY ticketservice\n' +
+  '            ORDER BY ticket_count DESC\n' +
+  '        ', [ '2026-05-29', '2026-06-05' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:753:12
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:752:30
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-06-05T01:45:43.833Z [backend\routes\AadminApi.js:770] By service query error: Error: SQLITE_ERROR: ambiguous column name: status
+--> in Database#all('\n' +
+  '            SELECT \n' +
+  '                ticketservice as service_code,\n' +
+  '                s.shortSname as service_name,\n' +
+  '                COUNT(*) as ticket_count,\n' +
+  "                COUNT(CASE WHEN status = 'finished' THEN 1 END) as completed,\n" +
+  "                COUNT(CASE WHEN status = 'pending' THEN 1 END) as pending,\n" +
+  '                AVG(CASE \n' +
+  "                    WHEN status = 'finished' AND start_time IS NOT NULL AND end_time IS NOT NULL\n" +
+  "                    THEN (strftime('%s', end_time) - strftime('%s', start_time)) / 60.0\n" +
+  '                    END) as avg_service_time_minutes\n' +
+  '            FROM transactions t\n' +
+  '            LEFT JOIN services s ON t.sname = s.sname\n' +
+  '            WHERE t.date BETWEEN ? AND ?\n' +
+  '            GROUP BY ticketservice\n' +
+  '            ORDER BY ticket_count DESC\n' +
+  '        ', [ '2026-05-29', '2026-06-05' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:753:12
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:752:30
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-06-05T01:45:48.324Z [backend\routes\AadminApi.js:770] By service query error: Error: SQLITE_ERROR: ambiguous column name: status
+--> in Database#all('\n' +
+  '            SELECT \n' +
+  '                ticketservice as service_code,\n' +
+  '                s.shortSname as service_name,\n' +
+  '                COUNT(*) as ticket_count,\n' +
+  "                COUNT(CASE WHEN status = 'finished' THEN 1 END) as completed,\n" +
+  "                COUNT(CASE WHEN status = 'pending' THEN 1 END) as pending,\n" +
+  '                AVG(CASE \n' +
+  "                    WHEN status = 'finished' AND start_time IS NOT NULL AND end_time IS NOT NULL\n" +
+  "                    THEN (strftime('%s', end_time) - strftime('%s', start_time)) / 60.0\n" +
+  '                    END) as avg_service_time_minutes\n' +
+  '            FROM transactions t\n' +
+  '            LEFT JOIN services s ON t.sname = s.sname\n' +
+  '            WHERE t.date BETWEEN ? AND ?\n' +
+  '            GROUP BY ticketservice\n' +
+  '            ORDER BY ticket_count DESC\n' +
+  '        ', [ '2026-05-29', '2026-06-05' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:753:12
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:752:30
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-06-05T01:46:54.943Z [backend\routes\AadminApi.js:770] By service query error: Error: SQLITE_ERROR: ambiguous column name: status
+--> in Database#all('\n' +
+  '            SELECT \n' +
+  '                ticketservice as service_code,\n' +
+  '                s.shortSname as service_name,\n' +
+  '                COUNT(*) as ticket_count,\n' +
+  "                COUNT(CASE WHEN status = 'finished' THEN 1 END) as completed,\n" +
+  "                COUNT(CASE WHEN status = 'pending' THEN 1 END) as pending,\n" +
+  '                AVG(CASE \n' +
+  "                    WHEN status = 'finished' AND start_time IS NOT NULL AND end_time IS NOT NULL\n" +
+  "                    THEN (strftime('%s', end_time) - strftime('%s', start_time)) / 60.0\n" +
+  '                    END) as avg_service_time_minutes\n' +
+  '            FROM transactions t\n' +
+  '            LEFT JOIN services s ON t.sname = s.sname\n' +
+  '            WHERE t.date BETWEEN ? AND ?\n' +
+  '            GROUP BY ticketservice\n' +
+  '            ORDER BY ticket_count DESC\n' +
+  '        ', [ '2026-04-29', '2026-06-05' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:753:12
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:752:30
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-06-05T01:53:46.640Z [backend\routes\AadminApi.js:770] By service query error: Error: SQLITE_ERROR: ambiguous column name: status
+--> in Database#all('\n' +
+  '            SELECT \n' +
+  '                ticketservice as service_code,\n' +
+  '                s.shortSname as service_name,\n' +
+  '                COUNT(*) as ticket_count,\n' +
+  "                COUNT(CASE WHEN status = 'finished' THEN 1 END) as completed,\n" +
+  "                COUNT(CASE WHEN status = 'pending' THEN 1 END) as pending,\n" +
+  '                AVG(CASE \n' +
+  "                    WHEN status = 'finished' AND start_time IS NOT NULL AND end_time IS NOT NULL\n" +
+  "                    THEN (strftime('%s', end_time) - strftime('%s', start_time)) / 60.0\n" +
+  '                    END) as avg_service_time_minutes\n' +
+  '            FROM transactions t\n' +
+  '            LEFT JOIN services s ON t.sname = s.sname\n' +
+  '            WHERE t.date BETWEEN ? AND ?\n' +
+  '            GROUP BY ticketservice\n' +
+  '            ORDER BY ticket_count DESC\n' +
+  '        ', [ '2026-05-29', '2026-06-05' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:753:12
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:752:30
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3)
+    at handle (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\index.js:295:15 {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}

@@ -10,6 +10,9 @@
     <script src="/libs/sweetalert2@11.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/libs/charts.js"></script>
+    <script src="/libs/jspdf.umd.min.js"></script>
+    <script src="/libs/jspdf.plugin.autotable.min.js"></script>
+    <script src="/libs/xlsx.full.min.js"></script>
 </head>
 <body onselectstart="return false;">
     <div id="admin-layout" class="layout">
@@ -20,7 +23,7 @@
             <nav class="sidebar-nav">
                 <button class="nav-item active" data-tab="dashboard">📊 Dashboard</button>
                 <button class="nav-item" data-tab="reports">📈 Reports</button>
-                <button class="nav-item" data-tab="history">🎫 History</button>
+                <!-- <button class="nav-item" data-tab="history">🎫 History</button> -->
                 <button class="nav-item" data-tab="services">🛠️ Services</button>
                 <button class="nav-item" data-tab="tellers">👥 Tellers</button>
                 <button class="nav-item" data-tab="accounts">👤 Accounts</button>
@@ -125,9 +128,164 @@
             </div>
             <!-- ^ REPORTS TAB -->
             <div id="reports-tab" class="tab-content">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Generate Ticket Reports</h3>
+                <div class="reports-container">
+                    <!-- Filter Section -->
+                    <div class="reports-filters">
+                        <div class="card-header">
+                            <h3>📊 Generate Reports & Summary Statistics</h3>
+                        </div>
+                        <div class="reports-filter-group">
+                            <div class="filter-item">
+                                <label for="report-date-from">From Date:</label>
+                                <input type="date" id="report-date-from" class="form-control">
+                                <br>
+                                 <label for="report-date-to">To Date:</label>
+                                <input type="date" id="report-date-to" class="form-control">
+                            </div>
+                            <div class="filter-actions">
+                                <button id="generate-report-btn" class="btn btn-primary">Generate Report</button>
+                                <button id="export-pdf-btn" class="btn btn-secondary" disabled>📄 Export PDF</button>
+                                <button id="export-excel-btn" class="btn btn-secondary" disabled>📊 Export Excel</button>
+                            </div>
+                            <div class="summary-grid">
+                            <div class="summary-card">
+                                <div class="summary-label">Total Tickets</div>
+                                <div class="summary-value" id="summary-total">0</div>
+                            </div>
+                            <div class="summary-card">
+                                <div class="summary-label">Completed</div>
+                                <div class="summary-value" id="summary-completed">0</div>
+                            </div>
+                            <div class="summary-card">
+                                <div class="summary-label">Pending</div>
+                                <div class="summary-value" id="summary-pending">0</div>
+                            </div>
+                            <div class="summary-card">
+                                <div class="summary-label">Avg Service Time</div>
+                                <div class="summary-value" id="summary-avg-service">0m</div>
+                            </div>
+                            <div class="summary-card">
+                                <div class="summary-label">Avg Turnaround</div>
+                                <div class="summary-value" id="summary-avg-turnaround">0m</div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="reports-charts-sections">
+                            <div class="chartdiv repChart-trend">
+                                <h3>Ticket Trends</h3>
+                                <canvas class="RepchartCanvas" id="trendChart"></canvas>
+                            </div>
+                            <div class="chartdiv repChart-ServiceDistrib">
+                                <h3>Service Distribution</h3>
+                                <canvas class="RepchartCanvas" id="serviceDistribChart"></canvas>
+                            </div>
+                    </div>
+                    <!-- Reports Data Sections -->
+                    <div class="reports-data-sections">
+                        <!-- By Service -->
+                        <div class="cardrep">
+                            <div class="card-headerrep">
+                                <h3>Tickets by Service</h3>
+                            </div>
+                            <div class="table-containerrep">
+                                <table class="admin-tablerep">
+                                    <thead>
+                                        <tr>
+                                            <th>Service</th>
+                                            <th>Total</th>
+                                            <th>Completed</th>
+                                            <th>Pending</th>
+                                            <th>Avg Service Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="reports-by-service"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- By Teller -->
+                        <div class="cardrep">
+                            <div class="card-headerrep">
+                                <h3>Performance by Teller</h3>
+                            </div>
+                            <div class="table-containerrep">
+                                <table class="admin-tablerep">
+                                    <thead>
+                                        <tr>
+                                            <th>Teller Name</th>
+                                            <th>Counter</th>
+                                            <th>Tickets Served</th>
+                                            <th>Completed</th>
+                                            <th>Avg Service Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="reports-by-teller"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- By Status -->
+                        <div class="cardrep" style="display:none;">
+                            <div class="card-headerrep">
+                                <h3>Tickets by Status</h3>
+                            </div>  
+                            <div class="table-containerrep">
+                                <table class="admin-tablerep">
+                                    <thead>
+                                        <tr>
+                                            <th>Status</th>
+                                            <th>Count</th>
+                                            <th>Percentage</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="reports-by-status"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Daily Trends -->
+                        <div class="cardrep">
+                            <div class="card-headerrep">
+                                <h3>Daily Trends</h3>
+                            </div>
+                            <div class="table-containerrep">
+                                <table class="admin-tablerep">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Daily Tickets</th>
+                                            <th>Completed</th>
+                                            <th>Avg Service Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="reports-daily-trends"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Detailed Transactions -->
+                        <!-- <div class="card">
+                            <div class="card-header">
+                                <h3>Detailed Transactions</h3>
+                            </div>
+                            <div class="table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Time</th>
+                                            <th>Service</th>
+                                            <th>Status</th>
+                                            <th>Teller</th>
+                                            <th>Service Time</th>
+                                            <th>Turnaround Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="reports-detailed-transactions"></tbody>
+                                </table>
+                            </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -506,6 +664,16 @@ $(function () {
     }
 });
 </script>
+<!-- Page-specific admin modules (load before admin.js) -->
+<script src="/js/admin/dashboard.js"></script>
+<script src="/js/admin/services.js"></script>
+<script src="/js/admin/tellers.js"></script>
+<script src="/js/admin/accounts.js"></script>
+<script src="/js/admin/groups.js"></script>
+<script src="/js/admin/settings.js"></script>
+<script src="/js/admin/history.js"></script>
+<script src="/js/admin/report.js"></script>
+<!-- Main admin navigation and modal functions -->
 <script src="/js/admin/admin.js"></script>
 <script src="/js/display/footer.js"></script>
 <script src="/js/admin/adminads.js"></script>
