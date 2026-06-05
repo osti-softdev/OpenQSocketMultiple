@@ -721,21 +721,42 @@ router.get('/settings', (req, res) => {
         return res.status(400).json({ error: 'dateFrom and dateTo are required' });
     }
 
+    const { date: today } = getPHDateTime();
     const reports = {};
+
+    // ─── Effective-status rules ───────────────────────────────────────────────
+    // • status = 'finished'                          → 'finished'
+    // • date < today  AND status != 'finished'       → 'voided'  (reason: not served)
+    // • date = today  AND status != 'finished'       → keep original status
+    // ─────────────────────────────────────────────────────────────────────────
+
+    // For queries that alias the transactions table as "t"
+    const effT = `CASE
+        WHEN t.status = 'finished'                         THEN 'finished'
+        WHEN t.date  < '${today}' AND t.status != 'finished' THEN 'voided'
+        ELSE t.status
+    END`;
+
+    // For queries without a table alias
+    const eff = `CASE
+        WHEN status = 'finished'                        THEN 'finished'
+        WHEN date   < '${today}' AND status != 'finished' THEN 'voided'
+        ELSE status
+    END`;
 
     // 1. Summary Statistics
     const summaryPromise = new Promise((resolve) => {
         db.get(`
-            SELECT 
+            SELECT
                 COUNT(*) as total_tickets,
-                COUNT(CASE WHEN status = 'finished' THEN 1 END) as completed_tickets,
-                COUNT(CASE WHEN status = 'pending' THEN 1 END) as pending_tickets,
-                COUNT(CASE WHEN status = 'calling' OR status = 'called' THEN 1 END) as serving_tickets,
-                AVG(CASE 
+                COUNT(CASE WHEN (${eff}) = 'finished' THEN 1 END) as completed_tickets,
+                COUNT(CASE WHEN date != '${today}' AND status != 'finished' THEN 1 END) as voided_tickets,
+                COUNT(CASE WHEN (${eff}) NOT IN ('finished','voided') THEN 1 END) as pending_tickets,
+                AVG(CASE
                     WHEN status = 'finished' AND start_time IS NOT NULL AND end_time IS NOT NULL
                     THEN (strftime('%s', end_time) - strftime('%s', start_time)) / 60.0
                     END) as avg_service_time_minutes,
-                AVG(CASE 
+                AVG(CASE
                     WHEN status = 'finished' AND start_time IS NOT NULL AND time IS NOT NULL
                     THEN (strftime('%s', end_time) - strftime('%s', time)) / 60.0
                     END) as avg_turnaround_time_minutes
@@ -751,13 +772,14 @@ router.get('/settings', (req, res) => {
     // 2. Tickets by Service
     const byServicePromise = new Promise((resolve) => {
         db.all(`
-            SELECT 
+            SELECT
                 t.ticketservice as service_code,
-                s.shortSname as service_name,
-                COUNT(*) as ticket_count,
-                COUNT(CASE WHEN t.status = 'finished' THEN 1 END) as completed,
-                COUNT(CASE WHEN t.status = 'pending' THEN 1 END) as pending,
-                AVG(CASE 
+                COALESCE(s.shortSname, t.ticketservice) as service_name,
+                COUNT(*)                                                                as ticket_count,
+                COUNT(CASE WHEN (${effT}) = 'finished' THEN 1 END)                    as completed,
+                COUNT(CASE WHEN (${effT}) = 'voided'   THEN 1 END)                    as voided,
+                COUNT(CASE WHEN (${effT}) NOT IN ('finished','voided') THEN 1 END)    as pending,
+                AVG(CASE
                     WHEN t.status = 'finished' AND t.start_time IS NOT NULL AND t.end_time IS NOT NULL
                     THEN (strftime('%s', t.end_time) - strftime('%s', t.start_time)) / 60.0
                     END) as avg_service_time_minutes
@@ -774,21 +796,24 @@ router.get('/settings', (req, res) => {
     });
 
     // 3. Tickets by Teller
+    //    tickets_served = only FINISHED tickets (actually served by the teller)
     const byTellerPromise = new Promise((resolve) => {
         db.all(`
-            SELECT 
+            SELECT
                 t.teller_id,
-                c.cname as teller_name,
+                COALESCE(c.cname, 'Unknown') as teller_name,
                 c.cnum as counter_number,
-                COUNT(*) as tickets_served,
-                COUNT(CASE WHEN t.status = 'finished' THEN 1 END) as completed,
-                AVG(CASE 
+                COUNT(CASE WHEN (${effT}) = 'finished' THEN 1 END) as tickets_served,
+                COUNT(CASE WHEN (${effT}) = 'finished' THEN 1 END) as completed,
+                COUNT(CASE WHEN t.date != '${today}' AND t.status != 'finished' THEN 1 END) as voided,
+                AVG(CASE
                     WHEN t.status = 'finished' AND t.start_time IS NOT NULL AND t.end_time IS NOT NULL
                     THEN (strftime('%s', t.end_time) - strftime('%s', t.start_time)) / 60.0
                     END) as avg_service_time_minutes
             FROM transactions t
             LEFT JOIN counters c ON t.teller_id = c.id
             WHERE t.date BETWEEN ? AND ?
+              AND t.teller_id IS NOT NULL
             GROUP BY t.teller_id
             ORDER BY tickets_served DESC
         `, [dateFrom, dateTo], (err, rows) => {
@@ -798,15 +823,16 @@ router.get('/settings', (req, res) => {
         });
     });
 
-    // 4. Tickets by Status
+    // 4. Tickets by Effective Status
     const byStatusPromise = new Promise((resolve) => {
         db.all(`
-            SELECT 
-                status,
-                COUNT(*) as count
+            SELECT
+                (${eff}) as status,
+                COUNT(*)  as count
             FROM transactions
             WHERE date BETWEEN ? AND ?
-            GROUP BY status
+            GROUP BY (${eff})
+            ORDER BY count DESC
         `, [dateFrom, dateTo], (err, rows) => {
             if (err) console.error('By status query error:', err);
             else reports.byStatus = rows || [];
@@ -817,11 +843,12 @@ router.get('/settings', (req, res) => {
     // 5. Daily Trends
     const dailyTrendsPromise = new Promise((resolve) => {
         db.all(`
-            SELECT 
+            SELECT
                 date,
-                COUNT(*) as daily_tickets,
-                COUNT(CASE WHEN status = 'finished' THEN 1 END) as daily_completed,
-                AVG(CASE 
+                COUNT(*)                                                             as daily_tickets,
+                COUNT(CASE WHEN (${eff}) = 'finished' THEN 1 END)                   as daily_completed,
+                COUNT(CASE WHEN (${eff}) = 'voided'   THEN 1 END)                   as daily_voided,
+                AVG(CASE
                     WHEN status = 'finished' AND start_time IS NOT NULL AND end_time IS NOT NULL
                     THEN (strftime('%s', end_time) - strftime('%s', start_time)) / 60.0
                     END) as daily_avg_service_time
@@ -836,30 +863,32 @@ router.get('/settings', (req, res) => {
         });
     });
 
-    // 6. Detailed Transactions
+    // 6. Detailed Transactions (effective status shown)
     const detailedPromise = new Promise((resolve) => {
         db.all(`
-            SELECT 
+            SELECT
                 t.id,
                 t.date,
                 t.time,
                 t.ticketservice as service_code,
-                s.shortSname as service_name,
-                t.status,
-                c.cname as teller_name,
-                CASE 
+                COALESCE(s.shortSname, t.ticketservice) as service_name,
+                (${effT})       as status,
+                CASE WHEN (${effT}) = 'voided' AND t.status != 'finished'
+                     THEN 'not served' ELSE NULL END as void_reason,
+                COALESCE(c.cname, NULL) as teller_name,
+                CASE
                     WHEN t.status = 'finished' AND t.start_time IS NOT NULL AND t.end_time IS NOT NULL
                     THEN (strftime('%s', t.end_time) - strftime('%s', t.start_time)) / 60.0
                     ELSE NULL
                 END as service_time_minutes,
-                CASE 
+                CASE
                     WHEN t.status = 'finished' AND t.start_time IS NOT NULL AND t.time IS NOT NULL
                     THEN (strftime('%s', t.end_time) - strftime('%s', t.time)) / 60.0
                     ELSE NULL
                 END as turnaround_time_minutes
             FROM transactions t
-            LEFT JOIN services s ON t.sname = s.sname
-            LEFT JOIN counters c ON t.teller_id = c.id
+            LEFT JOIN services  s ON t.sname     = s.sname
+            LEFT JOIN counters  c ON t.teller_id = c.id
             WHERE t.date BETWEEN ? AND ?
             ORDER BY t.date DESC, t.time DESC
             LIMIT 1000

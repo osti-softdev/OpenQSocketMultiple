@@ -7,7 +7,7 @@ function initializeReportPage() {
     // Set default dates (today and 7 days ago)
     const today = new Date();
     const sevenDaysAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
-    
+
     $('#report-date-from').val(formatDateForInput(sevenDaysAgo));
     $('#report-date-to').val(formatDateForInput(today));
 
@@ -74,18 +74,18 @@ function generateReport() {
         method: 'GET',
         data: { dateFrom, dateTo },
         dataType: 'json',
-        success: function(data) {
+        success: function (data) {
             console.log('✅ Report data received:', data);
             currentReportData = { ...data, dateFrom, dateTo };
             displayReportData(data);
-            
+
             // Enable export buttons
             $('#export-pdf-btn').prop('disabled', false);
             $('#export-excel-btn').prop('disabled', false);
 
             Swal.close();
         },
-        error: function(xhr) {
+        error: function (xhr) {
             console.error('❌ API Error:', xhr);
             Swal.fire('Error', 'Failed to generate report: ' + (xhr.responseJSON?.error || xhr.statusText), 'error');
         }
@@ -95,13 +95,13 @@ function generateReport() {
 // Display report data on the page
 function displayReportData(data) {
     console.log('📈 Displaying report data...');
-    
+
     // Display Summary
     const summary = data.summary || {};
     console.log('Summary:', summary);
     $('#summary-total').text(summary.total_tickets || 0);
     $('#summary-completed').text(summary.completed_tickets || 0);
-    $('#summary-pending').text(summary.pending_tickets || 0);
+    $('#summary-voided').text(summary.voided_tickets || 0);
     $('#summary-avg-service').text(formatTime(summary.avg_service_time_minutes));
     $('#summary-avg-turnaround').text(formatTime(summary.avg_turnaround_time_minutes));
 
@@ -124,56 +124,93 @@ function displayReportData(data) {
     // Display Detailed Transactions
     console.log('Detailed Transactions:', data.detailedTransactions);
     displayDetailedTransactions(data.detailedTransactions || []);
-    
+
     // Display Charts
     displayTrendChart(data.detailedTransactions || []);
     displayServiceDistribChart(data.detailedTransactions || []);
-    
+
     console.log('✅ All report sections displayed');
 }
 
-// Display Trend Chart
+// Display Trend Chart — one line per service
 function displayTrendChart(transactions) {
     const ctx = document.getElementById('trendChart');
     if (!ctx) return;
-    
+
     if (reportCharts.trendChart) {
         reportCharts.trendChart.destroy();
     }
 
-    // Generate labels for 30-minute intervals from 00:00 to 23:30
-    const labels = [];
-    const counts = [];
+    // Build 30-minute interval labels (00:00 → 23:30)
+    const intervalLabels = [];
     for (let h = 0; h < 24; h++) {
         for (let m = 0; m < 60; m += 30) {
-            const timeStr = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
-            labels.push(timeStr);
-            counts.push(0);
+            intervalLabels.push(`${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`);
         }
     }
+    const numIntervals = intervalLabels.length; // 48
 
-    if (transactions && transactions.length > 0) {
-        transactions.forEach(tx => {
+    // Collect unique service names and per-service counts (finished tickets only)
+    const serviceCounts = {}; // { serviceName: [0,0,...] (48 slots) }
+
+    (transactions || [])
+        .filter(tx => tx.status && tx.status.toLowerCase() === 'finished')
+        .forEach(tx => {
+            const svc = tx.service_name || tx.service_code || 'Unknown';
+            if (!serviceCounts[svc]) {
+                serviceCounts[svc] = new Array(numIntervals).fill(0);
+            }
             if (tx.time) {
-                // tx.time is usually "HH:mm:ss" or similar
                 const parts = tx.time.split(':');
                 if (parts.length >= 2) {
                     const h = parseInt(parts[0], 10);
                     const m = parseInt(parts[1], 10);
                     if (!isNaN(h) && !isNaN(m)) {
-                        // find interval index
-                        const intervalIndex = (h * 2) + (m >= 30 ? 1 : 0);
-                        if (intervalIndex >= 0 && intervalIndex < counts.length) {
-                            counts[intervalIndex]++;
+                        const idx = (h * 2) + (m >= 30 ? 1 : 0);
+                        if (idx >= 0 && idx < numIntervals) {
+                            serviceCounts[svc][idx]++;
                         }
                     }
                 }
             }
         });
-    }
 
-    // Convert labels to 12-hour format "12:00 AM" for display
-    const displayLabels = labels.map(t => {
+    // Palette — extended for many services
+    const palette = [
+        { border: '#4e73df', bg: 'rgba(78,115,223,0.08)' },
+        { border: '#1cc88a', bg: 'rgba(28,200,138,0.08)' },
+        { border: '#e74a3b', bg: 'rgba(231,74,59,0.08)' },
+        { border: '#f6c23e', bg: 'rgba(246,194,62,0.08)' },
+        { border: '#36b9cc', bg: 'rgba(54,185,204,0.08)' },
+        { border: '#6610f2', bg: 'rgba(102,16,242,0.08)' },
+        { border: '#fd7e14', bg: 'rgba(253,126,20,0.08)' },
+        { border: '#e83e8c', bg: 'rgba(232,62,140,0.08)' },
+        { border: '#20c997', bg: 'rgba(32,201,151,0.08)' },
+        { border: '#6c757d', bg: 'rgba(108,117,125,0.08)' },
+    ];
+
+    const serviceNames = Object.keys(serviceCounts);
+    const datasets = serviceNames.map((svc, i) => {
+        const color = palette[i % palette.length];
+        return {
+            label: svc,
+            data: serviceCounts[svc],
+            borderColor: color.border,
+            backgroundColor: color.bg,
+            pointRadius: 2,
+            pointBackgroundColor: color.border,
+            pointBorderColor: color.border,
+            pointHoverRadius: 4,
+            pointHitRadius: 10,
+            pointBorderWidth: 1.5,
+            tension: 0.3,
+            fill: false,
+            borderWidth: 2,
+        };
+    });
+
+    // Convert labels to 12-hour format for display
+    const displayLabels = intervalLabels.map(t => {
         let [h, m] = t.split(':');
         h = parseInt(h, 10);
         const ampm = h >= 12 ? 'PM' : 'AM';
@@ -183,51 +220,47 @@ function displayTrendChart(transactions) {
 
     reportCharts.trendChart = new Chart(ctx, {
         type: 'line',
-        data: {
-            labels: displayLabels,
-            datasets: [{
-                label: 'Total Tickets',
-                data: counts,
-                borderColor: '#4e73df',
-                backgroundColor: 'rgba(78, 115, 223, 0.05)',
-                pointRadius: 3,
-                pointBackgroundColor: '#4e73df',
-                pointBorderColor: '#4e73df',
-                pointHoverRadius: 5,
-                pointHoverBackgroundColor: '#4e73df',
-                pointHoverBorderColor: '#4e73df',
-                pointHitRadius: 10,
-                pointBorderWidth: 2,
-                tension: 0.3,
-                fill: true
-            }]
-        },
+        data: { labels: displayLabels, datasets },
         options: {
             maintainAspectRatio: false,
             responsive: true,
+            interaction: { mode: 'nearest', intersect: true },
             scales: {
                 x: {
                     grid: { display: false, drawBorder: false },
-                    ticks: { maxTicksLimit: 24 }
+                    ticks: { maxTicksLimit: 24, font: { size: 10 } }
                 },
                 y: {
                     beginAtZero: true,
-                    ticks: { precision: 0 },
-                    grid: { color: "rgb(234, 236, 244)", zeroLineColor: "rgb(234, 236, 244)", drawBorder: false, borderDash: [2], zeroLineBorderDash: [2] }
+                    ticks: { precision: 0, font: { size: 10 } },
+                    grid: {
+                        color: 'rgb(234,236,244)',
+                        drawBorder: false,
+                        borderDash: [2]
+                    }
                 }
             },
             plugins: {
-                legend: { display: false },
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    labels: {
+                        boxWidth: 12,
+                        font: { size: 11 },
+                        padding: 10,
+                        usePointStyle: true,
+                    }
+                },
                 tooltip: {
-                    backgroundColor: "rgb(255,255,255)",
-                    bodyColor: "#858796",
+                    backgroundColor: 'rgb(255,255,255)',
+                    bodyColor: '#858796',
                     titleColor: '#6e707e',
                     borderColor: '#dddfeb',
                     borderWidth: 1,
-                    padding: 15,
-                    displayColors: false,
-                    intersect: false,
-                    mode: 'index',
+                    padding: 12,
+                    displayColors: true,
+                    intersect: true,
+                    mode: 'nearest',
                     caretPadding: 10
                 }
             }
@@ -239,14 +272,14 @@ function displayTrendChart(transactions) {
 function displayServiceDistribChart(transactions) {
     const ctx = document.getElementById('serviceDistribChart');
     if (!ctx) return;
-    
+
     if (reportCharts.serviceDistribChart) {
         reportCharts.serviceDistribChart.destroy();
     }
 
     // Filter finished/completed
     const finishedTx = (transactions || []).filter(tx => tx.status && (tx.status.toLowerCase() === 'finished' || tx.status.toLowerCase() === 'completed'));
-    
+
     // Group by service
     const serviceCounts = {};
     finishedTx.forEach(tx => {
@@ -258,11 +291,11 @@ function displayServiceDistribChart(transactions) {
     const data = Object.values(serviceCounts);
 
     const baseColors = [
-        '#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b', 
+        '#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b',
         '#858796', '#5a5c69', '#6610f2', '#e83e8c', '#fd7e14'
     ];
     const hoverColors = [
-        '#2e59d9', '#17a673', '#2c9faf', '#dda20a', '#be2617', 
+        '#2e59d9', '#17a673', '#2c9faf', '#dda20a', '#be2617',
         '#60616f', '#373840', '#520dc2', '#d62c7a', '#e36209'
     ];
 
@@ -319,7 +352,7 @@ function displayByService(services) {
 
     if (!services || services.length === 0) {
         console.warn('No service data to display');
-        tbody.append('<tr><td colspan="5" class="text-center" style="padding: 20px;">No data available</td></tr>');
+        tbody.append('<tr><td colspan="6" class="text-center" style="padding: 20px;">No data available</td></tr>');
         return;
     }
 
@@ -330,6 +363,7 @@ function displayByService(services) {
                 <td>${service.service_name || service.service_code || 'N/A'}</td>
                 <td style="text-align: center;">${service.ticket_count || 0}</td>
                 <td style="text-align: center;">${service.completed || 0}</td>
+                <td style="text-align: center;">${service.voided || 0}</td>
                 <td style="text-align: center;">${service.pending || 0}</td>
                 <td style="text-align: center;">${formatTime(service.avg_service_time_minutes)}</td>
             </tr>
@@ -347,7 +381,7 @@ function displayByTeller(tellers) {
 
     if (!tellers || tellers.length === 0) {
         console.warn('No teller data to display');
-        tbody.append('<tr><td colspan="5" class="text-center" style="padding: 20px;">No data available</td></tr>');
+        tbody.append('<tr><td colspan="6" class="text-center" style="padding: 20px;">No data available</td></tr>');
         return;
     }
 
@@ -359,6 +393,7 @@ function displayByTeller(tellers) {
                 <td style="text-align: center;">${teller.counter_number || 'N/A'}</td>
                 <td style="text-align: center;">${teller.tickets_served || 0}</td>
                 <td style="text-align: center;">${teller.completed || 0}</td>
+                <td style="text-align: center;">${teller.voided || 0}</td>
                 <td style="text-align: center;">${formatTime(teller.avg_service_time_minutes)}</td>
             </tr>
         `;
@@ -402,7 +437,7 @@ function displayDailyTrends(trends) {
 
     if (!trends || trends.length === 0) {
         console.warn('No trend data to display');
-        tbody.append('<tr><td colspan="4" class="text-center" style="padding: 20px;">No data available</td></tr>');
+        tbody.append('<tr><td colspan="5" class="text-center" style="padding: 20px;">No data available</td></tr>');
         return;
     }
 
@@ -413,6 +448,7 @@ function displayDailyTrends(trends) {
                 <td>${trend.date}</td>
                 <td style="text-align: center;">${trend.daily_tickets || 0}</td>
                 <td style="text-align: center;">${trend.daily_completed || 0}</td>
+                <td style="text-align: center;">${trend.daily_voided || 0}</td>
                 <td style="text-align: center;">${formatTime(trend.daily_avg_service_time)}</td>
             </tr>
         `;
@@ -435,15 +471,19 @@ function displayDetailedTransactions(transactions) {
 
     const maxRows = Math.min(100, transactions.length);
     console.log(`Adding ${maxRows} transaction rows (out of ${transactions.length})`);
-    
+
     for (let i = 0; i < maxRows; i++) {
         const tx = transactions[i];
+        const statusLabel = (tx.status || 'N/A').toUpperCase();
+        const voidNote = tx.void_reason
+            ? `<br><small style="font-size:10px;opacity:0.75;">${tx.void_reason}</small>`
+            : '';
         const row = `
             <tr>
                 <td>${tx.date || 'N/A'}</td>
                 <td>${tx.time || 'N/A'}</td>
                 <td>${tx.service_name || tx.service_code || 'N/A'}</td>
-                <td><span class="status-badge status-${tx.status}">${(tx.status || 'N/A').toUpperCase()}</span></td>
+                <td><span class="status-badge status-${tx.status}">${statusLabel}</span>${voidNote}</td>
                 <td>${tx.teller_name || 'N/A'}</td>
                 <td style="text-align: center;">${formatTime(tx.service_time_minutes)}</td>
                 <td style="text-align: center;">${formatTime(tx.turnaround_time_minutes)}</td>
@@ -649,7 +689,7 @@ function exportReportAsPDF() {
             doc.setFont(undefined, 'bold');
             doc.text('6. DETAILED TRANSACTION LOG', margin, yPosition);
             yPosition += 8;
-            
+
             doc.setFontSize(9);
             doc.text(`Total Transactions: ${transactions.length}`, margin, yPosition);
             yPosition += 8;

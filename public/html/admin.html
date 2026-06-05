@@ -157,8 +157,8 @@
                                 <div class="summary-value" id="summary-completed">0</div>
                             </div>
                             <div class="summary-card">
-                                <div class="summary-label">Pending</div>
-                                <div class="summary-value" id="summary-pending">0</div>
+                                <div class="summary-label">Total Voided</div>
+                                <div class="summary-value" id="summary-voided">0</div>
                             </div>
                             <div class="summary-card">
                                 <div class="summary-label">Avg Service Time</div>
@@ -174,11 +174,15 @@
                     <div class="reports-charts-sections">
                             <div class="chartdiv repChart-trend">
                                 <h3>Ticket Trends</h3>
-                                <canvas class="RepchartCanvas" id="trendChart"></canvas>
+                                <div class="chartWrapper">
+                                    <canvas class="RepchartCanvas" id="trendChart"></canvas>
+                                </div>
                             </div>
                             <div class="chartdiv repChart-ServiceDistrib">
                                 <h3>Service Distribution</h3>
-                                <canvas class="RepchartCanvas" id="serviceDistribChart"></canvas>
+                                <div class="chartWrapper">
+                                    <canvas class="RepchartCanvas" id="serviceDistribChart"></canvas>
+                                </div>
                             </div>
                     </div>
                     <!-- Reports Data Sections -->
@@ -195,6 +199,7 @@
                                             <th>Service</th>
                                             <th>Total</th>
                                             <th>Completed</th>
+                                            <th>Voided</th>
                                             <th>Pending</th>
                                             <th>Avg Service Time</th>
                                         </tr>
@@ -217,6 +222,7 @@
                                             <th>Counter</th>
                                             <th>Tickets Served</th>
                                             <th>Completed</th>
+                                            <th>Voided</th>
                                             <th>Avg Service Time</th>
                                         </tr>
                                     </thead>
@@ -256,6 +262,7 @@
                                             <th>Date</th>
                                             <th>Daily Tickets</th>
                                             <th>Completed</th>
+                                            <th>Voided</th>
                                             <th>Avg Service Time</th>
                                         </tr>
                                     </thead>
