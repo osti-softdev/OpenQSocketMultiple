@@ -19,54 +19,79 @@ function loadLiveDashboard() {
         if (data.stats) {
             $('#live-total').text(data.stats.total_tickets || 0);
             $('#live-queue').text(data.stats.queue_length || 0);
+            $('#live-served').text(data.stats.queue_served || 0);
+            $('#live-avgserving').text(data.stats.avg_service_time ? Math.round(data.stats.avg_service_time) + 'm' : '0m');
             const turnaround = data.stats.avg_turnaround ? Math.round(data.stats.avg_turnaround) + 'm' : '0m';
             $('#live-turnaround').text(turnaround);
+            $('#live-avgwaiting').text(data.stats.avg_wait_time ? Math.round(data.stats.avg_wait_time) + 'm' : '0m');
         }
 
         // 2. Service Live Board
-        const $serviceGrid = $('#service-live-grid').empty();
+        const $serviceGrid = $('#service-live-grid tbody').empty();
+
         if (data.services && data.services.length > 0) {
-            data.services.sort((a, b) => b.waiting_count - a.waiting_count); // Sort by busiest
-            
+
+            data.services.sort((a, b) => b.waiting_count - a.waiting_count);
+
             data.services.forEach(s => {
+
                 let statusClass = 'status-ok';
-                if (s.waiting_count > 5) statusClass = 'status-busy';
-                if (s.waiting_count > 10) statusClass = 'status-critical';
+                let statusText = 'Idle';
+                let indicatorClass = 'idle';
+
+                if (s.waiting_count > 10) {
+                    statusClass = 'status-critical';
+                    statusText = 'Queueing';
+                    indicatorClass = 'queueing';
+                }
+                else if (s.waiting_count > 5) {
+                    statusClass = 'status-busy';
+                    statusText = 'Busy';
+                    indicatorClass = 'busy';
+                }
+                else if (s.waiting_count >= 1 || s.serving_count > 0) {
+                    statusClass = 'status-ok';
+                    statusText = 'Serving';
+                    indicatorClass = 'serving';
+                }
 
                 $serviceGrid.append(`
-                    <div class="service-live-card ${statusClass}">
-                        <div class="service-name">
-                            ${s.shortSname}
-                            <span class="status-indicator ${s.waiting_count > 0 ? 'busy' : 'idle'}">${s.waiting_count > 0 ? 'Active' : 'Idle'}</span>
-                        </div>
-                        <div class="service-metrics">
-                            <div class="metric waiting">
-                                <span>Waiting</span>
-                                <strong>${s.waiting_count}</strong>
-                            </div>
-                            <div class="metric serving">
-                                <span>Serving</span>
-                                <strong>${s.serving_count}</strong>
-                            </div>
-                            <div class="metric">
-                                <span>Completed</span>
-                                <strong>${s.completed_count || 0}</strong>
-                            </div>
-                            <div class="metric">
-                                <span>Avg Wait</span>
-                                <strong>${s.avg_wait_time ? Math.round(s.avg_wait_time) + 'm' : '-'}</strong>
-                            </div>
-                        </div>
-                    </div>
+                    <tr class="${statusClass}">
+                        <td><strong>${s.shortSname}</strong></td>
+                        <td>
+                            <span class="status-indicator ${indicatorClass}">
+                                ${statusText}
+                            </span>
+                        </td>
+                        <td>${s.waiting_count || 0}</td>
+                        <td>${s.serving_count || 0}</td>
+                        <td>${s.completed_count || 0}</td>
+                        <td>
+                            ${s.avg_wait_time
+                                ? Math.round(s.avg_wait_time) + ' min'
+                                : '-'}
+                        </td>
+                    </tr>
                 `);
+
             });
+
         } else {
-            $serviceGrid.html('<p style="grid-column: span 3; text-align: center;">No active services found.</p>');
+
+            $serviceGrid.html(`
+                <tr>
+                    <td colspan="6" style="text-align:center">
+                        No active services found.
+                    </td>
+                </tr>
+            `);
+
         }
 
         // 3. Teller Live List
         const $tellerList = $('#teller-live-list').empty();
         if (data.tellers && data.tellers.length > 0) {
+            console.log(data.tellers)
             data.tellers.forEach(t => {
                 const statusClass = t.status_code === 'busy' ? 'busy' : 'idle';
                 $tellerList.append(`

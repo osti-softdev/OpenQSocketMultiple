@@ -52,11 +52,6 @@
             <div id="dashboard-tab" class="tab-content active">
                 <div class="dashsecContainer">
                         <section class="dashSection1">
-                        <div class="dashboard-header">
-                            <div class="live-indicator">
-                                <span class="pulse"></span> Live Updated: <span id="last-updated">-</span>
-                            </div>
-                        </div>
 
                         <!-- 1. Overall Quick Stats -->
                         <div class="stats-grid">
@@ -65,6 +60,13 @@
                                 <div class="stat-info">
                                     <h3 id="live-total">0</h3>
                                     <p>Total Tickets Today</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">✅</div>
+                                <div class="stat-info">
+                                    <h3 id="live-served">0</h3>
+                                    <p>Total Served</p>
                                 </div>
                             </div>
                             <div class="stat-card">
@@ -77,39 +79,73 @@
                             <div class="stat-card">
                                 <div class="stat-icon">⏱️</div>
                                 <div class="stat-info">
+                                    <h3 id="live-avgserving">0m</h3>
+                                    <p>Avg Serving Time</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">⏱️</div>
+                                <div class="stat-info">
                                     <h3 id="live-turnaround">0m</h3>
                                     <p>Avg Turnaround Time</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">⏱️</div>
+                                <div class="stat-info">
+                                    <h3 id="live-avgwaiting">0m</h3>
+                                    <p>Avg Waiting Time</p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- 2. Services Live Board -->
-                        <h3 class="section-title1">Service Status Board</h3>
-                        <div class="live-grid" id="service-live-grid">
-                        </div>
+                        <div class="dashServices">
+                            <h3>Service Status Board</h3>
 
-                        <!-- 3. Teller Live Status -->
-                        <h3 class="section-title2">Teller Live Status</h3>
-                        <div class="card-teller-dashboard no-gap">
-                            <div class="table-container">
-                                <table class="admin-table dense">
+                            <div class="live-grid">
+                                <table class="service-live-table" id="service-live-grid">
                                     <thead>
                                         <tr>
-                                            <th>Teller</th>
-                                            <th>Counter</th>
+                                            <th>Service</th>
                                             <th>Status</th>
-                                            <th>Served</th>
-                                            <th>Avg Handling</th>
-                                            <th>Avg Turns</th>
+                                            <th>Waiting</th>
+                                            <th>Serving</th>
+                                            <th>Completed</th>
+                                            <th>Avg Wait</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="teller-live-list">
-                                        <!-- Teller rows injected here -->
-                                    </tbody>
+                                    <tbody></tbody>
                                 </table>
                             </div>
                         </div>
-                            <div class="card-chart-dashboard">
+
+                        <!-- 3. Teller Live Status -->
+                        <div class="dashTellers">
+                            <h3>Teller Status Board</h3>
+                            <div class="card-teller-dashboard no-gap">
+                                <div class="table-container">
+                                    <table class="admin-table dense">
+                                        <thead>
+                                            <tr>
+                                                <th>Teller</th>
+                                                <th>Counter</th>
+                                                <th>Status</th>
+                                                <th>Served</th>
+                                                <th>Avg Handling</th>
+                                                <th>Avg Turns</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="teller-live-list">
+                                            <!-- Teller rows injected here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="section-title2" style="display:none;">Teller Live Status</h3>
+                        
+                            <div class="card-chart-dashboard" style="display:none;">
                                 <div class="chart-container1">
                                     <p>Tickets by Service</p>
                                     <canvas id="serviceChart"></canvas>

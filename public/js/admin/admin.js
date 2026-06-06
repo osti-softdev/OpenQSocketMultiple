@@ -23,7 +23,7 @@ $(document).ready(function () {
     socket.on('service_update', async function (data) {
         if (currentTab === 'services') loadServices();
     });
-    switchTab('reports');
+    switchTab('dashboard');
 });
 
 // & MODAL CLOSE

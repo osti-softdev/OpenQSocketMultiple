@@ -233,7 +233,7 @@ router.post('/logout', (req, res) => {
   function callTicket(ticketId, tellerId, counterNumber, counter_group, counter_user,  res) {
   const { date, time } = getPHDateTime();
     const finishEntry = `[${time}-${counter_user}-${counterNumber}-AutoFinished]`;
-
+    console.log(tellerId)
   // Auto-complete previous ticket this teller was serving
   db.run(
     `

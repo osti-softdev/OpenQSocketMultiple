@@ -376,6 +376,7 @@ function callNext(type, service = null) {
 function callSpecificTicket(ticketId) {
     executeCall({
         ticketId: ticketId,
+        tellerId: currentTeller.id,
         counterNumber: currentTeller.counter_number,
         counter_group: currentTeller.group_name,
         counter_user: currentTeller.username

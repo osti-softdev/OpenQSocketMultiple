@@ -180,14 +180,35 @@ module.exports = function createTellerApiRouter(io) {
                 THEN 1 END) as queue_length,
 
                 COUNT(CASE 
+                    WHEN status != 'pending' 
+                    AND date = ?
+                THEN 1 END) as queue_served,
+
+                COUNT(CASE 
                     WHEN date = ?
                 THEN 1 END) as total_tickets,
 
-                AVG(CASE 
-                    WHEN status = 'finished'
-                    AND date = ?
-                    THEN (strftime('%s', end_time) - strftime('%s', time)) / 60.0
-                END) as avg_turnaround
+                AVG(
+                    CASE
+                        WHEN end_time IS NOT NULL
+                        THEN (strftime('%s', end_time) - strftime('%s', time)) / 60.0
+                    END
+                ) AS avg_turnaround,
+
+                AVG(
+                    CASE
+                        WHEN end_time IS NOT NULL
+                        THEN (strftime('%s', end_time) - strftime('%s', start_time)) / 60.0
+                    END
+                ) AS avg_service_time,
+
+                AVG(
+                    CASE
+                        WHEN start_time IS NOT NULL
+                        THEN (strftime('%s', start_time) - strftime('%s', time)) / 60.0
+                    END
+                ) AS avg_wait_time
+
             FROM transactions
         `, [date, date, date], (err, row) => {
 

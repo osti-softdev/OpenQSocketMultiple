@@ -345,31 +345,9 @@ body {
   justify-content: flex-end;
   align-items: center;
 }
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashboard-header .live-indicator {
-  height: 90%;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  color: #4b5563;
-  background: white;
-  padding: 6px 16px;
-  border-radius: 20px;
-  transform: scale(0.9);
-  border: 1px solid rgba(102, 126, 234, 0.15);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  font-weight: 500;
-}
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashboard-header .live-indicator .pulse {
-  width: 10px;
-  height: 10px;
-  background-color: #10b981;
-  border-radius: 50%;
-  animation: pulse 1.5s infinite;
-}
 .content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .stats-grid {
   position: absolute;
-  top: 5%;
+  top: 0%;
   left: 0;
   width: 100%;
   height: 10%;
@@ -378,25 +356,29 @@ body {
   flex-wrap: wrap;
   gap: 20px;
   overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  transform: scale(0.98);
 }
 .content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .stats-grid .stat-card {
   position: relative;
   height: 100%;
   flex: 1;
-  background: white;
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.466);
+  border: 1px solid rgba(102, 126, 234, 0.582);
+  transition: all 0.3s ease;
+  background-color: white;
   display: flex;
   align-items: center;
   transform: scale(0.9);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .stats-grid .stat-card:hover {
-  transform: translateY(-4px) scale(0.92);
-  box-shadow: 0 12px 24px rgba(102, 126, 234, 0.12);
-  border-color: rgba(102, 126, 234, 0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15);
+  border-color: rgba(102, 126, 234, 0.2);
 }
 .content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .stats-grid .stat-card .stat-icon {
   font-size: 40px;
@@ -417,126 +399,118 @@ body {
   font-weight: 600;
   letter-spacing: 0.3px;
 }
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .section-title1 {
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashServices {
+  position: absolute;
+  left: 0%;
+  bottom: 0;
+  height: 50%;
+  width: 50%;
+  transform: scale(0.98);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.466);
+  border: 1px solid rgba(102, 126, 234, 0.582);
+  transition: all 0.3s ease;
+  background-color: white;
+  overflow: hidden;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashServices h3 {
+  text-indent: 10px;
+  height: 15%;
+  flex-shrink: 0;
+  padding: 10px 15px;
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-bottom: 1px solid #e2e8f0;
+}
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashServices .live-grid {
   position: absolute;
   top: 15%;
   left: 0;
-  height: 5%;
+  bottom: 0;
   width: 100%;
-  display: flex;
-  align-items: center;
-  font-size: 18px;
-  font-weight: 700;
-  color: #1e1e2f;
-  border-left: 4px solid #667eea;
-  padding-left: 12px;
-  letter-spacing: 0.5px;
-}
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .live-grid {
-  position: absolute;
-  top: 20%;
-  left: 0;
-  max-height: 25%;
-  height: 25%;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
   overflow-y: auto;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
   box-sizing: border-box;
 }
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .live-grid .service-live-card {
-  transform: scale(0.9);
-  flex: 1 1 25%;
-  border-radius: 14px;
-  padding: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  transition: all 0.3s ease;
-  background-color: white;
-  scroll-snap-align: center;
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashServices .live-grid .service-live-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 14px;
 }
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .live-grid .service-live-card:hover {
-  transform: translateY(-3px) scale(0.92);
-  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.1);
-  border-color: rgba(102, 126, 234, 0.2);
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashServices .live-grid .service-live-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #f8fafc;
 }
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .live-grid .service-live-card.status-ok {
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashServices .live-grid .service-live-table th {
+  padding: 12px 10px;
+  text-align: left;
+  font-weight: 700;
+  color: #374151;
+  border-bottom: 2px solid #e5e7eb;
+  white-space: nowrap;
+}
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashServices .live-grid .service-live-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #1f2937;
+  vertical-align: middle;
+}
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashServices .live-grid .service-live-table tbody td {
+  padding: 8px 12px;
+  font-size: 13px;
+}
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashServices .live-grid .service-live-table tbody tr:hover {
+  background: #f8fafc;
+}
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashServices .live-grid .service-live-table tbody tr.status-ok {
   border-left: 4px solid #10b981;
 }
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .live-grid .service-live-card.status-busy {
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashServices .live-grid .service-live-table tbody tr.status-busy {
   border-left: 4px solid #f59e0b;
 }
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .live-grid .service-live-card.status-critical {
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashServices .live-grid .service-live-table tbody tr.status-critical {
   border-left: 4px solid #ef4444;
 }
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .live-grid .service-live-card .service-name {
-  font-size: 18px;
-  font-weight: 700;
-  color: #1f2937;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .live-grid .service-live-card .service-metrics {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .live-grid .service-live-card .service-metrics .metric {
-  text-align: center;
-  background: #f8fafc;
-  border: 1px solid rgba(226, 232, 240, 0.5);
-  padding: 10px;
-  border-radius: 10px;
-}
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .live-grid .service-live-card .service-metrics .metric span {
-  display: block;
-  font-size: 11px;
-  font-weight: 600;
-  color: #6b7280;
-  margin-bottom: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
-}
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .live-grid .service-live-card .service-metrics .metric strong {
-  display: block;
-  font-size: 20px;
-  font-weight: 700;
-  color: #1f2937;
-}
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .live-grid .service-live-card .service-metrics .metric.waiting strong {
-  color: #f59e0b;
-}
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .live-grid .service-live-card .service-metrics .metric.serving strong {
-  color: #3b82f6;
-}
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .section-title2 {
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashTellers {
   position: absolute;
-  top: 45%;
-  left: 0;
-  height: 5%;
-  width: 100%;
-  font-size: 18px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  color: #1e1e2f;
-  border-left: 4px solid #667eea;
-  padding-left: 12px;
-  letter-spacing: 0.5px;
-}
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .card-teller-dashboard {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: scale(0.98);
+  right: 0%;
+  bottom: 0;
   height: 50%;
-  max-height: 50%;
-  display: flex;
   width: 50%;
+  transform: scale(0.98);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.466);
+  border: 1px solid rgba(102, 126, 234, 0.582);
+  transition: all 0.3s ease;
+  background-color: white;
+  overflow: hidden;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashTellers h3 {
+  text-indent: 10px;
+  height: 15%;
+  flex-shrink: 0;
+  padding: 10px 15px;
+  width: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-bottom: 1px solid #e2e8f0;
+}
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashTellers .card-teller-dashboard {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  width: 100%;
   background: white;
   border-radius: 16px;
   padding: 24px;
@@ -545,16 +519,16 @@ body {
   overflow: hidden;
   transition: all 0.3s ease;
 }
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .card-teller-dashboard:hover {
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashTellers .card-teller-dashboard:hover {
   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.08);
 }
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .card-teller-dashboard h3 {
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashTellers .card-teller-dashboard h3 {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 20px;
   color: #1f2937;
 }
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .card-teller-dashboard .table-container {
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashTellers .card-teller-dashboard .table-container {
   position: absolute;
   top: 0%;
   left: 0;
@@ -566,19 +540,19 @@ body {
   border: none;
   border-radius: 0;
 }
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .card-teller-dashboard .admin-table {
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashTellers .card-teller-dashboard .admin-table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
 }
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .card-teller-dashboard .admin-table thead {
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashTellers .card-teller-dashboard .admin-table thead {
   position: sticky;
   top: 0;
   z-index: 2;
   background: #f8fafc;
   border-bottom: 2px solid #667eea;
 }
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .card-teller-dashboard .admin-table th {
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashTellers .card-teller-dashboard .admin-table th {
   padding: 12px 14px;
   text-align: left;
   font-weight: 700;
@@ -589,7 +563,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .card-teller-dashboard .admin-table td {
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashTellers .card-teller-dashboard .admin-table td {
   padding: 12px 14px;
   border-bottom: 1px solid #e8eaed;
   font-size: 14px;
@@ -597,8 +571,49 @@ body {
   color: #475569;
   word-break: break-word;
 }
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .card-teller-dashboard .admin-table tr:hover {
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashTellers .card-teller-dashboard .admin-table tr:hover {
   background: #f1f5f9;
+}
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashTellers .card-teller-dashboard .admin-table tbody tr {
+  transition: all 0.2s ease;
+}
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashTellers .card-teller-dashboard .admin-table tbody tr:hover {
+  background: #f8fafc;
+}
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashTellers .card-teller-dashboard .admin-table tbody tr.status-ok {
+  border-left: 4px solid #3b82f6;
+}
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashTellers .card-teller-dashboard .admin-table tbody tr.status-busy {
+  border-left: 4px solid #f59e0b;
+}
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .dashTellers .card-teller-dashboard .admin-table tbody tr.status-critical {
+  border-left: 4px solid #ef4444;
+}
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .status-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .status-indicator.idle {
+  background: #98e6b2;
+  color: #2a422d;
+}
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .status-indicator.serving {
+  background: #dbeafe;
+  color: #2563eb;
+}
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .status-indicator.busy {
+  background: #fef3c7;
+  color: #d97706;
+}
+.content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .status-indicator.queueing {
+  background: #fee2e2;
+  color: #dc2626;
 }
 .content .tab-content#dashboard-tab .dashsecContainer .dashSection1 .card-chart-dashboard {
   position: absolute;
@@ -675,12 +690,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-}
-.content .tab-content#dashboard-tab .dashsecContainer .dashSection2 {
-  position: relative;
-  height: 100%;
-  width: 100%;
   overflow: hidden;
 }
 .content .tab-content .card {
@@ -1038,7 +1047,7 @@ body {
 }
 .content .tab-content#reports-tab .reports-data-sections .cardrep {
   width: 100%;
-  height: 33.3%;
+  height: 30%;
   display: flex;
   flex-direction: column;
   min-height: 0;
