@@ -294,11 +294,12 @@ module.exports = function createTellerApiRouter(io) {
                 THEN '00' 
                 ELSE '30' 
             END AS minute_block,
+            sname,
             COUNT(*) AS count
         FROM transactions
-        WHERE date = ?
-        GROUP BY hour, minute_block
-        ORDER BY hour, minute_block
+        WHERE date = ? AND status != 'pending'
+        GROUP BY hour, minute_block, sname
+        ORDER BY hour, minute_block, sname
     `,
     [date],
     (err, rows) => {

@@ -47,7 +47,6 @@ function formatTime(minutes) {
 function generateReport() {
     const dateFrom = $('#report-date-from').val();
     const dateTo = $('#report-date-to').val();
-    console.log('📊 Generate Report clicked - From:', dateFrom, 'To:', dateTo);
 
     if (!dateFrom || !dateTo) {
         Swal.fire('Error', 'Please select both From and To dates', 'error');

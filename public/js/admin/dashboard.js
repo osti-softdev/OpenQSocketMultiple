@@ -39,20 +39,42 @@ function loadLiveDashboard() {
                 let statusText = 'Idle';
                 let indicatorClass = 'idle';
 
-                if (s.waiting_count > 10) {
-                    statusClass = 'status-critical';
-                    statusText = 'Queueing';
-                    indicatorClass = 'queueing';
-                }
-                else if (s.waiting_count > 5) {
-                    statusClass = 'status-busy';
-                    statusText = 'Busy';
-                    indicatorClass = 'busy';
-                }
-                else if (s.waiting_count >= 1 || s.serving_count > 0) {
+                if (s.serving_count > 0) {
+                    if (s.waiting_count > 10) {
+                        statusClass = 'status-critical';
+                        statusText = 'Queueing / Serving';
+                        indicatorClass = 'queueing';
+                    }
+                    else if (s.waiting_count > 5) {
+                        statusClass = 'status-busy';
+                        statusText = 'Busy / Serving';
+                        indicatorClass = 'busy';
+                    }
+                    else {
+                        statusClass = 'status-ok';
+                        statusText = 'Serving';
+                        indicatorClass = 'serving';
+                    }
+                } else if (s.waiting_count > 0) {
+                    if (s.waiting_count > 10) {
+                        statusClass = 'status-critical';
+                        statusText = 'Queueing (Idle)';
+                        indicatorClass = 'queueing';
+                    }
+                    else if (s.waiting_count > 5) {
+                        statusClass = 'status-busy';
+                        statusText = 'Busy (Idle)';
+                        indicatorClass = 'busy';
+                    }
+                    else {
+                        statusClass = 'status-ok';
+                        statusText = 'Waiting (Idle)';
+                        indicatorClass = 'idle';
+                    }
+                } else {
                     statusClass = 'status-ok';
-                    statusText = 'Serving';
-                    indicatorClass = 'serving';
+                    statusText = 'Idle';
+                    indicatorClass = 'idle';
                 }
 
                 $serviceGrid.append(`
@@ -91,7 +113,7 @@ function loadLiveDashboard() {
         // 3. Teller Live List
         const $tellerList = $('#teller-live-list').empty();
         if (data.tellers && data.tellers.length > 0) {
-            console.log(data.tellers)
+            // console.log(data.tellers)
             data.tellers.forEach(t => {
                 const statusClass = t.status_code === 'busy' ? 'busy' : 'idle';
                 $tellerList.append(`
@@ -169,6 +191,11 @@ function createStatusChart(data) {
         'voided': '#ef4444'
     };
 
+    const palette = [
+        '#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b',
+        '#858796', '#5a5c69', '#6610f2', '#e83e8c', '#fd7e14'
+    ];
+
     charts.status = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -178,8 +205,9 @@ function createStatusChart(data) {
             datasets: [{
                 label: 'Total Tickets',
                 data: data.map(d => d.count),
-                backgroundColor: data.map(d =>
-                    statusColors[d.status] || '#6b7280'
+                backgroundColor: data.map((d, i) =>
+                    statusColors[d.status.toLowerCase()] || 
+                    palette[i % palette.length]
                 ),
                 borderRadius: 6,
                 barThickness: 20
@@ -217,27 +245,40 @@ function createHourlyChart(data) {
 
     if (charts.hourly) charts.hourly.destroy();
 
-    const hours = Array.from({ length: 24 }, (_, i) => i.toString().padStart(2, '0') + ':00');
-    const counts = hours.map(hour => {
-        const hourData = data.filter(d => d.hour === hour.slice(0, 2));
-        return hourData.reduce((sum, d) => sum + d.count, 0);
+    const hourSlots = Array.from({ length: 24 }, (_, i) => i.toString().padStart(2, '0'));
+    const hourLabels = hourSlots.map(h => h + ':00');
+
+    // Identify all unique services in the hourly data
+    const serviceNames = [...new Set(data.map(d => d.sname || 'General'))];
+    
+    const palette = [
+        '#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b',
+        '#6610f2', '#fd7e14', '#e83e8c', '#20c997', '#858796'
+    ];
+
+    const datasets = serviceNames.map((svc, idx) => {
+        const color = palette[idx % palette.length];
+        return {
+            label: svc,
+            data: hourSlots.map(h => {
+                const hourData = data.filter(d => d.hour === h && (d.sname || 'General') === svc);
+                return hourData.reduce((sum, d) => sum + d.count, 0);
+            }),
+            borderColor: color,
+            backgroundColor: color + '1a', // Light transparent fill
+            borderWidth: 2,
+            fill: serviceNames.length === 1, // Only fill if it's a single series
+            tension: 0.4,
+            pointRadius: 4,
+            pointBackgroundColor: color
+        };
     });
 
     charts.hourly = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: hours,
-            datasets: [{
-                label: 'Tickets per Hour',
-                data: counts,
-                borderColor: '#667eea',
-                backgroundColor: 'rgba(102, 126, 234, 0.1)',
-                borderWidth: 2,
-                fill: true,
-                tension: 0.4,
-                pointRadius: 4,
-                pointBackgroundColor: '#667eea'
-            }]
+            labels: hourLabels,
+            datasets: datasets
         },
         options: {
             responsive: true,

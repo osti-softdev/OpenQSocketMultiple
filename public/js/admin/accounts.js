@@ -3,7 +3,6 @@
 // ~ ===== ACCOUNTS =====
 function loadAccounts() {
     $.get('/api/admin/accounts', function (accounts) {
-        console.log(accounts);
         const $list = $('#accounts-list').empty();
         accounts.forEach(t => {
             const isActive = Number(t.status) === 1;
