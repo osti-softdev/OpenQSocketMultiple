@@ -45,8 +45,7 @@ function formatTime(minutes) {
 
 // Generate report
 function generateReport() {
-    // const dateFrom = $('#report-date-from').val();
-    const dateFrom = "2026-01-01";
+    const dateFrom = $('#report-date-from').val();
     const dateTo = $('#report-date-to').val();
     console.log('📊 Generate Report clicked - From:', dateFrom, 'To:', dateTo);
 
