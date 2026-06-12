@@ -3,9 +3,16 @@ const express = require('express');
 const path = require('path');
 const bcrypt = require('bcrypt');
 
+const rootpath =
+	global.ROOT_PATH;
+
+const { requireRole  } = require(`../utilities/authsession`);
+const { authLimiter } = require("../utilities/rateLimiter");
+
 module.exports = function createTellerApiRouter(io) {
     const router = express.Router();
 
+    router.use('/admin', requireRole('admin', 'superadmin'));
     const rootpath = global.BACKEND_PATH || __dirname;
     const db = require(path.join(rootpath, 'utilities/db'));
     const { getPHDateTime } = require(path.join(rootpath, 'utilities/datetime'));
@@ -13,7 +20,7 @@ module.exports = function createTellerApiRouter(io) {
   // =========================
   // & Account login
   // =========================
-  router.post('/loginAdmin', (req, res) => {
+  router.post('/loginAdmin', authLimiter, (req, res) => {
     const { username, password } = req.body;
 
     console.log('Login attempt for:', username);

@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require("fs");
+const { kioskLimiter } = require("../utilities/rateLimiter");
 
 module.exports = function createKioskApiRouter(io) {
   const router = express.Router();
@@ -31,7 +32,7 @@ module.exports = function createKioskApiRouter(io) {
   });
 
   // ^ INSERT NEW TICKET
-  router.post("/newServiceTicket", async (req, res) => {
+  router.post("/newServiceTicket", kioskLimiter, async (req, res) => {
     const { sname, ticketservice, selectedType } = req.body;
     const { date, time } = getPHDateTime();
 

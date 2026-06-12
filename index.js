@@ -25,6 +25,10 @@ global.BACKEND_PATH = BackEndPath;
 const { setupLogger } = require("./backend/utilities/logger");
 setupLogger();
 
+// Rate Limiter
+const { apiLimiter } = require("./backend/utilities/rateLimiter");
+appExpress.use(apiLimiter);
+
 require('./backend/utilities/db');
 
 // ^ create Server
@@ -47,7 +51,7 @@ appExpress.use('/ads', express.static(path.join(__dirname, 'public/ads'), {
 }));
 
 appExpress.use(session({
-    secret: 'asdasdasd-wejjks9qweqewe-cdvfretvert-asdrace323c23-c234234cf3324234-2026asds',   // change this!
+    secret: 'asdasdasd-wejjks9qweqewe-cdvfretvert-asdrace323c23-c234234cf3324234-2026asds',
     resave: false,
     saveUninitialized: false,
     cookie: {
