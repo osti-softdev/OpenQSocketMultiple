@@ -217,7 +217,8 @@ module.exports = function createTellerApiRouter(io) {
                 ) AS avg_wait_time
 
             FROM transactions
-        `, [date, date, date], (err, row) => {
+            WHERE date = ?
+        `, [date, date, date, date], (err, row) => {
 
             if (err) console.error("Stats query error:", err);
             else result.stats = row;
@@ -318,6 +319,34 @@ module.exports = function createTellerApiRouter(io) {
         res.json(rows);
     });
   });
+
+    //   ! Per Day Analytics for Current Month
+  router.get('/admin/analytics/daily', (req, res) => {
+        const { date } = getPHDateTime();
+
+        const currentMonth = date.substring(0, 7); // YYYY-MM
+
+        db.all(`
+            SELECT
+                CAST(strftime('%d', date) AS INTEGER) AS day,
+                sname,
+                COUNT(*) AS count
+            FROM transactions
+            WHERE date LIKE ?
+            AND status != 'pending'
+            GROUP BY day, sname
+            ORDER BY day ASC
+        `,
+        [`${currentMonth}%`],
+        (err, rows) => {
+            if (err) {
+                console.error("Daily analytics query error:", err);
+                return res.status(500).json({ error: err.message });
+            }
+
+            res.json(rows);
+        });
+    });
 
   // ! -------- SERVICES -------- !
   // & Services List for Admin  

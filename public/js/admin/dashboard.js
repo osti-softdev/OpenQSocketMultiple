@@ -1,4 +1,27 @@
 // Dashboard Module for Admin Panel
+let currentTrendView = 'hourly';
+
+$(document).on('click', '#hourlyBtn', function () {
+    $('#dailyBtn').removeClass('active');
+    $(this).addClass('active');
+    $('#trendTitle').text('Ticket Trends (Today)');
+    currentTrendView = 'hourly';
+
+    $.get('/api/admin/analytics/hourly', function(data) {
+        createHourlyChart(data);
+    });
+});
+
+$(document).on('click', '#dailyBtn', function () {
+    $('#hourlyBtn').removeClass('active');
+    $(this).addClass('active');
+    $('#trendTitle').text('Ticket Trends (Current Month)');
+    currentTrendView = 'daily';
+
+    $.get('/api/admin/analytics/daily', function(data) {
+        createDailyChart(data);
+    });
+});
 
 // & ===== DASHBOARD =====
 function loadDashboard() {
@@ -138,9 +161,15 @@ function loadLiveDashboard() {
         createStatusChart(stats.byStatus);
     });
     
+    if (currentTrendView === 'hourly') {
     $.get('/api/admin/analytics/hourly', function(data) {
         createHourlyChart(data);
     });
+    } else {
+        $.get('/api/admin/analytics/daily', function(data) {
+            createDailyChart(data);
+        });
+    }
 }
 
 function createServiceChart(data) {
@@ -290,6 +319,105 @@ function createHourlyChart(data) {
                 }
             },
             scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
+            }
+        }
+    });
+}
+function createDailyChart(data) {
+    const ctx = getCanvas('hourlyChart');
+    if (!ctx) return;
+
+    if (charts.hourly) {
+        charts.hourly.destroy();
+    }
+
+    const now = new Date();
+
+    const daysInMonth = new Date(
+        now.getFullYear(),
+        now.getMonth() + 1,
+        0
+    ).getDate();
+
+    const dayLabels = Array.from(
+        { length: daysInMonth },
+        (_, i) => (i + 1).toString()
+    );
+
+    const serviceNames = [
+        ...new Set(data.map(d => d.sname || 'General'))
+    ];
+
+    const palette = [
+        '#4e73df',
+        '#1cc88a',
+        '#36b9cc',
+        '#f6c23e',
+        '#e74a3b',
+        '#6610f2',
+        '#fd7e14',
+        '#e83e8c',
+        '#20c997',
+        '#858796'
+    ];
+
+    const datasets = serviceNames.map((svc, idx) => {
+        const color = palette[idx % palette.length];
+
+        return {
+            label: svc,
+            data: dayLabels.map(day => {
+                const row = data.filter(
+                    d =>
+                        Number(d.day) === Number(day) &&
+                        (d.sname || 'General') === svc
+                );
+
+                return row.reduce(
+                    (sum, r) => sum + Number(r.count),
+                    0
+                );
+            }),
+            borderColor: color,
+            backgroundColor: color + '1a',
+            borderWidth: 2,
+            tension: 0.4,
+            fill: serviceNames.length === 1,
+            pointRadius: 4
+        };
+    });
+
+    charts.hourly = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: dayLabels,
+            datasets
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Current Month Ticket Trend'
+                },
+                legend: {
+                    position: 'top'
+                }
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Day of Month'
+                    }
+                },
                 y: {
                     beginAtZero: true,
                     ticks: {
