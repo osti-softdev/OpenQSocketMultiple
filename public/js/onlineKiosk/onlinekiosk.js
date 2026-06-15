@@ -67,8 +67,8 @@ socket.on('service_update', async function () {
                     ${isLocked ? `<span class="lock-label">${lockReason}</span>` : ''}
                 </button>
             `);
-        }
-    });
+            }
+        });
 
     // Click handler for active (non-locked) buttons only
     $(".service-button:not(.locked)").on("click", function () {
