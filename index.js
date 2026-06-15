@@ -14,7 +14,7 @@ const appExpress = express();
 const server = http.createServer(appExpress);
 const io = socketIo(server);
 
-
+appExpress.set('trust proxy', 1);
 const rootpath = path.join(__dirname);
 const MainRootpath = path.join(rootpath);
 const BackEndPath = path.join(rootpath, `${tagline}backend`);

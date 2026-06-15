@@ -11784,3 +11784,48 @@
 ✔ 2026-06-13T01:26:03.818Z [node:events:508] [ADS] Client disconnected: csAXFh8D-Q9vAuwMAABF
 ✔ 2026-06-13T01:30:47.417Z [node:events:508] [ADS] Client connected: AME9GzOITMNv81xRAABH
 ✔ 2026-06-13T01:30:50.123Z [node:events:508] [ADS] Client disconnected: j2fg-q7BJAWyAIbwAAAt
+✔ 2026-06-15T06:00:03.510Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-06-15T06:00:03.866Z [node_modules\dotenv\lib\main.js:142] [dotenv@17.2.4] injecting env (1) from backend\config\.env [2m-- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild[0m
+✔ 2026-06-15T06:00:04.625Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-06-15T06:00:04.630Z [unknown-location] Connected to SQLite database
+✔ 2026-06-15T06:00:26.696Z [node:events:508] [ADS] Client connected: eSXtKFVeRK9NCOF_AAAB
+✔ 2026-06-15T06:01:44.960Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-06-15T06:01:45.048Z [node_modules\dotenv\lib\main.js:142] [dotenv@17.2.4] injecting env (1) from backend\config\.env [2m-- tip: ⚙️  write to custom object with { processEnv: myObject }[0m
+✔ 2026-06-15T06:01:45.465Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-06-15T06:01:45.480Z [unknown-location] Connected to SQLite database
+✔ 2026-06-15T06:01:49.397Z [node:events:508] [ADS] Client connected: bmtiQQfRrPeJhtUPAAAB
+✔ 2026-06-15T06:01:52.391Z [node:events:508] [ADS] Client disconnected: bmtiQQfRrPeJhtUPAAAB
+✔ 2026-06-15T06:01:52.986Z [node:events:508] [ADS] Client connected: nQBxdc5QW_4MMT7nAAAD
+✔ 2026-06-15T06:18:18.406Z [node:events:508] [ADS] Client disconnected: nQBxdc5QW_4MMT7nAAAD
+✔ 2026-06-15T06:21:38.180Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-06-15T06:21:38.272Z [node_modules\dotenv\lib\main.js:142] [dotenv@17.2.4] injecting env (1) from backend\config\.env [2m-- tip: ⚙️  override existing env vars with { override: true }[0m
+✔ 2026-06-15T06:21:38.691Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-06-15T06:21:38.711Z [unknown-location] Connected to SQLite database
+✔ 2026-06-15T06:24:48.901Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-06-15T06:24:48.982Z [node_modules\dotenv\lib\main.js:142] [dotenv@17.2.4] injecting env (1) from backend\config\.env [2m-- tip: ⚙️  enable debug logging with { debug: true }[0m
+✔ 2026-06-15T06:24:49.315Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-06-15T06:24:49.331Z [unknown-location] Connected to SQLite database
+✔ 2026-06-15T06:36:05.823Z [node:events:508] [ADS] Client connected: -dcSPaUMaUUFuWDaAAAB
+✔ 2026-06-15T06:36:08.631Z [node:events:508] [ADS] Client disconnected: -dcSPaUMaUUFuWDaAAAB
+✔ 2026-06-15T06:36:09.913Z [node:events:508] [ADS] Client connected: x3KSAnZR5N92iau5AAAD
+✔ 2026-06-15T06:36:37.861Z [node:events:508] [ADS] Client disconnected: x3KSAnZR5N92iau5AAAD
+✔ 2026-06-15T06:36:38.379Z [node:events:508] [ADS] Client connected: J0CgYi2xrnWtzoh0AAAF
+✔ 2026-06-15T06:36:39.268Z [node:events:508] [ADS] Client connected: etaNII12-M3sL7PgAAAH
+✔ 2026-06-15T06:36:40.090Z [node:events:508] [ADS] Client connected: fLDg0FosykOwQXsxAAAJ
+✔ 2026-06-15T06:36:40.740Z [node:events:508] [ADS] Client connected: Z8X2TNYfWHGXdcSaAAAL
+✔ 2026-06-15T06:36:41.472Z [node:events:508] [ADS] Client connected: nbE5s11w-EMWs3rMAAAN
+✔ 2026-06-15T06:36:42.291Z [node:events:508] [ADS] Client connected: VJFDIGp6JWVqiaCFAAAP
+✔ 2026-06-15T06:36:44.405Z [node:events:508] [ADS] Client connected: EAUBaNtS5SenBtfuAAAT
+✔ 2026-06-15T06:36:45.225Z [node:events:508] [ADS] Client connected: vQ4--OpMM3swjegiAAAV
+✔ 2026-06-15T06:36:47.790Z [node:events:508] [ADS] Client connected: dz5BGof8Xn6F7rNFAAAZ
+✔ 2026-06-15T06:37:22.945Z [node:events:508] [ADS] Client disconnected: J0CgYi2xrnWtzoh0AAAF
+✔ 2026-06-15T06:37:23.848Z [node:events:508] [ADS] Client disconnected: etaNII12-M3sL7PgAAAH
+✔ 2026-06-15T06:37:24.631Z [node:events:508] [ADS] Client disconnected: fLDg0FosykOwQXsxAAAJ
+✔ 2026-06-15T06:37:25.230Z [node:events:508] [ADS] Client disconnected: Z8X2TNYfWHGXdcSaAAAL
+✔ 2026-06-15T06:37:26.031Z [node:events:508] [ADS] Client disconnected: nbE5s11w-EMWs3rMAAAN
+✔ 2026-06-15T06:37:26.880Z [node:events:508] [ADS] Client disconnected: VJFDIGp6JWVqiaCFAAAP
+✔ 2026-06-15T06:37:28.925Z [node:events:508] [ADS] Client disconnected: EAUBaNtS5SenBtfuAAAT
+✔ 2026-06-15T06:37:29.748Z [node:events:508] [ADS] Client disconnected: vQ4--OpMM3swjegiAAAV
+✔ 2026-06-15T06:38:29.485Z [node:events:508] [ADS] Client connected: PIi96OnbC9jAfOwXAAAb
+✔ 2026-06-15T06:39:46.378Z [node:events:508] [ADS] Client connected: 7aBY4vd_2dnOFY89AAAd
+✔ 2026-06-15T06:39:48.269Z [node:events:508] [ADS] Client disconnected: dz5BGof8Xn6F7rNFAAAZ
