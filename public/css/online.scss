@@ -100,3 +100,14 @@ body{
 
     }
 }
+.ticket-card {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    display: inline-block;
+    width: 100%;
+    max-width: 350px;
+}
+.ticket-header { font-size: 1.2rem; font-weight: bold; color: #333; margin-bottom: 10px; }
+.ticket-number { font-size: 3rem; color: #d9534f; font-weight: 800; display: block; }

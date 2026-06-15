@@ -130,7 +130,7 @@ socket.on('service_update', async function () {
             url: '/api/newServiceTicket',
             method: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify({ sname, ticketservice, selectedType }),
+            data: JSON.stringify({ sname, ticketservice, selectedType, stats: "onprem" }),
             success: function (response) {
                 if (response.success) {
                 const responseSname = response.ticket.sname?.replace(/_/g, ' ') || '';

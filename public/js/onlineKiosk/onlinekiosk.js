@@ -87,39 +87,49 @@ socket.on('service_update', async function () {
             url: '/api/newServiceTicket',
             method: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify({ sname, ticketservice, selectedType }),
-            success: function (response) {
-                if (response.success) {
-                const responseSname = response.ticket.sname?.replace(/_/g, ' ') || '';
+            data: JSON.stringify({ sname, ticketservice, selectedType, stats: "online" }),
+          success: function (response) {
+    if (response.success) {
+        const responseSname = response.ticket.sname?.replace(/_/g, ' ') || '';
+        const expiryTime = new Date(new Date().getTime() + 30 * 60000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-                    setTimeout(() => {
-                        Swal.fire({
-                            title: `<span style="font-size:20px;color:green;font-weight:bold;">Ticket Printed Successfully</span>`,
-                            html: `
-                                <div style="margin-top:20px;">
-                                    <span style="color:red;font-size:80px;font-weight:bold;letter-spacing:8px;">
-                                        ${response.ticket.ticketservice} -
-                                        <span style="color:black;">${response.ticket.ticketnum}</span>
-                                    </span>
-                                    <p style="font-size:28px;margin-top:20px;font-weight:600;">
-                                        ${responseSname}
-                                    </p>
-                                </div>
-                            `,
-                            timer: 2000,
-                            width: "50%",
-                            allowOutsideClick: false,
-                            showConfirmButton: false,
-                        });
+        Swal.fire({
+            title: "Ticket Issued",
+            width: "500px",
+            html: `
+                <div id="ticket-to-print" style="border: 2px dashed #333; padding: 20px; background: white; text-align: center; color: black;">
+                    <h2 style="margin: 0;">${responseSname}</h2>
+                    <p style="font-size: 1.2rem; margin: 5px 0;">Service: ${response.ticket.ticketservice}</p>
+                    <div style="font-size: 3rem; font-weight: bold; color: red; margin: 10px 0;">${response.ticket.ticketservice}${response.ticket.ticketnum}</div>
+                    <img src="${response.ticket.qrCode}" alt="QR" style="width: 180px; height: 180px;">
+                    <div><strong>Generated:</strong> ${response.ticket.time}</div>
+                    <div style="margin-top: 15px; font-weight: bold;">Expiry: ${expiryTime}</div>
+                </div>
 
-                        $("#servicesbox, #priorityServices").fadeOut(200);
-                        $(".category-container").fadeIn(200);
-                        selectedType = null;
-                    }, 1500);
-                } else {
-                    Swal.fire('Error', response.error || 'Failed to generate ticket', 'error');
-                }
+                <button id="download-btn" style="margin-top: 20px; padding: 12px 20px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                    📥 Download Full Ticket
+                </button>
+            `,
+            didRender: () => {
+                // Add click listener to the download button inside the Swal
+                document.getElementById('download-btn').addEventListener('click', function() {
+                    html2canvas(document.querySelector("#ticket-to-print")).then(canvas => {
+                        const link = document.createElement('a');
+                        link.download = `Ticket_${response.ticket.ticketnum}.png`;
+                        link.href = canvas.toDataURL("image/png");
+                        link.click();
+                    });
+                });
             },
+            confirmButtonText: 'Close',
+            allowOutsideClick: false
+        }).then(() => {
+            $("#servicesbox, #priorityServices").fadeOut(200);
+            $(".category-container").fadeIn(200);
+            selectedType = null;
+        });
+    }
+},
             error: function (xhr) {
                 const errorMsg = xhr.responseJSON?.error || 'Failed to generate ticket';
                 Swal.fire({

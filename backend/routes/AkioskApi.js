@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require("fs");
+const QRCode = require('qrcode');
 const { kioskLimiter } = require("../utilities/rateLimiter");
 
 module.exports = function createKioskApiRouter(io) {
@@ -33,7 +34,7 @@ module.exports = function createKioskApiRouter(io) {
 
   // ^ INSERT NEW TICKET
   router.post("/newServiceTicket", kioskLimiter, async (req, res) => {
-    const { sname, ticketservice, selectedType } = req.body;
+    const { sname, ticketservice, selectedType, stats } = req.body;
     const { date, time } = getPHDateTime();
 
     if (!sname || !ticketservice) {
@@ -52,21 +53,44 @@ module.exports = function createKioskApiRouter(io) {
         [sname, ticketservice, date]
       );
 
+      const crypto = require('crypto');
+      const randomCode = crypto.randomBytes(8).toString('hex'); // 16 characters
+
+      let qrCodeDataUrl = null;
+      let finalstats;
+
+      if(stats === "online"){
+        finalstats = "online_reserved";
+
+        try {
+          qrCodeDataUrl = await QRCode.toDataURL(randomCode);
+        } catch (qrErr) {
+          console.error("QR Generation Error:", qrErr);
+        }
+      }
+      if(stats === "onprem"){
+        finalstats = "pending";
+      }
       const nextTicket = (row?.maxTicket || 0) + 1;
       const history = `[${time}-Kiosk-Inserted]`;
 
       // Insert new ticket
       const result = await db.runAsync(
         `INSERT INTO transactions (ticketnum, sname, ticketservice, status, date, time, history, priority)
-        VALUES (?, ?, ?, 'pending', ?, ?, ?, ?)`,
-        [nextTicket, sname, ticketservice, date, time, history, selectedType]
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+        [nextTicket, sname, ticketservice, finalstats, date, time, history, selectedType]
       );
 
-        // try {
-        //   await executephp(ticketservice, nextTicket, sname);
-        // } catch (printError) {
-        //   console.error("Printer Error:", printError.message);
-        // }
+        try {
+          if(stats === "onprem"){
+            // await executephp(ticketservice, nextTicket, sname);
+            console.log("On-prem ticket, printing required.");
+          }else{
+            console.log("Online ticket, no printing required.");
+          }
+        } catch (printError) {
+          console.error("Printer Error:", printError.message);
+        }
       // Success response
       res.json({
         success: true,
@@ -76,7 +100,8 @@ module.exports = function createKioskApiRouter(io) {
           ticketservice,
           date,
           time,
-          status: 'pending'
+          status: finalstats,
+          qrCode: qrCodeDataUrl
         }
       });
       io.emit("ticket_voided");
