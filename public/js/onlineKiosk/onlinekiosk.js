@@ -1,0 +1,148 @@
+let services = [];
+let selectedType = null;
+
+$(document).ready(async function () {
+socket.on('service_update', async function () {
+        loadServices();
+});
+
+   await loadServices();
+
+   async function loadServices() {
+    $.ajax({
+        url: '/api/services',
+        method: 'GET',
+        dataType: 'json',
+        success: function (response) {
+        if (!response.success || !Array.isArray(response.data)) {
+            console.error('Invalid services response:', response);
+            return;
+        }
+        services = response.data;  
+        loadServicesBtns(services);
+        serviceChecker(services);
+        },
+        error: function (xhr, status, error) {
+        console.error('Failed to load services:', error);
+        }
+    });
+    }
+
+   function loadServicesBtns(services) {
+    const $servicesbox = $(".service-container");
+    $servicesbox.empty();
+
+    const now = new Date();
+
+    if (services.length === 0) {
+        $servicesbox.append("<p>No regular services available</p>");
+        return;
+    }
+
+    services.forEach((service) => {
+        // ── Decide lock status PER service ────────────────────────────────
+        let isLocked = false;
+        let lockReason = "";
+
+        if (service.sched) {
+            const [hours, minutes] = service.sched.split(':').map(Number);
+            const cutoff = new Date(now);           // ← important: copy current date
+            cutoff.setHours(hours, minutes, 0, 0);
+
+            if (now > cutoff) {
+                isLocked = true;
+                lockReason = "Cutoff reached";
+            }
+        }
+
+        // Regular button
+        if (service.regular) {
+            $servicesbox.append(`
+                <button class="service-button regbtn ${isLocked ? 'locked' : ''}"
+                    data-sname="${service.sname}"
+                    data-ticketservice="${service.regular}"
+                    ${isLocked ? 'disabled' : ''}>
+                    ${service.shortSname} <br>
+                    ${service.sub_sname || ''}
+                    ${isLocked ? `<span class="lock-label">${lockReason}</span>` : ''}
+                </button>
+            `);
+        }
+    });
+
+    // Click handler for active (non-locked) buttons only
+    $(".service-button:not(.locked)").on("click", function () {
+        const sname = $(this).data("sname");
+        const ticketservice = $(this).data("ticketservice");
+
+        Swal.fire({
+            title: "Processing...",
+            html: "<p>Inserting and Printing your ticket, please wait...</p>",
+            allowOutsideClick: false,
+            showConfirmButton: false,
+            didOpen: () => Swal.showLoading(),
+        });
+
+        $.ajax({
+            url: '/api/newServiceTicket',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ sname, ticketservice, selectedType }),
+            success: function (response) {
+                if (response.success) {
+                const responseSname = response.ticket.sname?.replace(/_/g, ' ') || '';
+
+                    setTimeout(() => {
+                        Swal.fire({
+                            title: `<span style="font-size:20px;color:green;font-weight:bold;">Ticket Printed Successfully</span>`,
+                            html: `
+                                <div style="margin-top:20px;">
+                                    <span style="color:red;font-size:80px;font-weight:bold;letter-spacing:8px;">
+                                        ${response.ticket.ticketservice} -
+                                        <span style="color:black;">${response.ticket.ticketnum}</span>
+                                    </span>
+                                    <p style="font-size:28px;margin-top:20px;font-weight:600;">
+                                        ${responseSname}
+                                    </p>
+                                </div>
+                            `,
+                            timer: 2000,
+                            width: "50%",
+                            allowOutsideClick: false,
+                            showConfirmButton: false,
+                        });
+
+                        $("#servicesbox, #priorityServices").fadeOut(200);
+                        $(".category-container").fadeIn(200);
+                        selectedType = null;
+                    }, 1500);
+                } else {
+                    Swal.fire('Error', response.error || 'Failed to generate ticket', 'error');
+                }
+            },
+            error: function (xhr) {
+                const errorMsg = xhr.responseJSON?.error || 'Failed to generate ticket';
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: errorMsg,
+                });
+            }
+        });
+    });
+
+    setServicesKiosk(services.length);
+}
+    function setServicesKiosk(count) {
+        if (count > 0 && count <= 6) {
+            $(".service-button").css({ "height": "40%" });
+        } else if (count > 6 && count <= 9) {
+            $(".service-button").css({ "height": "30%" });
+        } else if (count > 9 && count <= 12) {
+            $(".service-button").css({ "width": "23%", "height": "30%" });
+        } else if (count > 12) {
+            $(".service-button").css({ "width": "23%", "height": "23%" });
+        }
+    }
+});
+

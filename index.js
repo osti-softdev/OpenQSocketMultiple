@@ -67,6 +67,7 @@ appExpress.use('/api', require('./backend/routes/AkioskApi')(io));
 appExpress.use('/api', require('./backend/routes/AdisplayApi')(io));
 appExpress.use('/api', require('./backend/routes/AtellerApi')(io));
 appExpress.use('/api', require('./backend/routes/AadminApi')(io));
+appExpress.use('/api', require('./backend/routes/AonlineKioskApi')(io));
 
 
 // ^ Video API
