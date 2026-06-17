@@ -365,3 +365,6 @@
   code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
   help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
 }
+❌ 2026-06-17T05:49:09.291Z [backend\routes\AonlineKioskApi.js:55] Ticket expired. Valid only for 20 minutes.
+❌ 2026-06-17T05:51:26.611Z [backend\routes\AonlineKioskApi.js:61] Ticket expired. Valid only for 20 minutes.
+❌ 2026-06-17T05:53:11.527Z [backend\routes\AonlineKioskApi.js:61] Ticket expired. Valid only for 20 minutes.

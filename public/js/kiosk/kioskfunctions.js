@@ -135,7 +135,6 @@ socket.on('service_update', async function () {
                 if (response.success) {
                 const responseSname = response.ticket.sname?.replace(/_/g, ' ') || '';
 
-                    setTimeout(() => {
                         Swal.fire({
                             title: `<span style="font-size:20px;color:green;font-weight:bold;">Ticket Printed Successfully</span>`,
                             html: `
@@ -149,7 +148,7 @@ socket.on('service_update', async function () {
                                     </p>
                                 </div>
                             `,
-                            timer: 2000,
+                            timer: 3000,
                             width: "50%",
                             allowOutsideClick: false,
                             showConfirmButton: false,
@@ -158,8 +157,8 @@ socket.on('service_update', async function () {
                         $("#regularServices, #priorityServices").fadeOut(200);
                         $(".category-container").fadeIn(200);
                         selectedType = null;
-                    }, 1500);
-                } else {
+
+                    } else {
                     Swal.fire('Error', response.error || 'Failed to generate ticket', 'error');
                 }
             },
@@ -288,3 +287,4 @@ function serviceChecker(services) {
         });
     }, 1000); // Check every 1 second
 }
+

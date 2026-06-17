@@ -35,6 +35,10 @@ require('./backend/utilities/db');
 const { serverCreator } = require("./backend/utilities/serverCreator");
 serverCreator(server);
 
+// ^ load config
+const { loadConfig } = require(`./backend/utilities/envconfig`);
+const config = loadConfig();
+
 appExpress.use(cors());
 appExpress.use(express.json());
 appExpress.use(cookieParser());
@@ -67,6 +71,10 @@ appExpress.use('/api', require('./backend/routes/AkioskApi')(io));
 appExpress.use('/api', require('./backend/routes/AdisplayApi')(io));
 appExpress.use('/api', require('./backend/routes/AtellerApi')(io));
 appExpress.use('/api', require('./backend/routes/AadminApi')(io));
+
+if(config.MainServer.ticketonline){
+  appExpress.use('/api', require('./backend/routes/AonlineKioskApi')(io));
+}
 
 
 // ^ Video API

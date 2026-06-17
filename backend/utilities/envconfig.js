@@ -15,7 +15,10 @@ if (result.error) {
 function loadConfig() {
 	const config = {
 		MainServer: {
-			port: process.env.PORT
+			port: process.env.PORT,
+			camscan: process.env.CAMSCAN === "true",
+			expiry: process.env.ONLINETICKETEXPIRY,
+			ticketonline: process.env.ONLINETICKETING === "true"
 		},
 	};
 	return config;

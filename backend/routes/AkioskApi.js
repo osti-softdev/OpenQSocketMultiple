@@ -13,7 +13,8 @@ module.exports = function createKioskApiRouter(io) {
   const { getPHDateTime } = require(path.join(rootpath, 'utilities/datetime'));
   const footerPath = path.join(rootpath, "/config/footer.json");
   const { executephp } = require(path.join(rootpath, 'utilities/printer'));
-
+const { loadConfig } = require(`${rootpath}/utilities/envconfig`);
+const config = loadConfig();
 
   // & KIOSK
   // ^ GET ALL SERVICES FOR KIOSK
@@ -37,6 +38,7 @@ module.exports = function createKioskApiRouter(io) {
   router.post("/newServiceTicket", kioskLimiter, async (req, res) => {
     const { sname, ticketservice, selectedType, stats } = req.body;
     const { date, time } = getPHDateTime();
+    const expiryMinutes = Number(config.MainServer.expiry);
 
     if (!sname || !ticketservice) {
       return res.status(400).json({
@@ -102,7 +104,8 @@ module.exports = function createKioskApiRouter(io) {
           date,
           time,
           status: finalstats,
-          qrCode: qrCodeDataUrl
+          qrCode: qrCodeDataUrl,
+          expiryMinutes
         }
       });
       io.emit("ticket_voided");

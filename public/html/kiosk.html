@@ -9,6 +9,7 @@
     <script src="/libs/sweetalert2@11.js"></script>
     <link rel="stylesheet" href="/css/kiosk.css">
     <script src="/socket.io/socket.io.js"></script>
+    <script src="https://unpkg.com/html5-qrcode"></script>
 </head>
 <body onselectstart="return false">
     <div class="mainkioskcontainer">
@@ -19,8 +20,11 @@
 
         <div class="scanQr">
             <p>Scan QR code to check-in</p>
+            <div id="reader" style="width:300px; display:true;"></div>
+        <input type="file" id="qrFile" accept="image/*" style="display:none;">
         </div>
-        <!-- ! TIME -->
+
+            <!-- ! TIME -->
          <div class="timer">
             <!-- <div class="date"></div> -->
             <div class="time"></div>
@@ -47,6 +51,7 @@
     <script>const socket = io();</script>
     <script src="/js/clock.js"></script>
     <script src="/js/kiosk/kioskfunctions.js"></script>
+    <script src="/js/kiosk/scanTicket.js"></script>
     <script>
         // setInterval(() => {
         //     window.location.reload();

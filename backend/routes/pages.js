@@ -3,7 +3,7 @@ const path = require('path');
 const rootpath = global.ROOT_PATH;
 const pageRouter = express.Router();
 const jwt = require("jsonwebtoken");
-
+const { loadConfig } = require(`${rootpath}/backend/utilities/envconfig`);
 function requireAuth(req, res, next) {
   const token = req.cookies?.auth;
   if (!token) return res.redirect("/312Xadmin");
@@ -17,9 +17,6 @@ function requireAuth(req, res, next) {
   }
 }
 
-  pageRouter.get("/onlinekiosk", (req, res) => {
-    res.sendFile(path.join(rootpath, "public/html","onlinekiosk.html"));
-  });
   pageRouter.get("/kiosk", (req, res) => {
     res.sendFile(path.join(rootpath, "public/html","kiosk.html"));
   });
@@ -41,6 +38,18 @@ function requireAuth(req, res, next) {
   pageRouter.get("/", (req, res) => {
     res.redirect("/display");
   });
+
+ pageRouter.get("/onlinekiosk", (req, res) => {
+    const config = loadConfig(); // 👈 reload every request
+
+    if (config?.MainServer?.ticketonline) {
+      return res.sendFile(path.join(rootpath, "public/html", "onlinekiosk.html"));
+    } else {
+      return res.sendFile(path.join(rootpath, "public/html", "maintenance.html"));
+    }
+  });
+
+
   pageRouter.post("/setAuthCookie", express.json(), (req, res) => {
     const { token } = req.body;
     res.cookie("auth", token, {
@@ -52,5 +61,7 @@ function requireAuth(req, res, next) {
     });
     res.sendStatus(200);
   });
+
+  
 
 module.exports = pageRouter;

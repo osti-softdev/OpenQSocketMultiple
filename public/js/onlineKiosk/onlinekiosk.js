@@ -5,7 +5,7 @@ $(document).ready(async function () {
 socket.on('service_update', async function () {
         loadServices();
 });
-
+clearSessionAndReload();
    await loadServices();
 
    async function loadServices() {
@@ -20,7 +20,6 @@ socket.on('service_update', async function () {
         }
         services = response.data;  
         loadServicesBtns(services);
-        serviceChecker(services);
         },
         error: function (xhr, status, error) {
         console.error('Failed to load services:', error);
@@ -88,48 +87,50 @@ socket.on('service_update', async function () {
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ sname, ticketservice, selectedType, stats: "online" }),
-          success: function (response) {
-    if (response.success) {
-        const responseSname = response.ticket.sname?.replace(/_/g, ' ') || '';
-        const expiryTime = new Date(new Date().getTime() + 30 * 60000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            success: function (response) {
+                    if (response.success) {
+                console.log(response.ticket.expiryMinutes)
 
-        Swal.fire({
-            title: "Ticket Issued",
-            width: "500px",
-            html: `
-                <div id="ticket-to-print" style="border: 2px dashed #333; padding: 20px; background: white; text-align: center; color: black;">
-                    <h2 style="margin: 0;">${responseSname}</h2>
-                    <p style="font-size: 1.2rem; margin: 5px 0;">Service: ${response.ticket.ticketservice}</p>
-                    <div style="font-size: 3rem; font-weight: bold; color: red; margin: 10px 0;">${response.ticket.ticketservice}${response.ticket.ticketnum}</div>
-                    <img src="${response.ticket.qrCode}" alt="QR" style="width: 180px; height: 180px;">
-                    <div><strong>Generated:</strong> ${response.ticket.time}</div>
-                    <div style="margin-top: 15px; font-weight: bold;">Expiry: ${expiryTime}</div>
-                </div>
+                        const responseSname = response.ticket.sname?.replace(/_/g, ' ') || '';
+                        const expiryTime = new Date(new Date().getTime() + response.ticket.expiryMinutes * 60000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-                <button id="download-btn" style="margin-top: 20px; padding: 12px 20px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
-                    📥 Download Full Ticket
-                </button>
-            `,
-            didRender: () => {
-                // Add click listener to the download button inside the Swal
-                document.getElementById('download-btn').addEventListener('click', function() {
-                    html2canvas(document.querySelector("#ticket-to-print")).then(canvas => {
-                        const link = document.createElement('a');
-                        link.download = `Ticket_${response.ticket.ticketnum}.png`;
-                        link.href = canvas.toDataURL("image/png");
-                        link.click();
-                    });
-                });
-            },
-            confirmButtonText: 'Close',
-            allowOutsideClick: false
-        }).then(() => {
-            $("#servicesbox, #priorityServices").fadeOut(200);
-            $(".category-container").fadeIn(200);
-            selectedType = null;
-        });
-    }
-},
+                        Swal.fire({
+                            title: "Ticket Issued",
+                            width: "500px",
+                            html: `
+                                <div id="ticket-to-print" style="border: 2px dashed #333; padding: 20px; background: white; text-align: center; color: black;">
+                                    <h2 style="margin: 0;">${responseSname}</h2>
+                                    <p style="font-size: 1.2rem; margin: 5px 0;">Service: ${response.ticket.ticketservice}</p>
+                                    <div style="font-size: 3rem; font-weight: bold; color: red; margin: 10px 0;">${response.ticket.ticketservice}${response.ticket.ticketnum}</div>
+                                    <img src="${response.ticket.qrCode}" alt="QR" style="width: 180px; height: 180px;">
+                                   <div><strong>Generated:</strong> ${formatTo12Hour(response.ticket.time)}</div>
+                                    <div style="margin-top: 15px; font-weight: bold;">Expiry: ${expiryTime}</div>
+                                </div>
+
+                                <button id="download-btn" style="margin-top: 20px; padding: 12px 20px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                                    📥 Download Full Ticket
+                                </button>
+                            `,
+                            didRender: () => {
+                                // Add click listener to the download button inside the Swal
+                                document.getElementById('download-btn').addEventListener('click', function() {
+                                    html2canvas(document.querySelector("#ticket-to-print")).then(canvas => {
+                                        const link = document.createElement('a');
+                                        link.download = `Ticket_${response.ticket.ticketnum}.png`;
+                                        link.href = canvas.toDataURL("image/png");
+                                        link.click();
+                                    });
+                                });
+                            },
+                            confirmButtonText: 'Close',
+                            allowOutsideClick: false
+                        }).then(() => {
+                            $("#servicesbox, #priorityServices").fadeOut(200);
+                            $(".category-container").fadeIn(200);
+                            selectedType = null;
+                        });
+                    }
+                },
             error: function (xhr) {
                 const errorMsg = xhr.responseJSON?.error || 'Failed to generate ticket';
                 Swal.fire({
@@ -143,6 +144,19 @@ socket.on('service_update', async function () {
 
     setServicesKiosk(services.length);
 }
+
+function formatTo12Hour(timeStr) {
+    // expects "HH:MM" or "HH:MM:SS"
+    const [hourStr, minute] = timeStr.split(':');
+
+    let hour = parseInt(hourStr, 10);
+    const ampm = hour >= 12 ? 'PM' : 'AM';
+
+    hour = hour % 12;
+    hour = hour ? hour : 12; // 0 becomes 12
+
+    return `${hour.toString().padStart(2, '0')}:${minute} ${ampm}`;
+}
     function setServicesKiosk(count) {
         if (count > 0 && count <= 6) {
             $(".service-button").css({ "height": "40%" });
@@ -155,4 +169,20 @@ socket.on('service_update', async function () {
         }
     }
 });
+
+function clearSessionAndReload() {
+    // 1. Clear all cookies for current domain
+    document.cookie.split(";").forEach(function (c) {
+        document.cookie = c
+            .replace(/^ +/, "")
+            .replace(/=.*/, "=;expires=" + new Date(0).toUTCString() + ";path=/");
+    });
+
+    // 2. Clear localStorage & sessionStorage (optional but recommended)
+    localStorage.clear();
+    sessionStorage.clear();
+
+    // 3. Force reload WITHOUT cache
+    window.location.reload(true);
+}
 
