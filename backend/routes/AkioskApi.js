@@ -1,13 +1,14 @@
+const rootpath = global.BACKEND_PATH;
+
 const express = require('express');
 const path = require('path');
 const fs = require("fs");
 const QRCode = require('qrcode');
-const { kioskLimiter } = require("../utilities/rateLimiter");
+const { kioskLimiter } = require(`${rootpath}/utilities/rateLimiter`);
 
 module.exports = function createKioskApiRouter(io) {
   const router = express.Router();
 
-  const rootpath = global.BACKEND_PATH;
   const db = require(path.join(rootpath, 'utilities/db'));
   const { getPHDateTime } = require(path.join(rootpath, 'utilities/datetime'));
   const footerPath = path.join(rootpath, "/config/footer.json");
@@ -54,15 +55,14 @@ module.exports = function createKioskApiRouter(io) {
       );
 
       const crypto = require('crypto');
-      const randomCode = crypto.randomBytes(8).toString('hex'); // 16 characters
-
+      let randomCode = null;
       let qrCodeDataUrl = null;
       let finalstats;
 
       if(stats === "online"){
         finalstats = "online_reserved";
-
         try {
+          randomCode = crypto.randomBytes(16).toString('hex');
           qrCodeDataUrl = await QRCode.toDataURL(randomCode);
         } catch (qrErr) {
           console.error("QR Generation Error:", qrErr);
@@ -70,15 +70,16 @@ module.exports = function createKioskApiRouter(io) {
       }
       if(stats === "onprem"){
         finalstats = "pending";
+        randomCode = "on-prem";
       }
       const nextTicket = (row?.maxTicket || 0) + 1;
       const history = `[${time}-Kiosk-Inserted]`;
 
       // Insert new ticket
       const result = await db.runAsync(
-        `INSERT INTO transactions (ticketnum, sname, ticketservice, status, date, time, history, priority)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-        [nextTicket, sname, ticketservice, finalstats, date, time, history, selectedType]
+        `INSERT INTO transactions (ticketnum, sname, ticketservice, status, date, time, history, priority, ticket_secret)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [nextTicket, sname, ticketservice, finalstats, date, time, history, selectedType, randomCode]
       );
 
         try {
