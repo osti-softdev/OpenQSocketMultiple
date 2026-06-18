@@ -349,6 +349,12 @@ function saveItem() {
                 $('#modal-overlay').hide();
                 loadServices();
                 showMsg('success', 'Service saved successfully');
+            },
+            error: (xhr) => {
+                showMsg(
+                    'error',
+                    xhr.responseJSON?.error || 'Operation Failed.'
+                );
             }
         });
     }
@@ -413,8 +419,10 @@ function saveItem() {
                 showMsg('success', 'Teller saved successfully');
             },
             error: (xhr) => {
-                console.error(xhr.responseText);
-                showMsg('error', 'Failed to save teller');
+                showMsg(
+                    'error',
+                    xhr.responseJSON?.error || 'Operation Failed.'
+                );
             }
         });
     }
@@ -468,8 +476,10 @@ function saveItem() {
                 showMsg('success', 'Account saved successfully');
             },
             error: (xhr) => {
-                console.error(xhr.responseText);
-                showMsg('error', 'Failed to save account');
+                showMsg(
+                    'error',
+                    xhr.responseJSON?.error || 'Operation Failed.'
+                );
             }
         });
     }
@@ -491,6 +501,12 @@ function saveItem() {
                 $('#modal-overlay').hide();
                 loadGroups();
                 showMsg('success', 'Group created successfully');
+            },
+            error: (xhr) => {
+                showMsg(
+                    'error',
+                    xhr.responseJSON?.error || 'Operation Failed.'
+                );
             }
         });
     }
@@ -515,3 +531,5 @@ function logout() {
         window.location.href = '/admin';
     });
 }
+
+

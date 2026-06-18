@@ -44,13 +44,7 @@ function deleteGroup(id) {
                     });
                     loadGroups();
                 },
-                error: function () {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'Something went wrong while deleting.'
-                    });
-                }
+                error: showAjaxError
             });
         }
     });

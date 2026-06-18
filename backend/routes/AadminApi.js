@@ -384,7 +384,7 @@ module.exports = function createTellerApiRouter(io) {
   });
   
   // & Delete Service
-  router.delete('/admin/services/:id', (req, res) => {
+  router.delete('/admin/services/:id', requireRole('superadmin'), (req, res) => {
         db.run('DELETE FROM services WHERE id = ?', [req.params.id], (err) => {
             if (err) return res.status(500).json({ error: err.message });
             res.json({ success: true });
@@ -421,7 +421,7 @@ module.exports = function createTellerApiRouter(io) {
   });
 
   // & Delete Group
-  router.delete('/admin/groups/:id', (req, res) => {
+  router.delete('/admin/groups/:id', requireRole('superadmin'), (req, res) => {
     db.run('DELETE FROM counter_groups WHERE id = ?', [req.params.id], (err) => {
         if (err) return res.status(500).json({ error: err.message });
         res.json({ success: true });
@@ -506,7 +506,7 @@ module.exports = function createTellerApiRouter(io) {
   });
 
   // & Delete Tellers
-  router.delete('/admin/tellers/:id', (req, res) => {
+  router.delete('/admin/tellers/:id', requireRole('superadmin'), (req, res) => {
     db.run('DELETE FROM counters WHERE id = ?', [req.params.id], (err) => {
         if (err) return res.status(500).json({ error: err.message });
         res.json({ success: true });
@@ -523,7 +523,7 @@ module.exports = function createTellerApiRouter(io) {
   });
 
   // & Add Accounts 
-  router.post('/admin/accounts', (req, res) => {
+  router.post('/admin/accounts', requireRole('superadmin'), (req, res) => {
     const { name, username, password, role, is_active } = req.body;
 
     if (!username || !password) {
@@ -555,7 +555,7 @@ module.exports = function createTellerApiRouter(io) {
   });
 
   //   & Edit Accounts
-  router.put('/admin/accounts/:id', (req, res) => {
+  router.put('/admin/accounts/:id', requireRole('superadmin'), (req, res) => {
     const { name, username, role, is_active, password } = req.body;
 
 
@@ -587,7 +587,7 @@ module.exports = function createTellerApiRouter(io) {
   });
 
   // & Delete Accounts
-  router.delete('/admin/accounts/:id', (req, res) => {
+  router.delete('/admin/accounts/:id', requireRole('superadmin'), (req, res) => {
     db.run('DELETE FROM accounts WHERE id = ?', [req.params.id], (err) => {
         if (err) return res.status(500).json({ error: err.message });
         res.json({ success: true });

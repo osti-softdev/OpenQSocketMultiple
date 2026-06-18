@@ -56,13 +56,7 @@ function deleteAccount(id) {
                     });
                     loadAccounts();
                 },
-                error: function () {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'Failed to delete the account.'
-                    });
-                }
+                error: showAjaxError
             });
         }
     });

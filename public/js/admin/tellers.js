@@ -57,13 +57,7 @@ function deleteTeller(id) {
                     });
                     loadTellers();
                 },
-                error: function () {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'Failed to delete the teller.'
-                    });
-                }
+                error: showAjaxError
             });
         }
     });

@@ -91,6 +91,11 @@ clearSessionAndReload();
                     if (response.success) {
                 console.log(response.ticket.expiryMinutes)
 
+                const today = new Date();
+
+                const dateString = today.toLocaleDateString();
+                console.log(dateString);
+
                         const responseSname = response.ticket.sname?.replace(/_/g, ' ') || '';
                         const expiryTime = new Date(new Date().getTime() + response.ticket.expiryMinutes * 60000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
@@ -103,7 +108,7 @@ clearSessionAndReload();
                                     <p style="font-size: 1.2rem; margin: 5px 0;">Service: ${response.ticket.ticketservice}</p>
                                     <div style="font-size: 3rem; font-weight: bold; color: red; margin: 10px 0;">${response.ticket.ticketservice}${response.ticket.ticketnum}</div>
                                     <img src="${response.ticket.qrCode}" alt="QR" style="width: 180px; height: 180px;">
-                                   <div><strong>Generated:</strong> ${formatTo12Hour(response.ticket.time)}</div>
+                                   <div><strong>Generated:</strong>${formatTo12Hour(response.ticket.time)}</div>
                                     <div style="margin-top: 15px; font-weight: bold;">Expiry: ${expiryTime}</div>
                                 </div>
 
@@ -182,7 +187,5 @@ function clearSessionAndReload() {
     localStorage.clear();
     sessionStorage.clear();
 
-    // 3. Force reload WITHOUT cache
-    window.location.reload(true);
 }
 
