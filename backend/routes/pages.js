@@ -26,7 +26,7 @@ function requireAuth(req, res, next) {
   pageRouter.get('/admin', (req, res) => {
     res.sendFile(path.join(rootpath, 'public/html', 'admin_login.html'));
   });
-  pageRouter.get('/admin/dashboard', (req, res) => {
+  pageRouter.get('/admin/dashboard',  (req, res) => {
     res.sendFile(path.join(rootpath, 'public/html', 'admin.html'));
   });
   pageRouter.get("/312xdashboard", requireAuth, (req, res) => {

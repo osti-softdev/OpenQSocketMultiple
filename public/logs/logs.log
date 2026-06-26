@@ -13089,3 +13089,126 @@
 ✔ 2026-06-18T02:16:27.245Z [node:events:508] [ADS] Client connected: sEAwCObyXZSo6W52AAAL
 ✔ 2026-06-18T02:52:39.506Z [node:events:508] [ADS] Client disconnected: sHrhHARszH9SakD6AAAD
 ✔ 2026-06-18T02:52:41.241Z [node:events:508] [ADS] Client disconnected: 7FuLeHoEesE9ArZrAAAH
+✔ 2026-06-19T07:54:06.024Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-06-19T07:54:06.282Z [node_modules\dotenv\lib\main.js:142] [dotenv@17.2.4] injecting env (4) from backend\config\.env [2m-- tip: ⚙️  enable debug logging with { debug: true }[0m
+✔ 2026-06-19T07:54:07.538Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-06-19T07:54:07.648Z [unknown-location] Connected to SQLite database
+✔ 2026-06-19T07:54:17.585Z [node:events:508] [ADS] Client connected: 3FK_eSDjkB0To5BmAAAB
+✔ 2026-06-19T07:54:26.819Z [node:events:508] [ADS] Client disconnected: 3FK_eSDjkB0To5BmAAAB
+✔ 2026-06-19T07:54:27.721Z [node:events:508] [ADS] Client connected: dj_lSSfr5i6e21zEAAAD
+✔ 2026-06-19T07:54:41.077Z [backend\routes\AadminApi.js:26] Login attempt for: admin
+✔ 2026-06-19T07:54:41.079Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-06-19T07:54:41.079Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-06-19T07:54:42.692Z [node:events:508] [ADS] Client connected: m0Ekl82qZPt1OhSsAAAF
+✔ 2026-06-19T07:54:54.743Z [node:events:508] [ADS] Client disconnected: m0Ekl82qZPt1OhSsAAAF
+✔ 2026-06-19T07:54:59.712Z [node:events:508] [ADS] Client connected: EE5a4aHhn5wX9NtOAAAH
+✔ 2026-06-19T07:55:01.106Z [node:events:508] [ADS] Client disconnected: EE5a4aHhn5wX9NtOAAAH
+✔ 2026-06-19T07:55:38.393Z [node:events:508] [ADS] Client connected: AvdDAC7mMmhdGYo_AAAJ
+✔ 2026-06-19T07:55:52.940Z [node:events:508] [ADS] Client disconnected: AvdDAC7mMmhdGYo_AAAJ
+✔ 2026-06-19T08:07:40.286Z [node:events:508] [ADS] Client connected: rKWOC362IuXM6Ow_AADT
+✔ 2026-06-19T08:07:45.632Z [node:events:508] [ADS] Client disconnected: rKWOC362IuXM6Ow_AADT
+✔ 2026-06-19T08:07:46.305Z [node:events:508] [ADS] Client connected: vL_5aTyqKTdKX3ZPAADV
+✔ 2026-06-19T08:07:47.721Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-19T08:08:11.533Z [node:events:508] [ADS] Client disconnected: vL_5aTyqKTdKX3ZPAADV
+✔ 2026-06-19T08:08:12.261Z [node:events:508] [ADS] Client connected: 9kyP44sj5b59d0w5AADX
+✔ 2026-06-19T08:08:30.037Z [node:events:508] [ADS] Client connected: BVcUFqg8oEOKtEWEAADZ
+✔ 2026-06-19T08:08:35.677Z [node:events:508] [ADS] Client disconnected: BVcUFqg8oEOKtEWEAADZ
+✔ 2026-06-19T08:08:36.040Z [node:events:508] [ADS] Client connected: w_FukB02CP69Bot6AADb
+✔ 2026-06-19T08:08:39.274Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-19T08:08:57.121Z [node:events:508] [ADS] Client disconnected: 9kyP44sj5b59d0w5AADX
+✔ 2026-06-19T08:09:08.297Z [node:events:508] [ADS] Client connected: kf9rwgjd3amlQ9IHAADd
+✔ 2026-06-19T08:09:13.628Z [node:events:508] [ADS] Client disconnected: w_FukB02CP69Bot6AADb
+✔ 2026-06-19T08:09:20.594Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-19T08:09:23.153Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-19T08:09:25.787Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-19T08:09:27.571Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-19T08:10:12.017Z [node:events:508] [ADS] Client connected: SoItqAPYTMP_PKnRAADf
+✔ 2026-06-19T08:10:13.991Z [node:events:508] [ADS] Client disconnected: SoItqAPYTMP_PKnRAADf
+✔ 2026-06-19T08:10:14.188Z [node:events:508] [ADS] Client connected: RcKPAqYANtV-tYFsAADh
+✔ 2026-06-19T08:10:16.323Z [node:events:508] [ADS] Client disconnected: kf9rwgjd3amlQ9IHAADd
+✔ 2026-06-19T08:10:17.291Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-19T08:10:18.896Z [node:events:508] [ADS] Client connected: zvtDgao1VS3ZxWTbAADj
+✔ 2026-06-19T08:10:20.454Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-19T08:10:22.109Z [node:events:508] [ADS] Client connected: 4D1-gOy5N9X9hSO9AADl
+✔ 2026-06-19T08:10:25.396Z [node:events:508] [ADS] Client connected: _8wv6sm1leGdzASBAADn
+✔ 2026-06-19T08:10:26.223Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-19T08:10:27.029Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-19T08:10:27.128Z [node:events:508] [ADS] Client connected: 3zx1W2hTcXnstEAEAADp
+✔ 2026-06-19T08:10:27.520Z [node:events:508] [ADS] Client disconnected: RcKPAqYANtV-tYFsAADh
+✔ 2026-06-19T08:10:28.297Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-19T08:10:29.628Z [node:events:508] [ADS] Client disconnected: 3zx1W2hTcXnstEAEAADp
+✔ 2026-06-19T08:10:29.885Z [node:events:508] [ADS] Client connected: QW37yWda4pQddn4CAADr
+✔ 2026-06-19T08:10:30.841Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-19T08:10:35.914Z [node:events:508] [ADS] Client disconnected: QW37yWda4pQddn4CAADr
+✔ 2026-06-19T08:10:36.097Z [node:events:508] [ADS] Client connected: CbHxNjYS7qIvi-BlAADt
+✔ 2026-06-19T08:10:36.718Z [node:events:508] [ADS] Client disconnected: zvtDgao1VS3ZxWTbAADj
+✔ 2026-06-19T08:10:36.906Z [node:events:508] [ADS] Client connected: Lt1x1CEHvDbO4z5RAADv
+✔ 2026-06-19T08:10:37.264Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-19T08:10:39.220Z [node:events:508] [ADS] Client connected: Wjhwh0zWE5o787SPAADx
+✔ 2026-06-19T08:10:39.222Z [node:events:508] [ADS] Client disconnected: CbHxNjYS7qIvi-BlAADt
+✔ 2026-06-19T08:10:40.256Z [node:events:508] [ADS] Client disconnected: 4D1-gOy5N9X9hSO9AADl
+✔ 2026-06-19T08:10:40.324Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-19T08:10:40.507Z [node:events:508] [ADS] Client connected: jL-Sd5BxZ98xBiNrAADz
+✔ 2026-06-19T08:10:41.541Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-19T08:10:42.293Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-19T08:10:42.909Z [node:events:508] [ADS] Client disconnected: Wjhwh0zWE5o787SPAADx
+✔ 2026-06-19T08:10:43.151Z [node:events:508] [ADS] Client connected: BQWtGZCOuIrgfh5uAAD1
+✔ 2026-06-19T08:10:43.638Z [node:events:508] [ADS] Client disconnected: jL-Sd5BxZ98xBiNrAADz
+✔ 2026-06-19T08:10:43.643Z [node:events:508] [ADS] Client disconnected: Lt1x1CEHvDbO4z5RAADv
+✔ 2026-06-19T08:10:43.793Z [node:events:508] [ADS] Client connected: ZkFTRXOR0DaVapA6AAD3
+✔ 2026-06-19T08:10:44.044Z [node:events:508] [ADS] Client connected: fUfqm3KXscrp9zV1AAD5
+✔ 2026-06-19T08:10:44.147Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-19T08:10:44.798Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-19T08:10:45.447Z [node:events:508] [ADS] Client disconnected: BQWtGZCOuIrgfh5uAAD1
+✔ 2026-06-19T08:10:45.617Z [node:events:508] [ADS] Client connected: ogEkv7IpNHM6h0R2AAD7
+✔ 2026-06-19T08:10:46.236Z [node:events:508] [ADS] Client disconnected: ZkFTRXOR0DaVapA6AAD3
+✔ 2026-06-19T08:10:46.393Z [node:events:508] [ADS] Client connected: E737aaE93fOmL6LMAAD9
+✔ 2026-06-19T08:10:46.596Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-19T08:10:47.287Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-19T08:10:49.353Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-19T08:10:57.486Z [node:events:508] [ADS] Client disconnected: _8wv6sm1leGdzASBAADn
+✔ 2026-06-19T08:10:57.905Z [node:events:508] [ADS] Client disconnected: E737aaE93fOmL6LMAAD9
+✔ 2026-06-19T08:10:57.978Z [node:events:508] [ADS] Client disconnected: ogEkv7IpNHM6h0R2AAD7
+✔ 2026-06-19T08:10:58.026Z [node:events:508] [ADS] Client disconnected: fUfqm3KXscrp9zV1AAD5
+✔ 2026-06-19T08:12:22.723Z [node:events:508] [ADS] Client disconnected: dj_lSSfr5i6e21zEAAAD
+✔ 2026-06-19T08:16:52.900Z [backend\routes\AadminApi.js:26] Login attempt for: admin
+✔ 2026-06-19T08:16:52.901Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-06-19T08:16:52.901Z [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-06-19T08:16:54.442Z [backend\routes\AadminApi.js:26] Login attempt for: admin
+✔ 2026-06-19T08:16:54.443Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-06-19T08:16:54.443Z [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-06-19T08:16:57.947Z [backend\routes\AadminApi.js:26] Login attempt for: admin
+✔ 2026-06-19T08:16:57.948Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-06-19T08:16:57.948Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-06-19T08:16:58.698Z [node:events:508] [ADS] Client connected: urjtHIiPKRLrwHULAAD_
+✔ 2026-06-19T08:28:16.476Z [backend\routes\AadminApi.js:26] Login attempt for: admin
+✔ 2026-06-19T08:28:16.476Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-06-19T08:28:16.476Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-06-19T08:28:17.670Z [node:events:508] [ADS] Client connected: PnBOm63jgt0b_tnTAAEB
+✔ 2026-06-19T08:28:53.557Z [node:events:508] [ADS] Client connected: 62lqNEBdFRApl3V7AAED
+✔ 2026-06-19T08:28:54.871Z [node:events:508] [ADS] Client connected: 6kp9LPoQOFQqO2WQAAEF
+✔ 2026-06-19T08:29:02.470Z [backend\routes\AadminApi.js:26] Login attempt for: admin
+✔ 2026-06-19T08:29:02.480Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-06-19T08:29:02.483Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-06-19T08:29:04.611Z [node:events:508] [ADS] Client connected: 2Vs1KFVcs4sqU3RFAAEH
+✔ 2026-06-19T08:29:14.909Z [node:events:508] [ADS] Client disconnected: 2Vs1KFVcs4sqU3RFAAEH
+✔ 2026-06-19T08:29:38.446Z [node:events:508] [ADS] Client disconnected: 62lqNEBdFRApl3V7AAED
+✔ 2026-06-19T08:29:39.841Z [node:events:508] [ADS] Client disconnected: 6kp9LPoQOFQqO2WQAAEF
+✔ 2026-06-19T08:33:59.942Z [node:events:508] [ADS] Client connected: bbqp6l1ZgUkTHgt7AAEJ
+✔ 2026-06-19T08:34:00.145Z [node:events:508] [ADS] Client disconnected: bbqp6l1ZgUkTHgt7AAEJ
+✔ 2026-06-19T08:34:25.592Z [node:events:508] [ADS] Client connected: gyRqspTAqKEm0DN7AAEL
+✔ 2026-06-19T08:34:25.794Z [node:events:508] [ADS] Client disconnected: gyRqspTAqKEm0DN7AAEL
+✔ 2026-06-23T02:29:18.482Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-06-23T02:29:18.669Z [node_modules\dotenv\lib\main.js:131] ◇ injected env (4) from backend\config\.env [2m// tip: ⌘ multiple files { path: ['.env.local', '.env'] }[0m
+✔ 2026-06-23T02:29:19.716Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-06-23T02:29:19.718Z [unknown-location] Connected to SQLite database
+✔ 2026-06-23T02:30:29.859Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-06-23T02:30:29.921Z [node_modules\dotenv\lib\main.js:131] ◇ injected env (4) from backend\config\.env [2m// tip: ◈ encrypted .env [www.dotenvx.com][0m
+✔ 2026-06-23T02:30:30.323Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-06-23T02:30:30.329Z [unknown-location] Connected to SQLite database
+✔ 2026-06-23T02:30:40.102Z [backend\routes\AadminApi.js:26] Login attempt for: admin
+✔ 2026-06-23T02:30:40.103Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-06-23T02:30:40.104Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-06-23T02:30:40.498Z [node:events:508] [ADS] Client connected: 4xm_Ja_I7w9r6iIXAAAB
+✔ 2026-06-23T02:33:58.153Z [node:events:508] [ADS] Client disconnected: 4xm_Ja_I7w9r6iIXAAAB
+✔ 2026-06-23T02:50:04.753Z [node:events:508] [ADS] Client connected: x0fHkmP64JG6TP-vAAAD
