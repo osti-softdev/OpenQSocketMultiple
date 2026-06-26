@@ -46,6 +46,7 @@ appExpress.use(express.urlencoded({ extended: true }));
 appExpress.use((req, res, next) => {
     express.static(path.join(rootpath, 'public'))(req, res, next);
 });
+
 appExpress.use('/ads', express.static(path.join(__dirname, 'public/ads'), {
   setHeaders: (res, path) => {
     if (path.endsWith('.mp4')) {

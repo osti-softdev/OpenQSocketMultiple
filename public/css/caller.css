@@ -20,6 +20,47 @@ body {
   min-height: 100vh;
 }
 
+/*
+ * Font Definitions: KEEPING THESE AS THEY ARE CRITICAL
+ */
+@font-face {
+  font-family: "Material Symbols Outlined";
+  src: url("/libs/icons/Material_Symbols_Outlined/MaterialSymbolsOutlined-VariableFont_FILL,GRAD,opsz,wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Material Symbols Rounded";
+  src: url("/libs/icons/Material_Symbols_Rounded/MaterialSymbolsRounded-VariableFont_FILL,GRAD,opsz,wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Material Symbols Sharp";
+  src: url("/libs/icons/Material_Symbols_Sharp/MaterialSymbolsSharp-VariableFont_FILL,GRAD,opsz,wght.ttf") format("truetype");
+}
+/* Base Variable Font Settings */
+.material-symbols-outlined,
+.material-symbols-rounded,
+.material-symbols-sharp {
+  /* These are the default settings (FILL 0, Wght 400, Opsz 24) */
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  word-wrap: break-word;
+  font-style: normal;
+}
+
+/* Specific Font Families */
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+}
+
+.material-symbols-rounded {
+  font-family: "Material Symbols Rounded";
+}
+
+.material-symbols-sharp {
+  font-family: "Material Symbols Sharp";
+}
+
 .loginPage {
   display: flex;
   justify-content: center;
@@ -88,7 +129,7 @@ body {
 .tellerPage .tellerNav .callerTitle {
   color: white;
 }
-.tellerPage .tellerNav .dashboardBtn {
+.tellerPage .tellerNav .reportbtn {
   position: absolute;
   right: 15%;
   width: 15%;

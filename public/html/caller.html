@@ -8,19 +8,6 @@
     <link rel="stylesheet" href="/css/caller.css">
     <script src="/libs/jquery-3.7.1.js"></script>
     <script src="/libs/sweetalert2@11.js"></script>
-
-    <script src="/libs/jquery-ui-1.14.1/jquery-ui.js"></script>
-      <link rel="stylesheet" href="/libs/jquery-ui-1.14.1/jquery-ui.css">
-    <script src="/libs/jquery.dataTables.min.js"></script>
-      <link rel="stylesheet" href="/libs/jquery.dataTables.min.css">
-    <script src="/libs/chart.min.js"></script>
-    <script src="/libs/chartjs-plugin-datalabels.min.js"></script>
-    <script src="/libs/chartjs-plugin-zoom.min.js"></script>
-    <script src="/libs/jspdf.umd.min.js"></script>
-    <script src="/libs/jspdf.plugin.autotable.min.js"></script>
-    <script src="/libs/xlsx.full.min.js"></script>
-    <script src="/libs/notify.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
 </head>
 <body onselectstart="return false">
 </body>
@@ -55,7 +42,7 @@
                 </div>
             </div>
             <h1 class="callerTitle">Dashboard</h1>
-            <div class="reportbtn btn btn-info">Report</div>
+            <!-- <div class="dashboardBtn btn btn-info">Dashboard</div> -->
             <div class="historyBtn historyTickets btn btn-danger">History</div>
         </div>
         <div class="tellerContent" id="tellerContent">
@@ -212,9 +199,9 @@
             </div>
         </div>
     </section>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="/js/teller/caller.js"></script>
     <script src="/js/teller/callerFunctions.js"></script>
-    <script src="/js/teller/repexport.js"></script>
     <script src="/js/alert.js"></script>
 </html>
     

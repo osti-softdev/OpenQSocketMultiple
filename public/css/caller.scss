@@ -17,6 +17,7 @@ body {
     color: #111827;
     min-height: 100vh;
 }
+@import "materialicons";
 .loginPage {
     display: flex;
     justify-content: center;
@@ -91,7 +92,7 @@ body {
             color: white;
         }
 
-        .dashboardBtn{
+        .reportbtn{
             position: absolute;
             right: 15%;
             width: 15%;
@@ -109,7 +110,6 @@ body {
             align-items: center;
             transform: scale(0.9);
         }        
-
 
         .teller-info{
             position: absolute;

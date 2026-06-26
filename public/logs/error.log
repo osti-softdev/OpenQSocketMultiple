@@ -368,3 +368,101 @@
 ❌ 2026-06-17T05:49:09.291Z [backend\routes\AonlineKioskApi.js:55] Ticket expired. Valid only for 20 minutes.
 ❌ 2026-06-17T05:51:26.611Z [backend\routes\AonlineKioskApi.js:61] Ticket expired. Valid only for 20 minutes.
 ❌ 2026-06-17T05:53:11.527Z [backend\routes\AonlineKioskApi.js:61] Ticket expired. Valid only for 20 minutes.
+❌ 2026-06-26T07:06:15.298Z [node_modules\express-rate-limit\dist\index.cjs:210] ValidationError: Invalid windowMs value: 6000000000000, must be a number between 1 and 2147483647 when using the default MemoryStore See https://express-rate-limit.github.io/ERR_ERL_WINDOW_MS/ for more information.
+    at Object.windowMs (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\express-rate-limit\dist\index.cjs:668:13)
+    at wrappedValidations.<computed> [as windowMs] (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\express-rate-limit\dist\index.cjs:704:22)
+    at MemoryStore.init (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\express-rate-limit\dist\index.cjs:74:23)
+    at rateLimit (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\express-rate-limit\dist\index.cjs:866:38)
+    at Object.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\rateLimiter.js:7:20)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14) {
+  code: 'ERR_ERL_WINDOW_MS',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_WINDOW_MS/'
+}
+❌ 2026-06-26T07:06:15.727Z [node:events:508] (node:16856) TimeoutOverflowWarning: 6000000000000 does not fit into a 32-bit signed integer.
+Timeout duration was set to 1.
+(Use `node --trace-warnings ...` to show where the warning was created)
+❌ 2026-06-26T07:39:41.128Z [backend\routes\teller\tellerserviceswatcher.js:1056] ❌ Error fetching teller services: Error: SQLITE_ERROR: no such column: sgroup
+--> in Database#all('\n' +
+  '      SELECT \n' +
+  '        id,\n' +
+  '        ticketnum,\n' +
+  '        ticketservice,\n' +
+  '        status,\n' +
+  '        counter_num,\n' +
+  '        counter_user,\n' +
+  '        history,\n' +
+  '        counter_group,\n' +
+  '        start_time,\n' +
+  '        end_time\n' +
+  '      FROM transactions\n' +
+  '      WHERE date = ?\n' +
+  '        AND (sgroup = ? OR history LIKE ?)\n' +
+  '      ORDER BY start_time DESC\n' +
+  '    ', [ '2026-06-26', 'CASHIER', '%-TELLER 1-%' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\teller\tellerserviceswatcher.js:1005:8
+    at new Promise (<anonymous>)
+    at getallTransactions (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\teller\tellerserviceswatcher.js:979:10)
+    at sendcalledticket (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\teller\tellerserviceswatcher.js:1053:37)
+    at async Socket.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\teller\tellerserviceswatcher.js:1029:5) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-06-26T07:40:53.972Z [backend\routes\teller\tellerserviceswatcher.js:1056] ❌ Error fetching teller services: Error: SQLITE_ERROR: no such column: sgroup
+--> in Database#all('\n' +
+  '      SELECT \n' +
+  '        id,\n' +
+  '        ticketnum,\n' +
+  '        ticketservice,\n' +
+  '        status,\n' +
+  '        counter_num,\n' +
+  '        counter_user,\n' +
+  '        history,\n' +
+  '        counter_group,\n' +
+  '        start_time,\n' +
+  '        end_time\n' +
+  '      FROM transactions\n' +
+  '      WHERE date = ?\n' +
+  '        AND (sgroup = ? OR history LIKE ?)\n' +
+  '      ORDER BY start_time DESC\n' +
+  '    ', [ '2026-06-26', 'CASHIER', '%-TELLER 1-%' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\teller\tellerserviceswatcher.js:1005:8
+    at new Promise (<anonymous>)
+    at getallTransactions (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\teller\tellerserviceswatcher.js:979:10)
+    at sendcalledticket (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\teller\tellerserviceswatcher.js:1053:37)
+    at async Socket.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\teller\tellerserviceswatcher.js:1029:5) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-06-26T07:46:30.877Z [backend\routes\teller\tellerserviceswatcher.js:1056] ❌ Error fetching teller services: Error: SQLITE_ERROR: no such column: sgroup
+--> in Database#all('\n' +
+  '      SELECT \n' +
+  '        id,\n' +
+  '        ticketnum,\n' +
+  '        ticketservice,\n' +
+  '        status,\n' +
+  '        counter_num,\n' +
+  '        counter_user,\n' +
+  '        history,\n' +
+  '        counter_group,\n' +
+  '        start_time,\n' +
+  '        end_time\n' +
+  '      FROM transactions\n' +
+  '      WHERE date = ?\n' +
+  '        AND (sgroup = ? OR history LIKE ?)\n' +
+  '      ORDER BY start_time DESC\n' +
+  '    ', [ '2026-06-26', 'CASHIER', '%-TELLER 1-%' ], [Function (anonymous)])
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\teller\tellerserviceswatcher.js:1005:8
+    at new Promise (<anonymous>)
+    at getallTransactions (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\teller\tellerserviceswatcher.js:979:10)
+    at sendcalledticket (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\teller\tellerserviceswatcher.js:1053:37)
+    at async Socket.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\teller\tellerserviceswatcher.js:1029:5) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}

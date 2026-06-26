@@ -23,6 +23,11 @@ function requireAuth(req, res, next) {
   pageRouter.get("/312Xtellerlogin", (req, res) => {
     res.sendFile(path.join(rootpath, "public/html","caller.html"));
   });
+
+  pageRouter.get("/booticons", (req, res) => {
+    res.sendFile(path.join(rootpath, 'public/html',"icon.html"));
+  });
+
   pageRouter.get('/admin', (req, res) => {
     res.sendFile(path.join(rootpath, 'public/html', 'admin_login.html'));
   });
