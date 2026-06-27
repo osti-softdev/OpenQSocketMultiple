@@ -9,6 +9,7 @@ function checkSession() {
                     return;
                 }
                 currentTeller = response.teller;
+                setAuthUser(currentTeller);
                 showTellerSection();
                 initDashboard();
             } else {
@@ -57,7 +58,7 @@ $('#auto-call-btn').click(function () {
 });
 // ^ DISPLAY LOGIN SECTION
 function showLoginSection() {
-    $('#loginSec').show();
+    window.location.href = '/312Xtellerlogin';
     $('#tellerSec').hide();
     $('#username').val('');
     $('#password').val('');

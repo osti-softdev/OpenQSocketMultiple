@@ -8,30 +8,13 @@
     <link rel="stylesheet" href="/css/caller.css">
     <script src="/libs/jquery-3.7.1.js"></script>
     <script src="/libs/sweetalert2@11.js"></script>
+    <script src="/libs/charts.js"></script>
+    <script src="/libs/chartjs-plugin-datalabels.min.js"></script>
+    <script src="/libs/jspdf.umd.min.js"></script>
+    <script src="/libs/jspdf.plugin.autotable.min.js"></script>
+    <script src="/libs/xlsx.full.min.js"></script>
 </head>
 <body onselectstart="return false">
-</body>
-    <section id="loginSec" class="loginPage">
-        <div class="login-card">
-            <div class="login-header">
-                <div class="logo">SimpleQ</div>
-                <h1>Teller Portal</h1>
-                <p>Please sign in to your counter</p>
-            </div>
-            <form id="login-form">
-                <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" id="username" placeholder="Enter your username" required>
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" id="password" placeholder="••••••••" required>
-                </div>
-                <button type="submit" class="btn btn-primary w-full shadow-lg">Sign In</button>
-            </form>
-            <div id="login-error" class="error-text"></div>
-        </div>
-    </section>
     <section id="tellerSec" class="tellerPage" style="display: none;">
         <div class="tellerNav">
             <div class="teller-info">
@@ -42,7 +25,10 @@
                 </div>
             </div>
             <h1 class="callerTitle">Dashboard</h1>
-            <!-- <div class="dashboardBtn btn btn-info">Dashboard</div> -->
+            <button id="theme-toggle" class="themeToggle" type="button" aria-label="Switch to dark mode" title="Toggle theme">
+                <span class="material-symbols-outlined theme-icon">dark_mode</span>
+            </button>
+            <div class="reportbtn btn btn-info">Report</div>
             <div class="historyBtn historyTickets btn btn-danger">History</div>
         </div>
         <div class="tellerContent" id="tellerContent">
@@ -202,6 +188,8 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/teller/caller.js"></script>
     <script src="/js/teller/callerFunctions.js"></script>
+    <script src="/js/teller/exportreport.js"></script>
     <script src="/js/alert.js"></script>
+</body>
 </html>
     

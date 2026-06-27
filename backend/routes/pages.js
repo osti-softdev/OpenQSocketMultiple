@@ -4,6 +4,11 @@ const rootpath = global.ROOT_PATH;
 const pageRouter = express.Router();
 const jwt = require("jsonwebtoken");
 const { loadConfig } = require(`${rootpath}/backend/utilities/envconfig`);
+function requireTellerAuth(req, res, next) {
+  if (!req.session?.teller) return res.redirect("/312Xtellerlogin");
+  next();
+}
+
 function requireAuth(req, res, next) {
   const token = req.cookies?.auth;
   if (!token) return res.redirect("/312Xadmin");
@@ -21,6 +26,10 @@ function requireAuth(req, res, next) {
     res.sendFile(path.join(rootpath, "public/html","kiosk.html"));
   });
   pageRouter.get("/312Xtellerlogin", (req, res) => {
+    if (req.session?.teller) return res.redirect("/caller");
+    res.sendFile(path.join(rootpath, "public/html","caller_login.html"));
+  });
+  pageRouter.get("/caller", requireTellerAuth, (req, res) => {
     res.sendFile(path.join(rootpath, "public/html","caller.html"));
   });
 

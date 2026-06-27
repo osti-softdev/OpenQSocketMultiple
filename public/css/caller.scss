@@ -912,3 +912,682 @@ body {
         }
     }
 }
+
+/* Responsive caller layout and theme overrides */
+:root {
+    --caller-bg: #eef2f7;
+    --caller-surface: #ffffff;
+    --caller-surface-strong: #f8fafc;
+    --caller-border: #d8dee8;
+    --caller-text: #172033;
+    --caller-muted: #64748b;
+    --caller-nav: #162033;
+    --caller-nav-text: #ffffff;
+    --caller-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+    --caller-primary: #2563eb;
+    --caller-success-soft: #dcfce7;
+    --caller-success-text: #14532d;
+    --caller-priority: #fee2e2;
+    --caller-priority-text: #991b1b;
+}
+
+body[data-theme="dark"] {
+    --caller-bg: #0f172a;
+    --caller-surface: #182235;
+    --caller-surface-strong: #111827;
+    --caller-border: #334155;
+    --caller-text: #e5edf8;
+    --caller-muted: #9ca3af;
+    --caller-nav: #060b14;
+    --caller-nav-text: #f8fafc;
+    --caller-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+    --caller-primary: #60a5fa;
+    --caller-success-soft: #143824;
+    --caller-success-text: #bbf7d0;
+    --caller-priority: #4a1f28;
+    --caller-priority-text: #fecdd3;
+}
+
+body {
+    background: var(--caller-bg);
+    color: var(--caller-text);
+}
+
+.tellerPage {
+    position: fixed;
+    inset: 0;
+    height: 100dvh;
+    width: 100%;
+    background: var(--caller-bg);
+    color: var(--caller-text);
+    overflow: hidden;
+
+    .tellerNav {
+        position: relative;
+        height: 72px;
+        background: var(--caller-nav);
+        color: var(--caller-nav-text);
+        display: grid;
+        grid-template-columns: minmax(190px, 1fr) auto auto auto auto;
+        gap: 12px;
+        align-items: center;
+        padding: 10px 16px;
+        overflow: visible;
+
+        .callerTitle {
+            color: var(--caller-nav-text);
+            font-size: 22px;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .teller-info {
+            position: static;
+            min-width: 0;
+            gap: 12px;
+
+            .avatar {
+                width: 48px;
+                height: 48px;
+                min-width: 48px;
+                border-radius: 8px;
+                font-size: 24px;
+            }
+
+            .teller-details {
+                min-width: 0;
+
+                .teller-username {
+                    font-size: 18px;
+                    line-height: 1.15;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+
+                .counter-number {
+                    font-size: 13px;
+                }
+            }
+        }
+
+        .themeToggle,
+        .reportbtn,
+        .historyBtn {
+            position: static;
+            width: auto;
+            min-height: 42px;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .themeToggle {
+            justify-self: end;
+            width: 44px;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--caller-nav-text);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            .theme-icon {
+                font-size: 22px;
+            }
+        }
+
+        .reportbtn {
+            justify-self: end;
+        }
+
+        .historyBtn {
+            justify-self: stretch;
+        }
+    }
+
+    .tellerContent {
+        position: relative;
+        top: 0;
+        left: 0;
+        height: calc(100dvh - 72px);
+        width: 100%;
+        display: grid;
+        grid-template-rows: 64px minmax(0, 1fr) minmax(170px, 28%);
+        gap: 12px;
+        padding: 12px;
+        background: var(--caller-bg);
+        overflow: hidden;
+
+        .navBtns {
+            position: relative;
+            height: auto;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 10px;
+
+            div {
+                width: 100%;
+                height: 100%;
+                min-height: 48px;
+                border-radius: 8px;
+                background: var(--caller-surface);
+                color: var(--caller-text);
+                border: 1px solid var(--caller-border);
+                box-shadow: var(--caller-shadow);
+                font-weight: 700;
+            }
+        }
+
+        .servicesManage,
+        .pendingManage,
+        .heldManage,
+        .forwardManage,
+        .historyManage {
+            position: relative;
+            top: auto;
+            left: auto;
+            height: auto;
+            max-height: none;
+            width: 100%;
+            min-height: 0;
+            background: var(--caller-surface);
+            border: 1px solid var(--caller-border);
+            border-radius: 8px;
+            box-shadow: var(--caller-shadow);
+            overflow: hidden;
+        }
+
+        .servicesManage {
+            overflow-y: auto;
+            padding: 10px;
+
+            .service-box {
+                position: relative;
+                height: auto;
+                min-height: 72px;
+                margin: 0 0 10px;
+                padding: 12px;
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) 260px;
+                gap: 14px;
+                align-items: center;
+                background: var(--caller-surface-strong);
+                color: var(--caller-text);
+                border: 1px solid var(--caller-border);
+                box-shadow: none;
+
+                .service-stats {
+                    position: relative;
+                    left: auto;
+                    width: 100%;
+                    min-height: 48px;
+                    display: grid;
+                    grid-template-columns: minmax(0, 1fr) minmax(120px, 180px);
+                    gap: 18px;
+                    align-items: center;
+                    color: var(--caller-text);
+
+                    h5,
+                    .stat-item {
+                        position: static;
+                        width: auto;
+                    }
+
+                    h5 {
+                        font-size: 16px;
+                        line-height: 1.25;
+                        max-width: none;
+                        min-width: 0;
+                        overflow-wrap: anywhere;
+                    }
+
+                    .stat-item {
+                        justify-self: start;
+                        white-space: nowrap;
+                        color: var(--caller-muted);
+                    }
+                }
+
+                .service-btns {
+                    position: static;
+                    right: auto;
+                    width: 260px;
+                    display: grid;
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                    gap: 10px;
+
+                    .btn {
+                        height: 44px;
+                        width: 100%;
+                        min-width: 0;
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+
+        .pendingManage,
+        .heldManage,
+        .forwardManage {
+            .queue-controls {
+                position: relative;
+                height: 58px;
+                border-bottom: 1px solid var(--caller-border);
+
+                input {
+                    height: 40px;
+                    width: min(92%, 560px);
+                    background: var(--caller-surface-strong);
+                    color: var(--caller-text);
+                    border-color: var(--caller-border);
+                    transform: none;
+                }
+            }
+
+            .queuelist,
+            .heldlist,
+            .forwardlist {
+                position: relative;
+                top: auto;
+                max-height: calc(100% - 58px);
+                height: calc(100% - 58px);
+                padding: 8px;
+                overflow-y: auto;
+
+                .queue-item {
+                    transform: none;
+                    margin-bottom: 8px;
+                    border: 1px solid var(--caller-border);
+                    border-radius: 8px;
+                    background: var(--caller-success-soft);
+                    color: var(--caller-success-text);
+
+                    .queue-item-info span {
+                        color: inherit;
+                    }
+
+                    &.priority {
+                        background: var(--caller-priority);
+                        color: var(--caller-priority-text);
+                    }
+                }
+            }
+        }
+
+        .heldManage,
+        .forwardManage {
+            .heldlist,
+            .forwardlist {
+                height: 100%;
+                max-height: 100%;
+            }
+        }
+
+        .historyManage {
+            .histheader {
+                position: relative;
+                height: 56px;
+                color: var(--caller-text);
+                border-bottom: 1px solid var(--caller-border);
+            }
+
+            .hist-table-container {
+                position: relative;
+                top: auto;
+                height: calc(100% - 56px);
+
+                .history-table {
+                    background: var(--caller-surface);
+
+                    thead {
+                        background: var(--caller-surface-strong);
+                        border-color: var(--caller-border);
+
+                        th {
+                            color: var(--caller-text);
+                        }
+                    }
+
+                    tr {
+                        border-color: var(--caller-border);
+                    }
+
+                    td {
+                        color: var(--caller-text);
+                    }
+                }
+            }
+        }
+
+        .actionbtns {
+            position: relative;
+            top: auto;
+            bottom: auto;
+            height: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: minmax(78px, 1fr) minmax(78px, 1fr);
+            background: var(--caller-surface);
+            border: 1px solid var(--caller-border);
+            border-radius: 8px;
+            box-shadow: var(--caller-shadow);
+            overflow: hidden;
+
+            .time-meta,
+            .currentCalledTicket,
+            .ticket-action-buttons {
+                position: relative;
+                top: auto;
+                left: auto;
+                width: 100%;
+                height: 100%;
+                background: var(--caller-surface);
+                color: var(--caller-text);
+            }
+
+            .time-meta {
+                border-right: 1px solid var(--caller-border);
+                border-bottom: 1px solid var(--caller-border);
+            }
+
+            .currentCalledTicket {
+                border-bottom: 1px solid var(--caller-border);
+
+                .active-ticket-info {
+                    .ticket-num-large,
+                    .ticket-service-name {
+                        background: var(--caller-surface-strong);
+                        color: var(--caller-text);
+                        font-size: 30px;
+                    }
+
+                    .ticket-num-large {
+                        color: var(--caller-primary);
+                    }
+
+                    .ticket-service-name {
+                        font-size: 18px;
+                    }
+                }
+            }
+
+            .ticket-action-buttons {
+                grid-column: 1 / -1;
+
+                button {
+                    height: 54px;
+                    width: 18%;
+                    font-size: 24px;
+                    border-radius: 8px;
+                }
+            }
+        }
+    }
+
+    .modal {
+        background: var(--caller-surface);
+        color: var(--caller-text);
+
+        .modal-header,
+        .modal-footer {
+            border-color: var(--caller-border);
+        }
+    }
+}
+
+body[data-theme="dark"] {
+    .form-group {
+        label {
+            color: var(--caller-text);
+        }
+
+        input,
+        select,
+        textarea {
+            background: var(--caller-surface-strong);
+            color: var(--caller-text);
+            border-color: var(--caller-border);
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .tellerPage {
+        .tellerNav {
+            grid-template-columns: auto 1fr auto auto auto;
+
+            .callerTitle {
+                justify-self: start;
+                font-size: 18px;
+            }
+
+            .teller-info {
+                .teller-details {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .tellerPage {
+        .tellerNav {
+            height: 64px;
+            grid-template-columns: auto 1fr auto auto auto;
+            gap: 8px;
+            padding: 8px;
+
+            .teller-info {
+                min-width: 44px;
+
+                .avatar {
+                    width: 42px;
+                    height: 42px;
+                    min-width: 42px;
+                    font-size: 20px;
+                }
+            }
+
+            .callerTitle {
+                font-size: 16px;
+            }
+
+            .themeToggle {
+                width: 38px;
+                min-height: 38px;
+            }
+
+            .reportbtn,
+            .historyBtn {
+                min-height: 38px;
+                padding: 8px 10px;
+                font-size: 12px;
+            }
+        }
+
+        .tellerContent {
+            height: calc(100dvh - 64px);
+            grid-template-rows: 56px minmax(0, 1fr) 220px;
+            gap: 8px;
+            padding: 8px;
+
+            .navBtns {
+                gap: 6px;
+
+                div {
+                    font-size: 0;
+                    min-height: 50px;
+
+                    &::before {
+                        font-family: "Material Symbols Outlined";
+                        font-size: 26px;
+                        line-height: 1;
+                    }
+                }
+
+                .heldTickets::before {
+                    content: "pause_circle";
+                }
+
+                .forwardTickets::before {
+                    content: "forward";
+                }
+
+                .pendingTickets::before {
+                    content: "pending_actions";
+                }
+
+                .autoCallTicket::before {
+                    content: "play_circle";
+                }
+            }
+
+            .servicesManage {
+                max-height: none !important;
+                background: var(--caller-surface) !important;
+
+                .service-box {
+                    min-height: 116px;
+                    display: grid;
+                    grid-template-rows: auto 46px;
+                    grid-template-columns: 1fr;
+                    gap: 10px;
+
+                    .service-stats {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        gap: 12px;
+
+                        h5 {
+                            max-width: 65%;
+                        }
+
+                        .stat-item {
+                            font-size: 12px;
+                            text-align: right;
+                        }
+                    }
+
+                    .service-btns {
+                        position: relative;
+                        right: auto;
+                        width: 100%;
+                        height: 46px;
+                        display: grid;
+                        grid-template-columns: repeat(2, minmax(0, 1fr));
+                        gap: 8px;
+
+                        .btn {
+                            height: 100%;
+                            width: 100%;
+                            min-width: 0;
+                            padding: 0 6px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+                    }
+                }
+            }
+
+            .pendingManage,
+            .heldManage,
+            .forwardManage {
+                .queue-item {
+                    display: grid;
+                    grid-template-columns: 1fr auto;
+                    gap: 8px;
+
+                    > span {
+                        grid-column: 1 / -1;
+                        font-size: 12px;
+                    }
+
+                    .queue-actions {
+                        display: flex;
+                        gap: 6px;
+                    }
+                }
+            }
+
+            .historyManage {
+                .histheader {
+                    h3 {
+                        font-size: 15px;
+                    }
+
+                    p {
+                        display: none;
+                    }
+                }
+
+                .hist-table-container {
+                    overflow-x: auto;
+
+                    .history-table {
+                        min-width: 680px;
+                    }
+                }
+            }
+
+            .actionbtns {
+                top: auto !important;
+                height: auto !important;
+                grid-template-columns: 1fr;
+                grid-template-rows: 58px 78px 76px;
+
+                .time-meta,
+                .currentCalledTicket,
+                .ticket-action-buttons {
+                    max-height: none !important;
+                    width: 100% !important;
+                    left: auto !important;
+                    top: auto !important;
+                }
+
+                .time-meta {
+                    border-right: 0;
+                }
+
+                .currentCalledTicket {
+                    .active-ticket-info {
+                        .ticket-num-large {
+                            font-size: 26px !important;
+                        }
+
+                        .ticket-service-name {
+                            font-size: 14px !important;
+                        }
+                    }
+                }
+
+                .ticket-action-buttons {
+                    button {
+                        height: 54px !important;
+                        width: 18% !important;
+                        font-size: 22px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .tellerPage {
+        .tellerNav {
+            .callerTitle {
+                display: none;
+            }
+
+            .reportbtn,
+            .historyBtn {
+                padding: 8px;
+            }
+        }
+    }
+}

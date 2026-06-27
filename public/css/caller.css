@@ -839,4 +839,597 @@ body {
     height: 90% !important;
     width: 18% !important;
   }
+}
+/* Responsive caller layout and theme overrides */
+:root {
+  --caller-bg: #eef2f7;
+  --caller-surface: #ffffff;
+  --caller-surface-strong: #f8fafc;
+  --caller-border: #d8dee8;
+  --caller-text: #172033;
+  --caller-muted: #64748b;
+  --caller-nav: #162033;
+  --caller-nav-text: #ffffff;
+  --caller-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  --caller-primary: #2563eb;
+  --caller-success-soft: #dcfce7;
+  --caller-success-text: #14532d;
+  --caller-priority: #fee2e2;
+  --caller-priority-text: #991b1b;
+}
+
+body[data-theme=dark] {
+  --caller-bg: #0f172a;
+  --caller-surface: #182235;
+  --caller-surface-strong: #111827;
+  --caller-border: #334155;
+  --caller-text: #e5edf8;
+  --caller-muted: #9ca3af;
+  --caller-nav: #060b14;
+  --caller-nav-text: #f8fafc;
+  --caller-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+  --caller-primary: #60a5fa;
+  --caller-success-soft: #143824;
+  --caller-success-text: #bbf7d0;
+  --caller-priority: #4a1f28;
+  --caller-priority-text: #fecdd3;
+}
+
+body {
+  background: var(--caller-bg);
+  color: var(--caller-text);
+}
+
+.tellerPage {
+  position: fixed;
+  inset: 0;
+  height: 100dvh;
+  width: 100%;
+  background: var(--caller-bg);
+  color: var(--caller-text);
+  overflow: hidden;
+}
+.tellerPage .tellerNav {
+  position: relative;
+  height: 72px;
+  background: var(--caller-nav);
+  color: var(--caller-nav-text);
+  display: grid;
+  grid-template-columns: minmax(190px, 1fr) auto auto auto auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 16px;
+  overflow: visible;
+}
+.tellerPage .tellerNav .callerTitle {
+  color: var(--caller-nav-text);
+  font-size: 22px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.tellerPage .tellerNav .teller-info {
+  position: static;
+  min-width: 0;
+  gap: 12px;
+}
+.tellerPage .tellerNav .teller-info .avatar {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 8px;
+  font-size: 24px;
+}
+.tellerPage .tellerNav .teller-info .teller-details {
+  min-width: 0;
+}
+.tellerPage .tellerNav .teller-info .teller-details .teller-username {
+  font-size: 18px;
+  line-height: 1.15;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tellerPage .tellerNav .teller-info .teller-details .counter-number {
+  font-size: 13px;
+}
+.tellerPage .tellerNav .themeToggle,
+.tellerPage .tellerNav .reportbtn,
+.tellerPage .tellerNav .historyBtn {
+  position: static;
+  width: auto;
+  min-height: 42px;
+  transform: none;
+  box-shadow: none;
+}
+.tellerPage .tellerNav .themeToggle {
+  justify-self: end;
+  width: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--caller-nav-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.tellerPage .tellerNav .themeToggle .theme-icon {
+  font-size: 22px;
+}
+.tellerPage .tellerNav .reportbtn {
+  justify-self: end;
+}
+.tellerPage .tellerNav .historyBtn {
+  justify-self: stretch;
+}
+.tellerPage .tellerContent {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: calc(100dvh - 72px);
+  width: 100%;
+  display: grid;
+  grid-template-rows: 64px minmax(0, 1fr) minmax(170px, 28%);
+  gap: 12px;
+  padding: 12px;
+  background: var(--caller-bg);
+  overflow: hidden;
+}
+.tellerPage .tellerContent .navBtns {
+  position: relative;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+.tellerPage .tellerContent .navBtns div {
+  width: 100%;
+  height: 100%;
+  min-height: 48px;
+  border-radius: 8px;
+  background: var(--caller-surface);
+  color: var(--caller-text);
+  border: 1px solid var(--caller-border);
+  box-shadow: var(--caller-shadow);
+  font-weight: 700;
+}
+.tellerPage .tellerContent .servicesManage,
+.tellerPage .tellerContent .pendingManage,
+.tellerPage .tellerContent .heldManage,
+.tellerPage .tellerContent .forwardManage,
+.tellerPage .tellerContent .historyManage {
+  position: relative;
+  top: auto;
+  left: auto;
+  height: auto;
+  max-height: none;
+  width: 100%;
+  min-height: 0;
+  background: var(--caller-surface);
+  border: 1px solid var(--caller-border);
+  border-radius: 8px;
+  box-shadow: var(--caller-shadow);
+  overflow: hidden;
+}
+.tellerPage .tellerContent .servicesManage {
+  overflow-y: auto;
+  padding: 10px;
+}
+.tellerPage .tellerContent .servicesManage .service-box {
+  position: relative;
+  height: auto;
+  min-height: 72px;
+  margin: 0 0 10px;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 14px;
+  align-items: center;
+  background: var(--caller-surface-strong);
+  color: var(--caller-text);
+  border: 1px solid var(--caller-border);
+  box-shadow: none;
+}
+.tellerPage .tellerContent .servicesManage .service-box .service-stats {
+  position: relative;
+  left: auto;
+  width: 100%;
+  min-height: 48px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(120px, 180px);
+  gap: 18px;
+  align-items: center;
+  color: var(--caller-text);
+}
+.tellerPage .tellerContent .servicesManage .service-box .service-stats h5,
+.tellerPage .tellerContent .servicesManage .service-box .service-stats .stat-item {
+  position: static;
+  width: auto;
+}
+.tellerPage .tellerContent .servicesManage .service-box .service-stats h5 {
+  font-size: 16px;
+  line-height: 1.25;
+  max-width: none;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.tellerPage .tellerContent .servicesManage .service-box .service-stats .stat-item {
+  justify-self: start;
+  white-space: nowrap;
+  color: var(--caller-muted);
+}
+.tellerPage .tellerContent .servicesManage .service-box .service-btns {
+  position: static;
+  right: auto;
+  width: 260px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.tellerPage .tellerContent .servicesManage .service-box .service-btns .btn {
+  height: 44px;
+  width: 100%;
+  min-width: 0;
+  white-space: nowrap;
+}
+.tellerPage .tellerContent .pendingManage .queue-controls,
+.tellerPage .tellerContent .heldManage .queue-controls,
+.tellerPage .tellerContent .forwardManage .queue-controls {
+  position: relative;
+  height: 58px;
+  border-bottom: 1px solid var(--caller-border);
+}
+.tellerPage .tellerContent .pendingManage .queue-controls input,
+.tellerPage .tellerContent .heldManage .queue-controls input,
+.tellerPage .tellerContent .forwardManage .queue-controls input {
+  height: 40px;
+  width: min(92%, 560px);
+  background: var(--caller-surface-strong);
+  color: var(--caller-text);
+  border-color: var(--caller-border);
+  transform: none;
+}
+.tellerPage .tellerContent .pendingManage .queuelist,
+.tellerPage .tellerContent .pendingManage .heldlist,
+.tellerPage .tellerContent .pendingManage .forwardlist,
+.tellerPage .tellerContent .heldManage .queuelist,
+.tellerPage .tellerContent .heldManage .heldlist,
+.tellerPage .tellerContent .heldManage .forwardlist,
+.tellerPage .tellerContent .forwardManage .queuelist,
+.tellerPage .tellerContent .forwardManage .heldlist,
+.tellerPage .tellerContent .forwardManage .forwardlist {
+  position: relative;
+  top: auto;
+  max-height: calc(100% - 58px);
+  height: calc(100% - 58px);
+  padding: 8px;
+  overflow-y: auto;
+}
+.tellerPage .tellerContent .pendingManage .queuelist .queue-item,
+.tellerPage .tellerContent .pendingManage .heldlist .queue-item,
+.tellerPage .tellerContent .pendingManage .forwardlist .queue-item,
+.tellerPage .tellerContent .heldManage .queuelist .queue-item,
+.tellerPage .tellerContent .heldManage .heldlist .queue-item,
+.tellerPage .tellerContent .heldManage .forwardlist .queue-item,
+.tellerPage .tellerContent .forwardManage .queuelist .queue-item,
+.tellerPage .tellerContent .forwardManage .heldlist .queue-item,
+.tellerPage .tellerContent .forwardManage .forwardlist .queue-item {
+  transform: none;
+  margin-bottom: 8px;
+  border: 1px solid var(--caller-border);
+  border-radius: 8px;
+  background: var(--caller-success-soft);
+  color: var(--caller-success-text);
+}
+.tellerPage .tellerContent .pendingManage .queuelist .queue-item .queue-item-info span,
+.tellerPage .tellerContent .pendingManage .heldlist .queue-item .queue-item-info span,
+.tellerPage .tellerContent .pendingManage .forwardlist .queue-item .queue-item-info span,
+.tellerPage .tellerContent .heldManage .queuelist .queue-item .queue-item-info span,
+.tellerPage .tellerContent .heldManage .heldlist .queue-item .queue-item-info span,
+.tellerPage .tellerContent .heldManage .forwardlist .queue-item .queue-item-info span,
+.tellerPage .tellerContent .forwardManage .queuelist .queue-item .queue-item-info span,
+.tellerPage .tellerContent .forwardManage .heldlist .queue-item .queue-item-info span,
+.tellerPage .tellerContent .forwardManage .forwardlist .queue-item .queue-item-info span {
+  color: inherit;
+}
+.tellerPage .tellerContent .pendingManage .queuelist .queue-item.priority,
+.tellerPage .tellerContent .pendingManage .heldlist .queue-item.priority,
+.tellerPage .tellerContent .pendingManage .forwardlist .queue-item.priority,
+.tellerPage .tellerContent .heldManage .queuelist .queue-item.priority,
+.tellerPage .tellerContent .heldManage .heldlist .queue-item.priority,
+.tellerPage .tellerContent .heldManage .forwardlist .queue-item.priority,
+.tellerPage .tellerContent .forwardManage .queuelist .queue-item.priority,
+.tellerPage .tellerContent .forwardManage .heldlist .queue-item.priority,
+.tellerPage .tellerContent .forwardManage .forwardlist .queue-item.priority {
+  background: var(--caller-priority);
+  color: var(--caller-priority-text);
+}
+.tellerPage .tellerContent .heldManage .heldlist,
+.tellerPage .tellerContent .heldManage .forwardlist,
+.tellerPage .tellerContent .forwardManage .heldlist,
+.tellerPage .tellerContent .forwardManage .forwardlist {
+  height: 100%;
+  max-height: 100%;
+}
+.tellerPage .tellerContent .historyManage .histheader {
+  position: relative;
+  height: 56px;
+  color: var(--caller-text);
+  border-bottom: 1px solid var(--caller-border);
+}
+.tellerPage .tellerContent .historyManage .hist-table-container {
+  position: relative;
+  top: auto;
+  height: calc(100% - 56px);
+}
+.tellerPage .tellerContent .historyManage .hist-table-container .history-table {
+  background: var(--caller-surface);
+}
+.tellerPage .tellerContent .historyManage .hist-table-container .history-table thead {
+  background: var(--caller-surface-strong);
+  border-color: var(--caller-border);
+}
+.tellerPage .tellerContent .historyManage .hist-table-container .history-table thead th {
+  color: var(--caller-text);
+}
+.tellerPage .tellerContent .historyManage .hist-table-container .history-table tr {
+  border-color: var(--caller-border);
+}
+.tellerPage .tellerContent .historyManage .hist-table-container .history-table td {
+  color: var(--caller-text);
+}
+.tellerPage .tellerContent .actionbtns {
+  position: relative;
+  top: auto;
+  bottom: auto;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: minmax(78px, 1fr) minmax(78px, 1fr);
+  background: var(--caller-surface);
+  border: 1px solid var(--caller-border);
+  border-radius: 8px;
+  box-shadow: var(--caller-shadow);
+  overflow: hidden;
+}
+.tellerPage .tellerContent .actionbtns .time-meta,
+.tellerPage .tellerContent .actionbtns .currentCalledTicket,
+.tellerPage .tellerContent .actionbtns .ticket-action-buttons {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 100%;
+  height: 100%;
+  background: var(--caller-surface);
+  color: var(--caller-text);
+}
+.tellerPage .tellerContent .actionbtns .time-meta {
+  border-right: 1px solid var(--caller-border);
+  border-bottom: 1px solid var(--caller-border);
+}
+.tellerPage .tellerContent .actionbtns .currentCalledTicket {
+  border-bottom: 1px solid var(--caller-border);
+}
+.tellerPage .tellerContent .actionbtns .currentCalledTicket .active-ticket-info .ticket-num-large,
+.tellerPage .tellerContent .actionbtns .currentCalledTicket .active-ticket-info .ticket-service-name {
+  background: var(--caller-surface-strong);
+  color: var(--caller-text);
+  font-size: 30px;
+}
+.tellerPage .tellerContent .actionbtns .currentCalledTicket .active-ticket-info .ticket-num-large {
+  color: var(--caller-primary);
+}
+.tellerPage .tellerContent .actionbtns .currentCalledTicket .active-ticket-info .ticket-service-name {
+  font-size: 18px;
+}
+.tellerPage .tellerContent .actionbtns .ticket-action-buttons {
+  grid-column: 1/-1;
+}
+.tellerPage .tellerContent .actionbtns .ticket-action-buttons button {
+  height: 54px;
+  width: 18%;
+  font-size: 24px;
+  border-radius: 8px;
+}
+.tellerPage .modal {
+  background: var(--caller-surface);
+  color: var(--caller-text);
+}
+.tellerPage .modal .modal-header,
+.tellerPage .modal .modal-footer {
+  border-color: var(--caller-border);
+}
+
+body[data-theme=dark] .form-group label {
+  color: var(--caller-text);
+}
+body[data-theme=dark] .form-group input,
+body[data-theme=dark] .form-group select,
+body[data-theme=dark] .form-group textarea {
+  background: var(--caller-surface-strong);
+  color: var(--caller-text);
+  border-color: var(--caller-border);
+}
+
+@media screen and (max-width: 900px) {
+  .tellerPage .tellerNav {
+    grid-template-columns: auto 1fr auto auto auto;
+  }
+  .tellerPage .tellerNav .callerTitle {
+    justify-self: start;
+    font-size: 18px;
+  }
+  .tellerPage .tellerNav .teller-info .teller-details {
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .tellerPage .tellerNav {
+    height: 64px;
+    grid-template-columns: auto 1fr auto auto auto;
+    gap: 8px;
+    padding: 8px;
+  }
+  .tellerPage .tellerNav .teller-info {
+    min-width: 44px;
+  }
+  .tellerPage .tellerNav .teller-info .avatar {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    font-size: 20px;
+  }
+  .tellerPage .tellerNav .callerTitle {
+    font-size: 16px;
+  }
+  .tellerPage .tellerNav .themeToggle {
+    width: 38px;
+    min-height: 38px;
+  }
+  .tellerPage .tellerNav .reportbtn,
+  .tellerPage .tellerNav .historyBtn {
+    min-height: 38px;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+  .tellerPage .tellerContent {
+    height: calc(100dvh - 64px);
+    grid-template-rows: 56px minmax(0, 1fr) 220px;
+    gap: 8px;
+    padding: 8px;
+  }
+  .tellerPage .tellerContent .navBtns {
+    gap: 6px;
+  }
+  .tellerPage .tellerContent .navBtns div {
+    font-size: 0;
+    min-height: 50px;
+  }
+  .tellerPage .tellerContent .navBtns div::before {
+    font-family: "Material Symbols Outlined";
+    font-size: 26px;
+    line-height: 1;
+  }
+  .tellerPage .tellerContent .navBtns .heldTickets::before {
+    content: "pause_circle";
+  }
+  .tellerPage .tellerContent .navBtns .forwardTickets::before {
+    content: "forward";
+  }
+  .tellerPage .tellerContent .navBtns .pendingTickets::before {
+    content: "pending_actions";
+  }
+  .tellerPage .tellerContent .navBtns .autoCallTicket::before {
+    content: "play_circle";
+  }
+  .tellerPage .tellerContent .servicesManage {
+    max-height: none !important;
+    background: var(--caller-surface) !important;
+  }
+  .tellerPage .tellerContent .servicesManage .service-box {
+    min-height: 116px;
+    display: grid;
+    grid-template-rows: auto 46px;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .tellerPage .tellerContent .servicesManage .service-box .service-stats {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .tellerPage .tellerContent .servicesManage .service-box .service-stats h5 {
+    max-width: 65%;
+  }
+  .tellerPage .tellerContent .servicesManage .service-box .service-stats .stat-item {
+    font-size: 12px;
+    text-align: right;
+  }
+  .tellerPage .tellerContent .servicesManage .service-box .service-btns {
+    position: relative;
+    right: auto;
+    width: 100%;
+    height: 46px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .tellerPage .tellerContent .servicesManage .service-box .service-btns .btn {
+    height: 100%;
+    width: 100%;
+    min-width: 0;
+    padding: 0 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .tellerPage .tellerContent .pendingManage .queue-item,
+  .tellerPage .tellerContent .heldManage .queue-item,
+  .tellerPage .tellerContent .forwardManage .queue-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+  }
+  .tellerPage .tellerContent .pendingManage .queue-item > span,
+  .tellerPage .tellerContent .heldManage .queue-item > span,
+  .tellerPage .tellerContent .forwardManage .queue-item > span {
+    grid-column: 1/-1;
+    font-size: 12px;
+  }
+  .tellerPage .tellerContent .pendingManage .queue-item .queue-actions,
+  .tellerPage .tellerContent .heldManage .queue-item .queue-actions,
+  .tellerPage .tellerContent .forwardManage .queue-item .queue-actions {
+    display: flex;
+    gap: 6px;
+  }
+  .tellerPage .tellerContent .historyManage .histheader h3 {
+    font-size: 15px;
+  }
+  .tellerPage .tellerContent .historyManage .histheader p {
+    display: none;
+  }
+  .tellerPage .tellerContent .historyManage .hist-table-container {
+    overflow-x: auto;
+  }
+  .tellerPage .tellerContent .historyManage .hist-table-container .history-table {
+    min-width: 680px;
+  }
+  .tellerPage .tellerContent .actionbtns {
+    top: auto !important;
+    height: auto !important;
+    grid-template-columns: 1fr;
+    grid-template-rows: 58px 78px 76px;
+  }
+  .tellerPage .tellerContent .actionbtns .time-meta,
+  .tellerPage .tellerContent .actionbtns .currentCalledTicket,
+  .tellerPage .tellerContent .actionbtns .ticket-action-buttons {
+    max-height: none !important;
+    width: 100% !important;
+    left: auto !important;
+    top: auto !important;
+  }
+  .tellerPage .tellerContent .actionbtns .time-meta {
+    border-right: 0;
+  }
+  .tellerPage .tellerContent .actionbtns .currentCalledTicket .active-ticket-info .ticket-num-large {
+    font-size: 26px !important;
+  }
+  .tellerPage .tellerContent .actionbtns .currentCalledTicket .active-ticket-info .ticket-service-name {
+    font-size: 14px !important;
+  }
+  .tellerPage .tellerContent .actionbtns .ticket-action-buttons button {
+    height: 54px !important;
+    width: 18% !important;
+    font-size: 22px !important;
+  }
+}
+@media screen and (max-width: 430px) {
+  .tellerPage .tellerNav .callerTitle {
+    display: none;
+  }
+  .tellerPage .tellerNav .reportbtn,
+  .tellerPage .tellerNav .historyBtn {
+    padding: 8px;
+  }
 }/*# sourceMappingURL=caller.css.map */

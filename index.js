@@ -43,18 +43,6 @@ appExpress.use(cors());
 appExpress.use(express.json());
 appExpress.use(cookieParser());
 appExpress.use(express.urlencoded({ extended: true }));
-appExpress.use((req, res, next) => {
-    express.static(path.join(rootpath, 'public'))(req, res, next);
-});
-
-appExpress.use('/ads', express.static(path.join(__dirname, 'public/ads'), {
-  setHeaders: (res, path) => {
-    if (path.endsWith('.mp4')) {
-      res.setHeader('Content-Type', 'video/mp4');
-    }
-  }
-}));
-
 appExpress.use(session({
     secret: 'asdasdasd-wejjks9qweqewe-cdvfretvert-asdrace323c23-c234234cf3324234-2026asds',
     resave: false,
@@ -65,6 +53,22 @@ appExpress.use(session({
         maxAge: 1000 * 60 * 60,  // 1 hour
         sameSite: 'strict'
     }
+}));
+appExpress.use((req, res, next) => {
+    const protectedHtml = ['/html/caller.html'];
+    if (protectedHtml.includes(req.path) && !req.session?.teller) {
+        return res.redirect('/312Xtellerlogin');
+    }
+
+    express.static(path.join(rootpath, 'public'))(req, res, next);
+});
+
+appExpress.use('/ads', express.static(path.join(__dirname, 'public/ads'), {
+  setHeaders: (res, path) => {
+    if (path.endsWith('.mp4')) {
+      res.setHeader('Content-Type', 'video/mp4');
+    }
+  }
 }));
 
 appExpress.use('/', require('./backend/routes/pages'));

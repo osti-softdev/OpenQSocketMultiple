@@ -5,6 +5,7 @@ let durationInterval = null;
 let totalTickets = null;
 
 $(document).ready(function () {
+    initTheme();
     checkSession();
 
     // Login form handler
@@ -21,8 +22,8 @@ $(document).ready(function () {
             success: function (response) {
                 if (response.success) {
                     currentTeller = response.teller;
-                    showTellerSection();
-                    initDashboard();
+                    setAuthUser(currentTeller);
+                    window.location.href = '/caller';
                 } else {
                     $('#login-error').text(response.message);
                 }
@@ -185,8 +186,9 @@ $(document).ready(function () {
                     success: function () {
                         currentTeller = null;
                         currentTicket = null;
+                        localStorage.removeItem('authUser');
                         stopDurationTimer();
-                        showLoginSection();
+                        window.location.href = '/312Xtellerlogin';
                         Swal.fire({
                             icon: 'success',
                             title: 'Logged Out',
@@ -208,3 +210,30 @@ $(document).ready(function () {
 
 });
 
+function initTheme() {
+    const savedTheme = localStorage.getItem('callerTheme') || 'light';
+    applyCallerTheme(savedTheme);
+
+    $('#theme-toggle').on('click', function () {
+        const nextTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('callerTheme', nextTheme);
+        applyCallerTheme(nextTheme);
+    });
+}
+
+function applyCallerTheme(theme) {
+    document.body.dataset.theme = theme;
+    const isDark = theme === 'dark';
+    $('#theme-toggle')
+        .attr('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode')
+        .attr('title', isDark ? 'Light mode' : 'Dark mode');
+    $('#theme-toggle .theme-icon').text(isDark ? 'light_mode' : 'dark_mode');
+}
+
+function setAuthUser(teller) {
+    localStorage.setItem('authUser', JSON.stringify({
+        id: teller.id,
+        cname: teller.username,
+        cnum: teller.counter_number
+    }));
+}

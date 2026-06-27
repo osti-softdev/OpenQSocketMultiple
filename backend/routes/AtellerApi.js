@@ -4,13 +4,19 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const { requireRole  } = require('../utilities/authsession');
 const { authLimiter } = require("../utilities/rateLimiter");
+
 module.exports = function createTellerApiRouter(io) {
     const router = express.Router();
 
-    router.use('/teller', requireRole('teller'));
     const rootpath = global.BACKEND_PATH || __dirname;
     const db = require(path.join(rootpath, 'utilities/db'));
     const { getPHDateTime } = require(path.join(rootpath, 'utilities/datetime'));
+    const requireTellerSession = (req, res, next) => {
+        if (!req.session?.teller) {
+            return res.status(401).json({ success: false, message: 'Unauthorized' });
+        }
+        next();
+    };
 
     // =========================
   // & Account login
@@ -87,6 +93,83 @@ module.exports = function createTellerApiRouter(io) {
             res.json({ loggedIn: false });
         }
   });
+
+  router.get('/teller/report-data', requireTellerSession, (req, res) => {
+    const teller = req.session.teller;
+    const { date } = getPHDateTime();
+    const dateFrom = req.query.datefrom || date;
+    const dateTo = req.query.dateto || date;
+    const historyMatch = `%-${teller.username}-%`;
+    const reportParams = [dateFrom, dateTo, teller.counter_number, historyMatch];
+
+    const chartQuery = `
+        SELECT
+            date,
+            SUM(CASE WHEN status = 'finished' THEN 1 ELSE 0 END) AS served,
+            SUM(CASE WHEN status = 'voided' THEN 1 ELSE 0 END) AS voided
+        FROM transactions
+        WHERE date BETWEEN ? AND ?
+          AND (counter_num = ? OR history LIKE ?)
+        GROUP BY date
+        ORDER BY date ASC
+    `;
+
+    const pieQuery = `
+        SELECT sname AS service, COUNT(*) AS count
+        FROM transactions
+        WHERE date BETWEEN ? AND ?
+          AND status = 'finished'
+          AND (counter_num = ? OR history LIKE ?)
+        GROUP BY sname
+        ORDER BY count DESC
+    `;
+
+    const historyQuery = `
+        SELECT
+            id,
+            sname,
+            ticketservice AS service,
+            ticketnum AS ticket,
+            status,
+            time,
+            start_time,
+            end_time,
+            date,
+            history
+        FROM transactions
+        WHERE date BETWEEN ? AND ?
+          AND (counter_num = ? OR history LIKE ?)
+        ORDER BY date DESC, COALESCE(start_time, time) DESC
+        LIMIT 500
+    `;
+
+    db.all(chartQuery, reportParams, (chartErr, chartData) => {
+        if (chartErr) {
+            return res.status(500).json({ success: false, message: chartErr.message });
+        }
+
+        db.all(pieQuery, reportParams, (pieErr, pieData) => {
+            if (pieErr) {
+                return res.status(500).json({ success: false, message: pieErr.message });
+            }
+
+            db.all(historyQuery, reportParams, (historyErr, historyRows) => {
+                if (historyErr) {
+                    return res.status(500).json({ success: false, message: historyErr.message });
+                }
+
+                res.json({
+                    success: true,
+                    chartData: chartData || [],
+                    pieData: pieData || [],
+                    historyRows: historyRows || []
+                });
+            });
+        });
+    });
+  });
+
+  router.use('/teller', requireRole('teller'));
 
   // =========================
   // & ACCOUNT logout
