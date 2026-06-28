@@ -88,8 +88,8 @@ body {
   width: 50%;
   height: 10%;
   display: flex;
-  background-image: url("/images/ateneoSeal.png");
-  background-size: auto 90%;
+  background-image: url("/images/banner2.png");
+  background-size: cover;
   background-position: left center;
   background-repeat: no-repeat;
   background-color: #08228d;
@@ -98,7 +98,7 @@ body {
 }
 .main-container .header-container .companyLogo {
   position: absolute;
-  display: flex;
+  display: none;
   top: 0%;
   right: 1%;
   width: 20%;
