@@ -33,7 +33,7 @@ module.exports = function createDisplayApiRouter(io) {
                 counter_user,
                 status,
                 ROW_NUMBER() OVER (
-                    PARTITION BY counter_group
+                    PARTITION BY ticketservice
                     ORDER BY start_time DESC, ticketnum DESC
                 ) AS rn
             FROM transactions

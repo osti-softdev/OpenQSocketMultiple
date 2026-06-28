@@ -137,8 +137,6 @@ body {
   overflow: hidden;
 }
 .main-container .video-container .ad-slot video {
-  -o-object-fit: scale-down;
-     object-fit: scale-down;
   transform: scale(0.95);
   border-radius: 16px;
   box-shadow: 5px 5px 10px black;
