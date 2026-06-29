@@ -146,7 +146,7 @@ function playByIndex(idx, userInitiated = false) {
 		adminVideoEl.prop("volume", Math.max(0, Math.min(1, adminVolume)));
 	}
 
-	const p = adminVideoEl.get(0).play();
+	// const p = adminVideoEl.get(0).play();
 	if (p && typeof p.catch === "function") {
 		p.catch((e) => console.warn("Autoplay blocked or error:", e.message));
 	}

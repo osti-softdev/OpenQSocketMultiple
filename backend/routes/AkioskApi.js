@@ -86,7 +86,7 @@ const config = loadConfig();
 
         try {
           if(stats === "onprem"){
-            // await executephp(ticketservice, nextTicket, sname);
+            await executephp(ticketservice, nextTicket, sname);
             console.log("On-prem ticket, printing required.");
           }else{
             console.log("Online ticket, no printing required.");

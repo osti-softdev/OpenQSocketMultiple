@@ -2,8 +2,6 @@ const rootpath = global.BACKEND_PATH;
 
 const express = require('express');
 const path = require('path');
-const fs = require("fs");
-const QRCode = require('qrcode');
 const { kioskLimiter } = require(`${rootpath}/utilities/rateLimiter`);
 const { loadConfig } = require(`${rootpath}/utilities/envconfig`);
 const config = loadConfig();
@@ -80,17 +78,28 @@ router.post("/check_ticket_in", kioskLimiter, async (req, res) => {
         }
 
         // ✅ mark as pending (checked in)
+        try {
+            await executephp(row.ticketservice, row.ticketnum, row.sname);
+        } catch (printError) {
+            console.error("Printer Error:", printError.message);
+
+            return res.status(500).json({
+                success: false,
+                error: "Ticket checked in but failed to print",
+                detail: printError.message
+            });
+        }
+      io.emit("ticket_voided");
+
         await db.runAsync(
             `UPDATE transactions SET status = 'pending' WHERE id = ?`,
             [row.id]
         );
 
         console.log(
-            `CHECK-IN: ${row.ticketnum} | Age: ${Math.floor(ageMinutes)} min | STATUS -> pending`
+            `CHECK-IN: ${row.ticketnum} | Age: ${Math.floor(ageMinutes)} min | STATUS -> pending | printed`
         );
 
-
-        // await executephp(ticketservice, nextTicket, sname);
         return res.json({
             success: true,
             ticket: {

@@ -466,3 +466,5 @@ Timeout duration was set to 1.
   code: 'SQLITE_ERROR',
   __augmented: true
 }
+❌ 2026-06-29T01:40:44.699Z [backend\routes\AonlineKioskApi.js:104] Error check-in ticket: ticketservice is not defined
+❌ 2026-06-29T01:41:06.287Z [backend\routes\AonlineKioskApi.js:104] Error check-in ticket: ticketservice is not defined

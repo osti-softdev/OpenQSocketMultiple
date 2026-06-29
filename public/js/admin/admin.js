@@ -81,7 +81,7 @@ function switchTab(tab) {
     if(tab != 'settings'){
         el.pause();
     }else{
-        el.play();
+        // el.play();
     }
     const titles = {
         'dashboard': 'Analytics Dashboard',

@@ -13835,3 +13835,243 @@
 ✔ 2026-06-28T16:36:19.482Z [node:events:518] [ADS] Client disconnected: _P0UL34mpvPGwMLTAAAt
 ✔ 2026-06-28T16:36:21.472Z [node:events:518] [ADS] Client disconnected: mFIdZofuX7_-oLxlAAAn
 ✔ 2026-06-28T16:36:21.950Z [node:events:518] [ADS] Client disconnected: VGDxDcwyO8-rxlCcAAAb
+✔ 2026-06-29T01:07:53.021Z [backend\utilities\logger.js:142] Logger initialized at: D:\GITHUB\OpenQSocketMultiple\OpenQSocketMultiple\public\logs
+✔ 2026-06-29T01:07:53.151Z [node_modules\dotenv\lib\main.js:131] ◇ injected env (4) from backend\config\.env [2m// tip: ⌁ auth for agents [www.vestauth.com][0m
+✔ 2026-06-29T01:07:54.026Z [node:events:632] Queue System running on http://localhost:12341
+✔ 2026-06-29T01:07:54.028Z [unknown-location] Connected to SQLite database
+✔ 2026-06-29T01:07:58.287Z [node:events:518] [ADS] Client connected: ac9X98RcB52Ea6pFAAAB
+✔ 2026-06-29T01:08:16.605Z [node:events:518] [ADS] Client connected: ru2zccG73myudvcjAAAD
+✔ 2026-06-29T01:08:33.144Z [backend\routes\AadminApi.js:26] Login attempt for: admin
+✔ 2026-06-29T01:08:33.148Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-06-29T01:08:33.148Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-06-29T01:08:33.643Z [node:events:518] [ADS] Client connected: AmLaCMGFb2Uh4EFTAAAF
+✔ 2026-06-29T01:09:22.650Z [backend\routes\AtellerApi.js:27] Login attempt for: clc
+✔ 2026-06-29T01:09:22.653Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-06-29T01:09:22.653Z [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: clc
+✔ 2026-06-29T01:09:26.012Z [backend\routes\AtellerApi.js:27] Login attempt for: clc
+✔ 2026-06-29T01:09:26.013Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-06-29T01:09:26.014Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: clc
+✔ 2026-06-29T01:09:26.573Z [node:events:518] [ADS] Client connected: hRNmSpnWnBJjAXugAAAH
+✔ 2026-06-29T01:09:28.570Z [node:events:518] [ADS] Client disconnected: AmLaCMGFb2Uh4EFTAAAF
+✔ 2026-06-29T01:09:28.792Z [node:events:518] [ADS] Client connected: QuziKchTvgH2XeEFAAAJ
+✔ 2026-06-29T01:09:31.146Z [node:events:518] [ADS] Client disconnected: hRNmSpnWnBJjAXugAAAH
+✔ 2026-06-29T01:09:31.330Z [node:events:518] [ADS] Client connected: 2g8GMEMvLjchBLPaAAAL
+✔ 2026-06-29T01:10:08.056Z [node:events:518] [ADS] Client disconnected: QuziKchTvgH2XeEFAAAJ
+✔ 2026-06-29T01:10:08.270Z [node:events:518] [ADS] Client connected: SJXQnnDsvhanqkLAAAAN
+✔ 2026-06-29T01:10:29.249Z [node:events:518] [ADS] Client disconnected: SJXQnnDsvhanqkLAAAAN
+✔ 2026-06-29T01:10:29.431Z [node:events:518] [ADS] Client connected: rw7soToTiVtVZ8lZAAAP
+✔ 2026-06-29T01:10:33.036Z [node:events:518] [ADS] Client disconnected: rw7soToTiVtVZ8lZAAAP
+✔ 2026-06-29T01:10:33.211Z [node:events:518] [ADS] Client connected: y5phq3hyH5fSWAFPAAAR
+✔ 2026-06-29T01:10:50.514Z [node:events:518] [ADS] Client disconnected: y5phq3hyH5fSWAFPAAAR
+✔ 2026-06-29T01:10:50.801Z [node:events:518] [ADS] Client connected: 5AAke50LTjJqK9eRAAAT
+✔ 2026-06-29T01:10:52.199Z [node:events:518] [ADS] Client disconnected: 5AAke50LTjJqK9eRAAAT
+✔ 2026-06-29T01:10:52.393Z [node:events:518] [ADS] Client connected: ezYYARveD2adSjjHAAAV
+✔ 2026-06-29T01:11:01.530Z [node:events:518] [ADS] Client disconnected: ezYYARveD2adSjjHAAAV
+✔ 2026-06-29T01:11:01.890Z [node:events:518] [ADS] Client connected: D1LNoqFMhsKlIQZsAAAX
+✔ 2026-06-29T01:11:13.177Z [node:events:518] [ADS] Client disconnected: 2g8GMEMvLjchBLPaAAAL
+✔ 2026-06-29T01:11:13.503Z [node:events:518] [ADS] Client connected: 2KOq2dmBuPI4NCyyAAAZ
+✔ 2026-06-29T01:12:03.208Z [backend\utilities\logger.js:142] Logger initialized at: D:\GITHUB\OpenQSocketMultiple\OpenQSocketMultiple\public\logs
+✔ 2026-06-29T01:12:03.281Z [node_modules\dotenv\lib\main.js:131] ◇ injected env (4) from backend\config\.env [2m// tip: ⌘ override existing { override: true }[0m
+✔ 2026-06-29T01:12:03.777Z [node:events:632] Queue System running on http://localhost:12341
+✔ 2026-06-29T01:12:03.785Z [unknown-location] Connected to SQLite database
+✔ 2026-06-29T01:12:04.077Z [node:events:518] [ADS] Client connected: kCbK7vbwfn9RJ8P1AAAC
+✔ 2026-06-29T01:12:04.083Z [node:events:518] [ADS] Client connected: qHFW4Ii6vncTuPFQAAAD
+✔ 2026-06-29T01:12:08.461Z [node:events:518] [ADS] Client connected: WrErp69UwmK5QCDhAAAF
+✔ 2026-06-29T01:12:18.247Z [node:events:518] [ADS] Client connected: 3fBo5nEinV5OBPbPAAAH
+✔ 2026-06-29T01:15:31.628Z [backend\utilities\logger.js:142] Logger initialized at: D:\GITHUB\OpenQSocketMultiple\OpenQSocketMultiple\public\logs
+✔ 2026-06-29T01:15:31.678Z [node_modules\dotenv\lib\main.js:131] ◇ injected env (4) from backend\config\.env [2m// tip: ⌘ override existing { override: true }[0m
+✔ 2026-06-29T01:15:32.062Z [node:events:632] Queue System running on http://localhost:12341
+✔ 2026-06-29T01:15:32.064Z [unknown-location] Connected to SQLite database
+✔ 2026-06-29T01:15:32.239Z [node:events:518] [ADS] Client connected: Sk7FLxJcwmbPqNRvAAAB
+✔ 2026-06-29T01:15:32.499Z [node:events:518] [ADS] Client connected: TdvC4TIrSc8y3T6EAAAD
+✔ 2026-06-29T01:15:34.691Z [node:events:518] [ADS] Client connected: GyqSI6cvaqfkSrrfAAAF
+✔ 2026-06-29T01:15:50.733Z [node:events:518] [ADS] Client connected: RpABDYbyAF_EzMT4AAAH
+✔ 2026-06-29T01:16:00.470Z [node:events:518] [ADS] Client disconnected: RpABDYbyAF_EzMT4AAAH
+✔ 2026-06-29T01:16:01.116Z [node:events:518] [ADS] Client connected: YQlpVb_U1_n6_yqvAAAJ
+✔ 2026-06-29T01:16:12.136Z [node:events:518] [ADS] Client disconnected: GyqSI6cvaqfkSrrfAAAF
+✔ 2026-06-29T01:16:12.406Z [node:events:518] [ADS] Client connected: SWrg4gT9bKsyCaUPAAAL
+✔ 2026-06-29T01:16:13.497Z [node:events:518] [ADS] Client disconnected: SWrg4gT9bKsyCaUPAAAL
+✔ 2026-06-29T01:16:13.750Z [node:events:518] [ADS] Client connected: g_eQONtzWpfvJq2kAAAN
+✔ 2026-06-29T01:16:20.202Z [node:events:518] [ADS] Client disconnected: g_eQONtzWpfvJq2kAAAN
+✔ 2026-06-29T01:16:20.656Z [node:events:518] [ADS] Client connected: US2RwszX7nBqRYv9AAAP
+✔ 2026-06-29T01:16:21.774Z [node:events:518] [ADS] Client disconnected: US2RwszX7nBqRYv9AAAP
+✔ 2026-06-29T01:16:22.019Z [node:events:518] [ADS] Client connected: 7iQQjOGx1TZgYSCAAAAR
+✔ 2026-06-29T01:20:01.512Z [backend\utilities\logger.js:142] Logger initialized at: D:\GITHUB\OpenQSocketMultiple\OpenQSocketMultiple\public\logs
+✔ 2026-06-29T01:20:01.585Z [node_modules\dotenv\lib\main.js:131] ◇ injected env (4) from backend\config\.env [2m// tip: ⌘ override existing { override: true }[0m
+✔ 2026-06-29T01:20:02.169Z [node:events:632] Queue System running on http://localhost:12341
+✔ 2026-06-29T01:20:02.171Z [unknown-location] Connected to SQLite database
+✔ 2026-06-29T01:20:03.106Z [node:events:518] [ADS] Client connected: YHFRxf0zlf00WnmCAAAB
+✔ 2026-06-29T01:20:03.726Z [node:events:518] [ADS] Client connected: DRSzcpKv8nSyIr14AAAF
+✔ 2026-06-29T01:20:03.733Z [node:events:518] [ADS] Client connected: rm0l-2AFIPz-sqUFAAAG
+✔ 2026-06-29T01:20:03.775Z [node:events:518] [ADS] Client connected: J9HZE83_FL08oPfVAAAH
+✔ 2026-06-29T01:20:04.653Z [node:events:518] [ADS] Client disconnected: J9HZE83_FL08oPfVAAAH
+✔ 2026-06-29T01:20:04.993Z [node:events:518] [ADS] Client connected: KiSP-FhSwgOu7l-pAAAJ
+✔ 2026-06-29T01:20:05.620Z [node:events:518] [ADS] Client connected: z6p7FMlpsgtuS5yDAAAL
+✔ 2026-06-29T01:20:08.323Z [node:events:518] [ADS] Client connected: tdAxJqlIgtbEGej0AAAO
+✔ 2026-06-29T01:20:13.356Z [node:events:518] [ADS] Client disconnected: tdAxJqlIgtbEGej0AAAO
+✔ 2026-06-29T01:20:14.281Z [node:events:518] [ADS] Client connected: bxPbRh_nFAVs4SbJAAAQ
+✔ 2026-06-29T01:20:15.166Z [node:events:518] [ADS] Client disconnected: bxPbRh_nFAVs4SbJAAAQ
+✔ 2026-06-29T01:20:15.406Z [node:events:518] [ADS] Client connected: USzqBDWVQ-HR7RY4AAAS
+✔ 2026-06-29T01:20:17.894Z [node:events:518] [ADS] Client connected: q0pc2ffcS5AoUwc3AAAU
+✔ 2026-06-29T01:20:19.740Z [node:events:518] [ADS] Client disconnected: q0pc2ffcS5AoUwc3AAAU
+✔ 2026-06-29T01:20:20.571Z [node:events:518] [ADS] Client connected: tP3RxTm4QCap7_eSAAAW
+✔ 2026-06-29T01:20:24.357Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-29T01:20:41.091Z [node:events:518] [ADS] Client disconnected: tP3RxTm4QCap7_eSAAAW
+✔ 2026-06-29T01:20:47.837Z [node:events:518] [ADS] Client disconnected: YHFRxf0zlf00WnmCAAAB
+✔ 2026-06-29T01:20:49.797Z [node:events:518] [ADS] Client disconnected: KiSP-FhSwgOu7l-pAAAJ
+✔ 2026-06-29T01:20:50.413Z [node:events:518] [ADS] Client disconnected: z6p7FMlpsgtuS5yDAAAL
+✔ 2026-06-29T01:22:32.415Z [node:events:518] [ADS] Client disconnected: DRSzcpKv8nSyIr14AAAF
+✔ 2026-06-29T01:22:32.877Z [node:events:518] [ADS] Client connected: GtWAjb7yovfduMfYAAAY
+✔ 2026-06-29T01:22:33.004Z [node:events:518] [ADS] Client disconnected: GtWAjb7yovfduMfYAAAY
+✔ 2026-06-29T01:22:34.231Z [node:events:518] [ADS] Client disconnected: USzqBDWVQ-HR7RY4AAAS
+✔ 2026-06-29T01:22:34.646Z [node:events:518] [ADS] Client connected: BO6TmnUo7g34LTpGAAAa
+✔ 2026-06-29T01:22:39.606Z [node:events:518] [ADS] Client disconnected: BO6TmnUo7g34LTpGAAAa
+✔ 2026-06-29T01:22:41.362Z [node:events:518] [ADS] Client connected: mxsMjWcwQzZ64swWAAAc
+✔ 2026-06-29T01:23:09.616Z [node:events:518] [ADS] Client connected: F5eqhKse8zIKXbmlAAAe
+✔ 2026-06-29T01:23:10.562Z [node:events:518] [ADS] Client disconnected: F5eqhKse8zIKXbmlAAAe
+✔ 2026-06-29T01:23:10.814Z [node:events:518] [ADS] Client connected: Xts4Pdq4QscZL9FtAAAg
+✔ 2026-06-29T01:23:15.157Z [node:events:518] [ADS] Client disconnected: Xts4Pdq4QscZL9FtAAAg
+✔ 2026-06-29T01:23:16.107Z [node:events:518] [ADS] Client connected: S9NcMnW3M0j4yV-oAAAi
+✔ 2026-06-29T01:23:18.725Z [node:events:518] [ADS] Client disconnected: S9NcMnW3M0j4yV-oAAAi
+✔ 2026-06-29T01:23:18.999Z [node:events:518] [ADS] Client connected: lFwWljqVH2Ak6fFwAAAk
+✔ 2026-06-29T01:23:36.021Z [node:events:518] [ADS] Client disconnected: lFwWljqVH2Ak6fFwAAAk
+✔ 2026-06-29T01:23:36.263Z [node:events:518] [ADS] Client connected: kHq184WfFIR0SGflAAAm
+✔ 2026-06-29T01:23:37.109Z [node:events:518] [ADS] Client connected: iIIEghcnXDdiEWsKAAAo
+✔ 2026-06-29T01:23:37.707Z [node:events:518] [ADS] Client connected: YU0VJ_AuumrFYCnCAAAq
+✔ 2026-06-29T01:23:42.203Z [node:events:518] [ADS] Client disconnected: YU0VJ_AuumrFYCnCAAAq
+✔ 2026-06-29T01:23:43.822Z [node:events:518] [ADS] Client connected: GGeDBlXsKOihvDwkAAAs
+✔ 2026-06-29T01:23:49.510Z [node:events:518] [ADS] Client connected: w3QCsNUGpb8mz1nWAAAu
+✔ 2026-06-29T01:23:51.224Z [node:events:518] [ADS] Client disconnected: mxsMjWcwQzZ64swWAAAc
+✔ 2026-06-29T01:23:55.708Z [node:events:518] [ADS] Client disconnected: w3QCsNUGpb8mz1nWAAAu
+✔ 2026-06-29T01:23:56.306Z [node:events:518] [ADS] Client connected: kxd21p7sTXE6lt8qAAAw
+✔ 2026-06-29T01:24:21.098Z [node:events:518] [ADS] Client disconnected: kHq184WfFIR0SGflAAAm
+✔ 2026-06-29T01:24:21.945Z [node:events:518] [ADS] Client disconnected: iIIEghcnXDdiEWsKAAAo
+✔ 2026-06-29T01:24:26.955Z [node:events:518] [ADS] Client disconnected: GGeDBlXsKOihvDwkAAAs
+✔ 2026-06-29T01:24:27.302Z [node:events:518] [ADS] Client connected: PeOV-e2_QSiYvpARAAAy
+✔ 2026-06-29T01:24:28.347Z [node:events:518] [ADS] Client connected: gAJ_iL7nUIRQemTbAAA0
+✔ 2026-06-29T01:24:42.756Z [node:events:518] [ADS] Client disconnected: kxd21p7sTXE6lt8qAAAw
+✔ 2026-06-29T01:24:44.168Z [node:events:518] [ADS] Client connected: 3omBJLwWoOcepbxYAAA2
+✔ 2026-06-29T01:24:52.709Z [node:events:518] [ADS] Client disconnected: 3omBJLwWoOcepbxYAAA2
+✔ 2026-06-29T01:24:52.905Z [node:events:518] [ADS] Client connected: D3eKWiOIOqTDJ0OEAAA4
+✔ 2026-06-29T01:24:55.928Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-29T01:24:58.986Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-29T01:25:12.112Z [node:events:518] [ADS] Client disconnected: PeOV-e2_QSiYvpARAAAy
+✔ 2026-06-29T01:25:28.520Z [node:events:518] [ADS] Client disconnected: D3eKWiOIOqTDJ0OEAAA4
+✔ 2026-06-29T01:25:28.724Z [node:events:518] [ADS] Client connected: mVa7uCqBQUYp6xJTAAA6
+✔ 2026-06-29T01:25:49.008Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-29T01:25:50.858Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-29T01:26:02.411Z [node:events:518] [ADS] Client disconnected: mVa7uCqBQUYp6xJTAAA6
+✔ 2026-06-29T01:26:40.750Z [node:events:518] [ADS] Client connected: e4mbp4iuCjL15_FvAAA8
+✔ 2026-06-29T01:26:55.016Z [node:events:518] [ADS] Client connected: ThO00u_T676MvpvvAAA-
+✔ 2026-06-29T01:26:58.576Z [node:events:518] [ADS] Client connected: 25U08Q501jkbVIVWAABA
+✔ 2026-06-29T01:27:11.203Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-29T01:27:21.868Z [backend\routes\AonlineKioskApi.js:88] CHECK-IN: 7 | Age: 0 min | STATUS -> pending
+✔ 2026-06-29T01:29:44.851Z [backend\routes\AkioskApi.js:90] On-prem ticket, printing required.
+✔ 2026-06-29T01:32:34.194Z [backend\utilities\logger.js:142] Logger initialized at: D:\GITHUB\OpenQSocketMultiple\OpenQSocketMultiple\public\logs
+✔ 2026-06-29T01:32:34.248Z [node_modules\dotenv\lib\main.js:131] ◇ injected env (4) from backend\config\.env [2m// tip: ⌘ custom filepath { path: '/custom/path/.env' }[0m
+✔ 2026-06-29T01:32:34.641Z [node:events:632] Queue System running on http://localhost:12341
+✔ 2026-06-29T01:32:34.642Z [unknown-location] Connected to SQLite database
+✔ 2026-06-29T01:32:35.093Z [node:events:518] [ADS] Client connected: bYq67e1hNISDVBB1AAAB
+✔ 2026-06-29T01:32:36.414Z [node:events:518] [ADS] Client connected: ffwngJ0u7LHCFmR_AAAD
+✔ 2026-06-29T01:32:36.436Z [node:events:518] [ADS] Client connected: dlQaz0MKSSiwcGDBAAAF
+✔ 2026-06-29T01:32:37.642Z [node:events:518] [ADS] Client connected: z7eAmhlzCxvp2sKGAAAH
+✔ 2026-06-29T01:32:37.903Z [node:events:518] [ADS] Client connected: ukbxme7ll03SIc3hAAAJ
+✔ 2026-06-29T01:32:41.743Z [node:events:518] [ADS] Client disconnected: bYq67e1hNISDVBB1AAAB
+✔ 2026-06-29T01:32:42.072Z [node:events:518] [ADS] Client connected: 4xgtblWgN-jmAt6OAAAL
+✔ 2026-06-29T01:32:44.398Z [node:events:518] [ADS] Client disconnected: dlQaz0MKSSiwcGDBAAAF
+✔ 2026-06-29T01:32:44.655Z [node:events:518] [ADS] Client connected: s0J1iukvAWKbkHAxAAAN
+✔ 2026-06-29T01:32:46.858Z [backend\routes\AkioskApi.js:90] On-prem ticket, printing required.
+✔ 2026-06-29T01:37:45.945Z [backend\utilities\logger.js:142] Logger initialized at: D:\GITHUB\OpenQSocketMultiple\OpenQSocketMultiple\public\logs
+✔ 2026-06-29T01:37:46.021Z [node_modules\dotenv\lib\main.js:131] ◇ injected env (4) from backend\config\.env [2m// tip: ⌘ suppress logs { quiet: true }[0m
+✔ 2026-06-29T01:37:46.586Z [node:events:632] Queue System running on http://localhost:12341
+✔ 2026-06-29T01:37:46.589Z [unknown-location] Connected to SQLite database
+✔ 2026-06-29T01:37:47.702Z [node:events:518] [ADS] Client connected: oZXGFTaU3B5jThGoAAAB
+✔ 2026-06-29T01:37:47.761Z [node:events:518] [ADS] Client connected: VgICBtE9ewntnMNRAAAE
+✔ 2026-06-29T01:37:47.931Z [node:events:518] [ADS] Client connected: tBXI-g5I78FN5exzAAAF
+✔ 2026-06-29T01:37:48.133Z [node:events:518] [ADS] Client connected: TqN0mY9hQkU1C2xLAAAH
+✔ 2026-06-29T01:37:49.413Z [node:events:518] [ADS] Client connected: QHbhYFcjn9E03umEAAAJ
+✔ 2026-06-29T01:37:50.111Z [backend\routes\AkioskApi.js:90] On-prem ticket, printing required.
+✔ 2026-06-29T01:39:33.911Z [node:events:518] [ADS] Client disconnected: TqN0mY9hQkU1C2xLAAAH
+✔ 2026-06-29T01:39:34.174Z [node:events:518] [ADS] Client connected: kQClhQRBc04dQF1xAAAL
+✔ 2026-06-29T01:39:35.842Z [backend\routes\AkioskApi.js:90] On-prem ticket, printing required.
+✔ 2026-06-29T01:40:20.967Z [backend\utilities\logger.js:142] Logger initialized at: D:\GITHUB\OpenQSocketMultiple\OpenQSocketMultiple\public\logs
+✔ 2026-06-29T01:40:21.028Z [node_modules\dotenv\lib\main.js:131] ◇ injected env (4) from backend\config\.env [2m// tip: ⌘ suppress logs { quiet: true }[0m
+✔ 2026-06-29T01:40:21.581Z [node:events:632] Queue System running on http://localhost:12341
+✔ 2026-06-29T01:40:21.583Z [unknown-location] Connected to SQLite database
+✔ 2026-06-29T01:40:21.647Z [node:events:518] [ADS] Client connected: ob5GsbWe8qOQFJhAAAAB
+✔ 2026-06-29T01:40:22.418Z [node:events:518] [ADS] Client connected: zcZyY2wKboTsgYwhAAAD
+✔ 2026-06-29T01:40:22.746Z [node:events:518] [ADS] Client connected: H6EshI2ADNzxJLODAAAF
+✔ 2026-06-29T01:40:23.462Z [node:events:518] [ADS] Client connected: COBewgjQAudfFu7-AAAH
+✔ 2026-06-29T01:40:25.505Z [node:events:518] [ADS] Client disconnected: COBewgjQAudfFu7-AAAH
+✔ 2026-06-29T01:40:25.665Z [node:events:518] [ADS] Client connected: gFMQMGok4dwe35uBAAAJ
+✔ 2026-06-29T01:40:26.180Z [node:events:518] [ADS] Client connected: guBTK7BXNN7GVdoTAAAL
+✔ 2026-06-29T01:40:27.920Z [backend\routes\AkioskApi.js:90] On-prem ticket, printing required.
+✔ 2026-06-29T01:40:34.006Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-29T01:40:44.662Z [backend\routes\AonlineKioskApi.js:88] CHECK-IN: 3 | Age: 0 min | STATUS -> pending
+✔ 2026-06-29T01:40:53.228Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-29T01:41:00.019Z [node:events:518] [ADS] Client disconnected: gFMQMGok4dwe35uBAAAJ
+✔ 2026-06-29T01:41:00.216Z [node:events:518] [ADS] Client connected: wDEMuNE_YtZH0fONAAAN
+✔ 2026-06-29T01:41:06.286Z [backend\routes\AonlineKioskApi.js:88] CHECK-IN: 4 | Age: 0 min | STATUS -> pending
+✔ 2026-06-29T01:48:32.952Z [backend\utilities\logger.js:142] Logger initialized at: D:\GITHUB\OpenQSocketMultiple\OpenQSocketMultiple\public\logs
+✔ 2026-06-29T01:48:33.024Z [node_modules\dotenv\lib\main.js:131] ◇ injected env (4) from backend\config\.env [2m// tip: ⌘ custom filepath { path: '/custom/path/.env' }[0m
+✔ 2026-06-29T01:48:33.621Z [node:events:632] Queue System running on http://localhost:12341
+✔ 2026-06-29T01:48:33.623Z [unknown-location] Connected to SQLite database
+✔ 2026-06-29T01:48:33.750Z [node:events:518] [ADS] Client connected: gohPZPdXaHQA-46hAAAD
+✔ 2026-06-29T01:48:33.757Z [node:events:518] [ADS] Client connected: mQIObsXRiRemq9mAAAAE
+✔ 2026-06-29T01:48:33.765Z [node:events:518] [ADS] Client connected: JqiGVHS6QZ91jppjAAAF
+✔ 2026-06-29T01:48:34.424Z [node:events:518] [ADS] Client connected: geBIfQy6PZgNuV30AAAH
+✔ 2026-06-29T01:48:36.038Z [node:events:518] [ADS] Client disconnected: JqiGVHS6QZ91jppjAAAF
+✔ 2026-06-29T01:48:36.233Z [node:events:518] [ADS] Client connected: vTGqSA8xFeHucuPwAAAJ
+✔ 2026-06-29T01:48:39.117Z [backend\routes\AkioskApi.js:90] On-prem ticket, printing required.
+✔ 2026-06-29T01:48:52.788Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-29T01:48:56.486Z [backend\routes\AonlineKioskApi.js:98] CHECK-IN: 6 | Age: 0 min | STATUS -> pending | printed
+✔ 2026-06-29T01:49:12.968Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-29T01:49:24.083Z [node:events:518] [ADS] Client disconnected: gohPZPdXaHQA-46hAAAD
+✔ 2026-06-29T01:49:29.161Z [backend\routes\AtellerApi.js:27] Login attempt for: clc
+✔ 2026-06-29T01:49:29.162Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-06-29T01:49:29.163Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: clc
+✔ 2026-06-29T01:49:29.444Z [node:events:518] [ADS] Client connected: 2hyJ7e20Sj3ozKG3AAAL
+✔ 2026-06-29T01:49:59.462Z [backend\routes\AonlineKioskApi.js:98] CHECK-IN: 4 | Age: 0 min | STATUS -> pending | printed
+✔ 2026-06-29T01:50:08.677Z [node:events:518] [ADS] Client disconnected: 2hyJ7e20Sj3ozKG3AAAL
+✔ 2026-06-29T01:50:08.864Z [node:events:518] [ADS] Client connected: CAaHumq7u10RNrJNAAAN
+✔ 2026-06-29T01:51:06.903Z [backend\utilities\logger.js:142] Logger initialized at: D:\GITHUB\OpenQSocketMultiple\OpenQSocketMultiple\public\logs
+✔ 2026-06-29T01:51:07.005Z [node_modules\dotenv\lib\main.js:131] ◇ injected env (4) from backend\config\.env [2m// tip: ⌘ suppress logs { quiet: true }[0m
+✔ 2026-06-29T01:51:07.666Z [node:events:632] Queue System running on http://localhost:12341
+✔ 2026-06-29T01:51:07.670Z [unknown-location] Connected to SQLite database
+✔ 2026-06-29T01:51:08.750Z [node:events:518] [ADS] Client connected: m6SXdml5HQ4kwIt2AAAC
+✔ 2026-06-29T01:51:08.755Z [node:events:518] [ADS] Client connected: 6PfhYzoZEww6VgNNAAAD
+✔ 2026-06-29T01:51:09.182Z [node:events:518] [ADS] Client connected: J-aR3l8F9Tiurpu9AAAF
+✔ 2026-06-29T01:51:09.422Z [node:events:518] [ADS] Client connected: AcEpyOa3TBaU8w9uAAAH
+✔ 2026-06-29T01:51:11.198Z [node:events:518] [ADS] Client disconnected: J-aR3l8F9Tiurpu9AAAF
+✔ 2026-06-29T01:51:11.528Z [node:events:518] [ADS] Client connected: oBUDYys3vx_dYAQLAAAJ
+✔ 2026-06-29T01:51:13.385Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-29T01:51:18.404Z [node:events:518] [ADS] Client disconnected: m6SXdml5HQ4kwIt2AAAC
+✔ 2026-06-29T01:51:18.743Z [node:events:518] [ADS] Client connected: M6qZlOMC-MzOJw4aAAAL
+✔ 2026-06-29T01:51:22.218Z [node:events:518] [ADS] Client disconnected: AcEpyOa3TBaU8w9uAAAH
+✔ 2026-06-29T01:51:25.819Z [backend\routes\AtellerApi.js:27] Login attempt for: clc
+✔ 2026-06-29T01:51:25.821Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-06-29T01:51:25.822Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: clc
+✔ 2026-06-29T01:51:26.049Z [node:events:518] [ADS] Client connected: 35r-LiWeQq007M5BAAAN
+✔ 2026-06-29T01:51:31.757Z [backend\routes\AonlineKioskApi.js:99] CHECK-IN: 1 | Age: 0 min | STATUS -> pending | printed
+✔ 2026-06-29T01:51:58.153Z [node:events:518] [ADS] Client disconnected: 6PfhYzoZEww6VgNNAAAD
+✔ 2026-06-29T01:51:58.259Z [node:events:518] [ADS] Client connected: 9sN1jPrLn2qTwADKAAAP
+✔ 2026-06-29T01:53:43.297Z [backend\utilities\logger.js:142] Logger initialized at: D:\GITHUB\OpenQSocketMultiple\OpenQSocketMultiple\public\logs
+✔ 2026-06-29T01:53:43.386Z [node_modules\dotenv\lib\main.js:131] ◇ injected env (4) from backend\config\.env [2m// tip: ⌁ auth for agents [www.vestauth.com][0m
+✔ 2026-06-29T01:53:43.896Z [node:events:632] Queue System running on http://localhost:12341
+✔ 2026-06-29T01:53:43.897Z [unknown-location] Connected to SQLite database
+✔ 2026-06-29T01:53:44.028Z [node:events:518] [ADS] Client connected: 37Q3EnG3bp0X73yQAAAD
+✔ 2026-06-29T01:53:44.052Z [node:events:518] [ADS] Client connected: 5ZDRWKKZJXppWLDNAAAE
+✔ 2026-06-29T01:53:44.478Z [node:events:518] [ADS] Client connected: aU5k1AmWCiBSbYRkAAAF
+✔ 2026-06-29T01:53:47.228Z [node:events:518] [ADS] Client connected: 6yMZgrNn82v8Y4feAAAH
+✔ 2026-06-29T01:53:48.615Z [node:events:518] [ADS] Client disconnected: aU5k1AmWCiBSbYRkAAAF
+✔ 2026-06-29T01:53:48.788Z [node:events:518] [ADS] Client connected: V-aRHqZMYPSbUGzmAAAJ
+✔ 2026-06-29T01:56:40.459Z [node:events:518] [ADS] Client connected: 42Z5C3mkycM9Cla-AAAL
+✔ 2026-06-29T01:56:53.235Z [node:events:518] [ADS] Client connected: neoAiFfn_kGmrjQrAAAN
+✔ 2026-06-29T01:56:54.735Z [node:events:518] [ADS] Client connected: xphW4_UOp1eJOufaAAAP
+✔ 2026-06-29T01:57:05.547Z [node:events:518] [ADS] Client disconnected: 37Q3EnG3bp0X73yQAAAD
+✔ 2026-06-29T01:57:06.092Z [node:events:518] [ADS] Client connected: FaNtVcznwxu_F95gAAAR
+✔ 2026-06-29T01:57:25.030Z [node:events:518] [ADS] Client disconnected: 42Z5C3mkycM9Cla-AAAL
+✔ 2026-06-29T01:57:37.828Z [node:events:518] [ADS] Client disconnected: neoAiFfn_kGmrjQrAAAN
+✔ 2026-06-29T02:00:21.079Z [backend\routes\AkioskApi.js:90] On-prem ticket, printing required.
+✔ 2026-06-29T02:00:27.193Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-06-29T02:00:36.770Z [backend\routes\AonlineKioskApi.js:99] CHECK-IN: 2 | Age: 0 min | STATUS -> pending | printed

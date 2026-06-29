@@ -1,10 +1,13 @@
 <?php
 $argument = $argv[1];
-require_once __DIR__ . '../vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use Mike42\Escpos\Printer;
 use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
 use Mike42\Escpos\EscposImage;
+
+$connector = new WindowsPrintConnector("POS-90");
+$printer = new Printer($connector);
 
 // --- PRINT LOGO ---
 try {
@@ -12,12 +15,9 @@ try {
     $printer->setJustification(Printer::JUSTIFY_CENTER);
     $printer->bitImage($logo, Printer::IMG_DEFAULT);
     $printer->feed();
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // if logo missing
 }
-
-$connector = new WindowsPrintConnector("POS-89");
-$printer = new Printer($connector);
 
 $ticket = '';
 $count = '';
@@ -29,7 +29,7 @@ $time = date('H:i:s');
 $today = date('Y-m-d', time());
 // execute the SQL query
 list($ticket, $count, $service_name) = explode(',', $argument);
-$timestamp = strtotime($dateni);
+$timestamp = time();
 $formattedDate = date('D, M d, Y', $timestamp);
 $service = '';
 $initial = '';
@@ -48,8 +48,8 @@ $printer->selectPrintMode(Printer::MODE_DOUBLE_HEIGHT | Printer::MODE_DOUBLE_WID
 $printer->setFont(Printer::FONT_B);
 $printer->setTextSize(3, 2);
 
-$printer->text("DEVELOPMENT BANK\n");
-$printer->text("OF THE PHILIPPINES\n");
+$printer->text("MUNICIPALITY \n");
+$printer->text("OF CONSOLACION \n");
 
 $printer->setTextSize(1, 1);
 $printer->text($date ." ". $time."\n");
@@ -75,7 +75,7 @@ $printer->text("\n");
 $printer->setTextSize(1, 1);
 $printer->setJustification(Printer::JUSTIFY_CENTER);
 $printer->setFont(Printer::FONT_C);
-$printer->text("This Ticket is valid only on the day it is dispensed.");
+$printer->text("This Ticket is valid only on the day it is dispensed.\n\n\n");
 
 
 $printer->feed(2);

@@ -4,6 +4,15 @@
     box-sizing: border-box;
 }
 
+:root {
+    --header-height: 10vh;
+}
+
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
 body{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 100vh;
@@ -12,6 +21,7 @@ body{
     justify-content: center;
     align-items: center;
     background: skyblue;
+    overflow: hidden;
 }
 
 .mainHeader{
@@ -19,7 +29,7 @@ body{
     top: 0;
     left: 0;
     width: 100%;
-    height: 10%;
+    height: var(--header-height);
     background-color:#08228d;
     color: white;
     display: flex;
@@ -63,27 +73,28 @@ body{
 }
 .mainBody{
     position:absolute;
-    top: 10%;
+    top: var(--header-height);
     left: 0;
     width: 100%;
-    height: 90%;
+    height: calc(100vh - var(--header-height));
     background-color:#08228d;
     background-image: url("/images/bg.png");
-    background-size: object-fit;
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+    overflow-y: auto;
     
     .service-container{
         width: 100%;
         height: 100%;
         display: flex;
-        display: flex;
-        text-wrap: wrap;
         flex-wrap: wrap;
         justify-content: space-evenly;
         align-items: center;
         gap: 1%;
-    backdrop-filter: blur(2px);
+        padding: 0;
+        overflow-wrap: anywhere;
+        backdrop-filter: blur(2px);
 
         button{
             position: relative;
@@ -100,6 +111,8 @@ body{
             align-items: center;
             text-align: center;
             text-wrap: wrap;
+            overflow-wrap: anywhere;
+            line-height: 1.2;
             color: #e9e1e1;
             text-shadow: 2px 2px 5px black;
             border-radius: 16px;
@@ -114,6 +127,13 @@ body{
             }
             &.locked{
                 filter: brightness(70%);
+            }
+
+            .lock-label {
+                display: block;
+                margin-top: 8px;
+                font-size: clamp(0.8rem, 1.5vw, 1rem);
+                line-height: 1.2;
             }
         }
          &:nth-child(1){
@@ -139,3 +159,73 @@ body{
 }
 .ticket-header { font-size: 1.2rem; font-weight: bold; color: #333; margin-bottom: 10px; }
 .ticket-number { font-size: 3rem; color: #d9534f; font-weight: 800; display: block; }
+
+
+
+@media (max-width: 600px) {
+    :root {
+        --header-height: 76px;
+    }
+
+    body {
+        align-items: flex-start;
+    }
+
+    .mainHeader {
+        background-size: auto 100%;
+        background-position: left center;
+    }
+
+    .timer {
+        display: none;
+        top: 38px;
+        right: 8px;
+        min-width: 104px;
+        height: 38px;
+
+        .time {
+            font-size: 1.35rem;
+            text-shadow: 1px 1px 3px rgb(36, 3, 185);
+        }
+    }
+
+    .mainBody {
+        .service-container {
+            min-height: calc(100dvh - var(--header-height));
+            padding: 18px 12px 28px;
+            gap: 14px;
+
+            button {
+                width: 100% !important;
+                min-height: 96px;
+                padding: 18px 14px;
+                font-size: 1.15rem;
+                border-radius: 12px;
+            }
+        }
+    }
+
+    .ticket-card {
+        max-width: 100%;
+        padding: 16px;
+    }
+}
+
+@media (max-width: 380px) {
+    .timer {
+        min-width: 88px;
+
+        .time {
+            font-size: 1.1rem;
+        }
+    }
+
+    .mainBody {
+        .service-container {
+            button {
+                font-size: 1rem;
+                min-height: 88px;
+            }
+        }
+    }
+}

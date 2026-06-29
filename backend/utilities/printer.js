@@ -1,4 +1,4 @@
-const { exec } = require("child_process");
+const { execFile } = require("child_process");
 const path = require("path");
 
 let argumentprevious = "";
@@ -12,21 +12,25 @@ function executephp(
 ) {
 	const argument = `${ticket},${count},${service_name}`;
 
-	if (argument !== argumentprevious) {
-		exec(
-			`php ${rootpath}/public/printer/print.php ${argument}`,
-			(error, stdout, stderr) => {
-				argumentprevious = argument;
+	return new Promise((resolve, reject) => {
+		if (argument === argumentprevious) {
+			console.log("Duplicate argument detected, skipping PHP execution.");
+			resolve({ skipped: true });
+			return;
+		}
 
-				if (error) {
-					console.error(`exec error: ${error}`);
-					return;
-				}
+		const printScript = path.join(rootpath, "public", "printer", "print.php");
+
+		execFile("php", [printScript, argument], (error, stdout, stderr) => {
+			if (error) {
+				reject(new Error(stderr || error.message));
+				return;
 			}
-		);
-	} else {
-		console.log("Duplicate argument detected, skipping PHP execution.");
-	}
+
+			argumentprevious = argument;
+			resolve({ stdout, stderr });
+		});
+	});
 }
 
 module.exports = { executephp };
