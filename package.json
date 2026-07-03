@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"bin": "index.js",
 	"scripts": {
-		"start": "electron --trace-warnings .",
+		"start": "electron --trace-warnings --disable-gpu",
 		"dev": "node --inspect index.js",
 		"stop": "node tools/stop.js",
 		"build": "electron-builder"
@@ -67,7 +67,6 @@
 		}
 	},
 	"devDependencies": {
-		"electron": "^39.1.0",
 		"electron-builder": "^26.0.12"
 	}
 }

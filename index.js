@@ -6,7 +6,6 @@ const path = require("path");
 const fs = require("fs");
 const os = require("os");
 const multer = require("multer");
-const { app, BrowserWindow, screen, session, dialog } = require("electron");
 const { exec } = require('child_process');
 
 // ===== Express & Socket.IO =====
@@ -616,80 +615,80 @@ if (checkAndHandleExistingInstance()) {
 writePidFile();
 
 
-// ===== Electron Window =====
-let displayWindow = null;
-let kioskWindow = null;
-process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
-function createWindow() {
-    const broadcastUrl = `http://${ownip}:${serverPort}/main`;
-    const kioskUrl = `http://${ownip}:${serverPort}/kiosk`;
+// // ===== Electron Window =====
+// let displayWindow = null;
+// let kioskWindow = null;
+// process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
+// function createWindow() {
+//     const broadcastUrl = `http://${ownip}:${serverPort}/main`;
+//     const kioskUrl = `http://${ownip}:${serverPort}/kiosk`;
 
-    const displays = screen.getAllDisplays();
+//     const displays = screen.getAllDisplays();
 
-    // --- Find external display ---
-    // const externalDisplay = displays.find(d => d.bounds.x !== 0 || d.bounds.y !== 0);
+//     // --- Find external display ---
+//     // const externalDisplay = displays.find(d => d.bounds.x !== 0 || d.bounds.y !== 0);
 
-    // if (!externalDisplay) {
-    //     console.warn("No extended display found. Display window will open on primary screen.");
-    //     return;
-    // }
+//     // if (!externalDisplay) {
+//     //     console.warn("No extended display found. Display window will open on primary screen.");
+//     //     return;
+//     // }
 
-    // --- DISPLAY WINDOW on extended screen ---
-    const displayWindowOptions = {
-        width: 450,
-        height: 450,
-        frame: true,
-        // x: externalDisplay.bounds.x + 50,
-        // y: externalDisplay.bounds.y + 50,
-        autoHideMenuBar: true
-    };
+//     // --- DISPLAY WINDOW on extended screen ---
+//     const displayWindowOptions = {
+//         width: 450,
+//         height: 450,
+//         frame: true,
+//         // x: externalDisplay.bounds.x + 50,
+//         // y: externalDisplay.bounds.y + 50,
+//         autoHideMenuBar: true
+//     };
 
-    displayWindow = new BrowserWindow(displayWindowOptions);
-    displayWindow.loadURL(broadcastUrl);
-    displayWindow.setFullScreen(true);
-    displayWindow.on("closed", handleWindowClosed);
+//     displayWindow = new BrowserWindow(displayWindowOptions);
+//     displayWindow.loadURL(broadcastUrl);
+//     displayWindow.setFullScreen(true);
+//     displayWindow.on("closed", handleWindowClosed);
 
-    // --- KIOSK WINDOW on primary screen ---
-    if (isWindowed) {
-        kioskWindow = new BrowserWindow({
-            width: 450,
-            height: 450,
-            frame: true,
-            autoHideMenuBar: true
-        });
-        kioskWindow.loadURL(kioskUrl);
-        kioskWindow.setFullScreen(true);
-        kioskWindow.on("closed", handleWindowClosed);
-    }
-}
+//     // --- KIOSK WINDOW on primary screen ---
+//     if (isWindowed) {
+//         kioskWindow = new BrowserWindow({
+//             width: 450,
+//             height: 450,
+//             frame: true,
+//             autoHideMenuBar: true
+//         });
+//         kioskWindow.loadURL(kioskUrl);
+//         kioskWindow.setFullScreen(true);
+//         kioskWindow.on("closed", handleWindowClosed);
+//     }
+// }
 
-function handleWindowClosed() {
-	displayWindow = null;
-	kioskWindow = null;
-	app.quit();
-}
+// function handleWindowClosed() {
+// 	displayWindow = null;
+// 	kioskWindow = null;
+// 	app.quit();
+// }
 
-// ===== Electron App Events =====
-app.whenReady().then(createWindow);
-app.whenReady().then();
+// // ===== Electron App Events =====
+// app.whenReady().then(createWindow);
+// app.whenReady().then();
 
-app.on("activate", () => {
-	if (BrowserWindow.getAllWindows().length === 0) createWindow();
-});
+// app.on("activate", () => {
+// 	if (BrowserWindow.getAllWindows().length === 0) createWindow();
+// });
 
-app.on("ready", () => {
-	session.defaultSession.clearCache().then(() => {
-		console.log("Cache cleared");
-	});
-});
+// app.on("ready", () => {
+// 	session.defaultSession.clearCache().then(() => {
+// 		console.log("Cache cleared");
+// 	});
+// });
 
-app.on("before-quit", () => {
-	if (fs.existsSync(pidFile)) fs.unlinkSync(pidFile);
-});
+// app.on("before-quit", () => {
+// 	if (fs.existsSync(pidFile)) fs.unlinkSync(pidFile);
+// });
 
-app.on("window-all-closed", () => {
-	app.quit();
-});
+// app.on("window-all-closed", () => {
+// 	app.quit();
+// });
 // ===== Graceful Shutdown =====
 async function gracefulShutdown(signal) {
   console.log(`Received ${signal}. Shutting down server...`);
