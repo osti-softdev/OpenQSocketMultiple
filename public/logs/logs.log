@@ -13585,3 +13585,23 @@
 ✔ 2026-06-27T04:30:15.234Z [node:events:508] [ADS] Client connected: xVIQrrUekMHak_EVAABu
 ✔ 2026-06-27T04:30:22.142Z [node:events:508] [ADS] Client disconnected: mmTD5YS8DujOxhp5AABs
 ✔ 2026-06-27T04:30:22.166Z [node:events:508] [ADS] Client disconnected: xVIQrrUekMHak_EVAABu
+✔ 2026-07-03T09:05:46.262Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-07-03T09:05:46.544Z [node_modules\dotenv\lib\main.js:131] ◇ injected env (4) from backend\config\.env [2m// tip: ⌘ enable debugging { debug: true }[0m
+✔ 2026-07-03T09:05:47.714Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-07-03T09:05:47.726Z [unknown-location] Connected to SQLite database
+✔ 2026-07-03T09:05:57.809Z [node:events:508] [ADS] Client connected: _uIZlHRt3Q4xueOwAAAB
+✔ 2026-07-03T09:06:06.744Z [node:events:508] [ADS] Client connected: -cRpcOGn77bjJ_2wAAAD
+✔ 2026-07-03T09:06:36.581Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-07-03T09:06:40.537Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-07-03T09:06:42.048Z [node:events:508] [ADS] Client disconnected: _uIZlHRt3Q4xueOwAAAB
+✔ 2026-07-03T09:07:20.783Z [node:events:508] [ADS] Client connected: Hnq_QabInslafuo_AAAF
+✔ 2026-07-03T09:07:32.910Z [node:events:508] [ADS] Client connected: xf2bZS124Ri8ra27AAAH
+✔ 2026-07-03T09:07:35.959Z [node:events:508] [ADS] Client disconnected: Hnq_QabInslafuo_AAAF
+✔ 2026-07-03T09:08:14.268Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-07-03T09:08:14.341Z [node_modules\dotenv\lib\main.js:131] ◇ injected env (4) from backend\config\.env [2m// tip: ⌘ suppress logs { quiet: true }[0m
+✔ 2026-07-03T09:08:14.777Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-07-03T09:08:14.783Z [unknown-location] Connected to SQLite database
+✔ 2026-07-03T09:08:16.482Z [node:events:508] [ADS] Client connected: ENDIW8kMa4BKKUl4AAAB
+✔ 2026-07-03T09:08:18.330Z [node:events:508] [ADS] Client connected: Zo0Q9Hr3ys6Tuz2GAAAD
+✔ 2026-07-03T09:08:18.372Z [backend\routes\AkioskApi.js:92] Online ticket, no printing required.
+✔ 2026-07-03T09:08:45.943Z [node:events:508] [ADS] Client connected: T5jEtMPLUQYAgOsNAAAF
