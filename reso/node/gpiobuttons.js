@@ -215,10 +215,12 @@ function initializeGPIO(io) {
   }
 
   // Path to the bridge script
-  const bridgePath = path.join(__dirname, "../../gpio_bridge.py");
+// Path to the bridge script and your virtual environment's python binary
+const bridgePath = path.join(__dirname, "../../gpio_bridge.py");
+const venvPythonPath = path.join(__dirname, "../../venv/bin/python3");
 
-  // Spawn Python process
-  pythonProcess = spawn("python3", [bridgePath]);
+// Spawn using the venv python so it has access to RPLCD
+pythonProcess = spawn(venvPythonPath, [bridgePath]);
 
   // Handle incoming data (KEY:X)
   pythonProcess.stdout.on("data", (data) => {
