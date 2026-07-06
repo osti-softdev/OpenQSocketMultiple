@@ -448,7 +448,7 @@ function playNextAd() {
 		videoElement = document.getElementById("dep");
 
 	// Stop previous playback safely
-	videoElement.src = `http://127.0.0.1/ads/${encodedFile}`;
+	videoElement.src = `/ads/${encodedFile}`;
 	videoElement.autoplay = true;
 	videoElement.playsInline = true;
 	videoElement.load();
