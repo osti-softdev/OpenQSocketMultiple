@@ -30,3 +30,4 @@ fastcgi_temp/
 proxy_temp/
 uwsgi_temp/
 scgi_temp/
+outfolder/ads
