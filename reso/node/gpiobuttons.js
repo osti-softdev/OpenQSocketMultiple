@@ -15,6 +15,11 @@ const dbPath = path.join(rootpath, "config/db.db");
 let pythonProcess = null;
 let isShuttingDown = false;
 
+function sendToLCD(text) {
+  if (pythonProcess && pythonProcess.stdin.writable) {
+    pythonProcess.stdin.write(text + "\n");
+  }
+}
 // === Process button press (same logic as serialport.js) ===
 async function processButtonPress(key) {
   // console.log(`🔘 Button pressed: ${key}`);
@@ -25,7 +30,7 @@ async function processButtonPress(key) {
     const topline = "Topline";
 
     // === Ticket creation 2..4 ===
-    if (/^[2-4]$/.test(key)) {
+    if (/^[1-2]$/.test(key)) {
       const services = await getAllServices();
       const index = parseInt(key) - 2;
       const service = services[index];
@@ -54,6 +59,7 @@ async function processButtonPress(key) {
               if (!err) {
                 const displayText = `${service.regular}${ticketNumber}`;
                 console.log(`✅ Ticket created: ${displayText}`);
+                sendToLCD(displayText);
               } else {
                 console.error("Insert error:", err.message);
               }
@@ -65,12 +71,12 @@ async function processButtonPress(key) {
     }
 
     // === Call next ticket (A,B,C,D) ===
-    else if (/^[ABCD]$/.test(key)) {
+    else if (/^[4-5]$/.test(key)) {
       const startTime = time;
       const historyEntry = `${time}-${topline}-Calling`;
       console.log(`Calling next ticket for key ${key}...`);
 
-      if (key === "A") {
+      if (key === "4") {
         const query = `
           UPDATE transactions 
           SET status = 'calling',  counter_user=?, start_time = ?, 
@@ -87,8 +93,11 @@ async function processButtonPress(key) {
         `;
         db.get(query, [topline, startTime, historyEntry, historyEntry, date], (err, row) => {
           if (err) console.error("Update error:", err.message);
-          else if (row) console.log(`✅ Ticket called:`, row);
-          db.close();
+          else if (row){
+           sendToLCD(`${row.ticketservice}${row.ticketnum}`);
+            console.log(`✅ Ticket called:`, row);
+          }
+            db.close();
         });
       } else {
         const services = await getAllServices();
@@ -124,6 +133,7 @@ async function processButtonPress(key) {
               console.log("⚠️  No matching ticket found");
             } else {
               console.log(`✅ Ticket called:`, row);
+              sendToLCD(`${row.ticketservice}${row.ticketnum}`);
             }
             db.close();
           }
@@ -132,7 +142,7 @@ async function processButtonPress(key) {
     }
 
     // === Recalling (#) ===
-    else if (key === "#") {
+    else if (key === "6") {
       const historyEntry = `${time}-${topline}-Recalling`;
       const query = `
         UPDATE transactions
@@ -147,13 +157,14 @@ async function processButtonPress(key) {
           console.log("⚠️  No matching ticket to recall");
         } else {
           console.log(`✅ Ticket recalled:`, row);
+          sendToLCD(`${row.ticketservice}${row.ticketnum}`);
         }
         db.close();
       });
     }
 
     // === Voided (0) ===
-    else if (key === "0") {
+    else if (key === "3") {
       const historyEntry = `${time}-${topline}-Voided`;
       const query = `
         UPDATE transactions
@@ -168,13 +179,14 @@ async function processButtonPress(key) {
           console.log("⚠️  No matching ticket to void");
         } else {
           console.log(`✅ Ticket voided:`, row);
+          sendToLCD(`${row.ticketservice}${row.ticketnum}`);
         }
         db.close();
       });
     }
 
     // === Feedback (5,6) ===
-    else if (["5", "6"].includes(key)) {
+    else if (["7", "8"].includes(key)) {
       const query =
         key === "5"
           ? `INSERT INTO feedback (satisfied, date, time) VALUES (1,?,?)`
