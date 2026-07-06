@@ -1,0 +1,335 @@
+    1  sudo apt update && sudo apt upgrade -y
+    2  sudo reboot
+    3  sudo apt install -y curl git build-essential
+    4  curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+    5  sudo apt install -y nodejs
+    6  node -v
+    7  npm -v
+    8  sudo npm install -g pm2
+    9  npm install -g npm@11.18.0
+   10  sudo apt install nginx -y
+   11  sudo systemctl enable nginx
+   12  sudo systemctl start nginx
+   13  systemctl status nginx
+   14  git clone
+   15  ls
+   16  git clonesystemctl status nginx
+   17  sudo apt update
+   18  sudo apt install git -y
+   19  git configg --global user.name "osti-softdev"
+   20  git config --global user.name "osti-softdev"
+   21  git config user.email "dev@osti.com.ph"
+   22  git config --global user.email "dev@osti.com.ph"
+   23  git config --list
+   24  https://github.com/osti-softdev/OpenQSocketMultiple.git
+   25  git clone https://github.com/osti-softdev/OpenQSocketMultiple.git
+   26  ls
+   27  cd OpenQSocketMultiple
+   28  ls
+   29  npm instal
+   30  git branch -r
+   31  git checkout TOPLINE
+   32  git branch -r
+   33  git status
+   34  git pull
+   35  ls
+   36  npm install
+   37  ls
+   38  nano package.json
+   39  npm install
+   40  rm -rf node_modules package-lock.json
+   41  npm install
+   42  sudo apt install python3.11 python3.11-venv
+   43  sudo reboot
+   44  ls
+   45  sudo apt install python3.11 python3.11-venv
+   46  npm install -g node-gyp@latest
+   47  npm install node-gyp@latest
+   48  cat /etc/os-release
+   49  node -v
+   50  npm -v
+   51  cat package.json
+   52  cd ~/OpenQSocketMultiple
+   53  cat package.json
+   54  osti@osti:~/OpenQSocketMultiple $ cat package.json
+   55  {         "name": "sque",;         "version": "1.0.0",;         "description": "this queue system is for smaller scale only ",;         "main": "index.js",;         "bin": "index.js",;         "scripts": {;                 "start": "node index.js",;                 "dev": "node --inspect index.js",;                 "stop": "node tools/stop.js";         },;         "author": "Cade Lawrenzo Cana",;         "license": "ISC",;         "dependencies": {;                 "@ffmpeg/core": "^0.12.10",;                 "@ffmpeg/core-mt": "^0.12.10",;                 "@ffmpeg/ffmpeg": "^0.12.15",;                 "@serialport/parser-readline": "^13.0.0",;                 "axios": "^1.12.2",;                 "body-parser": "^2.2.0",;                 "cookie-parser": "^1.4.7",;                 "cors": "^2.8.5",;                 "crc": "^4.3.2",;                 "dotenv": "^17.2.3",;                 "electron": "^40.6.0",;                 "express": "^5.1.0",;                 "ini": "^5.0.0",;                 "jsonwebtoken": "^9.0.2",;                 "mime": "^4.1.0",;                 "moment-timezone": "^0.6.0",;                 "multer": "^2.0.2",;                 "pm2": "^6.0.14",;                 "serialport": "^13.0.0",;                 "serialport-gsm": "^4.0.1",;                 "socket.io": "^4.8.1",;                 "sqlite3": "^5.1.7",;                 "websocket": "^1.0.35";          }
+   56  }
+   57  osti@osti:~/OpenQSocketMultiple $
+   58  npm ls utf-8-validate
+   59  npm ls websocket
+   60  npm ls node-gyp
+   61  npm why utf-8-validate
+   62  npm ls utf-8-validate
+   63  python3 -m venv venv
+   64  source venv/bin/activate
+   65  exit
+   66  cd ~/OpenQSocketMultiple
+   67  pip install --upgrade pip setuptools wheel
+   68  source venv/bin/activate
+   69  pip install --upgrade pip setuptools wheel
+   70  sudo apt install python3-venv pyhon3-dev build-essential
+   71  sudo apt install python3-venv python3-dev build-essential
+   72  pip install --upgrade pip setuptools wheel
+   73  npm install
+   74  npm install onoff
+   75  deactivate
+   76  npm install pm2
+   77  sudo npm install -g pm2
+   78  npm start
+   79  pm2 start index.js
+   80  pm2 list
+   81  pm2 save
+   82  pm2 startup
+   83  sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u osti --hp /home/osti
+   84  pm2 list
+   85  pm2 monit
+   86  systemctl --user status pm2-osti
+   87  systemctl --user status pm2-index
+   88  systemctl --user status osti
+   89  cd ..
+   90  sudo nano etc/systemd/system/nginx.service
+   91  sudo systemctl is-enabled nginx
+   92  sudo reboot
+   93  sudo systemctl is-enabled nginx
+   94  sudo systemctl status nginx
+   95  pm2 status index
+   96  pm2 monit
+   97  cd OpenQSocketMultiple
+   98  ls
+   99  cd outfolder
+  100  ls
+  101  nano .env
+  102  ls
+  103  cd config
+  104  ls
+  105  nano .env
+  106  cd ..
+  107  sudo nano /etc/nginx/nginx.conf
+  108  sudo nano /etc/nginx/sites-available/queue-system
+  109  sudo ln -s /etc/nginx/sites-available/queue-system /etc/nginx/sites-enabled/
+  110  sudo rm /etc/nginx/sites-enabled/default
+  111  sudo ln -s /etc/nginx/sites-available/queue-system /etc/nginx/sites-enabled/
+  112  sudo nginx -t
+  113  sudo systemctl reload nginx
+  114  sudo systemctl restart nginx
+  115  ls -l /etc/nginx/sites-enabled/
+  116  sudo reboot
+  117  sudo nano /etc/nginx/sites-available/queue-system
+  118  cd OpenQSocketMultiple
+  119  git pull origin TOPLINE
+  120  pm2 restart
+  121  sudo reboot
+  122  cd OpenQSocketMultiple
+  123  find /home -type f -name "lightfuels.mp4" 2>/dev/null
+  124  git pull origin TOPLINE
+  125  pm2 status
+  126  pm2 restart index
+  127  sudo nano /etc/nginx/sites-available/queue-system
+  128  sudo nano /etc/nginx/sites-available/queue-systemcd
+  129  cd ..
+  130  sudo find / -type f -name "lightfuels.mp4" 2>/dev/null
+  131  cd OpenQSocketMultiple
+  132  sudo nano /etc/nginx/sites-available/queue-system
+  133  sudo systemctl reload nginx
+  134  git pull origin TOPLINE
+  135  sudo pm2 restart index
+  136  pm2 list
+  137  pm2 restart index
+  138  sudo nano /etc/nginx/sites-available/queue-system
+  139  sudo nano /etc/nginx/sites-available/openq
+  140  sudo ln -sf /etc/nginx/sites-available/openq /etc/nginx/sites-enabled/openq
+  141  sudo rm -f /etc/nginx/sites-enabled/queue-system
+  142  sudo nginx -t
+  143  sudo systemctl reload nginx
+  144  sudo reboot
+  145  sudo nano /etc/nginx/sites-available/openq
+  146  sudo rm -f /etc/nginx/sites-available/openq
+  147  sudo nano /etc/nginx/sites-available/openq
+  148  sudo rm -f /etc/nginx/sites-enabled/default
+  149  sudo ln -sf /etc/nginx/sites-available/openq /etc/nginx/sites-enabled/openq
+  150  sudo nginx -t
+  151  sudo systemctl restart nginx
+  152  curl -I http://localhost/ads/lightfuels.mp4
+  153  osti@osti:~ $ curl -I http://localhost/ads/lightfuels.mp4
+  154  HTTP/1.1 404 Not Found
+  155  Server: nginx
+  156  Date: Mon, 06 Jul 2026 04:19:25 GMT
+  157  Content-Type: text/html
+  158  Content-Length: 146
+  159  Connection: keep-alive
+  160  osti@osti:~ $sudo nano /etc/nginx/sites-available/openq
+  161  ls
+  162  sudo nano /etc/nginx/sites-available/openq
+  163  sudo nginx -t
+  164  sudo systemctl restart nginx
+  165  curl -I http://localhost/ads/lightfuels.mp4
+  166  sudo nano /etc/nginx/sites-available/openq
+  167  curl -I http://localhost/ads/
+  168* curl -I http://localhost:12345/ads/lig
+  169  curl -I http://localhost:12345/ads/lightfuels.mp4
+  170  curl -I http://localhost/ads/lightfuels.mp4
+  171  curl -I http://localhost/ads
+  172  sudo nano /etc/nginx/sites-available/openq
+  173  sudo nginx -t
+  174  sudo systemctl restart nginx
+  175  socket.on("adsList", (data) => {
+  176  const oldQueue = adQueue.join(",");
+  177  adQueue = [...data.ads];
+  178  // clamp volume between 0-1
+  179  adVolume = Math.min(Math.max(data.volume || 0, 0), 1);
+  180  // 🔥 update volume instantly if already playing
+  181  if (videoElement) {
+  182  if (adVolume > 0) {
+  183  videoElement.prop("muted", false);
+  184  videoElement.prop("volume", adVolume);
+  185  } else {
+  186  videoElement.prop("muted", true);
+  187  videoElement.prop("volume", 0);
+  188  }
+  189  // Only reset index if ads changed or nothing is playing
+  190  currentAdIndex = 0;
+  191  playNextAd();
+  192  }
+  193  });
+  194  function playNextAd() { if (currentAdIndex >= adQueue.length) {
+  195  currentAdIndex = 0; // loop back
+  196  }
+  197  const adFile = adQueue[currentAdIndex++];
+  198  playing = true;
+  199  console.log(`[ADS] Playing ad: ${adFile} at volume ${adVolume}`);
+  200  const encodedFile = encodeURIComponent(adFile);
+  201  // Use existing hardcoded video element
+  202  videoElement = document.getElementById("dep");
+  203  // Stop previous playback safely
+  204  videoElement.src = `/ads/${encodedFile}`;
+  205  videoElement.autoplay = true;
+  206  videoElement.playsInline = true;
+  207  videoElement.load();
+  208  videoElement.play().catch(() => { });
+  209  // Volume logic
+  210  if (adVolume > 0) {
+  211  videoElement.muted = false;
+  212  videoElement.volume = adVolume;
+  213  } else {
+  214  videoElement.muted = true;
+  215  videoElement.volume = 0;
+  216  }
+  217  // Ensure autoplay actually fires  
+  218  videoElement.play().catch(err => {
+  219  console.warn("[ADS] Autoplay blocked, retrying...", err);
+  220  setTimeout(() => videoElement.play(), 300);
+  221  });
+  222  // When finished, load next ad
+  223  videoElement.onended = () => {
+  224  console.log(`[ADS] Finished: ${adFile}`);
+  225  playNextAd();
+  226  };
+  227  }
+  228  ls -lah /home/osti/OpenQSocketMultiple/outfolder/ads/lightfuels.mp4
+  229  sudo chmod o+x /home /home/osti /home/osti/OpenQSocketMultiple /home/osti/OpenQSocketMultiple/outfolder
+  230  sudo chmod -R o+rX /home/osti/OpenQSocketMultiple/outfolder/ads
+  231  sudo nano /etc/nginx/sites-available/openq
+  232  curl -I http://localhost/ads/lightfuels.mp4
+  233  sudo nano /etc/nginx/sites-available/openq
+  234  sudo chmod o+x /home /home/osti /home/osti/OpenQSocketMultiple /home/osti/OpenQSocketMultiple/outfolder
+  235  sudo nginx -t
+  236  sudo systemctl reload nginx
+  237  curl -I http://localhost/ads/lightfuels.mp4
+  238  history
+  239  history > commands.txt
+  240  ls
+  241  nano commands.txt
+  242  git pull origin TOPLINE
+  243  cd OpenQSocketMultiple
+  244  ls
+  245  history > commands.txt
+  246  ls
+  247  git pull origin TOPLINE
+  248  git commit -m "pushtopline raspberry setup"
+  249  git push origin TOPLINE
+  250  git configg --global user.name "osti-softdev"
+  251  git config --global user.name "osti-softdev"
+  252  git config --global user.email "dev@osti.com.ph"
+  253  git commit -m "pushtopline raspberry setup"
+  254  git add .
+  255  git commit -m "pushtopline raspberry setup"
+  256  git push origin TOPLINE
+  257  git config --global credential.helper store
+  258  git push origin TOPLINE
+  259  ssh-keygen -t ed25519 -C "dev@osti.com.ph"
+  260  cat ~/.ssh/id_ed25519.pub
+  261  ssh -T git@github.com
+  262  git push origin TOPLINE
+  263  git remote -v
+  264  git remote set-url origin git@github.com:osti-softdev/OpenQSocketMultiple.git
+  265  git push origin TOPLINE
+  266  pm2 monit
+  267  sudo nano /etc/nginx/sites-available/openq
+  268  sudo nginx -t
+  269  sudo systemctl reload nginx
+  270  pm2 monit
+  271  rm -f command.txt
+  272  ls
+  273  history > commands.txt
+  274  git add .
+  275  git commit -m "asdasd"
+  276  git push origin TOPLINE
+  277* 
+  278  git pull --no-rebase origin TOPLINE
+  279  history > commands.txt
+  280  ls
+  281  git add .
+  282  git commit -m "asdasd"
+  283  git push origin TOPLINE
+  284  git push origin TOPLINE --verbose
+  285  git reset HEAD~1
+  286  git rm --cached command.txt
+  287  git add .
+  288  git commit -m "Clean commit without command history"
+  289  git push origin TOPLINE
+  290  git push --force-with-lease origin TOPLINE
+  291  nano command.txt
+  292  ls
+  293  nano commands.txt
+  294  s
+  295  git fetch origin
+  296  git log --oneline --graph --decorate --all --max-count=20
+  297  git rebase origin/TOPLINE
+  298  git push origin TOPLINE
+  299  git rm commands.txt
+  300  git rebase --continue
+  301  git push origin TOPLINE
+  302  git status
+  303  git rm commands.txt
+  304  git rebase --continue
+  305  git push origin TOPLINE
+  306  git reset HEAD~1
+  307  ls
+  308  cd outfolder
+  309  cd ads
+  310  ls
+  311  Android Kotlin
+  312  GET v1/api/services
+  313  .On v1/api/queuetickets/calling
+  314  POST v1/api/calledgit reset --hard HEAD~1
+  315  git reset --hard HEAD~1
+  316  cd ..
+  317  ls
+  318  cd ..
+  319  ls
+  320  nano commands.txt
+  321  cd outdolder
+  322  cd outfolder
+  323  cd ads
+  324  ls
+  325  cd ..
+  326  ls
+  327  nano .gitignore
+  328  git add .
+  329  git commit -m "sdads"
+  330  git push origin TOPLINE
+  331  git pull origin TOPLINE
+  332  git pull --no-rebase origin TOPLINE
+  333  git push origin TOPLINE
+  334  ls
+  335  history > commands.txt
