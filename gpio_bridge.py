@@ -8,14 +8,14 @@ from RPLCD.i2c import CharLCD
 # GPIO configuration
 # button_gpio : (key, led_gpio)
 buttons_config = {
+      4:  ("4", 13),  # 🔹 Updated: Sample 1 Button on Pin 4 triggers Key "4", blinks LED on Pin 13
     17: ("1", 18),
     27: ("2", 23),
     22: ("3", 24),
-    10: ("4", 25),
-    9:  ("5", 8),
-    11: ("6", 7),
-    5:  ("7", 12),
-    6:  ("8", 16),
+    10: ("5", 25), # shifted others out of collision conflict
+    9:  ("6", 8),
+    11: ("7", 7),
+    5:  ("8", 12),
 }
 
 buttons = []
