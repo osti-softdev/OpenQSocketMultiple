@@ -1,5 +1,4 @@
 import sys
-import json
 import time
 import threading
 from threading import Timer
@@ -22,7 +21,7 @@ buttons_config = {
 buttons = []
 leds = {}
 
-# Initialize LCD (Adjust address 0x27 if necessary for your Pi backpack)
+# Initialize LCD (Adjust I2C address 0x27 if necessary)
 try:
     lcd = CharLCD('PCF8574', 0x27, port=1, cols=16, rows=2)
     lcd.backlight_enabled = True
@@ -49,48 +48,25 @@ def on_press(button):
     print(f"KEY:{key}")
     sys.stdout.flush()
 
-def handle_json_input(line):
+def handle_text_input(text):
     if not lcd:
         return
-    try:
-        data = json.loads(line)
-        status = data.get("status")
-        service = data.get("ticketservice", "")
-        number = data.get("ticketnum", "")
-
-        lcd.clear()
-        
-        # Line 1 based on status
-        if status == "calling":
-            lcd.cursor_pos = (0, 2)
-            lcd.write_string("Now Serving:")
-        elif status == "called":
-            lcd.cursor_pos = (0, 0)
-            lcd.write_string("Called Ticket:")
-        elif status == "pending":
-            lcd.cursor_pos = (0, 4)
-            lcd.write_string("Ticket:")
-        else:
-            lcd.cursor_pos = (0, 2)
-            lcd.write_string("Void Ticket:")
-
-        # Line 2 format string
-        lcd.cursor_pos = (1, 6)
-        lcd.write_string(f"{service}{number}")
-
-    except json.JSONDecodeError:
-        # Fallback raw message treatment
-        lcd.clear()
-        lcd.cursor_pos = (0, 4)
-        lcd.write_string("Ticket:")
-        lcd.cursor_pos = (1, 6)
-        lcd.write_string(line.strip()[:10])
+    
+    lcd.clear()
+    lcd.cursor_pos = (0, 4)
+    lcd.write_string("Ticket:")
+    
+    # Center text on line 2 based on its length
+    start_col = max(0, (16 - len(text)) // 2)
+    lcd.cursor_pos = (1, start_col)
+    lcd.write_string(text)
 
 def stdin_listener():
-    """ Listens to the incoming backend data from Node.js """
+    """ Listens to raw string updates from Node.js """
     for line in sys.stdin:
-        if line.strip():
-            handle_json_input(line)
+        clean_line = line.strip()
+        if clean_line:
+            handle_text_input(clean_line)
 
 # Initialize LEDs
 for _, (_, led_pin) in buttons_config.items():
@@ -100,7 +76,7 @@ for _, (_, led_pin) in buttons_config.items():
     except Exception as e:
         print(f"LED GPIO {led_pin}: {e}", file=sys.stderr)
 
-# 🔹 Arduino Startup Parity Strategy
+# 🔹 Arduino Startup Initialization Parity
 if lcd:
     lcd.clear()
     lcd.cursor_pos = (0, 0)
@@ -108,14 +84,14 @@ if lcd:
     lcd.cursor_pos = (1, 1)
     lcd.write_string("is now Ready")
 
-# Turn all LEDs ON for 3 seconds
+# Flash all LEDs for 3 seconds
 for led in leds.values():
     led.on()
 time.sleep(3.0)
 for led in leds.values():
     led.off()
 
-# Default idle screen state
+# Default idle state
 if lcd:
     lcd.clear()
     lcd.cursor_pos = (0, 4)
@@ -136,10 +112,9 @@ for button_pin in buttons_config.keys():
 print("GPIO Bridge Ready", file=sys.stderr)
 sys.stderr.flush()
 
-# Start background Thread to consume Node.js standard input writes
+# Start background Thread to read incoming terminal text strings
 input_thread = threading.Thread(target=stdin_listener, daemon=True)
 input_thread.start()
 
-# Keep main execution frame alive
 import signal
 signal.pause()
