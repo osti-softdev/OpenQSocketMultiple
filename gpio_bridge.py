@@ -42,7 +42,7 @@ def on_press(button):
 
     if led:
         led.on()
-        Timer(0.2, led_off, args=[led]).start()
+        Timer(3.0, led_off, args=[led]).start()
 
     # Send key press to Node.js
     print(f"KEY:{key}")
