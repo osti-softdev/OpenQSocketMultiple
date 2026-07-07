@@ -72,7 +72,7 @@ async function processButtonPress(key) {
       );
     }
 
-  // === Call next ticket (4,5) ===
+// === Call next ticket (4,5) ===
 else if (/^[4-5]$/.test(key)) {
   const services = await getAllServices();
 
@@ -87,54 +87,81 @@ else if (/^[4-5]$/.test(key)) {
   }
 
   const startTime = time;
-  const historyEntry = `${time}-${topline}-Calling`;
+  const finishHistory = `${time}-${topline}-Finished`;
+  const callHistory = `${time}-${topline}-Calling`;
 
-  const query = `
-    UPDATE transactions 
-    SET 
-      status = 'calling',
-      counter_user = ?,
-      start_time = ?,
-      history = CASE 
-        WHEN history IS NULL OR history = '' THEN ? 
-        ELSE history || ';' || ? 
-      END
-    WHERE id = (
-      SELECT id FROM transactions 
-      WHERE status = 'pending'
-        AND sname = ?
-        AND ticketservice = ?
+  db.serialize(() => {
+    // Finish previous called ticket for this counter/user
+    db.run(
+      `
+      UPDATE transactions
+      SET 
+        status = 'finished',
+        end_time = ?,
+        history = CASE
+          WHEN history IS NULL OR history = '' THEN ?
+          ELSE history || ';' || ?
+        END
+      WHERE status = 'called'
+        AND counter_user = ?
         AND date = ?
-      ORDER BY date ASC, time ASC
-      LIMIT 1
-    )
-    RETURNING ticketnum, sname, ticketservice, status
-  `;
+      `,
+      [time, finishHistory, finishHistory, topline, date],
+      (err) => {
+        if (err) {
+          console.error("Finish previous ticket error:", err.message);
+          db.close();
+          return;
+        }
 
-  db.get(
-    query,
-    [
-      topline,
-      startTime,
-      historyEntry,
-      historyEntry,
-      service.sname,
-      service.regular,
-      date
-    ],
-    (err, row) => {
-      if (err) {
-        console.error("Update error:", err.message);
-      } else if (!row) {
-        console.log(`⚠️ No pending ticket found for ${service.regular}`);
-      } else {
-        console.log(`✅ Ticket called:`, row);
-        sendToLCD(`Called: ${row.ticketservice}${row.ticketnum}`);
+        // Call next pending ticket for selected service
+        db.get(
+          `
+          UPDATE transactions 
+          SET 
+            status = 'calling',
+            counter_user = ?,
+            start_time = ?,
+            history = CASE 
+              WHEN history IS NULL OR history = '' THEN ? 
+              ELSE history || ';' || ? 
+            END
+          WHERE id = (
+            SELECT id FROM transactions 
+            WHERE status = 'pending'
+              AND sname = ?
+              AND ticketservice = ?
+              AND date = ?
+            ORDER BY date ASC, time ASC
+            LIMIT 1
+          )
+          RETURNING ticketnum, sname, ticketservice, status
+          `,
+          [
+            topline,
+            startTime,
+            callHistory,
+            callHistory,
+            service.sname,
+            service.regular,
+            date
+          ],
+          (err, row) => {
+            if (err) {
+              console.error("Call ticket error:", err.message);
+            } else if (!row) {
+              console.log(`⚠️ No pending ticket found for ${service.regular}`);
+            } else {
+              console.log(`✅ Ticket called:`, row);
+              sendToLCD(`${row.ticketservice}${row.ticketnum}`);
+            }
+
+            db.close();
+          }
+        );
       }
-
-      db.close();
-    }
-  );
+    );
+  });
 }
 
     // === Recalling (6) ===
