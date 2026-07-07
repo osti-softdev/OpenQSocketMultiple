@@ -59,7 +59,7 @@ async function processButtonPress(key) {
             [ticketNumber, service.sname, service.regular, "pending", date, time, historyEntry],
             (err) => {
               if (!err) {
-                const displayText = `${service.regular}${ticketNumber}`;
+                const displayText = `Created: ${service.regular}${ticketNumber}`;
                 console.log(`✅ Ticket created: ${displayText}`);
                 sendToLCD(displayText); // 🔹 This safely pipes string back to Python to show on LCD
               } else {
@@ -72,76 +72,70 @@ async function processButtonPress(key) {
       );
     }
 
-    // === Call next ticket (4,5) ===
-    else if (/^[4-5]$/.test(key)) {
-      const startTime = time;
-      const historyEntry = `${time}-${topline}-Calling`;
-      console.log(`Calling next ticket for key ${key}...`);
+  // === Call next ticket (4,5) ===
+else if (/^[4-5]$/.test(key)) {
+  const services = await getAllServices();
 
-      if (key === "4") {
-        const query = `
-          UPDATE transactions 
-          SET status = 'calling', counter_user=?, start_time = ?, 
-            history = CASE 
-              WHEN history IS NULL OR history = '' THEN ? 
-              ELSE history || ';' || ? END
-          WHERE id = (
-            SELECT id FROM transactions 
-            WHERE status = 'pending' AND date = ?
-            ORDER BY date ASC, time ASC
-            LIMIT 1
-          )
-          RETURNING ticketnum, sname, ticketservice, status
-        `;
-        db.get(query, [topline, startTime, historyEntry, historyEntry, date], (err, row) => {
-          if (err) console.error("Update error:", err.message);
-          else if (row){
-            sendToLCD(`${row.ticketservice}${row.ticketnum}`);
-            console.log(`✅ Ticket called:`, row);
-          }
-          db.close();
-        });
+  // Key 4 = first service, Key 5 = second service
+  const index = parseInt(key) - 4;
+  const service = services[index];
+
+  if (!service || !service.regular) {
+    console.warn(`⚠️ No database service found for Key: ${key} at index: ${index}`);
+    db.close();
+    return;
+  }
+
+  const startTime = time;
+  const historyEntry = `${time}-${topline}-Calling`;
+
+  const query = `
+    UPDATE transactions 
+    SET 
+      status = 'calling',
+      counter_user = ?,
+      start_time = ?,
+      history = CASE 
+        WHEN history IS NULL OR history = '' THEN ? 
+        ELSE history || ';' || ? 
+      END
+    WHERE id = (
+      SELECT id FROM transactions 
+      WHERE status = 'pending'
+        AND sname = ?
+        AND ticketservice = ?
+        AND date = ?
+      ORDER BY date ASC, time ASC
+      LIMIT 1
+    )
+    RETURNING ticketnum, sname, ticketservice, status
+  `;
+
+  db.get(
+    query,
+    [
+      topline,
+      startTime,
+      historyEntry,
+      historyEntry,
+      service.sname,
+      service.regular,
+      date
+    ],
+    (err, row) => {
+      if (err) {
+        console.error("Update error:", err.message);
+      } else if (!row) {
+        console.log(`⚠️ No pending ticket found for ${service.regular}`);
       } else {
-        const services = await getAllServices();
-        const index = key.charCodeAt(0) - "5".charCodeAt(0); 
-        const service = services[index];
-        if (!service || !service.regular) {
-          db.close();
-          return;
-        }
-
-        const query = `
-          UPDATE transactions 
-          SET status = 'calling', counter_user='Designated Counter', start_time = ?, 
-            history = CASE 
-              WHEN history IS NULL OR history = '' THEN ? 
-              ELSE history || ';' || ? END
-          WHERE id = (
-            SELECT id FROM transactions 
-            WHERE status = 'pending' 
-            AND sname = ? AND ticketservice = ? AND date = ?
-            ORDER BY date ASC, time ASC
-            LIMIT 1
-          )
-          RETURNING ticketnum, sname, ticketservice, status
-        `;
-        db.get(
-          query,
-          [startTime, historyEntry, historyEntry, service.sname, service.regular, date],
-          (err, row) => {
-            if (err) {
-              console.error("Update error:", err.message);
-            } else if (!row) {
-              console.log("⚠️ No matching ticket found");
-            } else {
-              console.log(`✅ Ticket called:`, row);
-              sendToLCD(`${row.ticketservice}${row.ticketnum}`);
-            }
-            db.close();
-          }
-        );
+        console.log(`✅ Ticket called:`, row);
+        sendToLCD(`Called: ${row.ticketservice}${row.ticketnum}`);
       }
+
+      db.close();
     }
+  );
+}
 
     // === Recalling (6) ===
     else if (key === "6") {
@@ -159,7 +153,7 @@ async function processButtonPress(key) {
           console.log("⚠️ No matching ticket to recall");
         } else {
           console.log(`✅ Ticket recalled:`, row);
-          sendToLCD(`${row.ticketservice}${row.ticketnum}`);
+          sendToLCD(`Recalled: ${row.ticketservice}${row.ticketnum}`);
         }
         db.close();
       });
@@ -181,7 +175,7 @@ async function processButtonPress(key) {
           console.log("⚠️ No matching ticket to void");
         } else {
           console.log(`✅ Ticket voided:`, row);
-          sendToLCD(`${row.ticketservice}${row.ticketnum}`);
+          sendToLCD(`Void: ${row.ticketservice}${row.ticketnum}`);
         }
         db.close();
       });
