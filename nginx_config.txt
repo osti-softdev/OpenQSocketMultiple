@@ -1,0 +1,106 @@
+first grant nginx permissions 
+
+sudo chmod o+x /home/osti
+sudo chmod o+x /home/osti/OpenQSocketMultiple
+sudo chmod o+x /home/osti/OpenQSocketMultiple/outfolder
+sudo chmod o+rx /home/osti/OpenQSocketMultiple/outfolder/ads
+sudo chmod o+r /home/osti/OpenQSocketMultiple/outfolder/ads/*
+
+-- remove defaults
+sudo rm -f /etc/nginx/sites-enabled/default
+sudo rm -f /etc/nginx/sites-enabled/openq
+
+-- check folder is empty
+ls -la /etc/nginx/sites-enabled/
+
+-- create openq link
+sudo ln -s /etc/nginx/sites-available/openq /etc/nginx/sites-enabled/openq
+
+-- edit config
+sudo nano /etc/nginx/sites-available/openq
+
+-- paste the following
+
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    server_name _;
+    client_max_body_size 500M;
+
+    # Returns the JSON list from Express
+    location = /ads {
+        proxy_pass http://127.0.0.1:12345/ads;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+
+    # Serves the actual video files directly through Nginx
+    location ^~ /ads/ {
+        alias /home/osti/OpenQSocketMultiple/outfolder/ads/;
+
+        types {
+            video/mp4 mp4;
+            video/webm webm;
+            video/ogg ogg;
+        }
+
+        default_type application/octet-stream;
+
+        add_header Accept-Ranges bytes always;
+        add_header Cache-Control "no-cache" always;
+    }
+
+    location = /upload-video {
+        proxy_pass http://127.0.0.1:12345/upload-video;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+    location = /rename-video {
+        proxy_pass http://127.0.0.1:12345/rename-video;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+    }
+
+    location /delete-video/ {
+        proxy_pass http://127.0.0.1:12345;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+    }
+
+    location / {
+        proxy_pass http://127.0.0.1:12345;
+        proxy_http_version 1.1;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+}
+
+
+
+-- test config and reload nginx
+sudo nginx -t
+sudo systemctl reload nginx
+
+-- test video URL
+curl -I http://localhost/ads/lightfuels.mp4
+
+++ it should return like ++ 
+HTTP/1.1 200 OK
+Content-Type: video/mp4
+Content-Length: ...
+Accept-Ranges: bytes
+
+-- if done reboot and test your app
+sudo reboot
+
