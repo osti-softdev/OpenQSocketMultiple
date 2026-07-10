@@ -1,4 +1,5 @@
     1  sudo apt update && sudo apt upgrade -y
+        sudo raspi-config
     2  sudo reboot
     3  sudo apt install -y curl git build-essential
     4  curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
@@ -20,7 +21,6 @@
    26  ls
    27  cd OpenQSocketMultiple
    28  ls
-   29  npm instal
    30  git branch -r
    31  git checkout TOPLINE
    32  git branch -r
@@ -32,24 +32,15 @@
    41  npm install
    43  sudo reboot
    44  ls
-   48  cat /etc/os-release
-   52  cd ~/OpenQSocketMultiple
-   53  cat package.json
-   54  osti@osti:~/OpenQSocketMultiple $ cat package.json
-   55  {         "name": "sque",;         "version": "1.0.0",;         "description": "this queue system is for smaller scale only ",;         "main": "index.js",;         "bin": "index.js",;         "scripts": {;                 "start": "node index.js",;                 "dev": "node --inspect index.js",;                 "stop": "node tools/stop.js";         },;         "author": "Cade Lawrenzo Cana",;         "license": "ISC",;         "dependencies": {;                 "@ffmpeg/core": "^0.12.10",;                 "@ffmpeg/core-mt": "^0.12.10",;                 "@ffmpeg/ffmpeg": "^0.12.15",;                 "@serialport/parser-readline": "^13.0.0",;                 "axios": "^1.12.2",;                 "body-parser": "^2.2.0",;                 "cookie-parser": "^1.4.7",;                 "cors": "^2.8.5",;                 "crc": "^4.3.2",;                 "dotenv": "^17.2.3",;                 "electron": "^40.6.0",;                 "express": "^5.1.0",;                 "ini": "^5.0.0",;                 "jsonwebtoken": "^9.0.2",;                 "mime": "^4.1.0",;                 "moment-timezone": "^0.6.0",;                 "multer": "^2.0.2",;                 "pm2": "^6.0.14",;                 "serialport": "^13.0.0",;                 "serialport-gsm": "^4.0.1",;                 "socket.io": "^4.8.1",;                 "sqlite3": "^5.1.7",;                 "websocket": "^1.0.35";          }
-   56  }
    63  python3 -m venv venv
    64  source venv/bin/activate
-   65  exit
-   66  cd ~/OpenQSocketMultiple
-   68  source venv/bin/activate
+
    69  pip install --upgrade pip setuptools wheel
    71  sudo apt install python3-venv python3-dev build-essential
    72  pip install --upgrade pip setuptools wheel
    73  npm install
    74  npm install onoff
    75  deactivate
-   76  npm install pm2
    77  sudo npm install -g pm2
    78  npm start
         ctrl+c
