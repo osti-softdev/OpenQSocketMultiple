@@ -12,10 +12,35 @@ const { authLimiter } = require("../utilities/rateLimiter");
 module.exports = function createTellerApiRouter(io) {
     const router = express.Router();
 
-    router.use('/admin', requireRole('admin', 'superadmin'));
+    // Every admin-console API requires a signed-in console account. Individual
+    // workspaces add their narrower role guard below.
+    router.use('/admin', requireRole('user', 'admin', 'superadmin'));
     const rootpath = global.BACKEND_PATH || __dirname;
     const db = require(path.join(rootpath, 'utilities/db'));
     const { getPHDateTime } = require(path.join(rootpath, 'utilities/datetime'));
+    const {
+      inTransaction,
+      normalizeServiceKey,
+      synchronizeServiceGroups
+    } = require(path.join(rootpath, 'utilities/serviceGroups'));
+
+    let serviceGroupsInitializationError = null;
+    const serviceGroupsReady = inTransaction(db, () => synchronizeServiceGroups(db))
+      .then(() => console.log('Services and routing groups synchronized'))
+      .catch(error => {
+        console.error('Unable to synchronize services and routing groups:', error);
+        serviceGroupsInitializationError = error;
+      });
+
+    router.use('/admin', async (req, res, next) => {
+      try {
+        await serviceGroupsReady;
+        if (serviceGroupsInitializationError) throw serviceGroupsInitializationError;
+        next();
+      } catch (error) {
+        res.status(500).json({ error: 'Service routing initialization failed' });
+      }
+    });
 
   // =========================
   // & Account login
@@ -87,6 +112,23 @@ module.exports = function createTellerApiRouter(io) {
             res.json({ loggedIn: false });
         }
   });
+
+  // Console access matrix:
+  // user       -> Monitor (overview, live preview, reports, ticket history)
+  // admin      -> Management (services, tellers, settings)
+  // superadmin -> Every workspace, including account management
+  const requireMonitorAccess = requireRole('user', 'superadmin');
+  const requireManagementAccess = requireRole('admin', 'superadmin');
+  const requireSuperadminAccess = requireRole('superadmin');
+
+  router.use('/admin/dashboard', requireMonitorAccess);
+  router.use('/admin/analytics', requireMonitorAccess);
+  router.use('/admin/reports', requireMonitorAccess);
+  router.use('/admin/tickets', requireMonitorAccess);
+  router.use('/admin/services', requireManagementAccess);
+  router.use('/admin/groups', requireManagementAccess);
+  router.use('/admin/tellers', requireManagementAccess);
+  router.use('/admin/accounts', requireSuperadminAccess);
 
   // ! -------- DASHBOARD -------- !
 
@@ -255,7 +297,14 @@ module.exports = function createTellerApiRouter(io) {
 
                 // 3️⃣ Tickets by service for today
                 db.all(
-                    `SELECT ticketservice as sname, COUNT(*) as count FROM transactions WHERE date = ? GROUP BY ticketservice`,
+                    `SELECT
+                        COALESCE(s.shortSname, t.sname, t.ticketservice, 'General') AS sname,
+                        COUNT(*) AS count
+                     FROM transactions t
+                     LEFT JOIN services s ON t.sname = s.sname
+                     WHERE t.date = ?
+                     GROUP BY COALESCE(s.shortSname, t.sname, t.ticketservice, 'General')
+                     ORDER BY count DESC`,
                     [date],
                     (err, rows) => {
                         if (err) return res.status(500).json({ error: err.message });
@@ -292,21 +341,23 @@ module.exports = function createTellerApiRouter(io) {
 
   // & Per Hour Analytics for Today+
   router.get('/admin/analytics/hourly', (req, res) => {
-    const { date} = getPHDateTime();
+    const { date: today } = getPHDateTime();
+    const date = /^\d{4}-\d{2}-\d{2}$/.test(req.query.date || '') ? req.query.date : today;
 
     db.all(`
         SELECT 
-            strftime('%H', date || ' ' || time) AS hour,
+            strftime('%H', t.date || ' ' || t.time) AS hour,
             CASE 
-                WHEN CAST(strftime('%M', date || ' ' || time) AS INTEGER) < 30 
+                WHEN CAST(strftime('%M', t.date || ' ' || t.time) AS INTEGER) < 30
                 THEN '00' 
                 ELSE '30' 
             END AS minute_block,
-            sname,
+            COALESCE(s.shortSname, t.ticketservice, t.sname, 'General') AS sname,
             COUNT(*) AS count
-        FROM transactions
-        WHERE date = ? AND status != 'pending'
-        GROUP BY hour, minute_block, sname
+        FROM transactions t
+        LEFT JOIN services s ON t.sname = s.sname
+        WHERE t.date = ?
+        GROUP BY hour, minute_block, COALESCE(s.shortSname, t.ticketservice, t.sname, 'General')
         ORDER BY hour, minute_block, sname
     `,
     [date],
@@ -324,17 +375,19 @@ module.exports = function createTellerApiRouter(io) {
   router.get('/admin/analytics/daily', (req, res) => {
         const { date } = getPHDateTime();
 
-        const currentMonth = date.substring(0, 7); // YYYY-MM
+        const currentMonth = /^\d{4}-\d{2}$/.test(req.query.month || '')
+            ? req.query.month
+            : date.substring(0, 7);
 
         db.all(`
             SELECT
-                CAST(strftime('%d', date) AS INTEGER) AS day,
-                sname,
+                CAST(strftime('%d', t.date) AS INTEGER) AS day,
+                COALESCE(s.shortSname, t.ticketservice, t.sname, 'General') AS sname,
                 COUNT(*) AS count
-            FROM transactions
-            WHERE date LIKE ?
-            AND status != 'pending'
-            GROUP BY day, sname
+            FROM transactions t
+            LEFT JOIN services s ON t.sname = s.sname
+            WHERE t.date LIKE ?
+            GROUP BY day, COALESCE(s.shortSname, t.ticketservice, t.sname, 'General')
             ORDER BY day ASC
         `,
         [`${currentMonth}%`],
@@ -348,6 +401,230 @@ module.exports = function createTellerApiRouter(io) {
         });
     });
 
+  // & Per Month Analytics for Current Year
+  router.get('/admin/analytics/monthly', (req, res) => {
+    const { date } = getPHDateTime();
+    const year = /^\d{4}$/.test(req.query.year || '') ? req.query.year : date.substring(0, 4);
+
+    db.all(`
+        SELECT
+            CAST(strftime('%m', t.date) AS INTEGER) AS month,
+            COALESCE(s.shortSname, t.ticketservice, t.sname, 'General') AS sname,
+            COUNT(*) AS count
+        FROM transactions t
+        LEFT JOIN services s ON t.sname = s.sname
+        WHERE t.date LIKE ?
+        GROUP BY month, COALESCE(s.shortSname, t.ticketservice, t.sname, 'General')
+        ORDER BY month ASC, sname ASC
+    `, [`${year}%`], (err, rows) => {
+        if (err) {
+            console.error('Monthly analytics query error:', err);
+            return res.status(500).json({ error: err.message });
+        }
+        res.json(rows || []);
+    });
+  });
+
+  // Current day, week, and month snapshots for the overview workspace
+  router.get('/admin/analytics/period-overview', async (req, res) => {
+    const { date: today } = getPHDateTime();
+    const periodDefinitions = {
+      day: {
+        start: today,
+        end: today,
+        trendSql: `
+          SELECT
+            strftime('%H', date || ' ' || time) || ':' ||
+              CASE WHEN CAST(strftime('%M', date || ' ' || time) AS INTEGER) < 30 THEN '00' ELSE '30' END AS label,
+            COUNT(*) AS total,
+            COUNT(CASE WHEN status = 'finished' THEN 1 END) AS completed,
+            COUNT(CASE WHEN priority = 1 THEN 1 END) AS priority,
+            AVG(CASE
+              WHEN start_time IS NOT NULL
+              THEN (strftime('%s', date || ' ' || start_time) - strftime('%s', date || ' ' || time)) / 60.0
+            END) AS avg_wait_minutes
+          FROM transactions
+          WHERE date = ?
+          GROUP BY label
+          ORDER BY label`
+      },
+      week: {
+        startSql: `date(?, '-' || ((CAST(strftime('%w', ?) AS INTEGER) + 6) % 7) || ' days')`,
+        end: today
+      },
+      month: {
+        start: `${today.substring(0, 7)}-01`,
+        end: today
+      }
+    };
+
+    try {
+      const weekStartRow = await db.getAsync(
+        `SELECT ${periodDefinitions.week.startSql} AS start_date`,
+        [today, today]
+      );
+      periodDefinitions.week.start = weekStartRow.start_date;
+
+      const result = {};
+      for (const [period, definition] of Object.entries(periodDefinitions)) {
+        const summary = await db.getAsync(`
+          SELECT
+            COUNT(*) AS total,
+            COUNT(CASE WHEN status = 'finished' THEN 1 END) AS completed,
+            COUNT(CASE WHEN status IN ('waiting', 'pending') THEN 1 END) AS waiting,
+            COUNT(CASE WHEN priority = 1 THEN 1 END) AS priority,
+            COUNT(DISTINCT COALESCE(sname, ticketservice)) AS active_services,
+            AVG(CASE
+              WHEN start_time IS NOT NULL
+              THEN (strftime('%s', date || ' ' || start_time) - strftime('%s', date || ' ' || time)) / 60.0
+            END) AS avg_wait_minutes,
+            AVG(CASE
+              WHEN start_time IS NOT NULL AND end_time IS NOT NULL
+              THEN (strftime('%s', date || ' ' || end_time) - strftime('%s', date || ' ' || start_time)) / 60.0
+            END) AS avg_service_minutes
+          FROM transactions
+          WHERE date BETWEEN ? AND ?
+        `, [definition.start, definition.end]);
+
+        const trend = period === 'day'
+          ? await db.allAsync(definition.trendSql, [today])
+          : await db.allAsync(`
+              SELECT
+                date AS label,
+                COUNT(*) AS total,
+                COUNT(CASE WHEN status = 'finished' THEN 1 END) AS completed,
+                COUNT(CASE WHEN priority = 1 THEN 1 END) AS priority,
+                AVG(CASE
+                  WHEN start_time IS NOT NULL
+                  THEN (strftime('%s', date || ' ' || start_time) - strftime('%s', date || ' ' || time)) / 60.0
+                END) AS avg_wait_minutes
+              FROM transactions
+              WHERE date BETWEEN ? AND ?
+              GROUP BY date
+              ORDER BY date
+            `, [definition.start, definition.end]);
+
+        result[period] = {
+          start: definition.start,
+          end: definition.end,
+          summary: summary || {},
+          trend: trend || []
+        };
+      }
+
+      res.json(result);
+    } catch (error) {
+      console.error('Period overview analytics error:', error);
+      res.status(500).json({ error: error.message });
+    }
+  });
+
+  // & Live 30-minute ticket arrivals and teller throughput
+  router.get('/admin/analytics/live-flow', (req, res) => {
+    const { date } = getPHDateTime();
+
+    const ticketFlow = new Promise((resolve, reject) => {
+        db.all(`
+            SELECT
+                strftime('%H', t.date || ' ' || t.time) || ':' ||
+                    CASE WHEN CAST(strftime('%M', t.date || ' ' || t.time) AS INTEGER) < 30 THEN '00' ELSE '30' END AS time_block,
+                COALESCE(s.shortSname, t.ticketservice, t.sname, 'General') AS service_name,
+                COUNT(*) AS count
+            FROM transactions t
+            LEFT JOIN services s ON t.sname = s.sname
+            WHERE t.date = ?
+            GROUP BY time_block, service_name
+            ORDER BY time_block, service_name
+        `, [date], (err, rows) => err ? reject(err) : resolve(rows || []));
+    });
+
+    const tellerFlow = new Promise((resolve, reject) => {
+        db.all(`
+            SELECT
+                strftime('%H', t.date || ' ' || t.end_time) || ':' ||
+                    CASE WHEN CAST(strftime('%M', t.date || ' ' || t.end_time) AS INTEGER) < 30 THEN '00' ELSE '30' END AS time_block,
+                COALESCE(c.cname, t.counter_user, 'Unassigned') AS teller_name,
+                COUNT(*) AS count
+            FROM transactions t
+            LEFT JOIN counters c ON t.teller_id = c.id
+            WHERE t.date = ? AND t.status = 'finished' AND t.end_time IS NOT NULL
+            GROUP BY time_block, teller_name
+            ORDER BY time_block, teller_name
+        `, [date], (err, rows) => err ? reject(err) : resolve(rows || []));
+    });
+
+    Promise.all([ticketFlow, tellerFlow])
+        .then(([tickets, tellers]) => res.json({ tickets, tellers }))
+        .catch((err) => {
+            console.error('Live flow analytics query error:', err);
+            res.status(500).json({ error: err.message });
+        });
+  });
+
+  // & Operational insight cards for the Overview workspace
+  router.get('/admin/analytics/insights', (req, res) => {
+    const { date } = getPHDateTime();
+    const result = {};
+
+    const summary = new Promise((resolve, reject) => {
+        db.get(`
+            SELECT
+                COUNT(*) AS total_tickets,
+                COUNT(CASE WHEN status = 'finished' THEN 1 END) AS completed_tickets,
+                COUNT(CASE WHEN priority = 1 THEN 1 END) AS priority_tickets,
+                AVG(CASE WHEN start_time IS NOT NULL THEN (strftime('%s', start_time) - strftime('%s', time)) / 60.0 END) AS avg_wait_minutes,
+                (SELECT COUNT(*) FROM transactions WHERE date = date(?, '-1 day')) AS previous_day_tickets
+            FROM transactions
+            WHERE date = ?
+        `, [date, date], (err, row) => {
+            if (err) return reject(err);
+            result.summary = row || {};
+            resolve();
+        });
+    });
+
+    const busiestService = new Promise((resolve, reject) => {
+        db.get(`
+            SELECT COALESCE(s.shortSname, t.ticketservice, t.sname, 'General') AS service_name, COUNT(*) AS ticket_count
+            FROM transactions t
+            LEFT JOIN services s ON t.sname = s.sname
+            WHERE t.date = ?
+            GROUP BY COALESCE(s.shortSname, t.ticketservice, t.sname, 'General')
+            ORDER BY ticket_count DESC
+            LIMIT 1
+        `, [date], (err, row) => {
+            if (err) return reject(err);
+            result.busiest_service = row || null;
+            resolve();
+        });
+    });
+
+    const peakWindow = new Promise((resolve, reject) => {
+        db.get(`
+            SELECT
+                strftime('%H', date || ' ' || time) || ':' ||
+                    CASE WHEN CAST(strftime('%M', date || ' ' || time) AS INTEGER) < 30 THEN '00' ELSE '30' END AS time_block,
+                COUNT(*) AS ticket_count
+            FROM transactions
+            WHERE date = ?
+            GROUP BY time_block
+            ORDER BY ticket_count DESC, time_block ASC
+            LIMIT 1
+        `, [date], (err, row) => {
+            if (err) return reject(err);
+            result.peak_window = row || null;
+            resolve();
+        });
+    });
+
+    Promise.all([summary, busiestService, peakWindow])
+        .then(() => res.json(result))
+        .catch((err) => {
+            console.error('Operational insights query error:', err);
+            res.status(500).json({ error: err.message });
+        });
+  });
+
   // ! -------- SERVICES -------- !
   // & Services List for Admin  
   router.get('/admin/services', (req, res) => {
@@ -358,39 +635,92 @@ module.exports = function createTellerApiRouter(io) {
   });
 
   // & Add Service
-  router.post('/admin/services', (req, res) => {
-    const { name, shortSname, sub_sname, prefix, priority_prefix, is_active, cutoff_time } = req.body;
-    db.run(`INSERT INTO services (sname, shortSname, sub_sname, regular, priority, status, sched) VALUES (?, ?, ?, ?, ?, ?, ?)`,
-        [name, shortSname, sub_sname, prefix, priority_prefix, is_active, cutoff_time],
-        function (err) {
-            if (err) return res.status(500).json({ error: err.message });
-            res.json({ success: true, id: this.lastID });
-            io.emit('service_update'); // Emit service update event
-            io.emit('calledticketsArrived');
-        });
+  router.post('/admin/services', async (req, res) => {
+    const { shortSname, sub_sname, prefix, priority_prefix, is_active, cutoff_time } = req.body;
+    const displayName = String(shortSname || '').trim();
+    const serviceKey = normalizeServiceKey(displayName);
+
+    if (!displayName) return res.status(400).json({ error: 'Service display name is required' });
+
+    try {
+      const existing = await db.getAsync('SELECT id FROM services WHERE UPPER(sname) = UPPER(?)', [serviceKey]);
+      if (existing) return res.status(409).json({ error: `The service key ${serviceKey} is already in use` });
+
+      const result = await inTransaction(db, async () => {
+        const insert = await db.runAsync(
+          `INSERT INTO services (sname, shortSname, sub_sname, regular, priority, status, sched)
+           VALUES (?, ?, ?, ?, ?, ?, ?)`,
+          [serviceKey, displayName, sub_sname, prefix, priority_prefix, is_active, cutoff_time]
+        );
+        await synchronizeServiceGroups(db);
+        return insert;
+      });
+
+      res.json({ success: true, id: result.lastID, sname: serviceKey });
+      io.emit('service_update');
+      io.emit('teller_assignment_updated', { all: true });
+      io.emit('calledticketsArrived');
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
   });
 
   // & Edit Service
-  router.put('/admin/services/:id', (req, res) => {
-    const { name, shortSname, sub_sname, prefix, priority_prefix, cutoff_time, is_active } = req.body;
-    db.run(`UPDATE services SET sname = ?, shortSname = ?, sub_sname = ?, regular = ?, priority = ?, sched = ?, status = ? WHERE id = ?`,
-        [name, shortSname, sub_sname, prefix, priority_prefix, cutoff_time, is_active, req.params.id],
-        (err) => {
-            if (err) return res.status(500).json({ error: err.message });
-            res.json({ success: true });
-            io.emit('service_update'); // Emit service update event
-            io.emit('calledticketsArrived');
-        });
+  router.put('/admin/services/:id', async (req, res) => {
+    const { shortSname, sub_sname, prefix, priority_prefix, cutoff_time, is_active } = req.body;
+    const displayName = String(shortSname || '').trim();
+    const serviceKey = normalizeServiceKey(displayName);
+    const serviceId = Number(req.params.id);
+
+    if (!displayName) return res.status(400).json({ error: 'Service display name is required' });
+
+    try {
+      const current = await db.getAsync('SELECT * FROM services WHERE id = ?', [serviceId]);
+      if (!current) return res.status(404).json({ error: 'Service not found' });
+
+      const duplicate = await db.getAsync(
+        'SELECT id FROM services WHERE UPPER(sname) = UPPER(?) AND id != ?',
+        [serviceKey, serviceId]
+      );
+      if (duplicate) return res.status(409).json({ error: `The service key ${serviceKey} is already in use` });
+
+      await inTransaction(db, async () => {
+        await db.runAsync(
+          `UPDATE services
+           SET sname = ?, shortSname = ?, sub_sname = ?, regular = ?, priority = ?, sched = ?, status = ?
+           WHERE id = ?`,
+          [serviceKey, displayName, sub_sname, prefix, priority_prefix, cutoff_time, is_active, serviceId]
+        );
+        await synchronizeServiceGroups(db, { renames: [[current.sname, serviceKey]] });
+      });
+
+      res.json({ success: true, sname: serviceKey });
+      io.emit('service_update');
+      io.emit('teller_assignment_updated', { all: true });
+      io.emit('calledticketsArrived');
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
   });
   
   // & Delete Service
-  router.delete('/admin/services/:id', requireRole('superadmin'), (req, res) => {
-        db.run('DELETE FROM services WHERE id = ?', [req.params.id], (err) => {
-            if (err) return res.status(500).json({ error: err.message });
-            res.json({ success: true });
-            io.emit('service_update'); // Emit service update event
-            io.emit('calledticketsArrived');
-        });
+  router.delete('/admin/services/:id', requireRole('superadmin'), async (req, res) => {
+    try {
+      const current = await db.getAsync('SELECT * FROM services WHERE id = ?', [req.params.id]);
+      if (!current) return res.status(404).json({ error: 'Service not found' });
+
+      await inTransaction(db, async () => {
+        await db.runAsync('DELETE FROM services WHERE id = ?', [req.params.id]);
+        await synchronizeServiceGroups(db, { removedKeys: [current.sname] });
+      });
+
+      res.json({ success: true });
+      io.emit('service_update');
+      io.emit('teller_assignment_updated', { all: true });
+      io.emit('calledticketsArrived');
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
   });  
 
   //   ! -------- GROUPS -------- !
@@ -402,31 +732,12 @@ module.exports = function createTellerApiRouter(io) {
     });
   });
 
-  // & Add Group
-  router.post('/admin/groups', (req, res) => {
-    const { name } = req.body;
-    db.run('INSERT INTO counter_groups (group_name) VALUES (?)', [name], function(err) {
-        if (err) return res.status(500).json({ error: err.message });
-        res.json({ success: true, id: this.lastID });
-    });
+  const groupsAreAutomatic = (req, res) => res.status(405).json({
+    error: 'Groups are managed automatically from the service catalog'
   });
-
-  // & Edit Group
-  router.put('/admin/groups/:id', (req, res) => {
-    const { name } = req.body;
-    db.run('UPDATE counter_groups SET group_name = ? WHERE id = ?', [name, req.params.id], (err) => {
-        if (err) return res.status(500).json({ error: err.message });
-        res.json({ success: true });
-    });
-  });
-
-  // & Delete Group
-  router.delete('/admin/groups/:id', requireRole('superadmin'), (req, res) => {
-    db.run('DELETE FROM counter_groups WHERE id = ?', [req.params.id], (err) => {
-        if (err) return res.status(500).json({ error: err.message });
-        res.json({ success: true });
-    });
-  });
+  router.post('/admin/groups', groupsAreAutomatic);
+  router.put('/admin/groups/:id', groupsAreAutomatic);
+  router.delete('/admin/groups/:id', groupsAreAutomatic);
 
     //   ! -------- TELLERS -------- !
   // & Tellers List for Admin
@@ -440,7 +751,7 @@ module.exports = function createTellerApiRouter(io) {
 
   // & Add Tellers 
   router.post('/admin/tellers', (req, res) => {
-    const { name, username, password, counter_number, services, group_id, group_name, is_active } = req.body;
+    const { name, username, password, counter_number, services, group_id, group_name, groupName, is_active } = req.body;
 
     if (!username || !password) {
         return res.status(400).json({ error: 'Username and password are required' });
@@ -452,7 +763,7 @@ module.exports = function createTellerApiRouter(io) {
     db.run(
         `INSERT INTO counters
          (cname, cuser, cpass, cnum, services, group_id, group_name, cstatus)
-         VALUES (?, ?, ?, ?, ?, ?, ?)`,
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
         [
             name,
             username,
@@ -460,7 +771,7 @@ module.exports = function createTellerApiRouter(io) {
             counter_number,
             services,
             group_id,
-            group_name,
+            group_name || groupName || null,
             is_active
         ],
         function (err) {
@@ -599,41 +910,64 @@ module.exports = function createTellerApiRouter(io) {
   //   ! -------- Ticket history -------- !
   // & get all tickets
   router.get('/admin/tickets/all', (req, res) => {
-    const { limit, offset, search } = req.query;
+    const search = String(req.query.search || '').trim();
+    const queryLimit = Math.min(Math.max(parseInt(req.query.limit, 10) || 10, 1), 50);
+    const requestedPage = Math.max(parseInt(req.query.page, 10) || 1, 1);
 
-    const queryLimit = parseInt(limit) || 100;
-    const queryOffset = parseInt(offset) || 0;
+    let whereClause = 'WHERE 1=1';
+    const filterParams = [];
 
-    let query = `
-        SELECT 
-            t.*, 
+    if (search) {
+        whereClause += `
+            AND (
+                CAST(t.ticketnum AS TEXT) LIKE ?
+                OR t.ticketservice LIKE ?
+                OR t.sname LIKE ?
+                OR (t.ticketservice || t.ticketnum) LIKE ?
+                OR t.counter_user LIKE ?
+                OR t.status LIKE ?
+            )
+        `;
+        const likeSearch = `%${search}%`;
+        filterParams.push(likeSearch, likeSearch, likeSearch, likeSearch, likeSearch, likeSearch);
+    }
+
+    const countQuery = `SELECT COUNT(*) AS total FROM transactions t ${whereClause}`;
+
+    db.get(countQuery, filterParams, (countError, countRow) => {
+        if (countError) return res.status(500).json({ error: countError.message });
+
+        const totalRows = Number(countRow?.total || 0);
+        const totalPages = Math.ceil(totalRows / queryLimit);
+        const currentPage = totalPages ? Math.min(requestedPage, totalPages) : 1;
+        const queryOffset = (currentPage - 1) * queryLimit;
+
+        const dataQuery = `
+        SELECT
+            t.*,
             counter.cname as teller_name,
             ((strftime('%s', t.end_time) - strftime('%s', t.start_time)) / 60.0) as duration_minutes
         FROM transactions t
         LEFT JOIN counters counter ON t.teller_id = counter.id
-        WHERE 1=1
-    `;
-
-    let params = [];
-
-    if (search) {
-        query += `
-            AND (
-                t.ticketnum LIKE ?
-                OR t.ticketservice LIKE ?
-                OR (t.ticketservice || t.ticketnum) LIKE ?
-            )
+        ${whereClause}
+        ORDER BY t.date DESC, t.time DESC, t.id DESC
+        LIMIT ? OFFSET ?
         `;
-        const likeSearch = `%${search}%`;
-        params.push(likeSearch, likeSearch, likeSearch);
-    }
 
-    query += ` ORDER BY t.time DESC LIMIT ? OFFSET ?`;
-    params.push(queryLimit, queryOffset);
-
-    db.all(query, params, (err, rows) => {
-        if (err) return res.status(500).json({ error: err.message });
-        res.json(rows);
+        db.all(dataQuery, [...filterParams, queryLimit, queryOffset], (err, rows) => {
+            if (err) return res.status(500).json({ error: err.message });
+            res.json({
+                tickets: rows || [],
+                pagination: {
+                    page: currentPage,
+                    limit: queryLimit,
+                    totalRows,
+                    totalPages,
+                    hasPrevious: currentPage > 1,
+                    hasNext: currentPage < totalPages
+                }
+            });
+        });
     });
   });
 
@@ -693,6 +1027,15 @@ module.exports = function createTellerApiRouter(io) {
 
         res.json({
             ticket_id: ticket.id,
+            ticket: {
+                number: `${ticket.ticketservice || ''}${ticket.ticketnum || ''}`,
+                service: ticket.sname || ticket.ticketservice || 'Unknown service',
+                status: ticket.status,
+                date: ticket.date,
+                created_time: ticket.time,
+                start_time: ticket.start_time,
+                end_time: ticket.end_time
+            },
             timeline
         });
     });
@@ -727,7 +1070,7 @@ router.get('/settings', (req, res) => {
 })
   
   // & Save Settings
-  router.post('/settings', (req, res) => {
+  router.post('/settings', requireManagementAccess, (req, res) => {
     const settings = req.body;
 
     if (!settings || typeof settings !== 'object') {
@@ -923,7 +1266,64 @@ router.get('/settings', (req, res) => {
         });
     });
 
-    // 6. Detailed Transactions (effective status shown)
+    // 6. Service volume by hour of day for the selected range
+    const serviceHourlyPromise = new Promise((resolve) => {
+        db.all(`
+            SELECT
+                CAST(strftime('%H', t.date || ' ' || t.time) AS INTEGER) AS hour,
+                COALESCE(s.shortSname, t.ticketservice, t.sname, 'General') AS service_name,
+                COUNT(*) AS ticket_count
+            FROM transactions t
+            LEFT JOIN services s ON t.sname = s.sname
+            WHERE t.date BETWEEN ? AND ?
+            GROUP BY hour, service_name
+            ORDER BY hour, service_name
+        `, [dateFrom, dateTo], (err, rows) => {
+            if (err) console.error('Service hourly report query error:', err);
+            else reports.serviceHourly = rows || [];
+            resolve();
+        });
+    });
+
+    // 7. Service volume by calendar day for the selected range
+    const serviceDailyPromise = new Promise((resolve) => {
+        db.all(`
+            SELECT
+                t.date,
+                COALESCE(s.shortSname, t.ticketservice, t.sname, 'General') AS service_name,
+                COUNT(*) AS ticket_count
+            FROM transactions t
+            LEFT JOIN services s ON t.sname = s.sname
+            WHERE t.date BETWEEN ? AND ?
+            GROUP BY t.date, service_name
+            ORDER BY t.date, service_name
+        `, [dateFrom, dateTo], (err, rows) => {
+            if (err) console.error('Service daily report query error:', err);
+            else reports.serviceDaily = rows || [];
+            resolve();
+        });
+    });
+
+    // 8. Service volume by calendar month for the selected range
+    const serviceMonthlyPromise = new Promise((resolve) => {
+        db.all(`
+            SELECT
+                substr(t.date, 1, 7) AS month,
+                COALESCE(s.shortSname, t.ticketservice, t.sname, 'General') AS service_name,
+                COUNT(*) AS ticket_count
+            FROM transactions t
+            LEFT JOIN services s ON t.sname = s.sname
+            WHERE t.date BETWEEN ? AND ?
+            GROUP BY month, service_name
+            ORDER BY month, service_name
+        `, [dateFrom, dateTo], (err, rows) => {
+            if (err) console.error('Service monthly report query error:', err);
+            else reports.serviceMonthly = rows || [];
+            resolve();
+        });
+    });
+
+    // 9. Detailed Transactions (effective status shown)
     const detailedPromise = new Promise((resolve) => {
         db.all(`
             SELECT
@@ -959,7 +1359,17 @@ router.get('/settings', (req, res) => {
         });
     });
 
-    Promise.all([summaryPromise, byServicePromise, byTellerPromise, byStatusPromise, dailyTrendsPromise, detailedPromise])
+    Promise.all([
+        summaryPromise,
+        byServicePromise,
+        byTellerPromise,
+        byStatusPromise,
+        dailyTrendsPromise,
+        serviceHourlyPromise,
+        serviceDailyPromise,
+        serviceMonthlyPromise,
+        detailedPromise
+    ])
         .then(() => res.json(reports))
         .catch(err => res.status(500).json({ error: err.message }));
   });

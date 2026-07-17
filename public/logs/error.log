@@ -466,3 +466,16 @@ Timeout duration was set to 1.
   code: 'SQLITE_ERROR',
   __augmented: true
 }
+❌ 2026-07-17T06:11:55.854Z [backend\routes\AadminApi.js:28] Unable to synchronize services and routing groups: Error: SQLITE_CONSTRAINT: FOREIGN KEY constraint failed
+--> in Statement#run([ 66 ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:76:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:294:8
+    at new Promise (<anonymous>)
+    at db.runAsync (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:293:3)
+    at synchronizeServiceGroups (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\serviceGroups.js:110:16)
+    at async inTransaction (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\serviceGroups.js:120:20) {
+  errno: 19,
+  code: 'SQLITE_CONSTRAINT',
+  __augmented: true
+}

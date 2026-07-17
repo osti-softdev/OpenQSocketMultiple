@@ -73,7 +73,6 @@ function generateReport() {
         data: { dateFrom, dateTo },
         dataType: 'json',
         success: function (data) {
-            console.log('✅ Report data received:', data);
             currentReportData = { ...data, dateFrom, dateTo };
             displayReportData(data);
 
@@ -92,11 +91,9 @@ function generateReport() {
 
 // Display report data on the page
 function displayReportData(data) {
-    console.log('📈 Displaying report data...');
 
     // Display Summary
     const summary = data.summary || {};
-    console.log('Summary:', summary);
     $('#summary-total').text(summary.total_tickets || 0);
     $('#summary-completed').text(summary.completed_tickets || 0);
     $('#summary-voided').text(summary.voided_tickets || 0);
@@ -104,36 +101,99 @@ function displayReportData(data) {
     $('#summary-avg-turnaround').text(formatTime(summary.avg_turnaround_time_minutes));
 
     // Display By Service
-    console.log('By Service:', data.byService);
     displayByService(data.byService || []);
 
     // Display By Teller
-    console.log('By Teller:', data.byTeller);
     displayByTeller(data.byTeller || []);
 
     // Display By Status
-    console.log('By Status:', data.byStatus);
     displayByStatus(data.byStatus || [], summary.total_tickets || 0);
 
     // Display Daily Trends
-    console.log('Daily Trends:', data.dailyTrends);
     displayDailyTrends(data.dailyTrends || []);
 
     // Display Detailed Transactions
-    console.log('Detailed Transactions:', data.detailedTransactions);
     displayDetailedTransactions(data.detailedTransactions || []);
 
     // Display Charts
     displayTrendChart(data.detailedTransactions || []);
     displayServiceDistribChart(data.detailedTransactions || []);
+    displayReportServiceAnalytics(data);
 
-    console.log('✅ All report sections displayed');
+}
+
+function displayReportServiceAnalytics(data) {
+    const hourlyLabels = Array.from({ length: 24 }, (_, hour) => `${String(hour).padStart(2, '0')}:00`);
+    const dailyLabels = [...new Set((data.serviceDaily || []).map(row => row.date))].sort();
+    const monthlyLabels = [...new Set((data.serviceMonthly || []).map(row => row.month))].sort();
+
+    createReportServiceLineChart('reportHourlyServiceChart', 'hourlyService', hourlyLabels, data.serviceHourly || [], {
+        labelKey: row => `${String(Number(row.hour)).padStart(2, '0')}:00`,
+        valueKey: 'ticket_count',
+        maxTicks: 12
+    });
+    createReportServiceLineChart('reportDailyServiceChart', 'dailyService', dailyLabels, data.serviceDaily || [], {
+        labelKey: row => row.date,
+        valueKey: 'ticket_count',
+        maxTicks: 10
+    });
+    createReportServiceLineChart('reportMonthlyServiceChart', 'monthlyService', monthlyLabels, data.serviceMonthly || [], {
+        labelKey: row => row.month,
+        valueKey: 'ticket_count',
+        maxTicks: 12
+    });
+}
+
+function createReportServiceLineChart(canvasId, chartKey, labels, rows, config) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas) return;
+    const theme = getAdminChartTheme();
+    const services = [...new Set(rows.map(row => row.service_name || 'General'))];
+
+    if (reportCharts[chartKey]) reportCharts[chartKey].destroy();
+
+    const datasets = services.map((service, index) => {
+        const color = theme.palette[index % theme.palette.length];
+        return {
+            label: service,
+            data: labels.map(label => rows
+                .filter(row => config.labelKey(row) === label && (row.service_name || 'General') === service)
+                .reduce((sum, row) => sum + Number(row[config.valueKey] || 0), 0)),
+            borderColor: color,
+            backgroundColor: `${color}18`,
+            borderWidth: 2.25,
+            tension: 0.32,
+            fill: services.length === 1,
+            pointRadius: labels.length > 35 ? 0 : 2,
+            pointHoverRadius: 5,
+            pointHitRadius: 10
+        };
+    });
+
+    reportCharts[chartKey] = new Chart(canvas, {
+        type: 'line',
+        data: { labels, datasets },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: 'nearest', intersect: true },
+            plugins: {
+                legend: { position: 'bottom', labels: { color: theme.text, usePointStyle: true, pointStyle: 'circle', boxWidth: 7, padding: 14, font: { size: 10, weight: '600' } } },
+                tooltip: { mode: 'nearest', intersect: true, backgroundColor: theme.tooltipBackground, titleColor: theme.heading, bodyColor: theme.text, borderColor: theme.tooltipBorder, borderWidth: 1, padding: 12, usePointStyle: true }
+            },
+            scales: {
+                x: { border: { display: false }, grid: { display: false }, ticks: { color: theme.text, maxTicksLimit: config.maxTicks, font: { size: 9 } } },
+                y: { beginAtZero: true, border: { display: false }, grid: { color: theme.grid }, ticks: { color: theme.text, precision: 0, stepSize: 1, padding: 8 } }
+            }
+        }
+    });
 }
 
 // Display Trend Chart — one line per service
 function displayTrendChart(transactions) {
     const ctx = document.getElementById('trendChart');
     if (!ctx) return;
+    const theme = getAdminChartTheme();
 
     if (reportCharts.trendChart) {
         reportCharts.trendChart.destroy();
@@ -152,7 +212,7 @@ function displayTrendChart(transactions) {
     const serviceCounts = {}; // { serviceName: [0,0,...] (48 slots) }
 
     (transactions || [])
-        .filter(tx => tx.status && tx.status.toLowerCase() === 'finished')
+        .filter(tx => tx.status && ['finished', 'completed'].includes(tx.status.toLowerCase()))
         .forEach(tx => {
             const svc = tx.service_name || tx.service_code || 'Unknown';
             if (!serviceCounts[svc]) {
@@ -174,36 +234,23 @@ function displayTrendChart(transactions) {
         });
 
     // Palette — extended for many services
-    const palette = [
-        { border: '#4e73df', bg: 'rgba(78,115,223,0.08)' },
-        { border: '#1cc88a', bg: 'rgba(28,200,138,0.08)' },
-        { border: '#e74a3b', bg: 'rgba(231,74,59,0.08)' },
-        { border: '#f6c23e', bg: 'rgba(246,194,62,0.08)' },
-        { border: '#36b9cc', bg: 'rgba(54,185,204,0.08)' },
-        { border: '#6610f2', bg: 'rgba(102,16,242,0.08)' },
-        { border: '#fd7e14', bg: 'rgba(253,126,20,0.08)' },
-        { border: '#e83e8c', bg: 'rgba(232,62,140,0.08)' },
-        { border: '#20c997', bg: 'rgba(32,201,151,0.08)' },
-        { border: '#6c757d', bg: 'rgba(108,117,125,0.08)' },
-    ];
-
     const serviceNames = Object.keys(serviceCounts);
     const datasets = serviceNames.map((svc, i) => {
-        const color = palette[i % palette.length];
+        const color = theme.palette[i % theme.palette.length];
         return {
             label: svc,
             data: serviceCounts[svc],
-            borderColor: color.border,
-            backgroundColor: color.bg,
-            pointRadius: 2,
-            pointBackgroundColor: color.border,
-            pointBorderColor: color.border,
-            pointHoverRadius: 4,
+            borderColor: color,
+            backgroundColor: color + '18',
+            pointRadius: 0,
+            pointBackgroundColor: color,
+            pointBorderColor: theme.dark ? '#152238' : '#ffffff',
+            pointHoverRadius: 5,
             pointHitRadius: 10,
-            pointBorderWidth: 1.5,
-            tension: 0.3,
+            pointBorderWidth: 2,
+            tension: 0.36,
             fill: false,
-            borderWidth: 2,
+            borderWidth: 2.5,
         };
     });
 
@@ -225,17 +272,15 @@ function displayTrendChart(transactions) {
             interaction: { mode: 'nearest', intersect: true },
             scales: {
                 x: {
-                    grid: { display: false, drawBorder: false },
-                    ticks: { maxTicksLimit: 24, font: { size: 10 } }
+                    border: { display: false },
+                    grid: { display: false },
+                    ticks: { color: theme.text, maxTicksLimit: 12, font: { size: 10 } }
                 },
                 y: {
                     beginAtZero: true,
-                    ticks: { precision: 0, font: { size: 10 } },
-                    grid: {
-                        color: 'rgb(234,236,244)',
-                        drawBorder: false,
-                        borderDash: [2]
-                    }
+                    border: { display: false },
+                    ticks: { color: theme.text, precision: 0, font: { size: 10 }, padding: 8 },
+                    grid: { color: theme.grid }
                 }
             },
             plugins: {
@@ -243,22 +288,25 @@ function displayTrendChart(transactions) {
                     display: true,
                     position: 'bottom',
                     labels: {
-                        boxWidth: 12,
-                        font: { size: 11 },
-                        padding: 10,
+                        color: theme.text,
+                        boxWidth: 8,
+                        font: { size: 11, weight: '600' },
+                        padding: 16,
                         usePointStyle: true,
+                        pointStyle: 'circle'
                     }
                 },
                 tooltip: {
-                    backgroundColor: 'rgb(255,255,255)',
-                    bodyColor: '#858796',
-                    titleColor: '#6e707e',
-                    borderColor: '#dddfeb',
+                    backgroundColor: theme.tooltipBackground,
+                    bodyColor: theme.text,
+                    titleColor: theme.heading,
+                    borderColor: theme.tooltipBorder,
                     borderWidth: 1,
                     padding: 12,
                     displayColors: true,
                     intersect: true,
                     mode: 'nearest',
+                    usePointStyle: true,
                     caretPadding: 10
                 }
             }
@@ -270,6 +318,7 @@ function displayTrendChart(transactions) {
 function displayServiceDistribChart(transactions) {
     const ctx = document.getElementById('serviceDistribChart');
     if (!ctx) return;
+    const theme = getAdminChartTheme();
 
     if (reportCharts.serviceDistribChart) {
         reportCharts.serviceDistribChart.destroy();
@@ -288,54 +337,57 @@ function displayServiceDistribChart(transactions) {
     const labels = Object.keys(serviceCounts);
     const data = Object.values(serviceCounts);
 
-    const baseColors = [
-        '#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b',
-        '#858796', '#5a5c69', '#6610f2', '#e83e8c', '#fd7e14'
-    ];
-    const hoverColors = [
-        '#2e59d9', '#17a673', '#2c9faf', '#dda20a', '#be2617',
-        '#60616f', '#373840', '#520dc2', '#d62c7a', '#e36209'
-    ];
-
-    const backgroundColors = labels.map((_, i) => baseColors[i % baseColors.length]);
-    const hoverBackgroundColors = labels.map((_, i) => hoverColors[i % hoverColors.length]);
+    const backgroundColors = labels.map((_, i) => theme.palette[i % theme.palette.length]);
 
     reportCharts.serviceDistribChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'pie',
         data: {
             labels: labels,
             datasets: [{
                 label: 'Finished Tickets',
                 data: data,
                 backgroundColor: backgroundColors,
-                hoverBackgroundColor: hoverBackgroundColors,
-                borderColor: backgroundColors,
+                borderColor: theme.dark ? '#111c2e' : '#ffffff',
+                borderWidth: 4,
+                hoverBorderWidth: 4,
+                hoverOffset: 8,
+                spacing: 2
             }]
         },
         options: {
-            indexAxis: 'y',
             maintainAspectRatio: false,
             responsive: true,
-            scales: {
-                x: {
-                    beginAtZero: true,
-                    ticks: { precision: 0 },
-                    grid: { color: "rgb(234, 236, 244)", zeroLineColor: "rgb(234, 236, 244)", drawBorder: false, borderDash: [2], zeroLineBorderDash: [2] }
-                },
-                y: {
-                    grid: { display: false, drawBorder: false }
-                }
-            },
+            layout: { padding: 8 },
             plugins: {
-                legend: { display: false },
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    labels: {
+                        color: theme.text,
+                        usePointStyle: true,
+                        pointStyle: 'circle',
+                        boxWidth: 8,
+                        padding: 14,
+                        font: { size: 10, weight: '600' }
+                    }
+                },
                 tooltip: {
-                    backgroundColor: "rgb(255,255,255)",
-                    bodyColor: "#858796",
-                    titleColor: '#6e707e',
-                    borderColor: '#dddfeb',
+                    backgroundColor: theme.tooltipBackground,
+                    bodyColor: theme.text,
+                    titleColor: theme.heading,
+                    borderColor: theme.tooltipBorder,
                     borderWidth: 1,
                     padding: 15,
-                    displayColors: false,
+                    displayColors: true,
+                    usePointStyle: true,
+                    callbacks: {
+                        label: function (context) {
+                            const total = context.dataset.data.reduce((sum, value) => sum + Number(value || 0), 0);
+                            const value = Number(context.raw || 0);
+                            const percentage = total ? ((value / total) * 100).toFixed(1) : '0.0';
+                            return ` ${context.label}: ${value} (${percentage}%)`;
+                        }
+                    }
                 }
             }
         }
@@ -344,7 +396,6 @@ function displayServiceDistribChart(transactions) {
 
 // Display tickets by service
 function displayByService(services) {
-    console.log('🔧 displayByService called with:', services);
     const tbody = $('#reports-by-service');
     tbody.empty();
 
@@ -354,7 +405,6 @@ function displayByService(services) {
         return;
     }
 
-    console.log(`Adding ${services.length} service rows`);
     services.forEach((service, idx) => {
         const row = `
             <tr>
@@ -368,12 +418,10 @@ function displayByService(services) {
         `;
         tbody.append(row);
     });
-    console.log('✅ Service table populated');
 }
 
 // Display performance by teller
 function displayByTeller(tellers) {
-    console.log('🔧 displayByTeller called with:', tellers);
     const tbody = $('#reports-by-teller');
     tbody.empty();
 
@@ -383,7 +431,6 @@ function displayByTeller(tellers) {
         return;
     }
 
-    console.log(`Adding ${tellers.length} teller rows`);
     tellers.forEach(teller => {
         const row = `
             <tr>
@@ -397,12 +444,10 @@ function displayByTeller(tellers) {
         `;
         tbody.append(row);
     });
-    console.log('✅ Teller table populated');
 }
 
 // Display tickets by status
 function displayByStatus(statuses, total) {
-    console.log('🔧 displayByStatus called with:', statuses);
     const tbody = $('#reports-by-status');
     tbody.empty();
 
@@ -412,7 +457,6 @@ function displayByStatus(statuses, total) {
         return;
     }
 
-    console.log(`Adding ${statuses.length} status rows`);
     statuses.forEach(status => {
         const percentage = total > 0 ? ((status.count / total) * 100).toFixed(1) : 0;
         const row = `
@@ -424,12 +468,10 @@ function displayByStatus(statuses, total) {
         `;
         tbody.append(row);
     });
-    console.log('✅ Status table populated');
 }
 
 // Display daily trends
 function displayDailyTrends(trends) {
-    console.log('🔧 displayDailyTrends called with:', trends);
     const tbody = $('#reports-daily-trends');
     tbody.empty();
 
@@ -439,7 +481,6 @@ function displayDailyTrends(trends) {
         return;
     }
 
-    console.log(`Adding ${trends.length} trend rows`);
     trends.forEach(trend => {
         const row = `
             <tr>
@@ -452,12 +493,10 @@ function displayDailyTrends(trends) {
         `;
         tbody.append(row);
     });
-    console.log('✅ Trends table populated');
 }
 
 // Display detailed transactions
 function displayDetailedTransactions(transactions) {
-    console.log('🔧 displayDetailedTransactions called with:', transactions);
     const tbody = $('#reports-detailed-transactions');
     tbody.empty();
 
@@ -468,7 +507,6 @@ function displayDetailedTransactions(transactions) {
     }
 
     const maxRows = Math.min(100, transactions.length);
-    console.log(`Adding ${maxRows} transaction rows (out of ${transactions.length})`);
 
     for (let i = 0; i < maxRows; i++) {
         const tx = transactions[i];
@@ -493,7 +531,6 @@ function displayDetailedTransactions(transactions) {
     if (transactions.length > 100) {
         tbody.append(`<tr><td colspan="7" style="text-align: center; padding: 12px; font-style: italic; color: #999;">Showing 100 of ${transactions.length} transactions</td></tr>`);
     }
-    console.log('✅ Transactions table populated');
 }
 
 // Export report as PDF

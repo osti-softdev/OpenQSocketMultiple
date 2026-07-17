@@ -60,6 +60,11 @@ appExpress.use((req, res, next) => {
         return res.redirect('/312Xtellerlogin');
     }
 
+    if (req.path === '/html/admin.html') {
+        const role = String(req.session?.admin?.role || '').trim().toLowerCase();
+        if (!['user', 'admin', 'superadmin'].includes(role)) return res.redirect('/admin');
+    }
+
     express.static(path.join(rootpath, 'public'))(req, res, next);
 });
 

@@ -2,10 +2,12 @@ const path = require("path");
 const fs = require("fs");
 const multer = require("multer");
 const express = require("express");
+const { requireRole } = require("../utilities/authsession");
 
 const rootpath = global.ROOT_PATH;
 
 module.exports = function setupVideosApi(app, adsModule) {
+    const requireSettingsAccess = requireRole('admin', 'superadmin');
     // Serve ads statically
     app.use(
         "/ads",
@@ -65,7 +67,7 @@ module.exports = function setupVideosApi(app, adsModule) {
     });
 
     // Upload
-    app.post("/upload-video", upload.single("video"), (req, res) => {
+    app.post("/upload-video", requireSettingsAccess, upload.single("video"), (req, res) => {
         if (!req.file) return res.status(400).send("No file uploaded or invalid format");
         adsModule.refreshAds();
         res.send(`Video uploaded successfully: ${req.file.filename}`);
@@ -73,7 +75,7 @@ module.exports = function setupVideosApi(app, adsModule) {
     });
 
     // Rename
-    app.put("/rename-video", express.json(), (req, res) => {
+    app.put("/rename-video", requireSettingsAccess, express.json(), (req, res) => {
         const { oldName, newName } = req.body || {};
         if (!oldName || !newName) return res.status(400).send("oldName and newName required");
 
@@ -95,7 +97,7 @@ module.exports = function setupVideosApi(app, adsModule) {
     });
 
     // Delete
-    app.delete("/delete-video/:videoName", (req, res) => {
+    app.delete("/delete-video/:videoName", requireSettingsAccess, (req, res) => {
         const videoPath = path.join(rootpath, "public/ads", req.params.videoName);
         fs.unlink(videoPath, err => {
             if (err) return res.status(500).send("Failed to delete video");

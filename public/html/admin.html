@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
+    <title>OpenQ Operations Console</title>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/admin-console.css?v=20260717-9">
+    <script>
+        (() => {
+            document.documentElement.classList.add('admin-access-pending');
+            const saved = localStorage.getItem('openqAdminTheme');
+            const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.dataset.theme = saved || preferred;
+            if (localStorage.getItem('openqAdminCompact') === 'true') {
+                document.documentElement.classList.add('compact-sidebar');
+            }
+        })();
+    </script>
     <script src="/libs/jquery-3.7.1.js"></script>
     <script src="/libs/sweetalert2@11.js"></script>
     <script src="/socket.io/socket.io.js"></script>
@@ -18,17 +30,27 @@
     <div id="admin-layout" class="layout">
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <div class="logo">OpenQ Admin</div>
+                <div class="brand-mark">OQ</div>
+                <div class="brand-copy">
+                    <div class="logo">OpenQ</div>
+                    <span>Operations Console</span>
+                </div>
+                <button class="sidebar-collapse-control" id="sidebarCollapse" type="button" title="Collapse navigation" aria-label="Collapse navigation">‹</button>
             </div>
             <nav class="sidebar-nav">
-                <button class="nav-item active" data-tab="dashboard">📊 Dashboard</button>
-                <button class="nav-item" data-tab="reports">📈 Reports</button>
-                <!-- <button class="nav-item" data-tab="history">🎫 History</button> -->
-                <button class="nav-item" data-tab="services">🛠️ Services</button>
-                <button class="nav-item" data-tab="tellers">👥 Tellers</button>
-                <button class="nav-item" data-tab="accounts">👤 Accounts</button>
-                <button class="nav-item" data-tab="groups">👨‍👩‍👧‍👦 Groups</button>
-                <button class="nav-item" data-tab="settings">⚙️ Settings</button>
+                <div class="nav-section-label">Monitor</div>
+                <button class="nav-item active" data-tab="dashboard"><span class="nav-icon">⌂</span><span class="nav-copy"><strong>Overview</strong><small>Analytics & trends</small></span></button>
+                <button class="nav-item" data-tab="live"><span class="nav-icon live-icon">●</span><span class="nav-copy"><strong>Live Preview</strong><small>Queue operations</small></span></button>
+                <button class="nav-item" data-tab="reports"><span class="nav-icon">↗</span><span class="nav-copy"><strong>Reports</strong><small>Analysis & exports</small></span></button>
+                <button class="nav-item" data-tab="history"><span class="nav-icon">◷</span><span class="nav-copy"><strong>Ticket History</strong><small>Journey records</small></span></button>
+
+                <div class="nav-section-label">Management</div>
+                <button class="nav-item" data-tab="services"><span class="nav-icon">◇</span><span class="nav-copy"><strong>Services</strong><small>Queue catalog</small></span></button>
+                <button class="nav-item" data-tab="tellers"><span class="nav-icon">◎</span><span class="nav-copy"><strong>Tellers</strong><small>Counters & access</small></span></button>
+
+                <div class="nav-section-label">Administration</div>
+                <button class="nav-item" data-tab="accounts"><span class="nav-icon">♙</span><span class="nav-copy"><strong>Accounts</strong><small>Admin access</small></span></button>
+                <button class="nav-item" data-tab="settings"><span class="nav-icon">⚙</span><span class="nav-copy"><strong>Settings</strong><small>Display & media</small></span></button>
                 <div class="settingsMenu">
                     <div class="settingsmenubtn active" data-settingstab="advertisement">Advertisement</div>
                     <div class="settingsmenubtn" data-settingstab="announcement">Announcement</div>
@@ -37,157 +59,153 @@
                 </div>
             </nav>
             <div class="sidebar-footer">
-                <button onclick="logout()" class="logout-btn">Logout</button>
+                <div class="system-health"><span></span><div><strong>System online</strong><small>Realtime sync active</small></div></div>
+                <button onclick="logout()" class="logout-btn"><span>⇥</span> Sign out</button>
             </div>
         </aside>
 
         <div class="content">
             <header class="content-header">
-                <h2 id="tab-title">Analytics Dashboard</h2>
+                <div class="header-title-group">
+                    <span class="header-eyebrow">OpenQ workspace</span>
+                    <h2 id="tab-title">Operations Overview</h2>
+                </div>
                 <div class="header-actions">
-                    <span id="current-user" style="margin-right: 16px; color: #6b7280;"></span>
+                    <div class="header-clock"><strong id="console-date">Today</strong><span id="console-time">--:--</span></div>
+                    <button class="header-refresh" type="button" onclick="refreshCurrentTab()" title="Refresh current workspace">↻</button>
+                    <button class="header-tool" id="fullscreenToggle" type="button" title="Toggle fullscreen" aria-label="Toggle fullscreen">⛶</button>
+                    <button class="theme-toggle" id="themeToggle" type="button" title="Switch color theme" aria-label="Switch color theme"><span class="theme-sun">☀</span><span class="theme-moon">☾</span></button>
+                    <div class="header-user"><span class="user-avatar">A</span><span id="current-user">Administrator</span></div>
                 </div>
             </header>
             <!-- ^ DASHBOARD TAB -->
             <div id="dashboard-tab" class="tab-content active">
-                <div class="dashsecContainer">
-                        <section class="dashSection1">
-
-                        <!-- 1. Overall Quick Stats -->
-                        <div class="stats-grid">
-                            <div class="stat-card">
-                                <div class="stat-icon">🎫</div>
-                                <div class="stat-info">
-                                    <h3 id="live-total">0</h3>
-                                    <p>Total Tickets Today</p>
-                                </div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-icon">✅</div>
-                                <div class="stat-info">
-                                    <h3 id="live-served">0</h3>
-                                    <p>Total Served</p>
-                                </div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-icon">👥</div>
-                                <div class="stat-info">
-                                    <h3 id="live-queue">0</h3>
-                                    <p>Total Unserved</p>
-                                </div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-icon">⏱️</div>
-                                <div class="stat-info">
-                                    <h3 id="live-avgserving">0m</h3>
-                                    <p>Avg Serving Time</p>
-                                </div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-icon">⏱️</div>
-                                <div class="stat-info">
-                                    <h3 id="live-turnaround">0m</h3>
-                                    <p>Avg Turnaround Time</p>
-                                </div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-icon">⏱️</div>
-                                <div class="stat-info">
-                                    <h3 id="live-avgwaiting">0m</h3>
-                                    <p>Avg Waiting Time</p>
-                                </div>
-                            </div>
+                <div class="workspace-page overview-page">
+                    <section class="page-intro">
+                        <div>
+                            <span class="page-kicker">Overview</span>
+                            <h1>Queue intelligence at a glance</h1>
+                            <p>Track service demand, ticket outcomes, and operational patterns from one focused analytics workspace.</p>
                         </div>
-
-                        <!-- 2. Services Live Board -->
-                        <div class="dashServices">
-                            <h3>Service Status Board</h3>
-
-                            <div class="live-grid">
-                                <table class="service-live-table" id="service-live-grid">
-                                    <thead>
-                                        <tr>
-                                            <th>Service</th>
-                                            <th>Status</th>
-                                            <th>Waiting</th>
-                                            <th>Serving</th>
-                                            <th>Completed</th>
-                                            <th>Avg Wait</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody></tbody>
-                                </table>
-                            </div>
+                        <div class="page-intro-actions">
+                            <span class="live-chip"><i></i> Data synced live</span>
+                            <button class="btn btn-primary" type="button" data-jump-tab="live">Open live preview</button>
                         </div>
+                    </section>
 
-                        <!-- 3. Teller Live Status -->
-                        <div class="dashTellers">
-                            <h3>Teller Status Board</h3>
-                            <div class="card-teller-dashboard no-gap">
-                                <div class="table-container">
-                                    <table class="admin-table dense">
-                                        <thead>
-                                            <tr>
-                                                <th>Teller</th>
-                                                <th>Counter</th>
-                                                <th>Status</th>
-                                                <th>Served</th>
-                                                <th>Avg Handling</th>
-                                                <th>Avg Turns</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="teller-live-list">
-                                            <!-- Teller rows injected here -->
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                    <section class="period-overview-grid" aria-label="Current period performance">
+                        <article class="period-card period-day">
+                            <div class="period-card-heading"><div><span>Current day</span><strong id="period-day-range">Today</strong></div><b id="period-day-total">0</b></div>
+                            <div class="period-metrics"><span><small>Completed</small><strong id="period-day-completed">0</strong></span><span><small>Priority</small><strong id="period-day-priority">0</strong></span><span><small>Avg wait</small><strong id="period-day-wait">0m</strong></span></div>
+                            <div class="period-chart"><canvas id="periodDayChart"></canvas></div>
+                        </article>
+                        <article class="period-card period-week">
+                            <div class="period-card-heading"><div><span>Current week</span><strong id="period-week-range">This week</strong></div><b id="period-week-total">0</b></div>
+                            <div class="period-metrics"><span><small>Completed</small><strong id="period-week-completed">0</strong></span><span><small>Priority</small><strong id="period-week-priority">0</strong></span><span><small>Avg wait</small><strong id="period-week-wait">0m</strong></span></div>
+                            <div class="period-chart"><canvas id="periodWeekChart"></canvas></div>
+                        </article>
+                        <article class="period-card period-month">
+                            <div class="period-card-heading"><div><span>Current month</span><strong id="period-month-range">This month</strong></div><b id="period-month-total">0</b></div>
+                            <div class="period-metrics"><span><small>Completed</small><strong id="period-month-completed">0</strong></span><span><small>Priority</small><strong id="period-month-priority">0</strong></span><span><small>Avg wait</small><strong id="period-month-wait">0m</strong></span></div>
+                            <div class="period-chart"><canvas id="periodMonthChart"></canvas></div>
+                        </article>
+                    </section>
+
+                    <section class="insight-grid" aria-label="Operational analysis">
+                        <article class="insight-card"><span class="insight-label">Completion rate</span><strong id="insight-completion">0%</strong><small id="insight-completion-note">Finished tickets today</small></article>
+                        <article class="insight-card"><span class="insight-label">Priority demand</span><strong id="insight-priority">0%</strong><small id="insight-priority-note">Share of today's tickets</small></article>
+                        <article class="insight-card"><span class="insight-label">Peak arrival window</span><strong id="insight-peak">—</strong><small id="insight-peak-note">No arrivals recorded yet</small></article>
+                        <article class="insight-card"><span class="insight-label">Busiest service</span><strong id="insight-service">—</strong><small id="insight-service-note">No service activity yet</small></article>
+                        <article class="insight-card"><span class="insight-label">Day-over-day volume</span><strong id="insight-change">0%</strong><small id="insight-change-note">Compared with yesterday</small></article>
+                    </section>
+
+                    <section class="card-chart-dashboard">
+                        <div class="section-heading">
+                            <div><span class="section-kicker">Analytics</span><h3>Performance overview</h3><p>Today’s service mix, status distribution, and queue movement.</p></div>
                         </div>
-                        
-                            <div class="card-chart-dashboard">
-                                <h3>Dashboard Charts</h3>
-                                <div class="chart-container1">
-                                    <p>Tickets by Service</p>
-                                    <canvas id="serviceChart"></canvas>
-                                </div>
-                                <div class="chart-container2">
-                                    <p>Tickets by Status</p>
-                                    <canvas id="statusChart"></canvas>
-                                </div>
-                                <div class="chart-container3">
-                                    <p>
-                                        <span id="trendTitle">Ticket Trends (Today)</span>
-                                        <span class="chart-buttons">
-                                            <button id="hourlyBtn" class="active">Hourly</button>
-                                            <button id="dailyBtn">Daily</button>
-                                        </span>
-                                    </p>
-                                    <canvas id="hourlyChart"></canvas>
-                                </div>
-                            </div> 
-                        </section>
+                        <div class="chart-container1 analytics-card">
+                            <div class="chart-card-heading"><div><span>Service mix</span><strong>Tickets by Service Name</strong></div><span class="chart-badge">Today</span></div>
+                            <div class="chart-canvas-wrap"><canvas id="serviceChart"></canvas></div>
+                        </div>
+                        <div class="chart-container2 analytics-card">
+                            <div class="chart-card-heading"><div><span>Ticket state</span><strong>Tickets by Status</strong></div><span class="chart-badge">Live</span></div>
+                            <div class="chart-canvas-wrap"><canvas id="statusChart"></canvas></div>
+                        </div>
+                        <div class="chart-container3 analytics-card trend-card">
+                            <div class="chart-card-heading">
+                                <div><span>Volume movement</span><strong id="trendTitle">Current Day Ticket Volume</strong></div>
+                                <span class="chart-buttons"><button id="hourlyBtn" class="active">Today</button><button id="dailyBtn">Week</button><button id="monthlyBtn">Month</button></span>
+                            </div>
+                            <div class="chart-canvas-wrap"><canvas id="hourlyChart"></canvas></div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- ^ LIVE PREVIEW TAB -->
+            <div id="live-tab" class="tab-content">
+                <div class="workspace-page live-page">
+                    <section class="page-intro compact-intro">
+                        <div><span class="page-kicker live-kicker">Live operations</span><h1>Realtime queue control room</h1><p>See demand, teller activity, and service pressure as it happens.</p></div>
+                        <div class="page-intro-actions"><span class="live-chip"><i></i> Updated <b id="last-updated">just now</b></span><button class="btn btn-secondary" type="button" onclick="loadLiveDashboard()">Refresh now</button></div>
+                    </section>
+
+                    <section class="stats-grid">
+                        <article class="stat-card stat-blue"><div class="stat-icon">01</div><div class="stat-info"><p>Total tickets today</p><h3 id="live-total">0</h3><span>All queue entries</span></div></article>
+                        <article class="stat-card stat-green"><div class="stat-icon">02</div><div class="stat-info"><p>Total served</p><h3 id="live-served">0</h3><span>Completed today</span></div></article>
+                        <article class="stat-card stat-amber"><div class="stat-icon">03</div><div class="stat-info"><p>Waiting now</p><h3 id="live-queue">0</h3><span>Pending service</span></div></article>
+                        <article class="stat-card stat-violet"><div class="stat-icon">04</div><div class="stat-info"><p>Average serving</p><h3 id="live-avgserving">0m</h3><span>Handling duration</span></div></article>
+                        <article class="stat-card stat-cyan"><div class="stat-icon">05</div><div class="stat-info"><p>Avg turnaround</p><h3 id="live-turnaround">0m</h3><span>End-to-end journey</span></div></article>
+                        <article class="stat-card stat-rose"><div class="stat-icon">06</div><div class="stat-info"><p>Average waiting</p><h3 id="live-avgwaiting">0m</h3><span>Before teller call</span></div></article>
+                    </section>
+
+                    <section class="live-market-grid">
+                        <article class="live-market-card ticket-flow-card">
+                            <div class="market-card-heading"><div><span class="market-live-dot">Live arrivals</span><h3>Ticket flow · 30-minute intervals</h3><p>Arrival pressure across every active service today.</p></div><div class="market-quote"><span>Tickets today</span><strong id="market-ticket-total">0</strong></div></div>
+                            <div class="market-chart-wrap"><canvas id="liveTicketFlowChart"></canvas></div>
+                        </article>
+                        <article class="live-market-card teller-flow-card">
+                            <div class="market-card-heading"><div><span class="market-live-dot success">Live throughput</span><h3>Teller served-ticket monitor</h3><p>Completed tickets per teller in 30-minute intervals.</p></div><div class="market-quote"><span>Served today</span><strong id="market-served-total">0</strong></div></div>
+                            <div class="market-chart-wrap"><canvas id="liveTellerFlowChart"></canvas></div>
+                        </article>
+                    </section>
+
+                    <section class="operations-grid">
+                        <article class="dashServices operations-card">
+                            <div class="section-heading"><div><span class="section-kicker">Service monitor</span><h3>Service status board</h3></div><span class="live-chip small"><i></i> Live</span></div>
+                            <div class="live-grid table-scroll"><table class="service-live-table" id="service-live-grid"><thead><tr><th>Service</th><th>Status</th><th>Waiting</th><th>Serving</th><th>Completed</th><th>Avg wait</th></tr></thead><tbody></tbody></table></div>
+                        </article>
+
+                        <article class="dashTellers operations-card">
+                            <div class="section-heading"><div><span class="section-kicker">Team monitor</span><h3>Teller status board</h3></div><button class="text-action" type="button" data-jump-tab="tellers">Manage tellers →</button></div>
+                            <div class="card-teller-dashboard no-gap"><div class="table-container table-scroll"><table class="admin-table dense"><thead><tr><th>Teller</th><th>Counter</th><th>Status</th><th>Served</th><th>Avg handling</th><th>Avg turns</th></tr></thead><tbody id="teller-live-list"></tbody></table></div></div>
+                        </article>
+                    </section>
                 </div>
             </div>
             <!-- ^ REPORTS TAB -->
             <div id="reports-tab" class="tab-content">
                 <div class="reports-container">
+                    <section class="page-intro compact-intro">
+                        <div><span class="page-kicker">Reports & exports</span><h1>Turn queue activity into decisions</h1><p>Choose a date range, review operational performance, and export a presentation-ready PDF or Excel workbook.</p></div>
+                        <div class="page-intro-actions"><span class="report-ready-chip">PDF · XLSX</span></div>
+                    </section>
                     <!-- Filter Section -->
                     <div class="reports-filters">
                         <div class="card-header">
-                            <h3>📊 Generate Reports & Summary Statistics</h3>
+                            <h3>Report parameters and summary</h3>
                         </div>
                         <div class="reports-filter-group">
-                            <div class="filter-item">
-                                <label for="report-date-from">From Date:</label>
-                                <input type="date" id="report-date-from" class="form-control">
-                                <br>
-                                 <label for="report-date-to">To Date:</label>
-                                <input type="date" id="report-date-to" class="form-control">
-                            </div>
-                            <div class="filter-actions">
-                                <button id="generate-report-btn" class="btn btn-primary">Generate Report</button>
-                                <button id="export-pdf-btn" class="btn btn-secondary" disabled>📄 Export PDF</button>
-                                <button id="export-excel-btn" class="btn btn-secondary" disabled>📊 Export Excel</button>
+                            <div class="report-controls">
+                                <div class="report-date-grid">
+                                    <label class="report-date-field" for="report-date-from"><span>From date</span><input type="date" id="report-date-from" class="form-control"></label>
+                                    <label class="report-date-field" for="report-date-to"><span>To date</span><input type="date" id="report-date-to" class="form-control"></label>
+                                </div>
+                                <div class="filter-actions">
+                                    <button id="generate-report-btn" class="btn btn-primary">Generate report</button>
+                                    <button id="export-pdf-btn" class="btn btn-secondary" disabled>Export PDF</button>
+                                    <button id="export-excel-btn" class="btn btn-secondary" disabled>Export Excel</button>
+                                </div>
                             </div>
                             <div class="summary-grid">
                             <div class="summary-card">
@@ -227,10 +245,16 @@
                                 </div>
                             </div>
                     </div>
+                    <section class="report-service-analytics">
+                        <div class="section-heading"><div><span class="section-kicker">Service demand analysis</span><h3>Hourly, daily, and monthly volume</h3><p>Compare every service across multiple time resolutions for the selected report period.</p></div></div>
+                        <article class="report-trend-card report-trend-hourly"><div class="report-trend-heading"><div><span>Hourly profile</span><h3>Tickets per hour by service</h3></div><small>00:00–23:00</small></div><div class="report-trend-canvas"><canvas id="reportHourlyServiceChart"></canvas></div></article>
+                        <article class="report-trend-card"><div class="report-trend-heading"><div><span>Calendar trend</span><h3>Tickets per day by service</h3></div><small>Selected range</small></div><div class="report-trend-canvas"><canvas id="reportDailyServiceChart"></canvas></div></article>
+                        <article class="report-trend-card"><div class="report-trend-heading"><div><span>Long-range trend</span><h3>Tickets per month by service</h3></div><small>Selected range</small></div><div class="report-trend-canvas"><canvas id="reportMonthlyServiceChart"></canvas></div></article>
+                    </section>
                     <!-- Reports Data Sections -->
                     <div class="reports-data-sections">
                         <!-- By Service -->
-                        <div class="cardrep">
+                        <div class="cardrep report-card-service">
                             <div class="card-headerrep">
                                 <h3>Tickets by Service</h3>
                             </div>
@@ -252,7 +276,7 @@
                         </div>
 
                         <!-- By Teller -->
-                        <div class="cardrep">
+                        <div class="cardrep report-card-teller">
                             <div class="card-headerrep">
                                 <h3>Performance by Teller</h3>
                             </div>
@@ -293,7 +317,7 @@
                         </div>
 
                         <!-- Daily Trends -->
-                        <div class="cardrep">
+                        <div class="cardrep report-card-daily">
                             <div class="card-headerrep">
                                 <h3>Daily Trends</h3>
                             </div>
@@ -340,6 +364,7 @@
             </div>
             <!-- ^ HISTORY TAB -->
             <div id="history-tab" class="tab-content">
+                <section class="page-intro compact-intro"><div><span class="page-kicker">Audit trail</span><h1>Ticket journey history</h1><p>Search every ticket and inspect its complete movement through the queue.</p></div></section>
                 <div class="card">
                     <div class="card-header">
                         <h3>Complete Ticket History</h3>
@@ -364,14 +389,23 @@
                             <tbody id="history-list"></tbody>
                         </table>
                     </div>
+                    <div class="history-pagination" id="history-pagination">
+                        <div class="pagination-summary"><strong id="history-range">0–0</strong><span>of <b id="history-total">0</b> tickets</span></div>
+                        <div class="pagination-controls">
+                            <button type="button" id="history-prev" class="pagination-arrow" aria-label="Previous history page">←</button>
+                            <div id="history-pages" class="pagination-pages"></div>
+                            <button type="button" id="history-next" class="pagination-arrow" aria-label="Next history page">→</button>
+                        </div>
+                        <span class="pagination-size">10 rows per page</span>
+                    </div>
                 </div>
             </div>  
             <!-- ^ SERVICES TAB -->
             <div id="services-tab" class="tab-content">
+                <section class="page-intro compact-intro"><div><span class="page-kicker">Queue catalog</span><h1>Services</h1><p>Manage service names, ticket prefixes, schedules, and availability.</p></div><div class="page-intro-actions"><button id="addServiceBtn" class="btn btn-primary" onclick="openModal('services')">+ Add service</button></div></section>
                 <div class="card">
                     <div class="card-header">
-                        <h3>Services</h3>
-                        <button id="addServiceBtn" class="btn btn-primary btn-sm" onclick="openModal('services')">+ Add Service</button>
+                        <div><span class="section-kicker">Configuration</span><h3>Service directory</h3></div>
                     </div>
                     <div class="table-container">
                         <table class="admin-table">
@@ -393,10 +427,10 @@
             </div>
             <!-- ^ TELLERS TAB -->
             <div id="tellers-tab" class="tab-content">
+                <section class="page-intro compact-intro"><div><span class="page-kicker">Workforce</span><h1>Tellers & counters</h1><p>Assign services, automatic service routing groups, counters, and access credentials.</p></div><div class="page-intro-actions"><button class="btn btn-primary" onclick="openModal('tellers')">+ Add teller</button></div></section>
                 <div class="card">
                     <div class="card-header">
-                        <h3>Tellers</h3>
-                        <button class="btn btn-primary btn-sm" onclick="openModal('tellers')">+ Add Teller</button>
+                        <div><span class="section-kicker">Team directory</span><h3>Active teller profiles</h3></div>
                     </div>
                     <div class="table-container">
                         <table class="admin-table">
@@ -417,10 +451,10 @@
             </div>
             <!-- ^ ACCOUNTS TAB -->
             <div id="accounts-tab" class="tab-content">
+                <section class="page-intro compact-intro"><div><span class="page-kicker">Security</span><h1>Administrator accounts</h1><p>Control console access, roles, and account availability.</p></div><div class="page-intro-actions"><button class="btn btn-primary" onclick="openModal('accounts')">+ Add account</button></div></section>
                 <div class="card">
                     <div class="card-header">
-                        <h3>Accounts</h3>
-                        <button class="btn btn-primary btn-sm" onclick="openModal('accounts')">+ Add Account</button>
+                        <div><span class="section-kicker">Access directory</span><h3>Admin users</h3></div>
                     </div>
                     <div class="table-container">
                         <table class="admin-table">
@@ -438,77 +472,25 @@
                     </div>
                 </div>
             </div>
-            <!-- ^ GROUPS TAB -->
-            <div id="groups-tab" class="tab-content">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Groups</h3>
-                        <button class="btn btn-primary btn-sm" onclick="openModal('groups')">+ Add Group</button>
-                    </div>
-                    <div class="table-container">
-                        <table class="admin-table">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Group Name</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody id="groups-list"></tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
             <!-- ^ SETTINGS TAB -->
             <div id="settings-tab" class="tab-content">
+                <section class="page-intro compact-intro"><div><span class="page-kicker">System experience</span><h1>Display & media settings</h1><p>Manage lobby advertisements, announcements, imagery, and presentation preferences.</p></div></section>
                 <div class="card-settings settabs" id="announcement-settab">
-                    <form id="settings-form">
-                        <div class="settings-form-group">
-                            <label>First Announcement Text</label>
-                            <label for="status">
-                                <input type="text" id="setting-announcement" class="form-control">
-                                <input type="checkbox"  class="statuscheckbox" id="setting-announcement-status" class="form-control">
-                                <span id="annstats">Active</span>
-                            </label>
-                        </div>
-                        <div class="settings-form-group">
-                            <label>Second Announcement Text</label>
-                            <label for="status">
-                                <input type="text" id="setting-announcement2" class="form-control">
-                                <input type="checkbox"  class="statuscheckbox" id="setting-announcement-status2" class="form-control">
-                                <span id="annstats2">Active</span>
-                            </label>
-                        </div>
-                        <div class="settings-form-group">
-                            <label>Third Announcement Text</label>
-                            <label for="status">
-                                <input type="text" id="setting-announcement3" class="form-control">
-                                <input type="checkbox" class="statuscheckbox" id="setting-announcement-status3" class="form-control">
-                                <span id="annstats3">Active</span>
-                            </label>
-                        </div>
-                        <button type="submit" class="btn btn-success settingannbtn settings-form-group">Save Settings</button>
+                    <div class="settings-panel-heading"><div><span class="section-kicker">Announcement content</span><h3>Lobby message rotation</h3><p>Configure up to three messages displayed across the lobby screen.</p></div></div>
+                    <form id="settings-form" class="announcement-copy-grid">
+                        <div class="announcement-field"><label for="setting-announcement">Primary message</label><div class="announcement-input-row"><input type="text" id="setting-announcement" class="form-control"><label class="switch-control" for="setting-announcement-status"><input type="checkbox" class="statuscheckbox" id="setting-announcement-status"><span id="annstats">Active</span></label></div></div>
+                        <div class="announcement-field"><label for="setting-announcement2">Secondary message</label><div class="announcement-input-row"><input type="text" id="setting-announcement2" class="form-control"><label class="switch-control" for="setting-announcement-status2"><input type="checkbox" class="statuscheckbox" id="setting-announcement-status2"><span id="annstats2">Active</span></label></div></div>
+                        <div class="announcement-field"><label for="setting-announcement3">Third message</label><div class="announcement-input-row"><input type="text" id="setting-announcement3" class="form-control"><label class="switch-control" for="setting-announcement-status3"><input type="checkbox" class="statuscheckbox" id="setting-announcement-status3"><span id="annstats3">Active</span></label></div></div>
+                        <button type="submit" class="btn btn-primary settingannbtn">Save messages</button>
                     </form>
-                    <form id="settings-form2">
-                        <div class="settings-form-group2">
-                                <label>Background Color:
-                                    <input type="color" id="setting-announcement-bgcolor" class="form-control">
-                                </label>
-                        </div>
-                        <div class="settings-form-group2">
-                                <label>Text Color:
-                                    <input type="color" id="setting-announcement-textcolor" class="form-control">
-                                </label>
-                        </div>
-                        <div class="settings-form-group2">
-                                <label>Speed:
-                                    <input type="Range" id="setting-announcement-speed" class="form-control">
-                                    <span class="speedlbl"></span>
-                                </label>
-                            <button type="submit" class="btn btn-success settings-form-group">Update Settings</button>
-                        </div>
+                    <form id="settings-form2" class="announcement-appearance-grid">
+                        <label class="appearance-field" for="setting-announcement-bgcolor"><span>Background color</span><input type="color" id="setting-announcement-bgcolor" class="form-control"></label>
+                        <label class="appearance-field" for="setting-announcement-textcolor"><span>Text color</span><input type="color" id="setting-announcement-textcolor" class="form-control"></label>
+                        <label class="appearance-field speed-field" for="setting-announcement-speed"><span>Scroll speed</span><div><input type="range" id="setting-announcement-speed" class="form-control"><span class="speedlbl"></span></div></label>
+                        <button type="submit" class="btn btn-secondary">Update appearance</button>
                     </form>
-                    <div class="footer-container" id="marquee_parent">
+                    <div class="announcement-preview-heading"><span>Live preview</span><small>Lobby announcement strip</small></div>
+                    <div class="footer-container announcement-preview" id="marquee_parent">
                         <div id="marquee">
                             <p id='runner'></p>
                             <p id='runner2'></p>
@@ -517,23 +499,11 @@
                 </div>
                 <div class="adsmain settabs activetab" id="advertisement-settab">
                     <div class="adsmainconfigtitle">
-                        <p>Advertisement List</p>
-                        <form id="videoUploadForm">
-                            <label for="videoFile" class="file-label">📂 Choose file</label>
-                            <input id="videoFile" type="file" accept="video/*" hidden />
-                            <button type="submit" class="adsupload" title="Upload Video">⬆ Upload</button>
-                        </form>
-
-                        <!-- New container for upload status -->
-                        <div id="uploadStatus" style="margin-top:5px;">
-                            <div id="uploadText" style="font-size:0.9em; color:#555;"></div>
-                            <div id="uploadBarContainer" style="width:100%; background:#eee; height:6px; border-radius:3px; overflow:hidden; margin-top:2px;">
-                                <div id="uploadBarFill" style="width:0%; height:100%; background:#4caf50; transition: width 0.2s;"></div>
-                            </div>
-                        </div>
+                        <div><span class="section-kicker">Media library</span><h3>Lobby advertisements</h3><p>Upload, organize, and preview the video rotation shown on the public display.</p></div>
+                        <div class="upload-controls"><form id="videoUploadForm"><label for="videoFile" class="file-label">Choose video</label><input id="videoFile" type="file" accept="video/*" hidden><button type="submit" class="adsupload btn btn-primary" title="Upload Video">Upload video</button></form><div id="uploadStatus"><div id="uploadText"></div><div id="uploadBarContainer"><div id="uploadBarFill"></div></div></div></div>
                     </div>
-                    <div class="adslist" id="adsList"></div>
-                    <div class="videocontainer">
+                    <section class="media-library-panel"><div class="media-panel-title"><strong>Video library</strong><span>Choose an item to preview</span></div><div class="adslist" id="adsList"></div></section>
+                    <section class="media-preview-panel"><div class="media-panel-title"><strong>Display preview</strong><span>Currently selected advertisement</span></div><div class="videocontainer">
                             <video
                                 id="adminAdPlayer"
                                 autoplay
@@ -541,7 +511,7 @@
                                 playsinline
                                 style="width:100%;height:100%;object-fit:contain;background:#000">
                             </video>
-                    </div>
+                    </div></section>
                 </div>
                 <div class="settingimages settabs" id="images-settab">
                     <h2>Under Maintenance</h2>
@@ -555,9 +525,9 @@
 
     <!-- Modals -->
     <div id="ticket-modal-overlay" class="modal-overlay" style="display: none;">
-        <div class="modal" style="max-width: 600px;">
+        <div class="modal ticket-journey-modal">
             <div class="modal-header">
-                <h3>Ticket Journey</h3>
+                <div><span class="section-kicker">Process history</span><h3 id="journey-modal-title">Ticket Journey</h3><p id="journey-modal-subtitle">Start-to-end service movement</p></div>
                 <button class="close-ticket-modal">&times;</button>
             </div>
             <div class="modal-body">
@@ -594,12 +564,16 @@
 
 <nav class="floating-nav" id="floatingNav">
   <button class="fnav-item" data-tab="dashboard">
-    <span class="fnav-label">Dashboard</span>
-    <span class="fnav-icon"><span class="fnav-emoji">📊</span></span>
+    <span class="fnav-label">Overview</span>
+    <span class="fnav-icon"><span class="fnav-emoji">⌂</span></span>
+  </button>
+  <button class="fnav-item" data-tab="live">
+    <span class="fnav-label">Live Preview</span>
+    <span class="fnav-icon"><span class="fnav-emoji">●</span></span>
   </button>
  <button class="fnav-item" data-tab="reports">
-    <span class="fnav-label">Ticket Reports</span>
-    <span class="fnav-icon"><span class="fnav-emoji">📊</span></span>
+    <span class="fnav-label">Reports & Export</span>
+    <span class="fnav-icon"><span class="fnav-emoji">↗</span></span>
   </button>
   <button class="fnav-item" data-tab="history">
     <span class="fnav-label">Ticket History</span>
@@ -616,10 +590,6 @@
    <button class="fnav-item" data-tab="accounts">
     <span class="fnav-label">Accounts</span>
     <span class="fnav-icon"><span class="fnav-emoji">👤</span></span>
-  </button>
-  <button class="fnav-item" data-tab="groups">
-    <span class="fnav-label">Groups</span>
-    <span class="fnav-icon"><span class="fnav-emoji">👨‍👩‍👧‍👦</span></span>
   </button>
   <button class="fnav-item" data-tab="settings">
     <span class="fnav-label">Settings</span>
@@ -679,7 +649,7 @@ $(function () {
         const tab = $(this).data('tab');
 
         // Reuse your existing tab switch logic
-        switchTab(tab);
+        if (switchTab(tab) === false) return;
 
         // Update active state
         $fnav.find('.fnav-item').removeClass('active');
@@ -715,16 +685,15 @@ $(function () {
 </script>
 <!-- Page-specific admin modules (load before admin.js) -->
  <script src="/js/admin/errorHandler.js"></script>
-<script src="/js/admin/dashboard.js"></script>
+<script src="/js/admin/dashboard.js?v=20260717-6"></script>
 <script src="/js/admin/services.js"></script>
 <script src="/js/admin/tellers.js"></script>
 <script src="/js/admin/accounts.js"></script>
-<script src="/js/admin/groups.js"></script>
 <script src="/js/admin/settings.js"></script>
-<script src="/js/admin/history.js"></script>
-<script src="/js/admin/report.js"></script>
+<script src="/js/admin/history.js?v=20260717-7"></script>
+<script src="/js/admin/report.js?v=20260717-6"></script>
 <!-- Main admin navigation and modal functions -->
-<script src="/js/admin/admin.js"></script>
+<script src="/js/admin/admin.js?v=20260717-7"></script>
 <script src="/js/display/footer.js"></script>
 <script src="/js/admin/adminads.js"></script>
 <script src="/js/alert.js"></script>

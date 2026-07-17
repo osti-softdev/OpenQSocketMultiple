@@ -9,6 +9,12 @@ function requireTellerAuth(req, res, next) {
   next();
 }
 
+function requireAdminSession(req, res, next) {
+  const role = String(req.session?.admin?.role || '').trim().toLowerCase();
+  if (!['user', 'admin', 'superadmin'].includes(role)) return res.redirect('/admin');
+  next();
+}
+
 function requireAuth(req, res, next) {
   const token = req.cookies?.auth;
   if (!token) return res.redirect("/312Xadmin");
@@ -40,7 +46,7 @@ function requireAuth(req, res, next) {
   pageRouter.get('/admin', (req, res) => {
     res.sendFile(path.join(rootpath, 'public/html', 'admin_login.html'));
   });
-  pageRouter.get('/admin/dashboard',  (req, res) => {
+  pageRouter.get('/admin/dashboard', requireAdminSession, (req, res) => {
     res.sendFile(path.join(rootpath, 'public/html', 'admin.html'));
   });
   pageRouter.get("/312xdashboard", requireAuth, (req, res) => {

@@ -1,20 +1,27 @@
 // Main Admin Module - Core Navigation and Modal Functions
-let currentTab = 'dashboard';
+let currentTab = null;
+let currentAdminRole = null;
 let editId = null;
 let charts = {};
 
-$(document).ready(function () {
-    checkAdmin();
+const ADMIN_ROLE_TABS = Object.freeze({
+    user: ['dashboard', 'live', 'reports', 'history'],
+    admin: ['services', 'tellers', 'settings'],
+    superadmin: ['dashboard', 'live', 'reports', 'history', 'services', 'tellers', 'accounts', 'settings']
+});
 
-    // Initialize report page date inputs and buttons if report.js is loaded
-    if (typeof initializeReportPage === 'function') {
-        initializeReportPage();
-    }
+$(document).ready(function () {
+    configureAdminChartHover();
+    initAdminAppearance();
+    checkAdmin();
 
     // & NAVIGATION 
     $('.nav-item').click(function () {
         const tab = $(this).data('tab');
         switchTab(tab);
+    });
+    $(document).on('click', '[data-jump-tab]', function () {
+        switchTab($(this).data('jump-tab'));
     });
     $('.settingsmenubtn').click(function () {
         const tab = $(this).data('settingstab');
@@ -23,8 +30,117 @@ $(document).ready(function () {
     socket.on('service_update', async function (data) {
         if (currentTab === 'services') loadServices();
     });
-    switchTab('dashboard');
+    const liveTicketEvents = [
+        'ticket_called',
+        'ticket-called',
+        'ticket_completed',
+        'ticket_held',
+        'ticket_forwarded',
+        'ticket_voided',
+        'calledticketsArrived',
+        'new_ticket',
+        'new-ticket'
+    ];
+    liveTicketEvents.forEach(eventName => socket.on(eventName, scheduleAdminRealtimeRefresh));
+    socket.on('teller_assignment_updated', scheduleAdminRealtimeRefresh);
 });
+
+function scheduleAdminRealtimeRefresh() {
+    clearTimeout(window.adminRealtimeRefreshTimer);
+    window.adminRealtimeRefreshTimer = setTimeout(() => {
+        if (currentTab === 'dashboard' || currentTab === 'live') {
+            loadLiveDashboard();
+        } else if (currentTab === 'history') {
+            const search = typeof historyState !== 'undefined' ? historyState.search : '';
+            const page = typeof historyState !== 'undefined' ? historyState.page : 1;
+            loadTicketHistory(search, page);
+        } else if (currentTab === 'tellers') {
+            loadTellers();
+        }
+    }, 160);
+}
+
+function configureAdminChartHover() {
+    if (!window.Chart?.defaults) return;
+    Chart.defaults.interaction.mode = 'nearest';
+    Chart.defaults.interaction.intersect = true;
+    Chart.defaults.plugins.tooltip.mode = 'nearest';
+    Chart.defaults.plugins.tooltip.intersect = true;
+}
+
+function initAdminAppearance() {
+    const $root = $(document.documentElement);
+    const $themeButton = $('#themeToggle');
+
+    $('.sidebar .nav-item').each(function () {
+        const label = $(this).find('.nav-copy strong').text().trim();
+        if (label) $(this).attr('title', label).attr('aria-label', label);
+    });
+
+    function updateClock() {
+        const now = new Date();
+        $('#console-date').text(now.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' }));
+        $('#console-time').text(now.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' }));
+    }
+
+    function syncThemeControl() {
+        const isDark = $root.attr('data-theme') === 'dark';
+        $themeButton.attr('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+        $themeButton.attr('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+
+    $('#themeToggle').off('click.adminTheme').on('click.adminTheme', function () {
+        const nextTheme = $root.attr('data-theme') === 'dark' ? 'light' : 'dark';
+        $root.attr('data-theme', nextTheme);
+        localStorage.setItem('openqAdminTheme', nextTheme);
+        syncThemeControl();
+
+        if (currentTab === 'dashboard' || currentTab === 'live') loadLiveDashboard();
+        if (currentTab === 'reports' && currentReportData) {
+            displayReportData(currentReportData);
+        }
+    });
+
+    $('#sidebarCollapse').off('click.adminLayout').on('click.adminLayout', function () {
+        $root.toggleClass('compact-sidebar');
+        const compact = $root.hasClass('compact-sidebar');
+        localStorage.setItem('openqAdminCompact', compact);
+        $(this).text(compact ? '›' : '‹');
+        $(this).attr('title', compact ? 'Expand navigation' : 'Collapse navigation');
+        setTimeout(() => window.dispatchEvent(new Event('resize')), 220);
+    });
+
+    $('#fullscreenToggle').off('click.adminFullscreen').on('click.adminFullscreen', async function () {
+        try {
+            if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
+            else await document.exitFullscreen();
+        } catch (error) {
+            console.warn('Fullscreen mode is unavailable:', error);
+        }
+    });
+
+    document.addEventListener('fullscreenchange', () => {
+        $('#fullscreenToggle').toggleClass('active', Boolean(document.fullscreenElement));
+    });
+
+    $('#sidebarCollapse').text($root.hasClass('compact-sidebar') ? '›' : '‹');
+    syncThemeControl();
+    updateClock();
+    window.adminClockInterval = window.adminClockInterval || setInterval(updateClock, 30000);
+}
+
+function getAdminChartTheme() {
+    const dark = document.documentElement.dataset.theme === 'dark';
+    return {
+        dark,
+        text: dark ? '#a9b7cc' : '#667085',
+        heading: dark ? '#edf3fb' : '#172033',
+        grid: dark ? 'rgba(148, 163, 184, .13)' : 'rgba(100, 116, 139, .12)',
+        tooltipBackground: dark ? '#111c2e' : '#ffffff',
+        tooltipBorder: dark ? '#2b3b55' : '#dfe6ef',
+        palette: ['#5b8cff', '#22c7a9', '#f7b955', '#a879f7', '#f36f8b', '#35b9e9', '#ff8c5a', '#9db05d']
+    };
+}
 
 // & MODAL CLOSE
 $('.close-modal').click(() => $('#modal-overlay').hide());
@@ -32,7 +148,8 @@ $('.close-modal').click(() => $('#modal-overlay').hide());
 // & HISTORY SEARCH INPUT
 $('#history-search').on('input', function() {
     const search = $(this).val();
-    loadTicketHistory(search);
+    clearTimeout(window.historySearchTimer);
+    window.historySearchTimer = setTimeout(() => loadTicketHistory(search, 1), 280);
 });
 
 // & SETTINGS FORM SUBMISSION
@@ -61,17 +178,81 @@ $('#setting-announcement-speed').on('change', function () {
 
 // ^ CHECK ADMIN SESSION
 function checkAdmin() {
-    $.get('/api/check-session-admin', function (res) {
+    return $.get('/api/check-session-admin', function (res) {
         if (!res.loggedIn) {
             window.location.href = '/admin';
         } else {
-            $('#current-user').text(`Logged in as: ${res.admin.username}`);
+            const displayName = res.admin.username || 'Administrator';
+            $('#current-user').text(displayName);
+            $('.user-avatar').text(displayName.charAt(0).toUpperCase());
+            applyAdminRoleAccess(res.admin.role);
         }
+    }).fail(() => {
+        window.location.href = '/admin';
     });
+}
+
+function normalizeAdminRole(role) {
+    return String(role || '').trim().toLowerCase();
+}
+
+function getAllowedAdminTabs(role = currentAdminRole) {
+    return ADMIN_ROLE_TABS[normalizeAdminRole(role)] || [];
+}
+
+function canAccessAdminTab(tab, role = currentAdminRole) {
+    return getAllowedAdminTabs(role).includes(String(tab || ''));
+}
+
+function applyAdminRoleAccess(role) {
+    currentAdminRole = normalizeAdminRole(role);
+    const allowedTabs = getAllowedAdminTabs();
+
+    if (!allowedTabs.length) {
+        document.documentElement.classList.remove('admin-access-pending');
+        Swal.fire({ icon: 'error', title: 'Access denied', text: 'This account does not have a valid console role.' })
+            .then(() => logout());
+        return;
+    }
+
+    $('[data-tab]').each(function () {
+        const allowed = canAccessAdminTab($(this).data('tab'));
+        $(this).toggleClass('role-restricted', !allowed).attr('aria-hidden', String(!allowed));
+    });
+
+    $('[data-jump-tab]').each(function () {
+        $(this).toggleClass('role-restricted', !canAccessAdminTab($(this).data('jump-tab')));
+    });
+
+    $('.tab-content[id$="-tab"]').each(function () {
+        const tab = String(this.id).replace(/-tab$/, '');
+        $(this).toggleClass('role-restricted', !canAccessAdminTab(tab));
+    });
+
+    $('.sidebar-nav .nav-section-label').each(function () {
+        const hasAllowedItem = $(this)
+            .nextUntil('.nav-section-label', '.nav-item')
+            .toArray()
+            .some(item => !item.classList.contains('role-restricted'));
+        $(this).toggleClass('role-restricted', !hasAllowedItem);
+    });
+
+    $('.settingsMenu').toggleClass('role-restricted', !canAccessAdminTab('settings'));
+    document.documentElement.classList.remove('admin-access-pending');
+
+    const initialTab = canAccessAdminTab(currentTab) ? currentTab : allowedTabs[0];
+    switchTab(initialTab);
 }
 
 // & SWITCH TABS
 function switchTab(tab) {
+    if (!canAccessAdminTab(tab)) {
+        if (currentAdminRole) {
+            Swal.fire({ icon: 'warning', title: 'Access denied', text: 'Your account role cannot open this workspace.' });
+        }
+        return false;
+    }
+
     currentTab = tab;
     $('.nav-item').removeClass('active');
     $(`.nav-item[data-tab="${tab}"]`).addClass('active');
@@ -84,14 +265,14 @@ function switchTab(tab) {
         el.play();
     }
     const titles = {
-        'dashboard': 'Analytics Dashboard',
-        'reports': 'Transaction Reports',
+        'dashboard': 'Operations Overview',
+        'live': 'Live Queue Preview',
+        'reports': 'Reports & Exports',
         'history': 'Ticket History',
-        'services': 'Services Management',
-        'tellers': 'Tellers Management',
-        'Accounts': 'Accounts Management',
-        'groups': 'Teller Groups',
-        'settings': 'General Settings'
+        'services': 'Service Management',
+        'tellers': 'Teller Management',
+        'accounts': 'Account Management',
+        'settings': 'Display & Media Settings'
     };
 
     $('#tab-title').text(titles[tab]);
@@ -100,7 +281,7 @@ function switchTab(tab) {
     }
     
     // Load data for the tab
-    if (tab === 'dashboard') loadDashboard();
+    if (tab === 'dashboard' || tab === 'live') loadDashboard();
     else if (tab === 'reports') {
         // Initialize report page with default dates
         if (typeof initializeReportPage === 'function') {
@@ -111,14 +292,32 @@ function switchTab(tab) {
     else if (tab === 'services') loadServices();
     else if (tab === 'tellers') loadTellers();
     else if (tab === 'accounts') loadAccounts();
-    else if (tab === 'groups') loadGroups();
     else if (tab === 'settings') {
         $('.settingsMenu').slideDown(200);
         loadSettings();
     }
+
+    return true;
+}
+
+function refreshCurrentTab() {
+    const refreshers = {
+        dashboard: loadDashboard,
+        live: loadLiveDashboard,
+        reports: () => typeof initializeReportPage === 'function' && initializeReportPage(),
+        history: () => loadTicketHistory($('#history-search').val() || ''),
+        services: loadServices,
+        tellers: loadTellers,
+        accounts: loadAccounts,
+        settings: loadSettings
+    };
+
+    if (refreshers[currentTab]) refreshers[currentTab]();
 }
 
 function settingstabs(tab) {
+    if (!canAccessAdminTab('settings')) return false;
+
     $('.settingsmenubtn').removeClass('active');
     $(`.settingsmenubtn[data-settingstab="${tab}"]`).addClass('active');
     $('.settabs').removeClass('activetab');
@@ -133,9 +332,20 @@ function settingstabs(tab) {
     }
     else if (tab === 'fontsizes'){
     }
+
+    return true;
 }
 
 // & ===== MODAL FUNCTIONS =====
+function serviceKeyFromDisplay(value) {
+    return String(value || '')
+        .normalize('NFKD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toUpperCase()
+        .replace(/[^A-Z0-9]+/g, '_')
+        .replace(/^_+|_+$/g, '') || 'SERVICE';
+}
+
 function openModal(type = currentTab, data = null) {
     editId = data ? data.id : null;
 
@@ -145,38 +355,43 @@ function openModal(type = currentTab, data = null) {
     $('#modal-title').text((data ? 'Edit ' : 'Add ') + type.slice(0, -1));
 
     if (type === 'services') {
+        const initialDisplayName = data?.shortSname || '';
+        const initialKey = serviceKeyFromDisplay(initialDisplayName);
         $form.html(`
-            <div class="form-group">
-                <label>Service Name (no spacing & use underscores)</label>
-                <input type="text" id="s-name" class="form-control" value="${data?.sname || ''}">
+            <div class="form-group form-group-wide service-name-field">
+                <label for="s-name-display">Service name</label>
+                <input type="text" id="s-name-display" class="form-control" value="${initialDisplayName}" autocomplete="off" required>
+                <div class="generated-service-key">
+                    <span>Automatic service key</span>
+                    <code id="s-name-preview">${initialKey}</code>
+                </div>
             </div>
             <div class="form-group">
-                <label>Service Name Display</label>
-                <input type="text" id="s-name-display" class="form-control" value="${data?.shortSname || ''}">
-            </div>
-            <div class="form-group">
-                <label>Sub Name Display</label>
+                <label for="sub-name-display">Sub name display</label>
                 <input type="text" id="sub-name-display" class="form-control" value="${data?.sub_sname || ''}">
             </div>
             <div class="form-group">
-                <label>Regular Letter/Prefix</label>
+                <label for="s-prefix">Regular ticket prefix</label>
                 <input type="text" id="s-prefix" class="form-control" value="${data?.regular || ''}">
             </div>
             <div class="form-group">
-                <label>Priority Letter/Prefix</label>
+                <label for="s-priority">Priority ticket prefix</label>
                 <input type="text" id="s-priority" class="form-control" value="${data?.priority || ''}">
             </div>
             <div class="form-group">
-                <label>Cutoff Time (HH:mm)</label>
+                <label for="s-cutoff">Cutoff time</label>
                 <input type="time" id="s-cutoff" class="form-control" value="${data?.sched || ''}">
             </div>
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" id="s-active" ${Number(data?.status) === 1 ? 'checked' : ''}>
-                    Is Active
+            <div class="form-group form-group-wide">
+                <label class="form-toggle-label" for="s-active">
+                    <input type="checkbox" id="s-active" ${!data || Number(data.status) === 1 ? 'checked' : ''}>
+                    <span>Service is active</span>
                 </label>
             </div>
         `);
+        $('#s-name-display').on('input', function () {
+            $('#s-name-preview').text(serviceKeyFromDisplay(this.value));
+        });
     }
     else if (type === 'tellers') {
 
@@ -242,25 +457,25 @@ function openModal(type = currentTab, data = null) {
             </div>
 
             <div class="form-group">
-                <label>Group</label>
+                <label for="t-group">Routing service group</label>
                 <select id="t-group" class="form-control">
-                    <option value="">-- No Group --</option>
+                    <option value="">-- Select a service group --</option>
                     ${groupOptions}
                 </select>
             </div>
 
             <div class="form-group">
-                <label>Assigned Services</label>
+                <label>Assigned services</label>
                 <div class="service-checkbox-wrapper" style="max-height:200px;overflow-y:auto;">
                     ${serviceCheckboxes}
                 </div>
             </div>
 
             <div class="form-group">
-                <label>
+                <label class="form-toggle-label" for="t-active">
                     <input type="checkbox" id="t-active"
                         ${Number(data?.cstatus) === 1 ? 'checked' : ''}>
-                    Is Active
+                    <span>Teller is active</span>
                 </label>
             </div>
         `);
@@ -303,18 +518,11 @@ function openModal(type = currentTab, data = null) {
             </div>
 
             <div class="form-group">
-                <label>
+                <label class="form-toggle-label" for="ac-active">
                     <input type="checkbox" id="ac-active"
                         ${Number(data?.status) === 1 ? 'checked' : ''}>
-                    Is Active
+                    <span>Account is active</span>
                 </label>
-            </div>
-        `);
-    }  else if (type === 'groups') {
-        $form.html(`
-            <div class="form-group">
-                <label>Group Name</label>
-                <input type="text" id="g-name" class="form-control" value="${data?.group_name || ''}">
             </div>
         `);
     }
@@ -328,7 +536,6 @@ function saveItem() {
     if (currentTab === 'services') {
 
         const payload = {
-            name: $('#s-name').val().trim(),
             shortSname: $('#s-name-display').val().trim(),
             sub_sname: $('#sub-name-display').val().trim(),
             prefix: $('#s-prefix').val().trim(),
@@ -336,6 +543,11 @@ function saveItem() {
             cutoff_time: $('#s-cutoff').val(),
             is_active: $('#s-active').is(':checked') ? 1 : 0
         };
+
+        if (!payload.shortSname) {
+            showMsg('error', 'Service name is required');
+            return;
+        }
 
         const url = editId ? `/api/admin/services/${editId}` : '/api/admin/services';
         const method = editId ? 'PUT' : 'POST';
@@ -366,7 +578,7 @@ function saveItem() {
         const rawCounter = $('#t-counter').val();
         const rawPassword = $('#t-pass').val();
         const rawGroup = $('#t-group').val();
-        const groupName = $('#t-group option:selected').data('group-name') || 'None';
+        const groupName = $('#t-group option:selected').data('group-name') || null;
 
         const selectedServices = $('.t-service-checkbox:checked')
             .map(function () {
@@ -393,6 +605,7 @@ function saveItem() {
             username,
             services: selectedServices.join(','),
             group_id: rawGroup ? parseInt(rawGroup, 10) : null,
+            group_name: groupName,
             groupName: groupName,
             counter_number: rawCounter ? parseInt(rawCounter, 10) : null,
             is_active: $('#t-active').is(':checked') ? 1 : 0
@@ -484,32 +697,6 @@ function saveItem() {
         });
     }
 
-    else if (currentTab === 'groups') {
-
-        const name = $('#g-name').val().trim();
-        if (!name) {
-            showMsg('error', 'Group name is required');
-            return;
-        }
-
-        $.ajax({
-            url: '/api/admin/groups',
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({ name }),
-            success: () => {
-                $('#modal-overlay').hide();
-                loadGroups();
-                showMsg('success', 'Group created successfully');
-            },
-            error: (xhr) => {
-                showMsg(
-                    'error',
-                    xhr.responseJSON?.error || 'Operation Failed.'
-                );
-            }
-        });
-    }
 }
 
 // ^ UTILITY FUNCTIONS 

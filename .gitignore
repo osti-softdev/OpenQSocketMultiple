@@ -16,3 +16,5 @@ reso/outfolder/logs/error.log
 reso/outfolder/config
 reso/outfolder/app.pid
 outfolder/config/db.db
+.tmp-cdp-scroll
+/.tmp-cdp-scroll

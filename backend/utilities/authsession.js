@@ -4,10 +4,11 @@ function requireRole(...roles) {
       return res.status(401).json({ error: "Unauthorized" });
     }
 
-    const userRole = req.session.admin?.role;
+    const userRole = String(req.session.admin?.role || '').trim().toLowerCase();
     if (!userRole) return res.status(403).json({ error: "Forbidden" });
 
-    if (!roles.includes(userRole)) {
+    const allowedRoles = roles.map(role => String(role).trim().toLowerCase());
+    if (!allowedRoles.includes(userRole)) {
       return res.status(403).json({ error: "Forbidden" });
     }
 

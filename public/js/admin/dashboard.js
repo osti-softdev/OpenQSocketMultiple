@@ -1,26 +1,26 @@
 // Dashboard Module for Admin Panel
-let currentTrendView = 'hourly';
+let currentTrendView = 'day';
+let overviewPeriodData = null;
 
 $(document).on('click', '#hourlyBtn', function () {
-    $('#dailyBtn').removeClass('active');
+    $('#dailyBtn, #monthlyBtn').removeClass('active');
     $(this).addClass('active');
-    $('#trendTitle').text('Ticket Trends (Today)');
-    currentTrendView = 'hourly';
-
-    $.get('/api/admin/analytics/hourly', function(data) {
-        createHourlyChart(data);
-    });
+    currentTrendView = 'day';
+    renderSelectedPeriodTrend();
 });
 
 $(document).on('click', '#dailyBtn', function () {
-    $('#hourlyBtn').removeClass('active');
+    $('#hourlyBtn, #monthlyBtn').removeClass('active');
     $(this).addClass('active');
-    $('#trendTitle').text('Ticket Trends (Current Month)');
-    currentTrendView = 'daily';
+    currentTrendView = 'week';
+    renderSelectedPeriodTrend();
+});
 
-    $.get('/api/admin/analytics/daily', function(data) {
-        createDailyChart(data);
-    });
+$(document).on('click', '#monthlyBtn', function () {
+    $('#hourlyBtn, #dailyBtn').removeClass('active');
+    $(this).addClass('active');
+    currentTrendView = 'month';
+    renderSelectedPeriodTrend();
 });
 
 // & ===== DASHBOARD =====
@@ -155,47 +155,274 @@ function loadLiveDashboard() {
         }
     });
 
+    $.get('/api/admin/analytics/insights', renderOperationalInsights);
+
+    $.get('/api/admin/analytics/live-flow', function (data) {
+        createLiveTicketFlowChart(data.tickets || []);
+        createLiveTellerFlowChart(data.tellers || []);
+    });
+
     // 4. Historical Charts (Refresh less often? For now, refresh with dashboard)
     $.get('/api/admin/analytics/overview', function(stats) {
         createServiceChart(stats.byService);
         createStatusChart(stats.byStatus);
     });
-    
-    if (currentTrendView === 'hourly') {
-    $.get('/api/admin/analytics/hourly', function(data) {
-        createHourlyChart(data);
+
+    $.get('/api/admin/analytics/period-overview', renderPeriodOverview);
+}
+
+function renderPeriodOverview(data) {
+    overviewPeriodData = data || {};
+    ['day', 'week', 'month'].forEach(period => {
+        const details = overviewPeriodData[period] || {};
+        const summary = details.summary || {};
+        const trend = normalizePeriodTrend(details, period);
+        details.trend = trend;
+        const prefix = `#period-${period}`;
+        const range = period === 'day'
+            ? formatPeriodDate(details.end)
+            : `${formatPeriodDate(details.start)} – ${formatPeriodDate(details.end)}`;
+
+        $(`${prefix}-range`).text(range);
+        $(`${prefix}-total`).text(trend.reduce((sum, row) => sum + Number(row.total || 0), 0).toLocaleString());
+        $(`${prefix}-completed`).text(trend.reduce((sum, row) => sum + Number(row.completed || 0), 0).toLocaleString());
+        $(`${prefix}-priority`).text(trend.reduce((sum, row) => sum + Number(row.priority || 0), 0).toLocaleString());
+        $(`${prefix}-wait`).text(`${Math.round(Number(summary.avg_wait_minutes || 0))}m`);
+        createPeriodMiniChart(period, trend);
     });
-    } else {
-        $.get('/api/admin/analytics/daily', function(data) {
-            createDailyChart(data);
+    renderSelectedPeriodTrend();
+}
+
+function normalizePeriodTrend(details, period) {
+    const sourceRows = Array.isArray(details?.trend) ? details.trend : [];
+    const rowsByLabel = new Map(sourceRows.map(row => [String(row.label), row]));
+    const emptyRow = label => ({ label, total: 0, completed: 0, priority: 0, avg_wait_minutes: 0 });
+
+    if (period === 'day') {
+        return Array.from({ length: 48 }, (_, index) => {
+            const label = `${String(Math.floor(index / 2)).padStart(2, '0')}:${index % 2 ? '30' : '00'}`;
+            return { ...emptyRow(label), ...(rowsByLabel.get(label) || {}) };
         });
     }
+
+    const start = new Date(`${details.start}T00:00:00`);
+    const end = new Date(`${details.end}T00:00:00`);
+    if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) return sourceRows;
+
+    const rows = [];
+    for (let cursor = new Date(start); cursor <= end; cursor.setDate(cursor.getDate() + 1)) {
+        const label = `${cursor.getFullYear()}-${String(cursor.getMonth() + 1).padStart(2, '0')}-${String(cursor.getDate()).padStart(2, '0')}`;
+        rows.push({ ...emptyRow(label), ...(rowsByLabel.get(label) || {}) });
+    }
+    return rows;
+}
+
+function formatPeriodDate(value) {
+    if (!value) return '—';
+    const date = new Date(`${value}T00:00:00`);
+    return date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+}
+
+function formatPeriodTrendLabel(value, period) {
+    if (period === 'day') return formatAnalyticsTime(value);
+    return formatPeriodDate(value);
+}
+
+function createPeriodMiniChart(period, rows) {
+    const canvasId = `period${period.charAt(0).toUpperCase() + period.slice(1)}Chart`;
+    const ctx = getCanvas(canvasId);
+    if (!ctx) return;
+    const key = `period_${period}`;
+    const theme = getAdminChartTheme();
+    const colors = { day: theme.palette[0], week: theme.palette[1], month: theme.palette[3] };
+    const color = colors[period];
+    if (charts[key]) charts[key].destroy();
+
+    const pointRadius = rows.length <= 1 ? 4 : 1.5;
+    const metricLine = (label, field, lineColor, fill = false) => ({
+        label,
+        data: rows.map(row => Number(row[field] || 0)),
+        borderColor: lineColor,
+        backgroundColor: fill ? `${lineColor}24` : 'transparent',
+        borderWidth: field === 'total' ? 2 : 1.5,
+        fill,
+        tension: .38,
+        pointRadius,
+        pointHoverRadius: 4,
+        pointHitRadius: 8
+    });
+
+    charts[key] = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: rows.map(row => formatPeriodTrendLabel(row.label, period)),
+            datasets: [
+                metricLine('Tickets', 'total', color, true),
+                metricLine('Completed', 'completed', theme.palette[1]),
+                metricLine('Priority', 'priority', theme.palette[2])
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { intersect: true, mode: 'nearest' },
+            plugins: { legend: { display: false }, tooltip: { displayColors: true, intersect: true, mode: 'nearest' } },
+            scales: {
+                x: { display: false },
+                y: { display: false, beginAtZero: true }
+            }
+        }
+    });
+}
+
+function renderSelectedPeriodTrend() {
+    const details = overviewPeriodData?.[currentTrendView];
+    if (!details) return;
+    const titles = {
+        day: 'Current Day Ticket Volume',
+        week: 'Current Week Ticket Volume',
+        month: 'Current Month Ticket Volume'
+    };
+    $('#trendTitle').text(titles[currentTrendView]);
+    createOverviewPeriodTrend(details.trend || [], currentTrendView);
+}
+
+function createOverviewPeriodTrend(rows, period) {
+    const ctx = getCanvas('hourlyChart');
+    if (!ctx) return;
+    const theme = getAdminChartTheme();
+    if (charts.hourly) charts.hourly.destroy();
+
+    const line = (label, field, color, axis = 'y', fill = false) => ({
+        label,
+        data: rows.map(row => Number(row[field] || 0)),
+        borderColor: color,
+        backgroundColor: fill ? `${color}20` : 'transparent',
+        borderWidth: field === 'total' ? 2.5 : 2,
+        fill,
+        tension: .35,
+        pointRadius: rows.length > 12 ? 0 : 3,
+        pointHoverRadius: 5,
+        pointHitRadius: 8,
+        yAxisID: axis
+    });
+
+    charts.hourly = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: rows.map(row => formatPeriodTrendLabel(row.label, period)),
+            datasets: [
+                line('Tickets', 'total', theme.palette[0], 'y', true),
+                line('Completed', 'completed', theme.palette[1]),
+                line('Priority', 'priority', theme.palette[2]),
+                line('Avg wait (min)', 'avg_wait_minutes', theme.palette[3], 'yWait')
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { mode: 'nearest', intersect: true },
+            plugins: {
+                legend: { display: true, position: 'bottom', labels: { color: theme.text, usePointStyle: true, boxWidth: 8, padding: 12, font: { size: 9, weight: '600' } } },
+                tooltip: {
+                    backgroundColor: theme.tooltipBackground,
+                    titleColor: theme.heading,
+                    bodyColor: theme.text,
+                    borderColor: theme.tooltipBorder,
+                    borderWidth: 1,
+                    displayColors: true,
+                    mode: 'nearest',
+                    intersect: true
+                }
+            },
+            scales: {
+                x: { grid: { display: false }, ticks: { color: theme.text, maxTicksLimit: 9 } },
+                y: { beginAtZero: true, grid: { color: theme.grid }, ticks: { color: theme.text, precision: 0 } },
+                yWait: { beginAtZero: true, position: 'right', grid: { drawOnChartArea: false }, ticks: { color: theme.palette[3], precision: 0 } }
+            }
+        }
+    });
+}
+
+function renderOperationalInsights(data) {
+    const summary = data?.summary || {};
+    const total = Number(summary.total_tickets || 0);
+    const completed = Number(summary.completed_tickets || 0);
+    const priority = Number(summary.priority_tickets || 0);
+    const previous = Number(summary.previous_day_tickets || 0);
+    const completionRate = total ? (completed / total) * 100 : 0;
+    const priorityShare = total ? (priority / total) * 100 : 0;
+    const change = previous ? ((total - previous) / previous) * 100 : (total ? 100 : 0);
+    const peak = data?.peak_window;
+    const busiest = data?.busiest_service;
+
+    $('#insight-completion').text(`${completionRate.toFixed(1)}%`);
+    $('#insight-completion-note').text(`${completed} of ${total} tickets finished`);
+    $('#insight-priority').text(`${priorityShare.toFixed(1)}%`);
+    $('#insight-priority-note').text(`${priority} priority ticket${priority === 1 ? '' : 's'} today`);
+    $('#insight-peak').text(peak?.time_block ? formatAnalyticsTime(peak.time_block) : '—');
+    $('#insight-peak-note').text(peak ? `${peak.ticket_count} arrivals in this window` : 'No arrivals recorded yet');
+    $('#insight-service').text(busiest?.service_name || '—');
+    $('#insight-service-note').text(busiest ? `${busiest.ticket_count} tickets today` : 'No service activity yet');
+    $('#insight-change').text(`${change > 0 ? '+' : ''}${change.toFixed(1)}%`).toggleClass('negative', change < 0);
+    $('#insight-change-note').text(`${total} today versus ${previous} yesterday`);
+}
+
+function formatAnalyticsTime(value) {
+    const [hourText, minute = '00'] = String(value).split(':');
+    const hour = Number(hourText);
+    if (!Number.isFinite(hour)) return value;
+    return `${hour % 12 || 12}:${minute} ${hour >= 12 ? 'PM' : 'AM'}`;
 }
 
 function createServiceChart(data) {
     const ctx = getCanvas('serviceChart');
     if (!ctx) return;
-    
+    const theme = getAdminChartTheme();
+    const rows = Array.isArray(data) ? data : [];
+
     if (charts.sname) charts.sname.destroy();
-    
+
     charts.sname = new Chart(ctx, {
-        type: 'pie',
+        type: 'doughnut',
         data: {
-            labels: data.map(d => d.sname),
+            labels: rows.map(d => d.sname),
             datasets: [{
-                data: data.map(d => d.count),
-                backgroundColor: [
-                    '#667eea', '#764ba2', '#f093fb', '#4facfe',
-                    '#43e97b', '#fa709a', '#fee140', '#30cfd0'
-                ]
+                data: rows.map(d => d.count),
+                backgroundColor: rows.map((_, index) => theme.palette[index % theme.palette.length]),
+                borderColor: theme.dark ? '#152238' : '#ffffff',
+                borderWidth: 4,
+                hoverBorderWidth: 4,
+                hoverOffset: 7,
+                spacing: 2
             }]
         },
         options: {
             responsive: true,
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
+            cutout: '70%',
+            layout: { padding: 4 },
             plugins: {
                 legend: {
-                    position: 'top'
+                    position: 'bottom',
+                    labels: {
+                        color: theme.text,
+                        usePointStyle: true,
+                        pointStyle: 'circle',
+                        boxWidth: 8,
+                        boxHeight: 8,
+                        padding: 16,
+                        font: { size: 11, weight: '600' }
+                    }
+                },
+                tooltip: {
+                    backgroundColor: theme.tooltipBackground,
+                    titleColor: theme.heading,
+                    bodyColor: theme.text,
+                    borderColor: theme.tooltipBorder,
+                    borderWidth: 1,
+                    padding: 12,
+                    usePointStyle: true
                 }
             }
         }
@@ -205,6 +432,8 @@ function createServiceChart(data) {
 function createStatusChart(data) {
     const ctx = getCanvas('statusChart');
     if (!ctx) return;
+    const theme = getAdminChartTheme();
+    const rows = Array.isArray(data) ? data : [];
 
     if (charts.status) {
         charts.status.destroy();
@@ -220,26 +449,22 @@ function createStatusChart(data) {
         'voided': '#ef4444'
     };
 
-    const palette = [
-        '#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b',
-        '#858796', '#5a5c69', '#6610f2', '#e83e8c', '#fd7e14'
-    ];
-
     charts.status = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: data.map(d =>
+            labels: rows.map(d =>
                 d.status.charAt(0).toUpperCase() + d.status.slice(1)
             ),
             datasets: [{
                 label: 'Total Tickets',
-                data: data.map(d => d.count),
-                backgroundColor: data.map((d, i) =>
+                data: rows.map(d => d.count),
+                backgroundColor: rows.map((d, i) =>
                     statusColors[d.status.toLowerCase()] || 
-                    palette[i % palette.length]
+                    theme.palette[i % theme.palette.length]
                 ),
-                borderRadius: 6,
-                barThickness: 20
+                borderRadius: 9,
+                borderSkipped: false,
+                barThickness: 16
             }]
         },
         options: {
@@ -249,16 +474,31 @@ function createStatusChart(data) {
             plugins: {
                 legend: {
                     display: false
+                },
+                tooltip: {
+                    backgroundColor: theme.tooltipBackground,
+                    titleColor: theme.heading,
+                    bodyColor: theme.text,
+                    borderColor: theme.tooltipBorder,
+                    borderWidth: 1,
+                    padding: 12,
+                    displayColors: false
                 }
             },
             scales: {
                 x: {
                     beginAtZero: true,
+                    border: { display: false },
+                    grid: { color: theme.grid, drawTicks: false },
                     ticks: {
-                        stepSize: 1
+                        stepSize: 1,
+                        color: theme.text,
+                        padding: 8
                     }
                 },
                 y: {
+                    border: { display: false },
+                    ticks: { color: theme.text, font: { size: 11, weight: '600' } },
                     grid: {
                         display: false
                     }
@@ -271,42 +511,47 @@ function createStatusChart(data) {
 function createHourlyChart(data) {
     const ctx = getCanvas('hourlyChart');
     if (!ctx) return;
+    const theme = getAdminChartTheme();
+    const rows = Array.isArray(data) ? data : [];
 
     if (charts.hourly) charts.hourly.destroy();
 
-    const hourSlots = Array.from({ length: 24 }, (_, i) => i.toString().padStart(2, '0'));
-    const hourLabels = hourSlots.map(h => h + ':00');
+    const timeSlots = Array.from({ length: 48 }, (_, i) => {
+        const hour = Math.floor(i / 2).toString().padStart(2, '0');
+        return `${hour}:${i % 2 ? '30' : '00'}`;
+    });
+    const timeLabels = timeSlots.map(formatAnalyticsTime);
 
     // Identify all unique services in the hourly data
-    const serviceNames = [...new Set(data.map(d => d.sname || 'General'))];
-    
-    const palette = [
-        '#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b',
-        '#6610f2', '#fd7e14', '#e83e8c', '#20c997', '#858796'
-    ];
+    const serviceNames = [...new Set(rows.map(d => d.sname || 'General'))];
 
     const datasets = serviceNames.map((svc, idx) => {
-        const color = palette[idx % palette.length];
+        const color = theme.palette[idx % theme.palette.length];
         return {
             label: svc,
-            data: hourSlots.map(h => {
-                const hourData = data.filter(d => d.hour === h && (d.sname || 'General') === svc);
+            data: timeSlots.map(slot => {
+                const [hour, minute] = slot.split(':');
+                const hourData = rows.filter(d => d.hour === hour && String(d.minute_block || '00') === minute && (d.sname || 'General') === svc);
                 return hourData.reduce((sum, d) => sum + d.count, 0);
             }),
             borderColor: color,
-            backgroundColor: color + '1a', // Light transparent fill
-            borderWidth: 2,
-            fill: serviceNames.length === 1, // Only fill if it's a single series
-            tension: 0.4,
-            pointRadius: 4,
-            pointBackgroundColor: color
+            backgroundColor: color + '20',
+            borderWidth: 2.5,
+            fill: serviceNames.length === 1,
+            tension: 0.36,
+            pointRadius: 0,
+            pointHoverRadius: 5,
+            pointHitRadius: 12,
+            pointBackgroundColor: color,
+            pointBorderColor: theme.dark ? '#152238' : '#ffffff',
+            pointBorderWidth: 2
         };
     });
 
     charts.hourly = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: hourLabels,
+            labels: timeLabels,
             datasets: datasets
         },
         options: {
@@ -315,23 +560,181 @@ function createHourlyChart(data) {
             plugins: {
                 legend: {
                     display: true,
-                    position: 'top'
+                    position: 'bottom',
+                    labels: { color: theme.text, usePointStyle: true, pointStyle: 'circle', boxWidth: 8, padding: 16, font: { size: 11, weight: '600' } }
+                },
+                tooltip: {
+                    mode: 'nearest',
+                    intersect: true,
+                    backgroundColor: theme.tooltipBackground,
+                    titleColor: theme.heading,
+                    bodyColor: theme.text,
+                    borderColor: theme.tooltipBorder,
+                    borderWidth: 1,
+                    padding: 12,
+                    usePointStyle: true
                 }
             },
             scales: {
+                x: {
+                    border: { display: false },
+                    grid: { display: false },
+                    ticks: { color: theme.text, maxTicksLimit: 12, font: { size: 10 } }
+                },
                 y: {
                     beginAtZero: true,
+                    border: { display: false },
+                    grid: { color: theme.grid },
                     ticks: {
-                        stepSize: 1
+                        stepSize: 1,
+                        color: theme.text,
+                        padding: 8
                     }
                 }
             }
         }
     });
 }
+
+function createMonthlyChart(data) {
+    const ctx = getCanvas('hourlyChart');
+    if (!ctx) return;
+    const theme = getAdminChartTheme();
+    const rows = Array.isArray(data) ? data : [];
+    const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const services = [...new Set(rows.map(row => row.sname || 'General'))];
+
+    if (charts.hourly) charts.hourly.destroy();
+
+    const datasets = services.map((service, index) => {
+        const color = theme.palette[index % theme.palette.length];
+        return {
+            label: service,
+            data: labels.map((_, monthIndex) => rows
+                .filter(row => Number(row.month) === monthIndex + 1 && (row.sname || 'General') === service)
+                .reduce((sum, row) => sum + Number(row.count || 0), 0)),
+            borderColor: color,
+            backgroundColor: `${color}20`,
+            borderWidth: 2.5,
+            tension: 0.36,
+            fill: services.length === 1,
+            pointRadius: 2,
+            pointHoverRadius: 5
+        };
+    });
+
+    charts.hourly = new Chart(ctx, {
+        type: 'line',
+        data: { labels, datasets },
+        options: buildAnalyticsLineOptions(theme, 12)
+    });
+}
+
+function createLiveTicketFlowChart(rows) {
+    const context = getCanvas('liveTicketFlowChart');
+    if (!context) return;
+    const theme = getAdminChartTheme();
+    const slots = Array.from({ length: 48 }, (_, index) => `${String(Math.floor(index / 2)).padStart(2, '0')}:${index % 2 ? '30' : '00'}`);
+    const totals = slots.map(slot => rows.filter(row => row.time_block === slot).reduce((sum, row) => sum + Number(row.count || 0), 0));
+    const gradient = context.createLinearGradient(0, 0, 0, 300);
+    gradient.addColorStop(0, theme.dark ? 'rgba(110,140,255,.38)' : 'rgba(79,109,245,.32)');
+    gradient.addColorStop(1, 'rgba(79,109,245,0)');
+
+    if (charts.liveTickets) charts.liveTickets.destroy();
+    $('#market-ticket-total').text(totals.reduce((sum, count) => sum + count, 0));
+
+    charts.liveTickets = new Chart(context, {
+        type: 'line',
+        data: {
+            labels: slots.map(formatAnalyticsTime),
+            datasets: [{
+                label: 'Ticket arrivals',
+                data: totals,
+                borderColor: theme.palette[0],
+                backgroundColor: gradient,
+                borderWidth: 2.5,
+                tension: 0.28,
+                fill: true,
+                pointRadius: 0,
+                pointHoverRadius: 5,
+                pointHitRadius: 12
+            }]
+        },
+        options: buildMarketChartOptions(theme)
+    });
+}
+
+function createLiveTellerFlowChart(rows) {
+    const context = getCanvas('liveTellerFlowChart');
+    if (!context) return;
+    const theme = getAdminChartTheme();
+    const slots = Array.from({ length: 48 }, (_, index) => `${String(Math.floor(index / 2)).padStart(2, '0')}:${index % 2 ? '30' : '00'}`);
+    const tellers = [...new Set(rows.map(row => row.teller_name || 'Unassigned'))];
+    const datasets = tellers.map((teller, index) => {
+        const color = theme.palette[(index + 1) % theme.palette.length];
+        return {
+            label: teller,
+            data: slots.map(slot => rows
+                .filter(row => row.time_block === slot && (row.teller_name || 'Unassigned') === teller)
+                .reduce((sum, row) => sum + Number(row.count || 0), 0)),
+            borderColor: color,
+            backgroundColor: `${color}16`,
+            borderWidth: 2,
+            tension: 0.28,
+            fill: false,
+            pointRadius: 0,
+            pointHoverRadius: 4,
+            pointHitRadius: 10
+        };
+    });
+
+    if (charts.liveTellers) charts.liveTellers.destroy();
+    $('#market-served-total').text(rows.reduce((sum, row) => sum + Number(row.count || 0), 0));
+
+    charts.liveTellers = new Chart(context, {
+        type: 'line',
+        data: { labels: slots.map(formatAnalyticsTime), datasets },
+        options: buildMarketChartOptions(theme)
+    });
+}
+
+function buildMarketChartOptions(theme) {
+    return {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: { duration: 450 },
+        interaction: { mode: 'nearest', intersect: true },
+        plugins: {
+            legend: { position: 'bottom', labels: { color: theme.text, usePointStyle: true, pointStyle: 'circle', boxWidth: 7, padding: 14, font: { size: 10, weight: '600' } } },
+            tooltip: { mode: 'nearest', intersect: true, backgroundColor: theme.tooltipBackground, titleColor: theme.heading, bodyColor: theme.text, borderColor: theme.tooltipBorder, borderWidth: 1, padding: 12, usePointStyle: true }
+        },
+        scales: {
+            x: { border: { display: false }, grid: { display: false }, ticks: { color: theme.text, maxTicksLimit: 12, font: { size: 9 } } },
+            y: { beginAtZero: true, border: { display: false }, grid: { color: theme.grid }, ticks: { color: theme.text, precision: 0, stepSize: 1, padding: 8 } }
+        }
+    };
+}
+
+function buildAnalyticsLineOptions(theme, maxTicks = 14) {
+    return {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'nearest', intersect: true },
+        plugins: {
+            legend: { position: 'bottom', labels: { color: theme.text, usePointStyle: true, pointStyle: 'circle', boxWidth: 8, padding: 16, font: { size: 11, weight: '600' } } },
+            tooltip: { mode: 'nearest', intersect: true, backgroundColor: theme.tooltipBackground, titleColor: theme.heading, bodyColor: theme.text, borderColor: theme.tooltipBorder, borderWidth: 1, padding: 12, usePointStyle: true }
+        },
+        scales: {
+            x: { border: { display: false }, grid: { display: false }, ticks: { color: theme.text, maxTicksLimit: maxTicks, font: { size: 10 } } },
+            y: { beginAtZero: true, border: { display: false }, grid: { color: theme.grid }, ticks: { color: theme.text, precision: 0, stepSize: 1, padding: 8 } }
+        }
+    };
+}
 function createDailyChart(data) {
     const ctx = getCanvas('hourlyChart');
     if (!ctx) return;
+    const theme = getAdminChartTheme();
+    const rows = Array.isArray(data) ? data : [];
 
     if (charts.hourly) {
         charts.hourly.destroy();
@@ -351,29 +754,16 @@ function createDailyChart(data) {
     );
 
     const serviceNames = [
-        ...new Set(data.map(d => d.sname || 'General'))
-    ];
-
-    const palette = [
-        '#4e73df',
-        '#1cc88a',
-        '#36b9cc',
-        '#f6c23e',
-        '#e74a3b',
-        '#6610f2',
-        '#fd7e14',
-        '#e83e8c',
-        '#20c997',
-        '#858796'
+        ...new Set(rows.map(d => d.sname || 'General'))
     ];
 
     const datasets = serviceNames.map((svc, idx) => {
-        const color = palette[idx % palette.length];
+        const color = theme.palette[idx % theme.palette.length];
 
         return {
             label: svc,
             data: dayLabels.map(day => {
-                const row = data.filter(
+                const row = rows.filter(
                     d =>
                         Number(d.day) === Number(day) &&
                         (d.sname || 'General') === svc
@@ -385,11 +775,13 @@ function createDailyChart(data) {
                 );
             }),
             borderColor: color,
-            backgroundColor: color + '1a',
-            borderWidth: 2,
-            tension: 0.4,
+            backgroundColor: color + '20',
+            borderWidth: 2.5,
+            tension: 0.36,
             fill: serviceNames.length === 1,
-            pointRadius: 4
+            pointRadius: 0,
+            pointHoverRadius: 5,
+            pointHitRadius: 12
         };
     });
 
@@ -403,25 +795,36 @@ function createDailyChart(data) {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                title: {
-                    display: true,
-                    text: 'Current Month Ticket Trend'
-                },
                 legend: {
-                    position: 'top'
+                    position: 'bottom',
+                    labels: { color: theme.text, usePointStyle: true, pointStyle: 'circle', boxWidth: 8, padding: 16, font: { size: 11, weight: '600' } }
+                },
+                tooltip: {
+                    mode: 'nearest',
+                    intersect: true,
+                    backgroundColor: theme.tooltipBackground,
+                    titleColor: theme.heading,
+                    bodyColor: theme.text,
+                    borderColor: theme.tooltipBorder,
+                    borderWidth: 1,
+                    padding: 12,
+                    usePointStyle: true
                 }
             },
             scales: {
                 x: {
-                    title: {
-                        display: true,
-                        text: 'Day of Month'
-                    }
+                    border: { display: false },
+                    grid: { display: false },
+                    ticks: { color: theme.text, maxTicksLimit: 16, font: { size: 10 } }
                 },
                 y: {
                     beginAtZero: true,
+                    border: { display: false },
+                    grid: { color: theme.grid },
                     ticks: {
-                        stepSize: 1
+                        stepSize: 1,
+                        color: theme.text,
+                        padding: 8
                     }
                 }
             }
