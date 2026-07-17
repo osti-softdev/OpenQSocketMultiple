@@ -6,7 +6,7 @@
     <title>OpenQ Operations Console</title>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/admin.css">
-    <link rel="stylesheet" href="/css/admin-console.css?v=20260717-11">
+<link rel="stylesheet" href="/css/admin-console.css?v=20260717-13">
     <script>
         (() => {
             document.documentElement.classList.add('admin-access-pending');
@@ -118,6 +118,9 @@
                         <article class="insight-card"><span class="insight-label">Peak arrival window</span><strong id="insight-peak">—</strong><small id="insight-peak-note">No arrivals recorded yet</small></article>
                         <article class="insight-card"><span class="insight-label">Busiest service</span><strong id="insight-service">—</strong><small id="insight-service-note">No service activity yet</small></article>
                         <article class="insight-card"><span class="insight-label">Day-over-day volume</span><strong id="insight-change">0%</strong><small id="insight-change-note">Compared with yesterday</small></article>
+                        <article class="insight-card insight-wait"><span class="insight-label">Average wait</span><strong id="insight-avg-wait">0m</strong><small id="insight-avg-wait-note">Before teller call</small></article>
+                        <article class="insight-card insight-service-time"><span class="insight-label">Average handling</span><strong id="insight-avg-service">0m</strong><small id="insight-avg-service-note">Per completed ticket</small></article>
+                        <article class="insight-card insight-queue"><span class="insight-label">Open queue</span><strong id="insight-open-queue">0</strong><small id="insight-open-queue-note">Tickets waiting now</small></article>
                     </section>
 
                     <section class="card-chart-dashboard">
@@ -721,13 +724,13 @@ $(function () {
 </script>
 <!-- Page-specific admin modules (load before admin.js) -->
  <script src="/js/admin/errorHandler.js"></script>
-<script src="/js/admin/dashboard.js?v=20260717-6"></script>
+<script src="/js/admin/dashboard.js?v=20260717-7"></script>
 <script src="/js/admin/services.js"></script>
 <script src="/js/admin/tellers.js"></script>
 <script src="/js/admin/accounts.js"></script>
 <script src="/js/admin/settings.js?v=20260717-1"></script>
 <script src="/js/admin/history.js?v=20260717-7"></script>
-<script src="/js/admin/report.js?v=20260717-6"></script>
+<script src="/js/admin/report.js?v=20260717-8"></script>
 <!-- Main admin navigation and modal functions -->
 <script src="/js/admin/admin.js?v=20260717-8"></script>
 <script src="/js/display/footer.js"></script>

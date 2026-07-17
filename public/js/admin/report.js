@@ -543,232 +543,310 @@ function exportReportAsPDF() {
     try {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF('p', 'mm', 'a4');
-        let yPosition = 15;
-        const margin = 10;
         const pageWidth = doc.internal.pageSize.getWidth();
-        const pageHeight = doc.internal.pageSize.getHeight();
-        const checkPageBreak = () => {
-            if (yPosition > pageHeight - 20) {
-                doc.addPage();
-                yPosition = 15;
-            }
+        const margin = 11;
+        const contentWidth = pageWidth - (margin * 2);
+        const generatedAt = new Date().toLocaleString();
+        const colors = {
+            navy: [20, 32, 54],
+            primary: [79, 109, 245],
+            cyan: [17, 168, 199],
+            green: [11, 166, 120],
+            amber: [228, 155, 33],
+            red: [225, 79, 101],
+            purple: [139, 107, 232],
+            muted: [100, 116, 139],
+            border: [220, 228, 239],
+            soft: [246, 248, 252]
+        };
+        const summary = currentReportData.summary || {};
+        const services = currentReportData.byService || [];
+        const tellers = currentReportData.byTeller || [];
+        const statuses = currentReportData.byStatus || [];
+        const dailyTrends = currentReportData.dailyTrends || [];
+        const transactions = currentReportData.detailedTransactions || [];
+        const totalTickets = Number(summary.total_tickets || 0);
+        const completedTickets = Number(summary.completed_tickets || 0);
+        const voidedTickets = Number(summary.voided_tickets || 0);
+        const pendingTickets = Number(summary.pending_tickets || 0);
+        const completionRate = totalTickets ? (completedTickets / totalTickets) * 100 : 0;
+        const voidRate = totalTickets ? (voidedTickets / totalTickets) * 100 : 0;
+        const busiestService = [...services].sort((a, b) => Number(b.ticket_count || 0) - Number(a.ticket_count || 0))[0];
+        const topTeller = [...tellers].sort((a, b) => Number(b.tickets_served || 0) - Number(a.tickets_served || 0))[0];
+        const peakDay = [...dailyTrends].sort((a, b) => Number(b.daily_tickets || 0) - Number(a.daily_tickets || 0))[0];
+        const averageDailyVolume = dailyTrends.length
+            ? dailyTrends.reduce((sum, row) => sum + Number(row.daily_tickets || 0), 0) / dailyTrends.length
+            : 0;
+
+        const drawPageHeader = (title, subtitle, sectionNumber) => {
+            const currentWidth = doc.internal.pageSize.getWidth();
+            doc.setFillColor(...colors.primary);
+            doc.rect(0, 0, currentWidth, 4, 'F');
+            doc.setTextColor(...colors.primary);
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(8);
+            doc.text(sectionNumber ? `OPENQ REPORT / ${sectionNumber}` : 'OPENQ OPERATIONS REPORT', margin, 13);
+            doc.setTextColor(...colors.navy);
+            doc.setFontSize(18);
+            doc.text(title, margin, 23);
+            doc.setTextColor(...colors.muted);
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(8.5);
+            doc.text(subtitle, margin, 29);
+            doc.setDrawColor(...colors.border);
+            doc.line(margin, 33, currentWidth - margin, 33);
         };
 
-        // Title
-        doc.setFontSize(18);
-        doc.setFont(undefined, 'bold');
-        doc.text('TRANSACTION REPORT', margin, yPosition);
-        yPosition += 8;
+        const drawMetricCard = (x, y, width, label, value, accent) => {
+            doc.setFillColor(...colors.soft);
+            doc.setDrawColor(...colors.border);
+            doc.roundedRect(x, y, width, 25, 2.5, 2.5, 'FD');
+            doc.setFillColor(...accent);
+            doc.roundedRect(x, y, 2.2, 25, 1.1, 1.1, 'F');
+            doc.setTextColor(...colors.muted);
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(6.5);
+            doc.text(String(label).toUpperCase(), x + 6, y + 8);
+            doc.setTextColor(...colors.navy);
+            doc.setFontSize(14);
+            doc.text(String(value), x + 6, y + 18);
+        };
 
-        // Date range
-        doc.setFontSize(11);
-        doc.setFont(undefined, 'normal');
-        doc.text(`Report Period: ${currentReportData.dateFrom} to ${currentReportData.dateTo}`, margin, yPosition);
-        yPosition += 8;
-        doc.setDrawColor(150);
-        doc.line(margin, yPosition, pageWidth - margin, yPosition);
-        yPosition += 5;
+        const chartSnapshot = chartKey => {
+            const chart = reportCharts[chartKey];
+            const source = chart?.canvas;
+            if (!source || !source.width || !source.height) return null;
+            chart.stop?.();
+            chart.update?.('none');
+            const canvas = document.createElement('canvas');
+            canvas.width = source.width;
+            canvas.height = source.height;
+            const context = canvas.getContext('2d');
+            context.fillStyle = getAdminChartTheme().dark ? '#111c2e' : '#ffffff';
+            context.fillRect(0, 0, canvas.width, canvas.height);
+            context.drawImage(source, 0, 0);
+            return { data: canvas.toDataURL('image/png', 1), width: canvas.width, height: canvas.height };
+        };
 
-        // Summary Section
-        checkPageBreak();
-        doc.setFontSize(13);
-        doc.setFont(undefined, 'bold');
-        doc.text('1. SUMMARY STATISTICS', margin, yPosition);
-        yPosition += 8;
-
-        const summary = currentReportData.summary || {};
-        const summaryData = [
-            ['Metric', 'Value'],
-            ['Total Tickets', (summary.total_tickets || 0).toString()],
-            ['Completed Tickets', (summary.completed_tickets || 0).toString()],
-            ['Pending Tickets', (summary.pending_tickets || 0).toString()],
-            ['Avg Service Time', formatTime(summary.avg_service_time_minutes)],
-            ['Avg Turnaround Time', formatTime(summary.avg_turnaround_time_minutes)]
-        ];
-
-        doc.autoTable({
-            head: [summaryData[0]],
-            body: summaryData.slice(1),
-            startY: yPosition,
-            margin: margin,
-            theme: 'striped',
-            headStyles: { fillColor: [100, 100, 150], textColor: 255, fontStyle: 'bold', fontSize: 10 },
-            bodyStyles: { fontSize: 9 },
-            alternateRowStyles: { fillColor: [240, 240, 250] }
-        });
-
-        yPosition = (doc.lastAutoTable?.finalY || yPosition + 30) + 10;
-
-        // By Service
-        checkPageBreak();
-        doc.setFontSize(13);
-        doc.setFont(undefined, 'bold');
-        doc.text('2. PERFORMANCE BY SERVICE', margin, yPosition);
-        yPosition += 8;
-
-        const serviceData = (currentReportData.byService || []).map(s => [
-            s.service_name || s.service_code || 'N/A',
-            (s.ticket_count || 0).toString(),
-            (s.completed || 0).toString(),
-            (s.pending || 0).toString(),
-            formatTime(s.avg_service_time_minutes)
-        ]);
-
-        doc.autoTable({
-            head: [['Service Name', 'Total Tickets', 'Completed', 'Pending', 'Avg Time']],
-            body: serviceData,
-            startY: yPosition,
-            margin: margin,
-            theme: 'striped',
-            headStyles: { fillColor: [100, 100, 150], textColor: 255, fontStyle: 'bold', fontSize: 10 },
-            bodyStyles: { fontSize: 9 },
-            alternateRowStyles: { fillColor: [240, 240, 250] }
-        });
-
-        yPosition = (doc.lastAutoTable?.finalY || yPosition + 30) + 10;
-
-        // By Teller
-        checkPageBreak();
-        doc.setFontSize(13);
-        doc.setFont(undefined, 'bold');
-        doc.text('3. PERFORMANCE BY TELLER', margin, yPosition);
-        yPosition += 8;
-
-        const tellerData = (currentReportData.byTeller || []).map(t => [
-            t.teller_name || 'N/A',
-            t.counter_number || 'N/A',
-            (t.tickets_served || 0).toString(),
-            (t.completed || 0).toString(),
-            formatTime(t.avg_service_time_minutes)
-        ]);
-
-        doc.autoTable({
-            head: [['Teller Name', 'Counter', 'Served', 'Completed', 'Avg Time']],
-            body: tellerData,
-            startY: yPosition,
-            margin: margin,
-            theme: 'striped',
-            headStyles: { fillColor: [100, 100, 150], textColor: 255, fontStyle: 'bold', fontSize: 10 },
-            bodyStyles: { fontSize: 9 },
-            alternateRowStyles: { fillColor: [240, 240, 250] }
-        });
-
-        yPosition = (doc.lastAutoTable?.finalY || yPosition + 30) + 10;
-
-        // By Status
-        checkPageBreak();
-        doc.setFontSize(13);
-        doc.setFont(undefined, 'bold');
-        doc.text('4. TICKET STATUS DISTRIBUTION', margin, yPosition);
-        yPosition += 8;
-
-        const totalTickets = currentReportData.summary?.total_tickets || 0;
-        const statusData = (currentReportData.byStatus || []).map(s => {
-            const percentage = totalTickets > 0 ? ((s.count / totalTickets) * 100).toFixed(1) : '0';
-            return [
-                s.status.charAt(0).toUpperCase() + s.status.slice(1),
-                (s.count || 0).toString(),
-                percentage + '%'
-            ];
-        });
-
-        doc.autoTable({
-            head: [['Status', 'Count', 'Percentage']],
-            body: statusData,
-            startY: yPosition,
-            margin: margin,
-            theme: 'striped',
-            headStyles: { fillColor: [100, 100, 150], textColor: 255, fontStyle: 'bold', fontSize: 10 },
-            bodyStyles: { fontSize: 9 },
-            alternateRowStyles: { fillColor: [240, 240, 250] }
-        });
-
-        // Daily Trends
-        yPosition = (doc.lastAutoTable?.finalY || yPosition + 30) + 10;
-        checkPageBreak();
-        doc.setFontSize(13);
-        doc.setFont(undefined, 'bold');
-        doc.text('5. DAILY TRENDS', margin, yPosition);
-        yPosition += 8;
-
-        const trendsData = (currentReportData.dailyTrends || []).map(t => [
-            t.date,
-            (t.daily_tickets || 0).toString(),
-            (t.daily_completed || 0).toString(),
-            formatTime(t.daily_avg_service_time)
-        ]);
-
-        doc.autoTable({
-            head: [['Date', 'Daily Tickets', 'Completed', 'Avg Time']],
-            body: trendsData,
-            startY: yPosition,
-            margin: margin,
-            theme: 'striped',
-            headStyles: { fillColor: [100, 100, 150], textColor: 255, fontStyle: 'bold', fontSize: 10 },
-            bodyStyles: { fontSize: 9 },
-            alternateRowStyles: { fillColor: [240, 240, 250] },
-            columnStyles: {
-                0: { halign: 'center', cellWidth: 30 },
-                1: { halign: 'center' },
-                2: { halign: 'center' },
-                3: { halign: 'center' }
+        const drawChartCard = (chartKey, title, note, x, y, width, height) => {
+            doc.setFillColor(255, 255, 255);
+            doc.setDrawColor(...colors.border);
+            doc.roundedRect(x, y, width, height, 3, 3, 'FD');
+            doc.setTextColor(...colors.navy);
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(10);
+            doc.text(title, x + 5, y + 8);
+            doc.setTextColor(...colors.muted);
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(6.8);
+            doc.text(note, x + 5, y + 13);
+            const image = chartSnapshot(chartKey);
+            if (!image) {
+                doc.setTextColor(...colors.muted);
+                doc.setFontSize(8);
+                doc.text('Chart unavailable for this report range.', x + (width / 2), y + (height / 2), { align: 'center' });
+                return;
             }
+            const maxWidth = width - 8;
+            const maxHeight = height - 20;
+            const scale = Math.min(maxWidth / image.width, maxHeight / image.height);
+            const imageWidth = image.width * scale;
+            const imageHeight = image.height * scale;
+            doc.addImage(image.data, 'PNG', x + ((width - imageWidth) / 2), y + 17 + ((maxHeight - imageHeight) / 2), imageWidth, imageHeight, undefined, 'FAST');
+        };
+
+        const tableTheme = {
+            theme: 'grid',
+            margin: { left: margin, right: margin, bottom: 15 },
+            headStyles: { fillColor: colors.navy, textColor: [255, 255, 255], fontStyle: 'bold', fontSize: 8, cellPadding: 2.8 },
+            bodyStyles: { textColor: colors.navy, fontSize: 7.5, cellPadding: 2.5, lineColor: colors.border, lineWidth: .2 },
+            alternateRowStyles: { fillColor: colors.soft },
+            styles: { overflow: 'linebreak', valign: 'middle' }
+        };
+
+        // Page 1: executive summary
+        drawPageHeader('Queue Performance Report', `${currentReportData.dateFrom} to ${currentReportData.dateTo} / Generated ${generatedAt}`);
+        const cardGap = 5;
+        const cardWidth = (contentWidth - (cardGap * 2)) / 3;
+        drawMetricCard(margin, 40, cardWidth, 'Total tickets', totalTickets.toLocaleString(), colors.primary);
+        drawMetricCard(margin + cardWidth + cardGap, 40, cardWidth, 'Completed', completedTickets.toLocaleString(), colors.green);
+        drawMetricCard(margin + ((cardWidth + cardGap) * 2), 40, cardWidth, 'Voided', voidedTickets.toLocaleString(), colors.red);
+        drawMetricCard(margin, 70, cardWidth, 'Completion rate', `${completionRate.toFixed(1)}%`, colors.cyan);
+        drawMetricCard(margin + cardWidth + cardGap, 70, cardWidth, 'Avg service', formatTime(summary.avg_service_time_minutes), colors.purple);
+        drawMetricCard(margin + ((cardWidth + cardGap) * 2), 70, cardWidth, 'Avg turnaround', formatTime(summary.avg_turnaround_time_minutes), colors.amber);
+
+        doc.setFillColor(...colors.soft);
+        doc.setDrawColor(...colors.border);
+        doc.roundedRect(margin, 103, contentWidth, 59, 3, 3, 'FD');
+        doc.setTextColor(...colors.navy);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(10);
+        doc.text('Executive analytics', margin + 6, 113);
+        const analytics = [
+            ['Busiest service', busiestService ? `${busiestService.service_name || busiestService.service_code}: ${Number(busiestService.ticket_count || 0).toLocaleString()} tickets` : 'No service activity'],
+            ['Top teller', topTeller ? `${topTeller.teller_name || 'Unassigned'}: ${Number(topTeller.tickets_served || 0).toLocaleString()} served` : 'No teller activity'],
+            ['Peak day', peakDay ? `${peakDay.date}: ${Number(peakDay.daily_tickets || 0).toLocaleString()} tickets` : 'No daily trend data'],
+            ['Daily average', `${averageDailyVolume.toFixed(1)} tickets per recorded day`],
+            ['Open / pending', `${pendingTickets.toLocaleString()} tickets (${totalTickets ? ((pendingTickets / totalTickets) * 100).toFixed(1) : '0.0'}% of volume)`],
+            ['Void rate', `${voidRate.toFixed(1)}% of all tickets`]
+        ];
+        analytics.forEach((row, index) => {
+            const column = index % 2;
+            const line = Math.floor(index / 2);
+            const x = margin + 6 + (column * (contentWidth / 2));
+            const y = 124 + (line * 11);
+            doc.setTextColor(...colors.muted);
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(6.5);
+            doc.text(row[0].toUpperCase(), x, y);
+            doc.setTextColor(...colors.navy);
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(8);
+            doc.text(doc.splitTextToSize(row[1], (contentWidth / 2) - 12)[0], x, y + 4.2);
         });
 
-        // Detailed Transactions (on separate pages)
-        const transactions = currentReportData.detailedTransactions || [];
-        if (transactions.length > 0) {
-            doc.addPage();
-            yPosition = 15;
-            doc.setFontSize(13);
-            doc.setFont(undefined, 'bold');
-            doc.text('6. DETAILED TRANSACTION LOG', margin, yPosition);
-            yPosition += 8;
-
-            doc.setFontSize(9);
-            doc.text(`Total Transactions: ${transactions.length}`, margin, yPosition);
-            yPosition += 8;
-
-            const txnData = transactions.slice(0, 300).map(tx => [
-                tx.date || 'N/A',
-                tx.time || 'N/A',
-                tx.service_name || tx.service_code || 'N/A',
-                (tx.status || 'N/A').charAt(0).toUpperCase() + (tx.status || 'N/A').slice(1),
-                tx.teller_name || 'N/A',
-                formatTime(tx.service_time_minutes),
-                formatTime(tx.turnaround_time_minutes)
+        doc.setTextColor(...colors.navy);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(10);
+        doc.text('Top services by demand', margin, 174);
+        const topServices = [...services]
+            .sort((a, b) => Number(b.ticket_count || 0) - Number(a.ticket_count || 0))
+            .slice(0, 6)
+            .map(service => [
+                service.service_name || service.service_code || 'N/A',
+                Number(service.ticket_count || 0).toLocaleString(),
+                Number(service.completed || 0).toLocaleString(),
+                `${Number(service.ticket_count || 0) ? ((Number(service.completed || 0) / Number(service.ticket_count || 0)) * 100).toFixed(1) : '0.0'}%`,
+                formatTime(service.avg_service_time_minutes)
             ]);
-
+        if (topServices.length) {
             doc.autoTable({
-                head: [['Date', 'Time', 'Service', 'Status', 'Teller', 'Service Time', 'Turnaround']],
-                body: txnData,
-                startY: yPosition,
-                margin: margin,
-                theme: 'striped',
-                headStyles: { fillColor: [100, 100, 150], textColor: 255, fontStyle: 'bold', fontSize: 8 },
-                bodyStyles: { fontSize: 7 },
-                alternateRowStyles: { fillColor: [240, 240, 250] },
-                columnStyles: {
-                    0: { cellWidth: 20 },
-                    1: { cellWidth: 16 },
-                    2: { cellWidth: 25 },
-                    3: { cellWidth: 18 },
-                    4: { cellWidth: 22 },
-                    5: { cellWidth: 20 },
-                    6: { cellWidth: 20 }
-                }
+                ...tableTheme,
+                head: [['Service', 'Tickets', 'Completed', 'Completion', 'Avg service']],
+                body: topServices,
+                startY: 179,
+                columnStyles: { 0: { cellWidth: 62 }, 1: { halign: 'center' }, 2: { halign: 'center' }, 3: { halign: 'center' }, 4: { halign: 'center' } }
+            });
+        } else {
+            doc.setTextColor(...colors.muted);
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(8);
+            doc.text('No service records are available for the selected period.', margin, 184);
+        }
+
+        // Page 2: primary charts
+        doc.addPage();
+        drawPageHeader('Visual Analytics', 'Ticket movement and completed-service distribution', '02');
+        drawChartCard('trendChart', 'Ticket volume trend', 'Completed tickets in 30-minute intervals by service', margin, 40, contentWidth, 105);
+        drawChartCard('serviceDistribChart', 'Service distribution', 'Share of completed tickets by service', margin, 151, contentWidth, 116);
+
+        // Page 3: service demand charts
+        doc.addPage();
+        drawPageHeader('Service Demand Analytics', 'Hourly, daily, and monthly service volume comparison', '03');
+        drawChartCard('hourlyService', 'Hourly profile by service', 'Ticket arrivals grouped by hour of day', margin, 40, contentWidth, 72);
+        drawChartCard('dailyService', 'Daily profile by service', 'Calendar trend across the selected report range', margin, 117, contentWidth, 72);
+        drawChartCard('monthlyService', 'Monthly profile by service', 'Long-range service demand movement', margin, 194, contentWidth, 72);
+
+        // Page 4: service table
+        doc.addPage();
+        drawPageHeader('Performance by Service', `${services.length} service record${services.length === 1 ? '' : 's'} in this report`, '04');
+        const serviceRows = services.map(service => [
+            service.service_name || service.service_code || 'N/A',
+            Number(service.ticket_count || 0).toLocaleString(),
+            Number(service.completed || 0).toLocaleString(),
+            Number(service.voided || 0).toLocaleString(),
+            Number(service.pending || 0).toLocaleString(),
+            formatTime(service.avg_service_time_minutes)
+        ]);
+        if (serviceRows.length) doc.autoTable({ ...tableTheme, head: [['Service', 'Total', 'Completed', 'Voided', 'Pending', 'Avg service']], body: serviceRows, startY: 39, columnStyles: { 0: { cellWidth: 60 }, 1: { halign: 'center' }, 2: { halign: 'center' }, 3: { halign: 'center' }, 4: { halign: 'center' }, 5: { halign: 'center' } } });
+
+        // Page 5: teller table
+        doc.addPage();
+        drawPageHeader('Performance by Teller', `${tellers.length} teller record${tellers.length === 1 ? '' : 's'} in this report`, '05');
+        const tellerRows = tellers.map(teller => [
+            teller.teller_name || 'N/A',
+            teller.counter_number || 'N/A',
+            Number(teller.tickets_served || 0).toLocaleString(),
+            Number(teller.completed || 0).toLocaleString(),
+            Number(teller.voided || 0).toLocaleString(),
+            formatTime(teller.avg_service_time_minutes)
+        ]);
+        if (tellerRows.length) doc.autoTable({ ...tableTheme, head: [['Teller', 'Counter', 'Served', 'Completed', 'Voided', 'Avg service']], body: tellerRows, startY: 39, columnStyles: { 0: { cellWidth: 55 }, 1: { halign: 'center' }, 2: { halign: 'center' }, 3: { halign: 'center' }, 4: { halign: 'center' }, 5: { halign: 'center' } } });
+
+        // Page 6: status and daily trends
+        doc.addPage();
+        drawPageHeader('Status and Daily Trends', 'Outcome distribution and day-to-day operating performance', '06');
+        const statusRows = statuses.map(status => [
+            String(status.status || 'N/A').replace(/_/g, ' ').toUpperCase(),
+            Number(status.count || 0).toLocaleString(),
+            `${totalTickets ? ((Number(status.count || 0) / totalTickets) * 100).toFixed(1) : '0.0'}%`
+        ]);
+        doc.setTextColor(...colors.navy);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(10);
+        doc.text('Ticket status distribution', margin, 42);
+        if (statusRows.length) doc.autoTable({ ...tableTheme, head: [['Status', 'Count', 'Share']], body: statusRows, startY: 47, tableWidth: 90, columnStyles: { 0: { cellWidth: 45 }, 1: { halign: 'center' }, 2: { halign: 'center' } } });
+        let dailyStart = Math.max((doc.lastAutoTable?.finalY || 47) + 13, 100);
+        if (dailyStart > 220) {
+            doc.addPage();
+            drawPageHeader('Daily Trends', 'Day-to-day operating performance', '06B');
+            dailyStart = 42;
+        }
+        doc.setTextColor(...colors.navy);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(10);
+        doc.text('Daily performance', margin, dailyStart);
+        const dailyRows = dailyTrends.map(trend => [
+            trend.date || 'N/A',
+            Number(trend.daily_tickets || 0).toLocaleString(),
+            Number(trend.daily_completed || 0).toLocaleString(),
+            Number(trend.daily_voided || 0).toLocaleString(),
+            formatTime(trend.daily_avg_service_time)
+        ]);
+        if (dailyRows.length) doc.autoTable({ ...tableTheme, head: [['Date', 'Tickets', 'Completed', 'Voided', 'Avg service']], body: dailyRows, startY: dailyStart + 5, columnStyles: { 0: { cellWidth: 40 }, 1: { halign: 'center' }, 2: { halign: 'center' }, 3: { halign: 'center' }, 4: { halign: 'center' } } });
+
+        // Final section: detailed transaction log
+        if (transactions.length) {
+            doc.addPage();
+            drawPageHeader('Detailed Transaction Log', `${transactions.length} transaction${transactions.length === 1 ? '' : 's'} / first 500 exported`, '07');
+            const transactionRows = transactions.slice(0, 500).map(transaction => [
+                transaction.date || 'N/A',
+                transaction.time || 'N/A',
+                transaction.service_name || transaction.service_code || 'N/A',
+                String(transaction.status || 'N/A').replace(/_/g, ' '),
+                transaction.teller_name || 'N/A',
+                formatTime(transaction.service_time_minutes),
+                formatTime(transaction.turnaround_time_minutes)
+            ]);
+            doc.autoTable({
+                ...tableTheme,
+                head: [['Date', 'Time', 'Service', 'Status', 'Teller', 'Handling', 'Turnaround']],
+                body: transactionRows,
+                startY: 39,
+                headStyles: { ...tableTheme.headStyles, fontSize: 7 },
+                bodyStyles: { ...tableTheme.bodyStyles, fontSize: 6.6, cellPadding: 2 },
+                columnStyles: { 0: { cellWidth: 20 }, 1: { cellWidth: 15 }, 2: { cellWidth: 35 }, 3: { cellWidth: 22 }, 4: { cellWidth: 32 }, 5: { cellWidth: 22 }, 6: { cellWidth: 23 } }
             });
         }
 
-        // Footer with timestamp
-        const timestamp = new Date().toLocaleString();
-        doc.setFontSize(8);
-        doc.setTextColor(150, 150, 150);
-        doc.text(`Generated on ${timestamp}`, margin, pageHeight - 5);
+        // Consistent footer and page numbering on every page.
+        const pageCount = doc.getNumberOfPages();
+        for (let pageNumber = 1; pageNumber <= pageCount; pageNumber += 1) {
+            doc.setPage(pageNumber);
+            const width = doc.internal.pageSize.getWidth();
+            const height = doc.internal.pageSize.getHeight();
+            doc.setDrawColor(...colors.border);
+            doc.line(margin, height - 11, width - margin, height - 11);
+            doc.setTextColor(...colors.muted);
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(6.8);
+            doc.text(`OpenQ Operations / ${currentReportData.dateFrom} to ${currentReportData.dateTo}`, margin, height - 6);
+            doc.text(`Page ${pageNumber} of ${pageCount}`, width - margin, height - 6, { align: 'right' });
+        }
 
-        // Save PDF
         doc.save(`report_${currentReportData.dateFrom}_to_${currentReportData.dateTo}.pdf`);
         Swal.fire('Success', 'PDF exported successfully', 'success');
+        return doc;
     } catch (error) {
         console.error('PDF export error:', error);
         Swal.fire('Error', 'Failed to export PDF: ' + error.message, 'error');

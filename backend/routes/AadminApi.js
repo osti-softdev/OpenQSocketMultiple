@@ -574,7 +574,10 @@ module.exports = function createTellerApiRouter(io) {
                 COUNT(*) AS total_tickets,
                 COUNT(CASE WHEN status = 'finished' THEN 1 END) AS completed_tickets,
                 COUNT(CASE WHEN priority = 1 THEN 1 END) AS priority_tickets,
+                COUNT(CASE WHEN status IN ('waiting', 'pending') THEN 1 END) AS waiting_tickets,
+                COUNT(DISTINCT COALESCE(sname, ticketservice)) AS active_services,
                 AVG(CASE WHEN start_time IS NOT NULL THEN (strftime('%s', start_time) - strftime('%s', time)) / 60.0 END) AS avg_wait_minutes,
+                AVG(CASE WHEN start_time IS NOT NULL AND end_time IS NOT NULL THEN (strftime('%s', end_time) - strftime('%s', start_time)) / 60.0 END) AS avg_service_minutes,
                 (SELECT COUNT(*) FROM transactions WHERE date = date(?, '-1 day')) AS previous_day_tickets
             FROM transactions
             WHERE date = ?

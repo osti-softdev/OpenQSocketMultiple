@@ -717,7 +717,7 @@ button.btn {
 
 .insight-grid {
     display: grid !important;
-    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
     gap: 10px !important;
 }
 
@@ -744,7 +744,7 @@ button.btn {
     background: linear-gradient(180deg, var(--console-primary), var(--console-cyan)) !important;
 }
 
-.insight-label { color: var(--console-muted) !important; font-size: 8px !important; font-weight: 850 !important; letter-spacing: .08em !important; text-transform: uppercase !important; }
+.insight-label { overflow: hidden !important; color: var(--console-muted) !important; font-size: 8px !important; font-weight: 850 !important; letter-spacing: .08em !important; text-overflow: ellipsis !important; text-transform: uppercase !important; white-space: nowrap !important; }
 .insight-card strong { overflow: hidden !important; color: var(--console-heading) !important; font-size: 21px !important; font-weight: 850 !important; letter-spacing: -.035em !important; text-overflow: ellipsis !important; white-space: nowrap !important; }
 .insight-card strong.negative { color: var(--console-danger) !important; }
 .insight-card small { color: var(--console-faint) !important; font-size: 8px !important; line-height: 1.35 !important; }
@@ -2412,6 +2412,8 @@ html.compact-sidebar .logout-btn span { font-size: 17px !important; }
     .overview-page .insight-grid { height: 100% !important; gap: 8px !important; }
     .overview-page .insight-card { min-height: 0 !important; height: 100% !important; padding: 9px 11px !important; }
     .overview-page .insight-card strong { font-size: 17px !important; }
+    .overview-page .insight-card { padding-inline: 9px !important; }
+    .overview-page .insight-card small { overflow: hidden !important; text-overflow: ellipsis !important; white-space: nowrap !important; }
 
     .overview-page .card-chart-dashboard {
         min-height: 0 !important;

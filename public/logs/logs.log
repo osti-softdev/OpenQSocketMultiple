@@ -14538,3 +14538,14 @@
 ✔ 2026-07-17T08:16:47.800Z [node:events:508] [ADS] Client connected: VadYZMGxHpQ4oX8wAAAb
 ✔ 2026-07-17T08:24:15.369Z [node:events:508] [ADS] Client disconnected: VadYZMGxHpQ4oX8wAAAb
 ✔ 2026-07-17T08:24:15.535Z [node:events:508] [ADS] Client connected: PxCTOHxrn7L4hoFJAAAd
+✔ 2026-07-17T09:27:22.935Z [backend\utilities\logger.js:142] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-07-17T09:27:22.996Z [node_modules\dotenv\lib\main.js:131] ◇ injected env (4) from backend\config\.env [2m// tip: ⌁ auth for agents [www.vestauth.com][0m
+✔ 2026-07-17T09:27:23.377Z [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-07-17T09:27:23.392Z [unknown-location] Connected to SQLite database
+✔ 2026-07-17T09:27:23.404Z [backend\routes\AadminApi.js:30] Services and routing groups synchronized
+✔ 2026-07-17T09:27:26.718Z [node:events:508] [ADS] Client connected: 0AjMT0ZUmnD4N6OsAAAB
+✔ 2026-07-17T09:27:27.514Z [node:events:508] [ADS] Client connected: 0M43X9IsZaWv-AdwAAAD
+✔ 2026-07-17T09:27:27.904Z [backend\routes\AadminApi.js:52] Login attempt for: admin
+✔ 2026-07-17T09:27:27.905Z [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-17T09:27:27.905Z [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-17T09:27:28.285Z [node:events:508] [ADS] Client connected: uvw6ggYWZiid0nMgAAAF

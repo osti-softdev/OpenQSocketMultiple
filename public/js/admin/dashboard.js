@@ -349,6 +349,10 @@ function renderOperationalInsights(data) {
     const total = Number(summary.total_tickets || 0);
     const completed = Number(summary.completed_tickets || 0);
     const priority = Number(summary.priority_tickets || 0);
+    const waiting = Number(summary.waiting_tickets || 0);
+    const activeServices = Number(summary.active_services || 0);
+    const averageWait = Number(summary.avg_wait_minutes || 0);
+    const averageService = Number(summary.avg_service_minutes || 0);
     const previous = Number(summary.previous_day_tickets || 0);
     const completionRate = total ? (completed / total) * 100 : 0;
     const priorityShare = total ? (priority / total) * 100 : 0;
@@ -366,6 +370,12 @@ function renderOperationalInsights(data) {
     $('#insight-service-note').text(busiest ? `${busiest.ticket_count} tickets today` : 'No service activity yet');
     $('#insight-change').text(`${change > 0 ? '+' : ''}${change.toFixed(1)}%`).toggleClass('negative', change < 0);
     $('#insight-change-note').text(`${total} today versus ${previous} yesterday`);
+    $('#insight-avg-wait').text(`${Math.round(averageWait)}m`);
+    $('#insight-avg-wait-note').text(averageWait > 0 ? 'Average time before service' : 'No called tickets yet');
+    $('#insight-avg-service').text(`${Math.round(averageService)}m`);
+    $('#insight-avg-service-note').text(averageService > 0 ? 'Average completed handling time' : 'No completed handling data');
+    $('#insight-open-queue').text(waiting.toLocaleString());
+    $('#insight-open-queue-note').text(`${activeServices} active service${activeServices === 1 ? '' : 's'} today`);
 }
 
 function formatAnalyticsTime(value) {
