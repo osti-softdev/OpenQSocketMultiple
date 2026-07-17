@@ -77,21 +77,37 @@ module.exports = function createTellerApiRouter(io) {
   // =========================
 
   router.get('/check-session', (req, res) => {
-        if (req.session.teller) {
-            res.json({
-                loggedIn: true,
-                teller: {
-                    id: req.session.teller.id,
-                    username: req.session.teller.username,
-                    counter_number: req.session.teller.counter_number,
-                    services: req.session.teller.services,
-                    group_name: req.session.teller.group_name,
-                    group_id: req.session.teller.group_id,
-                }
-            });
-        } else {
-            res.json({ loggedIn: false });
+        const tellerId = req.session?.teller?.id;
+        if (!tellerId) {
+            return res.json({ loggedIn: false });
         }
+
+        db.get('SELECT * FROM counters WHERE id = ?', [tellerId], (err, teller) => {
+            if (err) {
+                return res.status(500).json({ loggedIn: false, message: 'Database error' });
+            }
+            if (!teller) {
+                req.session.teller = null;
+                return res.json({ loggedIn: false });
+            }
+
+            const refreshedTeller = {
+                id: teller.id,
+                username: teller.cname,
+                counter_number: teller.cnum,
+                services: teller.services || '',
+                group_name: teller.group_name,
+                group_id: teller.group_id
+            };
+
+            req.session.teller = refreshedTeller;
+            req.session.save(saveErr => {
+                if (saveErr) {
+                    return res.status(500).json({ loggedIn: false, message: 'Session update failed' });
+                }
+                res.json({ loggedIn: true, teller: refreshedTeller });
+            });
+        });
   });
 
   router.get('/teller/report-data', requireTellerSession, (req, res) => {
@@ -186,29 +202,63 @@ router.post('/logout', (req, res) => {
   // =========================
   router.get('/tickets/waiting', (req, res) => {
         const { date } = getPHDateTime();
+        const sessionTeller = req.session?.teller;
+        const tellerId = sessionTeller?.id || req.query.tellerId;
+        const groupId = sessionTeller?.group_id || req.query.groupId;
+        const serviceList = req.query.services || sessionTeller?.services;
 
-        const services = req.query.services
-            ? req.query.services
+        const services = serviceList
+            ? serviceList
                 .split(',')
                 .map(s => s.trim().toUpperCase())
             : [];
 
-        if (services.length === 0) {
+        const queueConditions = [];
+        const params = [];
+
+        if (services.length > 0) {
+            const placeholders = services.map(() => '?').join(',');
+            queueConditions.push(`(t.status = 'pending' AND UPPER(t.sname) IN (${placeholders}))`);
+            params.push(...services);
+        }
+
+        const receivedConditions = [];
+        if (tellerId) {
+            receivedConditions.push('ft.to_teller_id = ?');
+            params.push(tellerId);
+        }
+        if (groupId) {
+            receivedConditions.push('ft.to_group_id = ?');
+            params.push(groupId);
+        }
+        if (receivedConditions.length > 0) {
+            queueConditions.push(`(t.status = 'received' AND (${receivedConditions.join(' OR ')}))`);
+        }
+
+        if (queueConditions.length === 0) {
             return res.json([]);
         }
 
-        const placeholders = services.map(() => '?').join(',');
-
         const query = `
-            SELECT *
-            FROM transactions
-            WHERE status = 'pending'
-            AND UPPER(sname) IN (${placeholders})
-            AND date = ?
-            ORDER BY time ASC
+            SELECT t.*, s.shortSname, ft.note, ft.forwarded_at,
+                   t_from.cname AS from_teller_name,
+                   CASE WHEN t.status = 'received' THEN 1 ELSE 0 END AS isReceived
+            FROM transactions t
+            LEFT JOIN services s ON t.sname = s.sname
+            LEFT JOIN forwarded_tickets ft ON t.id = ft.ticket_id
+            LEFT JOIN counters t_from ON ft.from_teller_id = t_from.id
+            WHERE (${queueConditions.join(' OR ')})
+              AND t.date = ?
+            ORDER BY CASE
+                       WHEN t.status = 'pending' AND t.priority = 1 THEN 1
+                       WHEN t.status = 'received' AND t.priority = 1 THEN 2
+                       WHEN t.status = 'received' THEN 3
+                       ELSE 4
+                     END,
+                     t.time ASC
         `;
 
-        const params = [...services, date];
+        params.push(date);
 
         db.all(query, params, (err, tickets) => {
             if (err) {
@@ -225,9 +275,11 @@ router.post('/logout', (req, res) => {
   router.get('/tickets/called', (req, res) => {
     const { date } = getPHDateTime();
 
-      db.all(`SELECT * FROM transactions 
-              WHERE (status = 'calling' OR status = 'called') AND date = ?
-              ORDER BY start_time DESC 
+      db.all(`SELECT t.*, s.shortSname
+              FROM transactions t
+              LEFT JOIN services s ON t.sname = s.sname
+              WHERE (t.status = 'calling' OR t.status = 'called') AND t.date = ?
+              ORDER BY t.start_time DESC
               LIMIT 16`,
           [date],
           (err, tickets) => {
@@ -245,8 +297,9 @@ router.post('/logout', (req, res) => {
     const { date } = getPHDateTime();
 
     const sql = `
-        SELECT t.sname, t.ticketnum, ticketservice, t.date, t.status
+        SELECT t.sname, s.shortSname, t.ticketnum, t.ticketservice, t.date, t.status
         FROM transactions t
+        LEFT JOIN services s ON t.sname = s.sname
         INNER JOIN (
             SELECT sname, MAX(start_time) AS last_called_at
             FROM transactions
@@ -277,27 +330,46 @@ router.post('/logout', (req, res) => {
       const { ticketId, tellerId, counterNumber, counter_group, counter_user, mode } = req.body;
       if (mode === 'auto') {
           // Get teller's services
-          db.get('SELECT services FROM counters WHERE id = ?', [tellerId], (err, teller) => {
+          db.get('SELECT services, group_id FROM counters WHERE id = ?', [tellerId], (err, teller) => {
               if (err || !teller) {
                   return res.status(500).json({ error: 'Teller not found' });
               }
 
-                 const services = teller.services
+                 const services = String(teller.services || '')
                     .split(',')
-                    .map(s => s.trim().toUpperCase());
+                    .map(s => s.trim().toUpperCase())
+                    .filter(Boolean);
 
+              const autoConditions = [];
+              const params = [];
+              if (services.length > 0) {
+                  const placeholders = services.map(() => '?').join(',');
+                  autoConditions.push(`(t.status = 'pending' AND UPPER(t.sname) IN (${placeholders}))`);
+                  params.push(...services);
+              }
+              autoConditions.push(
+                  `(t.status = 'received' AND (ft.to_teller_id = ? OR ft.to_group_id = ?))`
+              );
+              params.push(tellerId, teller.group_id, date);
 
-                const placeholders = services.map(() => '?').join(',');
-
-              // Get next ticket (priority first, then regular)
-              const query = `SELECT * FROM transactions 
-                            WHERE status = 'pending' 
-                            AND UPPER(sname) IN (${placeholders})
-                            AND date = ?
-                            ORDER BY priority DESC 
+              // Queue order: pending priority, received priority,
+              // received regular, then pending regular.
+              const query = `SELECT t.*, s.shortSname,
+                                    CASE WHEN t.status = 'received' THEN 1 ELSE 0 END AS isReceived
+                            FROM transactions t
+                            LEFT JOIN services s ON t.sname = s.sname
+                            LEFT JOIN forwarded_tickets ft ON t.id = ft.ticket_id
+                            WHERE (${autoConditions.join(' OR ')})
+                            AND t.date = ?
+                            ORDER BY CASE
+                                       WHEN t.status = 'pending' AND t.priority = 1 THEN 1
+                                       WHEN t.status = 'received' AND t.priority = 1 THEN 2
+                                       WHEN t.status = 'received' THEN 3
+                                       ELSE 4
+                                     END,
+                                     t.time ASC
                             LIMIT 1`;
 
-              const params = [...services, date];
               db.get(query, params, (err, ticket) => {
                   if (err) {
                       return res.status(500).json({ error: 'Database error' });
@@ -330,7 +402,7 @@ router.post('/logout', (req, res) => {
               ELSE history || ';' || ?
             END
     WHERE teller_id = ?
-      AND status = 'calling'
+      AND status IN ('calling', 'called')
       AND date = ?
     `,
     [time, finishEntry, finishEntry, tellerId, date],
@@ -350,6 +422,7 @@ router.post('/logout', (req, res) => {
             teller_id = ?,
             counter_num = ?,
             start_time = ?,
+            end_time = NULL,
             counter_user = ?,
             counter_group = ?,
             history = CASE
@@ -371,10 +444,11 @@ router.post('/logout', (req, res) => {
           io.emit("calledticketsArrived");
           db.get(
             `
-            SELECT *
-            FROM transactions
-            WHERE id = ?
-              AND date = ?
+            SELECT t.*, s.shortSname
+            FROM transactions t
+            LEFT JOIN services s ON t.sname = s.sname
+            WHERE t.id = ?
+              AND t.date = ?
             `,
             [ticketId, date],
             (err, ticket) => {
@@ -417,10 +491,11 @@ router.post('/logout', (req, res) => {
             }
                     db.get(
                         `
-                        SELECT *
-                        FROM transactions
-                        WHERE id = ?
-                        AND date = ?
+                        SELECT t.*, s.shortSname
+                        FROM transactions t
+                        LEFT JOIN services s ON t.sname = s.sname
+                        WHERE t.id = ?
+                        AND t.date = ?
                         `,
                         [ticketId, date],
                         (err, ticket) => {
@@ -479,9 +554,11 @@ router.post('/logout', (req, res) => {
     const { tellerId } = req.query;
     const { date } = getPHDateTime();
 
-    db.all(`SELECT * FROM transactions 
-            WHERE status = 'held' AND counter_num = ? AND date = ?
-            ORDER BY start_time ASC`,
+    db.all(`SELECT t.*, s.shortSname
+            FROM transactions t
+            LEFT JOIN services s ON t.sname = s.sname
+            WHERE t.status = 'held' AND t.counter_num = ? AND t.date = ?
+            ORDER BY t.start_time ASC`,
         [tellerId, date],
         (err, tickets) => {
             if (err) {
@@ -574,7 +651,10 @@ router.post('/logout', (req, res) => {
                     [ticketId, fromTellerId, toTellerId, toGroupId, note, date]);
         }
 
-                    db.get('SELECT * FROM transactions WHERE id = ? AND date = ?', [ticketId, date], (err, ticket) => {
+                    db.get(`SELECT t.*, s.shortSname
+                            FROM transactions t
+                            LEFT JOIN services s ON t.sname = s.sname
+                            WHERE t.id = ? AND t.date = ?`, [ticketId, date], (err, ticket) => {
                         if (err || !ticket) {
                             return res.status(500).json({ error: 'Ticket not found' });
                         }
@@ -598,10 +678,11 @@ router.post('/logout', (req, res) => {
     const { tellerId, groupId } = req.query;
     const { date } = getPHDateTime();
 
-    let query = `SELECT t.*, ft.note, ft.forwarded_at, 
+    let query = `SELECT t.*, s.shortSname, ft.note, ft.forwarded_at,
                 t_from.cname as from_teller_name
                 FROM transactions t
                 JOIN forwarded_tickets ft ON t.id = ft.ticket_id
+                LEFT JOIN services s ON t.sname = s.sname
                 LEFT JOIN counters t_from ON ft.from_teller_id = t_from.id
                 WHERE t.status = 'received' AND (`;
     
@@ -618,7 +699,7 @@ router.post('/logout', (req, res) => {
         params.push(groupId);
     }
 
-    query += conditions.join(' OR ') + ') AND date = ? ORDER BY ft.forwarded_at DESC';
+    query += conditions.join(' OR ') + ') AND t.date = ? ORDER BY ft.forwarded_at DESC';
 
     params.push(date);
 
@@ -687,19 +768,20 @@ router.post('/logout', (req, res) => {
     const { date } = getPHDateTime();
 
     let query = `
-        SELECT *
-        FROM transactions
-        WHERE date = ?
+        SELECT t.*, s.shortSname
+        FROM transactions t
+        LEFT JOIN services s ON t.sname = s.sname
+        WHERE t.date = ?
     `;
 
     let params = [date];
 
     if (counterNumber) {
-        query += ` AND history LIKE ?`;
+        query += ` AND t.history LIKE ?`;
         params.push(`%-${cname}-%`);
     }
 
-    query += ` ORDER BY start_time DESC LIMIT ?`;
+    query += ` ORDER BY t.start_time DESC LIMIT ?`;
     params.push(queryLimit);
 
     db.all(query, params, (err, rows) => {

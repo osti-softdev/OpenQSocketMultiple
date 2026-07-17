@@ -43,6 +43,34 @@ function initDashboard() {
         }
     });
 }
+
+function refreshTellerAssignment() {
+    const previousServices = currentTeller ? currentTeller.services : '';
+
+    $.ajax({
+        url: '/api/check-session',
+        method: 'GET',
+        success: function (response) {
+            if (!response.loggedIn) {
+                showLoginSection();
+                return;
+            }
+
+            currentTeller = response.teller;
+            setAuthUser(currentTeller);
+            showTellerSection();
+            createServiceBoxes();
+            loadQueueData();
+            loadHeldTickets();
+            loadForwardedTickets();
+            loadHistory();
+
+            if (previousServices !== currentTeller.services) {
+                showMsg('success', 'Your assigned services were updated.');
+            }
+        }
+    });
+}
 // ^ Auto-call next ticket for any service
 $('#auto-call-btn').click(function () {
         if (!currentTeller) return;
@@ -69,7 +97,7 @@ function showTellerSection() {
     $('#tellerSec').show();
     $('#counter-number').text("Counter "+currentTeller.counter_number);
     $('#teller-username').text(currentTeller.username);
-    $('#avatar-initials').text(currentTeller.username.charAt(0).toUpperCase());
+    $('#avatar-initials').text(currentTeller.username.charAt(0).toUpperCase()+currentTeller.counter_number);
 }
 // ^ Load queue data
 function loadQueueData() {
@@ -78,7 +106,11 @@ function loadQueueData() {
     $.ajax({
         url: '/api/tickets/waiting',
         method: 'GET',
-        data: { services: currentTeller.services },
+        data: {
+            services: currentTeller.services,
+            tellerId: currentTeller.id,
+            groupId: currentTeller.group_id
+        },
         success: function (tickets) {
             displayWaitingQueue(tickets);
             updatePendingCounts(tickets);
@@ -101,6 +133,21 @@ function loadQueueData() {
         }
     });
 }
+
+function updateTicketCountBadge(buttonSelector, count) {
+    const ticketCount = Math.max(0, Number(count) || 0);
+    const $badge = $(`${buttonSelector} .ticket-count-badge`);
+
+    $badge
+        .text(ticketCount > 99 ? '99+' : ticketCount)
+        .toggleClass('has-tickets', ticketCount > 0)
+        .attr('aria-hidden', ticketCount > 0 ? 'false' : 'true');
+}
+
+function getTicketServiceName(ticket) {
+    return String(ticket.shortSname || ticket.sname || '').replace(/_/g, ' ');
+}
+
 // ^ Load Held Tickets
 function loadHeldTickets() {
     if (!currentTeller) return;
@@ -111,11 +158,11 @@ function loadHeldTickets() {
 
         if (tickets.length === 0) {
             $queue.html('<div class="empty-list">No held tickets</div>');
-            $('.heldTickets').text("Held: " + "0");
+            updateTicketCountBadge('.heldTickets', 0);
             return;
         }
 
-        $('.heldTickets').text("Held: "+tickets.length);
+        updateTicketCountBadge('.heldTickets', tickets.length);
 
         // Held Tickets Render Update
         tickets.forEach(ticket => {
@@ -124,7 +171,7 @@ function loadHeldTickets() {
                 <div class="queue-item ${isPriority ? 'priority' : ''}">
                     <div class="queue-item-info">
                         <h4>${ticket.ticketservice}${ticket.ticketnum}</h4>
-                        <span>${ticket.sname}</span>
+                        <span>${getTicketServiceName(ticket)}</span>
                     </div>
                     <div class="queue-actions">
                         <button class="btn btn-secondary btn-sm forward-held-btn">Forward</button>
@@ -134,12 +181,7 @@ function loadHeldTickets() {
             `);
 
             $item.find('.resume-held-btn').click(() => resumeHeldTicket(ticket.id));
-            $item.find('.forward-held-btn').click(() => {
-                // For forwarding held ticket, we temporarily set it as current OR pass ID to modal
-                // Ideally, we open modal and pass ticket ID context
-                currentTicket = ticket; // Hacky but works with existing openForwardModal which uses currentTicket
-                openForwardModal();
-            });
+            $item.find('.forward-held-btn').click(() => openForwardModal(ticket));
             $queue.append($item);
         });
     });
@@ -156,12 +198,12 @@ function loadForwardedTickets() {
         $queue.empty();
 
         if (tickets.length === 0) {
-            $queue.html('<div class="empty-list">No forwarded tickets</div>');
-            $('.forwardTickets').text("Forwarded: " + "0");
+            $queue.html('<div class="empty-list">No received tickets</div>');
+            updateTicketCountBadge('.forwardTickets', 0);
             return;
         }
 
-        $('.forwardTickets').text("Forwarded: " + tickets.length);
+        updateTicketCountBadge('.forwardTickets', tickets.length);
 
         tickets.forEach(ticket => {
         const isPriority = ticket.priority === 1;
@@ -169,20 +211,26 @@ function loadForwardedTickets() {
                 <div class="queue-item ${isPriority ? 'priority' : ''}">
                     <div class="queue-item-info">
                         <h4>${ticket.ticketservice}${ticket.ticketnum}</h4>
-                        <span>${ticket.sname} - From: ${ticket.from_teller_name}</span>
+                        <span>${getTicketServiceName(ticket)} - From: ${ticket.from_teller_name}</span>
                         ${ticket.note ? `<small>${ticket.note}</small>` : ''}
                     </div>
-                    <button class="btn btn-primary btn-sm">Call</button>
+                    <div class="queue-actions">
+                        <button class="btn btn-secondary btn-sm forward-received-btn">Forward</button>
+                        <button class="btn btn-primary btn-sm call-received-btn">Call</button>
+                    </div>
                 </div>
             `);
 
-            $item.find('button').click(() => callSpecificTicket(ticket.id));
+            $item.find('.call-received-btn').click(() => callSpecificTicket(ticket.id));
+            $item.find('.forward-received-btn').click(() => openForwardModal(ticket));
             $queue.append($item);
         });
     });
 }
 // ^ Load History
 function loadHistory() {
+    if (!currentTeller) return;
+
     $.get('/api/tickets/history', { 
           counterNumber: currentTeller.counter_number, cname: currentTeller.username,
     }, function (tickets) {
@@ -194,31 +242,42 @@ function loadHistory() {
         }
 
         tickets.forEach(t => {
-            if (!t.start_time || !t.end_time) {
+            if (!t.start_time) {
                 return;
             }
+
             const startDate = new Date(`${t.date}T${t.start_time}`);
-            const endDate   = new Date(`${t.date}T${t.end_time}`);
-
-            if (isNaN(startDate) || isNaN(endDate)) {
+            if (isNaN(startDate)) {
                 return;
             }
-            const durationSeconds = Math.floor((endDate - startDate) / 1000);
 
-            const mins = Math.floor(durationSeconds / 60);
-            const secs = durationSeconds % 60;
+            const isServing = t.status === 'calling' || t.status === 'called';
+            let durationLabel = 'In progress';
+            if (!isServing && t.end_time) {
+                const endDate = new Date(`${t.date}T${t.end_time}`);
+                if (!isNaN(endDate)) {
+                    const durationSeconds = Math.max(0, Math.floor((endDate - startDate) / 1000));
+                    const mins = Math.floor(durationSeconds / 60);
+                    const secs = durationSeconds % 60;
+                    durationLabel = `${mins}m ${secs}s`;
+                }
+            }
+
+            const statusLabel = isServing
+                ? 'Serving'
+                : String(t.status || '').replace(/_/g, ' ');
 
             const $row = $(`
                 <tr>
                     <td><strong>${t.ticketservice}${t.ticketnum}</strong></td>
-                    <td>${t.ticketservice}</td>
+                    <td>${statusLabel}</td>
                     <td>${t.start_time}</td>
-                    <td>${t.end_time}</td>
-                    <td>${mins}m ${secs}s</td>
+                    <td>${durationLabel}</td>
                     <td>
-                        <button class="btn btn-primary btn-sm call-again-btn">
-                            Call Again
-                        </button>
+                        <div class="history-actions">
+                            <button class="btn btn-secondary btn-sm forward-history-btn">Forward</button>
+                            <button class="btn btn-primary btn-sm call-again-btn">Call Again</button>
+                        </div>
                     </td>
                 </tr>
             `);
@@ -231,6 +290,7 @@ function loadHistory() {
                 }
                     callSpecificTicket(t.id);
             });
+            $row.find('.forward-history-btn').click(() => openForwardModal(t));
 
             $list.append($row);
         });
@@ -251,7 +311,7 @@ function displayCurrentTicket(ticket) {
         return;
     }
     const $display = $('.currentCalledTicket');
-    const ticketSname = ticket.sname.replace(/_/g, " ");
+    const ticketSname = getTicketServiceName(ticket);
     $display.html(`
         <div class="active-ticket-info">
             <div class="ticket-num-large">${ticket.ticketservice}${ticket.ticketnum}</div>
@@ -302,7 +362,9 @@ function createServiceBoxes() {
 function updatePendingCounts(tickets) {
         const services = currentTeller.services.split(',').map(s => s.trim());
     services.forEach(service => {
-        const serviceTickets = tickets.filter(t => t.sname === service);
+        const serviceTickets = tickets.filter(
+            t => t.status === 'pending' && t.sname === service
+        );
         const total = serviceTickets.length;
         const reg = serviceTickets.filter(t => t.priority === 0).length;
         const pri = serviceTickets.filter(t => t.priority === 1).length;
@@ -315,24 +377,33 @@ function updatePendingCounts(tickets) {
 // ^ Display waiting queue
 function displayWaitingQueue(tickets) {
     const $queue = $('#waiting-queue');
+    const visibleTickets = shouldShowReceivedInManualList()
+        ? tickets
+        : tickets.filter(ticket => ticket.status !== 'received' && Number(ticket.isReceived) !== 1);
+
     $queue.empty();
-    if (tickets.length === 0) {
+    if (visibleTickets.length === 0) {
         $queue.html('<div class="empty-list">No pending tickets</div>');
-    $('.pendingTickets').text("Waiting: 0");
+        updateTicketCountBadge('.pendingTickets', 0);
         return;
     }
 
-    $('.pendingTickets').text("Waiting: " + tickets.length);
+    updateTicketCountBadge('.pendingTickets', visibleTickets.length);
 
-    tickets.forEach(ticket => {
-        const isPriority = ticket.priority === 1;
+    visibleTickets.forEach(ticket => {
+        const isPriority = Number(ticket.priority) === 1;
+        const isReceived = ticket.status === 'received' || Number(ticket.isReceived) === 1;
+        const queueType = isReceived
+            ? (isPriority ? 'Priority received' : 'Received')
+            : (isPriority ? 'Priority' : 'Regular');
         const $item = $(`
-            <div class="queue-item ${isPriority ? 'priority' : ''}">
+            <div class="queue-item ${isPriority ? 'priority' : ''} ${isReceived ? 'received' : ''}">
                 <div class="queue-item-info">
                     <h4>${ticket.ticketservice}${ticket.ticketnum}</h4>
-                    <span>${ticket.sname}</span>
+                    <span>${getTicketServiceName(ticket)}</span>
+                    ${isReceived && ticket.from_teller_name ? `<small>From: ${ticket.from_teller_name}</small>` : ''}
                 </div>
-                    <span>${ticket.date} : ${ticket.time}</span>
+                    <span class="ticket-queue-type">${queueType}</span>
                 <button class="btn btn-primary btn-sm">Call</button>
             </div>
         `);
@@ -515,7 +586,10 @@ function formatTime(isoString) {
     return new Date(isoString).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
 // ^ Forwarding modal show
-function openForwardModal() {
+function openForwardModal(ticket = currentTicket) {
+    if (!ticket) return;
+    forwardTicketContext = ticket;
+
     // Load tellers
     $.get('/api/tellers/list', { groupId: currentTeller.group_id, id: currentTeller.id }, function(tellers) {
         const $select = $('#forward-teller-id');
@@ -540,10 +614,16 @@ function openForwardModal() {
 }
 // ^ Forward a Ticket
 function confirmForward() {
+    const ticketToForward = forwardTicketContext || currentTicket;
     const targetType = $('#forward-target-type').val();
     const toTellerId = targetType === 'teller' ? $('#forward-teller-id').val() : null;
     const toGroupId = targetType === 'group' ? $('#forward-group-id').val() : null;
     const note = $('#forward-note').val();
+
+    if (!ticketToForward) {
+        showMsg('warning', 'No ticket selected to forward');
+        return;
+    }
 
     if (!toTellerId && !toGroupId) {
            showMsg("warning", "Please select a teller or group");
@@ -555,7 +635,7 @@ function confirmForward() {
         method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({
-            ticketId: currentTicket.id,
+            ticketId: ticketToForward.id,
             fromTellerId: currentTeller.id,
             toTellerId: toTellerId,
             toGroupId: toGroupId,
@@ -565,9 +645,15 @@ function confirmForward() {
         }),
         success: function() {
             $('#forward-modal').hide();
-            currentTicket = null;
-            clearCurrentTicket();
+            if (currentTicket && Number(currentTicket.id) === Number(ticketToForward.id)) {
+                currentTicket = null;
+                clearCurrentTicket();
+            }
+            forwardTicketContext = null;
             loadQueueData();
+            loadHeldTickets();
+            loadForwardedTickets();
+            loadHistory();
            showMsg("success", "Ticket sent ✅")
         }
     });

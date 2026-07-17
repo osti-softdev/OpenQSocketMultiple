@@ -1,6 +1,7 @@
 const socket = io();
 let currentTeller = null;
 let currentTicket = null;
+let forwardTicketContext = null;
 let durationInterval = null;
 let totalTickets = null;
 
@@ -41,11 +42,23 @@ $(document).ready(function () {
         if (isTicketForTeller(ticket)) loadQueueData();
     });
 
-    socket.on('ticket_called', () => loadQueueData());
-    socket.on('ticket_completed', () => loadQueueData());
+    socket.on('ticket_called', () => {
+        loadQueueData();
+        loadHeldTickets();
+        loadForwardedTickets();
+        loadHistory();
+    });
+    socket.on('ticket_completed', () => {
+        loadQueueData();
+        loadHeldTickets();
+        loadForwardedTickets();
+        loadHistory();
+    });
     socket.on('ticket_held', () => {
         loadQueueData();
         loadHeldTickets();
+        loadForwardedTickets();
+        loadHistory();
     });
     socket.on('ticket_forwarded', (data) => {
         console.log('Forward event:', data);
@@ -61,12 +74,21 @@ $(document).ready(function () {
             'success',
             `You received ticket ${data.ticket.ticketservice}${data.ticket.ticketnum} : ${data.note}`
         );
-    }
+        }
         loadQueueData();
+        loadHeldTickets();
         loadForwardedTickets();
+        loadHistory();
     });
     socket.on('ticket_voided', () => {
         loadQueueData();
+        loadHeldTickets();
+        loadForwardedTickets();
+        loadHistory();
+    });
+    socket.on('teller_assignment_updated', data => {
+        if (!currentTeller || Number(data.tellerId) !== Number(currentTeller.id)) return;
+        refreshTellerAssignment();
     });
 
     // & BUTTON EVENTS ========
@@ -93,7 +115,10 @@ $(document).ready(function () {
         if (!currentTicket) return;
         openForwardModal();
     });
-    $('.close-forward-modal').click(() => $('#forward-modal').hide());
+    $('.close-forward-modal').click(() => {
+        $('#forward-modal').hide();
+        forwardTicketContext = null;
+    });
         $('#forward-target-type').change(function() {
             if ($(this).val() === 'teller') {
                 $('#forward-teller-group').show();
@@ -167,46 +192,22 @@ $(document).ready(function () {
         switchManager(activeManager === 'history' ? 'services' : 'history');
     })
 
-    $('.avatar').click(function () {
-        Swal.fire({
-            title: 'Logout?',
-            text: 'Are you sure you want to continue logging out?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Yes, Logout',
-            cancelButtonText: 'Cancel',
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#3085d6',
-                reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    url: '/api/logout',
-                    method: 'POST',
-                    success: function () {
-                        currentTeller = null;
-                        currentTicket = null;
-                        localStorage.removeItem('authUser');
-                        stopDurationTimer();
-                        window.location.href = '/312Xtellerlogin';
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Logged Out',
-                            timer: 1500,
-                            showConfirmButton: false
-                        });
-                    },
-                    error: function () {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Logout Failed',
-                            text: 'Something went wrong. Please try again.'
-                        });
-                    }
-                });
-            }
-        });
+    $('.avatar').click(function (event) {
+        event.stopPropagation();
+        const menu = document.getElementById('avatar-menu');
+        menu.hidden = !menu.hidden;
     });
+
+    $('#avatar-menu').click(event => event.stopPropagation());
+    $('#receive-settings-btn').click(function () {
+        $('#avatar-menu').prop('hidden', true);
+        openReceiveSettings();
+    });
+    $('#avatar-logout-btn').click(function () {
+        $('#avatar-menu').prop('hidden', true);
+        confirmTellerLogout();
+    });
+    $(document).click(() => $('#avatar-menu').prop('hidden', true));
 
 });
 
@@ -228,6 +229,69 @@ function applyCallerTheme(theme) {
         .attr('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode')
         .attr('title', isDark ? 'Light mode' : 'Dark mode');
     $('#theme-toggle .theme-icon').text(isDark ? 'light_mode' : 'dark_mode');
+}
+
+function shouldShowReceivedInManualList() {
+    const tellerKey = currentTeller ? currentTeller.id : 'default';
+    return localStorage.getItem(`showReceivedInManualList:${tellerKey}`) !== 'false';
+}
+
+function openReceiveSettings() {
+    Swal.fire({
+        title: 'Receive Settings',
+        text: 'Control whether received tickets also appear in the Waiting manual-call list.',
+        input: 'checkbox',
+        inputValue: shouldShowReceivedInManualList() ? 1 : 0,
+        inputPlaceholder: 'Show received tickets in Waiting list',
+        showCancelButton: true,
+        confirmButtonText: 'Save Setting'
+    }).then(result => {
+        if (!result.isConfirmed) return;
+
+        const showReceived = Boolean(result.value);
+        const tellerKey = currentTeller ? currentTeller.id : 'default';
+        localStorage.setItem(`showReceivedInManualList:${tellerKey}`, String(showReceived));
+        loadQueueData();
+        showMsg('success', showReceived
+            ? 'Received tickets will display in the Waiting list.'
+            : 'Received tickets are hidden from the Waiting list.');
+    });
+}
+
+function confirmTellerLogout() {
+    Swal.fire({
+        title: 'Logout?',
+        text: 'Are you sure you want to continue logging out?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, Logout',
+        cancelButtonText: 'Cancel',
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        reverseButtons: true
+    }).then(result => {
+        if (!result.isConfirmed) return;
+
+        $.ajax({
+            url: '/api/logout',
+            method: 'POST',
+            success: function () {
+                currentTeller = null;
+                currentTicket = null;
+                forwardTicketContext = null;
+                localStorage.removeItem('authUser');
+                stopDurationTimer();
+                window.location.href = '/312Xtellerlogin';
+            },
+            error: function () {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Logout Failed',
+                    text: 'Something went wrong. Please try again.'
+                });
+            }
+        });
+    });
 }
 
 function setAuthUser(teller) {

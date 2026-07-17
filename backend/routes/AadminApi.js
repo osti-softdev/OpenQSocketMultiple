@@ -476,6 +476,14 @@ module.exports = function createTellerApiRouter(io) {
   //   & Edit Tellers
   router.put('/admin/tellers/:id', (req, res) => {
     const { name, username, counter_number, services, group_id, groupName, is_active, password } = req.body;
+    const tellerId = Number(req.params.id);
+
+    const completeTellerUpdate = err => {
+        if (err) return res.status(500).json({ error: err.message });
+
+        io.emit('teller_assignment_updated', { tellerId });
+        res.json({ success: true });
+    };
 
 
     if (password) {
@@ -486,10 +494,7 @@ module.exports = function createTellerApiRouter(io) {
              SET cname = ?, cuser = ?, cpass = ?, cnum = ?, services = ?, group_id = ?,group_name = ?, cstatus = ?
              WHERE id = ?`,
             [name, username, password, counter_number, services, group_id, groupName, is_active, req.params.id],
-            err => {
-                if (err) return res.status(500).json({ error: err.message });
-                res.json({ success: true });
-            }
+            completeTellerUpdate
         );
     } else {
         db.run(
@@ -497,10 +502,7 @@ module.exports = function createTellerApiRouter(io) {
              SET cname = ?, cuser = ?, cnum = ?, services = ?, group_id = ?,group_name = ?, cstatus = ?
              WHERE id = ?`,
             [name, username, counter_number, services, group_id, groupName, is_active, req.params.id],
-            err => {
-                if (err) return res.status(500).json({ error: err.message });
-                res.json({ success: true });
-            }
+            completeTellerUpdate
         );
     }
   });

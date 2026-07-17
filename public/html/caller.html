@@ -23,6 +23,16 @@
                     <div class="teller-username" id="teller-username">Username</div>
                     <div class="counter-number" id="counter-number">Counter</div>
                 </div>
+                <div id="avatar-menu" class="avatarMenu" hidden>
+                    <button id="receive-settings-btn" type="button">
+                        <span class="material-symbols-outlined">inbox</span>
+                        Receive Settings
+                    </button>
+                    <button id="avatar-logout-btn" class="logoutOption" type="button">
+                        <span class="material-symbols-outlined">logout</span>
+                        Logout
+                    </button>
+                </div>
             </div>
             <h1 class="callerTitle">Dashboard</h1>
             <button id="theme-toggle" class="themeToggle" type="button" aria-label="Switch to dark mode" title="Toggle theme">
@@ -33,9 +43,18 @@
         </div>
         <div class="tellerContent" id="tellerContent">
             <div class="navBtns">
-                <div class="heldTickets">Held</div>
-                <div class="forwardTickets">Forwarded</div>
-                <div class="pendingTickets">Waiting</div>
+                <div class="heldTickets">
+                    <span class="nav-label">Held</span>
+                    <span class="ticket-count-badge" aria-hidden="true">0</span>
+                </div>
+                <div class="forwardTickets">
+                    <span class="nav-label">Received</span>
+                    <span class="ticket-count-badge" aria-hidden="true">0</span>
+                </div>
+                <div class="pendingTickets">
+                    <span class="nav-label">Waiting</span>
+                    <span class="ticket-count-badge" aria-hidden="true">0</span>
+                </div>
                 <div id="auto-call-btn" class="autoCallTicket">Auto Call</div>
             </div>
             <div class="servicesManage activeDisplay"  data-managers="services"></div>
@@ -60,7 +79,7 @@
             <!-- ^ FORWARDING TABS -->
             <div class="forwardManage" style="display: none;" data-managers="forward">
                 <div id="forward-queue" class="forwardlist">
-                    <div class="empty-list">No forward tickets</div>
+                    <div class="empty-list">No received tickets</div>
                 </div>
             </div>
 
@@ -68,16 +87,15 @@
             <div id="history-tab" class="historyManage" style="display: none;" data-managers="history">
                 <div class="histheader">
                     <h3>Service History</h3>
-                    <p>Latest 50 completed tickets</p>
+                    <p>Latest called and completed tickets</p>
                 </div>
                 <div class="hist-table-container">
                     <table class="history-table">
                         <thead>
                             <tr>
                                 <th>Ticket</th>
-                                <th>Service</th>
+                                <th>Status</th>
                                 <th>Start</th>
-                                <th>End</th>
                                 <th>Duration</th>
                                 <th>Action</th>
                             </tr>

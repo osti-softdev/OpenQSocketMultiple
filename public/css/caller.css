@@ -6,7 +6,7 @@
 }
 
 html, body {
-  height: 100%;
+  height: 100dvh;
   width: 100%;
   top: 0;
   left: 0;
@@ -17,7 +17,8 @@ body {
   font-family: "Inter", "Segoe UI", sans-serif;
   background: #f9fafb;
   color: #111827;
-  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
 }
 
 /*
@@ -891,6 +892,7 @@ body {
 }
 .tellerPage .tellerNav {
   position: relative;
+  z-index: 50;
   height: 72px;
   background: var(--caller-nav);
   color: var(--caller-nav-text);
@@ -908,7 +910,7 @@ body {
   white-space: nowrap;
 }
 .tellerPage .tellerNav .teller-info {
-  position: static;
+  position: relative;
   min-width: 0;
   gap: 12px;
 }
@@ -918,6 +920,46 @@ body {
   min-width: 48px;
   border-radius: 8px;
   font-size: 24px;
+  cursor: pointer;
+}
+.tellerPage .tellerNav .teller-info .avatarMenu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  z-index: 1000;
+  width: 220px;
+  padding: 8px;
+  border: 1px solid var(--caller-border);
+  border-radius: 10px;
+  background: var(--caller-surface);
+  box-shadow: var(--caller-shadow);
+}
+.tellerPage .tellerNav .teller-info .avatarMenu[hidden] {
+  display: none;
+}
+.tellerPage .tellerNav .teller-info .avatarMenu button {
+  width: 100%;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--caller-text);
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+.tellerPage .tellerNav .teller-info .avatarMenu button:hover {
+  background: var(--caller-surface-strong);
+}
+.tellerPage .tellerNav .teller-info .avatarMenu button.logoutOption {
+  color: #dc2626;
+}
+.tellerPage .tellerNav .teller-info .avatarMenu button .material-symbols-outlined {
+  font-size: 21px;
 }
 .tellerPage .tellerNav .teller-info .teller-details {
   min-width: 0;
@@ -983,6 +1025,7 @@ body {
   gap: 10px;
 }
 .tellerPage .tellerContent .navBtns div {
+  position: relative;
   width: 100%;
   height: 100%;
   min-height: 48px;
@@ -992,6 +1035,30 @@ body {
   border: 1px solid var(--caller-border);
   box-shadow: var(--caller-shadow);
   font-weight: 700;
+}
+.tellerPage .tellerContent .navBtns .ticket-count-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  z-index: 5;
+  display: none;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 6px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--caller-bg);
+  border-radius: 999px;
+  background: #dc2626;
+  color: #fff;
+  box-shadow: 0 3px 8px rgba(127, 29, 29, 0.45);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  pointer-events: none;
+}
+.tellerPage .tellerContent .navBtns .ticket-count-badge.has-tickets {
+  display: inline-flex;
 }
 .tellerPage .tellerContent .servicesManage,
 .tellerPage .tellerContent .pendingManage,
@@ -1132,6 +1199,23 @@ body {
 .tellerPage .tellerContent .forwardManage .forwardlist .queue-item .queue-item-info span {
   color: inherit;
 }
+.tellerPage .tellerContent .pendingManage .queuelist .queue-item .ticket-queue-type,
+.tellerPage .tellerContent .pendingManage .heldlist .queue-item .ticket-queue-type,
+.tellerPage .tellerContent .pendingManage .forwardlist .queue-item .ticket-queue-type,
+.tellerPage .tellerContent .heldManage .queuelist .queue-item .ticket-queue-type,
+.tellerPage .tellerContent .heldManage .heldlist .queue-item .ticket-queue-type,
+.tellerPage .tellerContent .heldManage .forwardlist .queue-item .ticket-queue-type,
+.tellerPage .tellerContent .forwardManage .queuelist .queue-item .ticket-queue-type,
+.tellerPage .tellerContent .forwardManage .heldlist .queue-item .ticket-queue-type,
+.tellerPage .tellerContent .forwardManage .forwardlist .queue-item .ticket-queue-type {
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
 .tellerPage .tellerContent .pendingManage .queuelist .queue-item.priority,
 .tellerPage .tellerContent .pendingManage .heldlist .queue-item.priority,
 .tellerPage .tellerContent .pendingManage .forwardlist .queue-item.priority,
@@ -1143,6 +1227,32 @@ body {
 .tellerPage .tellerContent .forwardManage .forwardlist .queue-item.priority {
   background: var(--caller-priority);
   color: var(--caller-priority-text);
+}
+.tellerPage .tellerContent .pendingManage .queuelist .queue-item.received,
+.tellerPage .tellerContent .pendingManage .heldlist .queue-item.received,
+.tellerPage .tellerContent .pendingManage .forwardlist .queue-item.received,
+.tellerPage .tellerContent .heldManage .queuelist .queue-item.received,
+.tellerPage .tellerContent .heldManage .heldlist .queue-item.received,
+.tellerPage .tellerContent .heldManage .forwardlist .queue-item.received,
+.tellerPage .tellerContent .forwardManage .queuelist .queue-item.received,
+.tellerPage .tellerContent .forwardManage .heldlist .queue-item.received,
+.tellerPage .tellerContent .forwardManage .forwardlist .queue-item.received {
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  color: #1e3a8a;
+  border-left: 4px solid #2563eb;
+}
+.tellerPage .tellerContent .pendingManage .queuelist .queue-item.received.priority,
+.tellerPage .tellerContent .pendingManage .heldlist .queue-item.received.priority,
+.tellerPage .tellerContent .pendingManage .forwardlist .queue-item.received.priority,
+.tellerPage .tellerContent .heldManage .queuelist .queue-item.received.priority,
+.tellerPage .tellerContent .heldManage .heldlist .queue-item.received.priority,
+.tellerPage .tellerContent .heldManage .forwardlist .queue-item.received.priority,
+.tellerPage .tellerContent .forwardManage .queuelist .queue-item.received.priority,
+.tellerPage .tellerContent .forwardManage .heldlist .queue-item.received.priority,
+.tellerPage .tellerContent .forwardManage .forwardlist .queue-item.received.priority {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #eff6ff;
+  border-left-color: #93c5fd;
 }
 .tellerPage .tellerContent .heldManage .heldlist,
 .tellerPage .tellerContent .heldManage .forwardlist,
@@ -1177,6 +1287,12 @@ body {
 }
 .tellerPage .tellerContent .historyManage .hist-table-container .history-table td {
   color: var(--caller-text);
+}
+.tellerPage .tellerContent .historyManage .hist-table-container .history-table .history-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
 }
 .tellerPage .tellerContent .actionbtns {
   position: relative;
@@ -1309,6 +1425,14 @@ body[data-theme=dark] .form-group textarea {
     font-family: "Material Symbols Outlined";
     font-size: 26px;
     line-height: 1;
+  }
+  .tellerPage .tellerContent .navBtns .ticket-count-badge {
+    top: -5px;
+    right: -4px;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 5px;
+    font-size: 11px;
   }
   .tellerPage .tellerContent .navBtns .heldTickets::before {
     content: "pause_circle";
