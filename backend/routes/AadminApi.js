@@ -8,6 +8,7 @@ const rootpath =
 
 const { requireRole  } = require(`../utilities/authsession`);
 const { authLimiter } = require("../utilities/rateLimiter");
+const { readSoundConfig, writeSoundConfig } = require('../utilities/soundConfig');
 
 module.exports = function createTellerApiRouter(io) {
     const router = express.Router();
@@ -128,6 +129,7 @@ module.exports = function createTellerApiRouter(io) {
   router.use('/admin/services', requireManagementAccess);
   router.use('/admin/groups', requireManagementAccess);
   router.use('/admin/tellers', requireManagementAccess);
+  router.use('/admin/display-audio', requireManagementAccess);
   router.use('/admin/accounts', requireSuperadminAccess);
 
   // ! -------- DASHBOARD -------- !
@@ -1042,6 +1044,21 @@ module.exports = function createTellerApiRouter(io) {
   });
 
   //   ! -------- SETTINGS -------- !
+  router.get('/admin/display-audio', (req, res) => {
+    res.json(readSoundConfig());
+  });
+
+  router.post('/admin/display-audio', (req, res) => {
+    try {
+      const config = writeSoundConfig(req.body || {});
+      io.emit('voiceConfigUpdate', config);
+      res.json({ success: true, config });
+    } catch (error) {
+      console.error('Failed to update display audio configuration:', error);
+      res.status(500).json({ error: 'Failed to save display audio configuration' });
+    }
+  });
+
   // & settings
 router.get('/settings', (req, res) => {
     db.all('SELECT * FROM settings', (err, settings) => {

@@ -6,7 +6,7 @@
     <title>OpenQ Operations Console</title>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/admin.css">
-    <link rel="stylesheet" href="/css/admin-console.css?v=20260717-9">
+    <link rel="stylesheet" href="/css/admin-console.css?v=20260717-11">
     <script>
         (() => {
             document.documentElement.classList.add('admin-access-pending');
@@ -54,6 +54,7 @@
                 <div class="settingsMenu">
                     <div class="settingsmenubtn active" data-settingstab="advertisement">Advertisement</div>
                     <div class="settingsmenubtn" data-settingstab="announcement">Announcement</div>
+                    <div class="settingsmenubtn" data-settingstab="displayaudio">Display Audio</div>
                     <div class="settingsmenubtn" data-settingstab="images">Images</div>
                     <div class="settingsmenubtn" data-settingstab="fontsizes">Font-sizes</div>
                 </div>
@@ -513,6 +514,41 @@
                             </video>
                     </div></section>
                 </div>
+                <div class="display-audio-panel settabs" id="displayaudio-settab">
+                    <div class="settings-panel-heading audio-settings-heading">
+                        <div><span class="section-kicker">Display sound system</span><h3>Voice, bell, and advertisement audio</h3><p>Choose one announcement voice and balance every lobby audio channel from one panel.</p></div>
+                        <label class="audio-enable-control" for="display-voice-enabled"><input type="checkbox" id="display-voice-enabled"><span><strong>Voice announcements</strong><small id="display-voice-enabled-label">Enabled</small></span></label>
+                    </div>
+                    <form id="display-audio-form">
+                        <div class="display-audio-grid">
+                            <section class="audio-config-card voice-config-card">
+                                <div class="audio-card-heading"><div><span class="audio-card-icon">◉</span><span><strong>Announcement voice</strong><small>Speech used when a ticket is called</small></span></div><button type="button" class="btn btn-secondary audio-test-btn" id="test-display-voice">Test voice</button></div>
+                                <div class="audio-slider-grid">
+                                    <label class="audio-range-control" for="display-voice-volume"><span><strong>Voice volume</strong><output id="display-voice-volume-value">80%</output></span><input type="range" id="display-voice-volume" min="0" max="1" step="0.01" value="0.8"></label>
+                                    <label class="audio-range-control" for="display-voice-rate"><span><strong>Voice rate</strong><output id="display-voice-rate-value">1.00×</output></span><input type="range" id="display-voice-rate" min="0.5" max="2" step="0.05" value="1"></label>
+                                    <label class="audio-range-control" for="display-voice-pitch"><span><strong>Voice pitch</strong><output id="display-voice-pitch-value">1.00</output></span><input type="range" id="display-voice-pitch" min="0" max="2" step="0.05" value="1"></label>
+                                </div>
+                                <div class="voice-catalog-heading"><div><strong>Available system voices</strong><small>Select exactly one voice for the lobby display.</small></div><span id="display-voice-count">Loading…</span></div>
+                                <div class="display-voice-list" id="display-voice-list"><div class="audio-empty-state">Loading browser voices…</div></div>
+                            </section>
+                            <section class="audio-config-card output-config-card">
+                                <div class="audio-card-heading"><div><span class="audio-card-icon bell-icon">♪</span><span><strong>Output channels</strong><small>Bell and advertisement playback levels</small></span></div></div>
+                                <div class="output-channel-list">
+                                    <article class="output-channel">
+                                        <div class="output-channel-heading"><div><span class="channel-glyph">♬</span><span><strong>Calling bell</strong><small>Chime played before ticket speech</small></span></div><button type="button" class="btn btn-secondary audio-test-btn" id="test-display-bell">Test bell</button></div>
+                                        <label class="audio-range-control" for="display-bell-volume"><span><strong>Bell volume</strong><output id="display-bell-volume-value">70%</output></span><input type="range" id="display-bell-volume" min="0" max="1" step="0.01" value="0.7"></label>
+                                    </article>
+                                    <article class="output-channel">
+                                        <div class="output-channel-heading"><div><span class="channel-glyph video-glyph">▶</span><span><strong>Advertisement audio</strong><small>Volume applied to lobby video rotation</small></span></div><button type="button" class="btn btn-secondary audio-test-btn" id="test-display-ad">Test advertisement</button></div>
+                                        <label class="audio-range-control" for="display-ad-volume"><span><strong>Advertisement volume</strong><output id="display-ad-volume-value">50%</output></span><input type="range" id="display-ad-volume" min="0" max="1" step="0.01" value="0.5"></label>
+                                    </article>
+                                </div>
+                                <div class="audio-test-status" id="audio-test-status"><span></span><div><strong>Ready to test</strong><small>Testing plays only in this browser.</small></div></div>
+                                <div class="audio-save-bar"><div><strong>Apply to lobby display</strong><small>Changes are pushed live to connected display screens.</small></div><button type="submit" class="btn btn-primary">Save audio settings</button></div>
+                            </section>
+                        </div>
+                    </form>
+                </div>
                 <div class="settingimages settabs" id="images-settab">
                     <h2>Under Maintenance</h2>
                 </div>
@@ -689,12 +725,12 @@ $(function () {
 <script src="/js/admin/services.js"></script>
 <script src="/js/admin/tellers.js"></script>
 <script src="/js/admin/accounts.js"></script>
-<script src="/js/admin/settings.js"></script>
+<script src="/js/admin/settings.js?v=20260717-1"></script>
 <script src="/js/admin/history.js?v=20260717-7"></script>
 <script src="/js/admin/report.js?v=20260717-6"></script>
 <!-- Main admin navigation and modal functions -->
-<script src="/js/admin/admin.js?v=20260717-7"></script>
+<script src="/js/admin/admin.js?v=20260717-8"></script>
 <script src="/js/display/footer.js"></script>
-<script src="/js/admin/adminads.js"></script>
+<script src="/js/admin/adminads.js?v=20260717-1"></script>
 <script src="/js/alert.js"></script>
 </html>

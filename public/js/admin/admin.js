@@ -332,6 +332,9 @@ function settingstabs(tab) {
     }
     else if (tab === 'fontsizes'){
     }
+    else if (tab === 'displayaudio') {
+        loadDisplayAudioSettings();
+    }
 
     return true;
 }

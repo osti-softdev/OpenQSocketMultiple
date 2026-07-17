@@ -1,10 +1,14 @@
 // --- Called Tickets Popup with Queue ---
 let voiceConfig = {
-	voice: 0,
+	voice_enabled: true,
+	voice: '',
+	voice_uri: '',
+	voice_name: '',
 	voice_rate: 1,
 	voice_pitch: 1,
-	voice_volume: 1,
-	bell_volume: 1,
+	voice_volume: 0.8,
+	bell_volume: 0.7,
+	ad_volume: 0.5,
 };
 let voices = [];
 let ticketQueue = [];
@@ -55,6 +59,12 @@ async function getCalledTickets() {
 socket.on("voiceConfigUpdate", (config) => {
 	voiceConfig = { ...voiceConfig, ...config };
 });
+
+if ('speechSynthesis' in window) {
+	window.speechSynthesis.addEventListener('voiceschanged', () => {
+		voices = window.speechSynthesis.getVoices();
+	});
+}
 
 async function processQueue() {
 	if (isProcessing || ticketQueue.length === 0) return;
@@ -111,34 +121,45 @@ function hidePopup() {
 function speakTicketTwice(ticketData, onFinish) {
 	const synth = window.speechSynthesis;
 	if (!voices.length) voices = synth.getVoices();
-	console.log(voices)
 	const audioElement = $("#audio")[0];
-	if (audioElement) audioElement.volume = voiceConfig.bell_volume || 1;
+	if (audioElement) audioElement.volume = Math.min(1, Math.max(0, Number(voiceConfig.bell_volume ?? 0.7)));
+
+	const playBell = () => {
+		if (!audioElement) return;
+		audioElement.currentTime = 0;
+		audioElement.play().catch(() => {});
+	};
+
+	if (voiceConfig.voice_enabled === false) {
+		playBell();
+		setTimeout(() => {
+			if (typeof onFinish === 'function') onFinish();
+		}, 1200);
+		return;
+	}
 
 	const serviceCleaned = ticketData.service.replace(/-/g, " ");
 	const serviceSeparated = serviceCleaned.split("").join(", ");
-	let ticks = ticketData.sname.replace("_"," ");
+	const msg = new SpeechSynthesisUtterance(
+		`Now serving, ${serviceSeparated}${ticketData.ticket}! Please proceed to counter ${ticketData.counter_num}`
+	);
 
-	let msg = null;
-	
-	
-		msg = new SpeechSynthesisUtterance(
-			// `Now serving, ${serviceSeparated}${ticketData.ticket}, Please proceed to counter ${ticketData.counter_num}`
-			`Now serving, ${serviceSeparated}${ticketData.ticket}! Please proceed to counter ${ticketData.counter_num}`
-		);
-	
-	msg.voice = voices[4];
-	msg.pitch = voiceConfig.voice_pitch || 1;
-	msg.rate = voiceConfig.voice_rate || 1;
-	msg.volume = voiceConfig.voice_volume || 1;
+	const configuredVoice = voices.find(voice =>
+		voice.voiceURI === voiceConfig.voice_uri ||
+		voice.voiceURI === voiceConfig.voice ||
+		voice.name === voiceConfig.voice_name ||
+		voice.name === voiceConfig.voice
+	);
+	const legacyVoiceIndex = Number.isInteger(Number(voiceConfig.voice)) ? Number(voiceConfig.voice) : -1;
+	msg.voice = configuredVoice || voices[legacyVoiceIndex] || voices.find(voice => voice.default) || voices[0] || null;
+	msg.pitch = Math.min(2, Math.max(0, Number(voiceConfig.voice_pitch ?? 1)));
+	msg.rate = Math.min(2, Math.max(0.5, Number(voiceConfig.voice_rate ?? 1)));
+	msg.volume = Math.min(1, Math.max(0, Number(voiceConfig.voice_volume ?? 0.8)));
 
 	let speakCount = 0;
 
 	msg.onstart = () => {
-		if (audioElement) {
-			audioElement.currentTime = 0;
-			audioElement.play();
-		}
+		playBell();
 	};
 
 	msg.onend = () => {

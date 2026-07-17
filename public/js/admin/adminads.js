@@ -194,6 +194,15 @@ socket.on("adsList", (payload) => {
 	}
 });
 
+socket.on('voiceConfigUpdate', config => {
+	if (!config || config.ad_volume === undefined) return;
+	adminVolume = Math.min(Math.max(Number(config.ad_volume), 0), 1);
+	if (adminVideoEl) {
+		adminVideoEl.prop('muted', adminVolume <= 0);
+		adminVideoEl.prop('volume', adminVolume);
+	}
+});
+
 // --- Buttons & Upload ---
 $(function () {
 	socket.emit("requestAd");

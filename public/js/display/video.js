@@ -3,6 +3,18 @@ let currentAdIndex = 0;
 let videoElement = null;
 let playing = false;
 let adVolume = 0;
+
+function applyAdVolume(value) {
+	adVolume = Math.min(Math.max(Number(value ?? 0), 0), 1);
+	if (!videoElement) return;
+	videoElement.muted = adVolume <= 0;
+	videoElement.volume = adVolume;
+}
+
+socket.on('voiceConfigUpdate', config => {
+	if (config && config.ad_volume !== undefined) applyAdVolume(config.ad_volume);
+});
+
 // --- Ads + Volume handler ---
 socket.on("adsList", (data) => {
 	if (!data || !Array.isArray(data.ads) || !data.ads.length) return;
@@ -10,17 +22,12 @@ socket.on("adsList", (data) => {
 	adQueue = [...data.ads];
 	
 	// clamp volume between 0-1
-	adVolume = Math.min(Math.max(data.volume || 0, 0), 1);
+	adVolume = Math.min(Math.max(Number(data.volume ?? 0), 0), 1);
 
 	// 🔥 update volume instantly if already playing
 	if (videoElement) {
-		if (adVolume > 0) {
-			videoElement.prop("muted", false);
-			videoElement.prop("volume", adVolume);
-		} else {
-			videoElement.prop("muted", true);
-			videoElement.prop("volume", 0);
-		}
+		videoElement.muted = adVolume <= 0;
+		videoElement.volume = adVolume;
 	}
 
 	// Only reset index if ads changed or nothing is playing
@@ -78,15 +85,15 @@ function playNextAd() {
 }
 
 function pausevid() {
-	if (videoElement && videoElement[0]) {
-		videoElement[0].pause();
+	if (videoElement) {
+		videoElement.pause();
 		console.log("[ADS] Video paused");
 	}
 }
 
 function playvid() {
-	if (videoElement && videoElement[0] && $(".video-container").is(":visible")) {
-		videoElement[0].play().catch((err) => {
+	if (videoElement && $(".video-container").is(":visible")) {
+		videoElement.play().catch((err) => {
 			console.warn("[ADS] play() failed:", err);
 		});
 		console.log("[ADS] Video playing");
