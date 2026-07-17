@@ -218,17 +218,23 @@ $(function () {
 
 	$("#videoFile").on("change", function () {
 		const file = this.files[0];
-		const $label = $(".file-label");
-		const $button = $(".adsupload");
+		const $form = $(this).closest("#videoUploadForm");
+		const $label = $form.find(".file-label");
+		const $button = $form.find(".adsupload");
 
 		if (file) {
 			showMsg("info",`File: ${file.name}\nClick Upload`);
-
-
 			$label.attr("title", file.name);
-			$button.attr("title", file.name).addClass("blink-red");
+			$button
+				.attr("title", `Upload ${file.name}`)
+				.attr("aria-label", `Upload selected video ${file.name}`)
+				.addClass("blink-red");
 		} else {
-			$button.attr("title", "").removeClass("blink-red");
+			$label.attr("title", "Choose a video file");
+			$button
+				.attr("title", "Upload Video")
+				.attr("aria-label", "Upload video")
+				.removeClass("blink-red");
 		}
 	});
 
@@ -262,7 +268,10 @@ $(function () {
     xhr.onload = function () {
         if (xhr.status === 200) {
             showMsg("success", "File successfully uploaded");
-            $button.removeClass("blink-red");
+            $button
+                .attr("title", "Upload Video")
+                .attr("aria-label", "Upload video")
+                .removeClass("blink-red");
             $("#videoFile").val("");
             $uploadText.text("Upload complete!");
             $uploadFill.css("width", "100%");

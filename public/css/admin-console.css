@@ -2929,6 +2929,25 @@ html[data-theme=dark] .content .tab-content form textarea {
   font-size: 9px !important;
 }
 
+.content .tab-content#settings-tab #advertisement-settab #videoUploadForm button.adsupload.blink-red {
+  border-color: #ff5b68 !important;
+  background: linear-gradient(135deg, #f04455, #c9162c) !important;
+  color: #fff !important;
+  animation: advertisement-upload-attention 0.78s ease-in-out infinite !important;
+}
+
+@keyframes advertisement-upload-attention {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(240, 68, 85, 0.58), 0 8px 18px rgba(201, 22, 44, 0.26);
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.48;
+    box-shadow: 0 0 0 7px rgba(240, 68, 85, 0), 0 3px 8px rgba(201, 22, 44, 0.12);
+    transform: scale(0.97);
+  }
+}
 .content .tab-content#settings-tab #advertisement-settab .adsmainconfigtitle #uploadStatus {
   position: relative !important;
   inset: auto !important;

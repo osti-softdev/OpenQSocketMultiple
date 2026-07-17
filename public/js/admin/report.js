@@ -785,7 +785,18 @@ function exportReportAsPDF() {
         doc.setFont('helvetica', 'bold');
         doc.setFontSize(10);
         doc.text('Ticket status distribution', margin, 42);
-        if (statusRows.length) doc.autoTable({ ...tableTheme, head: [['Status', 'Count', 'Share']], body: statusRows, startY: 47, tableWidth: 90, columnStyles: { 0: { cellWidth: 45 }, 1: { halign: 'center' }, 2: { halign: 'center' } } });
+        if (statusRows.length) doc.autoTable({
+            ...tableTheme,
+            head: [['Status', 'Count', 'Share']],
+            body: statusRows,
+            startY: 47,
+            tableWidth: contentWidth,
+            columnStyles: {
+                0: { cellWidth: contentWidth * .6 },
+                1: { cellWidth: contentWidth * .2, halign: 'center' },
+                2: { cellWidth: contentWidth * .2, halign: 'center' }
+            }
+        });
         let dailyStart = Math.max((doc.lastAutoTable?.finalY || 47) + 13, 100);
         if (dailyStart > 220) {
             doc.addPage();
@@ -803,7 +814,20 @@ function exportReportAsPDF() {
             Number(trend.daily_voided || 0).toLocaleString(),
             formatTime(trend.daily_avg_service_time)
         ]);
-        if (dailyRows.length) doc.autoTable({ ...tableTheme, head: [['Date', 'Tickets', 'Completed', 'Voided', 'Avg service']], body: dailyRows, startY: dailyStart + 5, columnStyles: { 0: { cellWidth: 40 }, 1: { halign: 'center' }, 2: { halign: 'center' }, 3: { halign: 'center' }, 4: { halign: 'center' } } });
+        if (dailyRows.length) doc.autoTable({
+            ...tableTheme,
+            head: [['Date', 'Tickets', 'Completed', 'Voided', 'Avg service']],
+            body: dailyRows,
+            startY: dailyStart + 5,
+            tableWidth: contentWidth,
+            columnStyles: {
+                0: { cellWidth: contentWidth * .24 },
+                1: { cellWidth: contentWidth * .19, halign: 'center' },
+                2: { cellWidth: contentWidth * .19, halign: 'center' },
+                3: { cellWidth: contentWidth * .19, halign: 'center' },
+                4: { cellWidth: contentWidth * .19, halign: 'center' }
+            }
+        });
 
         // Final section: detailed transaction log
         if (transactions.length) {
@@ -823,9 +847,18 @@ function exportReportAsPDF() {
                 head: [['Date', 'Time', 'Service', 'Status', 'Teller', 'Handling', 'Turnaround']],
                 body: transactionRows,
                 startY: 39,
+                tableWidth: contentWidth,
                 headStyles: { ...tableTheme.headStyles, fontSize: 7 },
                 bodyStyles: { ...tableTheme.bodyStyles, fontSize: 6.6, cellPadding: 2 },
-                columnStyles: { 0: { cellWidth: 20 }, 1: { cellWidth: 15 }, 2: { cellWidth: 35 }, 3: { cellWidth: 22 }, 4: { cellWidth: 32 }, 5: { cellWidth: 22 }, 6: { cellWidth: 23 } }
+                columnStyles: {
+                    0: { cellWidth: contentWidth * .12 },
+                    1: { cellWidth: contentWidth * .09 },
+                    2: { cellWidth: contentWidth * .22 },
+                    3: { cellWidth: contentWidth * .13 },
+                    4: { cellWidth: contentWidth * .19 },
+                    5: { cellWidth: contentWidth * .12 },
+                    6: { cellWidth: contentWidth * .13 }
+                }
             });
         }
 
