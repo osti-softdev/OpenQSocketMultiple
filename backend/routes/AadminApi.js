@@ -440,6 +440,7 @@ module.exports = function createTellerApiRouter(io) {
               CASE WHEN CAST(strftime('%M', date || ' ' || time) AS INTEGER) < 30 THEN '00' ELSE '30' END AS label,
             COUNT(*) AS total,
             COUNT(CASE WHEN status = 'finished' THEN 1 END) AS completed,
+            COUNT(CASE WHEN status IS NULL OR status != 'finished' THEN 1 END) AS not_completed,
             COUNT(CASE WHEN priority = 1 THEN 1 END) AS priority,
             AVG(CASE
               WHEN start_time IS NOT NULL
@@ -473,6 +474,7 @@ module.exports = function createTellerApiRouter(io) {
           SELECT
             COUNT(*) AS total,
             COUNT(CASE WHEN status = 'finished' THEN 1 END) AS completed,
+            COUNT(CASE WHEN status IS NULL OR status != 'finished' THEN 1 END) AS not_completed,
             COUNT(CASE WHEN status IN ('waiting', 'pending') THEN 1 END) AS waiting,
             COUNT(CASE WHEN priority = 1 THEN 1 END) AS priority,
             COUNT(DISTINCT COALESCE(sname, ticketservice)) AS active_services,
@@ -495,6 +497,7 @@ module.exports = function createTellerApiRouter(io) {
                 date AS label,
                 COUNT(*) AS total,
                 COUNT(CASE WHEN status = 'finished' THEN 1 END) AS completed,
+                COUNT(CASE WHEN status IS NULL OR status != 'finished' THEN 1 END) AS not_completed,
                 COUNT(CASE WHEN priority = 1 THEN 1 END) AS priority,
                 AVG(CASE
                   WHEN start_time IS NOT NULL

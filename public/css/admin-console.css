@@ -180,6 +180,7 @@ textarea:focus-visible {
 }
 
 .sidebar-collapse-control {
+  position: relative !important;
   width: 29px !important;
   height: 29px !important;
   flex: 0 0 29px !important;
@@ -190,13 +191,38 @@ textarea:focus-visible {
   border-radius: 9px !important;
   background: rgba(255, 255, 255, 0.05) !important;
   color: #b8c5da !important;
-  font-size: 21px !important;
   cursor: pointer !important;
 }
 
 .sidebar-collapse-control:hover {
   background: rgba(255, 255, 255, 0.1) !important;
   color: #fff !important;
+}
+
+.menu-toggle span {
+  position: absolute !important;
+  left: 7px !important;
+  right: 7px !important;
+  height: 2px !important;
+  border-radius: 999px !important;
+  background: currentColor !important;
+  transform-origin: center !important;
+  transition: transform 0.18s ease, opacity 0.18s ease, top 0.18s ease !important;
+}
+
+.sidebar-collapse-control.menu-toggle span:nth-child(1) {
+  top: 13px !important;
+  transform: rotate(45deg) !important;
+}
+
+.sidebar-collapse-control.menu-toggle span:nth-child(2) {
+  top: 13px !important;
+  opacity: 0 !important;
+}
+
+.sidebar-collapse-control.menu-toggle span:nth-child(3) {
+  top: 13px !important;
+  transform: rotate(-45deg) !important;
 }
 
 .sidebar-nav {
@@ -270,6 +296,26 @@ textarea:focus-visible {
   font-size: 16px !important;
 }
 
+.nav-icon img {
+  width: 17px !important;
+  height: 17px !important;
+  display: block !important;
+  object-fit: contain !important;
+  opacity: 0.78 !important;
+  filter: invert(74%) sepia(16%) saturate(427%) hue-rotate(180deg) brightness(91%) contrast(88%) !important;
+  transition: opacity 0.18s ease, filter 0.18s ease, transform 0.18s ease !important;
+}
+
+.nav-item:hover .nav-icon img,
+.nav-item.active .nav-icon img {
+  opacity: 1 !important;
+  filter: invert(100%) !important;
+}
+
+.nav-item:hover .nav-icon img {
+  transform: scale(1.04) !important;
+}
+
 .nav-item.active .nav-icon {
   border-color: rgba(133, 157, 255, 0.22) !important;
   background: rgba(119, 145, 255, 0.18) !important;
@@ -278,8 +324,6 @@ textarea:focus-visible {
 
 .live-icon {
   color: #38d3ad !important;
-  font-size: 10px !important;
-  text-shadow: 0 0 10px rgba(56, 211, 173, 0.7) !important;
 }
 
 .nav-copy {
@@ -1488,13 +1532,21 @@ button.btn {
 .reports-data-sections {
   display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  align-items: stretch !important;
   gap: 14px !important;
 }
 
 .cardrep {
   min-width: 0 !important;
   padding: 17px !important;
+  display: flex !important;
+  flex-direction: column !important;
   overflow: hidden !important;
+}
+
+.cardrep > .table-containerrep {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
 }
 
 .reports-data-sections .report-card-teller {
@@ -3627,8 +3679,27 @@ html.compact-sidebar .sidebar-collapse-control {
   bottom: auto !important;
   width: 22px !important;
   height: 22px !important;
-  font-size: 17px !important;
   transform: translateY(-50%) !important;
+}
+
+html.compact-sidebar .sidebar-collapse-control.menu-toggle span {
+  left: 5px !important;
+  right: 5px !important;
+}
+
+html.compact-sidebar .sidebar-collapse-control.menu-toggle span:nth-child(1) {
+  top: 6px !important;
+  transform: none !important;
+}
+
+html.compact-sidebar .sidebar-collapse-control.menu-toggle span:nth-child(2) {
+  top: 10px !important;
+  opacity: 1 !important;
+}
+
+html.compact-sidebar .sidebar-collapse-control.menu-toggle span:nth-child(3) {
+  top: 14px !important;
+  transform: none !important;
 }
 
 html.compact-sidebar .sidebar-nav {
@@ -3793,7 +3864,7 @@ html.compact-sidebar .logout-btn span {
   }
   .overview-page .period-metrics {
     display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
     gap: 6px !important;
   }
   .overview-page .period-metrics > span {
@@ -3808,6 +3879,7 @@ html.compact-sidebar .logout-btn span {
     color: var(--console-faint) !important;
     font-size: 7px !important;
     font-weight: 750 !important;
+    overflow-wrap: anywhere !important;
   }
   .overview-page .period-metrics strong {
     color: var(--console-heading) !important;
@@ -4302,7 +4374,24 @@ html.compact-sidebar .logout-btn span {
     position: static !important;
     width: 29px !important;
     height: 29px !important;
+    display: grid !important;
+    place-items: center !important;
     transform: none !important;
+  }
+  .fnav-icon img {
+    width: 15px !important;
+    height: 15px !important;
+    display: block !important;
+    object-fit: contain !important;
+    opacity: 0.76 !important;
+    transition: opacity 0.18s ease, filter 0.18s ease !important;
+  }
+  html[data-theme=dark] .fnav-icon img {
+    filter: invert(92%) !important;
+  }
+  .fnav-item.active .fnav-icon img {
+    opacity: 1 !important;
+    filter: invert(46%) sepia(98%) saturate(2287%) hue-rotate(219deg) brightness(99%) contrast(94%) !important;
   }
   .sidebar-toggle {
     position: fixed !important;
@@ -4320,10 +4409,37 @@ html.compact-sidebar .logout-btn span {
     color: #fff !important;
     box-shadow: 0 14px 34px rgba(58, 79, 194, 0.36) !important;
   }
-  .sidebar-toggle span {
-    width: 18px !important;
-    height: 2px !important;
+  .sidebar-toggle.menu-toggle {
+    position: fixed !important;
+  }
+  .sidebar-toggle.menu-toggle span {
+    left: 15px !important;
+    right: 15px !important;
     background: #fff !important;
+  }
+  .sidebar-toggle.menu-toggle span:nth-child(1) {
+    top: 17px !important;
+    transform: none !important;
+  }
+  .sidebar-toggle.menu-toggle span:nth-child(2) {
+    top: 24px !important;
+    opacity: 1 !important;
+  }
+  .sidebar-toggle.menu-toggle span:nth-child(3) {
+    top: 31px !important;
+    transform: none !important;
+  }
+  .sidebar-toggle.menu-toggle.open span:nth-child(1) {
+    top: 24px !important;
+    transform: rotate(45deg) !important;
+  }
+  .sidebar-toggle.menu-toggle.open span:nth-child(2) {
+    top: 24px !important;
+    opacity: 0 !important;
+  }
+  .sidebar-toggle.menu-toggle.open span:nth-child(3) {
+    top: 24px !important;
+    transform: rotate(-45deg) !important;
   }
   .card-chart-dashboard,
   .reports-charts-sections,
@@ -4374,7 +4490,7 @@ html.compact-sidebar .logout-btn span {
   }
   .period-metrics {
     display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 7px !important;
   }
   .period-metrics > span {
@@ -4387,6 +4503,7 @@ html.compact-sidebar .logout-btn span {
   .period-metrics small {
     color: var(--console-faint) !important;
     font-size: 7px !important;
+    overflow-wrap: anywhere !important;
   }
   .period-metrics strong {
     color: var(--console-heading) !important;

@@ -105,8 +105,8 @@ function initAdminAppearance() {
         $root.toggleClass('compact-sidebar');
         const compact = $root.hasClass('compact-sidebar');
         localStorage.setItem('openqAdminCompact', compact);
-        $(this).text(compact ? '›' : '‹');
         $(this).attr('title', compact ? 'Expand navigation' : 'Collapse navigation');
+        $(this).attr('aria-label', compact ? 'Expand navigation' : 'Collapse navigation');
         setTimeout(() => window.dispatchEvent(new Event('resize')), 220);
     });
 
@@ -123,7 +123,9 @@ function initAdminAppearance() {
         $('#fullscreenToggle').toggleClass('active', Boolean(document.fullscreenElement));
     });
 
-    $('#sidebarCollapse').text($root.hasClass('compact-sidebar') ? '›' : '‹');
+    $('#sidebarCollapse')
+        .attr('title', $root.hasClass('compact-sidebar') ? 'Expand navigation' : 'Collapse navigation')
+        .attr('aria-label', $root.hasClass('compact-sidebar') ? 'Expand navigation' : 'Collapse navigation');
     syncThemeControl();
     updateClock();
     window.adminClockInterval = window.adminClockInterval || setInterval(updateClock, 30000);

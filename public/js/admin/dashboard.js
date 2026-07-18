@@ -186,7 +186,8 @@ function renderPeriodOverview(data) {
         $(`${prefix}-range`).text(range);
         $(`${prefix}-total`).text(trend.reduce((sum, row) => sum + Number(row.total || 0), 0).toLocaleString());
         $(`${prefix}-completed`).text(trend.reduce((sum, row) => sum + Number(row.completed || 0), 0).toLocaleString());
-        $(`${prefix}-priority`).text(trend.reduce((sum, row) => sum + Number(row.priority || 0), 0).toLocaleString());
+        $(`${prefix}-not-completed`).text(trend.reduce((sum, row) => sum + Number(row.not_completed || 0), 0).toLocaleString());
+        $(`${prefix}-priority`).text(`${Math.round(Number(summary.avg_service_minutes || 0))}m`);
         $(`${prefix}-wait`).text(`${Math.round(Number(summary.avg_wait_minutes || 0))}m`);
         createPeriodMiniChart(period, trend);
     });
@@ -196,7 +197,7 @@ function renderPeriodOverview(data) {
 function normalizePeriodTrend(details, period) {
     const sourceRows = Array.isArray(details?.trend) ? details.trend : [];
     const rowsByLabel = new Map(sourceRows.map(row => [String(row.label), row]));
-    const emptyRow = label => ({ label, total: 0, completed: 0, priority: 0, avg_wait_minutes: 0 });
+    const emptyRow = label => ({ label, total: 0, completed: 0, not_completed: 0, priority: 0, avg_wait_minutes: 0 });
 
     if (period === 'day') {
         return Array.from({ length: 48 }, (_, index) => {

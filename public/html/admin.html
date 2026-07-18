@@ -6,7 +6,7 @@
     <title>OpenQ Operations Console</title>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/admin.css">
-<link rel="stylesheet" href="/css/admin-console.css?v=20260717-14">
+<link rel="stylesheet" href="/css/admin-console.css?v=20260718-2">
     <script>
         (() => {
             document.documentElement.classList.add('admin-access-pending');
@@ -35,22 +35,22 @@
                     <div class="logo">OpenQ</div>
                     <span>Operations Console</span>
                 </div>
-                <button class="sidebar-collapse-control" id="sidebarCollapse" type="button" title="Collapse navigation" aria-label="Collapse navigation">‹</button>
+                <button class="sidebar-collapse-control menu-toggle" id="sidebarCollapse" type="button" title="Collapse navigation" aria-label="Collapse navigation"><span></span><span></span><span></span></button>
             </div>
             <nav class="sidebar-nav">
                 <div class="nav-section-label">Monitor</div>
-                <button class="nav-item active" data-tab="dashboard"><span class="nav-icon">⌂</span><span class="nav-copy"><strong>Overview</strong><small>Analytics & trends</small></span></button>
-                <button class="nav-item" data-tab="live"><span class="nav-icon live-icon">●</span><span class="nav-copy"><strong>Live Preview</strong><small>Queue operations</small></span></button>
-                <button class="nav-item" data-tab="reports"><span class="nav-icon">↗</span><span class="nav-copy"><strong>Reports</strong><small>Analysis & exports</small></span></button>
-                <button class="nav-item" data-tab="history"><span class="nav-icon">◷</span><span class="nav-copy"><strong>Ticket History</strong><small>Journey records</small></span></button>
+                <button class="nav-item active" data-tab="dashboard"><span class="nav-icon"><img src="/images/icons/overview.svg" alt=""></span><span class="nav-copy"><strong>Overview</strong><small>Analytics & trends</small></span></button>
+                <button class="nav-item" data-tab="live"><span class="nav-icon live-icon"><img src="/images/icons/livepreview.svg" alt=""></span><span class="nav-copy"><strong>Live Preview</strong><small>Queue operations</small></span></button>
+                <button class="nav-item" data-tab="reports"><span class="nav-icon"><img src="/images/icons/reports.svg" alt=""></span><span class="nav-copy"><strong>Reports</strong><small>Analysis & exports</small></span></button>
+                <button class="nav-item" data-tab="history"><span class="nav-icon"><img src="/images/icons/ticketsjourney.svg" alt=""></span><span class="nav-copy"><strong>Ticket History</strong><small>Journey records</small></span></button>
 
                 <div class="nav-section-label">Management</div>
-                <button class="nav-item" data-tab="services"><span class="nav-icon">◇</span><span class="nav-copy"><strong>Services</strong><small>Queue catalog</small></span></button>
-                <button class="nav-item" data-tab="tellers"><span class="nav-icon">◎</span><span class="nav-copy"><strong>Tellers</strong><small>Counters & access</small></span></button>
+                <button class="nav-item" data-tab="services"><span class="nav-icon"><img src="/images/icons/services.svg" alt=""></span><span class="nav-copy"><strong>Services</strong><small>Queue catalog</small></span></button>
+                <button class="nav-item" data-tab="tellers"><span class="nav-icon"><img src="/images/icons/tellers.svg" alt=""></span><span class="nav-copy"><strong>Tellers</strong><small>Counters & access</small></span></button>
 
                 <div class="nav-section-label">Administration</div>
-                <button class="nav-item" data-tab="accounts"><span class="nav-icon">♙</span><span class="nav-copy"><strong>Accounts</strong><small>Admin access</small></span></button>
-                <button class="nav-item" data-tab="settings"><span class="nav-icon">⚙</span><span class="nav-copy"><strong>Settings</strong><small>Display & media</small></span></button>
+                <button class="nav-item" data-tab="accounts"><span class="nav-icon"><img src="/images/icons/accounts.svg" alt=""></span><span class="nav-copy"><strong>Accounts</strong><small>Admin access</small></span></button>
+                <button class="nav-item" data-tab="settings"><span class="nav-icon"><img src="/images/icons/settings.svg" alt=""></span><span class="nav-copy"><strong>Settings</strong><small>Display & media</small></span></button>
                 <div class="settingsMenu">
                     <div class="settingsmenubtn active" data-settingstab="advertisement">Advertisement</div>
                     <div class="settingsmenubtn" data-settingstab="announcement">Announcement</div>
@@ -97,17 +97,17 @@
                     <section class="period-overview-grid" aria-label="Current period performance">
                         <article class="period-card period-day">
                             <div class="period-card-heading"><div><span>Current day</span><strong id="period-day-range">Today</strong></div><b id="period-day-total">0</b></div>
-                            <div class="period-metrics"><span><small>Completed</small><strong id="period-day-completed">0</strong></span><span><small>Priority</small><strong id="period-day-priority">0</strong></span><span><small>Avg wait</small><strong id="period-day-wait">0m</strong></span></div>
+                            <div class="period-metrics"><span><small>Completed</small><strong id="period-day-completed">0</strong></span><span><small>Not completed</small><strong id="period-day-not-completed">0</strong></span><span><small>Avg serving</small><strong id="period-day-priority">0m</strong></span><span><small>Avg wait</small><strong id="period-day-wait">0m</strong></span></div>
                             <div class="period-chart"><canvas id="periodDayChart"></canvas></div>
                         </article>
                         <article class="period-card period-week">
                             <div class="period-card-heading"><div><span>Current week</span><strong id="period-week-range">This week</strong></div><b id="period-week-total">0</b></div>
-                            <div class="period-metrics"><span><small>Completed</small><strong id="period-week-completed">0</strong></span><span><small>Priority</small><strong id="period-week-priority">0</strong></span><span><small>Avg wait</small><strong id="period-week-wait">0m</strong></span></div>
+                            <div class="period-metrics"><span><small>Completed</small><strong id="period-week-completed">0</strong></span><span><small>Not completed</small><strong id="period-week-not-completed">0</strong></span><span><small>Avg serving</small><strong id="period-week-priority">0m</strong></span><span><small>Avg wait</small><strong id="period-week-wait">0m</strong></span></div>
                             <div class="period-chart"><canvas id="periodWeekChart"></canvas></div>
                         </article>
                         <article class="period-card period-month">
                             <div class="period-card-heading"><div><span>Current month</span><strong id="period-month-range">This month</strong></div><b id="period-month-total">0</b></div>
-                            <div class="period-metrics"><span><small>Completed</small><strong id="period-month-completed">0</strong></span><span><small>Priority</small><strong id="period-month-priority">0</strong></span><span><small>Avg wait</small><strong id="period-month-wait">0m</strong></span></div>
+                            <div class="period-metrics"><span><small>Completed</small><strong id="period-month-completed">0</strong></span><span><small>Not completed</small><strong id="period-month-not-completed">0</strong></span><span><small>Avg serving</small><strong id="period-month-priority">0m</strong></span><span><small>Avg wait</small><strong id="period-month-wait">0m</strong></span></div>
                             <div class="period-chart"><canvas id="periodMonthChart"></canvas></div>
                         </article>
                     </section>
@@ -297,25 +297,6 @@
                                         </tr>
                                     </thead>
                                     <tbody id="reports-by-teller"></tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <!-- By Status -->
-                        <div class="cardrep" style="display:none;">
-                            <div class="card-headerrep">
-                                <h3>Tickets by Status</h3>
-                            </div>  
-                            <div class="table-containerrep">
-                                <table class="admin-tablerep">
-                                    <thead>
-                                        <tr>
-                                            <th>Status</th>
-                                            <th>Count</th>
-                                            <th>Percentage</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="reports-by-status"></tbody>
                                 </table>
                             </div>
                         </div>
@@ -596,43 +577,43 @@
         </div>
     </div>
 
-    <button class="sidebar-toggle" id="fabToggle" aria-label="Open menu">
-        <span></span>
+    <button class="sidebar-toggle menu-toggle" id="fabToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
     </button>
 
 
 <nav class="floating-nav" id="floatingNav">
   <button class="fnav-item" data-tab="dashboard">
     <span class="fnav-label">Overview</span>
-    <span class="fnav-icon"><span class="fnav-emoji">⌂</span></span>
+    <span class="fnav-icon"><img src="/images/icons/overview.svg" alt=""></span>
   </button>
   <button class="fnav-item" data-tab="live">
     <span class="fnav-label">Live Preview</span>
-    <span class="fnav-icon"><span class="fnav-emoji">●</span></span>
+    <span class="fnav-icon"><img src="/images/icons/livepreview.svg" alt=""></span>
   </button>
  <button class="fnav-item" data-tab="reports">
     <span class="fnav-label">Reports & Export</span>
-    <span class="fnav-icon"><span class="fnav-emoji">↗</span></span>
+    <span class="fnav-icon"><img src="/images/icons/reports.svg" alt=""></span>
   </button>
   <button class="fnav-item" data-tab="history">
     <span class="fnav-label">Ticket History</span>
-    <span class="fnav-icon"><span class="fnav-emoji">🎫</span></span>
+    <span class="fnav-icon"><img src="/images/icons/ticketsjourney.svg" alt=""></span>
   </button>
   <button class="fnav-item" data-tab="services">
     <span class="fnav-label">Services</span>
-    <span class="fnav-icon"><span class="fnav-emoji">🛠️</span></span>
+    <span class="fnav-icon"><img src="/images/icons/services.svg" alt=""></span>
   </button>
   <button class="fnav-item" data-tab="tellers">
     <span class="fnav-label">Tellers</span>
-    <span class="fnav-icon"><span class="fnav-emoji">👥</span></span>
+    <span class="fnav-icon"><img src="/images/icons/tellers.svg" alt=""></span>
   </button>
    <button class="fnav-item" data-tab="accounts">
     <span class="fnav-label">Accounts</span>
-    <span class="fnav-icon"><span class="fnav-emoji">👤</span></span>
+    <span class="fnav-icon"><img src="/images/icons/accounts.svg" alt=""></span>
   </button>
   <button class="fnav-item" data-tab="settings">
     <span class="fnav-label">Settings</span>
-    <span class="fnav-icon"><span class="fnav-emoji">⚙️</span></span>
+    <span class="fnav-icon"><img src="/images/icons/settings.svg" alt=""></span>
   </button>
   <button class="fnav-item fnav-logout" id="fnavLogout">
     <span class="fnav-label">Logout</span>
@@ -659,11 +640,13 @@ $(function () {
     function openSidebar() {
         $fnav.addClass('open');
         $fab.addClass('open');
+        $fab.attr('aria-label', 'Close menu');
     }
 
     function closeSidebar() {
         $fnav.removeClass('open');
         $fab.removeClass('open');
+        $fab.attr('aria-label', 'Open menu');
     }
 
     $(document).on('click', function (e) {
