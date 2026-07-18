@@ -6,7 +6,7 @@
     <title>OpenQ Operations Console</title>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/admin.css">
-<link rel="stylesheet" href="/css/admin-console.css?v=20260718-2">
+<link rel="stylesheet" href="/css/admin-console.css?v=20260718-9">
     <script>
         (() => {
             document.documentElement.classList.add('admin-access-pending');
@@ -52,6 +52,7 @@
                 <button class="nav-item" data-tab="accounts"><span class="nav-icon"><img src="/images/icons/accounts.svg" alt=""></span><span class="nav-copy"><strong>Accounts</strong><small>Admin access</small></span></button>
                 <button class="nav-item" data-tab="settings"><span class="nav-icon"><img src="/images/icons/settings.svg" alt=""></span><span class="nav-copy"><strong>Settings</strong><small>Display & media</small></span></button>
                 <div class="settingsMenu">
+                    <div class="settingsmenubtn" data-settingstab="configuration">Configurations</div>
                     <div class="settingsmenubtn active" data-settingstab="advertisement">Advertisement</div>
                     <div class="settingsmenubtn" data-settingstab="announcement">Announcement</div>
                     <div class="settingsmenubtn" data-settingstab="displayaudio">Display Audio</div>
@@ -190,10 +191,6 @@
             <!-- ^ REPORTS TAB -->
             <div id="reports-tab" class="tab-content">
                 <div class="reports-container">
-                    <section class="page-intro compact-intro">
-                        <div><span class="page-kicker">Reports & exports</span><h1>Turn queue activity into decisions</h1><p>Choose a date range, review operational performance, and export a presentation-ready PDF or Excel workbook.</p></div>
-                        <div class="page-intro-actions"><span class="report-ready-chip">PDF · XLSX</span></div>
-                    </section>
                     <!-- Filter Section -->
                     <div class="reports-filters">
                         <div class="card-header">
@@ -349,7 +346,6 @@
             </div>
             <!-- ^ HISTORY TAB -->
             <div id="history-tab" class="tab-content">
-                <section class="page-intro compact-intro"><div><span class="page-kicker">Audit trail</span><h1>Ticket journey history</h1><p>Search every ticket and inspect its complete movement through the queue.</p></div></section>
                 <div class="card">
                     <div class="card-header">
                         <h3>Complete Ticket History</h3>
@@ -459,7 +455,6 @@
             </div>
             <!-- ^ SETTINGS TAB -->
             <div id="settings-tab" class="tab-content">
-                <section class="page-intro compact-intro"><div><span class="page-kicker">System experience</span><h1>Display & media settings</h1><p>Manage lobby advertisements, announcements, imagery, and presentation preferences.</p></div></section>
                 <div class="card-settings settabs" id="announcement-settab">
                     <div class="settings-panel-heading"><div><span class="section-kicker">Announcement content</span><h3>Lobby message rotation</h3><p>Configure up to three messages displayed across the lobby screen.</p></div></div>
                     <form id="settings-form" class="announcement-copy-grid">
@@ -538,6 +533,35 @@
                 </div>
                 <div class="settingfonts settabs" id="fontsizes-settab">
                     <h2>Under Maintenance</h2>
+                </div>
+                <div class="system-configuration-panel settabs" id="configuration-settab">
+                    <div class="settings-panel-heading">
+                        <div><span class="section-kicker">Application environment</span><h3>System configurations</h3><p>Control the server port and online-ticket behavior stored in the application configuration.</p></div>
+                    </div>
+                    <form id="system-configuration-form" class="system-configuration-form">
+                        <div class="configuration-grid">
+                            <label class="configuration-field" for="configuration-port">
+                                <span><strong>Server port</strong><small>Accepts up to 5 digits. A changed port applies after restart.</small></span>
+                                <input type="text" id="configuration-port" class="form-control" inputmode="numeric" pattern="[0-9]{1,5}" maxlength="5" autocomplete="off" required>
+                            </label>
+                            <label class="configuration-field" for="configuration-expiry">
+                                <span><strong>Online ticket expiry</strong><small>Number of minutes before an online reservation expires.</small></span>
+                                <div class="configuration-input-unit"><input type="number" id="configuration-expiry" class="form-control" min="1" max="999999" step="1" required><span>minutes</span></div>
+                            </label>
+                            <label class="configuration-toggle-card" for="configuration-camscan">
+                                <span><strong>Camera scan</strong><small>Use the device camera instead of QR image upload.</small></span>
+                                <span class="configuration-switch"><input type="checkbox" id="configuration-camscan"><span aria-hidden="true"></span><em id="configuration-camscan-label">Off</em></span>
+                            </label>
+                            <label class="configuration-toggle-card" for="configuration-online-ticketing">
+                                <span><strong>Online ticketing</strong><small>Enable online reservation check-in and QR scanning.</small></span>
+                                <span class="configuration-switch"><input type="checkbox" id="configuration-online-ticketing"><span aria-hidden="true"></span><em id="configuration-online-ticketing-label">Off</em></span>
+                            </label>
+                        </div>
+                        <div class="configuration-save-bar">
+                            <div><strong>Save application configuration</strong><small id="configuration-save-note">Toggle and expiry changes apply immediately.</small></div>
+                            <button type="submit" class="btn btn-primary" id="save-system-configuration">Save configurations</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -711,11 +735,11 @@ $(function () {
 <script src="/js/admin/services.js"></script>
 <script src="/js/admin/tellers.js"></script>
 <script src="/js/admin/accounts.js"></script>
-<script src="/js/admin/settings.js?v=20260717-1"></script>
+<script src="/js/admin/settings.js?v=20260718-2"></script>
 <script src="/js/admin/history.js?v=20260717-7"></script>
 <script src="/js/admin/report.js?v=20260717-9"></script>
 <!-- Main admin navigation and modal functions -->
-<script src="/js/admin/admin.js?v=20260717-8"></script>
+<script src="/js/admin/admin.js?v=20260718-9"></script>
 <script src="/js/display/footer.js"></script>
 <script src="/js/admin/adminads.js?v=20260717-2"></script>
 <script src="/js/alert.js"></script>

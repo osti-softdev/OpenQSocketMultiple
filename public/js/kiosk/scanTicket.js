@@ -173,6 +173,8 @@ $(document).ready(function () {
                 console.log("Online ticketing is ENABLED");
             } else {
                 $("#reader").hide();
+                $("#qrFile").hide();
+                $(".scanQr").hide();
                 console.log("Online ticketing is DISABLED");
             }
         } catch (err) {

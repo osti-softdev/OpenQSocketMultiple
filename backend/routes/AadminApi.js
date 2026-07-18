@@ -9,6 +9,7 @@ const rootpath =
 const { requireRole  } = require(`../utilities/authsession`);
 const { authLimiter } = require("../utilities/rateLimiter");
 const { readSoundConfig, writeSoundConfig } = require('../utilities/soundConfig');
+const { loadConfig, saveConfig } = require('../utilities/envconfig');
 
 module.exports = function createTellerApiRouter(io) {
     const router = express.Router();
@@ -116,9 +117,9 @@ module.exports = function createTellerApiRouter(io) {
 
   // Console access matrix:
   // user       -> Monitor (overview, live preview, reports, ticket history)
-  // admin      -> Management (services, tellers, settings)
+  // admin      -> Monitor, Management, Advertisement, and Announcement
   // superadmin -> Every workspace, including account management
-  const requireMonitorAccess = requireRole('user', 'superadmin');
+  const requireMonitorAccess = requireRole('user', 'admin', 'superadmin');
   const requireManagementAccess = requireRole('admin', 'superadmin');
   const requireSuperadminAccess = requireRole('superadmin');
 
@@ -129,7 +130,8 @@ module.exports = function createTellerApiRouter(io) {
   router.use('/admin/services', requireManagementAccess);
   router.use('/admin/groups', requireManagementAccess);
   router.use('/admin/tellers', requireManagementAccess);
-  router.use('/admin/display-audio', requireManagementAccess);
+  router.use('/admin/display-audio', requireSuperadminAccess);
+  router.use('/admin/configuration', requireSuperadminAccess);
   router.use('/admin/accounts', requireSuperadminAccess);
 
   // ! -------- DASHBOARD -------- !
@@ -1050,6 +1052,62 @@ module.exports = function createTellerApiRouter(io) {
   });
 
   //   ! -------- SETTINGS -------- !
+  router.get('/admin/configuration', (req, res) => {
+    const config = loadConfig().MainServer;
+    res.json({
+      port: Number(config.port),
+      camscan: Boolean(config.camscan),
+      onlineTicketExpiry: Number(config.expiry),
+      onlineTicketing: Boolean(config.ticketonline)
+    });
+  });
+
+  router.put('/admin/configuration', (req, res) => {
+    const portText = String(req.body?.port ?? '').trim();
+    const expiryText = String(req.body?.onlineTicketExpiry ?? '').trim();
+    const port = Number(portText);
+    const onlineTicketExpiry = Number(expiryText);
+
+    if (!/^\d{1,5}$/.test(portText) || !Number.isInteger(port) || port < 1 || port > 65535) {
+      return res.status(400).json({ error: 'Port must be a valid number from 1 to 65535 using no more than 5 digits.' });
+    }
+
+    if (!/^\d+$/.test(expiryText) || !Number.isSafeInteger(onlineTicketExpiry) || onlineTicketExpiry < 1 || onlineTicketExpiry > 999999) {
+      return res.status(400).json({ error: 'Online ticket expiry must be a whole number from 1 to 999999 minutes.' });
+    }
+
+    if (typeof req.body?.camscan !== 'boolean' || typeof req.body?.onlineTicketing !== 'boolean') {
+      return res.status(400).json({ error: 'Camera scan and online ticketing must be true or false.' });
+    }
+
+    try {
+      const previousPort = Number(loadConfig().MainServer.port);
+      const config = saveConfig({
+        port,
+        camscan: req.body.camscan,
+        expiry: onlineTicketExpiry,
+        ticketonline: req.body.onlineTicketing
+      }).MainServer;
+
+      const responseConfig = {
+        port: Number(config.port),
+        camscan: Boolean(config.camscan),
+        onlineTicketExpiry: Number(config.expiry),
+        onlineTicketing: Boolean(config.ticketonline)
+      };
+
+      io.emit('systemConfigurationUpdated', responseConfig);
+      res.json({
+        success: true,
+        config: responseConfig,
+        restartRequired: previousPort !== port
+      });
+    } catch (error) {
+      console.error('Failed to update system configuration:', error);
+      res.status(500).json({ error: 'Failed to save system configuration.' });
+    }
+  });
+
   router.get('/admin/display-audio', (req, res) => {
     res.json(readSoundConfig());
   });
@@ -1098,6 +1156,21 @@ router.get('/settings', (req, res) => {
 
     if (!settings || typeof settings !== 'object') {
         return res.status(400).json({ error: 'Invalid settings payload' });
+    }
+
+    const role = String(req.session?.admin?.role || '').trim().toLowerCase();
+    const adminAnnouncementKeys = new Set([
+        'announcement',
+        'announcement2',
+        'announcement3',
+        'annbgcolor',
+        'anntextcolor',
+        'annspeed'
+    ]);
+    const requestedKeys = Object.keys(settings);
+
+    if (role === 'admin' && requestedKeys.some(key => !adminAnnouncementKeys.has(key))) {
+        return res.status(403).json({ error: 'Admin accounts can update announcement settings only.' });
     }
 
     try {

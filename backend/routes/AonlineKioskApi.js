@@ -6,7 +6,6 @@ const fs = require("fs");
 const QRCode = require('qrcode');
 const { kioskLimiter } = require(`${rootpath}/utilities/rateLimiter`);
 const { loadConfig } = require(`${rootpath}/utilities/envconfig`);
-const config = loadConfig();
 
 
 module.exports = function createKioskApiRouter(io) {
@@ -22,6 +21,14 @@ router.post("/check_ticket_in", kioskLimiter, async (req, res) => {
 
     const { date, time } = getPHDateTime();
     const currentPHDateTime = new Date(`${date} ${time}`);
+    const currentConfig = loadConfig();
+
+    if (!currentConfig.MainServer.ticketonline) {
+        return res.status(503).json({
+            success: false,
+            error: "Online ticketing is disabled"
+        });
+    }
 
     try {
         const { ticketcode } = req.body;
@@ -65,7 +72,7 @@ router.post("/check_ticket_in", kioskLimiter, async (req, res) => {
             });
         }
 
-        const expiryMinutes = Number(config.MainServer.expiry);
+        const expiryMinutes = Number(currentConfig.MainServer.expiry);
         const ticketDateTime = new Date(`${row.date} ${row.time}`);
 
         const ageMinutes =
@@ -114,11 +121,10 @@ router.post("/check_ticket_in", kioskLimiter, async (req, res) => {
 });
 
 router.get("/checkOnlineTrue", (req, res) => {
+    const currentConfig = loadConfig();
     res.json({
-        isOnline: config.MainServer.ticketonline === true ||
-    config.MainServer.ticketonline === "true",
-    camscan:config.MainServer.camscan === true ||
-    config.MainServer.camscan === "true"
+        isOnline: currentConfig.MainServer.ticketonline,
+        camscan: currentConfig.MainServer.camscan
 
    });
 });

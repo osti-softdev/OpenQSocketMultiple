@@ -6,8 +6,14 @@ let charts = {};
 
 const ADMIN_ROLE_TABS = Object.freeze({
     user: ['dashboard', 'live', 'reports', 'history'],
-    admin: ['services', 'tellers', 'settings'],
+    admin: ['dashboard', 'live', 'reports', 'history', 'services', 'tellers', 'settings'],
     superadmin: ['dashboard', 'live', 'reports', 'history', 'services', 'tellers', 'accounts', 'settings']
+});
+
+const ADMIN_ROLE_SETTINGS = Object.freeze({
+    user: [],
+    admin: ['advertisement', 'announcement'],
+    superadmin: ['configuration', 'advertisement', 'announcement', 'displayaudio', 'images', 'fontsizes']
 });
 
 $(document).ready(function () {
@@ -206,6 +212,14 @@ function canAccessAdminTab(tab, role = currentAdminRole) {
     return getAllowedAdminTabs(role).includes(String(tab || ''));
 }
 
+function getAllowedAdminSettings(role = currentAdminRole) {
+    return ADMIN_ROLE_SETTINGS[normalizeAdminRole(role)] || [];
+}
+
+function canAccessAdminSetting(setting, role = currentAdminRole) {
+    return getAllowedAdminSettings(role).includes(String(setting || ''));
+}
+
 function applyAdminRoleAccess(role) {
     currentAdminRole = normalizeAdminRole(role);
     const allowedTabs = getAllowedAdminTabs();
@@ -240,6 +254,23 @@ function applyAdminRoleAccess(role) {
     });
 
     $('.settingsMenu').toggleClass('role-restricted', !canAccessAdminTab('settings'));
+
+    $('.settingsmenubtn').each(function () {
+        const allowed = canAccessAdminSetting($(this).data('settingstab'));
+        $(this).toggleClass('role-restricted', !allowed).attr('aria-hidden', String(!allowed));
+    });
+
+    $('.settabs').each(function () {
+        const setting = String(this.id || '').replace(/-settab$/, '');
+        $(this).toggleClass('role-restricted', !canAccessAdminSetting(setting));
+    });
+
+    const activeSetting = $('.settingsmenubtn.active').data('settingstab');
+    const allowedSettings = getAllowedAdminSettings();
+    if (allowedSettings.length && !canAccessAdminSetting(activeSetting)) {
+        settingstabs(allowedSettings[0]);
+    }
+
     document.documentElement.classList.remove('admin-access-pending');
 
     const initialTab = canAccessAdminTab(currentTab) ? currentTab : allowedTabs[0];
@@ -296,6 +327,8 @@ function switchTab(tab) {
     else if (tab === 'accounts') loadAccounts();
     else if (tab === 'settings') {
         $('.settingsMenu').slideDown(200);
+        const activeSetting = $('.settingsmenubtn.active').data('settingstab');
+        if (!canAccessAdminSetting(activeSetting)) settingstabs(getAllowedAdminSettings()[0]);
         loadSettings();
     }
 
@@ -318,7 +351,12 @@ function refreshCurrentTab() {
 }
 
 function settingstabs(tab) {
-    if (!canAccessAdminTab('settings')) return false;
+    if (!canAccessAdminTab('settings') || !canAccessAdminSetting(tab)) {
+        if (currentAdminRole) {
+            Swal.fire({ icon: 'warning', title: 'Access denied', text: 'Your account role cannot open this setting.' });
+        }
+        return false;
+    }
 
     $('.settingsmenubtn').removeClass('active');
     $(`.settingsmenubtn[data-settingstab="${tab}"]`).addClass('active');
@@ -336,6 +374,9 @@ function settingstabs(tab) {
     }
     else if (tab === 'displayaudio') {
         loadDisplayAudioSettings();
+    }
+    else if (tab === 'configuration') {
+        loadSystemConfiguration();
     }
 
     return true;

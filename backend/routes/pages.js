@@ -67,7 +67,7 @@ function requireAuth(req, res, next) {
     } else {
       return res.sendFile(path.join(rootpath, "public/html", "maintenance.html"));
     }
-  });
+});
 
 
   pageRouter.post("/setAuthCookie", express.json(), (req, res) => {

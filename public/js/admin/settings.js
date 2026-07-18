@@ -29,7 +29,12 @@ function loadSettings() {
         $('.speedlbl').text(settings.annspeed?.value + "s" || 1);
     });
 
-    loadDisplayAudioSettings();
+    if (typeof canAccessAdminSetting !== 'function' || canAccessAdminSetting('displayaudio')) {
+        loadDisplayAudioSettings();
+    }
+    if (typeof canAccessAdminSetting !== 'function' || canAccessAdminSetting('configuration')) {
+        loadSystemConfiguration();
+    }
 }
 
 // & ===== SAVE SETTINGS =====
@@ -308,4 +313,71 @@ $(function () {
     $('#test-display-ad').on('click', testDisplayAdvertisement);
 
     if ('speechSynthesis' in window) window.speechSynthesis.addEventListener('voiceschanged', refreshDisplayVoices);
+
+    function updateConfigurationToggleLabels() {
+        $('#configuration-camscan-label').text($('#configuration-camscan').is(':checked') ? 'On' : 'Off');
+        $('#configuration-online-ticketing-label').text($('#configuration-online-ticketing').is(':checked') ? 'On' : 'Off');
+    }
+
+    $('#configuration-camscan, #configuration-online-ticketing').on('change', updateConfigurationToggleLabels);
+
+    $('#configuration-port').on('input', function () {
+        this.value = this.value.replace(/\D/g, '').slice(0, 5);
+    });
+
+    $('#system-configuration-form').on('submit', function (event) {
+        event.preventDefault();
+        const port = $('#configuration-port').val().trim();
+        const onlineTicketExpiry = $('#configuration-expiry').val().trim();
+
+        if (!/^\d{1,5}$/.test(port) || Number(port) < 1 || Number(port) > 65535) {
+            return showMsg('error', 'Enter a valid server port from 1 to 65535 using no more than 5 digits.');
+        }
+
+        if (!/^\d+$/.test(onlineTicketExpiry) || Number(onlineTicketExpiry) < 1 || Number(onlineTicketExpiry) > 999999) {
+            return showMsg('error', 'Enter a valid online ticket expiry from 1 to 999999 minutes.');
+        }
+
+        const $button = $('#save-system-configuration').prop('disabled', true).text('Saving…');
+        $.ajax({
+            url: '/api/admin/configuration',
+            method: 'PUT',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                port,
+                camscan: $('#configuration-camscan').is(':checked'),
+                onlineTicketExpiry,
+                onlineTicketing: $('#configuration-online-ticketing').is(':checked')
+            }),
+            success: response => {
+                populateSystemConfiguration(response.config);
+                $('#configuration-save-note').text(response.restartRequired
+                    ? 'Saved. Restart the application to use the new server port.'
+                    : 'Saved. Toggle and expiry changes are now active.');
+                showMsg('success', response.restartRequired
+                    ? 'Configurations saved. Restart the application to apply the new port.'
+                    : 'Configurations saved successfully.');
+            },
+            error: showAjaxError,
+            complete: () => $button.prop('disabled', false).text('Save configurations')
+        });
+    });
+
+    window.updateConfigurationToggleLabels = updateConfigurationToggleLabels;
 });
+
+function populateSystemConfiguration(config) {
+    if (!config) return;
+    $('#configuration-port').val(config.port ?? '');
+    $('#configuration-expiry').val(config.onlineTicketExpiry ?? '');
+    $('#configuration-camscan').prop('checked', config.camscan === true);
+    $('#configuration-online-ticketing').prop('checked', config.onlineTicketing === true);
+    if (typeof window.updateConfigurationToggleLabels === 'function') window.updateConfigurationToggleLabels();
+}
+
+function loadSystemConfiguration() {
+    return $.get('/api/admin/configuration', populateSystemConfiguration)
+        .fail(xhr => {
+            if (xhr.status !== 403) showAjaxError(xhr);
+        });
+}
