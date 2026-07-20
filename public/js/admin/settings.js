@@ -381,3 +381,99 @@ function loadSystemConfiguration() {
             if (xhr.status !== 403) showAjaxError(xhr);
         });
 }
+
+// Image Upload logic
+function setupImageUpload(inputId, thumbnailId, statusId, type) {
+    $(inputId).on('change', function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const validTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+        if (!validTypes.includes(file.type)) {
+            Swal.fire('Error', 'Only PNG, JPG, and JPEG images are allowed.', 'error');
+            $(inputId).val('');
+            return;
+        }
+
+        let warningText = '';
+        if (type === 'banner') {
+            warningText = 'For best display quality, banner images should be 3840x216 px or 1920x108px.';
+        } else if (type === 'bg') {
+            warningText = 'For best display quality, background images should be 1920x1080 px.';
+        }
+
+        Swal.fire({
+            title: 'Continue upload?',
+            text: warningText,
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, upload it'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $(statusId).text('Converting & Uploading...').css('color', 'orange');
+
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const img = new Image();
+                    img.onload = function() {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0);
+
+                        const dataUrl = canvas.toDataURL('image/png');
+                        
+                        // Update thumbnail immediately
+                        $(thumbnailId).attr('src', dataUrl);
+
+                        // Send to backend
+                        $.ajax({
+                            url: '/api/admin/upload-image',
+                            method: 'POST',
+                            contentType: 'application/json',
+                            data: JSON.stringify({ type: type, data: dataUrl }),
+                            success: function(res) {
+                                $(statusId).text('Uploaded successfully').css('color', 'green');
+                                $(thumbnailId).attr('src', '/images/' + res.filename + '?v=' + new Date().getTime());
+                                setTimeout(() => $(statusId).text(''), 3000);
+                            },
+                            error: function(err) {
+                                console.error(err);
+                                $(statusId).text('Upload failed').css('color', 'red');
+                                Swal.fire('Error', 'Failed to upload image.', 'error');
+                            }
+                        });
+                    };
+                    img.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                $(inputId).val(''); // Clear selection if cancelled
+            }
+        });
+    });
+}
+
+$(document).ready(function() {
+    setupImageUpload('#bannerUpload', '#bannerThumbnail', '#bannerUploadStatus', 'banner');
+    setupImageUpload('#bgUpload', '#bgThumbnail', '#bgUploadStatus', 'bg');
+});
+
+window.previewFullImage = function(imagePath) {
+    const url = imagePath + '?v=' + new Date().getTime();
+    Swal.fire({
+        imageUrl: url,
+        imageAlt: 'Preview',
+        width: '80%',
+        showConfirmButton: false,
+        showCloseButton: true,
+        background: '#1a1a1a',
+        customClass: {
+            image: 'modal-full-image'
+        }
+    });
+};
+

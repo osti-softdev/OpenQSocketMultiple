@@ -419,6 +419,7 @@ body {
                         align-items: center;
 
                     }
+
                     .stats-grid {
                         position: absolute;
                         top: 0%;
@@ -431,7 +432,7 @@ body {
                         gap: 20px;
                         overflow: hidden;
                         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                        border-radius:12px;
+                        border-radius: 12px;
                         transform: scale(0.98);
 
                         .stat-card {
@@ -480,10 +481,11 @@ body {
                             }
                         }
                     }
-                    .dashServices{
+
+                    .dashServices {
                         position: absolute;
                         left: 0%;
-                        bottom:0;
+                        bottom: 0;
                         height: 50%;
                         width: 50%;
                         transform: scale(0.98);
@@ -509,7 +511,7 @@ body {
                         }
 
 
-                       .live-grid {
+                        .live-grid {
                             position: absolute;
                             top: 15%;
                             left: 0;
@@ -546,12 +548,14 @@ body {
                                     color: #1f2937;
                                     vertical-align: middle;
                                 }
+
                                 tbody {
                                     td {
                                         padding: 8px 12px;
                                         font-size: 13px;
                                     }
                                 }
+
                                 tbody tr:hover {
                                     background: #f8fafc;
                                 }
@@ -570,12 +574,13 @@ body {
                             }
                         }
 
-                        
+
                     }
-                    .dashTellers{
+
+                    .dashTellers {
                         position: absolute;
                         right: 0%;
-                        bottom:0;
+                        bottom: 0;
                         height: 50%;
                         width: 50%;
                         transform: scale(0.98);
@@ -599,11 +604,12 @@ body {
                             color: white;
                             border-bottom: 1px solid #e2e8f0;
                         }
+
                         .card-teller-dashboard {
                             position: absolute;
                             top: 15%;
                             left: 0;
-                            bottom:0;
+                            bottom: 0;
                             display: flex;
                             width: 100%;
                             background: white;
@@ -675,6 +681,7 @@ body {
                                 tr:hover {
                                     background: #f1f5f9;
                                 }
+
                                 tbody {
 
                                     tr {
@@ -700,39 +707,41 @@ body {
                             }
                         }
                     }
+
                     .status-indicator {
-                            display: inline-flex;
-                            align-items: center;
-                            justify-content: center;
-                            min-width: 80px;
-                            padding: 4px 10px;
-                            border-radius: 999px;
-                            font-size: 12px;
-                            font-weight: 600;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        min-width: 80px;
+                        padding: 4px 10px;
+                        border-radius: 999px;
+                        font-size: 12px;
+                        font-weight: 600;
 
-                            &.idle {
-                                background: #98e6b2;
-                                color: #2a422d;
-                            }
+                        &.idle {
+                            background: #98e6b2;
+                            color: #2a422d;
+                        }
 
-                            &.serving {
-                                background: #dbeafe;
-                                color: #2563eb;
-                            }
+                        &.serving {
+                            background: #dbeafe;
+                            color: #2563eb;
+                        }
 
-                            &.busy {
-                                background: #fef3c7;
-                                color: #d97706;
-                            }
+                        &.busy {
+                            background: #fef3c7;
+                            color: #d97706;
+                        }
 
-                            &.queueing {
-                                background: #fee2e2;
-                                color: #dc2626;
-                            }
+                        &.queueing {
+                            background: #fee2e2;
+                            color: #dc2626;
+                        }
                     }
+
                     .card-chart-dashboard {
                         position: absolute;
-                        top:10%;
+                        top: 10%;
                         left: 0%;
                         height: 40%;
                         width: 100%;
@@ -765,7 +774,8 @@ body {
                         div {
                             transform: scale(0.95);
                             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.466);
-                            border-radius:12px;
+                            border-radius: 12px;
+
                             p {
                                 position: absolute;
                                 top: 0;
@@ -796,7 +806,7 @@ body {
                                     font-weight: 500;
                                     color: #6b7280;
 
-                                    button{
+                                    button {
                                         margin-left: 5px;
                                         padding: 6px 12px;
                                         border: none;
@@ -3195,7 +3205,7 @@ textarea {
     background: rgba(255, 255, 255, 0.04);
 }
 
-.system-health > span {
+.system-health>span {
     width: 9px;
     height: 9px;
     border-radius: 50%;
@@ -3560,7 +3570,7 @@ textarea {
     border: 0 !important;
 }
 
-.card-chart-dashboard > .section-heading {
+.card-chart-dashboard>.section-heading {
     grid-column: 1 / -1;
 }
 
@@ -3617,13 +3627,13 @@ textarea {
     gap: 12px;
 }
 
-.chart-card-heading > div {
+.chart-card-heading>div {
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
-.chart-card-heading > div > span {
+.chart-card-heading>div>span {
     color: var(--oq-muted);
     font-size: 10px;
     font-weight: 700;
@@ -3724,12 +3734,35 @@ textarea {
     background: var(--stat-color, var(--oq-primary));
 }
 
-.stat-card.stat-blue { --stat-color: #3874ff; --stat-soft: #edf3ff; }
-.stat-card.stat-green { --stat-color: #16a34a; --stat-soft: #ecfdf3; }
-.stat-card.stat-amber { --stat-color: #d97706; --stat-soft: #fff8e8; }
-.stat-card.stat-violet { --stat-color: #7c3aed; --stat-soft: #f5f0ff; }
-.stat-card.stat-cyan { --stat-color: #0891b2; --stat-soft: #ecfeff; }
-.stat-card.stat-rose { --stat-color: #e11d48; --stat-soft: #fff1f4; }
+.stat-card.stat-blue {
+    --stat-color: #3874ff;
+    --stat-soft: #edf3ff;
+}
+
+.stat-card.stat-green {
+    --stat-color: #16a34a;
+    --stat-soft: #ecfdf3;
+}
+
+.stat-card.stat-amber {
+    --stat-color: #d97706;
+    --stat-soft: #fff8e8;
+}
+
+.stat-card.stat-violet {
+    --stat-color: #7c3aed;
+    --stat-soft: #f5f0ff;
+}
+
+.stat-card.stat-cyan {
+    --stat-color: #0891b2;
+    --stat-soft: #ecfeff;
+}
+
+.stat-card.stat-rose {
+    --stat-color: #e11d48;
+    --stat-soft: #fff1f4;
+}
 
 .stats-grid .stat-icon {
     width: 36px !important;
@@ -4351,6 +4384,7 @@ textarea:focus {
 }
 
 @media (max-width: 680px) {
+
     .header-eyebrow,
     .header-refresh,
     #current-user {

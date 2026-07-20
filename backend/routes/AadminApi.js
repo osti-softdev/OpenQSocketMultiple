@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require('path');
 const bcrypt = require('bcrypt');
+const fs = require('fs');
 
 const rootpath =
 	global.ROOT_PATH;
@@ -1469,6 +1470,35 @@ router.get('/settings', (req, res) => {
         .then(() => res.json(reports))
         .catch(err => res.status(500).json({ error: err.message }));
   });
+
+    router.post('/admin/upload-image', (req, res) => {
+        try {
+            const { type, data } = req.body;
+            if (!['banner', 'bg'].includes(type)) {
+                return res.status(400).json({ error: 'Invalid image type' });
+            }
+            if (!data || !data.startsWith('data:image/png;base64,')) {
+                return res.status(400).json({ error: 'Invalid image format, expected base64 png' });
+            }
+            
+            const base64Data = data.replace(/^data:image\/png;base64,/, "");
+            const filename = type === 'banner' ? 'banner.png' : 'bg.png';
+            // Save in public/images
+            const imageRoot = global.ROOT_PATH || path.join(__dirname, '../../');
+            const filepath = path.join(imageRoot, 'public', 'images', filename);
+            
+            fs.writeFile(filepath, base64Data, 'base64', (err) => {
+                if (err) {
+                    console.error('Error saving image:', err);
+                    return res.status(500).json({ error: 'Failed to save image' });
+                }
+                res.json({ success: true, filename });
+            });
+        } catch (error) {
+            console.error('Upload error:', error);
+            res.status(500).json({ error: 'Server error during upload' });
+        }
+    });
 
     return router;
 };

@@ -36,9 +36,9 @@ const { serverCreator } = require("./backend/utilities/serverCreator");
 serverCreator(server);
 
 appExpress.use(cors());
-appExpress.use(express.json());
+appExpress.use(express.json({ limit: '50mb' }));
 appExpress.use(cookieParser());
-appExpress.use(express.urlencoded({ extended: true }));
+appExpress.use(express.urlencoded({ limit: '50mb', extended: true }));
 appExpress.use(session({
     secret: 'asdasdasd-wejjks9qweqewe-cdvfretvert-asdrace323c23-c234234cf3324234-2026asds',
     resave: false,

@@ -529,7 +529,52 @@
                     </form>
                 </div>
                 <div class="settingimages settabs" id="images-settab">
-                    <h2>Under Maintenance</h2>
+                    <div class="settings-panel-heading">
+                        <div><span class="section-kicker">Display imagery</span><h3>Application images</h3><p>Upload and manage the banner and background images displayed in the lobby and other screens.</p></div>
+                    </div>
+                    <div class="images-settings-grid" style="display: grid; gap: 24px; padding: 24px;">
+                        <!-- Banner Section -->
+                        <section class="image-config-card" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px;">
+                            <div class="image-card-heading" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+                                <div>
+                                    <strong>Banner Image</strong><br>
+                                    <small style="color: var(--text-secondary)">Accepts PNG, JPG, JPEG. Will be automatically converted to PNG.</small>
+                                </div>
+                                <div class="upload-controls">
+                                    <label for="bannerUpload" class="btn btn-secondary" style="cursor: pointer;">Choose file</label>
+                                    <input id="bannerUpload" type="file" accept="image/png, image/jpeg, image/jpg" hidden>
+                                </div>
+                            </div>
+                            <div class="image-preview-area" style="display: flex; gap: 16px; align-items: center;">
+                                <div class="thumbnail-container" style="width: 150px; height: 100px; background: var(--surface-hover); border: 1px dashed var(--border); border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                                    <img id="bannerThumbnail" src="/images/banner.png" alt="Banner Preview" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                                </div>
+                                <button type="button" class="btn btn-primary" onclick="previewFullImage('/images/banner.png')">Preview full image</button>
+                                <span id="bannerUploadStatus" style="font-size: 12px; margin-left: auto;"></span>
+                            </div>
+                        </section>
+                        
+                        <!-- Background Section -->
+                        <section class="image-config-card" style="background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px;">
+                            <div class="image-card-heading" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+                                <div>
+                                    <strong>Background Image</strong><br>
+                                    <small style="color: var(--text-secondary)">Accepts PNG, JPG, JPEG. Will be automatically converted to PNG.</small>
+                                </div>
+                                <div class="upload-controls">
+                                    <label for="bgUpload" class="btn btn-secondary" style="cursor: pointer;">Choose file</label>
+                                    <input id="bgUpload" type="file" accept="image/png, image/jpeg, image/jpg" hidden>
+                                </div>
+                            </div>
+                            <div class="image-preview-area" style="display: flex; gap: 16px; align-items: center;">
+                                <div class="thumbnail-container" style="width: 150px; height: 100px; background: var(--surface-hover); border: 1px dashed var(--border); border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                                    <img id="bgThumbnail" src="/images/bg.png" alt="Background Preview" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                                </div>
+                                <button type="button" class="btn btn-primary" onclick="previewFullImage('/images/bg.png')">Preview full image</button>
+                                <span id="bgUploadStatus" style="font-size: 12px; margin-left: auto;"></span>
+                            </div>
+                        </section>
+                    </div>
                 </div>
                 <div class="settingfonts settabs" id="fontsizes-settab">
                     <h2>Under Maintenance</h2>

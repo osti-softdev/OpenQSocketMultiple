@@ -90,7 +90,7 @@ body {
   height: 10%;
   display: flex;
   background-image: url("/images/banner.png");
-  background-size: auto 90%;
+  background-size: auto 100%;
   background-position: left center;
   background-repeat: no-repeat;
   background-color: #08228d;
@@ -193,7 +193,8 @@ body {
   justify-content: space-evenly;
   align-items: center;
 }
-.mainkioskcontainer .servicesContainer .service-container #regularServices, .mainkioskcontainer .servicesContainer .service-container #priorityServices {
+.mainkioskcontainer .servicesContainer .service-container #regularServices,
+.mainkioskcontainer .servicesContainer .service-container #priorityServices {
   position: absolute;
   top: 0;
   height: 90%;
@@ -205,7 +206,8 @@ body {
   align-items: center;
   gap: 1%;
 }
-.mainkioskcontainer .servicesContainer .service-container #regularServices .back-btn, .mainkioskcontainer .servicesContainer .service-container #priorityServices .back-btn {
+.mainkioskcontainer .servicesContainer .service-container #regularServices .back-btn,
+.mainkioskcontainer .servicesContainer .service-container #priorityServices .back-btn {
   position: absolute;
   bottom: -11%;
   right: 0.5%;
@@ -218,11 +220,13 @@ body {
   border-radius: 16px;
   box-shadow: 2px 2px 5px rgb(0, 0, 0);
 }
-.mainkioskcontainer .servicesContainer .service-container #regularServices .back-btn:active, .mainkioskcontainer .servicesContainer .service-container #priorityServices .back-btn:active {
+.mainkioskcontainer .servicesContainer .service-container #regularServices .back-btn:active,
+.mainkioskcontainer .servicesContainer .service-container #priorityServices .back-btn:active {
   transform: scale(0.95);
   box-shadow: 0px 0px 8px rgb(255, 255, 255);
 }
-.mainkioskcontainer .servicesContainer .service-container #regularServices button, .mainkioskcontainer .servicesContainer .service-container #priorityServices button {
+.mainkioskcontainer .servicesContainer .service-container #regularServices button,
+.mainkioskcontainer .servicesContainer .service-container #priorityServices button {
   position: relative;
   width: 30%;
   height: auto;
@@ -245,19 +249,23 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   background-position: center center;
 }
-.mainkioskcontainer .servicesContainer .service-container #regularServices button:active, .mainkioskcontainer .servicesContainer .service-container #priorityServices button:active {
+.mainkioskcontainer .servicesContainer .service-container #regularServices button:active,
+.mainkioskcontainer .servicesContainer .service-container #priorityServices button:active {
   transform: scale(0.95);
   box-shadow: 0px 0px 8px rgb(255, 255, 255);
 }
-.mainkioskcontainer .servicesContainer .service-container #regularServices button.locked, .mainkioskcontainer .servicesContainer .service-container #priorityServices button.locked {
+.mainkioskcontainer .servicesContainer .service-container #regularServices button.locked,
+.mainkioskcontainer .servicesContainer .service-container #priorityServices button.locked {
   filter: brightness(70%);
 }
-.mainkioskcontainer .servicesContainer .service-container #regularServices:nth-child(1) button, .mainkioskcontainer .servicesContainer .service-container #priorityServices:nth-child(1) button {
+.mainkioskcontainer .servicesContainer .service-container #regularServices:nth-child(1) button,
+.mainkioskcontainer .servicesContainer .service-container #priorityServices:nth-child(1) button {
   background-image: url("/images/buttons/button_regular.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
-.mainkioskcontainer .servicesContainer .service-container #regularServices:nth-child(2) button, .mainkioskcontainer .servicesContainer .service-container #priorityServices:nth-child(2) button {
+.mainkioskcontainer .servicesContainer .service-container #regularServices:nth-child(2) button,
+.mainkioskcontainer .servicesContainer .service-container #priorityServices:nth-child(2) button {
   background-image: url("/images/buttons/button_priority.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;

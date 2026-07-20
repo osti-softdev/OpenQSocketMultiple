@@ -2,8 +2,9 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-   font-display: block;
+  font-display: block;
 }
+
 html,
 body {
   -webkit-text-size-adjust: 100%;
@@ -31,10 +32,12 @@ body {
   font-family: calibri;
   src: url("/libs/fonts/Gotham/Gotham-Black.otf");
 }
+
 @font-face {
   font-family: digital;
   src: url("/libs/fonts/digital/digital-mono_italic.ttf");
 }
+
 @font-face {
   font-family: compos;
   src: url("/libs/fonts/compostela/QUANTU1H.TTF");
@@ -64,16 +67,18 @@ body {
     font-family: "Segoe UI", sans-serif;
 
     .date {
-        font-family: Gotham;
-        font-size: 2.5rem;
+      font-family: Gotham;
+      font-size: 2.5rem;
     }
+
     .time {
-        font-family: digital;
-        font-size: 3rem;
-        text-shadow: 2px 2px 5px rgb(36, 3, 185);
-        font-weight: bold;
+      font-family: digital;
+      font-size: 3rem;
+      text-shadow: 2px 2px 5px rgb(36, 3, 185);
+      font-weight: bold;
     }
-}
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -96,34 +101,34 @@ body {
     height: 10%;
     display: flex;
     background-image: url("/images/banner.png");
-    background-size: auto 90%;
+    background-size: auto 100%;
     background-position: left center;
     background-repeat: no-repeat;
-    background-color:#08228d;
+    background-color: #08228d;
     box-shadow: 0px 4px 8px rgb(0, 0, 0);
     z-index: 1;
 
 
     .companyLogo {
-        position: absolute;
-        display: flex;
-        top: 0%;
-        right: 1%;
-        width: 20%;
-        height: 50%;
-        background-color: transparent;
-        background-image: url("/images/company.png");
-        background-repeat: no-repeat;
-        background-size: auto 50%;
-        background-position: center right;
-        align-items: center;
-        text-indent: 80px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        z-index: 100;
+      position: absolute;
+      display: flex;
+      top: 0%;
+      right: 1%;
+      width: 20%;
+      height: 50%;
+      background-color: transparent;
+      background-image: url("/images/company.png");
+      background-repeat: no-repeat;
+      background-size: auto 50%;
+      background-position: center right;
+      align-items: center;
+      text-indent: 80px;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      z-index: 100;
     }
   }
 
-  .scanQr{
+  .scanQr {
     position: absolute;
     bottom: 10%;
     left: 0%;
@@ -151,154 +156,159 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    .category-container{
-        position: absolute;
-        top: 0%;
-        left: 0%;
-        height: 100%;
-        width: 100%;
+
+    .category-container {
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      z-index: 10;
+      justify-content: space-evenly;
+      align-items: center;
+
+      div {
+        position: relative;
+        height: 50%;
+        width: 30%;
+        font-size: 4rem;
+        font-family: gorilla, sans-serif;
+        font-weight: 900;
         display: flex;
-        z-index: 10;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
+        color: #e9e1e1;
+        text-shadow: 2px 2px 5px black;
+        border-radius: 16px;
+        box-shadow: 0px 0px 18px rgb(0, 0, 0);
+        cursor: pointer;
 
-        div{
-            position: relative;
-            height: 50%;
-            width: 30%;
-            font-size: 4rem;
-            font-family: gorilla, sans-serif;
-            font-weight: 900;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #e9e1e1;
-            text-shadow: 2px 2px 5px black;
-            border-radius: 16px;
-            box-shadow: 0px 0px 18px rgb(0, 0, 0); 
-            cursor: pointer;
-
-            &:active{
-                transform: scale(0.95);
-                box-shadow: 0px 0px 8px rgb(255, 255, 255);
-            }
-            
-            &:nth-child(1){
-                // background-color: rgb(144, 153, 19);
-                background-image: url("/images/buttons/button_regular.png");
-                background-size: 100% 100%;
-                background-repeat: no-repeat;
-              }
-            &:nth-child(2){
-                // background-color: rgba(28, 133, 16, 0.993);
-                background-image: url("/images/buttons/button_priority.png");
-                background-size: 100% 100%;
-                background-repeat: no-repeat;
-              }
+        &:active {
+          transform: scale(0.95);
+          box-shadow: 0px 0px 8px rgb(255, 255, 255);
         }
-        
+
+        &:nth-child(1) {
+          // background-color: rgb(144, 153, 19);
+          background-image: url("/images/buttons/button_regular.png");
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+        }
+
+        &:nth-child(2) {
+          // background-color: rgba(28, 133, 16, 0.993);
+          background-image: url("/images/buttons/button_priority.png");
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
+        }
+      }
+
     }
-    .service-container{
+
+    .service-container {
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      #regularServices,
+      #priorityServices {
         position: absolute;
-        top: 0%;
-        left: 0%;
-        height: 100%;
+        top: 0;
+        height: 90%;
         width: 100%;
-        display: flex;
+        display: none;
+        text-wrap: wrap;
+        flex-wrap: wrap;
         justify-content: space-evenly;
         align-items: center;
-           
-        #regularServices, #priorityServices{
-            position: absolute;
-            top: 0;
-            height: 90%;
-            width: 100%;
-            display: none;
-            text-wrap: wrap;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            align-items: center;
-            gap: 1%;
+        gap: 1%;
 
-            .back-btn{
-                position: absolute;
-                bottom: -11%;
-                right: 0.5%;
-                z-index: 1;
-                height: 11%;
-                width: 20%;
-                border: none;
-                font-size: 3rem;
-                text-shadow: 2px 2px 5px black;
-                border-radius: 16px;
-                box-shadow: 2px 2px 5px rgb(0, 0, 0); 
+        .back-btn {
+          position: absolute;
+          bottom: -11%;
+          right: 0.5%;
+          z-index: 1;
+          height: 11%;
+          width: 20%;
+          border: none;
+          font-size: 3rem;
+          text-shadow: 2px 2px 5px black;
+          border-radius: 16px;
+          box-shadow: 2px 2px 5px rgb(0, 0, 0);
 
-                 &:active{
-                    transform: scale(0.95);
-                    box-shadow: 0px 0px 8px rgb(255, 255, 255);
-                }
-              
-            }
-            
-            button{
-                position: relative;
-                width: 30%;
-                height: auto;
-                padding: 2%;
-                font-size: 1.5vw;
-                font-family: gorilla, sans-serif;
-                font-weight: 900;
-                display: flex;
-                border: none;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                text-wrap: wrap;
-                color: #e9e1e1;
-                text-shadow: 2px 2px 5px black;
-                border-radius: 16px;
-                box-shadow: 0px 0px 18px rgb(0, 0, 0); 
-                cursor: pointer;
-                background-color: rgba(0,0,0,0.5);
-                background-position: center center;
+          &:active {
+            transform: scale(0.95);
+            box-shadow: 0px 0px 8px rgb(255, 255, 255);
+          }
 
-                &:active{
-                    transform: scale(0.95);
-                    box-shadow: 0px 0px 8px rgb(255, 255, 255);
-                }
-                &.locked{
-                  filter: brightness(70%);
-                }
-            }
-            
-            
-         
-                &:nth-child(1){
-                  button{
-                    // background-color: rgb(144, 153, 19);
-                    background-image: url("/images/buttons/button_regular.png");
-                    background-size: 100% 100%;
-                    background-repeat: no-repeat;
-                  }
-
-                  
-                }
-                &:nth-child(2){
-                  button{
-                    // background-color: rgba(28, 133, 16, 0.993);
-                    background-image: url("/images/buttons/button_priority.png");
-                    background-size: 100% 100%;
-                    background-repeat: no-repeat;
-                  }
-              }
         }
+
+        button {
+          position: relative;
+          width: 30%;
+          height: auto;
+          padding: 2%;
+          font-size: 1.5vw;
+          font-family: gorilla, sans-serif;
+          font-weight: 900;
+          display: flex;
+          border: none;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          text-wrap: wrap;
+          color: #e9e1e1;
+          text-shadow: 2px 2px 5px black;
+          border-radius: 16px;
+          box-shadow: 0px 0px 18px rgb(0, 0, 0);
+          cursor: pointer;
+          background-color: rgba(0, 0, 0, 0.5);
+          background-position: center center;
+
+          &:active {
+            transform: scale(0.95);
+            box-shadow: 0px 0px 8px rgb(255, 255, 255);
+          }
+
+          &.locked {
+            filter: brightness(70%);
+          }
+        }
+
+
+
+        &:nth-child(1) {
+          button {
+            // background-color: rgb(144, 153, 19);
+            background-image: url("/images/buttons/button_regular.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+          }
+
+
+        }
+
+        &:nth-child(2) {
+          button {
+            // background-color: rgba(28, 133, 16, 0.993);
+            background-image: url("/images/buttons/button_priority.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+          }
+        }
+      }
 
     }
   }
 
-  .footercont{
+  .footercont {
     position: absolute;
     bottom: 0;
     left: 0;
