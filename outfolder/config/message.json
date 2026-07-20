@@ -1,0 +1,26 @@
+{
+  "generate": {
+    "type": "generate",
+    "message": "Your ticket is #ticket for #service. Please wait for your number to be called."
+  },
+  "call": {
+    "type": "call",
+    "message": "Your ticket #ticket is called. Please proceed to #counter."
+  },
+  "forward": {
+    "type": "forward",
+    "message": "Your ticket #ticket has been forwarded to #counter."
+  },
+  "hold": {
+    "type": "hold",
+    "message": "Your ticket #ticket is currently on hold."
+  },
+  "void": {
+    "type": "void",
+    "message": "Your ticket #ticket has been voided."
+  },
+  "finish": {
+    "type": "finish",
+    "message": "From #branch: Thank you, come again we are happy to serve you."
+  }
+}

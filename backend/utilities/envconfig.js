@@ -19,7 +19,8 @@ function loadConfig() {
 			port: process.env.PORT,
 			camscan: process.env.CAMSCAN === "true",
 			expiry: process.env.ONLINETICKETEXPIRY,
-			ticketonline: process.env.ONLINETICKETING === "true"
+			ticketonline: process.env.ONLINETICKETING === "true",
+			BRANCH: process.env.BRANCH
 		},
 	};
 	return config;

@@ -1455,7 +1455,6 @@ router.get('/settings', (req, res) => {
             resolve();
         });
     });
-
     Promise.all([
         summaryPromise,
         byServicePromise,
@@ -1497,6 +1496,70 @@ router.get('/settings', (req, res) => {
         } catch (error) {
             console.error('Upload error:', error);
             res.status(500).json({ error: 'Server error during upload' });
+        }
+    });
+
+    // SMS Configuration API
+    router.get('/admin/sms-config', requireRole('superadmin'), async (req, res) => {
+        try {
+            const allowSms = process.env.ALLOWSMS === 'true';
+            const branch = process.env.BRANCH || 'Main Branch';
+            let privacyPolicy = 'By proceeding, you agree to receive SMS notifications about your queue ticket status.';
+            
+            const row = await db.getAsync(`SELECT value FROM settings WHERE key = 'privacy_policy'`);
+            if (row) {
+                privacyPolicy = row.value;
+            }
+            
+            res.json({ success: true, allowSms, branch, privacyPolicy });
+        } catch (err) {
+            console.error('Failed to get sms config:', err);
+            res.status(500).json({ error: 'Failed to get sms config' });
+        }
+    });
+
+    router.post('/admin/sms-config', requireRole('superadmin'), async (req, res) => {
+        try {
+            const { allowSms, branch, privacyPolicy } = req.body;
+            
+            // Update .env
+            const envPath = path.join(__dirname, '../config/.env');
+            let envContent = '';
+            if (fs.existsSync(envPath)) {
+                envContent = fs.readFileSync(envPath, 'utf8');
+            }
+            
+            // Replace or append ALLOWSMS
+            if (/^ALLOWSMS=.*$/m.test(envContent)) {
+                envContent = envContent.replace(/^ALLOWSMS=.*$/m, `ALLOWSMS=${allowSms}`);
+            } else {
+                envContent += `\nALLOWSMS=${allowSms}`;
+            }
+            
+            // Replace or append BRANCH
+            if (/^BRANCH=.*$/m.test(envContent)) {
+                envContent = envContent.replace(/^BRANCH=.*$/m, `BRANCH=${branch}`);
+            } else {
+                envContent += `\nBRANCH=${branch}`;
+            }
+            
+            fs.writeFileSync(envPath, envContent.trim() + '\n', 'utf8');
+            
+            // Reload into process.env
+            process.env.ALLOWSMS = allowSms;
+            process.env.BRANCH = branch;
+            
+            // Save Privacy Policy to DB
+            await db.runAsync(
+                `INSERT INTO settings (key, value) VALUES ('privacy_policy', ?)
+                 ON CONFLICT(key) DO UPDATE SET value = ?`,
+                [privacyPolicy, privacyPolicy]
+            );
+            
+            res.json({ success: true });
+        } catch (err) {
+            console.error('Failed to save sms config:', err);
+            res.status(500).json({ error: 'Failed to save sms config' });
         }
     });
 

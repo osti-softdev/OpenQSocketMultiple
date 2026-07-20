@@ -34,9 +34,23 @@ const config = loadConfig();
     }
   });
 
+  // & KIOSK SMS CONFIG
+  router.get('/sms-config', async (req, res) => {
+    try {
+      const allowSms = process.env.ALLOWSMS === 'true';
+      let privacyPolicy = 'By proceeding, you agree to receive SMS notifications about your queue ticket status.';
+      const row = await db.getAsync(`SELECT value FROM settings WHERE key = 'privacy_policy'`);
+      if (row) privacyPolicy = row.value;
+      res.json({ success: true, allowSms, privacyPolicy });
+    } catch (err) {
+      console.error('Failed to fetch sms-config:', err);
+      res.status(500).json({ success: false, error: 'Failed to fetch sms config' });
+    }
+  });
+
   // ^ INSERT NEW TICKET
   router.post("/newServiceTicket", kioskLimiter, async (req, res) => {
-    const { sname, ticketservice, selectedType, stats } = req.body;
+    const { sname, ticketservice, selectedType, stats, mobile } = req.body;
     const { date, time } = getPHDateTime();
     const expiryMinutes = Number(config.MainServer.expiry);
 
@@ -76,12 +90,18 @@ const config = loadConfig();
       }
       const nextTicket = (row?.maxTicket || 0) + 1;
       const history = `[${time}-Kiosk-Inserted]`;
+      
+      let mobileStr = mobile || null;
+      let mobileRecordsStr = null;
+      if (mobileStr) {
+         mobileRecordsStr = `[${time}] ticket generate sent\n`;
+      }
 
       // Insert new ticket
       const result = await db.runAsync(
-        `INSERT INTO transactions (ticketnum, sname, ticketservice, status, date, time, history, priority, ticket_secret)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        [nextTicket, sname, ticketservice, finalstats, date, time, history, selectedType, randomCode]
+        `INSERT INTO transactions (ticketnum, sname, ticketservice, status, date, time, history, priority, ticket_secret, mobile, mobile_records)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [nextTicket, sname, ticketservice, finalstats, date, time, history, selectedType, randomCode, mobileStr, mobileRecordsStr]
       );
 
         try {
@@ -90,6 +110,16 @@ const config = loadConfig();
             console.log("On-prem ticket, printing required.");
           }else{
             console.log("Online ticket, no printing required.");
+          }
+          
+          if (mobileStr) {
+             const smsService = require('../utilities/smsService');
+             const ticketCode = ticketservice + nextTicket;
+             smsService.sendTemplateSMS('generate', {
+                 mobile: mobileStr,
+                 ticket: ticketCode,
+                 service: sname
+             }).catch(e => console.error("SMS Generate Error:", e));
           }
         } catch (printError) {
           console.error("Printer Error:", printError.message);

@@ -11,10 +11,24 @@ const db = new sqlite3.Database(dbPath, (err) => {
   }
   console.log('Connected to SQLite database');
 
-  db.run("PRAGMA journal_mode = WAL;");
-  db.run("PRAGMA synchronous = NORMAL;");
-  db.run("PRAGMA busy_timeout = 15000;");
-  db.run("PRAGMA foreign_keys = ON;");
+  db.run("PRAGMA journal_mode = WAL;", () => {
+    db.run("PRAGMA synchronous = NORMAL;", () => {
+      db.run("PRAGMA busy_timeout = 15000;", () => {
+        db.run("PRAGMA foreign_keys = ON;", () => {
+          db.run("ALTER TABLE transactions ADD COLUMN mobile TEXT", (err) => {
+            if (err && !err.message.includes("duplicate column name")) {
+              console.error("Failed to add mobile column:", err);
+            }
+            db.run("ALTER TABLE transactions ADD COLUMN mobile_records TEXT", (err) => {
+              if (err && !err.message.includes("duplicate column name")) {
+                console.error("Failed to add mobile_records column:", err);
+              }
+            });
+          });
+        });
+      });
+    });
+  });
 
   // initializeDatabase();
 });

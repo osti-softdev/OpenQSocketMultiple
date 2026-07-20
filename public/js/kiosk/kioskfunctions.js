@@ -114,10 +114,92 @@ socket.on('service_update', async function () {
     });
 
     // Click handler for active (non-locked) buttons only
-    $(".service-button:not(.locked)").on("click", function () {
+    $(document).on("click", ".service-button:not(.locked)", function () {
         const sname = $(this).data("sname");
         const ticketservice = $(this).data("ticketservice");
 
+        // Fetch SMS config to determine if we should show dialer
+        $.get('/api/sms-config', function(config) {
+            if (config.success && config.allowSms) {
+                // Show Dialer UI
+                showDialerModal(sname, ticketservice, config.privacyPolicy);
+            } else {
+                // SMS disabled, process normally
+                processTicket(sname, ticketservice, null);
+            }
+        }).fail(function() {
+            // Fallback if API fails
+            processTicket(sname, ticketservice, null);
+        });
+    });
+
+    function showDialerModal(sname, ticketservice, privacyPolicy) {
+        let dialerHtml = `
+            <div class="dialer-container">
+                <div style="font-size: 14px; margin-bottom: 15px; padding: 10px; background: #f9f9f9; border-left: 4px solid #007bff; text-align: left;">
+                    <strong>Privacy Policy:</strong><br/>
+                    ${privacyPolicy}
+                </div>
+                <input type="text" id="mobile-input" readonly placeholder="Enter Mobile Number" style="width: 100%; font-size: 28px; text-align: center; margin-bottom: 15px; padding: 15px; border-radius: 8px; border: 2px solid #ddd; letter-spacing: 2px;">
+                <div class="numpad" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 300px; margin: 0 auto;">
+                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="1">1</button>
+                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="2">2</button>
+                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="3">3</button>
+                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="4">4</button>
+                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="5">5</button>
+                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="6">6</button>
+                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="7">7</button>
+                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="8">8</button>
+                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="9">9</button>
+                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="clear">C</button>
+                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="0">0</button>
+                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="backspace">⌫</button>
+                </div>
+            </div>
+        `;
+
+        Swal.fire({
+            title: "SMS Notification (Optional)",
+            html: dialerHtml,
+            width: '600px',
+            showCancelButton: true,
+            showDenyButton: true,
+            confirmButtonText: 'Submit Number',
+            denyButtonText: 'Submit without Number',
+            cancelButtonText: 'Cancel',
+            confirmButtonColor: '#28a745',
+            denyButtonColor: '#6c757d',
+            cancelButtonColor: '#dc3545',
+            didOpen: () => {
+                const input = document.getElementById('mobile-input');
+                $('.numpad-btn').on('click', function() {
+                    const val = $(this).data('val');
+                    if (val === 'clear') {
+                        input.value = '';
+                    } else if (val === 'backspace') {
+                        input.value = input.value.slice(0, -1);
+                    } else {
+                        input.value += val;
+                    }
+                });
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const mobile = document.getElementById('mobile-input').value;
+                if (mobile.length < 10) {
+                    Swal.fire('Invalid Number', 'Please enter a valid mobile number or submit without one.', 'error').then(() => {
+                        showDialerModal(sname, ticketservice, privacyPolicy);
+                    });
+                    return;
+                }
+                processTicket(sname, ticketservice, mobile);
+            } else if (result.isDenied) {
+                processTicket(sname, ticketservice, null);
+            }
+        });
+    }
+
+    function processTicket(sname, ticketservice, mobile) {
         Swal.fire({
             title: "Processing...",
             html: "<p>Inserting and Printing your ticket, please wait...</p>",
@@ -126,11 +208,14 @@ socket.on('service_update', async function () {
             didOpen: () => Swal.showLoading(),
         });
 
+        const payload = { sname, ticketservice, selectedType, stats: "onprem" };
+        if (mobile) payload.mobile = mobile;
+
         $.ajax({
             url: '/api/newServiceTicket',
             method: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify({ sname, ticketservice, selectedType, stats: "onprem" }),
+            data: JSON.stringify(payload),
             success: function (response) {
                 if (response.success) {
                 const responseSname = response.ticket.sname?.replace(/_/g, ' ') || '';
@@ -171,7 +256,7 @@ socket.on('service_update', async function () {
                 });
             }
         });
-    });
+    }
 
     setServicesKiosk(services.length);
 }

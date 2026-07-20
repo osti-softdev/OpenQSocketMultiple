@@ -35,6 +35,7 @@ function loadSettings() {
     if (typeof canAccessAdminSetting !== 'function' || canAccessAdminSetting('configuration')) {
         loadSystemConfiguration();
     }
+    loadSMSConfig();
 }
 
 // & ===== SAVE SETTINGS =====
@@ -477,3 +478,46 @@ window.previewFullImage = function(imagePath) {
     });
 };
 
+// ~ ===== SMS CONFIGURATION =====
+function loadSMSConfig() {
+    $.get('/api/admin/sms-config', function (data) {
+        if (data.success) {
+            $('#setting-allowsms').prop('checked', data.allowSms);
+            $('#setting-branch').val(data.branch);
+            $('#setting-privacy').val(data.privacyPolicy);
+        }
+    }).fail(function () {
+        console.error('Failed to load SMS configuration');
+    });
+}
+
+$(document).on('submit', '#sms-config-form', function (e) {
+    e.preventDefault();
+    const payload = {
+        allowSms: $('#setting-allowsms').is(':checked'),
+        branch: $('#setting-branch').val(),
+        privacyPolicy: $('#setting-privacy').val()
+    };
+
+    $.ajax({
+        url: '/api/admin/sms-config',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(payload),
+        success: () => {
+            if (typeof showMsg === 'function') {
+                showMsg('success', 'SMS Configuration saved successfully!');
+            } else {
+                alert('SMS Configuration saved successfully!');
+            }
+        },
+        error: (xhr) => {
+            console.error(xhr.responseText);
+            if (typeof showMsg === 'function') {
+                showMsg('error', 'Failed to save SMS Configuration');
+            } else {
+                alert('Failed to save SMS Configuration');
+            }
+        }
+    });
+});

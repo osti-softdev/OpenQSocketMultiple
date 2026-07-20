@@ -13,7 +13,7 @@ const ADMIN_ROLE_TABS = Object.freeze({
 const ADMIN_ROLE_SETTINGS = Object.freeze({
     user: [],
     admin: ['advertisement', 'announcement'],
-    superadmin: ['configuration', 'advertisement', 'announcement', 'displayaudio', 'images', 'fontsizes']
+    superadmin: ['configuration', 'advertisement', 'announcement', 'displayaudio', 'images', 'smsconfig', 'fontsizes']
 });
 
 $(document).ready(function () {
