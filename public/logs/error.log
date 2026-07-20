@@ -518,3 +518,17 @@ Timeout duration was set to 1.
     at Statement.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:24:28)
     at Statement.replacement (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\trace.js:25:27)
     at Statement.replacement (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\trace.js:25:27)
+❌ 2026-07-20T09:41:11.678Z [backend\routes\AadminApi.js:34] Unable to synchronize services and routing groups: Error: SQLITE_BUSY: database is locked
+--> in Statement#run([], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:76:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:308:8
+    at new Promise (<anonymous>)
+    at db.runAsync (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:307:3)
+    at inTransaction (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\serviceGroups.js:127:12)
+    at createTellerApiRouter (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:31:32)
+    at Object.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\index.js:79:61) {
+  errno: 5,
+  code: 'SQLITE_BUSY',
+  __augmented: true
+}
