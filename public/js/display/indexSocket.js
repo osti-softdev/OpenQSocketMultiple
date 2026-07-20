@@ -99,6 +99,12 @@ function setServicesDisplay(count) {
 		$(".service-ticket").css({
 			"width": "75%",
 		});
+		$(".timer").css({
+			"left": "85%",
+			"width": "fit-content",
+			"flex-direction": "column",
+			"top": "1%",
+		})
 	if(count <= 10){
 		$(".video-container").css({
 			"display": "flex",
