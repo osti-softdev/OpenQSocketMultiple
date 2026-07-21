@@ -1780,6 +1780,11 @@ html[data-theme="dark"] .content .tab-content form textarea {
     color-scheme: dark !important;
 }
 
+html[data-theme="dark"] .settingimages,
+html[data-theme="dark"] .settingfonts {
+    background: var(--console-surface) !important;
+}
+
 .modal-overlay .form-toggle-label {
     min-height: 43px !important;
     margin: 0 !important;
