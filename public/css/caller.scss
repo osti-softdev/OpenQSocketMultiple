@@ -4,13 +4,16 @@
     padding: 0;
     box-sizing: border-box;
 }
-html, body {
+
+html,
+body {
     height: 100dvh;
     width: 100%;
     top: 0;
     left: 0;
     bottom: 0;
 }
+
 body {
     font-family: 'Inter', 'Segoe UI', sans-serif;
     background: #f9fafb;
@@ -18,7 +21,9 @@ body {
     min-height: 100dvh;
     overflow: hidden;
 }
+
 @import "materialicons";
+
 .loginPage {
     display: flex;
     justify-content: center;
@@ -55,8 +60,9 @@ body {
                 color: #6b7280;
                 font-size: 14px;
             }
-        } 
+        }
     }
+
     .error-text {
         color: #dc2626;
         text-align: center;
@@ -76,7 +82,7 @@ body {
     height: 100%;
     width: 100%;
 
-    .tellerNav{
+    .tellerNav {
         position: absolute;
         top: 0;
         left: 0;
@@ -89,11 +95,11 @@ body {
         padding: 0 20px;
         overflow: hidden;
 
-        .callerTitle{
+        .callerTitle {
             color: white;
         }
 
-        .reportbtn{
+        .reportbtn {
             position: absolute;
             right: 15%;
             width: 15%;
@@ -102,7 +108,8 @@ body {
             align-items: center;
             transform: scale(0.9);
         }
-        .historyBtn{
+
+        .historyBtn {
             position: absolute;
             right: 0%;
             width: 15%;
@@ -110,16 +117,16 @@ body {
             justify-content: center;
             align-items: center;
             transform: scale(0.9);
-        }        
+        }
 
-        .teller-info{
+        .teller-info {
             position: absolute;
             left: 2%;
             display: flex;
             align-items: center;
             gap: 15px;
 
-            .avatar{
+            .avatar {
                 width: 50px;
                 height: 100%;
                 background-color: #2563eb;
@@ -131,30 +138,30 @@ body {
                 font-weight: 700;
             }
 
-            .teller-details{
+            .teller-details {
                 color: white;
 
-                .teller-username{
+                .teller-username {
                     font-size: 4vh;
                     font-weight: 600;
                 }
 
-                .counter-number{
+                .counter-number {
                     font-size: 3vh;
                     opacity: 0.8;
                 }
             }
         }
     }
-    
-    .tellerContent{
+
+    .tellerContent {
         position: absolute;
         top: 10%;
         left: 0%;
         width: 100%;
         height: 90%;
 
-        .navBtns{
+        .navBtns {
             position: relative;
             height: 10%;
             width: 100%;
@@ -162,7 +169,7 @@ body {
             justify-content: space-evenly;
             align-items: center;
 
-            div{
+            div {
                 height: 80%;
                 width: 24%;
                 display: flex;
@@ -173,14 +180,15 @@ body {
                 box-shadow: 2px 2px 5px black;
                 background-color: rgb(63, 63, 63);
                 cursor: pointer;
-                &:active{
+
+                &:active {
                     transform: scale(0.9);
                 }
             }
 
         }
 
-        .servicesManage{
+        .servicesManage {
             position: absolute;
             top: 10%;
             left: 0;
@@ -193,11 +201,11 @@ body {
             align-items: start;
             background-color: white;
 
-            &.activeDisplay{
+            &.activeDisplay {
                 display: flex;
             }
 
-            .service-box{
+            .service-box {
                 position: relative;
                 width: 100%;
                 height: 60px;
@@ -212,7 +220,7 @@ body {
                 cursor: pointer;
                 transition: background-color 0.2s;
 
-                .service-stats{
+                .service-stats {
                     position: absolute;
                     left: 2%;
                     display: flex;
@@ -226,21 +234,22 @@ body {
                     cursor: pointer;
                     transition: background-color 0.2s;
 
-                    h5{
+                    h5 {
                         position: absolute;
                         left: 0;
                         display: flex;
                         text-wrap: wrap;
                         width: 28%;
                     }
-                    .stat-item{
+
+                    .stat-item {
                         position: absolute;
                         left: 30%;
                         width: 30%;
                     }
                 }
 
-                .service-btns{
+                .service-btns {
                     position: absolute;
                     right: 1%;
                     height: 100%;
@@ -250,15 +259,16 @@ body {
                     align-items: center;
                     gap: 10px;
 
-                    .btn{
+                    .btn {
                         padding: 0;
                         height: 90%;
                         width: 40%;
                     }
-                }   
+                }
             }
         }
-        .pendingManage{
+
+        .pendingManage {
             position: absolute;
             top: 10%;
             left: 0;
@@ -270,9 +280,10 @@ body {
             align-items: start;
             overflow: hidden;
 
-            &.activeDisplay{
+            &.activeDisplay {
                 display: flex;
             }
+
             .queuelist {
                 position: absolute;
                 top: 15%;
@@ -282,47 +293,47 @@ body {
                 scrollbar-width: thin;
                 gap: 10px;
 
-            .empty-list {
-                text-align: center;
-                padding: 30px;
-                color: #9ca3af;
-                font-size: 14px;
-            }
-
-            .queue-item {
-                transform: scale(0.98, 0.90);
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 12px;
-                background-color: rgba(0, 255, 0, 0.521);
-                border-bottom: 1px solid #f3f4f6;
-
-                &:last-child {
-                    border-bottom: none;
+                .empty-list {
+                    text-align: center;
+                    padding: 30px;
+                    color: #9ca3af;
+                    font-size: 14px;
                 }
 
-                .queue-item-info {
-                    h4 {
-                        font-size: 16px;
-                        font-weight: 600;
+                .queue-item {
+                    transform: scale(0.98, 0.90);
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 12px;
+                    background-color: rgba(0, 255, 0, 0.521);
+                    border-bottom: 1px solid #f3f4f6;
+
+                    &:last-child {
+                        border-bottom: none;
                     }
 
-                    span {
-                        font-size: 12px;
-                        color: #000000;
+                    .queue-item-info {
+                        h4 {
+                            font-size: 16px;
+                            font-weight: 600;
+                        }
+
+                        span {
+                            font-size: 12px;
+                            color: #000000;
+                        }
+                    }
+
+                    &.priority {
+                        color: white;
+                        background: #bd8686;
+                        border-left: 3px solid #ef4444;
                     }
                 }
-
-                &.priority {
-                    color: white;
-                    background: #bd8686;
-                    border-left: 3px solid #ef4444;
-                }
             }
-        }
 
-            .queue-controls{
+            .queue-controls {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -332,16 +343,17 @@ body {
                 justify-content: center;
                 align-items: center;
 
-                input{
+                input {
                     position: relative;
                     height: 100%;
                     width: 80%;
                     transform: scale(0.95);
                 }
             }
-            
+
         }
-        .heldManage{
+
+        .heldManage {
             position: absolute;
             top: 10%;
             left: 0;
@@ -353,17 +365,18 @@ body {
             align-items: start;
             overflow: hidden;
 
-                &.activeDisplay{
-                    display: flex;
-                }
-                .heldlist {
-                    position: absolute;
-                    top: 0%;
-                    width: 100%;
-                    max-height: 100%;
-                    overflow-y: auto;
-                    scrollbar-width: thin;
-                    gap: 10px;
+            &.activeDisplay {
+                display: flex;
+            }
+
+            .heldlist {
+                position: absolute;
+                top: 0%;
+                width: 100%;
+                max-height: 100%;
+                overflow-y: auto;
+                scrollbar-width: thin;
+                gap: 10px;
 
                 .empty-list {
                     text-align: center;
@@ -405,7 +418,8 @@ body {
                 }
             }
         }
-        .forwardManage{
+
+        .forwardManage {
             position: absolute;
             top: 10%;
             left: 0;
@@ -417,17 +431,18 @@ body {
             align-items: start;
             overflow: hidden;
 
-                &.activeDisplay{
-                    display: flex;
-                }
-                .forwardlist {
-                    position: absolute;
-                    top: 0%;
-                    width: 100%;
-                    max-height: 100%;
-                    overflow-y: auto;
-                    scrollbar-width: thin;
-                    gap: 10px;
+            &.activeDisplay {
+                display: flex;
+            }
+
+            .forwardlist {
+                position: absolute;
+                top: 0%;
+                width: 100%;
+                max-height: 100%;
+                overflow-y: auto;
+                scrollbar-width: thin;
+                gap: 10px;
 
                 .empty-list {
                     text-align: center;
@@ -468,8 +483,9 @@ body {
                     }
                 }
             }
-        }   
-        .historyManage{
+        }
+
+        .historyManage {
             position: absolute;
             top: 10%;
             left: 0;
@@ -481,79 +497,82 @@ body {
             align-items: start;
             overflow: hidden;
 
-                &.activeDisplay{
-                    display: flex;
-                }
-                .histheader {
-                    position: absolute;
-                    top: 0%;
-                    width: 100%;
-                    height: 10%;
-                    overflow-y: auto;
-                    display: flex;
-                    justify-content: start;
-                    align-items: center;
-                    gap: 10px;
-                    text-indent: 20px;
-                }
-                .hist-table-container {
-                    position: absolute;
-                    top: 10%;
-                    left: 0;
-                    height: 90%;
-                    width: 100%;
-                    overflow: hidden; // important
+            &.activeDisplay {
+                display: flex;
+            }
 
-                    .history-table {
+            .histheader {
+                position: absolute;
+                top: 0%;
+                width: 100%;
+                height: 10%;
+                overflow-y: auto;
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                gap: 10px;
+                text-indent: 20px;
+            }
+
+            .hist-table-container {
+                position: absolute;
+                top: 10%;
+                left: 0;
+                height: 90%;
+                width: 100%;
+                overflow: hidden; // important
+
+                .history-table {
+                    width: 100%;
+                    height: 100%;
+                    border-collapse: collapse;
+                    table-layout: fixed;
+                    background-color: rgba(189, 186, 186, 0.671);
+
+                    thead {
+                        display: table;
                         width: 100%;
-                        height: 100%;
-                        border-collapse: collapse;
-                        table-layout: fixed; 
-                        background-color: rgba(189, 186, 186, 0.671);
+                        table-layout: fixed;
+                        background-color: #f3f4f6;
+                        border: 1px solid black;
 
-                        thead {
-                            display: table;
-                            width: 100%;
-                            table-layout: fixed;
-                            background-color: #f3f4f6;
-                            border: 1px solid black;
-
-                            th {
-                                padding: 12px;
-                                text-align: center;
-                                font-size: 14px;
-                                color: #374151;
-                            }
-                        }
-
-                        tbody {
-                            display: block;              // key change
-                            height: calc(100% - 45px);   // adjust based on thead height
-                            overflow-y: auto;            // scrollbar appears here
-                            width: 100%;
-                        }
-
-                        tr {
-                            display: table;
-                            width: 100%;
-                            table-layout: fixed;
-                            border-bottom: 1px solid #e5e7eb;
-
-                            &:last-child {
-                                border-bottom: none;
-                            }
-                        }
-
-                        td {
+                        th {
                             padding: 12px;
+                            text-align: center;
                             font-size: 14px;
                             color: #374151;
-                            text-align: center;
                         }
                     }
+
+                    tbody {
+                        display: block; // key change
+                        height: calc(100% - 45px); // adjust based on thead height
+                        overflow-y: auto; // scrollbar appears here
+                        width: 100%;
+                    }
+
+                    tr {
+                        display: table;
+                        width: 100%;
+                        table-layout: fixed;
+                        border-bottom: 1px solid #e5e7eb;
+
+                        &:last-child {
+                            border-bottom: none;
+                        }
+                    }
+
+                    td {
+                        padding: 12px;
+                        font-size: 14px;
+                        color: #374151;
+                        text-align: center;
+                    }
                 }
+            }
         }
-        .actionbtns{
+
+        .actionbtns {
             position: absolute;
             top: 70%;
             bottom: 0%;
@@ -564,7 +583,7 @@ body {
             justify-content: center;
             align-items: center;
 
-            .time-meta{
+            .time-meta {
                 position: absolute;
                 top: 0;
                 left: 0%;
@@ -577,7 +596,8 @@ body {
                 font-weight: 600;
                 background-color: #f3f4f6;
             }
-            .currentCalledTicket{
+
+            .currentCalledTicket {
                 position: absolute;
                 top: 0;
                 left: 50%;
@@ -600,7 +620,7 @@ body {
 
                     .ticket-num-large {
                         height: 100%;
-                        width: 50%;                        
+                        width: 50%;
                         font-size: 4vw;
                         font-weight: 800;
                         color: #2563eb;
@@ -627,7 +647,8 @@ body {
                     }
                 }
             }
-            .ticket-action-buttons{
+
+            .ticket-action-buttons {
                 position: absolute;
                 top: 50%;
                 left: 0%;
@@ -640,7 +661,8 @@ body {
                 font-weight: 600;
                 background-color: #f3f4f6;
                 overflow: hidden;
-                button{
+
+                button {
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -649,12 +671,13 @@ body {
                     height: 90%;
                     width: 18%;
                     box-shadow: 2px 2px 5px black;
+
                     &:active {
                         transform: scale(0.95);
                     }
                 }
             }
-            
+
         }
     }
 
@@ -713,176 +736,184 @@ body {
         }
     }
 }
+
 // ! common styles
-    .form-group {
-        margin-bottom: 20px;
+.form-group {
+    margin-bottom: 20px;
 
-        label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 500;
-            font-size: 14px;
-            color: #374151;
+    label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 500;
+        font-size: 14px;
+        color: #374151;
+    }
+
+    input,
+    select,
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 14px;
+
+        &:focus {
+            border-color: #2563eb;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
+    }
+}
 
-        input,
-        select,
-        textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            font-size: 14px;
+// !  button styles
+.btn {
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    font-size: 14px;
 
-            &:focus {
-                border-color: #2563eb;
-                outline: none;
-                box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    &:hover {
+        transform: translateY(-1px);
+    }
+
+    &.btn-primary {
+        background: #2563eb;
+        color: white;
+
+        &:hover {
+            background: #1d4ed8;
+        }
+    }
+
+    &.btn-secondary {
+        background: #6b7280;
+        color: white;
+
+        &:hover {
+            background: #4b5563;
+        }
+    }
+
+    &.btn-success {
+        background: #10b981;
+        color: white;
+
+        &:hover {
+            background: #059669;
+        }
+    }
+
+    &.btn-danger {
+        background: #ef4444;
+        color: white;
+
+        &:hover {
+            background: #dc2626;
+        }
+    }
+
+    &.btn-warning {
+        background: #f59e0b;
+        color: white;
+
+        &:hover {
+            background: #d97706;
+        }
+    }
+
+    &.btn-info {
+        background: #3b82f6;
+        color: white;
+
+        &:hover {
+            background: #2563eb;
+        }
+    }
+
+    &.w-full {
+        width: 100%;
+    }
+
+    &.logout-btn {
+        width: 100%;
+        background: #fef2f2;
+        color: #dc2626;
+        border: 1px solid #fee2e2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+
+        &:hover {
+            background: #fee2e2;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .tellerNav {
+        .teller-info {
+            .teller-details {
+                display: none;
             }
         }
     }
-    // !  button styles
-    .btn {
-        padding: 10px 16px;
-        border-radius: 6px;
-        font-weight: 500;
-        cursor: pointer;
-        border: none;
-        transition: all 0.2s;
-        font-size: 14px;
 
-        &:hover {
-            transform: translateY(-1px);
-        }
-
-        &.btn-primary {
-            background: #2563eb;
-            color: white;
-
-            &:hover {
-                background: #1d4ed8;
-            }
-        }
-
-        &.btn-secondary {
-            background: #6b7280;
-            color: white;
-
-            &:hover {
-                background: #4b5563;
-            }
-        }
-
-        &.btn-success {
-            background: #10b981;
-            color: white;
-
-            &:hover {
-                background: #059669;
-            }
-        }
-
-        &.btn-danger {
-            background: #ef4444;
-            color: white;
-
-            &:hover {
-                background: #dc2626;
-            }
-        }
-
-        &.btn-warning {
-            background: #f59e0b;
-            color: white;
-
-            &:hover {
-                background: #d97706;
-            }
-        }
-
-        &.btn-info {
-            background: #3b82f6;
-            color: white;
-
-            &:hover {
-                background: #2563eb;
-            }
-        }
-
-        &.w-full {
-            width: 100%;
-        }
-
-        &.logout-btn {
-            width: 100%;
-            background: #fef2f2;
-            color: #dc2626;
-            border: 1px solid #fee2e2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-
-            &:hover {
-                background: #fee2e2;
-            }
-        }
-    }   
-
-@media screen and (max-width: 767px){
-    .tellerNav{
-            .teller-info{
-                .teller-details{
-                    display: none;
-                }
-            }
-        }
-
-    .tellerContent{
-        .navBtns{
-            div{
+    .tellerContent {
+        .navBtns {
+            div {
                 font-size: 12px;
                 padding: 0;
                 height: 80%;
                 width: 22%;
             }
         }
-        .servicesManage{
-                max-height: 60% !important;
-                background-color: red !important;
-            .service-box{
-                .service-stats{
-                    .stat-item{
+
+        .servicesManage {
+            max-height: 60% !important;
+            background-color: red !important;
+
+            .service-box {
+                .service-stats {
+                    .stat-item {
                         font-size: 10px;
                     }
                 }
             }
         }
-        .pendingManage{
-            .queue-item{
-                .queue-item-info{
-                    h4{
+
+        .pendingManage {
+            .queue-item {
+                .queue-item-info {
+                    h4 {
                         font-size: 14px;
                     }
-                    span{
+
+                    span {
                         font-size: 10px;
                     }
                 }
             }
         }
-        .actionbtns{
+
+        .actionbtns {
             top: 70% !important;
             height: 30% !important;
             bottom: 0% !important;
 
-            .time-meta{
+            .time-meta {
                 top: 0 !important;
                 left: 0 !important;
                 max-height: 50% !important;
                 width: 50% !important;
                 font-size: 12px !important;
             }
-            .currentCalledTicket{
+
+            .currentCalledTicket {
                 top: 0 !important;
                 left: 50% !important;
                 max-height: 50% !important;
@@ -898,13 +929,14 @@ body {
                     }
                 }
             }
-            .ticket-action-buttons{
+
+            .ticket-action-buttons {
                 top: 50% !important;
                 left: 0 !important;
                 max-height: 50% !important;
                 width: 100% !important;
 
-                button{
+                button {
                     font-size: 3vw !important;
                     height: 90% !important;
                     width: 18% !important;
@@ -1315,6 +1347,7 @@ body {
 
         .heldManage,
         .forwardManage {
+
             .heldlist,
             .forwardlist {
                 height: 100%;
@@ -1400,6 +1433,7 @@ body {
                 border-bottom: 1px solid var(--caller-border);
 
                 .active-ticket-info {
+
                     .ticket-num-large,
                     .ticket-service-name {
                         background: var(--caller-surface-strong);
@@ -1615,7 +1649,7 @@ body[data-theme="dark"] {
                     grid-template-columns: 1fr auto;
                     gap: 8px;
 
-                    > span {
+                    >span {
                         grid-column: 1 / -1;
                         font-size: 12px;
                     }

@@ -485,6 +485,17 @@ function loadSMSConfig() {
             $('#setting-allowsms').prop('checked', data.allowSms);
             $('#setting-branch').val(data.branch);
             $('#setting-privacy').val(data.privacyPolicy);
+            $('#setting-call-gap').val(data.callRangeGap || 0);
+            
+            if (data.sms_messages) {
+                $('#setting-msg-generate').val(data.sms_messages.generate?.message || '');
+                $('#setting-msg-call').val(data.sms_messages.call?.message || '');
+                $('#setting-msg-forward').val(data.sms_messages.forward?.message || '');
+                $('#setting-msg-hold').val(data.sms_messages.hold?.message || '');
+                $('#setting-msg-void').val(data.sms_messages.void?.message || '');
+                $('#setting-msg-finish').val(data.sms_messages.finish?.message || '');
+                $('#setting-msg-nearly').val(data.sms_messages.nearly_called?.message || '');
+            }
         }
     }).fail(function () {
         console.error('Failed to load SMS configuration');
@@ -493,10 +504,22 @@ function loadSMSConfig() {
 
 $(document).on('submit', '#sms-config-form', function (e) {
     e.preventDefault();
+    const sms_messages = {
+        "generate": { "type": "generate", "message": $('#setting-msg-generate').val() },
+        "call": { "type": "call", "message": $('#setting-msg-call').val() },
+        "forward": { "type": "forward", "message": $('#setting-msg-forward').val() },
+        "hold": { "type": "hold", "message": $('#setting-msg-hold').val() },
+        "void": { "type": "void", "message": $('#setting-msg-void').val() },
+        "finish": { "type": "finish", "message": $('#setting-msg-finish').val() },
+        "nearly_called": { "type": "nearly_called", "message": $('#setting-msg-nearly').val() }
+    };
+
     const payload = {
         allowSms: $('#setting-allowsms').is(':checked'),
         branch: $('#setting-branch').val(),
-        privacyPolicy: $('#setting-privacy').val()
+        privacyPolicy: $('#setting-privacy').val(),
+        callRangeGap: $('#setting-call-gap').val(),
+        sms_messages: sms_messages
     };
 
     $.ajax({

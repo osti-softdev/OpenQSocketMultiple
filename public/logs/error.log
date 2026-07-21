@@ -532,3 +532,35 @@ Timeout duration was set to 1.
   code: 'SQLITE_BUSY',
   __augmented: true
 }
+❌ 2026-07-21T08:40:22.596Z [backend\routes\AadminApi.js:34] Unable to synchronize services and routing groups: Error: SQLITE_BUSY: database is locked
+--> in Statement#run([], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:76:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:397:8
+    at new Promise (<anonymous>)
+    at db.runAsync (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:396:3)
+    at inTransaction (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\serviceGroups.js:127:12)
+    at createTellerApiRouter (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:31:32)
+    at Object.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\index.js:79:61) {
+  errno: 5,
+  code: 'SQLITE_BUSY',
+  __augmented: true
+}
+❌ 2026-07-21T08:43:38.332Z [backend\routes\AadminApi.js:34] Unable to synchronize services and routing groups: Error: SQLITE_BUSY: database is locked
+--> in Statement#run([], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:76:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:397:8
+    at new Promise (<anonymous>)
+    at db.runAsync (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:396:3)
+    at inTransaction (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\serviceGroups.js:127:12)
+    at createTellerApiRouter (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:31:32)
+    at Object.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\index.js:79:61) {
+  errno: 5,
+  code: 'SQLITE_BUSY',
+  __augmented: true
+}
+❌ 2026-07-21T09:04:07.235Z [backend\routes\AkioskApi.js:122] SMS Generate Error: Error: Modem not connected
+    at sendSMS (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\smsService.js:189:38)
+    at Object.sendTemplateSMS (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\smsService.js:297:11)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AkioskApi.js:118:25

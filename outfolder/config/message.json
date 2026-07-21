@@ -22,5 +22,9 @@
   "finish": {
     "type": "finish",
     "message": "From #branch: Thank you, come again we are happy to serve you."
+  },
+  "nearly_called": {
+    "type": "nearly_called",
+    "message": "10th ticket before you is called please wait nearby for your ticket is to be called."
   }
 }

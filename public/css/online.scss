@@ -1,11 +1,11 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -14,13 +14,13 @@ body{
     background: skyblue;
 }
 
-.mainHeader{
-    position:absolute;
+.mainHeader {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 10%;
-    background-color:#08228d;
+    background-color: #08228d;
     color: white;
     display: flex;
     align-items: center;
@@ -33,19 +33,20 @@ body{
     box-shadow: 0px 4px 8px rgb(0, 0, 0);
     z-index: 1;
 }
-.mainBody{
-    position:absolute;
+
+.mainBody {
+    position: absolute;
     top: 10%;
     left: 0;
     width: 100%;
     height: 90%;
-    background-color:#08228d;
+    background-color: #08228d;
     background-image: url("/images/bg.png");
     background-size: object-fit;
     background-position: center center;
     background-repeat: no-repeat;
-    
-    .service-container{
+
+    .service-container {
         width: 100%;
         height: 100%;
         display: flex;
@@ -55,9 +56,9 @@ body{
         justify-content: space-evenly;
         align-items: center;
         gap: 1%;
-    backdrop-filter: blur(2px);
+        backdrop-filter: blur(2px);
 
-        button{
+        button {
             position: relative;
             width: 30%;
             height: auto;
@@ -75,31 +76,34 @@ body{
             color: #e9e1e1;
             text-shadow: 2px 2px 5px black;
             border-radius: 16px;
-            box-shadow: 0px 0px 18px rgb(0, 0, 0); 
+            box-shadow: 0px 0px 18px rgb(0, 0, 0);
             cursor: pointer;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0, 0, 0, 0.5);
             background-position: center center;
 
-            &:active{
+            &:active {
                 transform: scale(0.95);
                 box-shadow: 0px 0px 8px rgb(255, 255, 255);
             }
-            &.locked{
+
+            &.locked {
                 filter: brightness(70%);
             }
         }
-         &:nth-child(1){
-            button{
-            // background-color: rgb(144, 153, 19);
-            background-image: url("/images/buttons/button_regular.png");
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
+
+        &:nth-child(1) {
+            button {
+                // background-color: rgb(144, 153, 19);
+                background-image: url("/images/buttons/button_regular.png");
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
             }
         }
 
 
     }
 }
+
 .ticket-card {
     border: 2px dashed #ccc;
     padding: 20px;
@@ -109,5 +113,17 @@ body{
     width: 100%;
     max-width: 350px;
 }
-.ticket-header { font-size: 1.2rem; font-weight: bold; color: #333; margin-bottom: 10px; }
-.ticket-number { font-size: 3rem; color: #d9534f; font-weight: 800; display: block; }
+
+.ticket-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.ticket-number {
+    font-size: 3rem;
+    color: #d9534f;
+    font-weight: 800;
+    display: block;
+}

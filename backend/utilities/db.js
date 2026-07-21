@@ -67,9 +67,9 @@ function initializeDatabase() {
 
     // 1. Drop unused mobile_no column from transactions if it exists (requires SQLite 3.35.0+)
     db.run("ALTER TABLE transactions DROP COLUMN mobile_no;", (err) => {
-        if (err && !err.message.includes("no such column") && !err.message.includes("syntax error")) {
-            console.error("Note: mobile_no drop:", err.message);
-        }
+      if (err && !err.message.includes("no such column") && !err.message.includes("syntax error")) {
+        console.error("Note: mobile_no drop:", err.message);
+      }
     });
 
     // 2. CREATE TABLES
@@ -171,15 +171,16 @@ function initializeDatabase() {
     counterGroups.forEach(cg => db.run(`INSERT OR IGNORE INTO counter_groups (id, group_name) VALUES (?, ?)`, cg));
 
     const counters = [
-      [1, 'TELLER 1', 1, 'clc', 'clc', '1', 'REAL_PROPERTY_TAX,BUSINESS_TAX,GENERAL,MDRRMO,ASSESSMENT,CASHIER,EVALUATOR,ASSESSOR', 'REAL_PROPERTY_TAX', 75],
-      [2, 'TELLER 2', 2, 'cade', 'cade', '1', '', null, null],
-      [3, 'TELLER 3', 3, 'tel3', 'asda', '1', '', null, null],
-      [4, 'TELLER 4', 4, 'teller', 'verify', '1', '', null, null],
-      [5, 'MDS', 5, 'cawe', 'wcea', '1', '', null, null],
-      [9, 'New Accounts 7', 7, 'cewaac', 'c1231c2313', '1', '', null, null],
-      [11, 'New Accounts 8', 8, 'aceq2w', 'c13c123', '1', '', null, null],
-      [12, 'New Accounts 9', 9, 'cqwe12', '123c123c1', '1', '', null, null],
-      [13, 'SALARY LOAN', 10, 'c23132', 'c123123c123', '1', '', null, null]
+      [1, 'TELLER 1', 1, 'teller1', '1234', '1', 'REAL_PROPERTY_TAX,BUSINESS_TAX,GENERAL,MDRRMO,ASSESSMENT,CASHIER,EVALUATOR,ASSESSOR', 'REAL_PROPERTY_TAX', 75],
+      [2, 'TELLER 2', 2, 'teller2', '1234', '1', 'BUSINESS_TAX', 'BUSINESS_TAX', 71],
+      [3, 'TELLER 3', 3, 'teller3', '1234', '1', 'MDRRMO', 'MDRRMO', 72],
+      [4, 'TELLER 4', 4, 'teller4', '1234', '1', 'CASHIER', 'CASHIER', 73],
+      [5, 'TELLER 5', 5, 'teller5', '1234', '1', 'GENERAL', 'GENERAL', 76],
+      [6, 'TELLER 6', 6, 'teller6', '1234', '1', 'ASSESSMENT', 'ASSESSMENT', 77],
+      [7, 'TELLER 7', 7, 'teller7', '1234', '1', 'ASSESSMENT', 'ASSESSMENT', 77],
+      [8, 'TELLER 8', 8, 'teller8', '1234', '1', 'EVALUATOR', 'EVALUATOR', 78],
+      [9, 'TELLER 9', 9, 'teller9', '1234', '1', 'EVALUATOR', 'EVALUATOR', 78],
+      [10, 'TELLER 10', 10, 'teller10', '1234', '1', 'ASSESSOR', 'ASSESSOR', 79]
     ];
     counters.forEach(c => db.run(`INSERT OR IGNORE INTO counters (id, cname, cnum, cuser, cpass, cstatus, services, group_name, group_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`, c));
 
@@ -196,13 +197,93 @@ function initializeDatabase() {
     services.forEach(s => db.run(`INSERT OR IGNORE INTO services (id, sname, regular, priority, status, shortSname, sub_sname, sched) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`, s));
 
     const settings = [
-      [7, 'announcement', 'WELCOME TO SAN PEDRO DAVAO HOSPITAL INC.', 1],
-      [8, 'announcement2', 'WE CARE FOR YOUR HEALTH', 1],
+      [7, 'announcement', '', 1],
+      [8, 'announcement2', '', 1],
       [9, 'announcement3', 'WE ARE HAPPY TO SERVE YOU!', 1],
       [10, 'annbgcolor', '#08228d', 0],
       [11, 'anntextcolor', '#1bb18c', 0],
       [12, 'annspeed', '43', 0],
-      [13, 'privacy_policy', 'By proceeding, you agree to receive SMS notifications about your queue ticket status.', null]
+      [13, 'privacy_policy', `# Privacy Policy
+
+      **Effective Date:** January 1, 2024
+
+      ## Privacy Notice
+
+      This application values and respects your right to privacy. We are committed to protecting your personal information in accordance with the Data Privacy Act of 2012 (Republic Act No. 10173) and its Implementing Rules and Regulations.
+
+      ## Information We Collect
+
+      When you use this application, we may collect the following personal information:
+
+      * Mobile phone number
+      * Queue transaction details (such as queue number, service selected, date and time of visit)
+      * Optional feedback or ratings submitted through the application
+
+      We only collect information that is necessary for the operation of our queue management services at **SAN PEDRO DAVAO HOSPITAL INC.**.
+
+      ## Purpose of Collection
+
+      Your mobile phone number is collected and processed for the following purposes:
+
+      * Sending your queue number and queue status notifications
+      * Informing you when your turn is approaching
+      * Contacting you regarding your current queue transaction when necessary
+      * Sending announcements, service advisories, operating hours, maintenance notices, and other updates related to **SAN PEDRO DAVAO HOSPITAL INC.**'s services
+      * Improving customer service and system performance
+
+      We will not use your personal information for purposes incompatible with those stated above without obtaining your consent, unless otherwise permitted by law.
+
+      ## Legal Basis for Processing
+
+      Your personal information is processed based on:
+
+      * Your voluntary consent when providing your mobile number; and
+      * The legitimate interests of **SAN PEDRO DAVAO HOSPITAL INC.** in providing efficient queue management and customer communication.
+
+      ## Data Sharing
+
+      Your personal information will not be sold, rented, or shared with third parties for marketing purposes.
+
+      Information may only be disclosed:
+
+      * When required by law or lawful order of a government authority;
+      * To authorized service providers who process data on behalf of **SAN PEDRO DAVAO HOSPITAL INC.** under appropriate confidentiality and security agreements; or
+      * With your explicit consent.
+
+      ## Data Retention
+
+      Your personal information will only be retained for as long as necessary to fulfill the purposes stated in this Privacy Policy or as required by applicable laws and regulations.
+
+      After the retention period expires, your personal information will be securely deleted, anonymized, or disposed of using appropriate security measures.
+
+      ## Data Security
+
+      We implement reasonable organizational, physical, and technical security measures to protect your personal information against unauthorized access, disclosure, alteration, loss, misuse, or destruction.
+
+      ## Your Rights
+
+      Subject to applicable laws, you have the right to:
+
+      * Be informed about the processing of your personal information.
+      * Access your personal information.
+      * Correct inaccurate or incomplete personal information.
+      * Withdraw your consent, subject to legal and contractual limitations.
+      * Request deletion or blocking of your personal information when legally applicable.
+      * Lodge a complaint with the National Privacy Commission if you believe your privacy rights have been violated.
+
+      ## Consent
+
+      By providing your mobile phone number and using this application, you acknowledge that you have read and understood this Privacy Policy and consent to the collection, use, storage, and processing of your personal information for the purposes described herein.
+
+      ## Contact Information
+
+      For questions, concerns, or requests regarding this Privacy Policy or the processing of your personal information, please contact:
+
+      **Data Protection Officer / Privacy Contact**
+      Name: **SAN PEDRO DAVAO HOSPITAL INC. Administration**
+      Email: admin@sanpedrodavaohospital.com
+      Phone: (082) 222-2222
+      Address: San Pedro Street, Davao City`, 1]
     ];
     settings.forEach(st => db.run(`INSERT OR IGNORE INTO settings (id, key, value, status) VALUES (?, ?, ?, ?)`, st));
 
@@ -263,7 +344,7 @@ function archiveOldData() {
               console.error("Failed to delete old forwarded_tickets:", delErr);
             }
           });
-          db.run(`DELETE FROM transactions WHERE date < ${cutoffQuery}`, function(delErr2) {
+          db.run(`DELETE FROM transactions WHERE date < ${cutoffQuery}`, function (delErr2) {
             if (delErr2) {
               console.error("Failed to delete old transactions:", delErr2);
             } else {

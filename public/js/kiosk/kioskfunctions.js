@@ -135,25 +135,30 @@ socket.on('service_update', async function () {
 
     function showDialerModal(sname, ticketservice, privacyPolicy) {
         let dialerHtml = `
-            <div class="dialer-container">
-                <div style="font-size: 14px; margin-bottom: 15px; padding: 10px; background: #f9f9f9; border-left: 4px solid #007bff; text-align: left;">
-                    <strong>Privacy Policy:</strong><br/>
-                    ${privacyPolicy}
+            <div class="dialer-container" style="display: flex; gap: 20px; text-align: left; height: 50vh; min-height: 400px;">
+                
+                <!-- Left Side: Privacy Policy (Scrollable) -->
+                <div style="flex: 1; padding: 15px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; overflow-y: auto;">
+                    <div style="font-size: 13px; line-height: 1.5; white-space: pre-wrap; font-family: sans-serif;">${privacyPolicy}</div>
                 </div>
-                <input type="text" id="mobile-input" readonly placeholder="Enter Mobile Number" style="width: 100%; font-size: 28px; text-align: center; margin-bottom: 15px; padding: 15px; border-radius: 8px; border: 2px solid #ddd; letter-spacing: 2px;">
-                <div class="numpad" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 300px; margin: 0 auto;">
-                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="1">1</button>
-                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="2">2</button>
-                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="3">3</button>
-                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="4">4</button>
-                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="5">5</button>
-                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="6">6</button>
-                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="7">7</button>
-                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="8">8</button>
-                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="9">9</button>
-                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="clear">C</button>
-                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="0">0</button>
-                    <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="backspace">⌫</button>
+
+                <!-- Right Side: Dialer -->
+                <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                    <input type="text" id="mobile-input" readonly placeholder="Enter Mobile Number" style="width: 100%; font-size: 24px; text-align: center; margin-bottom: 15px; padding: 15px; border-radius: 8px; border: 2px solid #ddd; letter-spacing: 2px; background-color: #fff;">
+                    <div class="numpad" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; width: 100%; max-width: 320px;">
+                        <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="1">1</button>
+                        <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="2">2</button>
+                        <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="3">3</button>
+                        <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="4">4</button>
+                        <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="5">5</button>
+                        <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="6">6</button>
+                        <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="7">7</button>
+                        <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="8">8</button>
+                        <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="9">9</button>
+                        <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="clear">C</button>
+                        <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="0">0</button>
+                        <button class="numpad-btn btn btn-light" style="font-size:24px; padding:15px;" data-val="backspace">⌫</button>
+                    </div>
                 </div>
             </div>
         `;
@@ -161,7 +166,7 @@ socket.on('service_update', async function () {
         Swal.fire({
             title: "SMS Notification (Optional)",
             html: dialerHtml,
-            width: '600px',
+            width: '900px',
             showCancelButton: true,
             showDenyButton: true,
             confirmButtonText: 'Submit Number',
@@ -179,15 +184,20 @@ socket.on('service_update', async function () {
                     } else if (val === 'backspace') {
                         input.value = input.value.slice(0, -1);
                     } else {
-                        input.value += val;
+                        // Cap input at exactly 11 digits for Philippines format
+                        if (input.value.length < 11) {
+                            input.value += val;
+                        }
                     }
                 });
             }
         }).then((result) => {
             if (result.isConfirmed) {
                 const mobile = document.getElementById('mobile-input').value;
-                if (mobile.length < 10) {
-                    Swal.fire('Invalid Number', 'Please enter a valid mobile number or submit without one.', 'error').then(() => {
+                
+                // Validate exactly 11 digits and starts with 09
+                if (mobile.length !== 11 || !mobile.startsWith('09')) {
+                    Swal.fire('Invalid Number', 'Mobile number must start with 09 and be exactly 11 digits long.', 'error').then(() => {
                         showDialerModal(sname, ticketservice, privacyPolicy);
                     });
                     return;

@@ -1147,6 +1147,28 @@ router.get('/settings', (req, res) => {
             };
         });
 
+        // Inject SMS Messages from message.json
+        try {
+            const fs = require('fs');
+            const path = require('path');
+            const rootpath = global.outfolderPath || path.join(__dirname, '../../outfolder');
+            const messagePath = path.join(rootpath, 'config/message.json');
+            if (fs.existsSync(messagePath)) {
+                settingsObj['sms_messages'] = JSON.parse(fs.readFileSync(messagePath, 'utf8'));
+            } else {
+                settingsObj['sms_messages'] = {
+                    "generate": { "type": "generate", "message": "Your ticket is #ticket for #service. Please wait for your number to be called." },
+                    "call": { "type": "call", "message": "Your ticket #ticket is called. Please proceed to #counter." },
+                    "forward": { "type": "forward", "message": "Your ticket #ticket has been forwarded to #counter." },
+                    "hold": { "type": "hold", "message": "Your ticket #ticket is currently on hold." },
+                    "void": { "type": "void", "message": "Your ticket #ticket has been voided." },
+                    "finish": { "type": "finish", "message": "From #branch: Thank you, come again we are happy to serve you." }
+                };
+            }
+        } catch (e) {
+            console.error('Failed to read message.json', e);
+        }
+
         res.json(settingsObj);
     });
 })
@@ -1157,6 +1179,23 @@ router.get('/settings', (req, res) => {
 
     if (!settings || typeof settings !== 'object') {
         return res.status(400).json({ error: 'Invalid settings payload' });
+    }
+
+    try {
+        if (settings.sms_messages) {
+            const fs = require('fs');
+            const path = require('path');
+            const rootpath = global.outfolderPath || path.join(__dirname, '../../outfolder');
+            const configPath = path.join(rootpath, 'config');
+            if (!fs.existsSync(configPath)) {
+                fs.mkdirSync(configPath, { recursive: true });
+            }
+            const messagePath = path.join(configPath, 'message.json');
+            fs.writeFileSync(messagePath, JSON.stringify(settings.sms_messages, null, 2));
+            delete settings.sms_messages; // Prevent saving to DB
+        }
+    } catch (e) {
+        console.error('Failed to save message.json', e);
     }
 
     const role = String(req.session?.admin?.role || '').trim().toLowerCase();
@@ -1504,6 +1543,7 @@ router.get('/settings', (req, res) => {
         try {
             const allowSms = process.env.ALLOWSMS === 'true';
             const branch = process.env.BRANCH || 'Main Branch';
+            const callRangeGap = parseInt(process.env.CALL_RANGE_GAP || '0', 10);
             let privacyPolicy = 'By proceeding, you agree to receive SMS notifications about your queue ticket status.';
             
             const row = await db.getAsync(`SELECT value FROM settings WHERE key = 'privacy_policy'`);
@@ -1511,7 +1551,28 @@ router.get('/settings', (req, res) => {
                 privacyPolicy = row.value;
             }
             
-            res.json({ success: true, allowSms, branch, privacyPolicy });
+            let sms_messages = {
+                "generate": { "type": "generate", "message": "Your ticket is #ticket for #service. Please wait for your number to be called." },
+                "call": { "type": "call", "message": "Your ticket #ticket is called. Please proceed to #counter." },
+                "forward": { "type": "forward", "message": "Your ticket #ticket has been forwarded to #counter." },
+                "hold": { "type": "hold", "message": "Your ticket #ticket is currently on hold." },
+                "void": { "type": "void", "message": "Your ticket #ticket has been voided." },
+                "finish": { "type": "finish", "message": "From #branch: Thank you, come again we are happy to serve you." },
+                "nearly_called": { "type": "nearly_called", "message": "Your ticket #ticket is nearly called. Please proceed to the waiting area." }
+            };
+            const fs = require('fs');
+            const path = require('path');
+            const rootpath = global.outfolderPath || path.join(__dirname, '../../outfolder');
+            const messagePath = path.join(rootpath, 'config/message.json');
+            if (fs.existsSync(messagePath)) {
+                try {
+                    sms_messages = JSON.parse(fs.readFileSync(messagePath, 'utf8'));
+                } catch (e) {
+                    console.error('Failed to parse message.json', e);
+                }
+            }
+            
+            res.json({ success: true, allowSms, branch, privacyPolicy, sms_messages, callRangeGap });
         } catch (err) {
             console.error('Failed to get sms config:', err);
             res.status(500).json({ error: 'Failed to get sms config' });
@@ -1520,7 +1581,7 @@ router.get('/settings', (req, res) => {
 
     router.post('/admin/sms-config', requireRole('superadmin'), async (req, res) => {
         try {
-            const { allowSms, branch, privacyPolicy } = req.body;
+            const { allowSms, branch, privacyPolicy, sms_messages, callRangeGap } = req.body;
             
             // Update .env
             const envPath = path.join(__dirname, '../config/.env');
@@ -1543,11 +1604,32 @@ router.get('/settings', (req, res) => {
                 envContent += `\nBRANCH=${branch}`;
             }
             
+            // Replace or append CALL_RANGE_GAP
+            if (/^CALL_RANGE_GAP=.*$/m.test(envContent)) {
+                envContent = envContent.replace(/^CALL_RANGE_GAP=.*$/m, `CALL_RANGE_GAP=${callRangeGap}`);
+            } else {
+                envContent += `\nCALL_RANGE_GAP=${callRangeGap}`;
+            }
+            
             fs.writeFileSync(envPath, envContent.trim() + '\n', 'utf8');
             
             // Reload into process.env
             process.env.ALLOWSMS = allowSms;
             process.env.BRANCH = branch;
+            process.env.CALL_RANGE_GAP = callRangeGap;
+            
+            // Save message.json
+            if (sms_messages) {
+                const fs = require('fs');
+                const path = require('path');
+                const rootpath = global.outfolderPath || path.join(__dirname, '../../outfolder');
+                const configPath = path.join(rootpath, 'config');
+                if (!fs.existsSync(configPath)) {
+                    fs.mkdirSync(configPath, { recursive: true });
+                }
+                const messagePath = path.join(configPath, 'message.json');
+                fs.writeFileSync(messagePath, JSON.stringify(sms_messages, null, 2));
+            }
             
             // Save Privacy Policy to DB
             await db.runAsync(

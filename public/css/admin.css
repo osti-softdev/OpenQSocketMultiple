@@ -1452,6 +1452,14 @@ body {
     transform: translateX(-100%);
   }
 }
+.content .tab-content#settings-tab .settingimages {
+  display: none;
+  flex-direction: column;
+}
+.content .tab-content#settings-tab .settingfonts {
+  display: none;
+  flex-direction: column;
+}
 .content .tab-content#settings-tab .adsmain {
   position: absolute;
   top: 0%;
@@ -1673,41 +1681,18 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 .content .tab-content#settings-tab .settingimages {
-  position: absolute;
-  top: 0%;
-  left: 0;
-  transform: scale(0.98);
-  height: 100%;
-  width: 100%;
-  border-radius: 16px;
   display: none;
   flex-direction: column;
-  background: white;
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-  overflow: hidden;
 }
 .content .tab-content#settings-tab .settingimages #displayObj {
   height: 100%;
   width: 100%;
 }
 .content .tab-content#settings-tab .settingfonts {
-  position: absolute;
-  top: 0%;
-  left: 0;
-  transform: scale(0.98);
-  height: 100%;
-  width: 100%;
-  border-radius: 16px;
-  padding: 24px;
   display: none;
   flex-direction: column;
-  background: white;
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-  overflow: hidden;
 }
-.content .tab-content#settings-tab .activetab {
+.content .tab-content#settings-tab s .activetab {
   display: flex;
 }
 

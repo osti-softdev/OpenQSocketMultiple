@@ -30,6 +30,34 @@ module.exports = function createTellerApiRouter(io) {
             }
         });
     }
+
+    function triggerNearlyCalledSMS(calledTicket, counterNumber = '') {
+        const gap = parseInt(process.env.CALL_RANGE_GAP || '0', 10);
+        if (gap <= 0) return;
+
+        const targetTicketNum = parseInt(calledTicket.ticketnum, 10) + gap;
+        const { date } = getPHDateTime();
+
+        db.get(
+            `SELECT * FROM transactions WHERE ticketservice = ? AND ticketnum = ? AND date = ? AND status = 'pending'`,
+            [calledTicket.ticketservice, targetTicketNum, date],
+            (err, ticket) => {
+                if (!err && ticket && ticket.mobile) {
+                    const smsService = require('../utilities/smsService');
+                    const { time } = getPHDateTime();
+                    const ticketCode = ticket.ticketservice + ticket.ticketnum;
+                    let logEntry = `[${time}] nearly_called sent\n`;
+                    db.run(`UPDATE transactions SET mobile_records = COALESCE(mobile_records, '') || ? WHERE id = ?`, [logEntry, ticket.id]);
+                    smsService.sendTemplateSMS('nearly_called', {
+                        mobile: ticket.mobile,
+                        ticket: ticketCode,
+                        counter: counterNumber,
+                        service: ticket.sname
+                    }).catch(e => console.error("SMS Error:", e));
+                }
+            }
+        );
+    }
     const requireTellerSession = (req, res, next) => {
         if (!req.session?.teller) {
             return res.status(401).json({ success: false, message: 'Unauthorized' });
@@ -478,6 +506,7 @@ module.exports = function createTellerApiRouter(io) {
 
                                 io.emit('ticket_called');
                                 res.json({ success: true, ticket });
+                                triggerNearlyCalledSMS(ticket, counterNumber);
                             }
                         );
                     }
