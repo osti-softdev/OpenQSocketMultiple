@@ -219,7 +219,7 @@ function initializeDatabase() {
       * Queue transaction details (such as queue number, service selected, date and time of visit)
       * Optional feedback or ratings submitted through the application
 
-      We only collect information that is necessary for the operation of our queue management services at **SAN PEDRO DAVAO HOSPITAL INC.**.
+      We only collect information that is necessary for the operation of our queue management services at **SAMPLE CLIENT NAME.**.
 
       ## Purpose of Collection
 
@@ -228,7 +228,7 @@ function initializeDatabase() {
       * Sending your queue number and queue status notifications
       * Informing you when your turn is approaching
       * Contacting you regarding your current queue transaction when necessary
-      * Sending announcements, service advisories, operating hours, maintenance notices, and other updates related to **SAN PEDRO DAVAO HOSPITAL INC.**'s services
+      * Sending announcements, service advisories, operating hours, maintenance notices, and other updates related to **SAMPLE CLIENT NAME.**'s services
       * Improving customer service and system performance
 
       We will not use your personal information for purposes incompatible with those stated above without obtaining your consent, unless otherwise permitted by law.
@@ -238,7 +238,7 @@ function initializeDatabase() {
       Your personal information is processed based on:
 
       * Your voluntary consent when providing your mobile number; and
-      * The legitimate interests of **SAN PEDRO DAVAO HOSPITAL INC.** in providing efficient queue management and customer communication.
+      * The legitimate interests of **SAMPLE CLIENT NAME.** in providing efficient queue management and customer communication.
 
       ## Data Sharing
 
@@ -247,7 +247,7 @@ function initializeDatabase() {
       Information may only be disclosed:
 
       * When required by law or lawful order of a government authority;
-      * To authorized service providers who process data on behalf of **SAN PEDRO DAVAO HOSPITAL INC.** under appropriate confidentiality and security agreements; or
+      * To authorized service providers who process data on behalf of **SAMPLE CLIENT NAME.** under appropriate confidentiality and security agreements; or
       * With your explicit consent.
 
       ## Data Retention
@@ -280,8 +280,8 @@ function initializeDatabase() {
       For questions, concerns, or requests regarding this Privacy Policy or the processing of your personal information, please contact:
 
       **Data Protection Officer / Privacy Contact**
-      Name: **SAN PEDRO DAVAO HOSPITAL INC. Administration**
-      Email: admin@sanpedrodavaohospital.com
+      Name: **SAMPLE CLIENT NAME. Administration**
+      Email: admin@sample.com
       Phone: (082) 222-2222
       Address: San Pedro Street, Davao City`, 1]
     ];

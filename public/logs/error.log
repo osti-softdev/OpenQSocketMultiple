@@ -564,3 +564,21 @@ Timeout duration was set to 1.
     at sendSMS (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\smsService.js:189:38)
     at Object.sendTemplateSMS (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\smsService.js:297:11)
     at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AkioskApi.js:118:25
+❌ 2026-07-21T12:27:14.243Z [backend\routes\AadminApi.js:34] Unable to synchronize services and routing groups: Error: SQLITE_ERROR: no such table: services
+--> in Database#all('SELECT * FROM services ORDER BY id ASC', [], [Function (anonymous)])
+    at C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\backend\utilities\db.js:382:8
+    at new Promise (<anonymous>)
+    at db.allAsync (C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\backend\utilities\db.js:381:3)
+    at synchronizeServiceGroups (C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\backend\utilities\serviceGroups.js:22:29)
+    at C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\backend\routes\AadminApi.js:31:56
+    at inTransaction (C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\backend\utilities\serviceGroups.js:129:26) {
+  errno: 1,
+  code: 'SQLITE_ERROR',
+  __augmented: true
+}
+❌ 2026-07-21T12:27:14.260Z [backend\utilities\db.js:71] Note: mobile_no drop: SQLITE_ERROR: no such table: transactions
+❌ 2026-07-21T12:39:18.251Z [backend\routes\AkioskApi.js:125] Printer Error: Cannot find module 'serialport'
+Require stack:
+- C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\backend\utilities\smsService.js
+- C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\backend\routes\AkioskApi.js
+- C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\index.js
