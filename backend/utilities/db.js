@@ -283,7 +283,8 @@ function initializeDatabase() {
       Name: **SAMPLE CLIENT NAME. Administration**
       Email: admin@sample.com
       Phone: (082) 222-2222
-      Address: San Pedro Street, Davao City`, 1]
+      Address: San Pedro Street, Davao City`, 1],
+      [14, 'voice_message_format', 'Serving #serviceticket on #counternumber', 1]
     ];
     settings.forEach(st => db.run(`INSERT OR IGNORE INTO settings (id, key, value, status) VALUES (?, ?, ?, ?)`, st));
 

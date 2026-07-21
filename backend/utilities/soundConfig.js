@@ -12,7 +12,8 @@ const DEFAULT_SOUND_CONFIG = Object.freeze({
     voice_pitch: 1,
     voice_volume: 0.8,
     bell_volume: 0.7,
-    ad_volume: 0.5
+    ad_volume: 0.5,
+    voice_message_format: 'Serving #serviceticket on #counternumber'
 });
 
 function clamp(value, minimum, maximum, fallback) {
@@ -33,7 +34,8 @@ function normalizeSoundConfig(input = {}) {
         voice_pitch: clamp(input.voice_pitch, 0, 2, DEFAULT_SOUND_CONFIG.voice_pitch),
         voice_volume: clamp(input.voice_volume, 0, 1, DEFAULT_SOUND_CONFIG.voice_volume),
         bell_volume: clamp(input.bell_volume, 0, 1, DEFAULT_SOUND_CONFIG.bell_volume),
-        ad_volume: clamp(input.ad_volume, 0, 1, DEFAULT_SOUND_CONFIG.ad_volume)
+        ad_volume: clamp(input.ad_volume, 0, 1, DEFAULT_SOUND_CONFIG.ad_volume),
+        voice_message_format: typeof input.voice_message_format === 'string' ? input.voice_message_format : DEFAULT_SOUND_CONFIG.voice_message_format
     };
 }
 

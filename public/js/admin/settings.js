@@ -202,6 +202,7 @@ function populateDisplayAudioForm(config) {
     $('#display-voice-pitch').val(clampAudioValue(displayAudioConfig.voice_pitch, 0, 2, 1));
     $('#display-bell-volume').val(clampAudioValue(displayAudioConfig.bell_volume, 0, 1, 0.7));
     $('#display-ad-volume').val(clampAudioValue(displayAudioConfig.ad_volume, 0, 1, 0.5));
+    $('#display-voice-message-format').val(displayAudioConfig.voice_message_format || 'Serving #serviceticket on #counternumber');
     updateDisplayAudioLabels();
     refreshDisplayVoices();
 }
@@ -224,7 +225,8 @@ function collectDisplayAudioConfig() {
         voice_pitch: clampAudioValue($('#display-voice-pitch').val(), 0, 2, 1),
         voice_volume: clampAudioValue($('#display-voice-volume').val(), 0, 1, 0.8),
         bell_volume: clampAudioValue($('#display-bell-volume').val(), 0, 1, 0.7),
-        ad_volume: clampAudioValue($('#display-ad-volume').val(), 0, 1, 0.5)
+        ad_volume: clampAudioValue($('#display-ad-volume').val(), 0, 1, 0.5),
+        voice_message_format: $('#display-voice-message-format').val().trim() || 'Serving #serviceticket on #counternumber'
     };
 }
 
@@ -238,7 +240,9 @@ function testDisplayVoice() {
         setAudioTestStatus('Voice is disabled', 'Enable voice announcements before testing.', 'warning');
         return;
     }
-    const utterance = new SpeechSynthesisUtterance('Now serving ticket A one zero one. Please proceed to counter two.');
+    const formatStr = config.voice_message_format || 'Serving #serviceticket on #counternumber';
+    const testMsg = formatStr.replace(/#serviceticket/gi, 'A one zero one').replace(/#counternumber/gi, 'two');
+    const utterance = new SpeechSynthesisUtterance(testMsg);
     utterance.voice = displayAudioVoices.find(voice => voice.voiceURI === config.voice_uri) || null;
     utterance.rate = config.voice_rate;
     utterance.pitch = config.voice_pitch;

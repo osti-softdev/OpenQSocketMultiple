@@ -140,9 +140,14 @@ function speakTicketTwice(ticketData, onFinish) {
 
 	const serviceCleaned = ticketData.service.replace(/-/g, " ");
 	const serviceSeparated = serviceCleaned.split("").join(", ");
-	const msg = new SpeechSynthesisUtterance(
-		`Now serving, ${serviceSeparated}${ticketData.ticket}! Please proceed to counter ${ticketData.counter_num}`
-	);
+	
+	const defaultFormat = "Now serving, #serviceticket! Please proceed to counter #counternumber";
+	const formatStr = voiceConfig.voice_message_format || defaultFormat;
+	const ticketStr = `${serviceSeparated}${ticketData.ticket}`;
+	const counterStr = ticketData.counter_num;
+	const finalMsg = formatStr.replace(/#serviceticket/gi, ticketStr).replace(/#counternumber/gi, counterStr);
+
+	const msg = new SpeechSynthesisUtterance(finalMsg);
 
 	const configuredVoice = voices.find(voice =>
 		voice.voiceURI === voiceConfig.voice_uri ||

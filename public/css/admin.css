@@ -3897,4 +3897,8 @@ textarea:focus {
   .chartWrapper {
     height: 260px !important;
   }
+}
+html[data-theme=dark] .settingimages,
+html[data-theme=dark] .settingfonts {
+  background: var(--console-surface) !important;
 }/*# sourceMappingURL=admin.css.map */
