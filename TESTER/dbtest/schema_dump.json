@@ -1,0 +1,321 @@
+{
+  "tables": [
+    {
+      "name": "accounts",
+      "sql": "CREATE TABLE \"accounts\" (\n\t\"id\"\tINTEGER,\n\t\"name\"\tTEXT UNIQUE,\n\t\"username\"\tTEXT UNIQUE,\n\t\"password\"\tTEXT,\n\t\"role\"\tTEXT,\n\t\"status\"\tINTEGER,\n\tPRIMARY KEY(\"id\")\n)"
+    },
+    {
+      "name": "counter_groups",
+      "sql": "CREATE TABLE \"counter_groups\" (\n\t\"id\"\tINTEGER,\n\t\"group_name\"\tTEXT,\n\tPRIMARY KEY(\"id\" AUTOINCREMENT)\n)"
+    },
+    {
+      "name": "counters",
+      "sql": "CREATE TABLE \"counters\" (\n\t\"id\"\tINTEGER UNIQUE,\n\t\"cname\"\tTEXT,\n\t\"cnum\"\tINTEGER,\n\t\"cuser\"\tTEXT,\n\t\"cpass\"\tTEXT,\n\t\"cstatus\"\tTEXT,\n\t\"services\"\tTEXT,\n\t\"group_name\"\tTEXT,\n\t\"group_id\"\tINTEGER,\n\tPRIMARY KEY(\"id\" AUTOINCREMENT)\n)"
+    },
+    {
+      "name": "forwarded_tickets",
+      "sql": "CREATE TABLE \"forwarded_tickets\" (\n\t\"id\"\tINTEGER,\n\t\"ticket_id\"\tINTEGER NOT NULL,\n\t\"from_teller_id\"\tINTEGER NOT NULL,\n\t\"to_teller_id\"\tINTEGER,\n\t\"to_group_id\"\tINTEGER,\n\t\"note\"\tTEXT,\n\t\"forwarded_at\"\tTEXT,\n\tPRIMARY KEY(\"id\" AUTOINCREMENT),\n\tFOREIGN KEY(\"from_teller_id\") REFERENCES \"counters\"(\"id\"),\n\tFOREIGN KEY(\"ticket_id\") REFERENCES \"transactions\"(\"id\"),\n\tFOREIGN KEY(\"to_group_id\") REFERENCES \"counter_groups\"(\"id\"),\n\tFOREIGN KEY(\"to_teller_id\") REFERENCES \"counters\"(\"id\")\n)"
+    },
+    {
+      "name": "services",
+      "sql": "CREATE TABLE \"services\" (\n\t\"id\"\tINTEGER,\n\t\"sname\"\tTEXT,\n\t\"regular\"\tTEXT,\n\t\"priority\"\tTEXT,\n\t\"status\"\tINTEGER,\n\t\"shortSname\"\tTEXT,\n\t\"sub_sname\"\tTEXT,\n\t\"sched\"\tTEXT,\n\tPRIMARY KEY(\"id\" AUTOINCREMENT)\n)"
+    },
+    {
+      "name": "settings",
+      "sql": "CREATE TABLE \"settings\" (\n\t\"id\"\tINTEGER NOT NULL,\n\t\"key\"\tTEXT UNIQUE,\n\t\"value\"\tTEXT,\n\t\"status\"\tINTEGER,\n\tPRIMARY KEY(\"id\" AUTOINCREMENT)\n)"
+    },
+    {
+      "name": "transactions",
+      "sql": "CREATE TABLE \"transactions\" (\n\t\"id\"\tINTEGER,\n\t\"ticketnum\"\tINTEGER,\n\t\"ticketservice\"\tTEXT,\n\t\"sname\"\tTEXT,\n\t\"priority\"\tINTEGER,\n\t\"status\"\tTEXT,\n\t\"date\"\tTEXT,\n\t\"time\"\tTEXT,\n\t\"start_time\"\tTEXT,\n\t\"end_time\"\tTEXT,\n\t\"teller_id\"\tINTEGER,\n\t\"counter_num\"\tTEXT,\n\t\"counter_user\"\tTEXT,\n\t\"counter_group\"\tTEXT,\n\t\"forwarded_from\"\tTEXT,\n\t\"forwarded_to\"\tTEXT,\n\t\"history\"\tTEXT,\n\t\"void_reason\"\tTEXT,\n\t\"note\"\tTEXT,\n\t\"ticket_secret\"\tTEXT,\n\t\"mobile_no\"\tTEXT,\n\t\"mobile_records\"\tTEXT, mobile TEXT,\n\tPRIMARY KEY(\"id\" AUTOINCREMENT)\n)"
+    }
+  ],
+  "data": {
+    "accounts": [
+      {
+        "id": 1,
+        "name": "Cade Lawrenzo Caña",
+        "username": "admin",
+        "password": "admin",
+        "role": "superadmin",
+        "status": 1
+      },
+      {
+        "id": 2,
+        "name": "admin1",
+        "username": "admin1",
+        "password": "admin1",
+        "role": "admin",
+        "status": 1
+      },
+      {
+        "id": 5,
+        "name": "user",
+        "username": "user",
+        "password": "user",
+        "role": "user",
+        "status": 1
+      }
+    ],
+    "counter_groups": [
+      {
+        "id": 71,
+        "group_name": "BUSINESS_TAX"
+      },
+      {
+        "id": 72,
+        "group_name": "MDRRMO"
+      },
+      {
+        "id": 73,
+        "group_name": "CASHIER"
+      },
+      {
+        "id": 75,
+        "group_name": "REAL_PROPERTY_TAX"
+      },
+      {
+        "id": 76,
+        "group_name": "GENERAL"
+      },
+      {
+        "id": 77,
+        "group_name": "ASSESSMENT"
+      },
+      {
+        "id": 78,
+        "group_name": "EVALUATOR"
+      },
+      {
+        "id": 79,
+        "group_name": "ASSESSOR"
+      }
+    ],
+    "counters": [
+      {
+        "id": 1,
+        "cname": "TELLER 1",
+        "cnum": 1,
+        "cuser": "clc",
+        "cpass": "clc",
+        "cstatus": "1",
+        "services": "REAL_PROPERTY_TAX,BUSINESS_TAX,GENERAL,MDRRMO,ASSESSMENT,CASHIER,EVALUATOR,ASSESSOR",
+        "group_name": "REAL_PROPERTY_TAX",
+        "group_id": 75
+      },
+      {
+        "id": 2,
+        "cname": "TELLER 2",
+        "cnum": 2,
+        "cuser": "cade",
+        "cpass": "cade",
+        "cstatus": "1",
+        "services": "",
+        "group_name": null,
+        "group_id": null
+      },
+      {
+        "id": 3,
+        "cname": "TELLER 3",
+        "cnum": 3,
+        "cuser": "tel3",
+        "cpass": "asda",
+        "cstatus": "1",
+        "services": "",
+        "group_name": null,
+        "group_id": null
+      },
+      {
+        "id": 4,
+        "cname": "TELLER 4",
+        "cnum": 4,
+        "cuser": "teller",
+        "cpass": "verify",
+        "cstatus": "1",
+        "services": "",
+        "group_name": null,
+        "group_id": null
+      },
+      {
+        "id": 5,
+        "cname": "MDS",
+        "cnum": 5,
+        "cuser": "cawe",
+        "cpass": "wcea",
+        "cstatus": "1",
+        "services": "",
+        "group_name": null,
+        "group_id": null
+      },
+      {
+        "id": 9,
+        "cname": "New Accounts 7",
+        "cnum": 7,
+        "cuser": "cewaac",
+        "cpass": "c1231c2313",
+        "cstatus": "1",
+        "services": "",
+        "group_name": null,
+        "group_id": null
+      },
+      {
+        "id": 11,
+        "cname": "New Accounts 8",
+        "cnum": 8,
+        "cuser": "aceq2w",
+        "cpass": "c13c123",
+        "cstatus": "1",
+        "services": "",
+        "group_name": null,
+        "group_id": null
+      },
+      {
+        "id": 12,
+        "cname": "New Accounts 9",
+        "cnum": 9,
+        "cuser": "cqwe12",
+        "cpass": "123c123c1",
+        "cstatus": "1",
+        "services": "",
+        "group_name": null,
+        "group_id": null
+      },
+      {
+        "id": 13,
+        "cname": "SALARY LOAN",
+        "cnum": 10,
+        "cuser": "c23132",
+        "cpass": "c123123c123",
+        "cstatus": "1",
+        "services": "",
+        "group_name": null,
+        "group_id": null
+      }
+    ],
+    "services": [
+      {
+        "id": 1,
+        "sname": "REAL_PROPERTY_TAX",
+        "regular": "RPT",
+        "priority": "PRPT",
+        "status": 1,
+        "shortSname": "REAL PROPERTY TAX",
+        "sub_sname": "Counter 1, 2",
+        "sched": "11:09:01"
+      },
+      {
+        "id": 2,
+        "sname": "BUSINESS_TAX",
+        "regular": "BT",
+        "priority": "PBT",
+        "status": 1,
+        "shortSname": "BUSINESS TAX",
+        "sub_sname": "Counter 1, 2,3",
+        "sched": ""
+      },
+      {
+        "id": 3,
+        "sname": "GENERAL",
+        "regular": "G",
+        "priority": "PG",
+        "status": 1,
+        "shortSname": "GENERAL",
+        "sub_sname": "Counter 3",
+        "sched": ""
+      },
+      {
+        "id": 4,
+        "sname": "MDRRMO",
+        "regular": "MO",
+        "priority": "PMO",
+        "status": 1,
+        "shortSname": "MDRRMO",
+        "sub_sname": "Counter 5",
+        "sched": ""
+      },
+      {
+        "id": 5,
+        "sname": "ASSESSMENT",
+        "regular": "A",
+        "priority": "AS",
+        "status": 1,
+        "shortSname": "ASSESSMENT",
+        "sub_sname": "Counter 6",
+        "sched": ""
+      },
+      {
+        "id": 6,
+        "sname": "CASHIER",
+        "regular": "C",
+        "priority": "CP",
+        "status": 1,
+        "shortSname": "CASHIER",
+        "sub_sname": "Counter 7,8,9,10",
+        "sched": ""
+      },
+      {
+        "id": 7,
+        "sname": "EVALUATOR",
+        "regular": "E",
+        "priority": "PE",
+        "status": 1,
+        "shortSname": "EVALUATOR",
+        "sub_sname": "Counter 4",
+        "sched": ""
+      },
+      {
+        "id": 9,
+        "sname": "ASSESSOR",
+        "regular": "A",
+        "priority": "AS",
+        "status": 1,
+        "shortSname": "ASSESSOR",
+        "sub_sname": "Counter 6",
+        "sched": ""
+      }
+    ],
+    "settings": [
+      {
+        "id": 7,
+        "key": "announcement",
+        "value": "WELCOME TO SAN PEDRO DAVAO HOSPITAL INC.",
+        "status": 1
+      },
+      {
+        "id": 8,
+        "key": "announcement2",
+        "value": "WE CARE FOR YOUR HEALTH",
+        "status": 1
+      },
+      {
+        "id": 9,
+        "key": "announcement3",
+        "value": "WE ARE HAPPY TO SERVE YOU!",
+        "status": 1
+      },
+      {
+        "id": 10,
+        "key": "annbgcolor",
+        "value": "#08228d",
+        "status": 0
+      },
+      {
+        "id": 11,
+        "key": "anntextcolor",
+        "value": "#1bb18c",
+        "status": 0
+      },
+      {
+        "id": 12,
+        "key": "annspeed",
+        "value": "43",
+        "status": 0
+      },
+      {
+        "id": 13,
+        "key": "privacy_policy",
+        "value": "By proceeding, you agree to receive SMS notifications about your queue ticket status.",
+        "status": null
+      }
+    ]
+  }
+}

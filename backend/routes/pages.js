@@ -28,6 +28,7 @@ function requireAuth(req, res, next) {
   }
 }
 
+
   pageRouter.get("/kiosk", (req, res) => {
     res.sendFile(path.join(rootpath, "public/html","kiosk.html"));
   });

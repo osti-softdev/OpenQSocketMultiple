@@ -1,6 +1,6 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
-const dbPath = path.join(__dirname, '../config/db.before-service-group-sync-20260717-134139.db');
+const dbPath = path.join(__dirname, '../../backend/config/db.before-service-group-sync-20260717-134139.db');
 const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY);
 
 db.serialize(() => {
