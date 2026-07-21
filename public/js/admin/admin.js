@@ -13,7 +13,7 @@ const ADMIN_ROLE_TABS = Object.freeze({
 const ADMIN_ROLE_SETTINGS = Object.freeze({
     user: [],
     admin: ['advertisement', 'announcement'],
-    superadmin: ['configuration', 'advertisement', 'announcement', 'displayaudio', 'images', 'smsconfig', 'fontsizes']
+    superadmin: ['configuration', 'advertisement', 'announcement', 'displayaudio', 'images', 'smsconfig', 'systemlogs']
 });
 
 $(document).ready(function () {
@@ -370,7 +370,8 @@ function settingstabs(tab) {
     }
     else if (tab === 'images'){
     }
-    else if (tab === 'fontsizes'){
+    else if (tab === 'systemlogs'){
+        if (typeof loadSystemLogs === 'function') loadSystemLogs();
     }
     else if (tab === 'displayaudio') {
         loadDisplayAudioSettings();

@@ -118,13 +118,20 @@ function cleanupLogsLog() {
 	}
 }
 
+function getPHTimestamp() {
+	const now = new Date();
+	const dateStr = now.toLocaleDateString("en-CA", { timeZone: "Asia/Manila" });
+	const timeStr = now.toLocaleTimeString("en-US", { timeZone: "Asia/Manila", hour12: true });
+	return `${dateStr} ${timeStr}`;
+}
+
 // Override default logging behavior
 function setupLogger() {
 	// Clean up logs.log on startup
 	cleanupLogsLog();
 
 	console.error = (...args) => {
-		const timestamp = new Date().toISOString();
+		const timestamp = getPHTimestamp();
 		const callerInfo = getCallerInfo();
 		const logMessage = `❌ ${timestamp} [${callerInfo}]`;
 		errorConsole.error(logMessage, ...args);
@@ -132,7 +139,7 @@ function setupLogger() {
 	};
 
 	console.log = (...args) => {
-		const timestamp = new Date().toISOString();
+		const timestamp = getPHTimestamp();
 		const callerInfo = getCallerInfo();
 		const logMessage = `✔ ${timestamp} [${callerInfo}]`;
 		process.stdout.write(`${logMessage} ${args.join(" ")}\n`);

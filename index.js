@@ -87,3 +87,9 @@ const adsModule = setupAds(io);
 
 // --- Setup videos API ---
 require("./backend/routes/videos")(appExpress, adsModule);
+
+// --- Initialize GSM Modem ---
+if (process.env.ALLOWSMS === 'true') {
+    const { initializeGSM } = require('./backend/utilities/smsService');
+    initializeGSM(io);
+}

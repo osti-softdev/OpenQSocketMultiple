@@ -1,8 +1,6 @@
 // ===== Security Module =====
 const path = require("path");
 const fs = require("fs");
-const rootpath =
-	global.outfolderPath || path.join(__dirname, "../../outfolder");
 
 // --- Normalize IP helper ---
 function normalizeIp(ip) {

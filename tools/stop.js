@@ -3,7 +3,7 @@ const path = require('path');
 const { exec } = require('child_process');
 
 const root = path.join(__dirname, '..');
-const pidFile = path.join(root, 'reso', 'outfolder', 'app.pid');
+const pidFile = path.join(root, 'app.pid');
 
 if (!fs.existsSync(pidFile)) {
   console.error(`PID file not found: ${pidFile}`);

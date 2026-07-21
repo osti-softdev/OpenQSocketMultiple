@@ -1151,8 +1151,7 @@ router.get('/settings', (req, res) => {
         try {
             const fs = require('fs');
             const path = require('path');
-            const rootpath = global.outfolderPath || path.join(__dirname, '../../outfolder');
-            const messagePath = path.join(rootpath, 'config/message.json');
+            const messagePath = path.join(__dirname, '../config/message.json');
             if (fs.existsSync(messagePath)) {
                 settingsObj['sms_messages'] = JSON.parse(fs.readFileSync(messagePath, 'utf8'));
             } else {
@@ -1185,8 +1184,7 @@ router.get('/settings', (req, res) => {
         if (settings.sms_messages) {
             const fs = require('fs');
             const path = require('path');
-            const rootpath = global.outfolderPath || path.join(__dirname, '../../outfolder');
-            const configPath = path.join(rootpath, 'config');
+            const configPath = path.join(__dirname, '../config');
             if (!fs.existsSync(configPath)) {
                 fs.mkdirSync(configPath, { recursive: true });
             }
@@ -1544,6 +1542,8 @@ router.get('/settings', (req, res) => {
             const allowSms = process.env.ALLOWSMS === 'true';
             const branch = process.env.BRANCH || 'Main Branch';
             const callRangeGap = parseInt(process.env.CALL_RANGE_GAP || '0', 10);
+            const serialPort = process.env.SERIAL_PORT || 'COM3';
+            const serialBaudrate = parseInt(process.env.SERIAL_BAUDRATE || '9600', 10);
             let privacyPolicy = 'By proceeding, you agree to receive SMS notifications about your queue ticket status.';
             
             const row = await db.getAsync(`SELECT value FROM settings WHERE key = 'privacy_policy'`);
@@ -1562,8 +1562,7 @@ router.get('/settings', (req, res) => {
             };
             const fs = require('fs');
             const path = require('path');
-            const rootpath = global.outfolderPath || path.join(__dirname, '../../outfolder');
-            const messagePath = path.join(rootpath, 'config/message.json');
+            const messagePath = path.join(__dirname, '../config/message.json');
             if (fs.existsSync(messagePath)) {
                 try {
                     sms_messages = JSON.parse(fs.readFileSync(messagePath, 'utf8'));
@@ -1572,7 +1571,7 @@ router.get('/settings', (req, res) => {
                 }
             }
             
-            res.json({ success: true, allowSms, branch, privacyPolicy, sms_messages, callRangeGap });
+            res.json({ success: true, allowSms, branch, privacyPolicy, sms_messages, callRangeGap, serialPort, serialBaudrate });
         } catch (err) {
             console.error('Failed to get sms config:', err);
             res.status(500).json({ error: 'Failed to get sms config' });
@@ -1581,7 +1580,7 @@ router.get('/settings', (req, res) => {
 
     router.post('/admin/sms-config', requireRole('superadmin'), async (req, res) => {
         try {
-            const { allowSms, branch, privacyPolicy, sms_messages, callRangeGap } = req.body;
+            const { allowSms, branch, privacyPolicy, sms_messages, callRangeGap, serialPort, serialBaudrate } = req.body;
             
             // Update .env
             const envPath = path.join(__dirname, '../config/.env');
@@ -1611,19 +1610,34 @@ router.get('/settings', (req, res) => {
                 envContent += `\nCALL_RANGE_GAP=${callRangeGap}`;
             }
             
+            // Replace or append SERIAL_PORT
+            if (/^SERIAL_PORT=.*$/m.test(envContent)) {
+                envContent = envContent.replace(/^SERIAL_PORT=.*$/m, `SERIAL_PORT=${serialPort || 'COM3'}`);
+            } else {
+                envContent += `\nSERIAL_PORT=${serialPort || 'COM3'}`;
+            }
+
+            // Replace or append SERIAL_BAUDRATE
+            if (/^SERIAL_BAUDRATE=.*$/m.test(envContent)) {
+                envContent = envContent.replace(/^SERIAL_BAUDRATE=.*$/m, `SERIAL_BAUDRATE=${serialBaudrate || 9600}`);
+            } else {
+                envContent += `\nSERIAL_BAUDRATE=${serialBaudrate || 9600}`;
+            }
+            
             fs.writeFileSync(envPath, envContent.trim() + '\n', 'utf8');
             
             // Reload into process.env
             process.env.ALLOWSMS = allowSms;
             process.env.BRANCH = branch;
             process.env.CALL_RANGE_GAP = callRangeGap;
+            process.env.SERIAL_PORT = serialPort || 'COM3';
+            process.env.SERIAL_BAUDRATE = serialBaudrate || 9600;
             
             // Save message.json
             if (sms_messages) {
                 const fs = require('fs');
                 const path = require('path');
-                const rootpath = global.outfolderPath || path.join(__dirname, '../../outfolder');
-                const configPath = path.join(rootpath, 'config');
+                const configPath = path.join(__dirname, '../config');
                 if (!fs.existsSync(configPath)) {
                     fs.mkdirSync(configPath, { recursive: true });
                 }
@@ -1642,6 +1656,64 @@ router.get('/settings', (req, res) => {
         } catch (err) {
             console.error('Failed to save sms config:', err);
             res.status(500).json({ error: 'Failed to save sms config' });
+        }
+    });
+
+    // --- System Logs ---
+    router.get('/admin/logs/:type', requireRole('superadmin'), (req, res) => {
+        const type = req.params.type;
+        const fs = require('fs');
+        const path = require('path');
+        const fileName = type === 'error' ? 'error.log' : 'logs.log';
+        const logPath = path.join(__dirname, '../../public/logs', fileName);
+        
+        if (fs.existsSync(logPath)) {
+            const content = fs.readFileSync(logPath, 'utf8');
+            res.send(content);
+        } else {
+            res.send('');
+        }
+    });
+
+    router.delete('/admin/logs/:type', requireRole('superadmin'), (req, res) => {
+        const type = req.params.type;
+        const fs = require('fs');
+        const path = require('path');
+        const fileName = type === 'error' ? 'error.log' : 'logs.log';
+        const logPath = path.join(__dirname, '../../public/logs', fileName);
+        
+        try {
+            fs.writeFileSync(logPath, '', 'utf8');
+            res.json({ success: true });
+        } catch(e) {
+            console.error('Failed to clear log', e);
+            res.status(500).json({ error: 'Failed to clear log' });
+        }
+    });
+
+    router.get('/admin/logs/export/:type', requireRole('superadmin'), (req, res) => {
+        const type = req.params.type;
+        const format = req.query.format || 'log';
+        const fs = require('fs');
+        const path = require('path');
+        const fileName = type === 'error' ? 'error.log' : 'logs.log';
+        const logPath = path.join(__dirname, '../../public/logs', fileName);
+        
+        if (!fs.existsSync(logPath)) {
+            return res.status(404).send('Log not found');
+        }
+        
+        let content = fs.readFileSync(logPath, 'utf8');
+        
+        if (format === 'csv') {
+            const lines = content.split('\n').filter(l => l.trim()).map(line => `"${line.replace(/"/g, '""')}"`).join('\n');
+            res.setHeader('Content-Type', 'text/csv');
+            res.setHeader('Content-Disposition', `attachment; filename=${type}_logs.csv`);
+            res.send(lines);
+        } else {
+            res.setHeader('Content-Type', 'text/plain');
+            res.setHeader('Content-Disposition', `attachment; filename=${type}_logs.${format}`);
+            res.send(content);
         }
     });
 

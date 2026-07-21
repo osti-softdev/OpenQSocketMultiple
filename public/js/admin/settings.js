@@ -488,6 +488,8 @@ function loadSMSConfig() {
         if (data.success) {
             $('#setting-allowsms').prop('checked', data.allowSms);
             $('#setting-branch').val(data.branch);
+            $('#setting-serial-port').val(data.serialPort || 'COM3');
+            $('#setting-serial-baudrate').val(data.serialBaudrate || 9600);
             $('#setting-privacy').val(data.privacyPolicy);
             $('#setting-call-gap').val(data.callRangeGap || 0);
             
@@ -521,6 +523,8 @@ $(document).on('submit', '#sms-config-form', function (e) {
     const payload = {
         allowSms: $('#setting-allowsms').is(':checked'),
         branch: $('#setting-branch').val(),
+        serialPort: $('#setting-serial-port').val(),
+        serialBaudrate: parseInt($('#setting-serial-baudrate').val(), 10) || 9600,
         privacyPolicy: $('#setting-privacy').val(),
         callRangeGap: $('#setting-call-gap').val(),
         sms_messages: sms_messages
@@ -547,4 +551,85 @@ $(document).on('submit', '#sms-config-form', function (e) {
             }
         }
     });
+});
+
+// ~ ===== SYSTEM LOGS =====
+function loadSystemLogs() {
+    $.get('/api/admin/logs/error', function(data) {
+        const lines = data.split('\n').filter(l => l.trim());
+        const reversed = lines.reverse().join('\n');
+        $('#error-log-viewer').text(reversed || 'No error logs found.');
+    }).fail(function() {
+        $('#error-log-viewer').text('Failed to load error logs.');
+    });
+
+    $.get('/api/admin/logs/system', function(data) {
+        $('#system-log-viewer').text(data || 'No system logs found.');
+    }).fail(function() {
+        $('#system-log-viewer').text('Failed to load system logs.');
+    });
+}
+
+async function clearLog(type) {
+    const logTitle = type === 'error' ? 'Error Logs' : 'System Logs';
+    const result = await Swal.fire({
+        title: `Clear ${logTitle}?`,
+        text: 'Are you sure you want to clear these logs? This action cannot be undone.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#dc3545',
+        confirmButtonText: 'Yes, clear logs',
+        cancelButtonText: 'Cancel',
+        reverseButtons: true,
+        focusCancel: true
+    });
+
+    if (!result.isConfirmed) return;
+
+    try {
+        await $.ajax({
+            url: '/api/admin/logs/' + type,
+            method: 'DELETE'
+        });
+        await Swal.fire({
+            icon: 'success',
+            title: 'Cleared!',
+            text: `${logTitle} cleared successfully.`,
+            timer: 1500,
+            showConfirmButton: false
+        });
+        loadSystemLogs();
+    } catch(err) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Failed to clear logs.'
+        });
+    }
+}
+
+async function exportLog(type) {
+    const logTitle = type === 'error' ? 'Error Logs' : 'System Logs';
+    const { value: format } = await Swal.fire({
+        title: `Export ${logTitle}`,
+        text: 'Select the export file format:',
+        input: 'select',
+        inputOptions: {
+            'log': '.log (Raw Log File)',
+            'txt': '.txt (Plain Text File)',
+            'csv': '.csv (CSV Document)'
+        },
+        inputValue: 'log',
+        showCancelButton: true,
+        confirmButtonText: 'Download Log',
+        cancelButtonText: 'Cancel'
+    });
+
+    if (format) {
+        window.location.href = `/api/admin/logs/export/${type}?format=${format}`;
+    }
+}
+
+$(document).on('click', '.settingsmenubtn[data-settingstab="systemlogs"]', function() {
+    loadSystemLogs();
 });

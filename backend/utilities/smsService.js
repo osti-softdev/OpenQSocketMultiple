@@ -5,8 +5,7 @@ const { SerialPort } = require("serialport");
 const fs = require("fs");
 const path = require("path");
 
-const rootpath = global.outfolderPath || path.join(__dirname, "../../outfolder");
-const messagePath = path.join(rootpath, "config/message.json");
+const messagePath = path.join(__dirname, "../config/message.json");
 
 const BRANCH = process.env.BRANCH || "Main Branch";
 let port;
@@ -100,7 +99,7 @@ async function initializeGSM(io) {
     const baudRate = parseInt(process.env.SERIAL_BAUDRATE || "9600");
 
     try {
-        port = new SerialPort({ path: portPath, baudRate, autoOpen: true });
+        port = new SerialPort({ path: portPath, baudRate, autoOpen: false });
 
         port.open(async (err) => {
             if (err) {

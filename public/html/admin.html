@@ -58,7 +58,7 @@
                     <div class="settingsmenubtn" data-settingstab="displayaudio">Display Audio</div>
                     <div class="settingsmenubtn" data-settingstab="images">Images</div>
                     <div class="settingsmenubtn" data-settingstab="smsconfig">SMS Configuration</div>
-                    <div class="settingsmenubtn" data-settingstab="fontsizes">Font-sizes</div>
+                    <div class="settingsmenubtn" data-settingstab="systemlogs">System Logs</div>
                 </div>
             </nav>
             <div class="sidebar-footer">
@@ -602,6 +602,18 @@
                                 <input type="text" id="setting-branch" class="form-control" placeholder="e.g. Main Branch" style="width: 100%; margin-top: 8px;">
                                 <small style="color: var(--text-secondary); display: block; margin-top: 5px;">This name appears in SMS messages.</small>
                             </div>
+                            <div class="sms-field" style="margin-bottom: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                                <div>
+                                    <label for="setting-serial-port"><strong>COM Port</strong></label>
+                                    <input type="text" id="setting-serial-port" class="form-control" placeholder="e.g. COM3" style="width: 100%; margin-top: 8px;">
+                                    <small style="color: var(--text-secondary); display: block; margin-top: 5px;">GSM modem port.</small>
+                                </div>
+                                <div>
+                                    <label for="setting-serial-baudrate"><strong>Baud Rate</strong></label>
+                                    <input type="number" id="setting-serial-baudrate" class="form-control" placeholder="e.g. 9600" style="width: 100%; margin-top: 8px;">
+                                    <small style="color: var(--text-secondary); display: block; margin-top: 5px;">Usually 9600.</small>
+                                </div>
+                            </div>
                             <div class="sms-field" style="margin-bottom: 20px;">
                                 <label for="setting-call-gap"><strong>Call Range Gap (Nearly Called)</strong></label>
                                 <input type="number" id="setting-call-gap" class="form-control" placeholder="e.g. 10" style="width: 100%; margin-top: 8px;" min="0">
@@ -654,8 +666,53 @@
                         </div>
                     </form>
                 </div>
-                <div class="settingfonts settabs" id="fontsizes-settab">
-                    <h2>Under Maintenance</h2>
+                <div class="settingsms settabs" id="systemlogs-settab">
+                    <div class="settings-panel-heading">
+                        <div><span class="section-kicker">Application Logs</span><h3>System Logs</h3><p>View and manage system and error logs. Hover over a log container to expand it.</p></div>
+                    </div>
+                    <div class="system-logs-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 24px;">
+                        
+                        <!-- Error Logs -->
+                        <div class="log-section" style="display: flex; flex-direction: column;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <h4 style="margin: 0; font-weight: 600;">Error Logs</h4>
+                                <div style="display: flex; gap: 8px;">
+                                    <button type="button" class="btn btn-secondary" onclick="exportLog('error')" style="padding: 6px 12px; font-size: 13px;">Export</button>
+                                    <button type="button" class="btn btn-secondary" onclick="clearLog('error')" style="padding: 6px 12px; font-size: 13px; color: #dc3545; border-color: #dc3545;">Clear Logs</button>
+                                </div>
+                            </div>
+                            <div class="log-viewer" id="error-log-viewer" style="background: #1e1e1e; color: #f87171; padding: 16px; border-radius: 8px; overflow-y: auto; height: 400px; font-family: monospace; font-size: 13px; white-space: pre-wrap; transition: transform 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                                Loading error logs...
+                            </div>
+                        </div>
+
+                        <!-- System Logs -->
+                        <div class="log-section" style="display: flex; flex-direction: column;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                <h4 style="margin: 0; font-weight: 600;">System Logs</h4>
+                                <div style="display: flex; gap: 8px;">
+                                    <button type="button" class="btn btn-secondary" onclick="exportLog('system')" style="padding: 6px 12px; font-size: 13px;">Export</button>
+                                    <button type="button" class="btn btn-secondary" onclick="clearLog('system')" style="padding: 6px 12px; font-size: 13px; color: #dc3545; border-color: #dc3545;">Clear Logs</button>
+                                </div>
+                            </div>
+                            <div class="log-viewer" id="system-log-viewer" style="background: #1e1e1e; color: #4ade80; padding: 16px; border-radius: 8px; overflow-y: auto; height: 400px; font-family: monospace; font-size: 13px; white-space: pre-wrap; transition: transform 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                                Loading system logs...
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <style>
+                        .log-viewer:hover {
+                            transform: scale(1.05);
+                            z-index: 10;
+                            box-shadow: 0 10px 25px rgba(0,0,0,0.3) !important;
+                            position: relative;
+                        }
+                        .log-section {
+                            position: relative;
+                        }
+                    </style>
                 </div>
                 <div class="system-configuration-panel settabs" id="configuration-settab">
                     <div class="settings-panel-heading">

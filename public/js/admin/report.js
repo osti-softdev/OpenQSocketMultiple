@@ -394,18 +394,68 @@ function displayServiceDistribChart(transactions) {
     });
 }
 
-// Display tickets by service
-function displayByService(services) {
-    const tbody = $('#reports-by-service');
-    tbody.empty();
+const reportPagination = {
+    service: { data: [], page: 1, limit: 10 },
+    teller: { data: [], page: 1, limit: 10 },
+    daily: { data: [], page: 1, limit: 10 }
+};
 
-    if (!services || services.length === 0) {
-        console.warn('No service data to display');
-        tbody.append('<tr><td colspan="6" class="text-center" style="padding: 20px;">No data available</td></tr>');
+function renderPaginatedTable(key, tbodySelector, renderRowFn) {
+    const state = reportPagination[key];
+    const tbody = $(tbodySelector);
+    tbody.empty();
+    
+    $(`#pagination-${key}`).remove();
+
+    if (!state.data || state.data.length === 0) {
+        tbody.append(`<tr><td colspan="6" class="text-center" style="padding: 20px;">No data available</td></tr>`);
         return;
     }
 
-    services.forEach((service, idx) => {
+    const totalPages = Math.ceil(state.data.length / state.limit);
+    if (state.page > totalPages) state.page = totalPages;
+    if (state.page < 1) state.page = 1;
+
+    const start = (state.page - 1) * state.limit;
+    const end = Math.min(start + state.limit, state.data.length);
+    const pageData = state.data.slice(start, end);
+
+    pageData.forEach(renderRowFn);
+
+    if (totalPages > 1) {
+        let paginationHtml = `<div id="pagination-${key}" class="pagination-controls" style="display:flex; justify-content:flex-end; gap:5px; margin-top:15px; padding-bottom: 10px; padding-right: 15px;">`;
+        paginationHtml += `<button class="btn btn-sm ${state.page === 1 ? 'btn-secondary' : 'btn-primary'}" ${state.page === 1 ? 'disabled' : ''} onclick="changeReportPage('${key}', ${state.page - 1})" style="padding: 5px 10px; font-size: 12px; cursor: pointer; border-radius: 4px;">Prev</button>`;
+        
+        for (let i = 1; i <= totalPages; i++) {
+            if (i === 1 || i === totalPages || (i >= state.page - 2 && i <= state.page + 2)) {
+                paginationHtml += `<button class="btn btn-sm ${i === state.page ? 'btn-primary' : 'btn-secondary'}" onclick="changeReportPage('${key}', ${i})" style="padding: 5px 10px; font-size: 12px; cursor: pointer; border-radius: 4px;">${i}</button>`;
+            } else if (i === state.page - 3 || i === state.page + 3) {
+                paginationHtml += `<span style="padding: 5px;">...</span>`;
+            }
+        }
+        
+        paginationHtml += `<button class="btn btn-sm ${state.page === totalPages ? 'btn-secondary' : 'btn-primary'}" ${state.page === totalPages ? 'disabled' : ''} onclick="changeReportPage('${key}', ${state.page + 1})" style="padding: 5px 10px; font-size: 12px; cursor: pointer; border-radius: 4px;">Next</button>`;
+        paginationHtml += '</div>';
+
+        tbody.closest('.table-containerrep').after(paginationHtml);
+    }
+}
+
+window.changeReportPage = function(key, newPage) {
+    reportPagination[key].page = newPage;
+    if (key === 'service') displayByService();
+    else if (key === 'teller') displayByTeller();
+    else if (key === 'daily') displayDailyTrends();
+};
+
+// Display tickets by service
+function displayByService(services) {
+    if (services) {
+        reportPagination.service.data = services;
+        reportPagination.service.page = 1;
+    }
+    
+    renderPaginatedTable('service', '#reports-by-service', service => {
         const row = `
             <tr>
                 <td>${service.service_name || service.service_code || 'N/A'}</td>
@@ -416,22 +466,18 @@ function displayByService(services) {
                 <td style="text-align: center;">${formatTime(service.avg_service_time_minutes)}</td>
             </tr>
         `;
-        tbody.append(row);
+        $('#reports-by-service').append(row);
     });
 }
 
 // Display performance by teller
 function displayByTeller(tellers) {
-    const tbody = $('#reports-by-teller');
-    tbody.empty();
-
-    if (!tellers || tellers.length === 0) {
-        console.warn('No teller data to display');
-        tbody.append('<tr><td colspan="6" class="text-center" style="padding: 20px;">No data available</td></tr>');
-        return;
+    if (tellers) {
+        reportPagination.teller.data = tellers;
+        reportPagination.teller.page = 1;
     }
-
-    tellers.forEach(teller => {
+    
+    renderPaginatedTable('teller', '#reports-by-teller', teller => {
         const row = `
             <tr>
                 <td>${teller.teller_name || 'N/A'}</td>
@@ -442,7 +488,7 @@ function displayByTeller(tellers) {
                 <td style="text-align: center;">${formatTime(teller.avg_service_time_minutes)}</td>
             </tr>
         `;
-        tbody.append(row);
+        $('#reports-by-teller').append(row);
     });
 }
 
@@ -472,16 +518,12 @@ function displayByStatus(statuses, total) {
 
 // Display daily trends
 function displayDailyTrends(trends) {
-    const tbody = $('#reports-daily-trends');
-    tbody.empty();
-
-    if (!trends || trends.length === 0) {
-        console.warn('No trend data to display');
-        tbody.append('<tr><td colspan="5" class="text-center" style="padding: 20px;">No data available</td></tr>');
-        return;
+    if (trends) {
+        reportPagination.daily.data = trends;
+        reportPagination.daily.page = 1;
     }
-
-    trends.forEach(trend => {
+    
+    renderPaginatedTable('daily', '#reports-daily-trends', trend => {
         const row = `
             <tr>
                 <td>${trend.date}</td>
@@ -491,7 +533,7 @@ function displayDailyTrends(trends) {
                 <td style="text-align: center;">${formatTime(trend.daily_avg_service_time)}</td>
             </tr>
         `;
-        tbody.append(row);
+        $('#reports-daily-trends').append(row);
     });
 }
 
