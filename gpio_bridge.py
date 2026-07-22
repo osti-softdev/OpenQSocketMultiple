@@ -187,8 +187,8 @@ for button_pin in buttons_config.keys():
         print(f"Button GPIO {button_pin}: {e}", file=sys.stderr)
 
 
-print("GPIO Bridge Ready", file=sys.stderr)
-sys.stderr.flush()
+print("GPIO Bridge Ready")
+sys.stdout.flush()
 
 
 # -----------------------------
