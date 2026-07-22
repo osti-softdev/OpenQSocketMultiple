@@ -37,3 +37,1449 @@
 ✔ 2026-07-22 12:15:21 AM [node:events:509] [ADS] Client connected: ezhx86w3DPxkkpLFAAAd
 ✔ 2026-07-22 12:15:26 AM [node:events:509] [ADS] Client disconnected: UmRj-ECGOizsSTQaAAAB
 ✔ 2026-07-22 12:15:44 AM [node:events:509] [ADS] Client disconnected: ezhx86w3DPxkkpLFAAAd
+✔ 2026-07-22 1:01:46 AM [node:events:509] [ADS] Client connected: mD-f3_5YPVt4Irs3AAAf
+✔ 2026-07-22 1:01:55 AM [backend\routes\AtellerApi.js:440] 1
+✔ 2026-07-22 1:03:17 AM [node:events:509] [ADS] Client disconnected: mD-f3_5YPVt4Irs3AAAf
+✔ 2026-07-22 1:09:06 AM [node:events:509] [ADS] Client disconnected: 8sj2SRUlTapgBy2OAAAb
+✔ 2026-07-22 1:09:06 AM [node:events:509] [ADS] Client connected: jztCe0yAU3JHc39KAAAh
+✔ 2026-07-22 1:09:07 AM [node:events:509] [ADS] Client disconnected: jztCe0yAU3JHc39KAAAh
+✔ 2026-07-22 1:09:07 AM [node:events:509] [ADS] Client connected: HavcjONqCuzA_U6EAAAj
+✔ 2026-07-22 1:09:08 AM [node:events:509] [ADS] Client disconnected: HavcjONqCuzA_U6EAAAj
+✔ 2026-07-22 1:09:09 AM [node:events:509] [ADS] Client connected: aDEPpurVwgTpCHtwAAAl
+✔ 2026-07-22 1:09:25 AM [node:events:509] [ADS] Client disconnected: aDEPpurVwgTpCHtwAAAl
+✔ 2026-07-22 1:09:25 AM [node:events:509] [ADS] Client connected: Nt9QyFcjWGeAzxukAAAn
+✔ 2026-07-22 1:09:26 AM [node:events:509] [ADS] Client disconnected: Nt9QyFcjWGeAzxukAAAn
+✔ 2026-07-22 1:09:26 AM [node:events:509] [ADS] Client connected: BYnh3iXzfeZzGJUtAAAp
+✔ 2026-07-22 1:11:00 AM [node:events:509] [ADS] Client disconnected: BYnh3iXzfeZzGJUtAAAp
+✔ 2026-07-22 1:11:00 AM [node:events:509] [ADS] Client connected: 6eI_FY-RVUdvvZuFAAAr
+✔ 2026-07-22 1:11:01 AM [node:events:509] [ADS] Client disconnected: 6eI_FY-RVUdvvZuFAAAr
+✔ 2026-07-22 1:11:01 AM [node:events:509] [ADS] Client connected: EMznLuYGrSXuTXFbAAAt
+✔ 2026-07-22 1:11:02 AM [node:events:509] [ADS] Client disconnected: EMznLuYGrSXuTXFbAAAt
+✔ 2026-07-22 1:11:02 AM [node:events:509] [ADS] Client connected: tn6Gtc-N_S_q5XxPAAAv
+✔ 2026-07-22 1:11:17 AM [backend\routes\AtellerApi.js:440] 1
+✔ 2026-07-22 1:11:25 AM [node:events:509] [ADS] Client connected: 13Yd08KGP_GkRZsZAAAx
+✔ 2026-07-22 1:20:21 AM [node:events:509] [ADS] Client disconnected: tn6Gtc-N_S_q5XxPAAAv
+✔ 2026-07-22 1:20:27 AM [backend\routes\AtellerApi.js:74] Login attempt for: teller1
+✔ 2026-07-22 1:20:27 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:20:27 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-22 1:20:27 AM [node:events:509] [ADS] Client connected: bQkZoIMjIFeVEbdkAAAz
+✔ 2026-07-22 1:21:29 AM [node:events:509] [ADS] Client disconnected: bQkZoIMjIFeVEbdkAAAz
+✔ 2026-07-22 1:21:30 AM [node:events:509] [ADS] Client connected: -G2jvBcV_Je43r0iAAA1
+✔ 2026-07-22 1:22:23 AM [backend\routes\AtellerApi.js:440] 1
+✔ 2026-07-22 1:23:17 AM [node:events:509] [ADS] Client disconnected: WoigdKNm3PVlAwlCAAAP
+✔ 2026-07-22 1:23:23 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:23:23 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:23:23 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-22 1:23:23 AM [node:events:509] [ADS] Client connected: QRk2UMB1isW_ecWwAAA3
+✔ 2026-07-22 1:26:47 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 1:26:47 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ secrets for agents [www.dotenvx.com][0m
+✔ 2026-07-22 1:26:48 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 1:26:48 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 1:26:48 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 1:26:48 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 1:26:48 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 1:26:48 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 1:26:48 AM [node:events:509] [ADS] Client connected: kuXBqOcduAXI1-5fAAAC
+✔ 2026-07-22 1:26:48 AM [node:events:509] [ADS] Client connected: zPP_ikNWMqBR1R3pAAAD
+✔ 2026-07-22 1:26:52 AM [node:events:509] [ADS] Client connected: YXaqPk_X2I0AXjeTAAAF
+✔ 2026-07-22 1:26:53 AM [backend\routes\AadminApi.js:54] Login attempt for: ADMIN
+✔ 2026-07-22 1:26:53 AM [node_modules\sqlite3\lib\trace.js:25] User not found: ADMIN
+✔ 2026-07-22 1:26:57 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:26:57 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:26:57 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-22 1:26:58 AM [node:events:509] [ADS] Client connected: Uvjj4Ts8f9Kd-ncFAAAH
+✔ 2026-07-22 1:28:31 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 1:28:31 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ secrets for agents [www.dotenvx.com][0m
+✔ 2026-07-22 1:28:31 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 1:28:31 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 1:28:31 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 1:28:31 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 1:28:31 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 1:28:31 AM [node:events:509] [ADS] Client connected: 1FE6Za5dKPiwED_PAAAD
+✔ 2026-07-22 1:28:31 AM [node:events:509] [ADS] Client connected: jcyzEvSvWwmOvDi8AAAE
+✔ 2026-07-22 1:28:31 AM [node:events:509] [ADS] Client connected: xuexIam-OlUVFhCcAAAF
+✔ 2026-07-22 1:28:31 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 1:28:32 AM [node:events:509] [ADS] Client connected: FdpAvDG29tS1KizDAAAH
+✔ 2026-07-22 1:28:32 AM [node:events:509] [ADS] Client disconnected: xuexIam-OlUVFhCcAAAF
+✔ 2026-07-22 1:28:36 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:28:36 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:28:36 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-22 1:28:36 AM [node:events:509] [ADS] Client connected: imciNbAI2Zg8aWqaAAAJ
+✔ 2026-07-22 1:33:49 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 1:33:50 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env // tip: ⌘ enable debugging { debug: true }
+✔ 2026-07-22 1:33:50 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 1:33:50 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 1:33:50 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 1:33:50 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 1:33:50 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 1:33:50 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 1:33:50 AM [node:events:509] [ADS] Client connected: xDksl9_1JDQGCIygAAAB
+✔ 2026-07-22 1:33:50 AM [node:events:509] [ADS] Client connected: XTCFcPs1dGtaFKf7AAAE
+✔ 2026-07-22 1:33:50 AM [node:events:509] [ADS] Client connected: VBe43uqtr1IHbHx5AAAF
+✔ 2026-07-22 1:33:51 AM [node:events:509] [ADS] Client connected: rxI6K4Om4v92h6IbAAAH
+✔ 2026-07-22 1:39:13 AM [node:events:509] [ADS] Client disconnected: rxI6K4Om4v92h6IbAAAH
+✔ 2026-07-22 1:39:23 AM [backend\routes\AtellerApi.js:74] Login attempt for: admin
+✔ 2026-07-22 1:39:23 AM [node_modules\sqlite3\lib\trace.js:25] User not found: admin
+✔ 2026-07-22 1:39:24 AM [backend\routes\AtellerApi.js:74] Login attempt for: admin
+✔ 2026-07-22 1:39:24 AM [node_modules\sqlite3\lib\trace.js:25] User not found: admin
+✔ 2026-07-22 1:39:25 AM [backend\routes\AtellerApi.js:74] Login attempt for: admin
+✔ 2026-07-22 1:39:25 AM [node_modules\sqlite3\lib\trace.js:25] User not found: admin
+✔ 2026-07-22 1:39:25 AM [backend\routes\AtellerApi.js:74] Login attempt for: admin
+✔ 2026-07-22 1:39:25 AM [node_modules\sqlite3\lib\trace.js:25] User not found: admin
+✔ 2026-07-22 1:39:25 AM [backend\routes\AtellerApi.js:74] Login attempt for: admin
+✔ 2026-07-22 1:39:25 AM [node_modules\sqlite3\lib\trace.js:25] User not found: admin
+✔ 2026-07-22 1:39:25 AM [backend\routes\AtellerApi.js:74] Login attempt for: admin
+✔ 2026-07-22 1:39:25 AM [node_modules\sqlite3\lib\trace.js:25] User not found: admin
+✔ 2026-07-22 1:39:25 AM [backend\routes\AtellerApi.js:74] Login attempt for: admin
+✔ 2026-07-22 1:39:25 AM [node_modules\sqlite3\lib\trace.js:25] User not found: admin
+✔ 2026-07-22 1:40:09 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 1:40:09 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ encrypted .env [www.dotenvx.com][0m
+✔ 2026-07-22 1:40:10 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 1:40:10 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 1:40:10 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 1:40:10 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 1:40:10 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 1:40:10 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 1:40:10 AM [node:events:509] [ADS] Client connected: NQC8RnB5PjrcVRnWAAAB
+✔ 2026-07-22 1:40:11 AM [node:events:509] [ADS] Client connected: 0o1vzkzCvLwm2lWXAAAE
+✔ 2026-07-22 1:40:11 AM [node:events:509] [ADS] Client connected: yIu1z5S-5rqYVL-NAAAF
+✔ 2026-07-22 1:40:12 AM [node:events:509] [ADS] Client disconnected: NQC8RnB5PjrcVRnWAAAB
+✔ 2026-07-22 1:40:12 AM [node:events:509] [ADS] Client connected: 3XvsnCXEQAi3xBGUAAAH
+✔ 2026-07-22 1:40:20 AM [backend\routes\AtellerApi.js:74] Login attempt for: admin
+✔ 2026-07-22 1:40:20 AM [node_modules\sqlite3\lib\trace.js:25] User not found: admin
+✔ 2026-07-22 1:40:27 AM [backend\routes\AtellerApi.js:74] Login attempt for: admin
+✔ 2026-07-22 1:40:27 AM [node_modules\sqlite3\lib\trace.js:25] User not found: admin
+✔ 2026-07-22 1:40:41 AM [node:events:509] [ADS] Client disconnected: 0o1vzkzCvLwm2lWXAAAE
+✔ 2026-07-22 1:40:44 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:40:44 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:40:44 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-22 1:40:45 AM [node:events:509] [ADS] Client connected: wXIQaHub51RS4fuNAAAJ
+✔ 2026-07-22 1:40:55 AM [node:events:509] [ADS] Client disconnected: wXIQaHub51RS4fuNAAAJ
+✔ 2026-07-22 1:40:59 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:40:59 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:40:59 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:00 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:00 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:00 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:01 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:01 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:01 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:01 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:01 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:01 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:01 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:01 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:01 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:03 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:03 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:03 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:06 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:06 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:06 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:09 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:09 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:09 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:11 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:11 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:11 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:12 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:12 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:12 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:13 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:13 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:13 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:13 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:13 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:13 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:13 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:13 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:13 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:13 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:13 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:13 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:13 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:13 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:13 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:13 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:13 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:13 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:14 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:14 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:14 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:14 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:14 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:14 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:14 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:14 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:14 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:14 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:14 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:14 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:14 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:14 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:14 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:15 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:15 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:15 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:15 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:15 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:15 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:15 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:15 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:15 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:15 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:15 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:15 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:15 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:15 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:15 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:15 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:15 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:15 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:16 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:16 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:16 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:16 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:16 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:16 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:16 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:16 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:16 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:16 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:16 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:16 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:16 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:16 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:16 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:17 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:17 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:17 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:17 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:17 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:17 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:17 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:17 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:17 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:17 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:17 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:17 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:17 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:17 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:17 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:18 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:18 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:18 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:18 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:18 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:18 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:18 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:18 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:18 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:19 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:19 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:19 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:19 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:19 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:19 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:19 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:19 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:19 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:19 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:19 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:19 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:19 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:19 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:19 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:20 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:20 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:20 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:20 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:20 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:20 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:20 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:20 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:20 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:20 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:20 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:20 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:20 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:20 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:20 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:20 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:20 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:20 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:21 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:21 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:21 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:21 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:21 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:21 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:21 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:21 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:21 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:27 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:27 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:27 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:27 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:27 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:27 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:27 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:27 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:27 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:27 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:27 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:27 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:27 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:27 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:27 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:27 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:27 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:27 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:28 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:28 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:28 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:28 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:28 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:28 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:28 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:28 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:28 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:28 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:28 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:28 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:28 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:28 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:28 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:28 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:28 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:28 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:29 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:29 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:29 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:29 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:29 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:29 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:29 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:29 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:29 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:29 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:29 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:29 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:29 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:29 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:29 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:30 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:30 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:30 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:30 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:30 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:30 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:30 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:30 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:30 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:30 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:30 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:30 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:30 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:30 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:30 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:30 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:30 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:30 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:31 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:31 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:31 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:31 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:31 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:31 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:31 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:31 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:31 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:31 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:31 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:31 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:31 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:31 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:31 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:32 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:32 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:32 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:32 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:32 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:32 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:32 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:32 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:32 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:32 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:32 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:32 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:32 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:32 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:32 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:32 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:32 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:32 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:33 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:33 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:33 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:33 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:33 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:33 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:33 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:33 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:33 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:33 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:33 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:33 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:33 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:33 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:33 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:33 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:33 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:34 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:34 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:34 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:34 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:34 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:34 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:34 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:34 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:34 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:34 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:34 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:34 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:34 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:41:34 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:41:34 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:41:34 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:42:49 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 1:42:49 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ encrypted .env [www.dotenvx.com][0m
+✔ 2026-07-22 1:42:49 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 1:42:49 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 1:42:49 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 1:42:49 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 1:42:49 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 1:42:49 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 1:42:51 AM [node:events:509] [ADS] Client connected: mzEpL0eTBJ2GwtQDAAAB
+✔ 2026-07-22 1:42:51 AM [node:events:509] [ADS] Client connected: O3GwMfseJdkDfEucAAAD
+✔ 2026-07-22 1:42:57 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:42:57 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:42:57 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:42:58 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:42:58 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:42:58 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:43:58 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:43:58 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:43:58 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-22 1:43:59 AM [node:events:509] [ADS] Client connected: 3hNgxiK-fHi70GRlAAAF
+✔ 2026-07-22 1:45:12 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 1:45:12 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+✔ 2026-07-22 1:45:13 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 1:45:13 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 1:45:13 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 1:45:13 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 1:45:13 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 1:45:13 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 1:45:16 AM [node:events:509] [ADS] Client connected: 1OOzWNv8t7o8PTB1AAAD
+✔ 2026-07-22 1:45:16 AM [node:events:509] [ADS] Client connected: L297KibzlunfTZKyAAAE
+✔ 2026-07-22 1:45:16 AM [node:events:509] [ADS] Client connected: TdOIMuYgjvKNF9riAAAF
+✔ 2026-07-22 1:45:44 AM [node:events:509] [ADS] Client disconnected: L297KibzlunfTZKyAAAE
+✔ 2026-07-22 1:45:48 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:45:48 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:45:48 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-22 1:45:49 AM [node:events:509] [ADS] Client connected: 3zA3_mzIY_Ckz4tGAAAH
+✔ 2026-07-22 1:45:52 AM [node:events:509] [ADS] Client disconnected: 3zA3_mzIY_Ckz4tGAAAH
+✔ 2026-07-22 1:45:53 AM [node:events:509] [ADS] Client connected: U9O0NB3vel09mBCoAAAJ
+✔ 2026-07-22 1:45:53 AM [node:events:509] [ADS] Client disconnected: U9O0NB3vel09mBCoAAAJ
+✔ 2026-07-22 1:45:53 AM [node:events:509] [ADS] Client connected: 9mIFQiaRVJThzU_rAAAL
+✔ 2026-07-22 1:45:54 AM [node:events:509] [ADS] Client disconnected: 9mIFQiaRVJThzU_rAAAL
+✔ 2026-07-22 1:45:55 AM [node:events:509] [ADS] Client connected: AS3WG9D2XkhHYsAPAAAN
+✔ 2026-07-22 1:45:55 AM [node:events:509] [ADS] Client disconnected: AS3WG9D2XkhHYsAPAAAN
+✔ 2026-07-22 1:45:56 AM [node:events:509] [ADS] Client connected: OBI2MYPwfYH5PeeqAAAP
+✔ 2026-07-22 1:45:56 AM [node:events:509] [ADS] Client disconnected: OBI2MYPwfYH5PeeqAAAP
+✔ 2026-07-22 1:45:56 AM [node:events:509] [ADS] Client connected: JXCs41F6fFmBrFVIAAAR
+✔ 2026-07-22 1:45:57 AM [node:events:509] [ADS] Client disconnected: JXCs41F6fFmBrFVIAAAR
+✔ 2026-07-22 1:45:57 AM [node:events:509] [ADS] Client connected: uk_2xSY-qcXtePpeAAAT
+✔ 2026-07-22 1:45:58 AM [node:events:509] [ADS] Client disconnected: uk_2xSY-qcXtePpeAAAT
+✔ 2026-07-22 1:45:58 AM [node:events:509] [ADS] Client connected: 6rVt51cN4RAeoKtvAAAV
+✔ 2026-07-22 1:45:59 AM [node:events:509] [ADS] Client connected: RJuuqaaWUjBuKnM2AAAX
+✔ 2026-07-22 1:45:59 AM [node:events:509] [ADS] Client disconnected: RJuuqaaWUjBuKnM2AAAX
+✔ 2026-07-22 1:46:00 AM [node:events:509] [ADS] Client connected: BuXjCDT6p7e5K6qiAAAZ
+✔ 2026-07-22 1:46:00 AM [node:events:509] [ADS] Client disconnected: BuXjCDT6p7e5K6qiAAAZ
+✔ 2026-07-22 1:46:01 AM [node:events:509] [ADS] Client connected: bPb8ig4psTtiir2nAAAb
+✔ 2026-07-22 1:46:01 AM [node:events:509] [ADS] Client disconnected: bPb8ig4psTtiir2nAAAb
+✔ 2026-07-22 1:46:02 AM [node:events:509] [ADS] Client connected: poPbNUjAgOeoEf6IAAAd
+✔ 2026-07-22 1:46:03 AM [node:events:509] [ADS] Client disconnected: poPbNUjAgOeoEf6IAAAd
+✔ 2026-07-22 1:46:03 AM [node:events:509] [ADS] Client connected: UHlfEn-4R8pYPjoEAAAf
+✔ 2026-07-22 1:46:04 AM [node:events:509] [ADS] Client disconnected: UHlfEn-4R8pYPjoEAAAf
+✔ 2026-07-22 1:46:04 AM [node:events:509] [ADS] Client connected: s6iVJQxN_5Bm_HTWAAAh
+✔ 2026-07-22 1:46:05 AM [node:events:509] [ADS] Client disconnected: s6iVJQxN_5Bm_HTWAAAh
+✔ 2026-07-22 1:46:05 AM [node:events:509] [ADS] Client connected: yuiqAVyp1Tc71PiMAAAj
+✔ 2026-07-22 1:46:09 AM [node:events:509] [ADS] Client disconnected: yuiqAVyp1Tc71PiMAAAj
+✔ 2026-07-22 1:46:09 AM [node:events:509] [ADS] Client connected: k6JvKL0gLjyqOx7-AAAl
+✔ 2026-07-22 1:46:10 AM [node:events:509] [ADS] Client disconnected: k6JvKL0gLjyqOx7-AAAl
+✔ 2026-07-22 1:46:10 AM [node:events:509] [ADS] Client connected: woqoX_ihTH0fXaMCAAAn
+✔ 2026-07-22 1:46:15 AM [node:events:509] [ADS] Client disconnected: woqoX_ihTH0fXaMCAAAn
+✔ 2026-07-22 1:46:16 AM [node:events:509] [ADS] Client connected: 04jvSQFAib3X1eqIAAAp
+✔ 2026-07-22 1:46:17 AM [node:events:509] [ADS] Client disconnected: 04jvSQFAib3X1eqIAAAp
+✔ 2026-07-22 1:46:17 AM [node:events:509] [ADS] Client connected: gbUKN5DOQ2LPcfjpAAAr
+✔ 2026-07-22 1:46:18 AM [node:events:509] [ADS] Client disconnected: gbUKN5DOQ2LPcfjpAAAr
+✔ 2026-07-22 1:46:18 AM [node:events:509] [ADS] Client connected: Umeb5nXW6T018oZSAAAt
+✔ 2026-07-22 1:46:19 AM [node:events:509] [ADS] Client disconnected: Umeb5nXW6T018oZSAAAt
+✔ 2026-07-22 1:46:19 AM [node:events:509] [ADS] Client connected: ZdxypZsjDyCTP_TlAAAv
+✔ 2026-07-22 1:46:20 AM [node:events:509] [ADS] Client disconnected: ZdxypZsjDyCTP_TlAAAv
+✔ 2026-07-22 1:46:20 AM [node:events:509] [ADS] Client connected: EP45dkaRX3Npc-4TAAAx
+✔ 2026-07-22 1:46:20 AM [node:events:509] [ADS] Client disconnected: EP45dkaRX3Npc-4TAAAx
+✔ 2026-07-22 1:46:21 AM [node:events:509] [ADS] Client connected: xsIrQWn7mQmTR2raAAAz
+✔ 2026-07-22 1:46:21 AM [node:events:509] [ADS] Client disconnected: xsIrQWn7mQmTR2raAAAz
+✔ 2026-07-22 1:46:21 AM [node:events:509] [ADS] Client connected: cxeUMawAiALPVmzFAAA1
+✔ 2026-07-22 1:46:30 AM [node:events:509] [ADS] Client disconnected: cxeUMawAiALPVmzFAAA1
+✔ 2026-07-22 1:46:31 AM [node:events:509] [ADS] Client connected: hTzATXLBZMLS5iMzAAA3
+✔ 2026-07-22 1:46:31 AM [node:events:509] [ADS] Client disconnected: hTzATXLBZMLS5iMzAAA3
+✔ 2026-07-22 1:46:32 AM [node:events:509] [ADS] Client connected: DIdxuVKjm_gbHFEMAAA5
+✔ 2026-07-22 1:46:32 AM [node:events:509] [ADS] Client disconnected: DIdxuVKjm_gbHFEMAAA5
+✔ 2026-07-22 1:46:32 AM [node:events:509] [ADS] Client connected: SLNSzEZ2De1C7rHUAAA7
+✔ 2026-07-22 1:46:33 AM [node:events:509] [ADS] Client disconnected: SLNSzEZ2De1C7rHUAAA7
+✔ 2026-07-22 1:46:33 AM [node:events:509] [ADS] Client connected: dKRuWJM9VTdUaut0AAA-
+✔ 2026-07-22 1:46:35 AM [node:events:509] [ADS] Client connected: g39yu62SgwyjsUAxAABC
+✔ 2026-07-22 1:46:35 AM [node:events:509] [ADS] Client connected: 4aYdIieaWDtuHGKoAABE
+✔ 2026-07-22 1:46:35 AM [node:events:509] [ADS] Client connected: ixZGQvjGByFZ6W3gAABH
+✔ 2026-07-22 1:46:36 AM [node:events:509] [ADS] Client disconnected: ixZGQvjGByFZ6W3gAABH
+✔ 2026-07-22 1:46:36 AM [node:events:509] [ADS] Client connected: RNGdi6Hp-YtONwJJAABJ
+✔ 2026-07-22 1:46:39 AM [node:events:509] [ADS] Client disconnected: RNGdi6Hp-YtONwJJAABJ
+✔ 2026-07-22 1:46:43 AM [node:events:509] [ADS] Client connected: 0cfrV4zCasezUlEgAABL
+✔ 2026-07-22 1:46:43 AM [node:events:509] [ADS] Client disconnected: 6rVt51cN4RAeoKtvAAAV
+✔ 2026-07-22 1:46:43 AM [node:events:509] [ADS] Client disconnected: 0cfrV4zCasezUlEgAABL
+✔ 2026-07-22 1:46:47 AM [node:events:509] [ADS] Client connected: fCXmMivhUNp3S1JQAABN
+✔ 2026-07-22 1:46:49 AM [node:events:509] [ADS] Client disconnected: fCXmMivhUNp3S1JQAABN
+✔ 2026-07-22 1:46:55 AM [node:events:509] [ADS] Client connected: 9gLc8BGehQ_QHsfFAABP
+✔ 2026-07-22 1:46:56 AM [node:events:509] [ADS] Client disconnected: 9gLc8BGehQ_QHsfFAABP
+✔ 2026-07-22 1:46:58 AM [node:events:509] [ADS] Client connected: xoshnQjCG64tRUGrAABR
+✔ 2026-07-22 1:47:04 AM [node:events:509] [ADS] Client disconnected: xoshnQjCG64tRUGrAABR
+✔ 2026-07-22 1:47:08 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:47:08 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:47:08 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:47:08 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:47:08 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:47:08 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:47:09 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:47:09 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:47:09 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:47:09 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:47:09 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:47:09 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:47:09 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:47:09 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:47:09 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:47:09 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:47:09 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:47:09 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:47:09 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:47:09 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:47:09 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:47:09 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:47:09 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:47:09 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:47:09 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:47:09 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:47:09 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:47:18 AM [node:events:509] [ADS] Client disconnected: dKRuWJM9VTdUaut0AAA-
+✔ 2026-07-22 1:47:20 AM [node:events:509] [ADS] Client disconnected: g39yu62SgwyjsUAxAABC
+✔ 2026-07-22 1:47:20 AM [node:events:509] [ADS] Client disconnected: 4aYdIieaWDtuHGKoAABE
+✔ 2026-07-22 1:53:14 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 1:53:14 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+✔ 2026-07-22 1:53:15 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 1:53:15 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 1:53:15 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 1:53:15 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 1:53:15 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 1:53:15 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 1:53:15 AM [node:events:509] [ADS] Client connected: 1YrQic5uVLwaduutAAAB
+✔ 2026-07-22 1:53:16 AM [node:events:509] [ADS] Client connected: _eRq1a65xAOmFghwAAAD
+✔ 2026-07-22 1:57:12 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 1:57:12 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env // tip: ◈ secrets for agents [www.dotenvx.com]
+✔ 2026-07-22 1:57:12 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 1:57:12 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 1:57:12 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 1:57:12 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 1:57:12 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 1:57:12 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 1:57:13 AM [node:events:509] [ADS] Client connected: Nknf-515VYbND1c1AAAB
+✔ 2026-07-22 1:57:18 AM [node:events:509] [ADS] Client connected: yd4jSYCpG3YF6LhlAAAD
+✔ 2026-07-22 1:57:51 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:57:51 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:57:51 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-22 1:57:52 AM [node:events:509] [ADS] Client connected: sqi-LD4simwrbm5rAAAF
+✔ 2026-07-22 1:57:55 AM [node:events:509] [ADS] Client disconnected: sqi-LD4simwrbm5rAAAF
+✔ 2026-07-22 1:57:59 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:57:59 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:57:59 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:58:00 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:58:00 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:58:00 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:58:02 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:58:02 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:58:02 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 1:58:03 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 1:58:03 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 1:58:03 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 2:00:03 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 2:00:03 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env // tip: ◈ secrets for agents [www.dotenvx.com]
+✔ 2026-07-22 2:00:04 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 2:00:04 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 2:00:04 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 2:00:04 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 2:00:04 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 2:00:04 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 2:00:05 AM [node:events:509] [ADS] Client connected: bI5L6KwcRRaROQt8AAAB
+✔ 2026-07-22 2:00:06 AM [node:events:509] [ADS] Client connected: n-tZD8zlZRV88LQrAAAD
+✔ 2026-07-22 2:00:43 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 2:00:43 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌁ auth for agents [www.vestauth.com][0m
+✔ 2026-07-22 2:00:43 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 2:00:43 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 2:00:43 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 2:00:43 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 2:00:43 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 2:00:43 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 2:00:44 AM [node:events:509] [ADS] Client connected: GeJnwamsszG-VyavAAAB
+✔ 2026-07-22 2:00:45 AM [node:events:509] [ADS] Client connected: R34rlZOkv15bEliMAAAD
+✔ 2026-07-22 2:01:00 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 2:01:00 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:01:00 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 2:01:09 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 2:01:09 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:01:09 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 2:01:11 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 2:01:11 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:01:11 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 2:01:15 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 2:01:15 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:01:15 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 2:01:21 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 2:01:21 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:01:21 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-22 2:01:21 AM [node:events:509] [ADS] Client connected: rCUALFPcgvWI93PHAAAF
+✔ 2026-07-22 2:01:24 AM [node:events:509] [ADS] Client disconnected: rCUALFPcgvWI93PHAAAF
+✔ 2026-07-22 2:02:58 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 2:02:58 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env // tip: ⌁ auth for agents [www.vestauth.com]
+✔ 2026-07-22 2:02:59 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 2:02:59 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 2:02:59 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 2:02:59 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 2:02:59 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 2:02:59 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 2:03:01 AM [node:events:509] [ADS] Client connected: -6NdS_25QMcxC5rGAAAB
+✔ 2026-07-22 2:03:02 AM [node:events:509] [ADS] Client connected: LE5ttN9LGw-J10BsAAAD
+✔ 2026-07-22 2:03:12 AM [backend\routes\AadminApi.js:54] Login attempt for: asdmin
+✔ 2026-07-22 2:03:12 AM [node_modules\sqlite3\lib\trace.js:25] User not found: asdmin
+✔ 2026-07-22 2:03:13 AM [backend\routes\AadminApi.js:54] Login attempt for: asdmin
+✔ 2026-07-22 2:03:13 AM [node_modules\sqlite3\lib\trace.js:25] User not found: asdmin
+✔ 2026-07-22 2:03:13 AM [backend\routes\AadminApi.js:54] Login attempt for: asdmin
+✔ 2026-07-22 2:03:13 AM [node_modules\sqlite3\lib\trace.js:25] User not found: asdmin
+✔ 2026-07-22 2:03:14 AM [backend\routes\AadminApi.js:54] Login attempt for: asdmin
+✔ 2026-07-22 2:03:14 AM [node_modules\sqlite3\lib\trace.js:25] User not found: asdmin
+✔ 2026-07-22 2:03:20 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 2:03:20 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:03:20 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-22 2:03:21 AM [node:events:509] [ADS] Client connected: vLvtLQ_wUfAXlCoBAAAF
+✔ 2026-07-22 2:03:24 AM [node:events:509] [ADS] Client disconnected: vLvtLQ_wUfAXlCoBAAAF
+✔ 2026-07-22 2:03:28 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 2:03:28 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:03:28 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-07-22 2:03:37 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 2:03:37 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:03:37 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-22 2:03:38 AM [node:events:509] [ADS] Client connected: LrY50KW-AgE2PTDFAAAH
+✔ 2026-07-22 2:03:50 AM [node:events:509] [ADS] Client disconnected: LrY50KW-AgE2PTDFAAAH
+✔ 2026-07-22 2:03:55 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:03:55 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:03:55 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin1
+✔ 2026-07-22 2:03:55 AM [node:events:509] [ADS] Client connected: 4CgEIXp2tic4wOAUAAAJ
+✔ 2026-07-22 2:03:59 AM [node:events:509] [ADS] Client disconnected: 4CgEIXp2tic4wOAUAAAJ
+✔ 2026-07-22 2:04:04 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:04:04 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:04:04 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:04:04 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:04:04 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:04:04 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:04:04 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:04:04 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:04:04 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:04:05 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:04:05 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:04:05 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:04:05 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:04:05 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:04:05 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:04:40 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 2:04:40 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌁ auth for agents [www.vestauth.com][0m
+✔ 2026-07-22 2:04:40 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 2:04:40 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 2:04:40 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 2:04:40 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 2:04:40 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 2:04:40 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 2:04:44 AM [node:events:509] [ADS] Client connected: sEfEsV9mp8HkZlneAAAB
+✔ 2026-07-22 2:04:44 AM [node:events:509] [ADS] Client connected: FWhxFpAgs5NSl2beAAAD
+✔ 2026-07-22 2:04:58 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:04:58 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:04:58 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:04:59 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:04:59 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:04:59 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:04:59 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:04:59 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:04:59 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:00 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:00 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:00 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:00 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:00 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:00 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:00 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:00 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:00 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:01 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:01 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:01 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:01 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:01 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:01 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:02 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:02 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:02 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:02 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:02 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:02 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:03 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:03 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:03 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:03 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:03 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:03 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:04 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:04 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:04 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:04 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:04 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:04 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:05 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:05 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:05 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:05 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:05 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:05 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:05 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:05 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:05 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:06 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:06 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:06 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:06 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:06 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:06 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:06 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:06 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:06 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:06 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:06 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:06 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:09 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:09 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:09 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:10 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:10 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:10 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:10 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:10 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:10 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:10 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:10 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:10 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:11 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:11 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:11 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:11 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:11 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:11 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:11 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:11 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:11 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:11 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:11 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:11 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:12 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:12 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:12 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:12 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:12 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:12 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:12 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:12 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:12 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:12 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:12 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:12 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:14 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:14 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:14 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:14 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:14 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:14 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:14 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:14 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:14 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:15 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:15 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:15 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:15 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:15 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:15 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:15 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:15 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:15 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:15 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:15 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:15 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:15 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:15 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:15 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:16 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:16 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:16 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:16 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:16 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:16 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:17 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:17 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:17 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:17 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:17 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:17 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:18 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:18 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:18 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:18 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:18 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:18 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:18 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:18 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:18 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:18 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:18 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:18 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:18 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:18 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:18 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:19 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:19 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:19 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:19 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:19 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:19 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:19 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:19 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:19 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:19 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:19 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:19 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:20 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:20 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:20 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:20 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:20 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:20 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:20 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:20 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:20 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:20 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:20 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:20 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:21 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:21 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:21 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:21 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:21 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:21 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:21 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:21 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:21 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:22 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:22 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:22 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:22 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:22 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:22 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:22 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:22 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:22 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:22 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:22 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:22 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin1
+✔ 2026-07-22 2:05:47 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 2:05:47 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌁ auth for agents [www.vestauth.com][0m
+✔ 2026-07-22 2:05:47 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 2:05:47 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 2:05:47 AM [node:events:509] [ADS] Client connected: -YXp4x74OA99YFkdAAAB
+✔ 2026-07-22 2:05:47 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 2:05:47 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 2:05:47 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 2:05:47 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 2:05:47 AM [node:events:509] [ADS] Client connected: oeztj_cWbHXuq293AAAD
+✔ 2026-07-22 2:05:57 AM [backend\routes\AadminApi.js:54] Login attempt for: admin1
+✔ 2026-07-22 2:05:57 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:05:57 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin1
+✔ 2026-07-22 2:05:58 AM [node:events:509] [ADS] Client connected: IreT7asJ51S2qHnIAAAF
+✔ 2026-07-22 2:06:05 AM [node:events:509] [ADS] Client disconnected: IreT7asJ51S2qHnIAAAF
+✔ 2026-07-22 2:06:13 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 2:06:13 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:06:13 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-22 2:06:13 AM [node:events:509] [ADS] Client connected: v5cOyprTFOyL26ijAAAH
+✔ 2026-07-22 2:06:39 AM [backend\routes\AtellerApi.js:74] Login attempt for: teller1
+✔ 2026-07-22 2:06:39 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:06:39 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-22 2:06:39 AM [node:events:509] [ADS] Client connected: u6PLEWr6ilZFtCuIAAAJ
+✔ 2026-07-22 2:07:56 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 2:07:56 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ enable debugging { debug: true }[0m
+✔ 2026-07-22 2:07:56 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 2:07:56 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 2:07:56 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 2:07:56 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 2:07:57 AM [unknown-location] Found 41756 transactions older than 365 days. Archiving...
+✔ 2026-07-22 2:07:57 AM [node:events:509] [ADS] Client connected: vaOL5iy0kmM79e2yAAAB
+✔ 2026-07-22 2:07:57 AM [backend\utilities\db.js:340] Successfully archived 41756 transactions to C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\backend\backups\transactions_archive_2026-07-21T18-07-57-518Z.csv
+✔ 2026-07-22 2:07:58 AM [unknown-location] Deleted 41756 old transactions from database.
+✔ 2026-07-22 2:07:58 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 2:07:59 AM [node:events:509] [ADS] Client connected: 0NgcIWBUOZUsqRghAAAE
+✔ 2026-07-22 2:07:59 AM [node:events:509] [ADS] Client connected: PTgmMGxW5mxCpOHrAAAF
+✔ 2026-07-22 2:08:02 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 2:08:02 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:08:02 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-22 2:08:02 AM [node:events:509] [ADS] Client connected: srQnwfqjjS7nxTWfAAAH
+✔ 2026-07-22 2:09:22 AM [node:events:509] [ADS] Client disconnected: srQnwfqjjS7nxTWfAAAH
+✔ 2026-07-22 2:09:23 AM [node:events:509] [ADS] Client connected: vl60ezQ8NJvsmS2vAAAJ
+✔ 2026-07-22 2:09:26 AM [node:events:509] [ADS] Client disconnected: vaOL5iy0kmM79e2yAAAB
+✔ 2026-07-22 2:09:26 AM [node:events:509] [ADS] Client connected: tIpLDEo3Fj3QPCqEAAAL
+✔ 2026-07-22 2:12:06 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 2:12:07 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env // tip: ⌘ suppress logs { quiet: true }
+✔ 2026-07-22 2:12:07 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 2:12:07 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 2:12:07 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 2:12:07 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 2:12:07 AM [node:events:509] [ADS] Client connected: CP7ZUscExcWblKKRAAAB
+✔ 2026-07-22 2:12:08 AM [node:events:509] [ADS] Client connected: n4hi2pQTyETGiETKAAAD
+✔ 2026-07-22 2:12:09 AM [unknown-location] Found 42898 transactions older than 365 days. Archiving...
+✔ 2026-07-22 2:12:10 AM [node:events:509] [ADS] Client connected: CbRE-reNMZ1wOwRnAAAG
+✔ 2026-07-22 2:12:10 AM [backend\utilities\db.js:340] Successfully archived 42898 transactions to C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\backend\backups\transactions_archive_2026-07-21T18-12-09-496Z.csv
+✔ 2026-07-22 2:12:10 AM [node:events:509] [ADS] Client disconnected: n4hi2pQTyETGiETKAAAD
+✔ 2026-07-22 2:12:10 AM [node:events:509] [ADS] Client connected: LEM9tqcmaeU-njLLAAAH
+✔ 2026-07-22 2:12:11 AM [unknown-location] Deleted 42898 old transactions from database.
+✔ 2026-07-22 2:12:11 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 2:12:14 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 2:12:14 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 2:12:14 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-22 2:12:14 AM [node:events:509] [ADS] Client connected: 95IeCzmTTP600FE2AAAJ
+✔ 2026-07-22 2:13:56 AM [node:events:509] [ADS] Client disconnected: 95IeCzmTTP600FE2AAAJ
+✔ 2026-07-22 2:13:56 AM [node:events:509] [ADS] Client connected: 1LRRfgwfoPN6S1ucAAAL
+✔ 2026-07-22 2:13:58 AM [node:events:509] [ADS] Client disconnected: 1LRRfgwfoPN6S1ucAAAL
+✔ 2026-07-22 2:13:58 AM [node:events:509] [ADS] Client connected: Kda7Z94BHfmHa2ZgAAAN
+✔ 2026-07-22 2:13:59 AM [node:events:509] [ADS] Client disconnected: Kda7Z94BHfmHa2ZgAAAN
+✔ 2026-07-22 2:13:59 AM [node:events:509] [ADS] Client connected: LQzLfo2IHZEfoHmHAAAP
+✔ 2026-07-22 2:14:08 AM [node:events:509] [ADS] Client disconnected: LQzLfo2IHZEfoHmHAAAP
+✔ 2026-07-22 2:14:08 AM [node:events:509] [ADS] Client connected: aWYlJQY4Y7T17YnrAAAR
+✔ 2026-07-22 2:14:21 AM [node:events:509] [ADS] Client disconnected: LEM9tqcmaeU-njLLAAAH
+✔ 2026-07-22 2:14:21 AM [node:events:509] [ADS] Client connected: Fi_HnZsFQyoVpokXAAAT
+✔ 2026-07-22 2:14:21 AM [node:events:509] [ADS] Client connected: ppgbK8c5SmRProkoAAAV
+✔ 2026-07-22 2:14:25 AM [node:events:509] [ADS] Client disconnected: ppgbK8c5SmRProkoAAAV
+✔ 2026-07-22 2:14:25 AM [node:events:509] [ADS] Client connected: 2xkKSDGwlFfsmyFaAAAX
+✔ 2026-07-22 2:14:26 AM [node:events:509] [ADS] Client disconnected: 2xkKSDGwlFfsmyFaAAAX
+✔ 2026-07-22 2:14:26 AM [node:events:509] [ADS] Client connected: 25rnpb1etft-jyXdAAAZ
+✔ 2026-07-22 2:14:26 AM [node:events:509] [ADS] Client disconnected: 25rnpb1etft-jyXdAAAZ
+✔ 2026-07-22 2:14:26 AM [node:events:509] [ADS] Client connected: 1qYL_8ZV56MqTllTAAAb
+✔ 2026-07-22 2:14:27 AM [node:events:509] [ADS] Client connected: LBTcUH5jJltY0CXjAAAd
+✔ 2026-07-22 2:14:27 AM [node:events:509] [ADS] Client connected: QRX3oQZyJQPoLoX-AAAf
+✔ 2026-07-22 2:14:27 AM [node:events:509] [ADS] Client disconnected: QRX3oQZyJQPoLoX-AAAf
+✔ 2026-07-22 2:14:27 AM [node:events:509] [ADS] Client connected: jU1_O8U7sWJzlp8pAAAh
+✔ 2026-07-22 2:14:28 AM [node:events:509] [ADS] Client disconnected: jU1_O8U7sWJzlp8pAAAh
+✔ 2026-07-22 2:14:28 AM [node:events:509] [ADS] Client connected: 2tnqXt6Cx6aimptdAAAj
+✔ 2026-07-22 2:14:28 AM [node:events:509] [ADS] Client disconnected: 2tnqXt6Cx6aimptdAAAj
+✔ 2026-07-22 2:14:29 AM [node:events:509] [ADS] Client connected: kOkk0sjT6hLeoPmiAAAl
+✔ 2026-07-22 2:14:29 AM [node:events:509] [ADS] Client connected: XSg6bLJVdTF9YlwiAAAn
+✔ 2026-07-22 2:14:29 AM [node:events:509] [ADS] Client connected: 93sq8cXjPnbSIPLZAAAp
+✔ 2026-07-22 2:14:29 AM [node:events:509] [ADS] Client connected: DtSqEsS32OIV2RouAAAr
+✔ 2026-07-22 2:14:29 AM [node:events:509] [ADS] Client connected: 3hGz7PMTr5l2GC_DAAAt
+✔ 2026-07-22 2:14:30 AM [node:events:509] [ADS] Client disconnected: 3hGz7PMTr5l2GC_DAAAt
+✔ 2026-07-22 2:14:30 AM [node:events:509] [ADS] Client connected: HmPk6Zj7Ag7zkIIdAAAv
+✔ 2026-07-22 2:14:30 AM [node:events:509] [ADS] Client connected: LXoJkIdwRu7oD9dTAAAx
+✔ 2026-07-22 2:14:30 AM [node:events:509] [ADS] Client connected: hjooRbmv7n6DX7T2AAAz
+✔ 2026-07-22 2:14:31 AM [node:events:509] [ADS] Client connected: 84aOR550StrgxlccAAA1
+✔ 2026-07-22 2:14:31 AM [node:events:509] [ADS] Client disconnected: 84aOR550StrgxlccAAA1
+✔ 2026-07-22 2:14:31 AM [node:events:509] [ADS] Client connected: 0fHYinE7UHRaKltUAAA4
+✔ 2026-07-22 2:14:31 AM [node:events:509] [ADS] Client connected: hd5cynR1pg0qs4K8AAA6
+✔ 2026-07-22 2:15:06 AM [node:events:509] [ADS] Client disconnected: Fi_HnZsFQyoVpokXAAAT
+✔ 2026-07-22 2:15:11 AM [node:events:509] [ADS] Client disconnected: 1qYL_8ZV56MqTllTAAAb
+✔ 2026-07-22 2:15:12 AM [node:events:509] [ADS] Client disconnected: LBTcUH5jJltY0CXjAAAd
+✔ 2026-07-22 2:15:14 AM [node:events:509] [ADS] Client disconnected: kOkk0sjT6hLeoPmiAAAl
+✔ 2026-07-22 2:15:14 AM [node:events:509] [ADS] Client disconnected: XSg6bLJVdTF9YlwiAAAn
+✔ 2026-07-22 2:15:14 AM [node:events:509] [ADS] Client disconnected: 93sq8cXjPnbSIPLZAAAp
+✔ 2026-07-22 2:15:14 AM [node:events:509] [ADS] Client disconnected: DtSqEsS32OIV2RouAAAr
+✔ 2026-07-22 2:15:15 AM [node:events:509] [ADS] Client disconnected: HmPk6Zj7Ag7zkIIdAAAv
+✔ 2026-07-22 2:15:15 AM [node:events:509] [ADS] Client disconnected: LXoJkIdwRu7oD9dTAAAx
+✔ 2026-07-22 2:15:15 AM [node:events:509] [ADS] Client disconnected: hjooRbmv7n6DX7T2AAAz
+✔ 2026-07-22 2:15:16 AM [node:events:509] [ADS] Client disconnected: 0fHYinE7UHRaKltUAAA4
+✔ 2026-07-22 2:17:30 AM [node:events:509] [ADS] Client disconnected: hd5cynR1pg0qs4K8AAA6
+✔ 2026-07-22 2:17:30 AM [node:events:509] [ADS] Client disconnected: CbRE-reNMZ1wOwRnAAAG
+✔ 2026-07-22 2:17:30 AM [node:events:509] [ADS] Client disconnected: aWYlJQY4Y7T17YnrAAAR
+✔ 2026-07-22 2:17:30 AM [node:events:509] [ADS] Client disconnected: CP7ZUscExcWblKKRAAAB
+✔ 2026-07-22 9:20:28 AM [node:events:509] [ADS] Client connected: S5rouAvw-J-d4vB4AAA-
+✔ 2026-07-22 9:20:28 AM [node:events:509] [ADS] Client connected: 5KScDtnhgdR3AZWBAAA_
+✔ 2026-07-22 9:20:28 AM [node:events:509] [ADS] Client connected: u6psrvW7JL-ZILqnAABB
+✔ 2026-07-22 9:20:29 AM [node:events:509] [ADS] Client connected: fiRSeN5uU4hESzZjAABC
+✔ 2026-07-22 9:25:30 AM [node:events:509] [ADS] Client disconnected: fiRSeN5uU4hESzZjAABC
+✔ 2026-07-22 9:25:34 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 9:25:34 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 9:25:34 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-22 9:25:34 AM [node:events:509] [ADS] Client connected: PC_DqUGDB6vo492EAABE
+✔ 2026-07-22 9:26:26 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 9:26:26 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ override existing { override: true }[0m
+✔ 2026-07-22 9:26:26 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 9:26:26 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 9:26:26 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 9:26:26 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 9:26:27 AM [unknown-location] Found 43177 transactions older than 365 days. Archiving...
+✔ 2026-07-22 9:26:28 AM [backend\utilities\db.js:340] Successfully archived 43177 transactions to C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\backend\backups\transactions_archive_2026-07-22T01-26-27-942Z.csv
+✔ 2026-07-22 9:26:28 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 9:26:29 AM [unknown-location] Deleted 43177 old transactions from database.
+✔ 2026-07-22 9:26:29 AM [node:events:509] [ADS] Client connected: _aRBfP9K2mEOk9uGAAAC
+✔ 2026-07-22 9:26:29 AM [node:events:509] [ADS] Client connected: 1oPiD2VESHhVE0COAAAD
+✔ 2026-07-22 9:26:30 AM [node:events:509] [ADS] Client connected: vlstu4_Qa_dGMTjHAAAF
+✔ 2026-07-22 9:26:30 AM [node:events:509] [ADS] Client connected: UbD_8kzPqpOtdsi4AAAH
+✔ 2026-07-22 9:27:01 AM [node:events:509] [ADS] Client disconnected: _aRBfP9K2mEOk9uGAAAC
+✔ 2026-07-22 9:27:03 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 9:27:03 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 9:27:03 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-22 9:27:03 AM [node:events:509] [ADS] Client connected: asrGidZctqDRH-LfAAAJ
+✔ 2026-07-22 9:27:22 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 9:27:22 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ encrypted .env [www.dotenvx.com][0m
+✔ 2026-07-22 9:27:23 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 9:27:23 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 9:27:23 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 9:27:23 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 9:27:23 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 9:27:23 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 9:27:23 AM [node:events:509] [ADS] Client connected: bhqXSbYE1IHxr0tpAAAD
+✔ 2026-07-22 9:27:23 AM [node:events:509] [ADS] Client connected: tpGiTctg0RR5M75RAAAE
+✔ 2026-07-22 9:27:23 AM [node:events:509] [ADS] Client connected: 54WZnX0FUWqRXFeKAAAF
+✔ 2026-07-22 9:27:23 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:27:23 AM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM5
+✔ 2026-07-22 9:27:23 AM [node:events:509] [ADS] Client connected: SmIZyAxN2c0SHWe6AAAH
+✔ 2026-07-22 9:27:30 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:27:30 AM | SYSTEM | - | ⚠️ Init failed: Timeout waiting for response
+✔ 2026-07-22 9:27:30 AM [node:events:509] [ADS] Client disconnected: 54WZnX0FUWqRXFeKAAAF
+✔ 2026-07-22 9:27:30 AM [node:events:509] [ADS] Client connected: FFeQ1L2Zo5-rLUfiAAAJ
+✔ 2026-07-22 9:28:23 AM [node:events:509] [ADS] Client disconnected: bhqXSbYE1IHxr0tpAAAD
+✔ 2026-07-22 9:28:26 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 9:28:26 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 9:28:26 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-22 9:28:26 AM [node:events:509] [ADS] Client connected: X-zokg-zbFLL8B2fAAAL
+✔ 2026-07-22 9:29:01 AM [node:events:509] [ADS] Client disconnected: FFeQ1L2Zo5-rLUfiAAAJ
+✔ 2026-07-22 9:29:01 AM [node:events:509] [ADS] Client connected: RsT9MuZFwDLEVFEZAAAN
+✔ 2026-07-22 9:29:35 AM [backend\routes\AkioskApi.js:109] On-prem ticket, printing required.
+✔ 2026-07-22 9:29:35 AM [backend\utilities\smsService.js:76] 📜 Loaded message templates: [
+  'generate',
+  'call',
+  'forward',
+  'hold',
+  'void',
+  'finish',
+  'nearly_called'
+]
+✔ 2026-07-22 9:29:35 AM [backend\utilities\smsService.js:40] 2026-07-22T01:29:35.258Z [..\node\smsService.js:26] 7/22/2026, 9:29:35 AM | Kiosk | +639679843001 | SENDING | BUSINESS_TAX | BT24 | generate
+✔ 2026-07-22 9:29:38 AM [node:events:509] [ADS] Client disconnected: tpGiTctg0RR5M75RAAAE
+✔ 2026-07-22 9:29:40 AM [backend\utilities\smsService.js:40] 2026-07-22T01:29:40.273Z [..\node\smsService.js:26] 7/22/2026, 9:29:40 AM | Kiosk | +639679843001 | FAILED ❌ (Timeout waiting for response) | BUSINESS_TAX | BT24 | generate
+✔ 2026-07-22 9:29:43 AM [backend\routes\AtellerApi.js:74] Login attempt for: teller1
+✔ 2026-07-22 9:29:43 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 9:29:43 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-22 9:29:43 AM [node:events:509] [ADS] Client connected: 6-TfI9zOd6Y23QKQAAAP
+✔ 2026-07-22 9:29:51 AM [node:events:509] [ADS] Client disconnected: 6-TfI9zOd6Y23QKQAAAP
+✔ 2026-07-22 9:29:51 AM [node:events:509] [ADS] Client connected: RSWAEucHw9XjPq6gAAAR
+✔ 2026-07-22 9:30:35 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 9:30:35 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌁ auth for agents [www.vestauth.com][0m
+✔ 2026-07-22 9:30:35 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 9:30:35 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 9:30:35 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 9:30:35 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 9:30:35 AM [node:events:509] [ADS] Client connected: symQkHw7Upn0FVBiAAAB
+✔ 2026-07-22 9:30:35 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:30:35 AM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM5
+✔ 2026-07-22 9:30:35 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 9:30:35 AM [node:events:509] [ADS] Client connected: QrcWOMWGtBYv7ZKFAAAF
+✔ 2026-07-22 9:30:35 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 9:30:35 AM [node:events:509] [ADS] Client connected: QoKHs09hcAjDdWoXAAAG
+✔ 2026-07-22 9:30:35 AM [node:events:509] [ADS] Client connected: Li8sWOffwJlIky_xAAAH
+✔ 2026-07-22 9:30:42 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:30:42 AM | SYSTEM | - | ⚠️ Init failed: Timeout waiting for response
+✔ 2026-07-22 9:30:59 AM [backend\routes\AkioskApi.js:109] On-prem ticket, printing required.
+✔ 2026-07-22 9:30:59 AM [backend\utilities\smsService.js:76] 📜 Loaded message templates: [
+  'generate',
+  'call',
+  'forward',
+  'hold',
+  'void',
+  'finish',
+  'nearly_called'
+]
+✔ 2026-07-22 9:30:59 AM [backend\utilities\smsService.js:40] 2026-07-22T01:30:59.183Z [..\node\smsService.js:26] 7/22/2026, 9:30:59 AM | Kiosk | +639679843001 | SENDING | BUSINESS_TAX | BT25 | generate
+✔ 2026-07-22 9:31:04 AM [backend\utilities\smsService.js:40] 2026-07-22T01:31:04.205Z [..\node\smsService.js:26] 7/22/2026, 9:31:04 AM | Kiosk | +639679843001 | FAILED ❌ (Timeout waiting for response) | BUSINESS_TAX | BT25 | generate
+✔ 2026-07-22 9:31:39 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:31:39 AM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2026-07-22 9:31:44 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:31:44 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:31:49 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:31:49 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:31:54 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:31:54 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:31:59 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:31:59 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:32:05 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:32:05 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:32:10 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:32:10 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:32:15 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:32:15 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:32:20 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:32:20 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:32:25 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:32:25 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:32:30 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:32:30 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:32:35 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:32:35 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:32:40 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:32:40 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:32:45 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:32:45 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:32:50 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:32:50 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:32:55 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:32:55 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:33:00 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:33:00 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:33:02 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 9:33:02 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ secrets for agents [www.dotenvx.com][0m
+✔ 2026-07-22 9:33:03 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 9:33:03 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 9:33:03 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:33:03 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:33:03 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 9:33:03 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 9:33:03 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 9:33:03 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 9:33:03 AM [node:events:509] [ADS] Client connected: 8WmNftnKvOLY1IgRAAAB
+✔ 2026-07-22 9:33:03 AM [node:events:509] [ADS] Client connected: EDkRj9FNjuaSrW1gAAAF
+✔ 2026-07-22 9:33:03 AM [node:events:509] [ADS] Client connected: a7FUWJPSMVwCyggsAAAG
+✔ 2026-07-22 9:33:03 AM [node:events:509] [ADS] Client connected: IxHnZBxuIfP7DkQJAAAH
+✔ 2026-07-22 9:33:08 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:33:08 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:33:13 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:33:13 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:33:16 AM [node:events:509] [ADS] Client disconnected: a7FUWJPSMVwCyggsAAAG
+✔ 2026-07-22 9:33:18 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:33:18 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:33:21 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 9:33:21 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 9:33:21 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-22 9:33:21 AM [node:events:509] [ADS] Client connected: WEwT6BBpzTBEM4oUAAAJ
+✔ 2026-07-22 9:33:23 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:33:23 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:33:28 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:33:28 AM | SYSTEM | - | ❌ Failed to open COM5: Opening COM5: File not found
+✔ 2026-07-22 9:33:33 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:33:33 AM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2026-07-22 9:33:34 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:33:34 AM | SYSTEM | - | 📡 Modem registered on network
+✔ 2026-07-22 9:33:34 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:33:34 AM | SYSTEM | - | 📶 Modem ready for SMS
+✔ 2026-07-22 9:34:13 AM [backend\routes\AkioskApi.js:109] On-prem ticket, printing required.
+✔ 2026-07-22 9:34:13 AM [backend\utilities\smsService.js:76] 📜 Loaded message templates: [
+  'generate',
+  'call',
+  'forward',
+  'hold',
+  'void',
+  'finish',
+  'nearly_called'
+]
+✔ 2026-07-22 9:34:13 AM [backend\utilities\smsService.js:40] 2026-07-22T01:34:13.435Z [..\node\smsService.js:26] 7/22/2026, 9:34:13 AM | Kiosk | +639679843001 | SENDING | BUSINESS_TAX | BT26 | generate
+✔ 2026-07-22 9:34:13 AM [backend\utilities\smsService.js:40] 2026-07-22T01:34:13.599Z [..\node\smsService.js:26] 7/22/2026, 9:34:13 AM | Kiosk | +639679843001 | 📤 Sending Full... | BUSINESS_TAX | BT26 | generate
+✔ 2026-07-22 9:34:17 AM [backend\utilities\smsService.js:40] 2026-07-22T01:34:17.244Z [..\node\smsService.js:26] 7/22/2026, 9:34:17 AM | Kiosk | +639679843001 | ✅ Full sent | BUSINESS_TAX | BT26 | generate
+✔ 2026-07-22 9:34:22 AM [backend\utilities\smsService.js:40] 2026-07-22T01:34:22.271Z [..\node\smsService.js:26] 7/22/2026, 9:34:22 AM | Kiosk | +639679843001 | ✅ Delivered in 1 part(s) | BUSINESS_TAX | BT26 | generate
+✔ 2026-07-22 9:35:38 AM [node:events:509] [ADS] Client disconnected: WEwT6BBpzTBEM4oUAAAJ
+✔ 2026-07-22 9:35:38 AM [node:events:509] [ADS] Client connected: mohlcKOsdn6_iMmjAAAL
+✔ 2026-07-22 9:37:48 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:37:48 AM | SYSTEM | - | 🔌 Modem disconnected
+✔ 2026-07-22 9:37:53 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:37:53 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 9:37:58 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:37:58 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 9:38:03 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:38:03 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 9:38:08 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:38:08 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 9:38:13 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:38:13 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 9:38:18 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:38:18 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 9:38:23 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:38:23 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 9:38:28 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:38:28 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 9:38:33 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:38:33 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 9:38:38 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:38:38 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 9:38:43 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:38:43 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 9:38:48 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:38:48 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 9:38:53 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:38:53 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 9:38:58 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:38:58 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 9:39:03 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:39:03 AM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM5
+✔ 2026-07-22 9:39:10 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:39:10 AM | SYSTEM | - | ⚠️ Init failed: Timeout waiting for response
+✔ 2026-07-22 9:39:11 AM [backend\routes\AkioskApi.js:109] On-prem ticket, printing required.
+✔ 2026-07-22 9:39:18 AM [backend\routes\AkioskApi.js:109] On-prem ticket, printing required.
+✔ 2026-07-22 9:39:20 AM [node:events:509] [ADS] Client disconnected: EDkRj9FNjuaSrW1gAAAF
+✔ 2026-07-22 9:39:20 AM [node:events:509] [ADS] Client connected: DyEgTcNY7uSNa6AzAAAN
+✔ 2026-07-22 9:39:22 AM [backend\routes\AkioskApi.js:109] On-prem ticket, printing required.
+✔ 2026-07-22 9:39:29 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 9:39:30 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ encrypted .env [www.dotenvx.com][0m
+✔ 2026-07-22 9:39:30 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 9:39:30 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 9:39:30 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 9:39:30 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 9:39:30 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 9:39:30 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 9:39:30 AM [node:events:509] [ADS] Client connected: dHjxSLq68cfZa0FqAAAB
+✔ 2026-07-22 9:39:30 AM [node:events:509] [ADS] Client connected: cSqIYsBBblDx1BD2AAAF
+✔ 2026-07-22 9:39:30 AM [node:events:509] [ADS] Client connected: ACOtZmNJnjpqk3lpAAAG
+✔ 2026-07-22 9:39:30 AM [node:events:509] [ADS] Client connected: C1xbdSIb5zGxUasKAAAH
+✔ 2026-07-22 9:39:39 AM [node:events:509] [ADS] Client disconnected: C1xbdSIb5zGxUasKAAAH
+✔ 2026-07-22 9:39:42 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 9:39:42 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 9:39:42 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-22 9:39:42 AM [node:events:509] [ADS] Client connected: oss07czslO22cEvUAAAJ
+✔ 2026-07-22 9:39:56 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 9:39:56 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ encrypted .env [www.dotenvx.com][0m
+✔ 2026-07-22 9:39:57 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 9:39:57 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 9:39:57 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 9:39:57 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 9:39:57 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 9:39:57 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 9:39:57 AM [node:events:509] [ADS] Client connected: znzd4E-XCaFmxc2kAAAD
+✔ 2026-07-22 9:39:57 AM [node:events:509] [ADS] Client connected: s-7LKpwF3ahT3r4eAAAE
+✔ 2026-07-22 9:39:57 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:39:57 AM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM5
+✔ 2026-07-22 9:39:57 AM [node:events:509] [ADS] Client connected: xOJPjSeJKPrYyeHmAAAF
+✔ 2026-07-22 9:39:57 AM [node:events:509] [ADS] Client connected: ceRVZmoZWLZsAJrPAAAH
+✔ 2026-07-22 9:40:04 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:40:04 AM | SYSTEM | - | ⚠️ Init failed: Timeout waiting for response
+✔ 2026-07-22 9:41:13 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 9:41:13 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ encrypted .env [www.dotenvx.com][0m
+✔ 2026-07-22 9:41:14 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 9:41:14 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 9:41:14 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 9:41:14 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 9:41:14 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 9:41:14 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 9:41:14 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:41:14 AM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM5
+✔ 2026-07-22 9:41:15 AM [node:events:509] [ADS] Client connected: ZTPi0aAwvya2hifWAAAC
+✔ 2026-07-22 9:41:15 AM [node:events:509] [ADS] Client connected: cdXy13bPsKFCVzYmAAAD
+✔ 2026-07-22 9:41:18 AM [node:events:509] [ADS] Client connected: jRa8QYYiBKU4jZ2pAAAF
+✔ 2026-07-22 9:41:19 AM [node:events:509] [ADS] Client connected: 81cOnADaME7ADZu6AAAH
+✔ 2026-07-22 9:41:20 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:41:20 AM | SYSTEM | - | ⚠️ Init failed: Timeout waiting for response
+✔ 2026-07-22 9:43:09 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 9:43:09 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env // tip: ◈ encrypted .env [www.dotenvx.com]
+✔ 2026-07-22 9:43:10 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 9:43:10 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 9:43:10 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 9:43:10 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 9:43:10 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:43:10 AM | SYSTEM | - | ✅ Wavecom Fastrack / GSM modem opened on COM5
+✔ 2026-07-22 9:43:10 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 9:43:10 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 9:43:11 AM [node:events:509] [ADS] Client connected: CgAbzBmVWhqb7VIoAAAB
+✔ 2026-07-22 9:43:11 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:43:11 AM | SYSTEM | - | ⚠️ CSCS config skipped: ERROR
+✔ 2026-07-22 9:43:11 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:43:11 AM | SYSTEM | - | ⚠️ CPMS storage config skipped: ERROR
+✔ 2026-07-22 9:43:11 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:43:11 AM | SYSTEM | - | ⚠️ SMSC config skipped: ERROR
+✔ 2026-07-22 9:43:11 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:43:11 AM | SYSTEM | - | ⚠️ Not registered to network (CREG). SMS may fail.
+✔ 2026-07-22 9:43:11 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:43:11 AM | SYSTEM | - | 📶 Modem ready for SMS
+✔ 2026-07-22 9:43:12 AM [node:events:509] [ADS] Client connected: q9jU6a5K-DpP7UdfAAAE
+✔ 2026-07-22 9:43:12 AM [node:events:509] [ADS] Client connected: l1UmV4wk_y8HuTcnAAAF
+✔ 2026-07-22 9:43:12 AM [node:events:509] [ADS] Client connected: dXbAwLHuC8RYIdenAAAH
+✔ 2026-07-22 9:44:08 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 9:44:08 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env // tip: ⌘ override existing { override: true }
+✔ 2026-07-22 9:44:09 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 9:44:09 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 9:44:09 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 9:44:09 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 9:44:09 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 9:44:09 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 9:44:10 AM [backend\utilities\smsService.js:45] 7/22/2026, 9:44:10 AM | SYSTEM | - | ✅ Wavecom Fastrack initialized and ready on COM5
+✔ 2026-07-22 9:44:10 AM [node:events:509] [ADS] Client connected: v0qq4HH7XY5ckzmFAAAD
+✔ 2026-07-22 9:44:10 AM [node:events:509] [ADS] Client connected: CFhPYrmcOnFmTmlKAAAE
+✔ 2026-07-22 9:44:10 AM [node:events:509] [ADS] Client connected: Jk7lX0vQjPPCfFpZAAAF
+✔ 2026-07-22 9:44:11 AM [node:events:509] [ADS] Client connected: LtJYB1wGBacymDGcAAAH
+✔ 2026-07-22 9:44:18 AM [backend\utilities\smsService.js:45] 7/22/2026, 9:44:18 AM | SYSTEM | - | 📶 Total active modems in pool: 1
+✔ 2026-07-22 9:44:32 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 9:44:32 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ custom filepath { path: '/custom/path/.env' }[0m
+✔ 2026-07-22 9:44:32 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 9:44:32 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 9:44:32 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 9:44:32 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 9:44:32 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:44:32 AM | SYSTEM | - | ✅ Wavecom Fastrack / GSM modem opened on COM5
+✔ 2026-07-22 9:44:32 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 9:44:32 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 9:44:32 AM [node:events:509] [ADS] Client connected: Mi4NHv6s4PHuLDbYAAAD
+✔ 2026-07-22 9:44:32 AM [node:events:509] [ADS] Client connected: Sdo2VlmY3sG55453AAAE
+✔ 2026-07-22 9:44:32 AM [node:events:509] [ADS] Client connected: tl7VRuYUswuQvIi1AAAF
+✔ 2026-07-22 9:44:33 AM [node:events:509] [ADS] Client connected: t5Vw4ptXzluL7S4LAAAH
+✔ 2026-07-22 9:44:33 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:44:33 AM | SYSTEM | - | ⚠️ CSCS config skipped: ERROR
+✔ 2026-07-22 9:44:33 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:44:33 AM | SYSTEM | - | ⚠️ CPMS storage config skipped: ERROR
+✔ 2026-07-22 9:44:33 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:44:33 AM | SYSTEM | - | ⚠️ SMSC config skipped: ERROR
+✔ 2026-07-22 9:44:33 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:44:33 AM | SYSTEM | - | ⚠️ Not registered to network (CREG). SMS may fail.
+✔ 2026-07-22 9:44:33 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:44:33 AM | SYSTEM | - | 📶 Modem ready for SMS
+✔ 2026-07-22 9:45:14 AM [backend\routes\AkioskApi.js:109] On-prem ticket, printing required.
+✔ 2026-07-22 9:45:14 AM [backend\utilities\smsService.js:76] 📜 Loaded message templates: [
+  'generate',
+  'call',
+  'forward',
+  'hold',
+  'void',
+  'finish',
+  'nearly_called'
+]
+✔ 2026-07-22 9:45:14 AM [backend\utilities\smsService.js:40] 2026-07-22T01:45:14.165Z [..\node\smsService.js:26] 7/22/2026, 9:45:14 AM | Kiosk | +639679843001 | SENDING | BUSINESS_TAX | BT30 | generate
+✔ 2026-07-22 9:45:14 AM [backend\utilities\smsService.js:40] 2026-07-22T01:45:14.204Z [..\node\smsService.js:26] 7/22/2026, 9:45:14 AM | Kiosk | +639679843001 | FAILED ❌ (ERROR) | BUSINESS_TAX | BT30 | generate
+✔ 2026-07-22 9:46:53 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 9:46:53 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌁ auth for agents [www.vestauth.com][0m
+✔ 2026-07-22 9:46:54 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 9:46:54 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 9:46:54 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:46:54 AM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2026-07-22 9:46:54 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 9:46:54 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 9:46:54 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 9:46:54 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 9:46:56 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:46:56 AM | SYSTEM | - | 📡 Modem registered on network
+✔ 2026-07-22 9:46:56 AM [backend\utilities\smsService.js:44] 7/22/2026, 9:46:56 AM | SYSTEM | - | 📶 Modem ready for SMS
+✔ 2026-07-22 9:46:56 AM [node:events:509] [ADS] Client connected: _mcU-ftcusaLD83DAAAB
+✔ 2026-07-22 9:46:56 AM [node:events:509] [ADS] Client connected: tpVNqdP0fBROX67BAAAD
+✔ 2026-07-22 9:46:57 AM [node:events:509] [ADS] Client connected: ET90hWXsaTjFWH4-AAAF
+✔ 2026-07-22 9:46:58 AM [node:events:509] [ADS] Client connected: 8-oH2KovMsvpt3JnAAAH
+✔ 2026-07-22 9:48:12 AM [backend\routes\AkioskApi.js:109] On-prem ticket, printing required.
+✔ 2026-07-22 9:48:12 AM [backend\utilities\smsService.js:76] 📜 Loaded message templates: [
+  'generate',
+  'call',
+  'forward',
+  'hold',
+  'void',
+  'finish',
+  'nearly_called'
+]
+✔ 2026-07-22 9:48:12 AM [backend\utilities\smsService.js:40] 2026-07-22T01:48:12.047Z [..\node\smsService.js:26] 7/22/2026, 9:48:12 AM | Kiosk | +639679843001 | SENDING | BUSINESS_TAX | BT31 | generate
+✔ 2026-07-22 9:48:12 AM [backend\utilities\smsService.js:40] 2026-07-22T01:48:12.200Z [..\node\smsService.js:26] 7/22/2026, 9:48:12 AM | Kiosk | +639679843001 | 📤 Sending Full... | BUSINESS_TAX | BT31 | generate
+✔ 2026-07-22 9:48:16 AM [backend\utilities\smsService.js:40] 2026-07-22T01:48:16.433Z [..\node\smsService.js:26] 7/22/2026, 9:48:16 AM | Kiosk | +639679843001 | ✅ Full sent | BUSINESS_TAX | BT31 | generate
+✔ 2026-07-22 9:48:21 AM [backend\utilities\smsService.js:40] 2026-07-22T01:48:21.457Z [..\node\smsService.js:26] 7/22/2026, 9:48:21 AM | Kiosk | +639679843001 | ✅ Delivered in 1 part(s) | BUSINESS_TAX | BT31 | generate
+✔ 2026-07-22 9:49:28 AM [backend\routes\AtellerApi.js:443] 1
+✔ 2026-07-22 9:49:28 AM [backend\utilities\smsService.js:76] 📜 Loaded message templates: [
+  'generate',
+  'call',
+  'forward',
+  'hold',
+  'void',
+  'finish',
+  'nearly_called'
+]
+✔ 2026-07-22 9:49:28 AM [backend\utilities\smsService.js:40] 2026-07-22T01:49:28.554Z [..\node\smsService.js:26] 7/22/2026, 9:49:28 AM | Kiosk | +639679843001 | SENDING | BUSINESS_TAX | BT31 | call
+✔ 2026-07-22 9:49:28 AM [backend\utilities\smsService.js:40] 2026-07-22T01:49:28.703Z [..\node\smsService.js:26] 7/22/2026, 9:49:28 AM | Kiosk | +639679843001 | 📤 Sending Full... | BUSINESS_TAX | BT31 | call
+✔ 2026-07-22 9:49:32 AM [backend\utilities\smsService.js:40] 2026-07-22T01:49:32.402Z [..\node\smsService.js:26] 7/22/2026, 9:49:32 AM | Kiosk | +639679843001 | ✅ Full sent | BUSINESS_TAX | BT31 | call
+✔ 2026-07-22 9:49:36 AM [node:events:509] [ADS] Client disconnected: _mcU-ftcusaLD83DAAAB
+✔ 2026-07-22 9:49:36 AM [node:events:509] [ADS] Client connected: kj2eQpIQEiCZLqsGAAAJ
+✔ 2026-07-22 9:49:37 AM [backend\utilities\smsService.js:40] 2026-07-22T01:49:37.420Z [..\node\smsService.js:26] 7/22/2026, 9:49:37 AM | Kiosk | +639679843001 | ✅ Delivered in 1 part(s) | BUSINESS_TAX | BT31 | call
+✔ 2026-07-22 9:49:49 AM [backend\utilities\smsService.js:76] 📜 Loaded message templates: [
+  'generate',
+  'call',
+  'forward',
+  'hold',
+  'void',
+  'finish',
+  'nearly_called'
+]
+✔ 2026-07-22 9:49:49 AM [backend\utilities\smsService.js:40] 2026-07-22T01:49:49.117Z [..\node\smsService.js:26] 7/22/2026, 9:49:49 AM | Kiosk | +639679843001 | SENDING | BUSINESS_TAX | BT31 | hold
+✔ 2026-07-22 9:49:49 AM [backend\utilities\smsService.js:40] 2026-07-22T01:49:49.269Z [..\node\smsService.js:26] 7/22/2026, 9:49:49 AM | Kiosk | +639679843001 | 📤 Sending Full... | BUSINESS_TAX | BT31 | hold
+✔ 2026-07-22 9:49:51 AM [node:events:509] [ADS] Client disconnected: kj2eQpIQEiCZLqsGAAAJ
+✔ 2026-07-22 9:49:51 AM [node:events:509] [ADS] Client connected: zRKCXRAdn31dSuxfAAAL
+✔ 2026-07-22 9:49:52 AM [node:events:509] [ADS] Client disconnected: zRKCXRAdn31dSuxfAAAL
+✔ 2026-07-22 9:49:52 AM [node:events:509] [ADS] Client connected: ppOfDD7J8btq5BZnAAAN
+✔ 2026-07-22 9:49:52 AM [node:events:509] [ADS] Client disconnected: ppOfDD7J8btq5BZnAAAN
+✔ 2026-07-22 9:49:52 AM [node:events:509] [ADS] Client connected: qsLY2dF_3pZURtNiAAAP
+✔ 2026-07-22 9:49:52 AM [backend\utilities\smsService.js:40] 2026-07-22T01:49:52.718Z [..\node\smsService.js:26] 7/22/2026, 9:49:52 AM | Kiosk | +639679843001 | ✅ Full sent | BUSINESS_TAX | BT31 | hold
+✔ 2026-07-22 9:49:52 AM [node:events:509] [ADS] Client disconnected: qsLY2dF_3pZURtNiAAAP
+✔ 2026-07-22 9:49:53 AM [node:events:509] [ADS] Client connected: 5g3E6cYF5Yp6kmobAAAR
+✔ 2026-07-22 9:49:53 AM [node:events:509] [ADS] Client disconnected: 5g3E6cYF5Yp6kmobAAAR
+✔ 2026-07-22 9:49:53 AM [node:events:509] [ADS] Client connected: l_51EXfoEVERCMVEAAAT
+✔ 2026-07-22 9:49:53 AM [node:events:509] [ADS] Client disconnected: l_51EXfoEVERCMVEAAAT
+✔ 2026-07-22 9:49:53 AM [node:events:509] [ADS] Client connected: cfnLs8cBldoayAgMAAAV
+✔ 2026-07-22 9:49:53 AM [node:events:509] [ADS] Client disconnected: cfnLs8cBldoayAgMAAAV
+✔ 2026-07-22 9:49:53 AM [node:events:509] [ADS] Client connected: gPNEQHaeS_3s-uVPAAAX
+✔ 2026-07-22 9:49:54 AM [node:events:509] [ADS] Client connected: ji7CSjzs6pyh5RdQAAAZ
+✔ 2026-07-22 9:49:54 AM [node:events:509] [ADS] Client disconnected: ji7CSjzs6pyh5RdQAAAZ
+✔ 2026-07-22 9:49:54 AM [node:events:509] [ADS] Client connected: n71Scjyu_3_ObdioAAAb
+✔ 2026-07-22 9:49:55 AM [node:events:509] [ADS] Client disconnected: n71Scjyu_3_ObdioAAAb
+✔ 2026-07-22 9:49:55 AM [node:events:509] [ADS] Client connected: hYiEDh9un3zj2DXhAAAd
+✔ 2026-07-22 9:49:55 AM [node:events:509] [ADS] Client disconnected: hYiEDh9un3zj2DXhAAAd
+✔ 2026-07-22 9:49:55 AM [node:events:509] [ADS] Client connected: 8ns_SnMOcLu0Y0ZLAAAf
+✔ 2026-07-22 9:49:56 AM [node:events:509] [ADS] Client disconnected: 8ns_SnMOcLu0Y0ZLAAAf
+✔ 2026-07-22 9:49:56 AM [node:events:509] [ADS] Client connected: p4g4vw6LlCMfFm4bAAAh
+✔ 2026-07-22 9:49:57 AM [backend\utilities\smsService.js:40] 2026-07-22T01:49:57.732Z [..\node\smsService.js:26] 7/22/2026, 9:49:57 AM | Kiosk | +639679843001 | ✅ Delivered in 1 part(s) | BUSINESS_TAX | BT31 | hold
+✔ 2026-07-22 9:50:06 AM [backend\routes\AtellerApi.js:443] 1
+✔ 2026-07-22 9:50:06 AM [backend\utilities\smsService.js:76] 📜 Loaded message templates: [
+  'generate',
+  'call',
+  'forward',
+  'hold',
+  'void',
+  'finish',
+  'nearly_called'
+]
+✔ 2026-07-22 9:50:06 AM [backend\utilities\smsService.js:40] 2026-07-22T01:50:06.949Z [..\node\smsService.js:26] 7/22/2026, 9:50:06 AM | Kiosk | +639679843001 | SENDING | BUSINESS_TAX | BT31 | call
+✔ 2026-07-22 9:50:07 AM [backend\utilities\smsService.js:40] 2026-07-22T01:50:07.133Z [..\node\smsService.js:26] 7/22/2026, 9:50:07 AM | Kiosk | +639679843001 | 📤 Sending Full... | BUSINESS_TAX | BT31 | call
+✔ 2026-07-22 9:50:10 AM [backend\utilities\smsService.js:40] 2026-07-22T01:50:10.592Z [..\node\smsService.js:26] 7/22/2026, 9:50:10 AM | Kiosk | +639679843001 | ✅ Full sent | BUSINESS_TAX | BT31 | call
+✔ 2026-07-22 9:50:15 AM [backend\utilities\smsService.js:40] 2026-07-22T01:50:15.612Z [..\node\smsService.js:26] 7/22/2026, 9:50:15 AM | Kiosk | +639679843001 | ✅ Delivered in 1 part(s) | BUSINESS_TAX | BT31 | call
+✔ 2026-07-22 9:50:18 AM [backend\utilities\smsService.js:76] 📜 Loaded message templates: [
+  'generate',
+  'call',
+  'forward',
+  'hold',
+  'void',
+  'finish',
+  'nearly_called'
+]
+✔ 2026-07-22 9:50:18 AM [backend\utilities\smsService.js:40] 2026-07-22T01:50:18.111Z [..\node\smsService.js:26] 7/22/2026, 9:50:18 AM | Kiosk | +639679843001 | SENDING | BUSINESS_TAX | BT31 | forward
+✔ 2026-07-22 9:50:18 AM [backend\utilities\smsService.js:40] 2026-07-22T01:50:18.445Z [..\node\smsService.js:26] 7/22/2026, 9:50:18 AM | Kiosk | +639679843001 | 📤 Sending Full... | BUSINESS_TAX | BT31 | forward
+✔ 2026-07-22 9:50:21 AM [backend\utilities\smsService.js:40] 2026-07-22T01:50:21.907Z [..\node\smsService.js:26] 7/22/2026, 9:50:21 AM | Kiosk | +639679843001 | ✅ Full sent | BUSINESS_TAX | BT31 | forward
+✔ 2026-07-22 9:50:23 AM [node:events:509] [ADS] Client disconnected: tpVNqdP0fBROX67BAAAD
+✔ 2026-07-22 9:50:26 AM [backend\utilities\smsService.js:40] 2026-07-22T01:50:26.923Z [..\node\smsService.js:26] 7/22/2026, 9:50:26 AM | Kiosk | +639679843001 | ✅ Delivered in 1 part(s) | BUSINESS_TAX | BT31 | forward
+✔ 2026-07-22 9:50:29 AM [backend\routes\AtellerApi.js:74] Login attempt for: teller2
+✔ 2026-07-22 9:50:29 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 9:50:29 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller2
+✔ 2026-07-22 9:50:29 AM [node:events:509] [ADS] Client connected: o_XiceABs04oMtZNAAAj
+✔ 2026-07-22 9:50:36 AM [backend\routes\AtellerApi.js:443] 2
+✔ 2026-07-22 9:50:36 AM [backend\utilities\smsService.js:76] 📜 Loaded message templates: [
+  'generate',
+  'call',
+  'forward',
+  'hold',
+  'void',
+  'finish',
+  'nearly_called'
+]
+✔ 2026-07-22 9:50:36 AM [backend\utilities\smsService.js:40] 2026-07-22T01:50:36.119Z [..\node\smsService.js:26] 7/22/2026, 9:50:36 AM | Kiosk | +639679843001 | SENDING | BUSINESS_TAX | BT31 | call
+✔ 2026-07-22 9:50:36 AM [backend\utilities\smsService.js:40] 2026-07-22T01:50:36.306Z [..\node\smsService.js:26] 7/22/2026, 9:50:36 AM | Kiosk | +639679843001 | 📤 Sending Full... | BUSINESS_TAX | BT31 | call
+✔ 2026-07-22 9:50:38 AM [node:events:509] [ADS] Client disconnected: gPNEQHaeS_3s-uVPAAAX
+✔ 2026-07-22 9:50:39 AM [backend\utilities\smsService.js:40] 2026-07-22T01:50:39.582Z [..\node\smsService.js:26] 7/22/2026, 9:50:39 AM | Kiosk | +639679843001 | ✅ Full sent | BUSINESS_TAX | BT31 | call
+✔ 2026-07-22 9:50:44 AM [backend\utilities\smsService.js:40] 2026-07-22T01:50:44.604Z [..\node\smsService.js:26] 7/22/2026, 9:50:44 AM | Kiosk | +639679843001 | ✅ Delivered in 1 part(s) | BUSINESS_TAX | BT31 | call
+✔ 2026-07-22 9:51:27 AM [backend\utilities\smsService.js:76] 📜 Loaded message templates: [
+  'generate',
+  'call',
+  'forward',
+  'hold',
+  'void',
+  'finish',
+  'nearly_called'
+]
+✔ 2026-07-22 9:51:27 AM [backend\utilities\smsService.js:40] 2026-07-22T01:51:27.151Z [..\node\smsService.js:26] 7/22/2026, 9:51:27 AM | Kiosk | +639679843001 | SENDING | BUSINESS_TAX | BT31 | void
+✔ 2026-07-22 9:51:27 AM [backend\utilities\smsService.js:40] 2026-07-22T01:51:27.308Z [..\node\smsService.js:26] 7/22/2026, 9:51:27 AM | Kiosk | +639679843001 | 📤 Sending Full... | BUSINESS_TAX | BT31 | void
+✔ 2026-07-22 9:51:30 AM [backend\utilities\smsService.js:40] 2026-07-22T01:51:30.439Z [..\node\smsService.js:26] 7/22/2026, 9:51:30 AM | Kiosk | +639679843001 | ✅ Full sent | BUSINESS_TAX | BT31 | void
+✔ 2026-07-22 9:51:35 AM [backend\utilities\smsService.js:40] 2026-07-22T01:51:35.467Z [..\node\smsService.js:26] 7/22/2026, 9:51:35 AM | Kiosk | +639679843001 | ✅ Delivered in 1 part(s) | BUSINESS_TAX | BT31 | void
+✔ 2026-07-22 9:51:40 AM [backend\routes\AtellerApi.js:443] 2
+✔ 2026-07-22 9:51:40 AM [backend\utilities\smsService.js:76] 📜 Loaded message templates: [
+  'generate',
+  'call',
+  'forward',
+  'hold',
+  'void',
+  'finish',
+  'nearly_called'
+]
+✔ 2026-07-22 9:51:40 AM [backend\utilities\smsService.js:40] 2026-07-22T01:51:40.675Z [..\node\smsService.js:26] 7/22/2026, 9:51:40 AM | Kiosk | +639679843001 | SENDING | BUSINESS_TAX | BT31 | call
+✔ 2026-07-22 9:51:40 AM [backend\utilities\smsService.js:40] 2026-07-22T01:51:40.942Z [..\node\smsService.js:26] 7/22/2026, 9:51:40 AM | Kiosk | +639679843001 | 📤 Sending Full... | BUSINESS_TAX | BT31 | call
+✔ 2026-07-22 9:51:44 AM [backend\utilities\smsService.js:40] 2026-07-22T01:51:44.059Z [..\node\smsService.js:26] 7/22/2026, 9:51:44 AM | Kiosk | +639679843001 | ✅ Full sent | BUSINESS_TAX | BT31 | call
+✔ 2026-07-22 9:51:49 AM [backend\utilities\smsService.js:40] 2026-07-22T01:51:49.072Z [..\node\smsService.js:26] 7/22/2026, 9:51:49 AM | Kiosk | +639679843001 | ✅ Delivered in 1 part(s) | BUSINESS_TAX | BT31 | call
+✔ 2026-07-22 9:52:07 AM [backend\utilities\smsService.js:76] 📜 Loaded message templates: [
+  'generate',
+  'call',
+  'forward',
+  'hold',
+  'void',
+  'finish',
+  'nearly_called'
+]
+✔ 2026-07-22 9:52:07 AM [backend\utilities\smsService.js:40] 2026-07-22T01:52:07.483Z [..\node\smsService.js:26] 7/22/2026, 9:52:07 AM | Kiosk | +639679843001 | SENDING | BUSINESS_TAX | BT31 | finish
+✔ 2026-07-22 9:52:07 AM [backend\utilities\smsService.js:40] 2026-07-22T01:52:07.728Z [..\node\smsService.js:26] 7/22/2026, 9:52:07 AM | Kiosk | +639679843001 | 📤 Sending Full... | BUSINESS_TAX | BT31 | finish
+✔ 2026-07-22 9:52:11 AM [backend\utilities\smsService.js:40] 2026-07-22T01:52:11.165Z [..\node\smsService.js:26] 7/22/2026, 9:52:11 AM | Kiosk | +639679843001 | ✅ Full sent | BUSINESS_TAX | BT31 | finish
+✔ 2026-07-22 9:52:16 AM [backend\utilities\smsService.js:40] 2026-07-22T01:52:16.174Z [..\node\smsService.js:26] 7/22/2026, 9:52:16 AM | Kiosk | +639679843001 | ✅ Delivered in 1 part(s) | BUSINESS_TAX | BT31 | finish

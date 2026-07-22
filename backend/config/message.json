@@ -1,15 +1,15 @@
 {
   "generate": {
     "type": "generate",
-    "message": "Your ticket is #ticket for #service. Please wait for your number to be called."
+    "message": "Good Day This is the #branch:\nYour ticket is #ticket for #service. Please wait for your number to be called."
   },
   "call": {
     "type": "call",
-    "message": "Your ticket #ticket is called. Please proceed to #counter."
+    "message": "Your ticket #ticket is called. Please proceed to counter #counter."
   },
   "forward": {
     "type": "forward",
-    "message": "Your ticket #ticket has been forwarded to #counter."
+    "message": "Your ticket #ticket has been forwarded to counter #counter."
   },
   "hold": {
     "type": "hold",

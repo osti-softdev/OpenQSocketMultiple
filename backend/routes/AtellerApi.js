@@ -4,7 +4,7 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 // tellerApi.js
 const { requireRole } = require('../utilities/authsession');
-const { authLimiter } = require("../utilities/rateLimiter");
+const { authLimiter, resetAuthLimit } = require("../utilities/rateLimiter");
 
 module.exports = function createTellerApiRouter(io) {
     const router = express.Router();
@@ -84,13 +84,15 @@ module.exports = function createTellerApiRouter(io) {
 
                 if (!teller) {
                     console.log('User not found:', username);
-                    return res.status(401).json({ success: false, message: 'Invalid username or password' });
+                    const remaining = req.rateLimit ? req.rateLimit.remaining : undefined;
+                    return res.status(401).json({ success: false, message: 'Invalid username or password', remainingAttempts: remaining });
                 }
 
                 console.log('User found, verifying password...');
 
                 try {
                     if (password === teller.cpass) {
+                        resetAuthLimit(req);
                         req.session.teller = teller;
                         req.session.teller = {
                             id: teller.id,
@@ -109,7 +111,8 @@ module.exports = function createTellerApiRouter(io) {
                         });
                     } else {
                         console.log('Password mismatch for:', username);
-                        return res.status(401).json({ success: false, message: 'Invalid username or password' });
+                        const remaining = req.rateLimit ? req.rateLimit.remaining : undefined;
+                        return res.status(401).json({ success: false, message: 'Invalid username or password', remainingAttempts: remaining });
                     }
                 } catch (error) {
                     console.error('Authentication error:', error);

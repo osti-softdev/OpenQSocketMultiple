@@ -575,13 +575,14 @@ body {
         .actionbtns {
             position: absolute;
             top: 70%;
-            bottom: 0%;
+            bottom: 8px;
             width: 100%;
             height: auto;
-            background-color: red;
+            background-color: transparent;
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-bottom: 6px;
 
             .time-meta {
                 position: absolute;
@@ -661,6 +662,7 @@ body {
                 font-weight: 600;
                 background-color: #f3f4f6;
                 overflow: hidden;
+                padding-bottom: 6px;
 
                 button {
                     display: flex;
@@ -668,9 +670,10 @@ body {
                     align-items: center;
                     text-align: center;
                     font-size: 3vw;
-                    height: 90%;
+                    height: 85%;
                     width: 18%;
                     box-shadow: 2px 2px 5px black;
+                    margin-bottom: 4px;
 
                     &:active {
                         transform: scale(0.95);
@@ -1510,69 +1513,71 @@ body[data-theme="dark"] {
     }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767px),
+screen and (max-height: 650px) {
     .tellerPage {
         .tellerNav {
-            height: 64px;
+            height: 50px;
             grid-template-columns: auto 1fr auto auto auto;
-            gap: 8px;
-            padding: 8px;
+            gap: 6px;
+            padding: 4px 8px;
 
             .teller-info {
-                min-width: 44px;
+                min-width: 36px;
 
                 .avatar {
-                    width: 42px;
-                    height: 42px;
-                    min-width: 42px;
-                    font-size: 20px;
+                    width: 34px;
+                    height: 34px;
+                    min-width: 34px;
+                    font-size: 16px;
                 }
             }
 
             .callerTitle {
-                font-size: 16px;
+                font-size: 14px;
             }
 
             .themeToggle {
-                width: 38px;
-                min-height: 38px;
+                width: 34px;
+                min-height: 34px;
             }
 
             .reportbtn,
             .historyBtn {
-                min-height: 38px;
-                padding: 8px 10px;
-                font-size: 12px;
+                min-height: 32px;
+                padding: 4px 8px;
+                font-size: 11px;
             }
         }
 
         .tellerContent {
-            height: calc(100dvh - 64px);
-            grid-template-rows: 56px minmax(0, 1fr) 220px;
-            gap: 8px;
-            padding: 8px;
+            height: calc(100dvh - 50px);
+            grid-template-rows: 40px minmax(0, 1fr) 112px;
+            gap: 6px;
+            padding: 6px;
 
             .navBtns {
-                gap: 6px;
+                gap: 4px;
 
                 div {
                     font-size: 0;
-                    min-height: 50px;
+                    min-height: 38px;
+                    height: 38px;
 
                     &::before {
                         font-family: "Material Symbols Outlined";
-                        font-size: 26px;
+                        font-size: 20px;
                         line-height: 1;
                     }
                 }
 
                 .ticket-count-badge {
-                    top: -5px;
-                    right: -4px;
-                    min-width: 22px;
-                    height: 22px;
-                    padding: 0 5px;
-                    font-size: 11px;
+                    top: -4px;
+                    right: -3px;
+                    min-width: 18px;
+                    height: 18px;
+                    padding: 0 4px;
+                    font-size: 10px;
                 }
 
                 .heldTickets::before {
@@ -1593,49 +1598,76 @@ body[data-theme="dark"] {
             }
 
             .servicesManage {
-                max-height: none !important;
+                max-height: 100% !important;
+                overflow-y: auto !important;
+                padding: 4px !important;
+                gap: 6px !important;
                 background: var(--caller-surface) !important;
 
                 .service-box {
-                    min-height: 116px;
-                    display: grid;
-                    grid-template-rows: auto 46px;
-                    grid-template-columns: 1fr;
-                    gap: 10px;
+                    min-height: 48px !important;
+                    height: auto !important;
+                    padding: 6px 8px !important;
+                    margin: 2px 0 !important;
+                    display: flex !important;
+                    flex-direction: row !important;
+                    align-items: center !important;
+                    justify-content: space-between !important;
 
                     .service-stats {
-                        width: 100%;
-                        display: flex;
-                        justify-content: space-between;
-                        gap: 12px;
+                        position: relative !important;
+                        left: auto !important;
+                        width: 60% !important;
+                        height: auto !important;
+                        display: flex !important;
+                        flex-direction: column !important;
+                        justify-content: center !important;
+                        gap: 2px !important;
 
                         h5 {
-                            max-width: 65%;
+                            position: relative !important;
+                            left: auto !important;
+                            width: 100% !important;
+                            max-width: 100% !important;
+                            font-size: 12px !important;
+                            font-weight: 600 !important;
+                            line-height: 1.2 !important;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
                         }
 
                         .stat-item {
-                            font-size: 12px;
-                            text-align: right;
+                            position: relative !important;
+                            left: auto !important;
+                            width: 100% !important;
+                            font-size: 11px !important;
+                            text-align: left !important;
                         }
                     }
 
                     .service-btns {
-                        position: relative;
-                        right: auto;
-                        width: 100%;
-                        height: 46px;
-                        display: grid;
-                        grid-template-columns: repeat(2, minmax(0, 1fr));
-                        gap: 8px;
+                        position: relative !important;
+                        right: auto !important;
+                        width: auto !important;
+                        height: 32px !important;
+                        display: flex !important;
+                        flex-direction: row !important;
+                        gap: 4px !important;
 
                         .btn {
-                            height: 100%;
-                            width: 100%;
-                            min-width: 0;
-                            padding: 0 6px;
-                            white-space: nowrap;
-                            overflow: hidden;
-                            text-overflow: ellipsis;
+                            height: 32px !important;
+                            width: auto !important;
+                            min-width: 44px !important;
+                            padding: 0 6px !important;
+                            font-size: 11px !important;
+                            font-weight: 600 !important;
+                            white-space: nowrap !important;
+                            overflow: hidden !important;
+                            text-overflow: ellipsis !important;
+                            display: flex !important;
+                            align-items: center !important;
+                            justify-content: center !important;
                         }
                     }
                 }
@@ -1683,40 +1715,87 @@ body[data-theme="dark"] {
 
             .actionbtns {
                 top: auto !important;
-                height: auto !important;
-                grid-template-columns: 1fr;
-                grid-template-rows: 58px 78px 76px;
+                height: 118px !important;
+                grid-template-columns: 1fr !important;
+                grid-template-rows: 24px 42px 44px !important;
+                gap: 4px !important;
+                padding: 4px 6px 8px 6px !important;
+                margin-bottom: 8px !important;
+                border-radius: 8px !important;
 
                 .time-meta,
                 .currentCalledTicket,
                 .ticket-action-buttons {
+                    position: relative !important;
                     max-height: none !important;
                     width: 100% !important;
                     left: auto !important;
                     top: auto !important;
+                    height: 100% !important;
                 }
 
                 .time-meta {
                     border-right: 0;
+                    height: 24px !important;
+                    font-size: 10px !important;
+                    padding: 0 4px !important;
+
+                    .time-item {
+                        font-size: 10px !important;
+
+                        label {
+                            font-size: 10px !important;
+                        }
+
+                        span {
+                            font-size: 10px !important;
+                        }
+                    }
                 }
 
                 .currentCalledTicket {
+                    height: 42px !important;
+                    padding: 0 4px !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+
+                    p {
+                        font-size: 12px !important;
+                        font-weight: 600 !important;
+                        margin: 0 !important;
+                        padding: 0 !important;
+                        text-align: center !important;
+                        line-height: 1.2 !important;
+                    }
+
                     .active-ticket-info {
+                        height: 100% !important;
+
                         .ticket-num-large {
-                            font-size: 26px !important;
+                            font-size: 18px !important;
+                            height: 36px !important;
                         }
 
                         .ticket-service-name {
-                            font-size: 14px !important;
+                            font-size: 12px !important;
+                            height: 36px !important;
                         }
                     }
                 }
 
                 .ticket-action-buttons {
+                    height: 44px !important;
+                    gap: 6px !important;
+                    padding: 2px 4px 6px 4px !important;
+                    margin-bottom: 4px !important;
+
                     button {
-                        height: 54px !important;
+                        height: 34px !important;
                         width: 18% !important;
-                        font-size: 22px !important;
+                        font-size: 16px !important;
+                        border-radius: 6px !important;
+                        margin-bottom: 4px !important;
                     }
                 }
             }
@@ -1733,7 +1812,8 @@ body[data-theme="dark"] {
 
             .reportbtn,
             .historyBtn {
-                padding: 8px;
+                padding: 6px;
+                font-size: 10px;
             }
         }
     }

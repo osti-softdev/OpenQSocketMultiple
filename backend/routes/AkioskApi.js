@@ -11,7 +11,6 @@ module.exports = function createKioskApiRouter(io) {
 
   const db = require(path.join(rootpath, 'utilities/db'));
   const { getPHDateTime } = require(path.join(rootpath, 'utilities/datetime'));
-  const footerPath = path.join(rootpath, "/config/footer.json");
   const { executephp } = require(path.join(rootpath, 'utilities/printer'));
 const { loadConfig } = require(`${rootpath}/utilities/envconfig`);
 const config = loadConfig();

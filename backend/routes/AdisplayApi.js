@@ -8,7 +8,6 @@ module.exports = function createDisplayApiRouter(io) {
   const rootpath = global.BACKEND_PATH;
   const db = require(path.join(rootpath, 'utilities/db'));
   const { getPHDateTime } = require(path.join(rootpath, 'utilities/datetime'));
-  const footerPath = path.join(rootpath, "/config/footer.json");
 
   // & DISPLAY
   // ^ DISPLAY TICKET CARDS & CALLED TICKETS
@@ -46,49 +45,49 @@ module.exports = function createDisplayApiRouter(io) {
     `;
 
     try {
-        // 1. Get active services
-        const servicesRows = await db.allAsync(servicesQuery, []);
+      // 1. Get active services
+      const servicesRows = await db.allAsync(servicesQuery, []);
 
-        // 2. Get latest relevant transaction per group
-        const transactionRows = await db.allAsync(transactionsQuery, [date]);
+      // 2. Get latest relevant transaction per group
+      const transactionRows = await db.allAsync(transactionsQuery, [date]);
 
-        // 3. Map transactions by sgroup for fast lookup
-        const txMap = {};
-        transactionRows.forEach(tx => {
-            txMap[tx.counter_group] = tx;
-        });
+      // 3. Map transactions by sgroup for fast lookup
+      const txMap = {};
+      transactionRows.forEach(tx => {
+        txMap[tx.counter_group] = tx;
+      });
 
-        // 4. Merge: match service.sname === transaction.sgroup
-        const services = servicesRows.map(service => {
-            const tx = txMap[service.sname] || null;
+      // 4. Merge: match service.sname === transaction.sgroup
+      const services = servicesRows.map(service => {
+        const tx = txMap[service.sname] || null;
 
-            return {
-                sname: service.sname,
-                shortSname: service.shortSname,
-                sub_sname: service.sub_sname,
-                ticket: tx && tx.ticketservice && tx.ticketnum
-                    ? `${tx.ticketservice}-${tx.ticketnum}`
-                    : "--",
-                status: tx ? tx.status : null,
-                counter_num: tx ? tx.counter_num : null,
-                counter_group: tx ? tx.counter_group : null,
-                counter_user: tx ? tx.counter_user : null
-            };
-        });
+        return {
+          sname: service.sname,
+          shortSname: service.shortSname,
+          sub_sname: service.sub_sname,
+          ticket: tx && tx.ticketservice && tx.ticketnum
+            ? `${tx.ticketservice}-${tx.ticketnum}`
+            : "--",
+          status: tx ? tx.status : null,
+          counter_num: tx ? tx.counter_num : null,
+          counter_group: tx ? tx.counter_group : null,
+          counter_user: tx ? tx.counter_user : null
+        };
+      });
 
-        return res.json({
-            success: true,
-            services: services
-        });
+      return res.json({
+        success: true,
+        services: services
+      });
 
     } catch (err) {
-        console.error("Error in /getServicesDisplay:", err);
-        return res.status(500).json({
-            success: false,
-            error: "Failed to load display services",
-            detail: err.message
-        });
-      }
+      console.error("Error in /getServicesDisplay:", err);
+      return res.status(500).json({
+        success: false,
+        error: "Failed to load display services",
+        detail: err.message
+      });
+    }
   });
 
   // ^ GET CALLING TICKETS
@@ -104,26 +103,26 @@ module.exports = function createDisplayApiRouter(io) {
               AND date = ?
             ORDER BY start_time ASC;
         `;
-        
-        const ticketRow = await db.allAsync(query, [date]);
-         res.json({
-          success: true,
-          tickets: ticketRow
-         })
+
+      const ticketRow = await db.allAsync(query, [date]);
+      res.json({
+        success: true,
+        tickets: ticketRow
+      })
 
     } catch (error) {
-         console.error("Error in /getCallingTickets:", err);
-        return res.status(500).json({
-            success: false,
-            error: "Failed to get called Tickets",
-            detail: err.message
-        });
-      }
+      console.error("Error in /getCallingTickets:", err);
+      return res.status(500).json({
+        success: false,
+        error: "Failed to get called Tickets",
+        detail: err.message
+      });
+    }
   });
 
   // ^ UPDATE CALLED TICKETS
   router.post("/updateCalledTickets", async (req, res) => {
-    const { id } = req.body; 
+    const { id } = req.body;
 
     if (!id || isNaN(id)) {
       return res.status(400).json({
@@ -185,7 +184,7 @@ module.exports = function createDisplayApiRouter(io) {
           id,
           sname,
           ticketnum: ticket.ticketnum || "?", // optional: fetch if needed
-          service: ticket.ticketservice || "?", 
+          service: ticket.ticketservice || "?",
           counter_num,
           counter_user,
           time,
@@ -203,7 +202,7 @@ module.exports = function createDisplayApiRouter(io) {
 
       } catch (innerErr) {
         // Rollback on any error inside transaction
-        await db.runAsync("ROLLBACK").catch(() => {});
+        await db.runAsync("ROLLBACK").catch(() => { });
         throw innerErr;
       }
 
@@ -222,31 +221,6 @@ module.exports = function createDisplayApiRouter(io) {
       });
     }
   });
-
-  // ^ GET FOOTER
-  router.get('/getFooter', async (req, res) => {
-    fs.readFile(footerPath, "utf8", (err, data) => {
-      if (err) {
-        console.error("Error reading footer.json:", err);
-        return;
-      }
-      try {
-        const config = JSON.parse(data);
-        res.json({
-          success: true,
-          data: config
-        });
-      } catch (parseErr) {
-        console.error("Invalid footer.json format:", parseErr);
-        res.status(500).json({
-          success: false,
-          error: "Failed to get footer configurations",
-          detail: parseErr.message
-        });
-      }
-    });
-  });
-
 
   return router;
 }

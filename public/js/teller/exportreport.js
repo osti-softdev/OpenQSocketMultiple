@@ -74,9 +74,9 @@ $(document).ready(function () {
                                <label>Date From: <input type="date" id="dashDateFrom" value="${capturedDateFrom}" style="padding:4px; border-radius:4px; border:1px solid #ccc;"></label>
                                <label>Date To: <input type="date" id="dashDateTo" value="${capturedDateTo}" style="padding:4px; border-radius:4px; border:1px solid #ccc;"></label>
                            </div>
-                           <h3 style="margin:0; font-size:22px; color: #2c3e50; font-weight:700;">
-                              Teller: <span style="color: #2980b9;">${cname}</span> 
-                              <span style="font-size:14px; background:#e74c3c; color:white; padding:4px 8px; border-radius:12px; vertical-align:middle; margin-left:8px;">Counter ${cnum}</span>
+                           <h3 style="margin:0; font-size:20px; color: #2c3e50; font-weight:700; display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:8px;">
+                               <span style="white-space:nowrap;">Teller: <span style="color: #2980b9;">${cname}</span></span> 
+                               <span style="font-size:13px; background:#e74c3c; color:white; padding:3px 10px; border-radius:12px; white-space:nowrap; display:inline-block;">Counter ${cnum}</span>
                            </h3>
                         </div>
                         

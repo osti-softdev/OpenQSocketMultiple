@@ -8,7 +8,7 @@ const rootpath =
 	global.ROOT_PATH;
 
 const { requireRole  } = require(`../utilities/authsession`);
-const { authLimiter } = require("../utilities/rateLimiter");
+const { authLimiter, resetAuthLimit } = require("../utilities/rateLimiter");
 const { readSoundConfig, writeSoundConfig } = require('../utilities/soundConfig');
 const { loadConfig, saveConfig } = require('../utilities/envconfig');
 
@@ -64,13 +64,15 @@ module.exports = function createTellerApiRouter(io) {
 
             if (!admin) {
                 console.log('User not found:', username);
-                return res.status(401).json({ success: false, message: 'Invalid username or password' });
+                const remaining = req.rateLimit ? req.rateLimit.remaining : undefined;
+                return res.status(401).json({ success: false, message: 'Invalid username or password', remainingAttempts: remaining });
             }
 
             console.log('User found, verifying password...');
 
             try {
                 if (password === admin.password) {
+                    resetAuthLimit(req);
                     req.session.admin = admin;
                     req.session.admin = {
                         id: admin.id,
@@ -87,7 +89,8 @@ module.exports = function createTellerApiRouter(io) {
                     });
                 } else {
                     console.log('Password mismatch for:', username);
-                    return res.status(401).json({ success: false, message: 'Invalid username or password' });
+                    const remaining = req.rateLimit ? req.rateLimit.remaining : undefined;
+                    return res.status(401).json({ success: false, message: 'Invalid username or password', remainingAttempts: remaining });
                 }
             } catch (error) {
                 console.error('Authentication error:', error);

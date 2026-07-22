@@ -2,46 +2,68 @@ const rateLimit = require("express-rate-limit");
 
 /**
  * General API rate limiter
- * Use for most routes (admin, teller, kiosk APIs)
+ * Applied to /api routes (admin, teller, display, kiosk data)
+ * Standard: 300 requests per 1 minute per IP
  */
 const apiLimiter = rateLimit({
   windowMs: 1 * 60 * 1000, // 1 minute
-  max: 12000000000000, // max requests per minute per IP
+  max: 300, // max 300 requests per minute per IP
   message: {
-    error: "Too many requests, please try again later."
+    error: "Too many API requests, please try again later."
   },
   standardHeaders: true,
   legacyHeaders: false
 });
 
-/**
- * Strict limiter for login routes
- * Prevents brute-force attacks
- */
 const authLimiter = rateLimit({
   windowMs: 5 * 60 * 1000, // 5 minutes
-  max: 100000000000, // max 10 attempts per 5 minutes
-  message: {
-    error: "Too many login attempts. Try again later."
-  },
+  max: 5, // max 5 attempts per 5 minutes per IP
   standardHeaders: true,
-  legacyHeaders: false
+  legacyHeaders: false,
+  handler: (req, res) => {
+    const resetTime = req.rateLimit?.resetTime || new Date(Date.now() + 5 * 60 * 1000);
+    const secondsRemaining = Math.max(1, Math.ceil((resetTime.getTime() - Date.now()) / 1000));
+
+    res.status(429).json({
+      success: false,
+      message: `Too many login attempts. Please wait ${secondsRemaining} seconds before trying again.`,
+      error: `Too many login attempts. Please wait ${secondsRemaining} seconds before trying again.`,
+      retryAfter: secondsRemaining,
+      resetTime: resetTime.getTime()
+    });
+  }
 });
 
 /**
  * Kiosk / ticket generation limiter
- * Prevent spam ticket generation
+ * Prevents spam ticket generation
+ * Standard: 30 tickets per minute per IP
  */
 const kioskLimiter = rateLimit({
   windowMs: 60 * 1000, // 1 minute
   max: 30,
   message: {
-    error: "Kiosk rate limit exceeded. Please slow down."
+    error: "Kiosk ticket limit exceeded. Please wait a moment."
   }
 });
+
+/**
+ * Reset rate limit counter for IP after successful login
+ */
+function resetAuthLimit(req) {
+  try {
+    const key = req.ip;
+    if (authLimiter && typeof authLimiter.resetKey === "function") {
+      authLimiter.resetKey(key);
+    }
+  } catch (err) {
+    console.error("Failed to reset auth limiter key:", err);
+  }
+}
 
 module.exports = {
   apiLimiter,
   authLimiter,
-  kioskLimiter
+  kioskLimiter,
+  resetAuthLimit
 };

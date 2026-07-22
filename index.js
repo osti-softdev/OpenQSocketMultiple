@@ -25,9 +25,9 @@ global.BACKEND_PATH = BackEndPath;
 const { setupLogger } = require("./backend/utilities/logger");
 setupLogger();
 
-// Rate Limiter
+// Rate Limiter (Applied strictly to API routes so static assets load freely)
 const { apiLimiter } = require("./backend/utilities/rateLimiter");
-appExpress.use(apiLimiter);
+appExpress.use('/api', apiLimiter);
 
 require('./backend/utilities/db');
 

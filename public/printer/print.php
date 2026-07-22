@@ -48,8 +48,8 @@ $printer->selectPrintMode(Printer::MODE_DOUBLE_HEIGHT | Printer::MODE_DOUBLE_WID
 $printer->setFont(Printer::FONT_B);
 $printer->setTextSize(3, 2);
 
-$printer->text("DEVELOPMENT BANK\n");
-$printer->text("OF THE PHILIPPINES\n");
+$printer->text("MUNICIPALITY OF\n");
+$printer->text("DALAGUETE\n");
 
 $printer->setTextSize(1, 1);
 $printer->text($date ." ". $time."\n");
