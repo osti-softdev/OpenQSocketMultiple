@@ -1483,3 +1483,432 @@
 ✔ 2026-07-22 9:52:07 AM [backend\utilities\smsService.js:40] 2026-07-22T01:52:07.728Z [..\node\smsService.js:26] 7/22/2026, 9:52:07 AM | Kiosk | +639679843001 | 📤 Sending Full... | BUSINESS_TAX | BT31 | finish
 ✔ 2026-07-22 9:52:11 AM [backend\utilities\smsService.js:40] 2026-07-22T01:52:11.165Z [..\node\smsService.js:26] 7/22/2026, 9:52:11 AM | Kiosk | +639679843001 | ✅ Full sent | BUSINESS_TAX | BT31 | finish
 ✔ 2026-07-22 9:52:16 AM [backend\utilities\smsService.js:40] 2026-07-22T01:52:16.174Z [..\node\smsService.js:26] 7/22/2026, 9:52:16 AM | Kiosk | +639679843001 | ✅ Delivered in 1 part(s) | BUSINESS_TAX | BT31 | finish
+✔ 2026-07-22 11:49:13 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 11:49:14 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ encrypted .env [www.dotenvx.com][0m
+✔ 2026-07-22 11:49:14 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 11:49:14 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 11:49:14 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:49:14 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:49:14 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 11:49:14 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 11:49:14 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 11:49:14 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 11:49:15 AM [node:events:509] [ADS] Client connected: uuQyUYP-Jc2eboPYAAAB
+✔ 2026-07-22 11:49:15 AM [node:events:509] [ADS] Client connected: -czokTdju5E_apvNAAAD
+✔ 2026-07-22 11:49:16 AM [node:events:509] [ADS] Client connected: a1G66lNJ8rW0URD4AAAF
+✔ 2026-07-22 11:49:19 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:49:19 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:49:22 AM [node:events:509] [ADS] Client connected: Wkf8WSji9pFt5jsLAAAH
+✔ 2026-07-22 11:49:24 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:49:24 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:49:29 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:49:29 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:49:34 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:49:34 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:49:39 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:49:39 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:49:44 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:49:44 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:49:49 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:49:49 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:49:54 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:49:54 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:49:59 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:49:59 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:50:04 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:50:04 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:50:09 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:50:09 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:50:14 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:50:14 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:50:19 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:50:19 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:50:24 AM [backend\routes\AkioskApi.js:109] On-prem ticket, printing required.
+✔ 2026-07-22 11:50:24 AM [backend\utilities\smsService.js:76] 📜 Loaded message templates: [
+  'generate',
+  'call',
+  'forward',
+  'hold',
+  'void',
+  'finish',
+  'nearly_called'
+]
+✔ 2026-07-22 11:50:25 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:50:25 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:50:30 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:50:30 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:50:35 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:50:35 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:50:40 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:50:40 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:50:45 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:50:45 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:50:46 AM [node:events:509] [ADS] Client connected: ZTrS6UKnsOAgEVlvAAAJ
+✔ 2026-07-22 11:50:50 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:50:50 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:50:55 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:50:55 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:51:00 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:51:00 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:51:05 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:51:05 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:51:10 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:51:10 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:51:15 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:51:15 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:51:20 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:51:20 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:51:25 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:51:25 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:51:30 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:51:30 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:51:35 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:51:35 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:51:40 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:51:40 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:51:45 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:51:45 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:51:50 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:51:50 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:51:55 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:51:55 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:52:00 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:52:00 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:52:05 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:52:05 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:52:10 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:52:10 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:52:15 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:52:15 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:52:20 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:52:20 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:52:25 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:52:25 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:52:30 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:52:30 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:52:35 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:52:35 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:52:40 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:52:40 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:52:45 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:52:45 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:52:50 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:52:50 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:52:55 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:52:55 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:53:00 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:53:00 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:53:05 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:53:05 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:53:10 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:53:10 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:53:15 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:53:15 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:53:20 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:53:20 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:53:25 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:53:25 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:53:30 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:53:30 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:53:34 AM [node:events:509] [ADS] Client disconnected: -czokTdju5E_apvNAAAD
+✔ 2026-07-22 11:53:35 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:53:35 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:53:40 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:53:40 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:53:45 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:53:45 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:53:50 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:53:50 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:53:54 AM [backend\routes\AtellerApi.js:74] Login attempt for: teller1
+✔ 2026-07-22 11:53:54 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 11:53:54 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-22 11:53:54 AM [node:events:509] [ADS] Client connected: rQYwZW9Va9YH7xO4AAAL
+✔ 2026-07-22 11:53:55 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:53:55 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:54:00 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:54:00 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:54:05 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:54:05 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:54:10 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:54:10 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:54:15 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:54:15 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:54:20 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:54:20 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:54:25 AM [backend\routes\AtellerApi.js:443] 1
+✔ 2026-07-22 11:54:25 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:54:25 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:54:30 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:54:30 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:54:35 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:54:35 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:54:40 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:54:40 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:54:45 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:54:45 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:54:50 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:54:50 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:54:55 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:54:55 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:55:00 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:55:00 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:55:05 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:55:05 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:55:10 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:55:10 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:55:16 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:55:16 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:55:21 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:55:21 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:55:26 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:55:26 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:55:31 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:55:31 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:55:36 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:55:36 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:55:41 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:55:41 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:55:46 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:55:46 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:55:51 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:55:51 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:55:56 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:55:56 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:56:01 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:56:01 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:56:06 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:56:06 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:56:11 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:56:11 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:56:16 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:56:16 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:56:21 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:56:21 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:56:26 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:56:26 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:56:31 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:56:31 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:56:36 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:56:36 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:56:41 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:56:41 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:56:41 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-22 11:56:41 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-22 11:56:41 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-22 11:56:42 AM [node:events:509] [ADS] Client connected: SMymBU_YX9qWSl_jAAAN
+✔ 2026-07-22 11:56:46 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:56:46 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:56:51 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:56:51 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:56:56 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:56:56 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:57:01 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:57:01 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:57:06 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:57:06 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:57:11 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:57:11 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:57:16 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:57:16 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:57:21 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:57:21 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:57:26 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:57:26 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:57:31 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:57:31 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:57:36 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:57:36 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:57:41 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:57:41 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:57:46 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:57:46 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:57:51 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:57:51 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:57:56 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:57:56 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:58:01 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:58:01 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:58:06 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:58:06 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:58:11 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:58:11 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:58:16 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:58:16 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:58:21 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:58:21 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:58:26 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:58:26 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:58:31 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:58:31 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:58:36 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:58:36 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:58:41 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:58:41 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:58:46 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:58:46 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:58:51 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:58:51 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:58:56 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:58:56 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:59:01 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:59:01 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:59:06 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:59:06 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:59:11 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:59:11 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:59:16 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:59:16 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:59:21 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:59:21 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:59:26 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:59:26 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:59:31 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:59:31 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:59:36 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:59:36 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:59:41 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:59:41 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:59:46 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:59:46 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:59:51 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:59:51 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 11:59:56 AM [backend\utilities\smsService.js:44] 7/22/2026, 11:59:56 AM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:00:01 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:00:01 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:00:07 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:00:07 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:00:12 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:00:12 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:00:17 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:00:17 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:00:22 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:00:22 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:00:27 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:00:27 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:00:32 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:00:32 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:00:37 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:00:37 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:00:42 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:00:42 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:00:47 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:00:47 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:00:52 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:00:52 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:00:57 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:00:57 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:01:02 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:01:02 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:01:07 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:01:07 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:01:12 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:01:12 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:01:17 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:01:17 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:01:22 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:01:22 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:01:27 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:01:27 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:01:32 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:01:32 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:01:37 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:01:37 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:01:42 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:01:42 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:01:47 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:01:47 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:01:52 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:01:52 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:01:57 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:01:57 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:02:02 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:02:02 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:02:07 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:02:07 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:02:12 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:02:12 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:02:17 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:02:17 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:02:22 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:02:22 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:02:27 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:02:27 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:02:32 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:02:32 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:02:37 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:02:37 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:02:42 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:02:42 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:02:47 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:02:47 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:02:52 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:02:52 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:02:57 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:02:57 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:03:02 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:03:02 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:03:07 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:03:07 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:03:12 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:03:12 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:03:17 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:03:17 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:03:22 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:03:22 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:03:27 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:03:27 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:03:32 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:03:32 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:03:38 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:03:38 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:03:43 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:03:43 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:03:48 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:03:48 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:03:53 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:03:53 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:03:58 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:03:58 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:04:03 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:04:03 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:04:08 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:04:08 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:04:13 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:04:13 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:04:18 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:04:18 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:04:23 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:04:23 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:04:28 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:04:28 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:04:33 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:04:33 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:04:38 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:04:38 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:04:43 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:04:43 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:04:48 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:04:48 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:04:53 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:04:53 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:04:58 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:04:58 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:05:03 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:05:03 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:05:08 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:05:08 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:05:13 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:05:13 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:05:18 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:05:18 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:05:23 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:05:23 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:05:28 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:05:28 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:05:33 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:05:33 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:05:38 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:05:38 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:05:43 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:05:43 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:05:48 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:05:48 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:05:53 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:05:53 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:05:58 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:05:58 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:06:03 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:06:03 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:06:08 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:06:08 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:06:13 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:06:13 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:06:18 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:06:18 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:06:23 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:06:23 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:06:28 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:06:28 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:06:33 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:06:33 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:06:38 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:06:38 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:06:43 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:06:43 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:06:48 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:06:48 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:06:53 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:06:53 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:06:58 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:06:58 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:07:03 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:07:03 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:07:08 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:07:08 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:07:13 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:07:13 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:07:18 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:07:18 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:07:23 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:07:23 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:07:29 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:07:29 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:07:34 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:07:34 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:07:39 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:07:39 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:07:44 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:07:44 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:07:49 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:07:49 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:07:54 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:07:54 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:07:59 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:07:59 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:08:04 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:08:04 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:08:09 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:08:09 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:08:14 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:08:14 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:08:19 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:08:19 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:08:24 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:08:24 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:08:29 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:08:29 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:08:34 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:08:34 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:08:39 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:08:39 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:08:44 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:08:44 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:08:49 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:08:49 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:08:54 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:08:54 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:08:59 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:08:59 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:09:04 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:09:04 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:09:09 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:09:09 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:09:14 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:09:14 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:09:19 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:09:19 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:09:24 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:09:24 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:09:29 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:09:29 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:09:34 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:09:34 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:09:39 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:09:39 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:09:44 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:09:44 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:09:49 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:09:49 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:09:54 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:09:54 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:09:59 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:09:59 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:10:04 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:10:04 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:10:09 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:10:09 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:10:14 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:10:14 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:10:19 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:10:19 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:10:24 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:10:24 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:10:29 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:10:29 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:10:34 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:10:34 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:10:39 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:10:39 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:10:44 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:10:44 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:10:49 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:10:49 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:10:54 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:10:54 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:10:59 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:10:59 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:11:04 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:11:04 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:11:09 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:11:09 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:11:14 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:11:14 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:11:19 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:11:19 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:11:24 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:11:24 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:11:29 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:11:29 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:11:34 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:11:34 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:11:39 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:11:39 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:11:44 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:11:44 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:11:49 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:11:49 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:11:54 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:11:54 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:11:59 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:11:59 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:12:04 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:12:04 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:12:09 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:12:09 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:12:14 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:12:14 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:12:20 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:12:20 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:12:23 PM [node:events:509] [ADS] Client disconnected: ZTrS6UKnsOAgEVlvAAAJ
+✔ 2026-07-22 12:12:23 PM [node:events:509] [ADS] Client disconnected: Wkf8WSji9pFt5jsLAAAH
+✔ 2026-07-22 12:12:23 PM [node:events:509] [ADS] Client disconnected: uuQyUYP-Jc2eboPYAAAB
+✔ 2026-07-22 12:12:23 PM [node:events:509] [ADS] Client disconnected: SMymBU_YX9qWSl_jAAAN
+✔ 2026-07-22 12:12:23 PM [node:events:509] [ADS] Client disconnected: rQYwZW9Va9YH7xO4AAAL
+✔ 2026-07-22 12:12:24 PM [node:events:509] [ADS] Client disconnected: a1G66lNJ8rW0URD4AAAF
+✔ 2026-07-22 12:12:25 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:12:25 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:56:32 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:56:32 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:56:37 PM [node:events:509] [ADS] Client connected: XdM4P9Jo3G0DSP5JAAAP
+✔ 2026-07-22 12:56:37 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:56:37 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:56:39 PM [node:events:509] [ADS] Client connected: l_jcxqVaxAYAZHxDAAAR
+✔ 2026-07-22 12:56:39 PM [node:events:509] [ADS] Client disconnected: l_jcxqVaxAYAZHxDAAAR
+✔ 2026-07-22 12:56:42 PM [node:events:509] [ADS] Client connected: wfWizo9Y_F77gOxBAAAW
+✔ 2026-07-22 12:56:42 PM [node:events:509] [ADS] Client connected: ckJFSSjTHbl5Z4lVAAAX
+✔ 2026-07-22 12:56:42 PM [node:events:509] [ADS] Client connected: LeiL4jLN5g6cGT57AAAY
+✔ 2026-07-22 12:56:42 PM [node:events:509] [ADS] Client connected: LSa5Zmw9_9B99M1DAAAZ
+✔ 2026-07-22 12:56:42 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:56:42 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:56:43 PM [node:events:509] [ADS] Client disconnected: ckJFSSjTHbl5Z4lVAAAX
+✔ 2026-07-22 12:56:47 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:56:47 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:56:52 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:56:52 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:56:57 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:56:57 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:57:02 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:57:02 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:57:03 PM [node:events:509] [ADS] Client disconnected: wfWizo9Y_F77gOxBAAAW
+✔ 2026-07-22 12:57:06 PM [node:events:509] [ADS] Client disconnected: LSa5Zmw9_9B99M1DAAAZ
+✔ 2026-07-22 12:57:07 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:57:07 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:57:12 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:57:12 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:57:17 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:57:17 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:57:22 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:57:22 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:57:27 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:57:27 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:57:32 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:57:32 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:57:38 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:57:38 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:57:43 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:57:43 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:57:48 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:57:48 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:57:53 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:57:53 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:57:58 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:57:58 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:58:03 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:58:03 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:58:08 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:58:08 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:58:13 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:58:13 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:58:18 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:58:18 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:58:23 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:58:23 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:58:28 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:58:28 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:58:33 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:58:33 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:58:38 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:58:38 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:58:43 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:58:43 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:58:48 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:58:48 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:58:53 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:58:53 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:58:58 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:58:58 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:59:03 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:59:03 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:59:08 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:59:08 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:59:13 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:59:13 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:59:18 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:59:18 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:59:23 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:59:23 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:59:28 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:59:28 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:59:33 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:59:33 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:59:38 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:59:38 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:59:43 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:59:43 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:59:48 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:59:48 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:59:53 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:59:53 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 12:59:58 PM [backend\utilities\smsService.js:44] 7/22/2026, 12:59:58 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:00:03 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:00:03 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:00:08 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:00:08 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:00:13 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:00:13 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:00:18 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:00:18 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:00:23 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:00:23 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:00:28 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:00:28 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:00:33 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:00:33 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:00:38 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:00:38 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:00:43 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:00:43 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:00:48 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:00:48 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:00:53 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:00:53 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:00:58 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:00:58 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:01:03 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:01:03 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:01:08 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:01:08 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:01:13 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:01:13 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:01:18 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:01:18 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:01:23 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:01:23 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:01:27 PM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 1:01:28 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ multiple files { path: ['.env.local', '.env'] }[0m
+✔ 2026-07-22 1:01:28 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 1:01:28 PM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 1:01:28 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:01:28 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:01:28 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 1:01:28 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 1:01:28 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 1:01:28 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 1:01:29 PM [node:events:509] [ADS] Client connected: BmkxIWGW3wFTDbLtAAAB
+✔ 2026-07-22 1:01:31 PM [node:events:509] [ADS] Client connected: jk9DJQMWlV6DUZ7uAAAD
+✔ 2026-07-22 1:01:33 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:01:33 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:01:34 PM [node:events:509] [ADS] Client connected: cYc0591SNVYoPh9pAAAF
+✔ 2026-07-22 1:01:38 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:01:38 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:01:43 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:01:43 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:01:44 PM [backend\routes\AkioskApi.js:109] On-prem ticket, printing required.
+✔ 2026-07-22 1:01:48 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:01:48 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:02:21 PM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-07-22 1:02:21 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ multiple files { path: ['.env.local', '.env'] }[0m
+✔ 2026-07-22 1:02:21 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-07-22 1:02:21 PM [unknown-location] Connected to SQLite database
+✔ 2026-07-22 1:02:21 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:02:21 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:02:21 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-22 1:02:21 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-22 1:02:21 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-22 1:02:21 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-22 1:02:21 PM [node:events:509] [ADS] Client connected: DfLmbWxeqon8ikkDAAAB
+✔ 2026-07-22 1:02:26 PM [node:events:509] [ADS] Client connected: WXmtOU_fquTKNXySAAAD
+✔ 2026-07-22 1:02:26 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:02:26 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:02:27 PM [backend\routes\AkioskApi.js:109] On-prem ticket, printing required.
+✔ 2026-07-22 1:02:28 PM [node:events:509] [ADS] Client connected: J4S_rOsPDC_p68QHAAAF
+✔ 2026-07-22 1:02:31 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:02:31 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:02:36 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:02:36 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:02:41 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:02:41 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:02:46 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:02:46 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:02:51 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:02:51 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:02:52 PM [backend\routes\AkioskApi.js:109] On-prem ticket, printing required.
+✔ 2026-07-22 1:02:56 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:02:56 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:03:01 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:03:01 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:03:06 PM [backend\routes\AkioskApi.js:109] On-prem ticket, printing required.
+✔ 2026-07-22 1:03:06 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:03:06 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:03:11 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:03:11 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-22 1:03:16 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:03:16 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found

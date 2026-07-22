@@ -12,8 +12,8 @@ module.exports = function createKioskApiRouter(io) {
   const db = require(path.join(rootpath, 'utilities/db'));
   const { getPHDateTime } = require(path.join(rootpath, 'utilities/datetime'));
   const { executephp } = require(path.join(rootpath, 'utilities/printer'));
-const { loadConfig } = require(`${rootpath}/utilities/envconfig`);
-const config = loadConfig();
+  const { loadConfig } = require(`${rootpath}/utilities/envconfig`);
+  const config = loadConfig();
 
   // & KIOSK
   // ^ GET ALL SERVICES FOR KIOSK
@@ -74,7 +74,7 @@ const config = loadConfig();
       let qrCodeDataUrl = null;
       let finalstats;
 
-      if(stats === "online"){
+      if (stats === "online") {
         finalstats = "online_reserved";
         try {
           randomCode = crypto.randomBytes(16).toString('hex');
@@ -83,17 +83,17 @@ const config = loadConfig();
           console.error("QR Generation Error:", qrErr);
         }
       }
-      if(stats === "onprem"){
+      if (stats === "onprem") {
         finalstats = "pending";
         randomCode = "on-prem";
       }
       const nextTicket = (row?.maxTicket || 0) + 1;
       const history = `[${time}-Kiosk-Inserted]`;
-      
+
       let mobileStr = mobile || null;
       let mobileRecordsStr = null;
       if (mobileStr) {
-         mobileRecordsStr = `[${time}] ticket generate sent\n`;
+        mobileRecordsStr = `[${time}] ticket generate sent\n`;
       }
 
       // Insert new ticket
@@ -103,26 +103,26 @@ const config = loadConfig();
         [nextTicket, sname, ticketservice, finalstats, date, time, history, selectedType, randomCode, mobileStr, mobileRecordsStr]
       );
 
-        try {
-          if(stats === "onprem"){
-            // await executephp(ticketservice, nextTicket, sname);
-            console.log("On-prem ticket, printing required.");
-          }else{
-            console.log("Online ticket, no printing required.");
-          }
-          
-          if (mobileStr) {
-             const smsService = require('../utilities/smsService');
-             const ticketCode = ticketservice + nextTicket;
-             smsService.sendTemplateSMS('generate', {
-                 mobile: mobileStr,
-                 ticket: ticketCode,
-                 service: sname
-             }).catch(e => console.error("SMS Generate Error:", e));
-          }
-        } catch (printError) {
-          console.error("Printer Error:", printError.message);
+      try {
+        if (stats === "onprem") {
+          await executephp(ticketservice, nextTicket, sname);
+          console.log("On-prem ticket, printing required.");
+        } else {
+          console.log("Online ticket, no printing required.");
         }
+
+        if (mobileStr) {
+          const smsService = require('../utilities/smsService');
+          const ticketCode = ticketservice + nextTicket;
+          smsService.sendTemplateSMS('generate', {
+            mobile: mobileStr,
+            ticket: ticketCode,
+            service: sname
+          }).catch(e => console.error("SMS Generate Error:", e));
+        }
+      } catch (printError) {
+        console.error("Printer Error:", printError.message);
+      }
       // Success response
       res.json({
         success: true,

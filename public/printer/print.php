@@ -16,7 +16,7 @@ try {
     // if logo missing
 }
 
-$connector = new WindowsPrintConnector("POS-89");
+$connector = new WindowsPrintConnector("POS-80");
 $printer = new Printer($connector);
 
 $ticket = '';
@@ -49,7 +49,7 @@ $printer->setFont(Printer::FONT_B);
 $printer->setTextSize(3, 2);
 
 $printer->text("MUNICIPALITY OF\n");
-$printer->text("DALAGUETE\n");
+$printer->text("OSLOB\n");
 
 $printer->setTextSize(1, 1);
 $printer->text($date ." ". $time."\n");
@@ -75,7 +75,7 @@ $printer->text("\n");
 $printer->setTextSize(1, 1);
 $printer->setJustification(Printer::JUSTIFY_CENTER);
 $printer->setFont(Printer::FONT_C);
-$printer->text("This Ticket is valid only on the day it is dispensed.");
+$printer->text("This Ticket is valid only on the day it is dispensed. \n\n\n");
 
 
 $printer->feed(2);

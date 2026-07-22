@@ -13,3 +13,7 @@
     at readableAddChunkPushByteMode (node:internal/streams/readable:514:3)
     at Readable.push (node:internal/streams/readable:394:5)
     at C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\node_modules\@serialport\stream\dist\index.js:208:18
+❌ 2026-07-22 11:50:24 AM [backend\routes\AkioskApi.js:121] SMS Generate Error: Error: Modem not connected
+    at sendSMS (C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\backend\utilities\smsService.js:188:38)
+    at Object.sendTemplateSMS (C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\backend\utilities\smsService.js:296:11)
+    at C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\backend\routes\AkioskApi.js:117:25
