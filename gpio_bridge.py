@@ -1,4 +1,12 @@
 import sys
+import os
+
+print("================================", file=sys.stderr)
+print("Python Executable:", sys.executable, file=sys.stderr)
+print("Python Version:", sys.version, file=sys.stderr)
+print("Current User:", os.getenv("USER"), file=sys.stderr)
+print("================================", file=sys.stderr)
+
 import time
 import signal
 import threading
