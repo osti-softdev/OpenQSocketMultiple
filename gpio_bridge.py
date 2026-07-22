@@ -1,10 +1,15 @@
-from threading import Timer
+import sys
+import time
+import signal
+import threading
+
 from gpiozero import Button, LED
 from RPLCD.i2c import CharLCD
-import signal
 
-
-
+# -----------------------------
+# GPIO Configuration
+# button_gpio: (key, led_gpio)
+# -----------------------------
 buttons_config = {
     4:  ("4", 13),
     17: ("1", 18),
@@ -20,20 +25,34 @@ buttons = []
 leds = {}
 button_locked = {}
 
-
+# -----------------------------
+# LCD Initialization
+# -----------------------------
 try:
-    lcd = CharLCD('PCF8574', 0x27, port=1, cols=16, rows=2)
+    lcd = CharLCD(
+        i2c_expander='PCF8574',
+        address=0x27,
+        port=1,
+        cols=16,
+        rows=2
+    )
     lcd.backlight_enabled = True
 except Exception as e:
     print(f"LCD Initialization Error: {e}", file=sys.stderr)
     lcd = None
 
 
+# -----------------------------
+# Unlock button after delay
+# -----------------------------
 def unlock_button(pin, led):
     led.off()
     button_locked[pin] = False
 
 
+# -----------------------------
+# Button Press Event
+# -----------------------------
 def on_press(button):
     pin = button.pin.number
 
@@ -50,78 +69,112 @@ def on_press(button):
 
     if led:
         led.on()
-        Timer(3.0, unlock_button, args=[pin, led]).start()
+        threading.Timer(3.0, unlock_button, args=[pin, led]).start()
     else:
         button_locked[pin] = False
-
 
     print(f"KEY:{key}")
     sys.stdout.flush()
 
 
+# -----------------------------
+# LCD Display
+# -----------------------------
 def handle_text_input(text):
     if not lcd:
         return
 
     lcd.clear()
+
     lcd.cursor_pos = (0, 4)
     lcd.write_string("Ticket:")
 
-
     start_col = max(0, (16 - len(text)) // 2)
+
     lcd.cursor_pos = (1, start_col)
     lcd.write_string(text)
 
 
+# -----------------------------
+# Listen to stdin
+# -----------------------------
 def stdin_listener():
-
     for line in sys.stdin:
         clean_line = line.strip()
+
         if clean_line:
             handle_text_input(clean_line)
 
 
-# Initialize LEDs and locks
+# -----------------------------
+# Initialize LEDs
+# -----------------------------
 for button_pin, (_, led_pin) in buttons_config.items():
     try:
-        leds[led_pin] = LED(led_pin)
-        leds[led_pin].off()
+        led = LED(led_pin)
+        led.off()
+
+        leds[led_pin] = led
         button_locked[button_pin] = False
+
     except Exception as e:
         print(f"LED GPIO {led_pin}: {e}", file=sys.stderr)
         button_locked[button_pin] = False
 
 
-
+# -----------------------------
+# Startup LCD
+# -----------------------------
 if lcd:
     lcd.clear()
+
     lcd.cursor_pos = (0, 0)
     lcd.write_string("Queueing System")
-    lcd.cursor_pos = (1, 1)
+
+    lcd.cursor_pos = (1, 2)
     lcd.write_string("is now Ready")
 
 
+# -----------------------------
+# LED Startup Animation
+# -----------------------------
 for led in leds.values():
     led.on()
 
-time.sleep(3.0)
+time.sleep(3)
 
 for led in leds.values():
     led.off()
 
 
+# -----------------------------
+# Ready Screen
+# -----------------------------
 if lcd:
     lcd.clear()
+
     lcd.cursor_pos = (0, 4)
     lcd.write_string("Get Your")
+
     lcd.cursor_pos = (1, 5)
     lcd.write_string("Ticket")
 
 
+# -----------------------------
+# Initialize Buttons
+# -----------------------------
 for button_pin in buttons_config.keys():
     try:
-        btn = Button(button_pin, pull_up=True, bounce_time=0.1)
-@@ -109,12 +123,11 @@ def stdin_listener():
+        btn = Button(
+            button_pin,
+            pull_up=True,
+            bounce_time=0.1
+        )
+
+        btn.when_pressed = lambda b=btn: on_press(b)
+
+        buttons.append(btn)
+
     except Exception as e:
         print(f"Button GPIO {button_pin}: {e}", file=sys.stderr)
 
@@ -130,8 +183,26 @@ print("GPIO Bridge Ready", file=sys.stderr)
 sys.stderr.flush()
 
 
-input_thread = threading.Thread(target=stdin_listener, daemon=True)
+# -----------------------------
+# Start stdin listener
+# -----------------------------
+input_thread = threading.Thread(
+    target=stdin_listener,
+    daemon=True
+)
 input_thread.start()
 
 
-signal.pause()
+# -----------------------------
+# Keep Program Running
+# -----------------------------
+try:
+    signal.pause()
+except KeyboardInterrupt:
+    print("\nExiting...")
+
+    if lcd:
+        lcd.clear()
+
+    for led in leds.values():
+        led.off()
