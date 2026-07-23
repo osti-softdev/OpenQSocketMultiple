@@ -62,7 +62,7 @@ async function processButtonPress(key) {
               if (!err) {
                 const displayText = `Created: ${service.regular}${ticketNumber}`;
                 console.log(`✅ Ticket created: ${displayText}`);
-                executephp(service.regular, ticketNumber, service.sname);
+                // executephp(service.regular, ticketNumber, service.sname);
                 sendToLCD(displayText); // 🔹 This safely pipes string back to Python to show on LCD
               } else {
                 console.error("Insert error:", err.message);
