@@ -24,18 +24,20 @@
 		"dotenv": "^17.2.3",
 		"electron": "^40.6.0",
 		"express": "^5.1.0",
-		"gpiozero": "^0.0.1",
 		"ini": "^5.0.0",
 		"jsonwebtoken": "^9.0.2",
 		"mime": "^4.1.0",
 		"moment-timezone": "^0.6.0",
 		"multer": "^2.0.2",
-		"onoff": "^6.0.3",
 		"pm2": "^6.0.14",
 		"serialport": "^13.0.0",
 		"serialport-gsm": "^4.0.1",
 		"socket.io": "^4.8.1",
 		"sqlite3": "^5.1.7",
 		"websocket": "^1.0.35"
+	},
+	"optionalDependencies": {
+		"gpiozero": "^0.0.1",
+		"onoff": "^6.0.3"
 	}
 }

@@ -3,31 +3,31 @@ const fs = require("fs");
 const multer = require("multer");
 const express = require("express");
 const rootpath =
-    global.outfolderPath || path.join(__dirname, "../../../outfolder");
-    
+  global.outfolderPath || path.join(__dirname, "../../../outfolder");
+
 module.exports = function setupVideosApi(appExpress) {
   // Static serve
-  // appExpress.use(
-  //   "/ads",
-  //   express.static(path.join(rootpath, "ads"), {
-  //     etag: false,
-  //     lastModified: false,
-  //     setHeaders: (res, filePath) => {
-  //       if (filePath.endsWith(".mp4")) {
-  //         res.setHeader("Content-Type", "video/mp4");
-  //       } else if (filePath.endsWith(".webm")) {
-  //         res.setHeader("Content-Type", "video/webm");
-  //       } else if (filePath.endsWith(".ogg")) {
-  //         res.setHeader("Content-Type", "video/ogg");
-  //       } else {
-  //         res.setHeader("Content-Type", "application/octet-stream");
-  //       }
-  //       res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
-  //       res.setHeader("Pragma", "no-cache");
-  //       res.setHeader("Expires", "0");
-  //     },
-  //   })
-  // );
+  appExpress.use(
+    "/ads",
+    express.static(path.join(rootpath, "ads"), {
+      etag: false,
+      lastModified: false,
+      setHeaders: (res, filePath) => {
+        if (filePath.endsWith(".mp4")) {
+          res.setHeader("Content-Type", "video/mp4");
+        } else if (filePath.endsWith(".webm")) {
+          res.setHeader("Content-Type", "video/webm");
+        } else if (filePath.endsWith(".ogg")) {
+          res.setHeader("Content-Type", "video/ogg");
+        } else {
+          res.setHeader("Content-Type", "application/octet-stream");
+        }
+        res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
+        res.setHeader("Pragma", "no-cache");
+        res.setHeader("Expires", "0");
+      },
+    })
+  );
 
   // List videos
   appExpress.get("/ads", (req, res) => {

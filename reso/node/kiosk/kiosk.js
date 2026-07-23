@@ -15,7 +15,7 @@ function initializeWindowedKiosk(socket, io) {
 	const config = loadConfig(io);
 
 	let smsType = config?.MainServer?.sms
-			 sendToAllKiosks(socket);
+	sendToAllKiosks(socket);
 	if (!watcherAdded) {
 		fs.watchFile(dbPath, { interval: 500 }, async () => {
 			await sendToAllKiosks(io);
@@ -67,13 +67,13 @@ function initializeWindowedKiosk(socket, io) {
 							});
 						}
 						db.close();
-						if(smsType != 0){
+						if (smsType != 0) {
 							if (mobile && mobile.trim() !== "") {
 								try {
 									await sendTemplateSMS("New Ticket", {
-										counter:"",
+										counter: "",
 										mobile,
-										ticket: ticketservice+nextTicket,
+										ticket: ticketservice + nextTicket,
 										service: sname,
 									});
 								} catch (smsErr) {
@@ -91,7 +91,7 @@ function initializeWindowedKiosk(socket, io) {
 async function sendToAllKiosks(io) {
 	try {
 		const services = await getAllServices();
-		io.emit("servicesUpdate2", services); 
+		io.emit("servicesUpdate2", services);
 	} catch (err) {
 		console.error("❌ Error fetching services:", err);
 		io.emit("servicesUpdate2", []);

@@ -5,6 +5,7 @@ const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 const { getAllServices } = require("./db");
 const { getPHDateTime } = require("./datetime");
+const { executephp } = require("./printer");
 
 const rootpath = global.outfolderPath || path.join(__dirname, "../../outfolder");
 const dbPath = path.join(rootpath, "config/db.db");
@@ -76,7 +77,7 @@ function openArduinoPort(portInfo, io) {
       const topline = "Topline";
 
       // === Ticket creation 2..4 ===
-      if (/^[2-4]$/.test(key)) {
+      if (/^[2-3]$/.test(key)) {
         const services = await getAllServices();
         const index = parseInt(key) - 2;
         console.log(index);
@@ -103,6 +104,7 @@ function openArduinoPort(portInfo, io) {
                 if (!err && port.isOpen) {
                   const displayText = `${service.regular}${ticketNumber}`;
                   console.log(displayText);
+                  executephp(service.regular, ticketNumber, service.sname);
                   port.write(displayText + "\n", (err) => {
                     if (err) console.error("❌ Write error:", err.message);
                   });
@@ -115,12 +117,12 @@ function openArduinoPort(portInfo, io) {
       }
 
       // === Call next ticket (A,B,C,D) ===
-				else if (/^[ABCD]$/.test(key)) {
-					const startTime = time;
-					const historyEntry = `${time}-${topline}-Calling`;
-          console.log(`Calling next ticket for key ${key}...`);
-					if (key === "A") {
-						const query = `
+      else if (/^[ABCD]$/.test(key)) {
+        const startTime = time;
+        const historyEntry = `${time}-${topline}-Calling`;
+        console.log(`Calling next ticket for key ${key}...`);
+        if (key === "A") {
+          const query = `
 							UPDATE transactions 
 							SET status = 'calling',  counter_user=?, start_time = ?, 
 								history = CASE 
@@ -134,21 +136,21 @@ function openArduinoPort(portInfo, io) {
 							)
 							RETURNING ticketnum, sname, ticketservice, status
 						`;
-						db.get(query, [topline, startTime, historyEntry, historyEntry, date], (err, row) => {
-							if (err) console.error("Update error:", err.message);
-							else if (row && port.isOpen) port.write(JSON.stringify(row) + "\n");
-							db.close();
-						});
-					} else {
-						const services = await getAllServices();
-						const index = key.charCodeAt(0) - "B".charCodeAt(0); // B=0, C=1, D=2
-						const service = services[index];
-						if (!service || !service.regular) {
-							db.close();
-							return;
-						}
+          db.get(query, [topline, startTime, historyEntry, historyEntry, date], (err, row) => {
+            if (err) console.error("Update error:", err.message);
+            else if (row && port.isOpen) port.write(JSON.stringify(row) + "\n");
+            db.close();
+          });
+        } else {
+          const services = await getAllServices();
+          const index = key.charCodeAt(0) - "B".charCodeAt(0); // B=0, C=1, D=2
+          const service = services[index];
+          if (!service || !service.regular) {
+            db.close();
+            return;
+          }
 
-						const query = `
+          const query = `
 							UPDATE transactions 
 							SET status = 'calling', counter_user='Designated Counter', start_time = ?, 
 								history = CASE 
@@ -163,29 +165,29 @@ function openArduinoPort(portInfo, io) {
 							)
 							RETURNING ticketnum, sname, ticketservice, status
 						`;
-						db.get(
-							query,
-							[startTime, historyEntry, historyEntry, service.sname, service.regular, date],
-							(err, row) => {
-								if (err) {
-                  console.error("Update error:", err.message);
-								} else if (!row) {
-            // ✅ No maching ticket found
-            if (port && port.isOpen) {
-                port.write("No Ticket\n", (err) => {
+          db.get(
+            query,
+            [startTime, historyEntry, historyEntry, service.sname, service.regular, date],
+            (err, row) => {
+              if (err) {
+                console.error("Update error:", err.message);
+              } else if (!row) {
+                // ✅ No maching ticket found
+                if (port && port.isOpen) {
+                  port.write("No Ticket\n", (err) => {
                     if (err) console.error("Write error:", err.message);
-                });
-            }
+                  });
+                }
 
-                } else if (row && port.isOpen) port.write(JSON.stringify(row) + "\n");
-        console.table(row);
-          db.close();
-                });
-              }
-    }
+              } else if (row && port.isOpen) port.write(JSON.stringify(row) + "\n");
+              console.table(row);
+              db.close();
+            });
+        }
+      }
 
       // === Recalling (#) ===
-      else if (key === "#") {
+      else if (key === "7") {
         const historyEntry = `${time}-${topline}-Recalling`;
         const query = `
           UPDATE transactions
@@ -194,18 +196,19 @@ function openArduinoPort(portInfo, io) {
           RETURNING ticketnum, sname, ticketservice, status
         `;
         db.get(query, [historyEntry, historyEntry, date], (err, row) => {
-          if (err) { console.error("Update # error:", err.message);
-} else if (!row) {
+          if (err) {
+            console.error("Update # error:", err.message);
+          } else if (!row) {
             // ✅ No maching ticket found
             if (port && port.isOpen) {
-                port.write("No Ticket\n", (err) => {
-                    if (err) console.error("Write error:", err.message);
-                });
+              port.write("No Ticket\n", (err) => {
+                if (err) console.error("Write error:", err.message);
+              });
             }
 
-        } else if (row && port.isOpen) port.write(JSON.stringify(row) + "\n");
-console.table(row);
-  db.close();
+          } else if (row && port.isOpen) port.write(JSON.stringify(row) + "\n");
+          console.table(row);
+          db.close();
         });
       }
 
@@ -219,19 +222,20 @@ console.table(row);
           RETURNING ticketnum, sname, ticketservice, status
         `;
         db.get(query, [time, historyEntry, historyEntry, date], (err, row) => {
-          if (err) { console.error("Update 0 error:", err.message);
-} else if (!row) {
+          if (err) {
+            console.error("Update 0 error:", err.message);
+          } else if (!row) {
             // ✅ No matching ticket found
             if (port && port.isOpen) {
-                port.write("No Ticket\n", (err) => {
-                    if (err) console.error("Write error:", err.message);
-                });
+              port.write("No Ticket\n", (err) => {
+                if (err) console.error("Write error:", err.message);
+              });
             }
 
-console.log("No Ticket");
-    }   else if (row && port.isOpen) port.write(JSON.stringify(row) + "\n");
-console.table(row);
- db.close();
+            console.log("No Ticket");
+          } else if (row && port.isOpen) port.write(JSON.stringify(row) + "\n");
+          console.table(row);
+          db.close();
         });
       }
 
