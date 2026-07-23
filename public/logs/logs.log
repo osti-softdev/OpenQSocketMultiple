@@ -1912,3 +1912,75 @@
 ✔ 2026-07-22 1:03:06 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:03:06 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
 ✔ 2026-07-22 1:03:11 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:03:11 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
 ✔ 2026-07-22 1:03:16 PM [backend\utilities\smsService.js:44] 7/22/2026, 1:03:16 PM | SYSTEM | - | ❌ Failed to open COM4: Opening COM4: File not found
+✔ 2026-07-23 4:00:41 PM [backend\utilities\logger.js:149] Logger initialized at: D:\GITHUB\OpenQSocketMultiple\OpenQSocketMultiple\public\logs
+✔ 2026-07-23 4:00:42 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ encrypted .env [www.dotenvx.com][0m
+✔ 2026-07-23 4:00:43 PM [node:events:632] Queue System running on http://localhost:12341
+✔ 2026-07-23 4:00:43 PM [unknown-location] Connected to SQLite database
+✔ 2026-07-23 4:00:43 PM [backend\utilities\smsService.js:44] 7/23/2026, 4:00:43 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM4
+✔ 2026-07-23 4:00:43 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-23 4:00:43 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-23 4:00:43 PM [unknown-location] Found 68 transactions older than 365 days. Archiving...
+✔ 2026-07-23 4:00:43 PM [backend\utilities\db.js:340] Successfully archived 68 transactions to D:\GITHUB\OpenQSocketMultiple\OpenQSocketMultiple\backend\backups\transactions_archive_2026-07-23T08-00-43-902Z.csv
+✔ 2026-07-23 4:00:43 PM [unknown-location] Deleted 68 old transactions from database.
+✔ 2026-07-23 4:00:43 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-23 4:00:50 PM [backend\utilities\smsService.js:44] 7/23/2026, 4:00:50 PM | SYSTEM | - | ⚠️ Init failed: Timeout waiting for response
+✔ 2026-07-23 4:02:16 PM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-23 4:02:16 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-23 4:02:16 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-23 4:02:17 PM [node:events:518] [ADS] Client connected: nZulw6i3Ng9Dm0xNAAAB
+✔ 2026-07-23 4:02:46 PM [node:events:518] [ADS] Client disconnected: nZulw6i3Ng9Dm0xNAAAB
+✔ 2026-07-23 4:05:41 PM [backend\routes\AtellerApi.js:74] Login attempt for: teller1
+✔ 2026-07-23 4:05:41 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-23 4:05:41 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-23 4:05:42 PM [node:events:518] [ADS] Client connected: ANXfP8b8eiB5vXasAAAD
+✔ 2026-07-23 4:05:49 PM [node:events:518] [ADS] Client disconnected: ANXfP8b8eiB5vXasAAAD
+✔ 2026-07-23 4:06:18 PM [node:events:518] [ADS] Client connected: jfX77XMC7apSWrwUAAAF
+✔ 2026-07-23 4:06:20 PM [node:events:518] [ADS] Client disconnected: jfX77XMC7apSWrwUAAAF
+✔ 2026-07-23 4:06:24 PM [node:events:518] [ADS] Client connected: NiEAxxbO6tSmtXT-AAAH
+✔ 2026-07-23 4:06:49 PM [node:events:518] [ADS] Client connected: MSjQzedGf0ZoAT8VAAAJ
+✔ 2026-07-23 4:07:09 PM [node:events:518] [ADS] Client disconnected: NiEAxxbO6tSmtXT-AAAH
+✔ 2026-07-23 4:07:13 PM [node:events:518] [ADS] Client disconnected: MSjQzedGf0ZoAT8VAAAJ
+✔ 2026-07-23 4:07:13 PM [node:events:518] [ADS] Client connected: 4TfKo3G5XU0_L3ALAAAL
+✔ 2026-07-23 4:07:25 PM [node:events:518] [ADS] Client connected: r0thaqeaAvuam7QCAAAN
+✔ 2026-07-23 4:07:58 PM [node:events:518] [ADS] Client disconnected: r0thaqeaAvuam7QCAAAN
+✔ 2026-07-23 4:08:02 PM [node:events:518] [ADS] Client connected: zR-8n3jNmJ-2fD7bAAAP
+✔ 2026-07-23 4:08:07 PM [backend\routes\AkioskApi.js:109] On-prem ticket, printing required.
+✔ 2026-07-23 4:08:23 PM [backend\routes\AkioskApi.js:109] On-prem ticket, printing required.
+✔ 2026-07-23 4:08:23 PM [backend\utilities\smsService.js:76] 📜 Loaded message templates: [
+  'generate',
+  'call',
+  'forward',
+  'hold',
+  'void',
+  'finish',
+  'nearly_called'
+]
+✔ 2026-07-23 4:08:23 PM [backend\utilities\smsService.js:40] 2026-07-23T08:08:23.168Z [..\node\smsService.js:26] 7/23/2026, 4:08:23 PM | Kiosk | +639999999999 | SENDING | MDRRMO | MO1 | generate
+✔ 2026-07-23 4:08:28 PM [backend\utilities\smsService.js:40] 2026-07-23T08:08:28.186Z [..\node\smsService.js:26] 7/23/2026, 4:08:28 PM | Kiosk | +639999999999 | FAILED ❌ (Timeout waiting for response) | MDRRMO | MO1 | generate
+✔ 2026-07-23 4:14:22 PM [backend\utilities\logger.js:149] Logger initialized at: D:\GITHUB\OpenQSocketMultiple\OpenQSocketMultiple\public\logs
+✔ 2026-07-23 4:14:23 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ encrypted .env [www.dotenvx.com][0m
+✔ 2026-07-23 4:14:23 PM [node:events:632] Queue System running on http://localhost:12341
+✔ 2026-07-23 4:14:23 PM [unknown-location] Connected to SQLite database
+✔ 2026-07-23 4:14:23 PM [backend\utilities\smsService.js:44] 7/23/2026, 4:14:23 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM10
+✔ 2026-07-23 4:14:23 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-23 4:14:23 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-23 4:14:23 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-23 4:14:23 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-23 4:14:23 PM [node:events:518] [ADS] Client connected: vVbBn-c12hZlJw0AAAAB
+✔ 2026-07-23 4:14:25 PM [backend\utilities\smsService.js:44] 7/23/2026, 4:14:25 PM | SYSTEM | - | 📡 Modem registered on network
+✔ 2026-07-23 4:14:25 PM [backend\utilities\smsService.js:44] 7/23/2026, 4:14:25 PM | SYSTEM | - | 📶 Modem ready for SMS
+✔ 2026-07-23 4:14:34 PM [node:events:518] [ADS] Client connected: vM3ZD8xXduRzRjZxAAAD
+✔ 2026-07-23 4:15:00 PM [backend\routes\AkioskApi.js:109] On-prem ticket, printing required.
+✔ 2026-07-23 4:15:00 PM [backend\utilities\smsService.js:76] 📜 Loaded message templates: [
+  'generate',
+  'call',
+  'forward',
+  'hold',
+  'void',
+  'finish',
+  'nearly_called'
+]
+✔ 2026-07-23 4:15:00 PM [backend\utilities\smsService.js:40] 2026-07-23T08:15:00.260Z [..\node\smsService.js:26] 7/23/2026, 4:15:00 PM | Kiosk | +639308282006 | SENDING | ASSESSMENT | A1 | generate
+✔ 2026-07-23 4:15:00 PM [backend\utilities\smsService.js:40] 2026-07-23T08:15:00.419Z [..\node\smsService.js:26] 7/23/2026, 4:15:00 PM | Kiosk | +639308282006 | 📤 Sending Full... | ASSESSMENT | A1 | generate
+✔ 2026-07-23 4:15:04 PM [backend\utilities\smsService.js:40] 2026-07-23T08:15:04.634Z [..\node\smsService.js:26] 7/23/2026, 4:15:04 PM | Kiosk | +639308282006 | ✅ Full sent | ASSESSMENT | A1 | generate
+✔ 2026-07-23 4:15:09 PM [backend\utilities\smsService.js:40] 2026-07-23T08:15:09.642Z [..\node\smsService.js:26] 7/23/2026, 4:15:09 PM | Kiosk | +639308282006 | ✅ Delivered in 1 part(s) | ASSESSMENT | A1 | generate

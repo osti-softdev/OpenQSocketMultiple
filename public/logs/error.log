@@ -17,3 +17,7 @@
     at sendSMS (C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\backend\utilities\smsService.js:188:38)
     at Object.sendTemplateSMS (C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\backend\utilities\smsService.js:296:11)
     at C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\backend\routes\AkioskApi.js:117:25
+❌ 2026-07-23 4:08:28 PM [backend\routes\AkioskApi.js:121] SMS Generate Error: Error: Timeout waiting for response
+    at Timeout._onTimeout (D:\GITHUB\OpenQSocketMultiple\OpenQSocketMultiple\backend\utilities\smsService.js:177:20)
+    at listOnTimeout (node:internal/timers:588:17)
+    at process.processTimers (node:internal/timers:523:7)

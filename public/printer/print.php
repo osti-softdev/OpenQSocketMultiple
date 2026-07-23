@@ -16,7 +16,7 @@ try {
     // if logo missing
 }
 
-$connector = new WindowsPrintConnector("POS-80");
+$connector = new WindowsPrintConnector("POS-90");
 $printer = new Printer($connector);
 
 $ticket = '';
