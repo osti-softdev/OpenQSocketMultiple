@@ -51,7 +51,7 @@ function executephp(ticket, count, service_name) {
     const dateStr = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Manila" }).format(now);
     const timeStr = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Manila", timeStyle: "short" }).format(now);
 
-    const logoPath = path.join(__dirname, "../../images/dbp.png");
+    const logoPath = path.join(__dirname, "../outfolder/images/dbp.png");
 
     // Try to load and print the image first
     try {
