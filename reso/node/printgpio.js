@@ -1,4 +1,4 @@
-const escpos = require("escpos");
+ const escpos = require("escpos");
 const { spawn } = require("child_process");
 
 // Custom Adapter to send raw ESC/POS commands directly to CUPS
@@ -10,7 +10,6 @@ class CUPSAdapter {
     if (callback) callback(null);
   }
   write(data, callback) {
-    // Send the raw data buffer to the Linux lp command
     const lp = spawn("lp", ["-d", this.printerName, "-o", "raw"]);
     lp.stdin.write(data);
     lp.stdin.end();
@@ -36,7 +35,6 @@ function executephp(ticket, count, service_name) {
     return;
   }
 
-  // Use our new adapter targeting your CUPS printer named "POS"
   const device = new CUPSAdapter("POS");
   const printer = new escpos.Printer(device);
 
@@ -48,32 +46,50 @@ function executephp(ticket, count, service_name) {
 
     argumentprevious = argument;
 
-    // Get current Manila timestamp
     const now = new Date();
-    const dateStr = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Manila" }).format(now); // YYYY-MM-DD
-    const timeStr = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Manila", timeStyle: "medium" }).format(now); // HH:MM:SS
+    const dateStr = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Manila" }).format(now);
+    const timeStr = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Manila", timeStyle: "short" }).format(now);
 
-    // Proceed directly to printing the text
     printTicketContent(printer, dateStr, timeStr, ticket, count, service_name);
   });
 }
 
-// Helper function for the print layout
+// ---------------------------------------------------------
+// OPTIMIZED FOR 58mm PRINTERS
+// ---------------------------------------------------------
 function printTicketContent(printer, dateStr, timeStr, ticket, count, service_name) {
   printer
     .align("ct")
-    .style("b")
+    
+    // 1. Header: Normal size, standard font
+    .font("A")
+    .style("NORMAL")
     .size(1, 1)
     .text("DEVELOPMENT BANK")
     .text("OF THE PHILIPPINES")
     .text(`${dateStr} ${timeStr}`)
-    .text("____________________\n")
+    .text("--------------------------------") // 32 dashes perfectly fits a 58mm printer
+    .feed(1)
+
+    // 2. Ticket Number: Bold and Double Size
+    .style("B")
     .size(2, 2)
-    .text(`${ticket}${count}\n`)
+    .text(`${ticket}${count}`)
+    .feed(1)
+    
+    // 3. Service Name: Normal size, but bold
     .size(1, 1)
-    .text(`${service_name}\n`)
-    .text("This Ticket is valid only on the day it is dispensed.")
-    .feed(2)
+    .text(`${service_name}`)
+    .feed(1)
+    .text("--------------------------------")
+
+    // 4. Disclaimer: Smaller font (Font B) so it fits nicely
+    .style("NORMAL")
+    .font("B") 
+    .text("This Ticket is valid only on")
+    .text("the day it is dispensed.")
+    
+    .feed(3) // Feed enough paper to clear the cutter/tear bar
     .cut()
     .close(() => {
       console.log(`🖨️ Ticket sent to CUPS queue (POS): ${ticket}${count}`);
