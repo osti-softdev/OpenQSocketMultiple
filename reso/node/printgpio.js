@@ -54,36 +54,38 @@ function executephp(ticket, count, service_name) {
   });
 }
 
+
 // ---------------------------------------------------------
-// OPTIMIZED FOR 58mm PRINTERS
+// OPTIMIZED FOR 58mm PRINTERS (FIXED SIZING)
 // ---------------------------------------------------------
 function printTicketContent(printer, dateStr, timeStr, ticket, count, service_name) {
   printer
+    .hardware("INIT") // Wipes old memory/settings so it doesn't get stuck huge
     .align("ct")
     
-    // 1. Header: Normal size, standard font
+    // 1. Header: Normal size (0,0), standard font
     .font("A")
     .style("NORMAL")
-    .size(1, 1)
+    .size(0, 0) 
     .text("DEVELOPMENT BANK")
     .text("OF THE PHILIPPINES")
     .text(`${dateStr} ${timeStr}`)
-    .text("--------------------------------") // 32 dashes perfectly fits a 58mm printer
+    .text("--------------------------------") // 32 dashes
     .feed(1)
 
-    // 2. Ticket Number: Bold and Double Size
+    // 2. Ticket Number: Double Size (1,1)
     .style("B")
-    .size(2, 2)
+    .size(1, 1) 
     .text(`${ticket}${count}`)
     .feed(1)
     
-    // 3. Service Name: Normal size, but bold
-    .size(1, 1)
+    // 3. Service Name: Normal size (0,0), but bold
+    .size(0, 0) 
     .text(`${service_name}`)
     .feed(1)
     .text("--------------------------------")
 
-    // 4. Disclaimer: Smaller font (Font B) so it fits nicely
+    // 4. Disclaimer: Smaller font (Font B)
     .style("NORMAL")
     .font("B") 
     .text("This Ticket is valid only on")
