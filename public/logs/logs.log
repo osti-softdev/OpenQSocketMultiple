@@ -1984,3 +1984,68 @@
 ✔ 2026-07-23 4:15:00 PM [backend\utilities\smsService.js:40] 2026-07-23T08:15:00.419Z [..\node\smsService.js:26] 7/23/2026, 4:15:00 PM | Kiosk | +639308282006 | 📤 Sending Full... | ASSESSMENT | A1 | generate
 ✔ 2026-07-23 4:15:04 PM [backend\utilities\smsService.js:40] 2026-07-23T08:15:04.634Z [..\node\smsService.js:26] 7/23/2026, 4:15:04 PM | Kiosk | +639308282006 | ✅ Full sent | ASSESSMENT | A1 | generate
 ✔ 2026-07-23 4:15:09 PM [backend\utilities\smsService.js:40] 2026-07-23T08:15:09.642Z [..\node\smsService.js:26] 7/23/2026, 4:15:09 PM | Kiosk | +639308282006 | ✅ Delivered in 1 part(s) | ASSESSMENT | A1 | generate
+✔ 2026-07-23 4:20:32 PM [backend\utilities\logger.js:149] Logger initialized at: D:\GITHUB\OpenQSocketMultiple\OpenQSocketMultiple\public\logs
+✔ 2026-07-23 4:20:32 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ suppress logs { quiet: true }[0m
+✔ 2026-07-23 4:20:33 PM [node:events:632] Queue System running on http://localhost:12341
+✔ 2026-07-23 4:20:33 PM [unknown-location] Connected to SQLite database
+✔ 2026-07-23 4:20:33 PM [backend\utilities\smsService.js:44] 7/23/2026, 4:20:33 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM10
+✔ 2026-07-23 4:20:33 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-23 4:20:33 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-23 4:20:33 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-23 4:20:33 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-23 4:20:33 PM [node:events:518] [ADS] Client connected: c4PBedpruC6v6dS5AAAB
+✔ 2026-07-23 4:20:34 PM [backend\utilities\smsService.js:44] 7/23/2026, 4:20:34 PM | SYSTEM | - | 📡 Modem registered on network
+✔ 2026-07-23 4:20:34 PM [backend\utilities\smsService.js:44] 7/23/2026, 4:20:34 PM | SYSTEM | - | 📶 Modem ready for SMS
+✔ 2026-07-23 4:20:35 PM [node:events:518] [ADS] Client connected: ytBUiNXEcxMippLXAAAD
+✔ 2026-07-23 4:20:36 PM [node:events:518] [ADS] Client disconnected: c4PBedpruC6v6dS5AAAB
+✔ 2026-07-23 4:20:36 PM [node:events:518] [ADS] Client connected: qEwMXVN0IlZCf19CAAAF
+✔ 2026-07-23 4:20:42 PM [backend\routes\AkioskApi.js:109] On-prem ticket, printing required.
+✔ 2026-07-23 4:20:55 PM [backend\routes\AkioskApi.js:109] On-prem ticket, printing required.
+✔ 2026-07-23 4:22:12 PM [backend\routes\AkioskApi.js:109] On-prem ticket, printing required.
+✔ 2026-07-23 4:22:41 PM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-23 4:22:41 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-23 4:22:41 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-23 4:22:41 PM [node:events:518] [ADS] Client connected: fnBR2Z6Trctf-mTSAAAH
+✔ 2026-07-23 4:23:44 PM [backend\routes\AkioskApi.js:109] On-prem ticket, printing required.
+✔ 2026-07-23 4:23:44 PM [backend\utilities\smsService.js:76] 📜 Loaded message templates: [
+  'generate',
+  'call',
+  'forward',
+  'hold',
+  'void',
+  'finish',
+  'nearly_called'
+]
+✔ 2026-07-23 4:23:44 PM [backend\utilities\smsService.js:40] 2026-07-23T08:23:44.589Z [..\node\smsService.js:26] 7/23/2026, 4:23:44 PM | Kiosk | +639454194063 | SENDING | BUSINESS_TAX | BT4 | generate
+✔ 2026-07-23 4:23:44 PM [backend\utilities\smsService.js:40] 2026-07-23T08:23:44.748Z [..\node\smsService.js:26] 7/23/2026, 4:23:44 PM | Kiosk | +639454194063 | 📤 Sending Full... | BUSINESS_TAX | BT4 | generate
+✔ 2026-07-23 4:23:48 PM [backend\utilities\smsService.js:40] 2026-07-23T08:23:48.828Z [..\node\smsService.js:26] 7/23/2026, 4:23:48 PM | Kiosk | +639454194063 | ✅ Full sent | BUSINESS_TAX | BT4 | generate
+✔ 2026-07-23 4:23:53 PM [backend\utilities\smsService.js:40] 2026-07-23T08:23:53.833Z [..\node\smsService.js:26] 7/23/2026, 4:23:53 PM | Kiosk | +639454194063 | ✅ Delivered in 1 part(s) | BUSINESS_TAX | BT4 | generate
+✔ 2026-07-23 4:35:30 PM [backend\utilities\logger.js:149] Logger initialized at: D:\GITHUB\OpenQSocketMultiple\OpenQSocketMultiple\public\logs
+✔ 2026-07-23 4:35:30 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ suppress logs { quiet: true }[0m
+✔ 2026-07-23 4:35:30 PM [node:events:632] Queue System running on http://localhost:12341
+✔ 2026-07-23 4:35:30 PM [unknown-location] Connected to SQLite database
+✔ 2026-07-23 4:35:31 PM [backend\utilities\smsService.js:44] 7/23/2026, 4:35:30 PM | SYSTEM | - | ✅ Wavecom Fastrack opened on COM10
+✔ 2026-07-23 4:35:31 PM [node:events:518] [ADS] Client connected: r_MPLOnZP3MfJbvqAAAB
+✔ 2026-07-23 4:35:31 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-23 4:35:31 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-23 4:35:31 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-23 4:35:31 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-23 4:35:32 PM [backend\utilities\smsService.js:44] 7/23/2026, 4:35:32 PM | SYSTEM | - | 📡 Modem registered on network
+✔ 2026-07-23 4:35:32 PM [backend\utilities\smsService.js:44] 7/23/2026, 4:35:32 PM | SYSTEM | - | 📶 Modem ready for SMS
+✔ 2026-07-23 4:35:33 PM [node:events:518] [ADS] Client connected: DzBebVIc6mWVZrodAAAD
+✔ 2026-07-23 4:35:35 PM [node:events:518] [ADS] Client connected: 8zRznYxlPS2Kgk2xAAAF
+✔ 2026-07-23 4:35:36 PM [backend\routes\AkioskApi.js:109] On-prem ticket, printing required.
+✔ 2026-07-23 4:35:43 PM [node:events:518] [ADS] Client disconnected: r_MPLOnZP3MfJbvqAAAB
+✔ 2026-07-23 4:35:49 PM [node:events:518] [ADS] Client disconnected: DzBebVIc6mWVZrodAAAD
+✔ 2026-07-23 4:35:58 PM [backend\routes\AtellerApi.js:74] Login attempt for: teller1
+✔ 2026-07-23 4:35:58 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-23 4:35:58 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-23 4:35:59 PM [node:events:518] [ADS] Client connected: BCNJ8eGRokk25JVXAAAH
+✔ 2026-07-23 4:36:08 PM [backend\routes\AtellerApi.js:443] 1
+✔ 2026-07-23 4:36:24 PM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-23 4:36:24 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-23 4:36:24 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-23 4:36:24 PM [node:events:518] [ADS] Client connected: inQAKPi_H7tcV4_XAAAJ
+✔ 2026-07-23 4:36:34 PM [node:events:518] [ADS] Client disconnected: inQAKPi_H7tcV4_XAAAJ
+✔ 2026-07-23 4:37:13 PM [node:events:518] [ADS] Client disconnected: 8zRznYxlPS2Kgk2xAAAF
+✔ 2026-07-23 4:37:13 PM [node:events:518] [ADS] Client connected: 4ZsY-LOlTzd81JmNAAAL
