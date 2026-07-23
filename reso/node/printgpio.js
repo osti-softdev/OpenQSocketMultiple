@@ -58,10 +58,12 @@ function executephp(ticket, count, service_name) {
 // ---------------------------------------------------------
 // OPTIMIZED FOR 58mm PRINTERS (FIXED SIZING)
 // ---------------------------------------------------------
+// ---------------------------------------------------------
+// OPTIMIZED FOR 58mm PRINTERS (NO @ SYMBOL)
+// ---------------------------------------------------------
 function printTicketContent(printer, dateStr, timeStr, ticket, count, service_name) {
   printer
-    .hardware("INIT") // Wipes old memory/settings so it doesn't get stuck huge
-    .align("ct")
+    .align("ct") // Centered alignment (hardware("INIT") removed from above this)
     
     // 1. Header: Normal size (0,0), standard font
     .font("A")
@@ -91,7 +93,7 @@ function printTicketContent(printer, dateStr, timeStr, ticket, count, service_na
     .text("This Ticket is valid only on")
     .text("the day it is dispensed.")
     
-    .feed(3) // Feed enough paper to clear the cutter/tear bar
+    .feed(3) 
     .cut()
     .close(() => {
       console.log(`🖨️ Ticket sent to CUPS queue (POS): ${ticket}${count}`);
