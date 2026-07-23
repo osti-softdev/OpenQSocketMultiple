@@ -7,6 +7,7 @@ const sqlite3 = require("sqlite3").verbose();
 const path = require("path");
 const { getAllServices } = require("./db");
 const { getPHDateTime } = require("./datetime");
+const { executephp } = require("./printer");
 
 const rootpath = global.outfolderPath || path.join(__dirname, "../../outfolder");
 const dbPath = path.join(rootpath, "config/db.db");
@@ -33,7 +34,7 @@ async function processButtonPress(key) {
       const services = await getAllServices();
       const index = parseInt(key) - 1; // 🔹 FIX: Changed from -2 to -1 so Key "1" targets index 0
       const service = services[index];
-      
+
       if (!service || !service.regular) {
         // Log explicitly to console if services aren't populated yet
         console.warn(`⚠️ No database service found for Key: ${key} at index: ${index}`);
@@ -61,6 +62,7 @@ async function processButtonPress(key) {
               if (!err) {
                 const displayText = `Created: ${service.regular}${ticketNumber}`;
                 console.log(`✅ Ticket created: ${displayText}`);
+                executephp(service.regular, ticketNumber, service.sname);
                 sendToLCD(displayText); // 🔹 This safely pipes string back to Python to show on LCD
               } else {
                 console.error("Insert error:", err.message);
@@ -72,28 +74,28 @@ async function processButtonPress(key) {
       );
     }
 
-// === Call next ticket (4,5) ===
-else if (/^[4-5]$/.test(key)) {
-  const services = await getAllServices();
+    // === Call next ticket (4,5) ===
+    else if (/^[4-5]$/.test(key)) {
+      const services = await getAllServices();
 
-  // Key 4 = first service, Key 5 = second service
-  const index = parseInt(key) - 4;
-  const service = services[index];
+      // Key 4 = first service, Key 5 = second service
+      const index = parseInt(key) - 4;
+      const service = services[index];
 
-  if (!service || !service.regular) {
-    console.warn(`⚠️ No database service found for Key: ${key} at index: ${index}`);
-    db.close();
-    return;
-  }
+      if (!service || !service.regular) {
+        console.warn(`⚠️ No database service found for Key: ${key} at index: ${index}`);
+        db.close();
+        return;
+      }
 
-  const startTime = time;
-  const finishHistory = `${time}-${topline}-Finished`;
-  const callHistory = `${time}-${topline}-Calling`;
+      const startTime = time;
+      const finishHistory = `${time}-${topline}-Finished`;
+      const callHistory = `${time}-${topline}-Calling`;
 
-  db.serialize(() => {
-    // Finish previous called ticket for this counter/user
-    db.run(
-      `
+      db.serialize(() => {
+        // Finish previous called ticket for this counter/user
+        db.run(
+          `
       UPDATE transactions
       SET 
         status = 'finished',
@@ -106,17 +108,17 @@ else if (/^[4-5]$/.test(key)) {
         AND counter_user = ?
         AND date = ?
       `,
-      [time, finishHistory, finishHistory, topline, date],
-      (err) => {
-        if (err) {
-          console.error("Finish previous ticket error:", err.message);
-          db.close();
-          return;
-        }
+          [time, finishHistory, finishHistory, topline, date],
+          (err) => {
+            if (err) {
+              console.error("Finish previous ticket error:", err.message);
+              db.close();
+              return;
+            }
 
-        // Call next pending ticket for selected service
-        db.get(
-          `
+            // Call next pending ticket for selected service
+            db.get(
+              `
           UPDATE transactions 
           SET 
             status = 'calling',
@@ -137,32 +139,32 @@ else if (/^[4-5]$/.test(key)) {
           )
           RETURNING ticketnum, sname, ticketservice, status
           `,
-          [
-            topline,
-            startTime,
-            callHistory,
-            callHistory,
-            service.sname,
-            service.regular,
-            date
-          ],
-          (err, row) => {
-            if (err) {
-              console.error("Call ticket error:", err.message);
-            } else if (!row) {
-              console.log(`⚠️ No pending ticket found for ${service.regular}`);
-            } else {
-              console.log(`✅ Ticket called:`, row);
-              sendToLCD(`${row.ticketservice}${row.ticketnum}`);
-            }
+              [
+                topline,
+                startTime,
+                callHistory,
+                callHistory,
+                service.sname,
+                service.regular,
+                date
+              ],
+              (err, row) => {
+                if (err) {
+                  console.error("Call ticket error:", err.message);
+                } else if (!row) {
+                  console.log(`⚠️ No pending ticket found for ${service.regular}`);
+                } else {
+                  console.log(`✅ Ticket called:`, row);
+                  sendToLCD(`${row.ticketservice}${row.ticketnum}`);
+                }
 
-            db.close();
+                db.close();
+              }
+            );
           }
         );
-      }
-    );
-  });
-}
+      });
+    }
 
     // === Recalling (6) ===
     else if (key === "6") {
@@ -238,12 +240,12 @@ function initializeGPIO(io) {
   }
 
   // Path to the bridge script
-// Path to the bridge script and your virtual environment's python binary
-const bridgePath = path.join(__dirname, "../../gpio_bridge.py");
-const venvPythonPath = path.join(__dirname, "../../venv/bin/python3");
+  // Path to the bridge script and your virtual environment's python binary
+  const bridgePath = path.join(__dirname, "../../gpio_bridge.py");
+  const venvPythonPath = path.join(__dirname, "../../venv/bin/python3");
 
-// Spawn using the venv python so it has access to RPLCD
-pythonProcess = spawn(venvPythonPath, [bridgePath]);
+  // Spawn using the venv python so it has access to RPLCD
+  pythonProcess = spawn(venvPythonPath, [bridgePath]);
 
   // Handle incoming data (KEY:X)
   pythonProcess.stdout.on("data", (data) => {
