@@ -1,0 +1,8 @@
+❌ 2026-07-27 5:25:22 PM [node_modules\sqlite3\lib\trace.js:25] Authentication error: ReferenceError: resetAuthLimit is not defined
+    at Statement.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:94:25)
+    at Statement.replacement (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\trace.js:25:27)
+    at Statement.replacement (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\trace.js:25:27)
+❌ 2026-07-27 5:25:31 PM [node_modules\sqlite3\lib\trace.js:25] Authentication error: ReferenceError: resetAuthLimit is not defined
+    at Statement.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AtellerApi.js:94:25)
+    at Statement.replacement (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\trace.js:25:27)
+    at Statement.replacement (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\trace.js:25:27)

@@ -91,7 +91,6 @@ module.exports = function createTellerApiRouter(io) {
 
                 try {
                     if (password === teller.cpass) {
-                        resetAuthLimit(req);
                         req.session.teller = teller;
                         req.session.teller = {
                             id: teller.id,
