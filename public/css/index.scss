@@ -69,13 +69,14 @@ body {
     top: 1%;
     left: 5%;
     height: 5%;
-    width: 40%;
+    width: 50%;
     z-index: 100;
     display: flex;
-    justify-content: space-evenly;
+    gap: 20px;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
-    color: #ffffff;
+    color: #000000;
     font-family: "Segoe UI", sans-serif;
 
     .date {
@@ -86,7 +87,7 @@ body {
     .time {
       font-family: digital;
       font-size: 3rem;
-      text-shadow: 2px 2px 5px rgb(36, 3, 185);
+      text-shadow: 2px 2px 5px rgb(152, 150, 161);
       font-weight: bold;
     }
   }
@@ -99,7 +100,7 @@ body {
     height: 10%;
     display: flex;
     background-image: url("/images/banner.png");
-    background-size: auto 100%;
+    background-size: 100% 100%;
     background-position: left center;
     background-repeat: no-repeat;
     background-color: #08228d;
