@@ -47,8 +47,8 @@ body {
 }
 .mainkioskcontainer .timer {
   position: absolute;
-  top: 5%;
-  right: 0;
+  top: 1%;
+  right: 15%;
   height: 5%;
   width: 20%;
   z-index: 100;
@@ -56,7 +56,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
   text-align: center;
-  color: #ffffff;
+  color: #000000;
   font-family: "Segoe UI", sans-serif;
 }
 .mainkioskcontainer .timer .date {
@@ -66,7 +66,6 @@ body {
 .mainkioskcontainer .timer .time {
   font-family: digital;
   font-size: 3rem;
-  text-shadow: 2px 2px 5px rgb(36, 3, 185);
   font-weight: bold;
 }
 .mainkioskcontainer::before {
@@ -90,7 +89,7 @@ body {
   height: 10%;
   display: flex;
   background-image: url("/images/banner.png");
-  background-size: auto 100%;
+  background-size: 100% 100%;
   background-position: left center;
   background-repeat: no-repeat;
   background-color: #08228d;
@@ -163,8 +162,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #e9e1e1;
-  text-shadow: 2px 2px 5px black;
   border-radius: 16px;
   box-shadow: 0px 0px 18px rgb(0, 0, 0);
   cursor: pointer;
@@ -177,11 +174,14 @@ body {
   background-image: url("/images/buttons/button_regular.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  color: #e9e1e1;
+  text-shadow: 2px 2px 5px black;
 }
 .mainkioskcontainer .servicesContainer .category-container div:nth-child(2) {
   background-image: url("/images/buttons/button_priority.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  color: #000000;
 }
 .mainkioskcontainer .servicesContainer .service-container {
   position: absolute;
@@ -216,7 +216,6 @@ body {
   width: 20%;
   border: none;
   font-size: 3rem;
-  text-shadow: 2px 2px 5px black;
   border-radius: 16px;
   box-shadow: 2px 2px 5px rgb(0, 0, 0);
 }
@@ -224,6 +223,10 @@ body {
 .mainkioskcontainer .servicesContainer .service-container #priorityServices .back-btn:active {
   transform: scale(0.95);
   box-shadow: 0px 0px 8px rgb(255, 255, 255);
+}
+.mainkioskcontainer .servicesContainer .service-container #regularServices .back-btn-reg,
+.mainkioskcontainer .servicesContainer .service-container #priorityServices .back-btn-reg {
+  text-shadow: 2px 2px 5px black;
 }
 .mainkioskcontainer .servicesContainer .service-container #regularServices button,
 .mainkioskcontainer .servicesContainer .service-container #priorityServices button {
@@ -242,7 +245,6 @@ body {
   text-align: center;
   text-wrap: wrap;
   color: #e9e1e1;
-  text-shadow: 2px 2px 5px black;
   border-radius: 16px;
   box-shadow: 0px 0px 18px rgb(0, 0, 0);
   cursor: pointer;
@@ -263,12 +265,14 @@ body {
   background-image: url("/images/buttons/button_regular.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  text-shadow: 2px 2px 5px black;
 }
 .mainkioskcontainer .servicesContainer .service-container #regularServices:nth-child(2) button,
 .mainkioskcontainer .servicesContainer .service-container #priorityServices:nth-child(2) button {
   background-image: url("/images/buttons/button_priority.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  color: #000000;
 }
 .mainkioskcontainer .footercont {
   position: absolute;
@@ -279,7 +283,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 204, 255, 0.432);
+  background-color: rgba(8, 35, 141, 0.3843137255);
   letter-spacing: 4px;
   font-size: 4rem;
   font-weight: bold;

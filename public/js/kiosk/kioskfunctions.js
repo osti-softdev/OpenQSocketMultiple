@@ -2,30 +2,30 @@ let services = [];
 let selectedType = null;
 
 $(document).ready(async function () {
-socket.on('service_update', async function () {
+    socket.on('service_update', async function () {
         loadServices();
-});
-
-   await loadServices();
-
-   async function loadServices() {
-    $.ajax({
-        url: '/api/services',
-        method: 'GET',
-        dataType: 'json',
-        success: function (response) {
-        if (!response.success || !Array.isArray(response.data)) {
-            console.error('Invalid services response:', response);
-            return;
-        }
-        services = response.data;  
-        loadServicesBtns(services);
-        serviceChecker(services);
-        },
-        error: function (xhr, status, error) {
-        console.error('Failed to load services:', error);
-        }
     });
+
+    await loadServices();
+
+    async function loadServices() {
+        $.ajax({
+            url: '/api/services',
+            method: 'GET',
+            dataType: 'json',
+            success: function (response) {
+                if (!response.success || !Array.isArray(response.data)) {
+                    console.error('Invalid services response:', response);
+                    return;
+                }
+                services = response.data;
+                loadServicesBtns(services);
+                serviceChecker(services);
+            },
+            error: function (xhr, status, error) {
+                console.error('Failed to load services:', error);
+            }
+        });
     }
     $(".category-btn").on("click", function () {
         const category = $(this).data("categtype");
@@ -34,47 +34,47 @@ socket.on('service_update', async function () {
         if (category === "reg") {
             $("#priorityServices").hide();
             $("#regularServices").css({ display: "flex" });
-        selectedType = 0;
+            selectedType = 0;
         } else if (category === "prio") {
             $("#regularServices").hide();
             $("#priorityServices").css({ display: "flex" });
-        selectedType = 1;
+            selectedType = 1;
         }
     });
 
-   function loadServicesBtns(services) {
-    const $regularServices = $("#regularServices");
-    const $priorityServices = $("#priorityServices");
-    $regularServices.empty();
-    $priorityServices.empty();
+    function loadServicesBtns(services) {
+        const $regularServices = $("#regularServices");
+        const $priorityServices = $("#priorityServices");
+        $regularServices.empty();
+        $priorityServices.empty();
 
-    const now = new Date();
+        const now = new Date();
 
-    if (services.length === 0) {
-        $regularServices.append("<p>No regular services available</p>");
-        $priorityServices.append("<p>No priority services available</p>");
-        return;
-    }
-
-    services.forEach((service) => {
-        // ── Decide lock status PER service ────────────────────────────────
-        let isLocked = false;
-        let lockReason = "";
-
-        if (service.sched) {
-            const [hours, minutes] = service.sched.split(':').map(Number);
-            const cutoff = new Date(now);           // ← important: copy current date
-            cutoff.setHours(hours, minutes, 0, 0);
-
-            if (now > cutoff) {
-                isLocked = true;
-                lockReason = "Cutoff reached";
-            }
+        if (services.length === 0) {
+            $regularServices.append("<p>No regular services available</p>");
+            $priorityServices.append("<p>No priority services available</p>");
+            return;
         }
 
-        // Regular button
-        if (service.regular) {
-            $regularServices.append(`
+        services.forEach((service) => {
+            // ── Decide lock status PER service ────────────────────────────────
+            let isLocked = false;
+            let lockReason = "";
+
+            if (service.sched) {
+                const [hours, minutes] = service.sched.split(':').map(Number);
+                const cutoff = new Date(now);           // ← important: copy current date
+                cutoff.setHours(hours, minutes, 0, 0);
+
+                if (now > cutoff) {
+                    isLocked = true;
+                    lockReason = "Cutoff reached";
+                }
+            }
+
+            // Regular button
+            if (service.regular) {
+                $regularServices.append(`
                 <button class="service-button regbtn ${isLocked ? 'locked' : ''}"
                     data-sname="${service.sname}"
                     data-ticketservice="${service.regular}"
@@ -84,11 +84,11 @@ socket.on('service_update', async function () {
                     ${isLocked ? `<span class="lock-label">${lockReason}</span>` : ''}
                 </button>
             `);
-        }
+            }
 
-        // Priority button (independent lock check)
-        if (service.priority) {
-            $priorityServices.append(`
+            // Priority button (independent lock check)
+            if (service.priority) {
+                $priorityServices.append(`
                 <button class="service-button priobtn ${isLocked ? 'locked' : ''}"
                     data-sname="${service.sname}"
                     data-ticketservice="${service.priority}"
@@ -98,43 +98,43 @@ socket.on('service_update', async function () {
                     ${isLocked ? `<span class="lock-label">${lockReason}</span>` : ''}
                 </button>
             `);
-        }
-    });
-
-    // Back button (only once)
-    const backBtn = `<button class="back-btn" style="margin-top:20px;">⬅ Back</button>`;
-    $regularServices.append(backBtn);
-    $priorityServices.append(backBtn);
-
-    // Back button handler
-    $(".back-btn").off("click").on("click", function () {   // .off() prevents duplicate handlers
-        $("#regularServices, #priorityServices").fadeOut(200);
-        $(".category-container").fadeIn(200);
-        selectedType = null;
-    });
-
-    // Click handler for active (non-locked) buttons only
-    $(document).on("click", ".service-button:not(.locked)", function () {
-        const sname = $(this).data("sname");
-        const ticketservice = $(this).data("ticketservice");
-
-        // Fetch SMS config to determine if we should show dialer
-        $.get('/api/sms-config', function(config) {
-            if (config.success && config.allowSms) {
-                // Show Dialer UI
-                showDialerModal(sname, ticketservice, config.privacyPolicy);
-            } else {
-                // SMS disabled, process normally
-                processTicket(sname, ticketservice, null);
             }
-        }).fail(function() {
-            // Fallback if API fails
-            processTicket(sname, ticketservice, null);
         });
-    });
 
-    function showDialerModal(sname, ticketservice, privacyPolicy) {
-        let dialerHtml = `
+        // Back button (only once)
+        const backBtn = `<button class='back-btn ${selectedType === 0 ? "back-btn-reg" : "back-btn-prio"}' style="margin-top:20px;">⬅ Back</button>`;
+        $regularServices.append(backBtn);
+        $priorityServices.append(backBtn);
+
+        // Back button handler
+        $(".back-btn").off("click").on("click", function () {   // .off() prevents duplicate handlers
+            $("#regularServices, #priorityServices").fadeOut(200);
+            $(".category-container").fadeIn(200);
+            selectedType = null;
+        });
+
+        // Click handler for active (non-locked) buttons only
+        $(document).on("click", ".service-button:not(.locked)", function () {
+            const sname = $(this).data("sname");
+            const ticketservice = $(this).data("ticketservice");
+
+            // Fetch SMS config to determine if we should show dialer
+            $.get('/api/sms-config', function (config) {
+                if (config.success && config.allowSms) {
+                    // Show Dialer UI
+                    showDialerModal(sname, ticketservice, config.privacyPolicy);
+                } else {
+                    // SMS disabled, process normally
+                    processTicket(sname, ticketservice, null);
+                }
+            }).fail(function () {
+                // Fallback if API fails
+                processTicket(sname, ticketservice, null);
+            });
+        });
+
+        function showDialerModal(sname, ticketservice, privacyPolicy) {
+            let dialerHtml = `
             <div class="dialer-container" style="display: flex; gap: 20px; text-align: left; height: 50vh; min-height: 400px;">
                 
                 <!-- Left Side: Privacy Policy (Scrollable) -->
@@ -163,72 +163,72 @@ socket.on('service_update', async function () {
             </div>
         `;
 
-        Swal.fire({
-            title: "SMS Notification (Optional)",
-            html: dialerHtml,
-            width: '900px',
-            showCancelButton: true,
-            showDenyButton: true,
-            confirmButtonText: 'Submit Number',
-            denyButtonText: 'Submit without Number',
-            cancelButtonText: 'Cancel',
-            confirmButtonColor: '#28a745',
-            denyButtonColor: '#6c757d',
-            cancelButtonColor: '#dc3545',
-            didOpen: () => {
-                const input = document.getElementById('mobile-input');
-                $('.numpad-btn').on('click', function() {
-                    const val = $(this).data('val');
-                    if (val === 'clear') {
-                        input.value = '';
-                    } else if (val === 'backspace') {
-                        input.value = input.value.slice(0, -1);
-                    } else {
-                        // Cap input at exactly 11 digits for Philippines format
-                        if (input.value.length < 11) {
-                            input.value += val;
+            Swal.fire({
+                title: "SMS Notification (Optional)",
+                html: dialerHtml,
+                width: '900px',
+                showCancelButton: true,
+                showDenyButton: true,
+                confirmButtonText: 'Submit Number',
+                denyButtonText: 'Submit without Number',
+                cancelButtonText: 'Cancel',
+                confirmButtonColor: '#28a745',
+                denyButtonColor: '#6c757d',
+                cancelButtonColor: '#dc3545',
+                didOpen: () => {
+                    const input = document.getElementById('mobile-input');
+                    $('.numpad-btn').on('click', function () {
+                        const val = $(this).data('val');
+                        if (val === 'clear') {
+                            input.value = '';
+                        } else if (val === 'backspace') {
+                            input.value = input.value.slice(0, -1);
+                        } else {
+                            // Cap input at exactly 11 digits for Philippines format
+                            if (input.value.length < 11) {
+                                input.value += val;
+                            }
                         }
-                    }
-                });
-            }
-        }).then((result) => {
-            if (result.isConfirmed) {
-                const mobile = document.getElementById('mobile-input').value;
-                
-                // Validate exactly 11 digits and starts with 09
-                if (mobile.length !== 11 || !mobile.startsWith('09')) {
-                    Swal.fire('Invalid Number', 'Mobile number must start with 09 and be exactly 11 digits long.', 'error').then(() => {
-                        showDialerModal(sname, ticketservice, privacyPolicy);
                     });
-                    return;
                 }
-                processTicket(sname, ticketservice, mobile);
-            } else if (result.isDenied) {
-                processTicket(sname, ticketservice, null);
-            }
-        });
-    }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const mobile = document.getElementById('mobile-input').value;
 
-    function processTicket(sname, ticketservice, mobile) {
-        Swal.fire({
-            title: "Processing...",
-            html: "<p>Inserting and Printing your ticket, please wait...</p>",
-            allowOutsideClick: false,
-            showConfirmButton: false,
-            didOpen: () => Swal.showLoading(),
-        });
+                    // Validate exactly 11 digits and starts with 09
+                    if (mobile.length !== 11 || !mobile.startsWith('09')) {
+                        Swal.fire('Invalid Number', 'Mobile number must start with 09 and be exactly 11 digits long.', 'error').then(() => {
+                            showDialerModal(sname, ticketservice, privacyPolicy);
+                        });
+                        return;
+                    }
+                    processTicket(sname, ticketservice, mobile);
+                } else if (result.isDenied) {
+                    processTicket(sname, ticketservice, null);
+                }
+            });
+        }
 
-        const payload = { sname, ticketservice, selectedType, stats: "onprem" };
-        if (mobile) payload.mobile = mobile;
+        function processTicket(sname, ticketservice, mobile) {
+            Swal.fire({
+                title: "Processing...",
+                html: "<p>Inserting and Printing your ticket, please wait...</p>",
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                didOpen: () => Swal.showLoading(),
+            });
 
-        $.ajax({
-            url: '/api/newServiceTicket',
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(payload),
-            success: function (response) {
-                if (response.success) {
-                const responseSname = response.ticket.sname?.replace(/_/g, ' ') || '';
+            const payload = { sname, ticketservice, selectedType, stats: "onprem" };
+            if (mobile) payload.mobile = mobile;
+
+            $.ajax({
+                url: '/api/newServiceTicket',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(payload),
+                success: function (response) {
+                    if (response.success) {
+                        const responseSname = response.ticket.sname?.replace(/_/g, ' ') || '';
 
                         Swal.fire({
                             title: `<span style="font-size:20px;color:green;font-weight:bold;">Ticket Printed Successfully</span>`,
@@ -254,22 +254,22 @@ socket.on('service_update', async function () {
                         selectedType = null;
 
                     } else {
-                    Swal.fire('Error', response.error || 'Failed to generate ticket', 'error');
+                        Swal.fire('Error', response.error || 'Failed to generate ticket', 'error');
+                    }
+                },
+                error: function (xhr) {
+                    const errorMsg = xhr.responseJSON?.error || 'Failed to generate ticket';
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: errorMsg,
+                    });
                 }
-            },
-            error: function (xhr) {
-                const errorMsg = xhr.responseJSON?.error || 'Failed to generate ticket';
-                Swal.fire({
-                    icon: "error",
-                    title: "Error",
-                    text: errorMsg,
-                });
-            }
-        });
-    }
+            });
+        }
 
-    setServicesKiosk(services.length);
-}
+        setServicesKiosk(services.length);
+    }
     function setServicesKiosk(count) {
         if (count > 0 && count <= 6) {
             $(".service-button").css({ "height": "40%" });
@@ -358,7 +358,7 @@ function serviceChecker(services) {
     }
 
     // Check every second (1000ms)
-    serviceCheckerInterval = setInterval(function() {
+    serviceCheckerInterval = setInterval(function () {
         const now = new Date();
         services.forEach((service) => {
             if (service.sched) {
