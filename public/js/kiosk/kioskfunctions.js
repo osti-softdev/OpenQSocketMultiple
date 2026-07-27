@@ -72,12 +72,15 @@ $(document).ready(async function () {
                 }
             }
 
+            const subServicesAttr = (service.sub_services || '').replace(/"/g, '&quot;');
+
             // Regular button
             if (service.regular) {
                 $regularServices.append(`
                 <button class="service-button regbtn ${isLocked ? 'locked' : ''}"
                     data-sname="${service.sname}"
                     data-ticketservice="${service.regular}"
+                    data-subservices="${subServicesAttr}"
                     ${isLocked ? 'disabled' : ''}>
                     ${service.shortSname} <br>
                     ${service.sub_sname || ''}
@@ -92,6 +95,7 @@ $(document).ready(async function () {
                 <button class="service-button priobtn ${isLocked ? 'locked' : ''}"
                     data-sname="${service.sname}"
                     data-ticketservice="${service.priority}"
+                    data-subservices="${subServicesAttr}"
                     ${isLocked ? 'disabled' : ''}>
                     ${service.shortSname} <br>
                     ${service.sub_sname || ''}
@@ -113,27 +117,67 @@ $(document).ready(async function () {
             selectedType = null;
         });
 
-        // Click handler for active (non-locked) buttons only
-        $(document).on("click", ".service-button:not(.locked)", function () {
+        // Click handler for active (non-locked) buttons
+        $(document).off("click", ".service-button:not(.locked)").on("click", ".service-button:not(.locked)", function () {
             const sname = $(this).data("sname");
             const ticketservice = $(this).data("ticketservice");
+            const subservicesRaw = $(this).data("subservices");
+            const subserviceName = $(this).data("subservice");
 
+            // If this is a main service button with subservices, and no specific subservice is selected yet
+            if (subservicesRaw && !subserviceName) {
+                const subList = String(subservicesRaw).split(',').map(s => s.trim()).filter(Boolean);
+                if (subList.length > 0) {
+                    renderSubServicesView(sname, ticketservice, subList);
+                    return;
+                }
+            }
+
+            triggerTicketCreation(sname, ticketservice, subserviceName || null);
+        });
+
+        function renderSubServicesView(sname, ticketservice, subList) {
+            const $container = selectedType === 0 ? $("#regularServices") : $("#priorityServices");
+            $container.empty();
+
+            subList.forEach(subItem => {
+                $container.append(`
+                    <button class="service-button ${selectedType === 0 ? 'regbtn' : 'priobtn'} sub-service-button"
+                        data-sname="${sname}"
+                        data-ticketservice="${ticketservice}"
+                        data-subservice="${subItem}">
+                        ${subItem}
+                    </button>
+                `);
+            });
+
+            const backToServicesBtn = `<button class='back-btn ${selectedType === 0 ? "back-btn-reg" : "back-btn-prio"} back-to-services-btn' style="margin-top:20px;">⬅ Back</button>`;
+            $container.append(backToServicesBtn);
+
+            $(".back-to-services-btn").off("click").on("click", function () {
+                loadServicesBtns(services);
+            });
+
+            setServicesKiosk(subList.length);
+        }
+
+        function triggerTicketCreation(sname, ticketservice, subService) {
             // Fetch SMS config to determine if we should show dialer
             $.get('/api/sms-config', function (config) {
                 if (config.success && config.allowSms) {
                     // Show Dialer UI
-                    showDialerModal(sname, ticketservice, config.privacyPolicy);
+                    showDialerModal(sname, ticketservice, subService, config.privacyPolicy);
                 } else {
                     // SMS disabled, process normally
-                    processTicket(sname, ticketservice, null);
+                    processTicket(sname, ticketservice, null, subService);
                 }
             }).fail(function () {
                 // Fallback if API fails
-                processTicket(sname, ticketservice, null);
+                processTicket(sname, ticketservice, null, subService);
             });
-        });
+        }
 
-        function showDialerModal(sname, ticketservice, privacyPolicy) {
+        function showDialerModal(sname, ticketservice, subService, privacyPolicy) {
             let dialerHtml = `
             <div class="dialer-container" style="display: flex; gap: 20px; text-align: left; height: 50vh; min-height: 400px;">
                 
@@ -198,18 +242,18 @@ $(document).ready(async function () {
                     // Validate exactly 11 digits and starts with 09
                     if (mobile.length !== 11 || !mobile.startsWith('09')) {
                         Swal.fire('Invalid Number', 'Mobile number must start with 09 and be exactly 11 digits long.', 'error').then(() => {
-                            showDialerModal(sname, ticketservice, privacyPolicy);
+                            showDialerModal(sname, ticketservice, subService, privacyPolicy);
                         });
                         return;
                     }
-                    processTicket(sname, ticketservice, mobile);
+                    processTicket(sname, ticketservice, mobile, subService);
                 } else if (result.isDenied) {
-                    processTicket(sname, ticketservice, null);
+                    processTicket(sname, ticketservice, null, subService);
                 }
             });
         }
 
-        function processTicket(sname, ticketservice, mobile) {
+        function processTicket(sname, ticketservice, mobile, subService) {
             Swal.fire({
                 title: "Processing...",
                 html: "<p>Inserting and Printing your ticket, please wait...</p>",
@@ -220,6 +264,7 @@ $(document).ready(async function () {
 
             const payload = { sname, ticketservice, selectedType, stats: "onprem" };
             if (mobile) payload.mobile = mobile;
+            if (subService) payload.sub_services = subService;
 
             $.ajax({
                 url: '/api/newServiceTicket',
@@ -229,6 +274,7 @@ $(document).ready(async function () {
                 success: function (response) {
                     if (response.success) {
                         const responseSname = response.ticket.sname?.replace(/_/g, ' ') || '';
+                        const responseSubService = response.ticket.sub_services || '';
 
                         Swal.fire({
                             title: `<span style="font-size:20px;color:green;font-weight:bold;">Ticket Printed Successfully</span>`,
@@ -241,6 +287,7 @@ $(document).ready(async function () {
                                     <p style="font-size:28px;margin-top:20px;font-weight:600;">
                                         ${responseSname}
                                     </p>
+                                    ${responseSubService ? `<p style="font-size:22px;margin-top:5px;color:#555;">${responseSubService}</p>` : ''}
                                 </div>
                             `,
                             timer: 3000,

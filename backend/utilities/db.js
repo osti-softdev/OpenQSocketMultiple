@@ -99,6 +99,18 @@ function initializeDatabase() {
       group_id INTEGER
     )`);
 
+    // Alter tables to add sub_services column if missing
+    db.run("ALTER TABLE services ADD COLUMN sub_services TEXT;", (err) => {
+      if (err && !err.message.includes("duplicate column name")) {
+        console.error("Note: services sub_services alter:", err.message);
+      }
+    });
+    db.run("ALTER TABLE transactions ADD COLUMN sub_services TEXT;", (err) => {
+      if (err && !err.message.includes("duplicate column name")) {
+        console.error("Note: transactions sub_services alter:", err.message);
+      }
+    });
+
     db.run(`CREATE TABLE IF NOT EXISTS services (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       sname TEXT,
@@ -107,6 +119,7 @@ function initializeDatabase() {
       status INTEGER,
       shortSname TEXT,
       sub_sname TEXT,
+      sub_services TEXT,
       sched TEXT
     )`);
 
@@ -139,7 +152,8 @@ function initializeDatabase() {
       note TEXT,
       ticket_secret TEXT,
       mobile_records TEXT,
-      mobile TEXT
+      mobile TEXT,
+      sub_services TEXT
     )`);
 
     db.run(`CREATE TABLE IF NOT EXISTS forwarded_tickets (
@@ -191,8 +205,6 @@ function initializeDatabase() {
       [4, 'MDRRMO', 'MO', 'PMO', 1, 'MDRRMO', 'Counter 5', ''],
       [5, 'ASSESSMENT', 'A', 'AS', 1, 'ASSESSMENT', 'Counter 6', ''],
       [6, 'CASHIER', 'C', 'CP', 1, 'CASHIER', 'Counter 7,8,9,10', ''],
-      [7, 'EVALUATOR', 'E', 'PE', 1, 'EVALUATOR', 'Counter 4', ''],
-      [9, 'ASSESSOR', 'A', 'AS', 1, 'ASSESSOR', 'Counter 6', '']
     ];
     services.forEach(s => db.run(`INSERT OR IGNORE INTO services (id, sname, regular, priority, status, shortSname, sub_sname, sched) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`, s));
 

@@ -151,3 +151,150 @@
 ✔ 2026-07-27 1:38:36 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin1
 ✔ 2026-07-27 1:38:36 PM [node:events:508] [ADS] Client connected: ogcOZYgsFSMKqeuuAAAH
 ✔ 2026-07-27 1:39:15 PM [node:events:508] [ADS] Client disconnected: 3cT5nEGOMTAbnbqAAAAF
+✔ 2026-07-27 3:21:20 PM [node:events:508] [ADS] Client disconnected: hdP-rUyXD4v_NtfvAAAC
+✔ 2026-07-27 3:21:21 PM [node:events:508] [ADS] Client connected: _Jpr8lbrgPks3nqqAAAJ
+✔ 2026-07-27 3:28:45 PM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-07-27 3:28:45 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ multiple files { path: ['.env.local', '.env'] }[0m
+✔ 2026-07-27 3:28:47 PM [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-07-27 3:28:47 PM [unknown-location] Connected to SQLite database
+✔ 2026-07-27 3:28:47 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-27 3:28:47 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-27 3:28:47 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-27 3:28:47 PM [node:events:508] [ADS] Client connected: f-vGRjZyVVPcLqHTAAAC
+✔ 2026-07-27 3:28:47 PM [node:events:508] [ADS] Client connected: t12tMiMFeCUYyd6WAAAD
+✔ 2026-07-27 3:28:47 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-27 3:28:47 PM [node:events:508] [ADS] Client disconnected: t12tMiMFeCUYyd6WAAAD
+✔ 2026-07-27 3:28:48 PM [node:events:508] [ADS] Client connected: zLu5g9_Wth5rCbYCAAAF
+✔ 2026-07-27 3:28:48 PM [node:events:508] [ADS] Client connected: x3HWpQEFk-X2fkwPAAAH
+✔ 2026-07-27 3:28:53 PM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-07-27 3:29:03 PM [node:events:508] [ADS] Client disconnected: x3HWpQEFk-X2fkwPAAAH
+✔ 2026-07-27 3:29:07 PM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-27 3:29:07 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-27 3:29:07 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-27 3:29:07 PM [node:events:508] [ADS] Client connected: WCdUDaGtv7i2cfcjAAAJ
+✔ 2026-07-27 3:30:11 PM [node:events:508] [ADS] Client disconnected: f-vGRjZyVVPcLqHTAAAC
+✔ 2026-07-27 3:30:11 PM [node:events:508] [ADS] Client connected: qZRT9q3Ur2CW5uHvAAAL
+✔ 2026-07-27 3:30:12 PM [node:events:508] [ADS] Client disconnected: qZRT9q3Ur2CW5uHvAAAL
+✔ 2026-07-27 3:30:12 PM [node:events:508] [ADS] Client connected: BRzxRA0snWaFirriAAAN
+✔ 2026-07-27 3:30:17 PM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-07-27 3:32:27 PM [node:events:508] [ADS] Client connected: BG2Q81QZf6dZnNBwAAAP
+✔ 2026-07-27 3:32:33 PM [node:events:508] [ADS] Client disconnected: BG2Q81QZf6dZnNBwAAAP
+✔ 2026-07-27 3:32:38 PM [backend\routes\AtellerApi.js:74] Login attempt for: teller1
+✔ 2026-07-27 3:32:38 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-27 3:32:38 PM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: teller1
+✔ 2026-07-27 3:32:46 PM [backend\routes\AtellerApi.js:74] Login attempt for: teller1
+✔ 2026-07-27 3:32:46 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-27 3:32:46 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-27 3:32:46 PM [node:events:508] [ADS] Client connected: 41kDyxdsCCCPZ3oxAAAR
+✔ 2026-07-27 3:32:50 PM [node:events:508] [ADS] Client disconnected: 41kDyxdsCCCPZ3oxAAAR
+✔ 2026-07-27 3:32:50 PM [node:events:508] [ADS] Client connected: i3CYo918T_qzw5ToAAAT
+✔ 2026-07-27 3:33:23 PM [node:events:508] [ADS] Client disconnected: BRzxRA0snWaFirriAAAN
+✔ 2026-07-27 3:33:24 PM [node:events:508] [ADS] Client connected: 3QFcVYsjYe8pNXj_AAAV
+✔ 2026-07-27 3:34:05 PM [node:events:508] [ADS] Client disconnected: i3CYo918T_qzw5ToAAAT
+✔ 2026-07-27 3:34:06 PM [node:events:508] [ADS] Client connected: ybjs1Z2tAK_RJfSdAAAX
+✔ 2026-07-27 3:34:18 PM [node:events:508] [ADS] Client disconnected: ybjs1Z2tAK_RJfSdAAAX
+✔ 2026-07-27 3:34:18 PM [node:events:508] [ADS] Client connected: xT0hO7OyMLL1Zp4rAAAZ
+✔ 2026-07-27 3:34:18 PM [node:events:508] [ADS] Client disconnected: xT0hO7OyMLL1Zp4rAAAZ
+✔ 2026-07-27 3:34:19 PM [node:events:508] [ADS] Client connected: iXQYqV5rW3s-M2XIAAAb
+✔ 2026-07-27 3:34:19 PM [node:events:508] [ADS] Client disconnected: iXQYqV5rW3s-M2XIAAAb
+✔ 2026-07-27 3:34:19 PM [node:events:508] [ADS] Client connected: 13lOkTvc4xOkR-9SAAAd
+✔ 2026-07-27 3:35:00 PM [backend\routes\AtellerApi.js:443] 1
+✔ 2026-07-27 3:36:22 PM [node:events:508] [ADS] Client disconnected: 3QFcVYsjYe8pNXj_AAAV
+✔ 2026-07-27 3:36:22 PM [node:events:508] [ADS] Client connected: pLlFSWs7dqJBy-fVAAAf
+✔ 2026-07-27 3:36:25 PM [node:events:508] [ADS] Client disconnected: pLlFSWs7dqJBy-fVAAAf
+✔ 2026-07-27 3:36:25 PM [node:events:508] [ADS] Client connected: uB4rSP_TJZbdtnGkAAAh
+✔ 2026-07-27 3:36:35 PM [node:events:508] [ADS] Client disconnected: 13lOkTvc4xOkR-9SAAAd
+✔ 2026-07-27 3:36:35 PM [node:events:508] [ADS] Client connected: dm489kZwyjACFy_oAAAj
+✔ 2026-07-27 3:36:36 PM [node:events:508] [ADS] Client disconnected: dm489kZwyjACFy_oAAAj
+✔ 2026-07-27 3:36:36 PM [node:events:508] [ADS] Client connected: uJaH_-oO9nYsCQBqAAAl
+✔ 2026-07-27 3:36:41 PM [backend\routes\AtellerApi.js:443] 1
+✔ 2026-07-27 3:37:05 PM [node:events:508] [ADS] Client disconnected: uB4rSP_TJZbdtnGkAAAh
+✔ 2026-07-27 3:37:05 PM [node:events:508] [ADS] Client connected: gx8fmYOFYV9D9zkNAAAn
+✔ 2026-07-27 3:37:43 PM [node:events:508] [ADS] Client disconnected: gx8fmYOFYV9D9zkNAAAn
+✔ 2026-07-27 3:37:43 PM [node:events:508] [ADS] Client connected: ywMGzCfqHjWR8c9lAAAp
+✔ 2026-07-27 3:38:16 PM [node:events:508] [ADS] Client disconnected: ywMGzCfqHjWR8c9lAAAp
+✔ 2026-07-27 3:38:16 PM [node:events:508] [ADS] Client connected: N89DNBv5-M8szb0aAAAr
+✔ 2026-07-27 3:39:44 PM [backend\routes\AtellerApi.js:443] 1
+✔ 2026-07-27 3:39:49 PM [node:events:508] [ADS] Client disconnected: N89DNBv5-M8szb0aAAAr
+✔ 2026-07-27 3:39:49 PM [node:events:508] [ADS] Client connected: CRV4YjviaJC7QtxcAAAt
+✔ 2026-07-27 3:39:50 PM [node:events:508] [ADS] Client disconnected: CRV4YjviaJC7QtxcAAAt
+✔ 2026-07-27 3:39:50 PM [node:events:508] [ADS] Client connected: LJtMvgxuCPtjhCUFAAAv
+✔ 2026-07-27 3:40:23 PM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-07-27 3:40:24 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ encrypted .env [www.dotenvx.com][0m
+✔ 2026-07-27 3:40:24 PM [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-07-27 3:40:24 PM [unknown-location] Connected to SQLite database
+✔ 2026-07-27 3:40:24 PM [node:events:508] [ADS] Client connected: LmVVzWSQYhV1zWxYAAAD
+✔ 2026-07-27 3:40:24 PM [node:events:508] [ADS] Client connected: yIXAWBx9cBrfPZP-AAAE
+✔ 2026-07-27 3:40:24 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-27 3:40:24 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-27 3:40:24 PM [node:events:508] [ADS] Client connected: mc18eGJa4HjAFJQxAAAF
+✔ 2026-07-27 3:40:24 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-27 3:40:24 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-27 3:40:25 PM [node:events:508] [ADS] Client connected: kKunwmGxTXejE1sgAAAH
+✔ 2026-07-27 3:40:27 PM [node:events:508] [ADS] Client disconnected: kKunwmGxTXejE1sgAAAH
+✔ 2026-07-27 3:40:27 PM [node:events:508] [ADS] Client connected: rIA9c-TxfmIR1jL0AAAJ
+✔ 2026-07-27 3:40:42 PM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-07-27 3:40:43 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ enable debugging { debug: true }[0m
+✔ 2026-07-27 3:40:43 PM [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-07-27 3:40:43 PM [unknown-location] Connected to SQLite database
+✔ 2026-07-27 3:40:43 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-27 3:40:43 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-27 3:40:43 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-27 3:40:43 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-27 3:40:44 PM [node:events:508] [ADS] Client connected: Hhw2xX6hC-gEwzymAAAD
+✔ 2026-07-27 3:40:44 PM [node:events:508] [ADS] Client connected: 5005DjGPPtvpiBZnAAAE
+✔ 2026-07-27 3:40:44 PM [node:events:508] [ADS] Client connected: KdaOryASRlSy-xAlAAAF
+✔ 2026-07-27 3:40:45 PM [node:events:508] [ADS] Client connected: ocALl93L0KFhWb8iAAAH
+✔ 2026-07-27 3:40:45 PM [node:events:508] [ADS] Client disconnected: KdaOryASRlSy-xAlAAAF
+✔ 2026-07-27 3:40:47 PM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-07-27 3:40:47 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-27 3:40:47 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-07-27 3:40:48 PM [node:events:508] [ADS] Client connected: n4FrWwsTuzErGDcbAAAJ
+✔ 2026-07-27 3:40:59 PM [node:events:508] [ADS] Client disconnected: ocALl93L0KFhWb8iAAAH
+✔ 2026-07-27 3:40:59 PM [node:events:508] [ADS] Client connected: VujS-IrF36_sgA4JAAAL
+✔ 2026-07-27 3:41:16 PM [node:events:508] [ADS] Client disconnected: VujS-IrF36_sgA4JAAAL
+✔ 2026-07-27 3:41:16 PM [node:events:508] [ADS] Client connected: x16Q4bT5gloq4zbPAAAN
+✔ 2026-07-27 3:41:20 PM [node:events:508] [ADS] Client disconnected: x16Q4bT5gloq4zbPAAAN
+✔ 2026-07-27 3:41:20 PM [node:events:508] [ADS] Client connected: STvHFtmXmjqHpX03AAAP
+✔ 2026-07-27 3:41:21 PM [node:events:508] [ADS] Client disconnected: STvHFtmXmjqHpX03AAAP
+✔ 2026-07-27 3:41:21 PM [node:events:508] [ADS] Client connected: fnhKHaFnlynWx4gQAAAR
+✔ 2026-07-27 3:41:22 PM [node:events:508] [ADS] Client disconnected: fnhKHaFnlynWx4gQAAAR
+✔ 2026-07-27 3:41:22 PM [node:events:508] [ADS] Client connected: BlAvjESqLjmK45LkAAAT
+✔ 2026-07-27 3:41:23 PM [node:events:508] [ADS] Client disconnected: BlAvjESqLjmK45LkAAAT
+✔ 2026-07-27 3:41:23 PM [node:events:508] [ADS] Client connected: 6q6tAWaiBdDXbpcPAAAV
+✔ 2026-07-27 3:41:24 PM [node:events:508] [ADS] Client disconnected: 6q6tAWaiBdDXbpcPAAAV
+✔ 2026-07-27 3:41:24 PM [node:events:508] [ADS] Client connected: zErGgsgZUpifOtyrAAAX
+✔ 2026-07-27 3:41:24 PM [node:events:508] [ADS] Client connected: 9-JqeDRlT3KQJqveAAAZ
+✔ 2026-07-27 3:41:25 PM [node:events:508] [ADS] Client connected: NSVIwHzshuUZma9aAAAb
+✔ 2026-07-27 3:41:26 PM [node:events:508] [ADS] Client disconnected: NSVIwHzshuUZma9aAAAb
+✔ 2026-07-27 3:41:26 PM [node:events:508] [ADS] Client connected: Xf40jp9UyeDC6ObJAAAd
+✔ 2026-07-27 3:41:26 PM [node:events:508] [ADS] Client disconnected: Xf40jp9UyeDC6ObJAAAd
+✔ 2026-07-27 3:41:26 PM [node:events:508] [ADS] Client connected: XUQxUgUGOFVt-vtsAAAf
+✔ 2026-07-27 3:41:27 PM [node:events:508] [ADS] Client disconnected: XUQxUgUGOFVt-vtsAAAf
+✔ 2026-07-27 3:41:27 PM [node:events:508] [ADS] Client connected: v6n-zfFvL37cWVDWAAAh
+✔ 2026-07-27 3:41:27 PM [node:events:508] [ADS] Client connected: 5aJxjrLetKlrh-smAAAj
+✔ 2026-07-27 3:41:28 PM [node:events:508] [ADS] Client disconnected: 5aJxjrLetKlrh-smAAAj
+✔ 2026-07-27 3:41:28 PM [node:events:508] [ADS] Client connected: VKwrAe6S-xqNQq6EAAAl
+✔ 2026-07-27 3:41:29 PM [node:events:508] [ADS] Client disconnected: VKwrAe6S-xqNQq6EAAAl
+✔ 2026-07-27 3:41:29 PM [node:events:508] [ADS] Client connected: 5p9fPaXWgl1DvOTcAAAn
+✔ 2026-07-27 3:41:30 PM [node:events:508] [ADS] Client disconnected: 5p9fPaXWgl1DvOTcAAAn
+✔ 2026-07-27 3:41:30 PM [node:events:508] [ADS] Client connected: bBJqpcXTpyaZHFhBAAAp
+✔ 2026-07-27 3:41:33 PM [node:events:508] [ADS] Client disconnected: Hhw2xX6hC-gEwzymAAAD
+✔ 2026-07-27 3:41:33 PM [node:events:508] [ADS] Client connected: 9NTAt3KpkKOpE9nBAAAr
+✔ 2026-07-27 3:41:36 PM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-07-27 3:41:41 PM [node:events:508] [ADS] Client disconnected: 5005DjGPPtvpiBZnAAAE
+✔ 2026-07-27 3:41:45 PM [backend\routes\AtellerApi.js:74] Login attempt for: teller1
+✔ 2026-07-27 3:41:45 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-27 3:41:45 PM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: teller1
+✔ 2026-07-27 3:41:48 PM [backend\routes\AtellerApi.js:74] Login attempt for: teller1
+✔ 2026-07-27 3:41:48 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-27 3:41:48 PM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: teller1
+✔ 2026-07-27 3:41:51 PM [backend\routes\AtellerApi.js:74] Login attempt for: teller1
+✔ 2026-07-27 3:41:51 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-27 3:41:51 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-27 3:41:52 PM [node:events:508] [ADS] Client connected: Xh3qLRno7qhhhoLAAAAt
+✔ 2026-07-27 3:41:54 PM [backend\routes\AtellerApi.js:443] 1
+✔ 2026-07-27 3:42:07 PM [backend\routes\AtellerApi.js:443] 1
+✔ 2026-07-27 3:42:09 PM [node:events:508] [ADS] Client disconnected: zErGgsgZUpifOtyrAAAX
+✔ 2026-07-27 3:42:09 PM [node:events:508] [ADS] Client disconnected: 9-JqeDRlT3KQJqveAAAZ
+✔ 2026-07-27 3:42:12 PM [node:events:508] [ADS] Client disconnected: v6n-zfFvL37cWVDWAAAh

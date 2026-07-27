@@ -650,7 +650,7 @@ module.exports = function createTellerApiRouter(io) {
 
   // & Add Service
   router.post('/admin/services', async (req, res) => {
-    const { shortSname, sub_sname, prefix, priority_prefix, is_active, cutoff_time } = req.body;
+    const { shortSname, sub_sname, sub_services, prefix, priority_prefix, is_active, cutoff_time } = req.body;
     const displayName = String(shortSname || '').trim();
     const serviceKey = normalizeServiceKey(displayName);
 
@@ -662,9 +662,9 @@ module.exports = function createTellerApiRouter(io) {
 
       const result = await inTransaction(db, async () => {
         const insert = await db.runAsync(
-          `INSERT INTO services (sname, shortSname, sub_sname, regular, priority, status, sched)
-           VALUES (?, ?, ?, ?, ?, ?, ?)`,
-          [serviceKey, displayName, sub_sname, prefix, priority_prefix, is_active, cutoff_time]
+          `INSERT INTO services (sname, shortSname, sub_sname, sub_services, regular, priority, status, sched)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+          [serviceKey, displayName, sub_sname, sub_services || null, prefix, priority_prefix, is_active, cutoff_time]
         );
         await synchronizeServiceGroups(db);
         return insert;
@@ -681,7 +681,7 @@ module.exports = function createTellerApiRouter(io) {
 
   // & Edit Service
   router.put('/admin/services/:id', async (req, res) => {
-    const { shortSname, sub_sname, prefix, priority_prefix, cutoff_time, is_active } = req.body;
+    const { shortSname, sub_sname, sub_services, prefix, priority_prefix, cutoff_time, is_active } = req.body;
     const displayName = String(shortSname || '').trim();
     const serviceKey = normalizeServiceKey(displayName);
     const serviceId = Number(req.params.id);
@@ -701,9 +701,9 @@ module.exports = function createTellerApiRouter(io) {
       await inTransaction(db, async () => {
         await db.runAsync(
           `UPDATE services
-           SET sname = ?, shortSname = ?, sub_sname = ?, regular = ?, priority = ?, sched = ?, status = ?
+           SET sname = ?, shortSname = ?, sub_sname = ?, sub_services = ?, regular = ?, priority = ?, sched = ?, status = ?
            WHERE id = ?`,
-          [serviceKey, displayName, sub_sname, prefix, priority_prefix, cutoff_time, is_active, serviceId]
+          [serviceKey, displayName, sub_sname, sub_services || null, prefix, priority_prefix, cutoff_time, is_active, serviceId]
         );
         await synchronizeServiceGroups(db, { renames: [[current.sname, serviceKey]] });
       });

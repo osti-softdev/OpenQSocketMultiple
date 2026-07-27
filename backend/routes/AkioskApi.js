@@ -49,7 +49,7 @@ module.exports = function createKioskApiRouter(io) {
 
   // ^ INSERT NEW TICKET
   router.post("/newServiceTicket", kioskLimiter, async (req, res) => {
-    const { sname, ticketservice, selectedType, stats, mobile } = req.body;
+    const { sname, ticketservice, selectedType, stats, mobile, sub_services } = req.body;
     const { date, time } = getPHDateTime();
     const expiryMinutes = Number(config.MainServer.expiry);
 
@@ -96,16 +96,18 @@ module.exports = function createKioskApiRouter(io) {
         mobileRecordsStr = `[${time}] ticket generate sent\n`;
       }
 
+      let selectedSubService = sub_services || null;
+
       // Insert new ticket
       const result = await db.runAsync(
-        `INSERT INTO transactions (ticketnum, sname, ticketservice, status, date, time, history, priority, ticket_secret, mobile, mobile_records)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        [nextTicket, sname, ticketservice, finalstats, date, time, history, selectedType, randomCode, mobileStr, mobileRecordsStr]
+        `INSERT INTO transactions (ticketnum, sname, ticketservice, status, date, time, history, priority, ticket_secret, mobile, mobile_records, sub_services)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [nextTicket, sname, ticketservice, finalstats, date, time, history, selectedType, randomCode, mobileStr, mobileRecordsStr, selectedSubService]
       );
 
       try {
         if (stats === "onprem") {
-          await executephp(ticketservice, nextTicket, sname);
+          await executephp(ticketservice, nextTicket, sname, selectedSubService);
           console.log("On-prem ticket, printing required.");
         } else {
           console.log("Online ticket, no printing required.");
@@ -130,6 +132,7 @@ module.exports = function createKioskApiRouter(io) {
           ticketnum: nextTicket,
           sname,
           ticketservice,
+          sub_services: selectedSubService,
           date,
           time,
           status: finalstats,

@@ -27,8 +27,9 @@ $now = time();
 $date = date('Y-m-d');
 $time = date('H:i:s');
 $today = date('Y-m-d', time());
+$sub_service = '';
 // execute the SQL query
-list($ticket, $count, $service_name) = explode(',', $argument);
+list($ticket, $count, $service_name, $sub_service) = array_pad(explode(',', $argument), 4, '');
 $timestamp = strtotime($dateni);
 $formattedDate = date('D, M d, Y', $timestamp);
 $service = '';
@@ -70,6 +71,9 @@ $printer->setTextSize(2, 1);
 $printer->setFont(Printer::MODE_FONT_B);
 
 $printer->text($service_name . "\n");
+if (!empty(trim($sub_service))) {
+    $printer->text(trim($sub_service) . "\n");
+}
 
 $printer->text("\n");
 $printer->setTextSize(1, 1);

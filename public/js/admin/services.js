@@ -13,7 +13,8 @@ function loadServices() {
             $list.append(`
                 <tr>
                     <td>${s.shortSname}</td>
-                    <td>${s.sub_sname}</td>
+                    <td>${s.sub_sname || '-'}</td>
+                    <td>${s.sub_services || '-'}</td>
                     <td>${s.regular}</td>
                     <td>${s.priority}</td>
                     <td>${s.sched || '-'}</td>

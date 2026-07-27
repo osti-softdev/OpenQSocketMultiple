@@ -417,6 +417,10 @@ function openModal(type = currentTab, data = null) {
                 <label for="sub-name-display">Sub name display</label>
                 <input type="text" id="sub-name-display" class="form-control" value="${data?.sub_sname || ''}">
             </div>
+            <div class="form-group form-group-wide">
+                <label for="sub-services-display">Sub services (comma-separated)</label>
+                <input type="text" id="sub-services-display" class="form-control" value="${data?.sub_services || ''}" placeholder="e.g. Sub-service 1, Sub-service 2, Sub-service 3">
+            </div>
             <div class="form-group">
                 <label for="s-prefix">Regular ticket prefix</label>
                 <input type="text" id="s-prefix" class="form-control" value="${data?.regular || ''}">
@@ -585,6 +589,7 @@ function saveItem() {
         const payload = {
             shortSname: $('#s-name-display').val().trim(),
             sub_sname: $('#sub-name-display').val().trim(),
+            sub_services: $('#sub-services-display').val().trim(),
             prefix: $('#s-prefix').val().trim(),
             priority_prefix: $('#s-priority').val().trim(),
             cutoff_time: $('#s-cutoff').val(),

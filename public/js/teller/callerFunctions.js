@@ -288,7 +288,7 @@ function loadHistory() {
                     showMsg("warning", `Please complete or hold your current ticket first.`);
                     return;
                 }
-                    callSpecificTicket(t.id);
+                callSpecificTicket(t.id);
             });
             $row.find('.forward-history-btn').click(() => openForwardModal(t));
 
@@ -316,6 +316,7 @@ function displayCurrentTicket(ticket) {
         <div class="active-ticket-info">
             <div class="ticket-num-large">${ticket.ticketservice}${ticket.ticketnum}</div>
             <div class="ticket-service-name">${ticketSname}</div>
+            ${ticket.sub_services ? `<div class="ticket-subservice-name" style="font-size:18px;color:#666;">${ticket.sub_services}</div>` : ''}
         </div>
     `);
     $('#start-time').text(ticket.start_time);
@@ -329,38 +330,89 @@ function clearCurrentTicket() {
     $('#start-time').text("--");
     stopDurationTimer();
 }
+
+let catalogServicesList = [];
+
 // ^ Initialize dashboard services
 function createServiceBoxes() {
     const $grid = $('.servicesManage');
     $grid.empty();
 
-        const services = currentTeller.services.split(',').map(s => s.trim());
+    if (!currentTeller || !currentTeller.services) return;
+    const services = currentTeller.services.split(',').map(s => s.trim());
 
-    services.forEach(service => {
-        const $box = $('<div>').addClass('service-box').attr('id', `service-box-${service}`);
-        const Sname = service.replace(/_/g, " ");
-        
-        $box.html(`
-            <div class="service-stats">
-                <h5>${Sname}</h5>
-                <div class="stat-item">Last: <span class="last">-</span></div>
-            </div>
+    $.get('/api/services', function (response) {
+        if (response && response.success && Array.isArray(response.data)) {
+            catalogServicesList = response.data;
+        }
+
+        services.forEach(service => {
+            const $box = $('<div>').addClass('service-box').attr('id', `service-box-${service}`);
+            const Sname = service.replace(/_/g, " ");
+
+            const sObj = catalogServicesList.find(x => x.sname === service);
+            const subList = (sObj && sObj.sub_services)
+                ? sObj.sub_services.split(',').map(sub => sub.trim()).filter(Boolean)
+                : [];
+
+            let subServicesHtml = '';
+            if (subList.length > 0) {
+                subServicesHtml = `
+                <div class="sub-service-section" style="margin-top: 10px; border-top: 1px dashed rgba(0,0,0,0.15); padding-top: 8px;">
+                    <div style="font-size: 11px; font-weight: bold; margin-bottom: 6px; color: #555; text-transform: uppercase;">Sub Services Call Buttons</div>
+                    <div class="sub-service-list" style="display: flex; flex-direction: column; gap: 6px;">
+                        ${subList.map(subItem => {
+                            const safeSubId = subItem.replace(/[^a-zA-Z0-9]/g, '_');
+                            return `
+                            <div class="sub-service-row" style="display: flex; align-items: center; justify-content: space-between; gap: 6px; font-size: 12px; background: rgba(0,0,0,0.03); padding: 4px 8px; border-radius: 4px;">
+                                <span class="sub-service-title" style="flex: 1; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${subItem}">${subItem}</span>
+                                <button class="btn btn-sm btn-primary call-sub-regular" data-service="${service}" data-subservice="${subItem}" style="padding: 2px 6px; font-size: 11px;">Reg (<b class="count-sub-reg-${service}-${safeSubId}">0</b>)</button>
+                                <button class="btn btn-sm btn-danger call-sub-priority" data-service="${service}" data-subservice="${subItem}" style="padding: 2px 6px; font-size: 11px;">Pri (<b class="count-sub-pri-${service}-${safeSubId}">0</b>)</button>
+                            </div>
+                            `;
+                        }).join('')}
+                    </div>
+                </div>
+                `;
+            }
+
+            $box.html(`
+                <div class="service-stats">
+                    <h5>${Sname}</h5>
+                    <div class="stat-item">Last: <span class="last">-</span></div>
+                </div>
                 <div class="service-btns">
                     <button class="btn btn-primary call-regular" data-service="${service}">Reg ( <b class="count-reg">0</b> )</button>
                     <button class="btn btn-danger call-priority" data-service="${service}">Pri ( <b class="count-pri">0</b> )</button>
                 </div>
-           
-        `);
+                ${subServicesHtml}
+            `);
 
-        $box.find('.call-regular').click(() => callNext('regular', service));
-        $box.find('.call-priority').click(() => callNext('priority', service));
+            $box.find('.call-regular').click(() => callNext('regular', service));
+            $box.find('.call-priority').click(() => callNext('priority', service));
 
-        $grid.append($box);
+            $box.find('.call-sub-regular').click(function () {
+                const s = $(this).data('service');
+                const sub = $(this).data('subservice');
+                callNextSubService('regular', s, sub);
+            });
+
+            $box.find('.call-sub-priority').click(function () {
+                const s = $(this).data('service');
+                const sub = $(this).data('subservice');
+                callNextSubService('priority', s, sub);
+            });
+
+            $grid.append($box);
+        });
     });
 }
+
 // ^ Update pending counts
 function updatePendingCounts(tickets) {
-        const services = currentTeller.services.split(',').map(s => s.trim());
+    if (!currentTeller || !currentTeller.services) return;
+    const services = currentTeller.services.split(',').map(s => s.trim());
+
     services.forEach(service => {
         const serviceTickets = tickets.filter(
             t => t.status === 'pending' && t.sname === service
@@ -372,8 +424,23 @@ function updatePendingCounts(tickets) {
         $(`#service-box-${service} .count`).text(total);
         $(`#service-box-${service} .count-reg`).text(reg);
         $(`#service-box-${service} .count-pri`).text(pri);
+
+        const sObj = catalogServicesList.find(x => x.sname === service);
+        if (sObj && sObj.sub_services) {
+            const subList = sObj.sub_services.split(',').map(sub => sub.trim()).filter(Boolean);
+            subList.forEach(subItem => {
+                const safeSubId = subItem.replace(/[^a-zA-Z0-9]/g, '_');
+                const subTickets = serviceTickets.filter(t => String(t.sub_services || '').trim() === subItem.trim());
+                const subReg = subTickets.filter(t => t.priority === 0).length;
+                const subPri = subTickets.filter(t => t.priority === 1).length;
+
+                $(`.count-sub-reg-${service}-${safeSubId}`).text(subReg);
+                $(`.count-sub-pri-${service}-${safeSubId}`).text(subPri);
+            });
+        }
     });
 }
+
 // ^ Display waiting queue
 function displayWaitingQueue(tickets) {
     const $queue = $('#waiting-queue');
@@ -401,6 +468,7 @@ function displayWaitingQueue(tickets) {
                 <div class="queue-item-info">
                     <h4>${ticket.ticketservice}${ticket.ticketnum}</h4>
                     <span>${getTicketServiceName(ticket)}</span>
+                    ${ticket.sub_services ? `<small style="display:block;color:#555;">Sub: ${ticket.sub_services}</small>` : ''}
                     ${isReceived && ticket.from_teller_name ? `<small>From: ${ticket.from_teller_name}</small>` : ''}
                 </div>
                     <span class="ticket-queue-type">${queueType}</span>
@@ -412,6 +480,7 @@ function displayWaitingQueue(tickets) {
         $queue.append($item);
     });
 }
+
 // ^ Call next ticket
 function callNext(type, service = null) {
     const data = {
@@ -444,7 +513,24 @@ function callNext(type, service = null) {
 
     executeCall(data);
 }
-// ^ Call specific ticket
+
+function callNextSubService(type, service, subService) {
+    $.ajax({
+        url: '/api/tickets/waiting',
+        method: 'GET',
+        data: { services: service },
+        success: function (tickets) {
+            const priorityValue = type === 'priority' ? 1 : 0;
+            const nextTicket = tickets.find(t => t.priority === priorityValue && String(t.sub_services || '').trim() === String(subService || '').trim());
+
+            if (nextTicket) {
+                callSpecificTicket(nextTicket.id);
+            } else {
+                showMsg("warning", `No ${type} tickets for ${subService}`);
+            }
+        }
+    });
+}
 function callSpecificTicket(ticketId) {
     executeCall({
         ticketId: ticketId,
