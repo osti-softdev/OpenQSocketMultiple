@@ -12,7 +12,12 @@ const apiLimiter = rateLimit({
     error: "Too many API requests, please try again later."
   },
   standardHeaders: true,
-  legacyHeaders: false
+  legacyHeaders: false,
+  skip: (req) => {
+    const url = req.originalUrl || req.url || '';
+    // Unrestricted retries and calls for tellers
+    return url.includes('/tickets') || url.includes('/teller') || url.includes('/check-session') || url.includes('/login');
+  }
 });
 
 const authLimiter = rateLimit({
@@ -20,6 +25,11 @@ const authLimiter = rateLimit({
   max: 5, // max 5 attempts per 5 minutes per IP
   standardHeaders: true,
   legacyHeaders: false,
+  skip: (req) => {
+    const url = req.originalUrl || req.url || '';
+    // Completely exempt teller login from attempt limits and lockout timers
+    return url.includes('/login') || url.includes('/teller');
+  },
   handler: (req, res) => {
     const resetTime = req.rateLimit?.resetTime || new Date(Date.now() + 5 * 60 * 1000);
     const secondsRemaining = Math.max(1, Math.ceil((resetTime.getTime() - Date.now()) / 1000));

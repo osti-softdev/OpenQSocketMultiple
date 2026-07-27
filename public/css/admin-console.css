@@ -1,4 +1,11 @@
 /* OpenQ Admin Console 2.0 - isolated visual layer */
+.role-restricted,
+.settingsmenubtn.role-restricted,
+.nav-item.role-restricted,
+.settingsMenu.role-restricted {
+  display: none !important;
+}
+
 :root {
   color-scheme: light;
   --console-bg: #f3f6fb;
@@ -169,7 +176,7 @@ textarea:focus-visible {
   line-height: 1.05 !important;
 }
 
-.brand-copy > span {
+.brand-copy>span {
   margin-top: 5px !important;
   display: block !important;
   color: var(--console-sidebar-muted) !important;
@@ -301,7 +308,7 @@ textarea:focus-visible {
   height: 17px !important;
   display: block !important;
   -o-object-fit: contain !important;
-     object-fit: contain !important;
+  object-fit: contain !important;
   opacity: 0.78 !important;
   filter: invert(74%) sepia(16%) saturate(427%) hue-rotate(180deg) brightness(91%) contrast(88%) !important;
   transition: opacity 0.18s ease, filter 0.18s ease, transform 0.18s ease !important;
@@ -363,6 +370,12 @@ textarea:focus-visible {
   background: rgba(0, 0, 0, 0.09) !important;
 }
 
+.sidebar .sidebar-nav .settingsMenu .settingsmenubtn.role-restricted,
+.sidebar .sidebar-nav .settingsMenu .settingsmenubtn[style*="display: none"],
+.sidebar .sidebar-nav .settingsMenu .settingsmenubtn[aria-hidden="true"] {
+  display: none !important;
+}
+
 .sidebar .sidebar-nav .settingsMenu .settingsmenubtn {
   position: relative !important;
   width: 100% !important;
@@ -408,7 +421,7 @@ textarea:focus-visible {
   background: rgba(255, 255, 255, 0.035) !important;
 }
 
-.system-health > span {
+.system-health>span {
   width: 9px !important;
   height: 9px !important;
   flex: 0 0 9px !important;
@@ -647,11 +660,13 @@ html[data-theme=dark] .theme-moon {
     opacity: 0;
     transform: translateY(5px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 .workspace-page,
 .reports-container {
   width: min(100%, 1660px) !important;
@@ -691,7 +706,7 @@ html[data-theme=dark] .theme-moon {
   min-height: 80px !important;
 }
 
-.page-intro > div {
+.page-intro>div {
   position: relative !important;
   z-index: 1 !important;
 }
@@ -825,7 +840,7 @@ button.btn {
   grid-template-rows: auto auto !important;
   align-items: center !important;
   -moz-column-gap: 11px !important;
-       column-gap: 11px !important;
+  column-gap: 11px !important;
   border: 1px solid var(--console-border) !important;
   border-radius: 15px !important;
   background: var(--console-surface) !important;
@@ -931,7 +946,7 @@ button.btn {
   gap: 14px !important;
 }
 
-.card-chart-dashboard > .section-heading {
+.card-chart-dashboard>.section-heading {
   grid-column: 1/-1 !important;
 }
 
@@ -1004,12 +1019,12 @@ button.btn {
   gap: 12px !important;
 }
 
-.chart-card-heading > div {
+.chart-card-heading>div {
   display: grid !important;
   gap: 4px !important;
 }
 
-.chart-card-heading > div > span {
+.chart-card-heading>div>span {
   color: var(--console-muted) !important;
   font-size: 9px !important;
   font-weight: 750 !important;
@@ -1176,7 +1191,7 @@ button.btn {
   overflow: hidden !important;
 }
 
-.operations-card > .section-heading {
+.operations-card>.section-heading {
   margin-bottom: 12px !important;
 }
 
@@ -1215,7 +1230,7 @@ button.btn {
   background-image: linear-gradient(var(--console-border) 1px, transparent 1px), linear-gradient(90deg, var(--console-border) 1px, transparent 1px) !important;
   background-size: 42px 42px !important;
   -webkit-mask-image: linear-gradient(to bottom, transparent, #000 35%, transparent) !important;
-          mask-image: linear-gradient(to bottom, transparent, #000 35%, transparent) !important;
+  mask-image: linear-gradient(to bottom, transparent, #000 35%, transparent) !important;
 }
 
 .market-card-heading {
@@ -1547,7 +1562,7 @@ button.btn {
   overflow: hidden !important;
 }
 
-.cardrep > .table-containerrep {
+.cardrep>.table-containerrep {
   flex: 1 1 auto !important;
   min-height: 0 !important;
 }
@@ -1573,7 +1588,7 @@ button.btn {
   gap: 14px !important;
 }
 
-.report-service-analytics > .section-heading,
+.report-service-analytics>.section-heading,
 .report-trend-hourly {
   grid-column: 1/-1 !important;
 }
@@ -1596,7 +1611,7 @@ button.btn {
   gap: 12px !important;
 }
 
-.report-trend-heading > div {
+.report-trend-heading>div {
   display: grid !important;
   gap: 4px !important;
 }
@@ -1658,7 +1673,8 @@ textarea {
   box-shadow: none !important;
 }
 
-input::-moz-placeholder, textarea::-moz-placeholder {
+input::-moz-placeholder,
+textarea::-moz-placeholder {
   color: var(--console-faint) !important;
 }
 
@@ -1739,10 +1755,10 @@ textarea:focus {
   grid-column: 1/-1 !important;
 }
 
-.modal-overlay .modal #admin-form .form-group > label,
-.content .tab-content form > label,
-.content .tab-content form label > span:first-child,
-.content .tab-content .announcement-field > label {
+.modal-overlay .modal #admin-form .form-group>label,
+.content .tab-content form>label,
+.content .tab-content form label>span:first-child,
+.content .tab-content .announcement-field>label {
   display: block !important;
   margin: 0 0 7px !important;
   color: var(--console-heading) !important;
@@ -1850,7 +1866,7 @@ html[data-theme=dark] .settingfonts {
   color: var(--console-heading) !important;
 }
 
-.service-checkbox-wrapper .form-check input:checked + label {
+.service-checkbox-wrapper .form-check input:checked+label {
   border-color: var(--console-primary) !important;
   background: var(--console-primary-soft) !important;
   color: var(--console-primary) !important;
@@ -1885,11 +1901,11 @@ html[data-theme=dark] .settingfonts {
 }
 
 /* Component-level legacy conflict repairs */
-.content .tab-content#history-tab > .card,
-.content .tab-content#services-tab > .card,
-.content .tab-content#tellers-tab > .card,
-.content .tab-content#accounts-tab > .card,
-.content .tab-content#groups-tab > .card {
+.content .tab-content#history-tab>.card,
+.content .tab-content#services-tab>.card,
+.content .tab-content#tellers-tab>.card,
+.content .tab-content#accounts-tab>.card,
+.content .tab-content#groups-tab>.card {
   position: relative !important;
   inset: auto !important;
   width: min(100%, 1660px) !important;
@@ -1906,11 +1922,11 @@ html[data-theme=dark] .settingfonts {
   box-shadow: var(--console-shadow-small) !important;
 }
 
-.content .tab-content#history-tab > .card > .card-header,
-.content .tab-content#services-tab > .card > .card-header,
-.content .tab-content#tellers-tab > .card > .card-header,
-.content .tab-content#accounts-tab > .card > .card-header,
-.content .tab-content#groups-tab > .card > .card-header {
+.content .tab-content#history-tab>.card>.card-header,
+.content .tab-content#services-tab>.card>.card-header,
+.content .tab-content#tellers-tab>.card>.card-header,
+.content .tab-content#accounts-tab>.card>.card-header,
+.content .tab-content#groups-tab>.card>.card-header {
   position: relative !important;
   inset: auto !important;
   width: 100% !important;
@@ -1928,21 +1944,21 @@ html[data-theme=dark] .settingfonts {
   color: var(--console-text) !important;
 }
 
-.content .tab-content#history-tab > .card > .card-header h3,
-.content .tab-content#services-tab > .card > .card-header h3,
-.content .tab-content#tellers-tab > .card > .card-header h3,
-.content .tab-content#accounts-tab > .card > .card-header h3,
-.content .tab-content#groups-tab > .card > .card-header h3 {
+.content .tab-content#history-tab>.card>.card-header h3,
+.content .tab-content#services-tab>.card>.card-header h3,
+.content .tab-content#tellers-tab>.card>.card-header h3,
+.content .tab-content#accounts-tab>.card>.card-header h3,
+.content .tab-content#groups-tab>.card>.card-header h3 {
   margin: 0 !important;
   color: var(--console-heading) !important;
   font-size: 14px !important;
 }
 
-.content .tab-content#history-tab > .card > .table-container,
-.content .tab-content#services-tab > .card > .table-container,
-.content .tab-content#tellers-tab > .card > .table-container,
-.content .tab-content#accounts-tab > .card > .table-container,
-.content .tab-content#groups-tab > .card > .table-container {
+.content .tab-content#history-tab>.card>.table-container,
+.content .tab-content#services-tab>.card>.table-container,
+.content .tab-content#tellers-tab>.card>.table-container,
+.content .tab-content#accounts-tab>.card>.table-container,
+.content .tab-content#groups-tab>.card>.table-container {
   position: relative !important;
   inset: auto !important;
   width: 100% !important;
@@ -2104,7 +2120,7 @@ html[data-theme=dark] .settingfonts {
   overflow: hidden !important;
 }
 
-.ticket-journey-modal .modal-header > div {
+.ticket-journey-modal .modal-header>div {
   display: grid !important;
   gap: 3px !important;
 }
@@ -2130,7 +2146,7 @@ html[data-theme=dark] .settingfonts {
   gap: 8px !important;
 }
 
-.journey-overview > div {
+.journey-overview>div {
   min-width: 0 !important;
   padding: 11px 12px !important;
   display: grid !important;
@@ -2501,7 +2517,7 @@ html[data-theme=dark] .settingfonts {
   box-shadow: var(--console-shadow-small) !important;
 }
 
-.content .tab-content#reports-tab .reports-filters > .card-header {
+.content .tab-content#reports-tab .reports-filters>.card-header {
   position: relative !important;
   inset: auto !important;
   width: 100% !important;
@@ -2515,7 +2531,7 @@ html[data-theme=dark] .settingfonts {
   background: transparent !important;
 }
 
-.content .tab-content#reports-tab .reports-filters > .card-header h3 {
+.content .tab-content#reports-tab .reports-filters>.card-header h3 {
   margin: 0 !important;
   color: var(--console-heading) !important;
   font-size: 14px !important;
@@ -2754,7 +2770,7 @@ html[data-theme=dark] .settingfonts {
   gap: 7px !important;
 }
 
-.announcement-field > label {
+.announcement-field>label {
   color: var(--console-muted) !important;
   font-size: 9px !important;
   font-weight: 800 !important;
@@ -2784,8 +2800,8 @@ html[data-theme=dark] .settingfonts {
 
 .content .tab-content#settings-tab #announcement-settab .switch-control input[type=checkbox] {
   -webkit-appearance: none !important;
-     -moz-appearance: none !important;
-          appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
   width: 30px !important;
   height: 17px !important;
   margin: 0 !important;
@@ -2851,7 +2867,7 @@ html[data-theme=dark] .settingfonts {
   padding: 5px !important;
 }
 
-.speed-field > div {
+.speed-field>div {
   min-height: 39px !important;
   padding: 0 10px !important;
   display: grid !important;
@@ -3003,17 +3019,21 @@ html[data-theme=dark] .settingfonts {
 }
 
 @keyframes advertisement-upload-attention {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
     box-shadow: 0 0 0 0 rgba(240, 68, 85, 0.58), 0 8px 18px rgba(201, 22, 44, 0.26);
     transform: scale(1);
   }
+
   50% {
     opacity: 0.48;
     box-shadow: 0 0 0 7px rgba(240, 68, 85, 0), 0 3px 8px rgba(201, 22, 44, 0.12);
     transform: scale(0.97);
   }
 }
+
 .content .tab-content#settings-tab #advertisement-settab .adsmainconfigtitle #uploadStatus {
   position: relative !important;
   inset: auto !important;
@@ -3104,7 +3124,7 @@ html[data-theme=dark] .settingfonts {
   max-height: 100% !important;
   display: block !important;
   -o-object-fit: contain !important;
-     object-fit: contain !important;
+  object-fit: contain !important;
   background: #050a12 !important;
 }
 
@@ -3202,8 +3222,8 @@ html[data-theme=dark] .settingfonts {
 
 .audio-enable-control input {
   -webkit-appearance: none !important;
-     -moz-appearance: none !important;
-          appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
   width: 36px !important;
   height: 20px !important;
   flex: 0 0 36px !important;
@@ -3236,7 +3256,7 @@ html[data-theme=dark] .settingfonts {
   transform: translateX(16px) !important;
 }
 
-.audio-enable-control > span {
+.audio-enable-control>span {
   min-width: 0 !important;
   display: grid !important;
   gap: 2px !important;
@@ -3284,18 +3304,18 @@ html[data-theme=dark] .settingfonts {
   gap: 12px !important;
 }
 
-.audio-card-heading > div,
-.output-channel-heading > div {
+.audio-card-heading>div,
+.output-channel-heading>div {
   min-width: 0 !important;
   display: flex !important;
   align-items: center !important;
   gap: 9px !important;
 }
 
-.audio-card-heading > div > span:last-child,
-.output-channel-heading > div > span:last-child,
-.voice-catalog-heading > div,
-.audio-save-bar > div {
+.audio-card-heading>div>span:last-child,
+.output-channel-heading>div>span:last-child,
+.voice-catalog-heading>div,
+.audio-save-bar>div {
   min-width: 0 !important;
   display: grid !important;
   gap: 3px !important;
@@ -3366,7 +3386,7 @@ html[data-theme=dark] .settingfonts {
   background: var(--console-surface-raised) !important;
 }
 
-.content .tab-content#settings-tab #displayaudio-settab .audio-range-control > span {
+.content .tab-content#settings-tab #displayaudio-settab .audio-range-control>span {
   width: 100% !important;
   display: grid !important;
   grid-template-columns: minmax(0, 1fr) auto !important;
@@ -3387,8 +3407,8 @@ html[data-theme=dark] .settingfonts {
 
 .content #displayaudio-settab .audio-range-control input[type=range] {
   -webkit-appearance: none !important;
-     -moz-appearance: none !important;
-          appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
   width: 100% !important;
   height: 5px !important;
   min-height: 5px !important;
@@ -3404,7 +3424,7 @@ html[data-theme=dark] .settingfonts {
 
 .content #displayaudio-settab .audio-range-control input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none !important;
-          appearance: none !important;
+  appearance: none !important;
   width: 15px !important;
   height: 15px !important;
   border: 3px solid var(--console-surface-raised) !important;
@@ -3417,7 +3437,7 @@ html[data-theme=dark] .settingfonts {
   padding-top: 2px !important;
 }
 
-.voice-catalog-heading > span {
+.voice-catalog-heading>span {
   padding: 5px 8px !important;
   border-radius: 999px !important;
   background: var(--console-primary-soft) !important;
@@ -3466,8 +3486,8 @@ html[data-theme=dark] .settingfonts {
 
 .display-voice-option input[type=radio] {
   -webkit-appearance: none !important;
-     -moz-appearance: none !important;
-          appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
   width: 16px !important;
   height: 16px !important;
   margin: 0 !important;
@@ -3566,7 +3586,7 @@ html[data-theme=dark] .settingfonts {
   background: var(--console-surface-raised) !important;
 }
 
-.audio-test-status > span {
+.audio-test-status>span {
   width: 9px !important;
   height: 9px !important;
   flex: 0 0 9px !important;
@@ -3575,24 +3595,24 @@ html[data-theme=dark] .settingfonts {
   box-shadow: 0 0 0 4px color-mix(in srgb, var(--console-faint) 12%, transparent) !important;
 }
 
-.audio-test-status[data-state=playing] > span {
+.audio-test-status[data-state=playing]>span {
   background: var(--console-cyan) !important;
   animation: audioPulse 1s infinite !important;
 }
 
-.audio-test-status[data-state=success] > span {
+.audio-test-status[data-state=success]>span {
   background: var(--console-success) !important;
 }
 
-.audio-test-status[data-state=warning] > span {
+.audio-test-status[data-state=warning]>span {
   background: var(--console-warning) !important;
 }
 
-.audio-test-status[data-state=error] > span {
+.audio-test-status[data-state=error]>span {
   background: var(--console-danger) !important;
 }
 
-.audio-test-status > div {
+.audio-test-status>div {
   min-width: 0 !important;
   display: grid !important;
   gap: 2px !important;
@@ -3632,45 +3652,56 @@ html[data-theme=dark] .settingfonts {
     box-shadow: 0 0 0 7px color-mix(in srgb, var(--console-cyan) 8%, transparent);
   }
 }
+
 @media (max-width: 1120px) {
   .display-audio-grid {
     grid-template-columns: 1fr !important;
   }
+
   .display-voice-list {
     max-height: 250px !important;
   }
 }
+
 @media (max-width: 650px) {
   .content .tab-content#settings-tab #displayaudio-settab.activetab {
     padding: 14px !important;
   }
+
   .audio-settings-heading {
     align-items: stretch !important;
     flex-direction: column !important;
   }
+
   .audio-enable-control {
     min-width: 0 !important;
   }
+
   .audio-slider-grid {
     grid-template-columns: 1fr !important;
   }
+
   .audio-card-heading,
   .output-channel-heading,
   .audio-save-bar {
     align-items: stretch !important;
     flex-direction: column !important;
   }
+
   .audio-test-btn,
   .audio-save-bar .btn {
     width: 100% !important;
   }
+
   .display-voice-option {
     grid-template-columns: 17px minmax(0, 1fr) !important;
   }
+
   .display-voice-option .voice-select-btn {
     grid-column: 1/-1 !important;
   }
 }
+
 html.compact-sidebar {
   --sidebar-width: 88px;
 }
@@ -3775,6 +3806,7 @@ html.compact-sidebar .logout-btn span {
 
 /* Desktop viewport-fit workspaces */
 @media (min-width: 861px) {
+
   .content .tab-content#dashboard-tab.active,
   .content .tab-content#live-tab.active,
   .content .tab-content#history-tab.active,
@@ -3782,6 +3814,7 @@ html.compact-sidebar .logout-btn span {
   .content .tab-content#settings-tab.active:has(#advertisement-settab.activetab) {
     overflow: hidden !important;
   }
+
   .overview-page {
     height: 100% !important;
     min-height: 0 !important;
@@ -3789,31 +3822,35 @@ html.compact-sidebar .logout-btn span {
     gap: 10px !important;
     overflow: hidden !important;
   }
+
   .overview-page .page-intro,
   .live-page .page-intro,
-  #history-tab > .page-intro,
-  #tellers-tab > .page-intro,
-  #settings-tab:has(#advertisement-settab.activetab) > .page-intro {
+  #history-tab>.page-intro,
+  #tellers-tab>.page-intro,
+  #settings-tab:has(#advertisement-settab.activetab)>.page-intro {
     height: 100% !important;
     min-height: 0 !important;
     padding: 14px 18px !important;
     border-radius: 16px !important;
   }
+
   .overview-page .page-intro h1,
   .live-page .page-intro h1,
-  #history-tab > .page-intro h1,
-  #tellers-tab > .page-intro h1,
-  #settings-tab:has(#advertisement-settab.activetab) > .page-intro h1 {
+  #history-tab>.page-intro h1,
+  #tellers-tab>.page-intro h1,
+  #settings-tab:has(#advertisement-settab.activetab)>.page-intro h1 {
     font-size: 24px !important;
   }
+
   .overview-page .page-intro p,
   .live-page .page-intro p,
-  #history-tab > .page-intro p,
-  #tellers-tab > .page-intro p,
-  #settings-tab:has(#advertisement-settab.activetab) > .page-intro p {
+  #history-tab>.page-intro p,
+  #tellers-tab>.page-intro p,
+  #settings-tab:has(#advertisement-settab.activetab)>.page-intro p {
     margin-top: 5px !important;
     line-height: 1.35 !important;
   }
+
   .overview-page .period-overview-grid {
     min-height: 0 !important;
     height: 100% !important;
@@ -3821,6 +3858,7 @@ html.compact-sidebar .logout-btn span {
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     gap: 9px !important;
   }
+
   .overview-page .period-card {
     position: relative !important;
     min-width: 0 !important;
@@ -3835,6 +3873,7 @@ html.compact-sidebar .logout-btn span {
     background: var(--console-surface) !important;
     box-shadow: var(--console-shadow-small) !important;
   }
+
   .overview-page .period-card::before {
     content: "" !important;
     position: absolute !important;
@@ -3842,15 +3881,19 @@ html.compact-sidebar .logout-btn span {
     height: 3px !important;
     background: var(--period-color, var(--console-primary)) !important;
   }
+
   .overview-page .period-day {
     --period-color: var(--console-primary);
   }
+
   .overview-page .period-week {
     --period-color: var(--console-success);
   }
+
   .overview-page .period-month {
     --period-color: #8b6be8;
   }
+
   .overview-page .period-card-heading {
     min-width: 0 !important;
     display: flex !important;
@@ -3858,11 +3901,13 @@ html.compact-sidebar .logout-btn span {
     justify-content: space-between !important;
     gap: 10px !important;
   }
-  .overview-page .period-card-heading > div {
+
+  .overview-page .period-card-heading>div {
     min-width: 0 !important;
     display: grid !important;
     gap: 2px !important;
   }
+
   .overview-page .period-card-heading span {
     color: var(--console-muted) !important;
     font-size: 8px !important;
@@ -3870,6 +3915,7 @@ html.compact-sidebar .logout-btn span {
     letter-spacing: 0.1em !important;
     text-transform: uppercase !important;
   }
+
   .overview-page .period-card-heading strong {
     overflow: hidden !important;
     color: var(--console-heading) !important;
@@ -3878,18 +3924,21 @@ html.compact-sidebar .logout-btn span {
     text-overflow: ellipsis !important;
     white-space: nowrap !important;
   }
-  .overview-page .period-card-heading > b {
+
+  .overview-page .period-card-heading>b {
     color: var(--period-color, var(--console-primary)) !important;
     font-size: 25px !important;
     font-weight: 880 !important;
     letter-spacing: -0.05em !important;
   }
+
   .overview-page .period-metrics {
     display: grid !important;
     grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
     gap: 6px !important;
   }
-  .overview-page .period-metrics > span {
+
+  .overview-page .period-metrics>span {
     min-width: 0 !important;
     padding: 5px 7px !important;
     display: grid !important;
@@ -3897,46 +3946,56 @@ html.compact-sidebar .logout-btn span {
     border-radius: 8px !important;
     background: var(--console-surface-soft) !important;
   }
+
   .overview-page .period-metrics small {
     color: var(--console-faint) !important;
     font-size: 7px !important;
     font-weight: 750 !important;
     overflow-wrap: anywhere !important;
   }
+
   .overview-page .period-metrics strong {
     color: var(--console-heading) !important;
     font-size: 11px !important;
     font-weight: 820 !important;
   }
+
   .overview-page .period-chart {
     position: relative !important;
     min-height: 0 !important;
     height: 100% !important;
   }
+
   .overview-page .period-chart canvas {
     width: 100% !important;
     height: 100% !important;
   }
+
   .overview-page .insight-grid {
     height: 100% !important;
     gap: 8px !important;
   }
+
   .overview-page .insight-card {
     min-height: 0 !important;
     height: 100% !important;
     padding: 9px 11px !important;
   }
+
   .overview-page .insight-card strong {
     font-size: 17px !important;
   }
+
   .overview-page .insight-card {
     padding-inline: 9px !important;
   }
+
   .overview-page .insight-card small {
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     white-space: nowrap !important;
   }
+
   .overview-page .card-chart-dashboard {
     min-height: 0 !important;
     height: 100% !important;
@@ -3945,13 +4004,16 @@ html.compact-sidebar .logout-btn span {
     gap: 9px !important;
     overflow: hidden !important;
   }
-  .overview-page .card-chart-dashboard > .section-heading {
+
+  .overview-page .card-chart-dashboard>.section-heading {
     grid-column: 1/-1 !important;
     min-height: 28px !important;
   }
+
   .overview-page .card-chart-dashboard .trend-card {
     grid-column: auto !important;
   }
+
   .overview-page .analytics-card {
     min-height: 0 !important;
     height: 100% !important;
@@ -3959,19 +4021,23 @@ html.compact-sidebar .logout-btn span {
     display: flex !important;
     flex-direction: column !important;
   }
+
   .overview-page .chart-card-heading {
     min-height: 37px !important;
     margin-bottom: 5px !important;
   }
-  .overview-page .chart-card-heading > div > span {
+
+  .overview-page .chart-card-heading>div>span {
     display: none !important;
   }
+
   .overview-page .chart-canvas-wrap,
   .overview-page .trend-card .chart-canvas-wrap {
     min-height: 0 !important;
     height: auto !important;
     flex: 1 1 auto !important;
   }
+
   .live-page {
     height: 100% !important;
     min-height: 0 !important;
@@ -3979,25 +4045,30 @@ html.compact-sidebar .logout-btn span {
     gap: 10px !important;
     overflow: hidden !important;
   }
+
   .live-page .stats-grid {
     height: 100% !important;
     gap: 8px !important;
   }
+
   .live-page .stat-card {
     min-height: 0 !important;
     height: 100% !important;
     padding: 10px 11px !important;
     align-items: center !important;
   }
+
   .live-page .stat-info h3 {
     font-size: 19px !important;
   }
+
   .live-page .live-market-grid,
   .live-page .operations-grid {
     min-height: 0 !important;
     height: 100% !important;
     gap: 10px !important;
   }
+
   .live-page .live-market-card {
     min-height: 0 !important;
     height: 100% !important;
@@ -4005,18 +4076,22 @@ html.compact-sidebar .logout-btn span {
     display: flex !important;
     flex-direction: column !important;
   }
+
   .live-page .market-card-heading {
     min-height: 52px !important;
   }
+
   .live-page .market-card-heading p {
     display: none !important;
   }
+
   .live-page .market-chart-wrap {
     min-height: 0 !important;
     height: auto !important;
     margin-top: 4px !important;
     flex: 1 1 auto !important;
   }
+
   .live-page .operations-card {
     min-height: 0 !important;
     height: 100% !important;
@@ -4024,11 +4099,13 @@ html.compact-sidebar .logout-btn span {
     display: flex !important;
     flex-direction: column !important;
   }
+
   .live-page .operations-card,
   .live-page .card-teller-dashboard,
   .live-page .dashTellers {
     overflow: hidden !important;
   }
+
   .live-page .card-teller-dashboard {
     min-height: 0 !important;
     height: auto !important;
@@ -4036,10 +4113,12 @@ html.compact-sidebar .logout-btn span {
     display: flex !important;
     flex-direction: column !important;
   }
-  .live-page .operations-card > .section-heading {
+
+  .live-page .operations-card>.section-heading {
     min-height: 28px !important;
     margin-bottom: 7px !important;
   }
+
   .live-page .operations-card .live-grid,
   .live-page .operations-card .card-teller-dashboard {
     min-height: 0 !important;
@@ -4047,6 +4126,7 @@ html.compact-sidebar .logout-btn span {
     flex: 1 1 auto !important;
     overflow: hidden !important;
   }
+
   .live-page .operations-card .table-container {
     min-height: 0 !important;
     max-height: 100% !important;
@@ -4054,14 +4134,16 @@ html.compact-sidebar .logout-btn span {
     flex: 1 1 auto !important;
     overflow: auto !important;
   }
+
   .content .tab-content#history-tab.active,
   .content .tab-content#tellers-tab.active {
     display: grid !important;
     grid-template-rows: 92px minmax(0, 1fr) !important;
     gap: 10px !important;
   }
-  .content .tab-content#history-tab > .card,
-  .content .tab-content#tellers-tab > .card {
+
+  .content .tab-content#history-tab>.card,
+  .content .tab-content#tellers-tab>.card {
     min-height: 0 !important;
     height: 100% !important;
     margin: 0 auto !important;
@@ -4069,57 +4151,69 @@ html.compact-sidebar .logout-btn span {
     display: flex !important;
     flex-direction: column !important;
   }
-  .content .tab-content#history-tab > .card > .card-header,
-  .content .tab-content#tellers-tab > .card > .card-header {
+
+  .content .tab-content#history-tab>.card>.card-header,
+  .content .tab-content#tellers-tab>.card>.card-header {
     min-height: 42px !important;
     padding-bottom: 9px !important;
   }
-  .content .tab-content#history-tab > .card > .table-container,
-  .content .tab-content#tellers-tab > .card > .table-container {
+
+  .content .tab-content#history-tab>.card>.table-container,
+  .content .tab-content#tellers-tab>.card>.table-container {
     min-height: 0 !important;
     max-height: none !important;
     height: auto !important;
     margin-top: 8px !important;
     flex: 1 1 auto !important;
   }
+
   .content .tab-content#history-tab .history-pagination {
     flex: 0 0 auto !important;
     margin-top: 8px !important;
     padding: 7px 9px !important;
   }
+
   .modal-overlay .ticket-journey-modal {
     height: auto !important;
     max-height: calc(100vh - 24px) !important;
     display: grid !important;
     grid-template-rows: auto auto auto !important;
   }
+
   .ticket-journey-modal .modal-header {
     padding: 12px 16px !important;
   }
+
   .ticket-journey-modal .modal-body {
     min-height: 0 !important;
     padding: 13px 16px !important;
   }
+
   .ticket-journey-modal .modal-footer {
     padding: 9px 16px !important;
   }
+
   .ticket-journey-modal #ticket-journey-timeline {
     height: auto !important;
     display: grid !important;
     grid-template-rows: auto auto auto !important;
   }
+
   .ticket-journey-modal .journey-overview {
     margin-bottom: 9px !important;
   }
-  .ticket-journey-modal .journey-overview > div {
+
+  .ticket-journey-modal .journey-overview>div {
     padding: 8px 10px !important;
   }
+
   .ticket-journey-modal .journey-chart-scroll {
     height: auto !important;
     min-height: 0 !important;
     padding: 4px 2px 7px !important;
     overflow: hidden !important;
   }
+
   .ticket-journey-modal .journey-line-chart {
     --step-width: 0px;
     width: 100% !important;
@@ -4128,6 +4222,7 @@ html.compact-sidebar .logout-btn span {
     height: 100% !important;
     grid-template-columns: repeat(var(--journey-steps), minmax(0, 1fr)) !important;
   }
+
   .ticket-journey-modal .journey-line-chart.journey-winding-map {
     height: 240px !important;
     min-height: 240px !important;
@@ -4135,39 +4230,47 @@ html.compact-sidebar .logout-btn span {
     grid-template-columns: repeat(var(--journey-columns), minmax(0, 1fr)) !important;
     grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
   }
+
   .ticket-journey-modal .journey-line-chart::before {
     left: calc(50% / var(--journey-steps)) !important;
     right: calc(50% / var(--journey-steps)) !important;
   }
+
   .ticket-journey-modal .journey-node {
     width: 44px !important;
     height: 44px !important;
   }
+
   .ticket-journey-modal .journey-event-card {
     min-height: 88px !important;
     margin-top: 11px !important;
     padding: 8px 6px !important;
   }
+
   .ticket-journey-modal .journey-event-card p {
     display: -webkit-box !important;
     overflow: hidden !important;
     -webkit-box-orient: vertical !important;
     -webkit-line-clamp: 3 !important;
   }
+
   .ticket-journey-modal .journey-line-chart.journey-winding-map .journey-event-card {
     min-height: 62px !important;
     max-height: 70px !important;
     margin-top: 5px !important;
     padding: 7px 8px !important;
   }
+
   .ticket-journey-modal .journey-axis {
     padding-top: 6px !important;
   }
+
   .content .tab-content#settings-tab.active:has(#advertisement-settab.activetab) {
     display: grid !important;
     grid-template-rows: 92px minmax(0, 1fr) !important;
     gap: 10px !important;
   }
+
   .content .tab-content#settings-tab #advertisement-settab.activetab {
     min-height: 0 !important;
     height: 100% !important;
@@ -4177,22 +4280,26 @@ html.compact-sidebar .logout-btn span {
     gap: 10px !important;
     overflow: hidden !important;
   }
+
   .content .tab-content#settings-tab #advertisement-settab .adsmainconfigtitle {
     min-height: 58px !important;
     padding-bottom: 9px !important;
   }
+
   .content .tab-content#settings-tab #advertisement-settab .media-library-panel,
   .content .tab-content#settings-tab #advertisement-settab .media-preview-panel {
     min-height: 0 !important;
     height: 100% !important;
     padding: 10px !important;
   }
+
   .content .tab-content#settings-tab #advertisement-settab .media-library-panel .adslist,
   .content .tab-content#settings-tab #advertisement-settab .media-preview-panel .videocontainer {
     min-height: 0 !important;
     height: auto !important;
     flex: 1 1 auto !important;
   }
+
   .content .tab-content#settings-tab #advertisement-settab .media-preview-panel .videocontainer video,
   .content .tab-content#settings-tab #advertisement-settab .media-preview-panel #adminAdPlayer {
     position: absolute !important;
@@ -4205,148 +4312,188 @@ html.compact-sidebar .logout-btn span {
     border-radius: 0 !important;
   }
 }
+
 @media (min-width: 861px) and (max-height: 760px) {
   .content-header {
     min-height: 64px !important;
     padding-block: 8px !important;
   }
+
   .tab-content {
     padding: 14px 18px !important;
   }
+
   .overview-page {
     grid-template-rows: 70px 140px 52px minmax(0, 1fr) !important;
     gap: 7px !important;
   }
+
   .live-page {
     grid-template-rows: 70px 64px minmax(140px, 1.12fr) minmax(110px, 0.88fr) !important;
     gap: 7px !important;
   }
+
   .content .tab-content#history-tab.active,
   .content .tab-content#tellers-tab.active,
   .content .tab-content#settings-tab.active:has(#advertisement-settab.activetab) {
     grid-template-rows: 70px minmax(0, 1fr) !important;
     gap: 7px !important;
   }
+
   .overview-page .page-intro,
   .live-page .page-intro,
-  #history-tab > .page-intro,
-  #tellers-tab > .page-intro,
-  #settings-tab:has(#advertisement-settab.activetab) > .page-intro {
+  #history-tab>.page-intro,
+  #tellers-tab>.page-intro,
+  #settings-tab:has(#advertisement-settab.activetab)>.page-intro {
     padding: 9px 14px !important;
   }
+
   .overview-page .page-intro h1,
   .live-page .page-intro h1,
-  #history-tab > .page-intro h1,
-  #tellers-tab > .page-intro h1,
-  #settings-tab:has(#advertisement-settab.activetab) > .page-intro h1 {
+  #history-tab>.page-intro h1,
+  #tellers-tab>.page-intro h1,
+  #settings-tab:has(#advertisement-settab.activetab)>.page-intro h1 {
     font-size: 20px !important;
   }
+
   .overview-page .page-intro p,
   .live-page .page-intro p,
-  #history-tab > .page-intro p,
-  #tellers-tab > .page-intro p,
-  #settings-tab:has(#advertisement-settab.activetab) > .page-intro p {
+  #history-tab>.page-intro p,
+  #tellers-tab>.page-intro p,
+  #settings-tab:has(#advertisement-settab.activetab)>.page-intro p {
     display: none !important;
   }
+
   .overview-page .insight-card small,
   .live-page .stat-info span {
     display: none !important;
   }
+
   .overview-page .period-card {
     padding: 8px 10px 6px !important;
     gap: 4px !important;
   }
-  .overview-page .period-card-heading > b {
+
+  .overview-page .period-card-heading>b {
     font-size: 20px !important;
   }
-  .overview-page .period-metrics > span {
+
+  .overview-page .period-metrics>span {
     padding: 3px 5px !important;
   }
+
   .overview-page .insight-card {
     padding-block: 6px !important;
   }
+
   .overview-page .card-chart-dashboard {
     gap: 7px !important;
   }
-  .overview-page .card-chart-dashboard > .section-heading {
+
+  .overview-page .card-chart-dashboard>.section-heading {
     display: none !important;
   }
+
   .overview-page .card-chart-dashboard {
     grid-template-rows: minmax(0, 1fr) !important;
   }
+
   .live-page .stat-card {
     padding: 7px 9px !important;
   }
+
   .live-page .market-card-heading {
     min-height: 42px !important;
   }
+
   .live-page .market-card-heading h3 {
     margin-top: 3px !important;
     font-size: 11px !important;
   }
+
   .live-page .market-quote {
     padding: 5px 8px !important;
   }
+
   .live-page .market-quote strong {
     font-size: 16px !important;
   }
-  .live-page .operations-card > .section-heading {
+
+  .live-page .operations-card>.section-heading {
     margin-bottom: 4px !important;
   }
 }
+
 @media (max-width: 1080px) {
   :root {
     --sidebar-width: 230px;
   }
+
   .nav-copy small {
     display: none !important;
   }
+
   .sidebar .nav-item {
     min-height: 46px !important;
   }
+
   .content-header {
     padding-inline: 20px !important;
   }
+
   .tab-content {
     padding: 20px !important;
   }
+
   .reports-data-sections {
     grid-template-columns: 1fr !important;
   }
+
   .report-service-analytics {
     grid-template-columns: 1fr !important;
   }
-  .report-service-analytics > .section-heading,
+
+  .report-service-analytics>.section-heading,
   .report-trend-hourly {
     grid-column: auto !important;
   }
+
   .content .tab-content#reports-tab .reports-filters .reports-filter-group {
     grid-template-columns: 1fr !important;
   }
+
   .content .tab-content#reports-tab .reports-charts-sections {
     grid-template-columns: 1fr !important;
   }
+
   .content .tab-content#settings-tab #announcement-settab #settings-form.announcement-copy-grid {
     grid-template-columns: 1fr 1fr !important;
   }
+
   .content .tab-content#settings-tab #announcement-settab #settings-form2.announcement-appearance-grid {
     grid-template-columns: 1fr 1fr !important;
   }
 }
+
 @media (max-width: 860px) {
+
   :root,
   html.compact-sidebar {
     --sidebar-width: 0px;
   }
+
   .sidebar {
     display: none !important;
   }
+
   .content {
     margin-left: 0 !important;
   }
+
   .sidebar-collapse-control {
     display: none !important;
   }
+
   .floating-nav {
     position: fixed !important;
     inset: auto 14px 76px 14px !important;
@@ -4367,11 +4514,13 @@ html.compact-sidebar .logout-btn span {
     transform: translateY(10px) scale(0.98) !important;
     transition: 0.18s ease !important;
   }
+
   .floating-nav.open {
     opacity: 1 !important;
     visibility: visible !important;
     transform: none !important;
   }
+
   .fnav-item {
     width: 100% !important;
     min-height: 44px !important;
@@ -4384,14 +4533,17 @@ html.compact-sidebar .logout-btn span {
     background: transparent !important;
     color: var(--console-text) !important;
   }
+
   .fnav-item.active {
     background: var(--console-primary-soft) !important;
     color: var(--console-primary) !important;
   }
+
   .fnav-label {
     font-size: 10px !important;
     font-weight: 800 !important;
   }
+
   .fnav-icon {
     position: static !important;
     width: 29px !important;
@@ -4400,22 +4552,26 @@ html.compact-sidebar .logout-btn span {
     place-items: center !important;
     transform: none !important;
   }
+
   .fnav-icon img {
     width: 15px !important;
     height: 15px !important;
     display: block !important;
     -o-object-fit: contain !important;
-       object-fit: contain !important;
+    object-fit: contain !important;
     opacity: 0.76 !important;
     transition: opacity 0.18s ease, filter 0.18s ease !important;
   }
+
   html[data-theme=dark] .fnav-icon img {
     filter: invert(92%) !important;
   }
+
   .fnav-item.active .fnav-icon img {
     opacity: 1 !important;
     filter: invert(46%) sepia(98%) saturate(2287%) hue-rotate(219deg) brightness(99%) contrast(94%) !important;
   }
+
   .sidebar-toggle {
     position: fixed !important;
     right: 18px !important;
@@ -4432,48 +4588,59 @@ html.compact-sidebar .logout-btn span {
     color: #fff !important;
     box-shadow: 0 14px 34px rgba(58, 79, 194, 0.36) !important;
   }
+
   .sidebar-toggle.menu-toggle {
     position: fixed !important;
   }
+
   .sidebar-toggle.menu-toggle span {
     left: 15px !important;
     right: 15px !important;
     background: #fff !important;
   }
+
   .sidebar-toggle.menu-toggle span:nth-child(1) {
     top: 17px !important;
     transform: none !important;
   }
+
   .sidebar-toggle.menu-toggle span:nth-child(2) {
     top: 24px !important;
     opacity: 1 !important;
   }
+
   .sidebar-toggle.menu-toggle span:nth-child(3) {
     top: 31px !important;
     transform: none !important;
   }
+
   .sidebar-toggle.menu-toggle.open span:nth-child(1) {
     top: 24px !important;
     transform: rotate(45deg) !important;
   }
+
   .sidebar-toggle.menu-toggle.open span:nth-child(2) {
     top: 24px !important;
     opacity: 0 !important;
   }
+
   .sidebar-toggle.menu-toggle.open span:nth-child(3) {
     top: 24px !important;
     transform: rotate(-45deg) !important;
   }
+
   .card-chart-dashboard,
   .reports-charts-sections,
   .reports-filter-group {
     grid-template-columns: 1fr !important;
   }
+
   .period-overview-grid {
     display: grid !important;
     grid-template-columns: 1fr !important;
     gap: 10px !important;
   }
+
   .period-card {
     position: relative !important;
     min-width: 0 !important;
@@ -4486,16 +4653,19 @@ html.compact-sidebar .logout-btn span {
     background: var(--console-surface) !important;
     box-shadow: var(--console-shadow-small) !important;
   }
+
   .period-card-heading {
     display: flex !important;
     align-items: flex-start !important;
     justify-content: space-between !important;
     gap: 10px !important;
   }
-  .period-card-heading > div {
+
+  .period-card-heading>div {
     display: grid !important;
     gap: 3px !important;
   }
+
   .period-card-heading span {
     color: var(--console-muted) !important;
     font-size: 8px !important;
@@ -4503,107 +4673,132 @@ html.compact-sidebar .logout-btn span {
     letter-spacing: 0.1em !important;
     text-transform: uppercase !important;
   }
+
   .period-card-heading strong {
     color: var(--console-heading) !important;
     font-size: 10px !important;
   }
-  .period-card-heading > b {
+
+  .period-card-heading>b {
     color: var(--console-primary) !important;
     font-size: 25px !important;
   }
+
   .period-metrics {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     gap: 7px !important;
   }
-  .period-metrics > span {
+
+  .period-metrics>span {
     padding: 7px !important;
     display: grid !important;
     gap: 2px !important;
     border-radius: 8px !important;
     background: var(--console-surface-soft) !important;
   }
+
   .period-metrics small {
     color: var(--console-faint) !important;
     font-size: 7px !important;
     overflow-wrap: anywhere !important;
   }
+
   .period-metrics strong {
     color: var(--console-heading) !important;
     font-size: 11px !important;
   }
+
   .period-chart {
     position: relative !important;
     height: 115px !important;
   }
+
   .period-chart canvas {
     width: 100% !important;
     height: 100% !important;
   }
+
   .stats-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
+
   .operations-grid,
   .live-market-grid {
     grid-template-columns: 1fr !important;
   }
+
   .summary-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
+
   .insight-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
+
   .filter-actions {
     justify-content: flex-start !important;
   }
+
   .journey-overview {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
+
 @media (max-width: 650px) {
   .content-header {
     min-height: 66px !important;
     padding: 10px 14px !important;
   }
+
   .header-eyebrow,
   .header-clock,
   .header-tool,
   #current-user {
     display: none !important;
   }
+
   #tab-title {
     font-size: 17px !important;
   }
+
   .header-user {
     min-height: 38px !important;
     padding: 3px !important;
   }
+
   .tab-content {
     padding: 14px 14px 82px !important;
   }
+
   .page-intro {
     min-height: 0 !important;
     padding: 20px !important;
     align-items: flex-start !important;
     flex-direction: column !important;
   }
+
   .page-intro h1 {
     font-size: 25px !important;
   }
+
   .page-intro-actions {
     width: 100% !important;
     justify-content: flex-start !important;
     flex-wrap: wrap !important;
   }
+
   .overview-shortcuts,
   .stats-grid,
   .summary-grid,
   .insight-grid {
     grid-template-columns: 1fr !important;
   }
+
   .card-chart-dashboard {
     grid-template-columns: 1fr !important;
   }
+
   .chart-canvas-wrap,
   .trend-card .chart-canvas-wrap,
   .chartWrapper,
@@ -4612,74 +4807,95 @@ html.compact-sidebar .logout-btn span {
   .report-trend-hourly .report-trend-canvas {
     height: 270px !important;
   }
+
   .filter-item {
     grid-template-columns: 1fr !important;
   }
+
   .filter-actions {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
   }
+
   .filter-actions .btn:first-child {
     grid-column: 1/-1 !important;
   }
+
   .content .tab-content#reports-tab .reports-filters .reports-filter-group .report-controls .filter-actions {
     grid-template-columns: 1fr 1fr !important;
   }
+
   .content .tab-content#reports-tab .reports-filters .reports-filter-group .report-controls .filter-actions .btn:first-child {
     grid-column: 1/-1 !important;
   }
+
   .content .tab-content#reports-tab .reports-filters .reports-filter-group .summary-grid {
     grid-template-columns: 1fr 1fr !important;
   }
+
   .content .tab-content#settings-tab #announcement-settab #settings-form.announcement-copy-grid,
   .content .tab-content#settings-tab #announcement-settab #settings-form2.announcement-appearance-grid {
     grid-template-columns: 1fr !important;
   }
+
   .content .tab-content#settings-tab #advertisement-settab .adsmainconfigtitle {
     align-items: flex-start !important;
     flex-direction: column !important;
   }
+
   .content .tab-content#settings-tab #advertisement-settab.activetab {
     grid-template-columns: 1fr !important;
     grid-template-rows: auto auto auto !important;
   }
+
   .content .tab-content#settings-tab #advertisement-settab .adsmainconfigtitle {
     grid-column: auto !important;
   }
+
   .content .tab-content#settings-tab #advertisement-settab .media-preview-panel .videocontainer {
     min-height: 260px !important;
     aspect-ratio: 16/9 !important;
   }
+
   .upload-controls {
     width: 100% !important;
     min-width: 0 !important;
   }
+
   .history-pagination {
     grid-template-columns: 1fr !important;
     justify-items: center !important;
   }
+
   .pagination-summary,
   .pagination-size {
     justify-self: center !important;
   }
+
   .pagination-size {
     display: none !important;
   }
+
   .journey-overview {
     grid-template-columns: 1fr 1fr !important;
   }
+
   .modal-overlay {
     padding: 8px !important;
   }
+
   .modal-overlay .modal #admin-form {
     grid-template-columns: 1fr !important;
   }
+
   .modal-overlay .modal #admin-form .form-group-wide {
     grid-column: auto !important;
   }
+
   .ticket-journey-modal .modal-body {
     padding: 14px !important;
   }
+
   .card,
   .analytics-card,
   .operations-card,
@@ -4692,7 +4908,9 @@ html.compact-sidebar .logout-btn span {
     border-radius: 14px !important;
   }
 }
+
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -4702,6 +4920,7 @@ html.compact-sidebar .logout-btn span {
     animation-iteration-count: 1 !important;
   }
 }
+
 /* Keep role restrictions above legacy and responsive display declarations. */
 .role-restricted.role-restricted {
   display: none !important;
@@ -4748,8 +4967,8 @@ html.compact-sidebar .logout-btn span {
   flex-direction: column !important;
 }
 
-.configuration-field > span,
-.configuration-toggle-card > span:first-child {
+.configuration-field>span,
+.configuration-toggle-card>span:first-child {
   display: grid !important;
   gap: 5px !important;
 }
@@ -4769,7 +4988,7 @@ html.compact-sidebar .logout-btn span {
   line-height: 1.45 !important;
 }
 
-.configuration-field > input,
+.configuration-field>input,
 .configuration-input-unit {
   width: 100% !important;
 }
@@ -4789,7 +5008,7 @@ html.compact-sidebar .logout-btn span {
   padding-right: 76px !important;
 }
 
-.configuration-input-unit > span {
+.configuration-input-unit>span {
   position: absolute !important;
   top: 50% !important;
   right: 13px !important;
@@ -4818,7 +5037,7 @@ html.compact-sidebar .logout-btn span {
   pointer-events: none !important;
 }
 
-.configuration-switch > span {
+.configuration-switch>span {
   width: 40px !important;
   height: 22px !important;
   padding: 3px !important;
@@ -4829,7 +5048,7 @@ html.compact-sidebar .logout-btn span {
   transition: background 0.16s ease !important;
 }
 
-.configuration-switch > span::after {
+.configuration-switch>span::after {
   content: "" !important;
   width: 16px !important;
   height: 16px !important;
@@ -4840,15 +5059,15 @@ html.compact-sidebar .logout-btn span {
   transition: transform 0.16s ease !important;
 }
 
-.configuration-switch input:checked + span {
+.configuration-switch input:checked+span {
   background: var(--console-success) !important;
 }
 
-.configuration-switch input:checked + span::after {
+.configuration-switch input:checked+span::after {
   transform: translateX(18px) !important;
 }
 
-.configuration-switch input:focus-visible + span {
+.configuration-switch input:focus-visible+span {
   outline: 2px solid var(--console-primary) !important;
   outline-offset: 2px !important;
 }
@@ -4873,7 +5092,7 @@ html.compact-sidebar .logout-btn span {
   background: var(--console-surface-raised) !important;
 }
 
-.configuration-save-bar > div {
+.configuration-save-bar>div {
   display: grid !important;
   gap: 4px !important;
 }
@@ -4888,27 +5107,33 @@ html.compact-sidebar .logout-btn span {
     grid-template-columns: 1fr !important;
   }
 }
+
 @media (max-width: 560px) {
   .content .tab-content#settings-tab #configuration-settab.activetab {
     padding: 14px !important;
   }
+
   .configuration-field,
   .configuration-toggle-card {
     min-height: 0 !important;
     padding: 14px !important;
   }
+
   .configuration-toggle-card,
   .configuration-save-bar {
     align-items: stretch !important;
     flex-direction: column !important;
   }
+
   .configuration-switch {
     justify-content: flex-end !important;
   }
+
   .configuration-save-bar .btn {
     width: 100% !important;
   }
 }
+
 /* Compact admin workspace spacing */
 .content-header {
   min-height: 64px !important;
@@ -4983,7 +5208,7 @@ html.compact-sidebar .logout-btn span {
   padding: 12px !important;
 }
 
-.operations-card > .section-heading,
+.operations-card>.section-heading,
 .chart-card-heading {
   margin-bottom: 7px !important;
 }
@@ -4998,13 +5223,13 @@ html.compact-sidebar .logout-btn span {
   padding: 12px !important;
 }
 
-.content .tab-content#history-tab > .card {
+.content .tab-content#history-tab>.card {
   margin-top: 0 !important;
 }
 
 .card-header,
 .card-headerrep,
-.content .tab-content#reports-tab .reports-filters > .card-header {
+.content .tab-content#reports-tab .reports-filters>.card-header {
   min-height: 36px !important;
   margin-bottom: 8px !important;
   padding-bottom: 8px !important;
@@ -5126,35 +5351,42 @@ html.compact-sidebar .logout-btn span {
     align-content: stretch !important;
     overflow: hidden !important;
   }
+
   .overview-page .insight-grid {
     min-height: 0 !important;
     height: 76px !important;
     align-items: stretch !important;
   }
+
   .overview-page .insight-card {
     min-height: 0 !important;
     height: 100% !important;
     padding: 8px 9px !important;
     align-content: center !important;
   }
+
   .overview-page .card-chart-dashboard {
     min-height: 0 !important;
     height: 100% !important;
     grid-template-rows: 52px minmax(0, 1fr) !important;
     gap: 7px !important;
   }
-  .overview-page .card-chart-dashboard > .section-heading {
+
+  .overview-page .card-chart-dashboard>.section-heading {
     min-height: 52px !important;
     align-content: center !important;
   }
+
   .overview-page .analytics-card {
     min-height: 0 !important;
     padding: 9px 10px !important;
   }
+
   .overview-page .chart-card-heading {
     min-height: 32px !important;
     margin-bottom: 4px !important;
   }
+
   .overview-page .chart-canvas-wrap,
   .overview-page .trend-card .chart-canvas-wrap {
     min-height: 0 !important;
@@ -5162,58 +5394,72 @@ html.compact-sidebar .logout-btn span {
     max-height: none !important;
     flex: 1 1 auto !important;
   }
+
   .live-page {
     grid-template-rows: 70px 64px minmax(170px, 1.12fr) minmax(130px, 0.88fr) !important;
     gap: 7px !important;
   }
+
   .content .tab-content#history-tab.active {
     display: grid !important;
     grid-template-rows: minmax(0, 1fr) !important;
     gap: 0 !important;
     overflow: hidden !important;
   }
-  .content .tab-content#history-tab > .card {
+
+  .content .tab-content#history-tab>.card {
     min-height: 0 !important;
     height: 100% !important;
   }
+
   .content .tab-content#tellers-tab.active {
     grid-template-rows: 70px minmax(0, 1fr) !important;
     gap: 7px !important;
   }
+
   .content .tab-content#settings-tab.active:has(#advertisement-settab.activetab) {
     display: grid !important;
     grid-template-rows: minmax(0, 1fr) !important;
     gap: 0 !important;
     overflow: hidden !important;
   }
+
   .content .tab-content#settings-tab #advertisement-settab.activetab {
     height: 100% !important;
     margin: 0 auto !important;
     grid-template-rows: auto minmax(0, 1fr) !important;
   }
 }
+
 @media (min-width: 861px) and (max-height: 760px) {
   .overview-page .card-chart-dashboard {
     grid-template-rows: 52px minmax(0, 1fr) !important;
   }
-  .overview-page .card-chart-dashboard > .section-heading {
+
+  .overview-page .card-chart-dashboard>.section-heading {
     display: flex !important;
     grid-row: 1 !important;
   }
+
   .overview-page .analytics-card {
     grid-row: 2 !important;
     height: 100% !important;
   }
 }
+
 @media (max-width: 860px) {
   .content-header {
     min-height: 58px !important;
     padding: 7px 11px !important;
   }
+
   .tab-content {
     padding: 9px 10px 12px !important;
   }
+
   .page-intro {
     padding: 10px 11px !important;
   }
-}/*# sourceMappingURL=admin-console.css.map */
+}
+
+/*# sourceMappingURL=admin-console.css.map */

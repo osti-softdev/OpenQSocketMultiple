@@ -1127,6 +1127,87 @@ module.exports = function createTellerApiRouter(io) {
     }
   });
 
+  const DEFAULT_ROLE_PERMISSIONS = {
+    user: {
+      tabs: ['dashboard', 'live', 'reports', 'history'],
+      settings: []
+    },
+    admin: {
+      tabs: ['dashboard', 'live', 'reports', 'history', 'services', 'tellers', 'settings'],
+      settings: ['advertisement', 'announcement']
+    },
+    superadmin: {
+      tabs: ['dashboard', 'live', 'reports', 'history', 'services', 'tellers', 'accounts', 'settings'],
+      settings: ['configuration', 'advertisement', 'announcement', 'displayaudio', 'images', 'smsconfig', 'systemlogs']
+    }
+  };
+
+  // & Role Permissions endpoints
+  router.get('/admin/role-permissions', (req, res) => {
+    db.get(`SELECT value FROM settings WHERE key = 'role_permissions'`, (err, row) => {
+      if (err) return res.status(500).json({ error: err.message });
+      if (!row || !row.value) {
+        return res.json({
+          ...DEFAULT_ROLE_PERMISSIONS,
+          accounts: {}
+        });
+      }
+      try {
+        const permissions = JSON.parse(row.value);
+        res.json({
+          user: permissions.user || DEFAULT_ROLE_PERMISSIONS.user,
+          admin: permissions.admin || DEFAULT_ROLE_PERMISSIONS.admin,
+          superadmin: DEFAULT_ROLE_PERMISSIONS.superadmin,
+          accounts: typeof permissions.accounts === 'object' && permissions.accounts !== null ? permissions.accounts : {}
+        });
+      } catch (e) {
+        res.json({
+          ...DEFAULT_ROLE_PERMISSIONS,
+          accounts: {}
+        });
+      }
+    });
+  });
+
+  router.put('/admin/role-permissions', requireRole('superadmin'), (req, res) => {
+    const { user, admin, accounts } = req.body || {};
+    const permissions = {
+      user: {
+        tabs: Array.isArray(user?.tabs) ? user.tabs : DEFAULT_ROLE_PERMISSIONS.user.tabs,
+        settings: Array.isArray(user?.settings) ? user.settings : DEFAULT_ROLE_PERMISSIONS.user.settings
+      },
+      admin: {
+        tabs: Array.isArray(admin?.tabs) ? admin.tabs : DEFAULT_ROLE_PERMISSIONS.admin.tabs,
+        settings: Array.isArray(admin?.settings) ? admin.settings : DEFAULT_ROLE_PERMISSIONS.admin.settings
+      },
+      superadmin: DEFAULT_ROLE_PERMISSIONS.superadmin,
+      accounts: typeof accounts === 'object' && accounts !== null ? accounts : {}
+    };
+
+    const valStr = JSON.stringify(permissions);
+    db.run(
+      `UPDATE settings SET value = ?, status = 1 WHERE key = 'role_permissions'`,
+      [valStr],
+      function (err) {
+        if (err) return res.status(500).json({ error: err.message });
+        if (this.changes === 0) {
+          db.run(
+            `INSERT INTO settings (key, value, status) VALUES ('role_permissions', ?, 1)`,
+            [valStr],
+            err2 => {
+              if (err2) return res.status(500).json({ error: err2.message });
+              io.emit('role_permissions_updated', permissions);
+              res.json({ success: true, permissions });
+            }
+          );
+        } else {
+          io.emit('role_permissions_updated', permissions);
+          res.json({ success: true, permissions });
+        }
+      }
+    );
+  });
+
   // & settings
 router.get('/settings', (req, res) => {
     db.all('SELECT * FROM settings', (err, settings) => {

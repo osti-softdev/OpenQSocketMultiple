@@ -3,13 +3,21 @@
 // ~ ===== SERVICES =====
 function loadServices() {
     $.get('/api/admin/services', function (services) {
-        if(services.length === 16){
+        const canAddService = typeof canAccessAdminAction === 'function' ? canAccessAdminAction('services_add') : true;
+        if (services.length === 16 || !canAddService) {
             $('#addServiceBtn').hide();
-        }else{
+        } else {
             $('#addServiceBtn').show();
         }
+
+        const isSuperAdmin = currentAdminSession && normalizeAdminRole(currentAdminSession.role) === 'superadmin';
         const $list = $('#services-list').empty();
+
         services.forEach(s => {
+            const deleteBtnHtml = isSuperAdmin
+                ? `<button class="btn btn-sm btn-danger" onclick="deleteService(${s.id})">Delete</button>`
+                : '';
+
             $list.append(`
                 <tr>
                     <td>${s.shortSname}</td>
@@ -21,7 +29,7 @@ function loadServices() {
                     <td><span class="status-badge ${s.status ? 'status-active' : 'status-inactive'}">${s.status === 1 ? 'Active' : 'Inactive'}</span></td>
                     <td class="actions">
                         <button class="btn btn-sm btn-primary" onclick="editService(${s.id})">Edit</button>
-                        <button class="btn btn-sm btn-danger" onclick="deleteService(${s.id})">Delete</button>
+                        ${deleteBtnHtml}
                     </td>
                 </tr>
             `);

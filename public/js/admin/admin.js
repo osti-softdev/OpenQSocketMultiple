@@ -16,6 +16,10 @@ const ADMIN_ROLE_SETTINGS = Object.freeze({
     superadmin: ['configuration', 'advertisement', 'announcement', 'displayaudio', 'images', 'smsconfig', 'systemlogs']
 });
 
+let rolePermissionsData = null;
+let currentAdminSession = null;
+let allSystemAccounts = [];
+
 $(document).ready(function () {
     configureAdminChartHover();
     initAdminAppearance();
@@ -36,6 +40,103 @@ $(document).ready(function () {
     socket.on('service_update', async function (data) {
         if (currentTab === 'services') loadServices();
     });
+    socket.on('role_permissions_updated', function (permissions) {
+        rolePermissionsData = permissions;
+        if (currentAdminSession) {
+            applyAdminRoleAccess(currentAdminSession.role);
+        }
+    });
+
+    $('#account-perm-select').on('change', function () {
+        const accId = $(this).val();
+        if (!accId) {
+            $('#account-perm-container').slideUp(150);
+            $('#clear-account-perm-btn').hide();
+            return;
+        }
+
+        $('#account-perm-container').slideDown(150);
+        $('#clear-account-perm-btn').show();
+
+        const targetAccount = allSystemAccounts.find(a => String(a.id) === String(accId));
+        const accRole = targetAccount ? normalizeAdminRole(targetAccount.role) : 'admin';
+
+        const accOverrides = (rolePermissionsData && rolePermissionsData.accounts && rolePermissionsData.accounts[accId]) || null;
+
+        const effectiveTabs = accOverrides && Array.isArray(accOverrides.tabs)
+            ? accOverrides.tabs
+            : (rolePermissionsData?.[accRole]?.tabs || ADMIN_ROLE_TABS[accRole] || []);
+
+        const effectiveSettings = accOverrides && Array.isArray(accOverrides.settings)
+            ? accOverrides.settings
+            : (rolePermissionsData?.[accRole]?.settings || ADMIN_ROLE_SETTINGS[accRole] || []);
+
+        $('.perm-check-account').prop('checked', false);
+        effectiveTabs.forEach(t => {
+            $(`.perm-check-account[data-type="tabs"][value="${t}"]`).prop('checked', true);
+        });
+        effectiveSettings.forEach(s => {
+            $(`.perm-check-account[data-type="settings"][value="${s}"]`).prop('checked', true);
+        });
+    });
+
+    $('#clear-account-perm-btn').click(function () {
+        const accId = $('#account-perm-select').val();
+        if (!accId) return;
+
+        if (rolePermissionsData && rolePermissionsData.accounts) {
+            delete rolePermissionsData.accounts[accId];
+        }
+
+        $('#account-perm-select').trigger('change');
+        showMsg('info', 'Account override reset to role defaults.');
+    });
+
+    $('#role-permissions-form').submit(function (e) {
+        e.preventDefault();
+
+        const accountsPayload = (rolePermissionsData && typeof rolePermissionsData.accounts === 'object')
+            ? { ...rolePermissionsData.accounts }
+            : {};
+
+        const selectedAccId = $('#account-perm-select').val();
+        if (selectedAccId) {
+            accountsPayload[selectedAccId] = {
+                tabs: $('.perm-check-account[data-type="tabs"]:checked').map((_, el) => $(el).val()).get(),
+                settings: $('.perm-check-account[data-type="settings"]:checked').map((_, el) => $(el).val()).get()
+            };
+        }
+
+        const payload = {
+            admin: {
+                tabs: $('.perm-check[data-role="admin"][data-type="tabs"]:checked').map((_, el) => $(el).val()).get(),
+                settings: $('.perm-check[data-role="admin"][data-type="settings"]:checked').map((_, el) => $(el).val()).get()
+            },
+            user: {
+                tabs: $('.perm-check[data-role="user"][data-type="tabs"]:checked').map((_, el) => $(el).val()).get(),
+                settings: $('.perm-check[data-role="user"][data-type="settings"]:checked').map((_, el) => $(el).val()).get()
+            },
+            accounts: accountsPayload
+        };
+
+        $.ajax({
+            url: '/api/admin/role-permissions',
+            method: 'PUT',
+            contentType: 'application/json',
+            data: JSON.stringify(payload),
+            success: function (res) {
+                if (res.success) {
+                    rolePermissionsData = res.permissions;
+                    showMsg('success', 'Role and Account permissions saved successfully');
+                    if (currentAdminSession) applyAdminRoleAccess(currentAdminSession.role);
+                }
+            },
+            error: function (xhr) {
+                showMsg('error', xhr.responseJSON?.error || 'Failed to save role permissions');
+            }
+        });
+    });
+
     const liveTicketEvents = [
         'ticket_called',
         'ticket-called',
@@ -98,13 +199,8 @@ function initAdminAppearance() {
     $('#themeToggle').off('click.adminTheme').on('click.adminTheme', function () {
         const nextTheme = $root.attr('data-theme') === 'dark' ? 'light' : 'dark';
         $root.attr('data-theme', nextTheme);
-        localStorage.setItem('openqAdminTheme', nextTheme);
+        localStorage.setItem('admin-theme', nextTheme);
         syncThemeControl();
-
-        if (currentTab === 'dashboard' || currentTab === 'live') loadLiveDashboard();
-        if (currentTab === 'reports' && currentReportData) {
-            displayReportData(currentReportData);
-        }
     });
 
     $('#sidebarCollapse').off('click.adminLayout').on('click.adminLayout', function () {
@@ -132,9 +228,10 @@ function initAdminAppearance() {
     $('#sidebarCollapse')
         .attr('title', $root.hasClass('compact-sidebar') ? 'Expand navigation' : 'Collapse navigation')
         .attr('aria-label', $root.hasClass('compact-sidebar') ? 'Expand navigation' : 'Collapse navigation');
-    syncThemeControl();
+    
     updateClock();
-    window.adminClockInterval = window.adminClockInterval || setInterval(updateClock, 30000);
+    setInterval(updateClock, 1000);
+    syncThemeControl();
 }
 
 function getAdminChartTheme() {
@@ -186,10 +283,16 @@ $('#setting-announcement-speed').on('change', function () {
 
 // ^ CHECK ADMIN SESSION
 function checkAdmin() {
-    return $.get('/api/check-session-admin', function (res) {
+    return $.when(
+        $.get('/api/check-session-admin'),
+        $.get('/api/admin/role-permissions')
+    ).done(function (sessionRes, permRes) {
+        const res = sessionRes[0];
         if (!res.loggedIn) {
             window.location.href = '/admin';
         } else {
+            currentAdminSession = res.admin;
+            rolePermissionsData = permRes[0];
             const displayName = res.admin.username || 'Administrator';
             $('#current-user').text(displayName);
             $('.user-avatar').text(displayName.charAt(0).toUpperCase());
@@ -204,25 +307,73 @@ function normalizeAdminRole(role) {
     return String(role || '').trim().toLowerCase();
 }
 
-function getAllowedAdminTabs(role = currentAdminRole) {
-    return ADMIN_ROLE_TABS[normalizeAdminRole(role)] || [];
+function getEffectivePermissions() {
+    if (!currentAdminSession) return { tabs: [], settings: [] };
+
+    const role = normalizeAdminRole(currentAdminSession.role);
+    const accountId = String(currentAdminSession.id || '');
+    const rawUsername = String(currentAdminSession.username || '').trim();
+    const lowerUsername = rawUsername.toLowerCase();
+
+    if (role === 'superadmin') {
+        return {
+            tabs: ['dashboard', 'live', 'reports', 'history', 'services', 'tellers', 'accounts', 'settings'],
+            settings: ['configuration', 'advertisement', 'announcement', 'displayaudio', 'images', 'smsconfig', 'systemlogs']
+        };
+    }
+
+    let allowedTabs = (rolePermissionsData && rolePermissionsData[role] && rolePermissionsData[role].tabs) || ADMIN_ROLE_TABS[role] || [];
+    let allowedSettings = (rolePermissionsData && rolePermissionsData[role] && rolePermissionsData[role].settings) || ADMIN_ROLE_SETTINGS[role] || [];
+    let allowedActions = role === 'user' ? [] : ['services_add'];
+
+    if (rolePermissionsData && rolePermissionsData.accounts) {
+        const accs = rolePermissionsData.accounts;
+        let accPerm = accs[accountId] || accs[rawUsername] || accs[lowerUsername];
+        if (!accPerm) {
+            const matchedKey = Object.keys(accs).find(k => String(k).trim().toLowerCase() === lowerUsername || String(k).trim() === accountId);
+            if (matchedKey) accPerm = accs[matchedKey];
+        }
+
+        if (accPerm) {
+            if (Array.isArray(accPerm.tabs)) allowedTabs = accPerm.tabs;
+            if (Array.isArray(accPerm.settings)) allowedSettings = accPerm.settings;
+            if (Array.isArray(accPerm.actions)) allowedActions = accPerm.actions;
+        }
+    }
+
+    if (!allowedTabs.includes('settings')) {
+        allowedSettings = [];
+    }
+
+    return { tabs: allowedTabs, settings: allowedSettings, actions: allowedActions };
 }
 
-function canAccessAdminTab(tab, role = currentAdminRole) {
-    return getAllowedAdminTabs(role).includes(String(tab || ''));
+function getAllowedAdminTabs() {
+    return getEffectivePermissions().tabs;
 }
 
-function getAllowedAdminSettings(role = currentAdminRole) {
-    return ADMIN_ROLE_SETTINGS[normalizeAdminRole(role)] || [];
+function canAccessAdminTab(tab) {
+    return getAllowedAdminTabs().includes(String(tab || ''));
 }
 
-function canAccessAdminSetting(setting, role = currentAdminRole) {
-    return getAllowedAdminSettings(role).includes(String(setting || ''));
+function getAllowedAdminSettings() {
+    return getEffectivePermissions().settings;
+}
+
+function canAccessAdminSetting(setting) {
+    return getAllowedAdminSettings().includes(String(setting || ''));
+}
+
+function canAccessAdminAction(actionKey) {
+    if (!currentAdminSession) return false;
+    const role = normalizeAdminRole(currentAdminSession.role);
+    if (role === 'superadmin') return true;
+    return getEffectivePermissions().actions.includes(String(actionKey || ''));
 }
 
 function applyAdminRoleAccess(role) {
-    currentAdminRole = normalizeAdminRole(role);
-    const allowedTabs = getAllowedAdminTabs();
+    currentAdminRole = normalizeAdminRole(role || currentAdminSession?.role);
+    const { tabs: allowedTabs, settings: allowedSettings } = getEffectivePermissions();
 
     if (!allowedTabs.length) {
         document.documentElement.classList.remove('admin-access-pending');
@@ -232,56 +383,76 @@ function applyAdminRoleAccess(role) {
     }
 
     $('[data-tab]').each(function () {
-        const allowed = canAccessAdminTab($(this).data('tab'));
+        const tabKey = String($(this).data('tab') || '');
+        const allowed = allowedTabs.includes(tabKey);
         $(this).toggleClass('role-restricted', !allowed).attr('aria-hidden', String(!allowed));
+        if (!allowed) $(this).attr('style', 'display: none !important;'); else $(this).removeAttr('style');
     });
 
     $('[data-jump-tab]').each(function () {
-        $(this).toggleClass('role-restricted', !canAccessAdminTab($(this).data('jump-tab')));
+        const tabKey = String($(this).data('jump-tab') || '');
+        const allowed = allowedTabs.includes(tabKey);
+        $(this).toggleClass('role-restricted', !allowed);
+        if (!allowed) $(this).attr('style', 'display: none !important;'); else $(this).removeAttr('style');
     });
 
     $('.tab-content[id$="-tab"]').each(function () {
-        const tab = String(this.id).replace(/-tab$/, '');
-        $(this).toggleClass('role-restricted', !canAccessAdminTab(tab));
+        const tabKey = String(this.id).replace(/-tab$/, '');
+        const allowed = allowedTabs.includes(tabKey);
+        $(this).toggleClass('role-restricted', !allowed);
     });
 
     $('.sidebar-nav .nav-section-label').each(function () {
         const hasAllowedItem = $(this)
             .nextUntil('.nav-section-label', '.nav-item')
             .toArray()
-            .some(item => !item.classList.contains('role-restricted'));
+            .some(item => !item.classList.contains('role-restricted') && $(item).css('display') !== 'none');
         $(this).toggleClass('role-restricted', !hasAllowedItem);
+        if (!hasAllowedItem) $(this).attr('style', 'display: none !important;'); else $(this).removeAttr('style');
     });
 
-    $('.settingsMenu').toggleClass('role-restricted', !canAccessAdminTab('settings'));
+    const hasSettingsTab = allowedTabs.includes('settings');
+    $('.settingsMenu').toggleClass('role-restricted', !hasSettingsTab);
+    if (!hasSettingsTab) {
+        $('.settingsMenu').attr('style', 'display: none !important;');
+    } else {
+        $('.settingsMenu').removeAttr('style');
+    }
 
     $('.settingsmenubtn').each(function () {
-        const allowed = canAccessAdminSetting($(this).data('settingstab'));
+        const settingKey = String($(this).data('settingstab') || '');
+        const allowed = hasSettingsTab && allowedSettings.includes(settingKey);
         $(this).toggleClass('role-restricted', !allowed).attr('aria-hidden', String(!allowed));
+        if (!allowed) {
+            $(this).attr('style', 'display: none !important;');
+        } else {
+            $(this).removeAttr('style');
+        }
     });
 
     $('.settabs').each(function () {
-        const setting = String(this.id || '').replace(/-settab$/, '');
-        $(this).toggleClass('role-restricted', !canAccessAdminSetting(setting));
+        const settingKey = String(this.id || '').replace(/-settab$/, '');
+        const allowed = hasSettingsTab && allowedSettings.includes(settingKey);
+        $(this).toggleClass('role-restricted', !allowed);
     });
 
     const activeSetting = $('.settingsmenubtn.active').data('settingstab');
-    const allowedSettings = getAllowedAdminSettings();
-    if (allowedSettings.length && !canAccessAdminSetting(activeSetting)) {
+    if (allowedSettings.length && (!hasSettingsTab || !allowedSettings.includes(activeSetting))) {
         settingstabs(allowedSettings[0]);
     }
 
     document.documentElement.classList.remove('admin-access-pending');
 
-    const initialTab = canAccessAdminTab(currentTab) ? currentTab : allowedTabs[0];
+    const initialTab = allowedTabs.includes(currentTab) ? currentTab : allowedTabs[0];
     switchTab(initialTab);
 }
 
 // & SWITCH TABS
 function switchTab(tab) {
     if (!canAccessAdminTab(tab)) {
-        if (currentAdminRole) {
-            Swal.fire({ icon: 'warning', title: 'Access denied', text: 'Your account role cannot open this workspace.' });
+        const allowed = getAllowedAdminTabs();
+        if (allowed.length > 0) {
+            return switchTab(allowed[0]);
         }
         return false;
     }
@@ -293,9 +464,9 @@ function switchTab(tab) {
     $(`#${tab}-tab`).addClass('active');
     const el = $("#adminAdPlayer")[0];
     if(tab != 'settings'){
-        el.pause();
+        if (el) el.pause();
     }else{
-        el.play();
+        if (el) el.play();
     }
     const titles = {
         'dashboard': 'Operations Overview',
@@ -308,7 +479,7 @@ function switchTab(tab) {
         'settings': 'Display & Media Settings'
     };
 
-    $('#tab-title').text(titles[tab]);
+    $('#tab-title').text(titles[tab] || 'Admin Console');
     if(tab !== 'settings'){
         $('.settingsMenu').slideUp(100);
     }
@@ -352,8 +523,9 @@ function refreshCurrentTab() {
 
 function settingstabs(tab) {
     if (!canAccessAdminTab('settings') || !canAccessAdminSetting(tab)) {
-        if (currentAdminRole) {
-            Swal.fire({ icon: 'warning', title: 'Access denied', text: 'Your account role cannot open this setting.' });
+        const allowedSettings = getAllowedAdminSettings();
+        if (allowedSettings.length > 0) {
+            return settingstabs(allowedSettings[0]);
         }
         return false;
     }
@@ -362,7 +534,7 @@ function settingstabs(tab) {
     $(`.settingsmenubtn[data-settingstab="${tab}"]`).addClass('active');
     $('.settabs').removeClass('activetab');
     $(`#${tab}-settab`).addClass('activetab');
-    console.log(tab)
+
     // Load data for the tab
     if (tab === 'announcement') {
     }
@@ -535,6 +707,42 @@ function openModal(type = currentTab, data = null) {
         showMsg('error', 'Failed to load groups or services');
     });
     }else if (type === 'accounts') {
+        const accRole = data?.role || 'admin';
+        const accId = String(data?.id || '');
+        const accOverrides = (rolePermissionsData && rolePermissionsData.accounts && (rolePermissionsData.accounts[accId] || rolePermissionsData.accounts[data?.username])) || null;
+
+        const allowedTabs = accOverrides && Array.isArray(accOverrides.tabs)
+            ? accOverrides.tabs
+            : (rolePermissionsData?.[accRole]?.tabs || ADMIN_ROLE_TABS[accRole] || []);
+
+        const allowedSettings = accOverrides && Array.isArray(accOverrides.settings)
+            ? accOverrides.settings
+            : (rolePermissionsData?.[accRole]?.settings || ADMIN_ROLE_SETTINGS[accRole] || []);
+
+        const allowedActions = accOverrides && Array.isArray(accOverrides.actions)
+            ? accOverrides.actions
+            : (accRole === 'user' ? [] : ['services_add']);
+
+        const allTabs = [
+            { id: 'dashboard', label: 'Dashboard' },
+            { id: 'live', label: 'Live Queue' },
+            { id: 'reports', label: 'Reports' },
+            { id: 'history', label: 'History' },
+            { id: 'services', label: 'Services' },
+            { id: 'tellers', label: 'Tellers' },
+            { id: 'settings', label: 'Settings' }
+        ];
+
+        const allSettings = [
+            { id: 'configuration', label: 'Configurations' },
+            { id: 'advertisement', label: 'Advertisement' },
+            { id: 'announcement', label: 'Announcement' },
+            { id: 'displayaudio', label: 'Display Audio' },
+            { id: 'images', label: 'Images' },
+            { id: 'smsconfig', label: 'SMS Config' },
+            { id: 'systemlogs', label: 'System Logs' }
+        ];
+
         $form.html(`
             <div class="form-group">
                 <label>Name</label>
@@ -553,29 +761,100 @@ function openModal(type = currentTab, data = null) {
 
             <div class="form-group">
                 <label>Role</label>
-              ${(() => {
-                    const roles = ['superadmin', 'admin', 'user'];
-                    return `
-                        <select id="ac-role" class="form-control">
-                            ${roles.map(role => `
-                                <option value="${role}" 
-                                    ${data?.role === role ? 'selected' : ''}>
-                                    ${role.charAt(0).toUpperCase() + role.slice(1)}
-                                </option>
-                            `).join('')}
-                        </select>
-                    `;
-                })()}
+                <select id="ac-role" class="form-control">
+                    <option value="superadmin" ${accRole === 'superadmin' ? 'selected' : ''}>Superadmin</option>
+                    <option value="admin" ${accRole === 'admin' ? 'selected' : ''}>Admin</option>
+                    <option value="user" ${accRole === 'user' ? 'selected' : ''}>User</option>
+                </select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group form-group-wide" style="margin-top: 15px; border-top: 1px solid var(--console-border); padding-top: 15px;">
+                <label style="font-weight: 600; margin-bottom: 8px; display: block;">Account Specific Permissions</label>
+                
+                <div style="margin-bottom: 12px;">
+                    <span style="font-size: 12px; font-weight: 600; color: var(--console-muted); display: block; margin-bottom: 6px;">Sidebar Navigation Buttons:</span>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
+                        ${allTabs.map(t => `
+                            <label style="font-size: 13px; font-weight: normal; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                                <input type="checkbox" class="ac-perm-tab" value="${t.id}" ${allowedTabs.includes(t.id) ? 'checked' : ''}> ${t.label}
+                            </label>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 12px;">
+                    <span style="font-size: 12px; font-weight: 600; color: var(--console-muted); display: block; margin-bottom: 6px;">Settings Sub-menu Items:</span>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
+                        ${allSettings.map(s => `
+                            <label class="ac-perm-setting-label" style="font-size: 13px; font-weight: normal; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: opacity 0.15s ease;">
+                                <input type="checkbox" class="ac-perm-setting" value="${s.id}" ${allowedSettings.includes(s.id) ? 'checked' : ''}> ${s.label}
+                            </label>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div>
+                    <span style="font-size: 12px; font-weight: 600; color: var(--console-muted); display: block; margin-bottom: 6px;">Feature Buttons & Actions:</span>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;">
+                        <label style="font-size: 13px; font-weight: normal; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                            <input type="checkbox" class="ac-perm-action" value="services_add" ${allowedActions.includes('services_add') ? 'checked' : ''}> Add Service Button
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group form-group-wide">
                 <label class="form-toggle-label" for="ac-active">
-                    <input type="checkbox" id="ac-active"
-                        ${Number(data?.status) === 1 ? 'checked' : ''}>
+                    <input type="checkbox" id="ac-active" ${!data || Number(data?.status) === 1 ? 'checked' : ''}>
                     <span>Account is active</span>
                 </label>
             </div>
         `);
+
+        function syncSettingsSubmenuState() {
+            const isSettingsChecked = $('.ac-perm-tab[value="settings"]').is(':checked');
+            $('.ac-perm-setting').prop('disabled', !isSettingsChecked);
+            $('.ac-perm-setting-label').css({
+                'opacity': isSettingsChecked ? '1' : '0.45',
+                'pointer-events': isSettingsChecked ? 'auto' : 'none'
+            });
+            if (!isSettingsChecked) {
+                $('.ac-perm-setting').prop('checked', false);
+            }
+        }
+
+        $(document).off('change.acSettingsSync', '.ac-perm-tab[value="settings"]')
+                  .on('change.acSettingsSync', '.ac-perm-tab[value="settings"]', syncSettingsSubmenuState);
+
+        $('#ac-role').on('change', function () {
+            const newRole = normalizeAdminRole($(this).val());
+            if (newRole === 'superadmin') {
+                $('.ac-perm-tab, .ac-perm-setting, .ac-perm-action').prop('checked', true);
+            } else if (newRole === 'admin') {
+                const roleTabs = rolePermissionsData?.[newRole]?.tabs || ADMIN_ROLE_TABS[newRole] || [];
+                const roleSettings = rolePermissionsData?.[newRole]?.settings || ADMIN_ROLE_SETTINGS[newRole] || [];
+                $('.ac-perm-tab').each(function () {
+                    $(this).prop('checked', roleTabs.includes($(this).val()));
+                });
+                $('.ac-perm-setting').each(function () {
+                    $(this).prop('checked', roleSettings.includes($(this).val()));
+                });
+                $('.ac-perm-action[value="services_add"]').prop('checked', true);
+            } else {
+                const roleTabs = rolePermissionsData?.[newRole]?.tabs || ADMIN_ROLE_TABS[newRole] || [];
+                const roleSettings = rolePermissionsData?.[newRole]?.settings || ADMIN_ROLE_SETTINGS[newRole] || [];
+                $('.ac-perm-tab').each(function () {
+                    $(this).prop('checked', roleTabs.includes($(this).val()));
+                });
+                $('.ac-perm-setting').each(function () {
+                    $(this).prop('checked', roleSettings.includes($(this).val()));
+                });
+                $('.ac-perm-action').prop('checked', false);
+            }
+            syncSettingsSubmenuState();
+        });
+
+        syncSettingsSubmenuState();
     }
     $('#modal-overlay').show();
     $('#save-btn').off('click').on('click', saveItem);
@@ -735,7 +1014,49 @@ function saveItem() {
             method,
             contentType: 'application/json',
             data: JSON.stringify(payload),
-            success: () => {
+            success: (res) => {
+                const targetId = String(editId || res?.id || '');
+                const targetUser = String(rawusername || '').trim();
+                const lowerUser = targetUser.toLowerCase();
+                const isSettingsChecked = $('.ac-perm-tab[value="settings"]').is(':checked');
+
+                if (targetId || targetUser) {
+                    const currentAccs = (rolePermissionsData && typeof rolePermissionsData.accounts === 'object')
+                        ? { ...rolePermissionsData.accounts }
+                        : {};
+
+                    const permObj = {
+                        tabs: $('.ac-perm-tab:checked').map((_, el) => $(el).val()).get(),
+                        settings: isSettingsChecked
+                            ? $('.ac-perm-setting:checked').map((_, el) => $(el).val()).get()
+                            : [],
+                        actions: $('.ac-perm-action:checked').map((_, el) => $(el).val()).get()
+                    };
+
+                    if (targetId) currentAccs[targetId] = permObj;
+                    if (targetUser) currentAccs[targetUser] = permObj;
+                    if (lowerUser) currentAccs[lowerUser] = permObj;
+
+                    const permPayload = {
+                        user: rolePermissionsData?.user || { tabs: ['dashboard', 'live', 'reports', 'history'], settings: [] },
+                        admin: rolePermissionsData?.admin || { tabs: ['dashboard', 'live', 'reports', 'history', 'services', 'tellers', 'settings'], settings: ['advertisement', 'announcement'] },
+                        accounts: currentAccs
+                    };
+
+                    $.ajax({
+                        url: '/api/admin/role-permissions',
+                        method: 'PUT',
+                        contentType: 'application/json',
+                        data: JSON.stringify(permPayload),
+                        success: (pRes) => {
+                            if (pRes.success) {
+                                rolePermissionsData = pRes.permissions;
+                                if (currentAdminSession) applyAdminRoleAccess(currentAdminSession.role);
+                            }
+                        }
+                    });
+                }
+
                 $('#modal-overlay').hide();
                 loadAccounts();
                 showMsg('success', 'Account saved successfully');

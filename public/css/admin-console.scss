@@ -1,4 +1,11 @@
 /* OpenQ Admin Console 2.0 - isolated visual layer */
+.role-restricted,
+.settingsmenubtn.role-restricted,
+.nav-item.role-restricted,
+.settingsMenu.role-restricted {
+    display: none !important;
+}
+
 :root {
     color-scheme: light;
     --console-bg: #f3f6fb;
@@ -364,6 +371,12 @@ textarea:focus-visible {
     border: 1px solid rgba(255, 255, 255, .06) !important;
     border-radius: 10px !important;
     background: rgba(0, 0, 0, .09) !important;
+}
+
+.sidebar .sidebar-nav .settingsMenu .settingsmenubtn.role-restricted,
+.sidebar .sidebar-nav .settingsMenu .settingsmenubtn[style*="display: none"],
+.sidebar .sidebar-nav .settingsMenu .settingsmenubtn[aria-hidden="true"] {
+    display: none !important;
 }
 
 .sidebar .sidebar-nav .settingsMenu .settingsmenubtn {
@@ -5437,4 +5450,13 @@ html.compact-sidebar .logout-btn span {
     .page-intro {
         padding: 10px 11px !important;
     }
+}
+
+/* Keep role restrictions above legacy and responsive display declarations. */
+.role-restricted,
+.role-restricted.role-restricted,
+.sidebar .sidebar-nav .settingsMenu .settingsmenubtn.role-restricted,
+.sidebar .sidebar-nav .settingsMenu .settingsmenubtn[aria-hidden="true"],
+.sidebar .sidebar-nav .settingsMenu .settingsmenubtn[style*="display: none"] {
+    display: none !important;
 }

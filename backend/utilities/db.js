@@ -180,7 +180,7 @@ function initializeDatabase() {
 
     const counterGroups = [
       [71, 'BUSINESS_TAX'], [72, 'MDRRMO'], [73, 'CASHIER'], [75, 'REAL_PROPERTY_TAX'],
-      [76, 'GENERAL'], [77, 'ASSESSMENT'], [78, 'EVALUATOR'], [79, 'ASSESSOR']
+      [76, 'GENERAL'], [77, 'ASSESSMENT']
     ];
     counterGroups.forEach(cg => db.run(`INSERT OR IGNORE INTO counter_groups (id, group_name) VALUES (?, ?)`, cg));
 

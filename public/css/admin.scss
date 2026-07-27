@@ -111,6 +111,12 @@ body {
             width: 100%;
             display: none;
 
+            .settingsmenubtn.role-restricted,
+            .settingsmenubtn[aria-hidden="true"],
+            .settingsmenubtn[style*="display: none"] {
+                display: none !important;
+            }
+
             .settingsmenubtn {
                 position: relative;
                 height: 25%;
@@ -4427,4 +4433,11 @@ textarea:focus {
 html[data-theme="dark"] .settingimages,
 html[data-theme="dark"] .settingfonts {
     background: var(--console-surface) !important;
+}
+
+.role-restricted,
+.role-restricted.role-restricted,
+.sidebar .sidebar-nav .settingsMenu .settingsmenubtn.role-restricted,
+.settingsmenubtn.role-restricted {
+    display: none !important;
 }

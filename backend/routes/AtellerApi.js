@@ -4,7 +4,6 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 // tellerApi.js
 const { requireRole } = require('../utilities/authsession');
-const { authLimiter, resetAuthLimit } = require("../utilities/rateLimiter");
 
 module.exports = function createTellerApiRouter(io) {
     const router = express.Router();
@@ -68,7 +67,7 @@ module.exports = function createTellerApiRouter(io) {
     // =========================
     // & Account login
     // =========================
-    router.post('/login', authLimiter, (req, res) => {
+    router.post('/login', (req, res) => {
         const { username, password } = req.body;
 
         console.log('Login attempt for:', username);
