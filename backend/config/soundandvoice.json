@@ -8,5 +8,5 @@
   "voice_volume": 0.8,
   "bell_volume": 0.75,
   "ad_volume": 0.04,
-  "voice_message_format": "Now Serving #serviceticket; Please proceed to counter #counternumber"
+  "voice_message_format": "Now Serving, #serviceticket; Please proceed to counter #counternumber"
 }

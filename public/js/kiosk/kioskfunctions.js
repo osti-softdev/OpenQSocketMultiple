@@ -32,14 +32,15 @@ $(document).ready(async function () {
         $(".category-container").fadeOut();
 
         if (category === "reg") {
+            selectedType = 0;
             $("#priorityServices").hide();
             $("#regularServices").css({ display: "flex" });
-            selectedType = 0;
         } else if (category === "prio") {
+            selectedType = 1;
             $("#regularServices").hide();
             $("#priorityServices").css({ display: "flex" });
-            selectedType = 1;
         }
+        loadServicesBtns(services);
     });
 
     function loadServicesBtns(services) {
@@ -112,9 +113,10 @@ $(document).ready(async function () {
 
         // Back button handler
         $(".back-btn").off("click").on("click", function () {   // .off() prevents duplicate handlers
-            $("#regularServices, #priorityServices").fadeOut(200);
-            $(".category-container").fadeIn(200);
+            $("#regularServices, #priorityServices").fadeOut();
+            $(".category-container").fadeIn();
             selectedType = null;
+            loadServicesBtns(services);
         });
 
         // Click handler for active (non-locked) buttons
@@ -296,9 +298,10 @@ $(document).ready(async function () {
                             showConfirmButton: false,
                         });
 
-                        $("#regularServices, #priorityServices").fadeOut(200);
-                        $(".category-container").fadeIn(200);
+                        $("#regularServices, #priorityServices").fadeOut();
+                        $(".category-container").fadeIn();
                         selectedType = null;
+                        loadServicesBtns(services);
 
                     } else {
                         Swal.fire('Error', response.error || 'Failed to generate ticket', 'error');
@@ -386,8 +389,10 @@ function resetInactivityTimer() {
     inactivityTimer = setTimeout(() => {
         $(".mobilemain").hide();
         $("#mobileNo").val("");
-        $("#regularServices, #priorityServices").fadeOut(200);
-        $(".category-container").fadeIn(200);
+        $("#regularServices, #priorityServices").fadeOut();
+        $(".category-container").fadeIn();
+        selectedType = null;
+        loadServicesBtns(services);
     }, 30000);
 }
 
