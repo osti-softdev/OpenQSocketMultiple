@@ -446,6 +446,8 @@ io.on("connection", (socket) => {
     if (isRaspberryPiGpio) {
       setupCalledTicketsWatcher(socket, io, "RASPBERRY_PI_GPIO");
     }
+      setupLoginSocketteller(socket);
+      setupTellerWatcher(socket, io);
       if (isWindowed) {
       setupLoginSocketteller(socket);
       setupTellerWatcher(socket, io);
