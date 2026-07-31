@@ -276,6 +276,15 @@ if (isRaspberryPiGpio) {
     initializeGPIO = gpioModule.initializeGPIO;
     cleanupGPIO = gpioModule.cleanupGPIO;
     console.log("✅ GPIO module loaded");
+
+     appExpress.get("/312Xtellerlogin", (req, res) => {
+    setNoCacheHeaders(res);
+    res.sendFile(path.join(rootpath, "reso/html/webtellerlogin.html"));
+  });
+  appExpress.get("/312XtellerWindow", (req, res) => {
+    setNoCacheHeaders(res);
+    res.sendFile(path.join(rootpath, "reso/html/webteller.html"));
+  });
   } catch (err) {
     console.error("❌ Failed to load GPIO module:", err.message);
     console.warn("⚠️  GPIO functionality may not be available");
