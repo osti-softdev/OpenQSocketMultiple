@@ -7,14 +7,14 @@ use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
 use Mike42\Escpos\EscposImage;
 
 // --- PRINT LOGO ---
-try {
-    $logo = EscposImage::load(__DIR__ . "/../images/dbp.png", false);
-    $printer->setJustification(Printer::JUSTIFY_CENTER);
-    $printer->bitImage($logo, Printer::IMG_DEFAULT);
-    $printer->feed();
-} catch (Exception $e) {
-    // if logo missing
-}
+// try {
+//     $logo = EscposImage::load(__DIR__ . "/../images/dbp.png", false);
+//     $printer->setJustification(Printer::JUSTIFY_CENTER);
+//     $printer->bitImage($logo, Printer::IMG_DEFAULT);
+//     $printer->feed();
+// } catch (Exception $e) {
+//     // if logo missing
+// }
 
 $connector = new WindowsPrintConnector("POS-90");
 $printer = new Printer($connector);
@@ -49,8 +49,8 @@ $printer->selectPrintMode(Printer::MODE_DOUBLE_HEIGHT | Printer::MODE_DOUBLE_WID
 $printer->setFont(Printer::FONT_B);
 $printer->setTextSize(3, 2);
 
-$printer->text("MUNICIPALITY OF\n");
-$printer->text("OSLOB\n");
+$printer->text("CEBU CITY\n");
+$printer->text("TRANSPORTATION OFFICE\n");
 
 $printer->setTextSize(1, 1);
 $printer->text($date ." ". $time."\n");
