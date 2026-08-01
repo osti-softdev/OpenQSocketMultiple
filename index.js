@@ -35,7 +35,12 @@ require('./backend/utilities/db');
 const { serverCreator } = require("./backend/utilities/serverCreator");
 serverCreator(server);
 
-appExpress.use(cors());
+appExpress.use(cors({
+    origin: function(origin, callback) {
+        callback(null, true);
+    },
+    credentials: true
+}));
 appExpress.use(express.json({ limit: '50mb' }));
 appExpress.use(cookieParser());
 appExpress.use(express.urlencoded({ limit: '50mb', extended: true }));
@@ -65,11 +70,11 @@ appExpress.use((req, res, next) => {
 });
 
 appExpress.use('/ads', express.static(path.join(__dirname, 'public/ads'), {
-  setHeaders: (res, path) => {
-    if (path.endsWith('.mp4')) {
-      res.setHeader('Content-Type', 'video/mp4');
+    setHeaders: (res, path) => {
+        if (path.endsWith('.mp4')) {
+            res.setHeader('Content-Type', 'video/mp4');
+        }
     }
-  }
 }));
 
 appExpress.use('/', require('./backend/routes/pages'));

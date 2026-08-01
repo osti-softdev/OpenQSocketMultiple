@@ -5,9 +5,9 @@ const bcrypt = require('bcrypt');
 const fs = require('fs');
 
 const rootpath =
-	global.ROOT_PATH;
+    global.ROOT_PATH;
 
-const { requireRole  } = require(`../utilities/authsession`);
+const { requireRole } = require(`../utilities/authsession`);
 const { authLimiter, resetAuthLimit } = require("../utilities/rateLimiter");
 const { readSoundConfig, writeSoundConfig } = require('../utilities/soundConfig');
 const { loadConfig, saveConfig } = require('../utilities/envconfig');
@@ -22,88 +22,88 @@ module.exports = function createTellerApiRouter(io) {
     const db = require(path.join(rootpath, 'utilities/db'));
     const { getPHDateTime } = require(path.join(rootpath, 'utilities/datetime'));
     const {
-      inTransaction,
-      normalizeServiceKey,
-      synchronizeServiceGroups
+        inTransaction,
+        normalizeServiceKey,
+        synchronizeServiceGroups
     } = require(path.join(rootpath, 'utilities/serviceGroups'));
 
     let serviceGroupsInitializationError = null;
     const serviceGroupsReady = inTransaction(db, () => synchronizeServiceGroups(db))
-      .then(() => console.log('Services and routing groups synchronized'))
-      .catch(error => {
-        console.error('Unable to synchronize services and routing groups:', error);
-        serviceGroupsInitializationError = error;
-      });
+        .then(() => console.log('Services and routing groups synchronized'))
+        .catch(error => {
+            console.error('Unable to synchronize services and routing groups:', error);
+            serviceGroupsInitializationError = error;
+        });
 
     router.use('/admin', async (req, res, next) => {
-      try {
-        await serviceGroupsReady;
-        if (serviceGroupsInitializationError) throw serviceGroupsInitializationError;
-        next();
-      } catch (error) {
-        res.status(500).json({ error: 'Service routing initialization failed' });
-      }
+        try {
+            await serviceGroupsReady;
+            if (serviceGroupsInitializationError) throw serviceGroupsInitializationError;
+            next();
+        } catch (error) {
+            res.status(500).json({ error: 'Service routing initialization failed' });
+        }
     });
 
-  // =========================
-  // & Account login
-  // =========================
-  router.post('/loginAdmin', authLimiter, (req, res) => {
-    const { username, password } = req.body;
+    // =========================
+    // & Account login
+    // =========================
+    router.post('/loginAdmin', authLimiter, (req, res) => {
+        const { username, password } = req.body;
 
-    console.log('Login attempt for:', username);
+        console.log('Login attempt for:', username);
 
-    db.get(
-        'SELECT * FROM accounts WHERE username = ?',
-        [username],
-        (err, admin) => {
-            if (err) {
-                console.error('Database error during login:', err);
-                return res.status(500).json({ success: false, message: 'Database error' });
-            }
+        db.get(
+            'SELECT * FROM accounts WHERE username = ?',
+            [username],
+            (err, admin) => {
+                if (err) {
+                    console.error('Database error during login:', err);
+                    return res.status(500).json({ success: false, message: 'Database error' });
+                }
 
-            if (!admin) {
-                console.log('User not found:', username);
-                const remaining = req.rateLimit ? req.rateLimit.remaining : undefined;
-                return res.status(401).json({ success: false, message: 'Invalid username or password', remainingAttempts: remaining });
-            }
-
-            console.log('User found, verifying password...');
-
-            try {
-                if (password === admin.password) {
-                    resetAuthLimit(req);
-                    req.session.admin = admin;
-                    req.session.admin = {
-                        id: admin.id,
-                        username: admin.name,
-                        status: admin.status,
-                        role: admin.role
-                    };
-
-                    console.log('Login successful for:', username);
-
-                    return res.json({
-                        success: true,
-                        admin: req.session.admin
-                    });
-                } else {
-                    console.log('Password mismatch for:', username);
+                if (!admin) {
+                    console.log('User not found:', username);
                     const remaining = req.rateLimit ? req.rateLimit.remaining : undefined;
                     return res.status(401).json({ success: false, message: 'Invalid username or password', remainingAttempts: remaining });
                 }
-            } catch (error) {
-                console.error('Authentication error:', error);
-                return res.status(500).json({ success: false, message: 'Authentication error' });
-            }
-        }
-    );
-  });
 
-  // =========================
-  // & ACCOUNT SESSION CHECKER
-  // =========================
-  router.get('/check-session-admin', (req, res) => {
+                console.log('User found, verifying password...');
+
+                try {
+                    if (password === admin.password) {
+                        resetAuthLimit(req);
+                        req.session.admin = admin;
+                        req.session.admin = {
+                            id: admin.id,
+                            username: admin.name,
+                            status: admin.status,
+                            role: admin.role
+                        };
+
+                        console.log('Login successful for:', username);
+
+                        return res.json({
+                            success: true,
+                            admin: req.session.admin
+                        });
+                    } else {
+                        console.log('Password mismatch for:', username);
+                        const remaining = req.rateLimit ? req.rateLimit.remaining : undefined;
+                        return res.status(401).json({ success: false, message: 'Invalid username or password', remainingAttempts: remaining });
+                    }
+                } catch (error) {
+                    console.error('Authentication error:', error);
+                    return res.status(500).json({ success: false, message: 'Authentication error' });
+                }
+            }
+        );
+    });
+
+    // =========================
+    // & ACCOUNT SESSION CHECKER
+    // =========================
+    router.get('/check-session-admin', (req, res) => {
         if (req.session.admin) {
             res.json({
                 loggedIn: true,
@@ -117,38 +117,38 @@ module.exports = function createTellerApiRouter(io) {
         } else {
             res.json({ loggedIn: false });
         }
-  });
+    });
 
-  // Console access matrix:
-  // user       -> Monitor (overview, live preview, reports, ticket history)
-  // admin      -> Monitor, Management, Advertisement, and Announcement
-  // superadmin -> Every workspace, including account management
-  const requireMonitorAccess = requireRole('user', 'admin', 'superadmin');
-  const requireManagementAccess = requireRole('admin', 'superadmin');
-  const requireSuperadminAccess = requireRole('superadmin');
+    // Console access matrix:
+    // user       -> Monitor (overview, live preview, reports, ticket history)
+    // admin      -> Monitor, Management, Advertisement, and Announcement
+    // superadmin -> Every workspace, including account management
+    const requireMonitorAccess = requireRole('user', 'admin', 'superadmin');
+    const requireManagementAccess = requireRole('admin', 'superadmin');
+    const requireSuperadminAccess = requireRole('superadmin');
 
-  router.use('/admin/dashboard', requireMonitorAccess);
-  router.use('/admin/analytics', requireMonitorAccess);
-  router.use('/admin/reports', requireMonitorAccess);
-  router.use('/admin/tickets', requireMonitorAccess);
-  router.use('/admin/services', requireManagementAccess);
-  router.use('/admin/groups', requireManagementAccess);
-  router.use('/admin/tellers', requireManagementAccess);
-  router.use('/admin/display-audio', requireSuperadminAccess);
-  router.use('/admin/configuration', requireSuperadminAccess);
-  router.use('/admin/accounts', requireSuperadminAccess);
+    router.use('/admin/dashboard', requireMonitorAccess);
+    router.use('/admin/analytics', requireMonitorAccess);
+    router.use('/admin/reports', requireMonitorAccess);
+    router.use('/admin/tickets', requireMonitorAccess);
+    router.use('/admin/services', requireManagementAccess);
+    router.use('/admin/groups', requireManagementAccess);
+    router.use('/admin/tellers', requireManagementAccess);
+    router.use('/admin/display-audio', requireSuperadminAccess);
+    router.use('/admin/configuration', requireSuperadminAccess);
+    router.use('/admin/accounts', requireSuperadminAccess);
 
-  // ! -------- DASHBOARD -------- !
+    // ! -------- DASHBOARD -------- !
 
-  // =========================
-  // & DASHBOARD LIVE
-  // =========================
-  router.get('/admin/dashboard/live', (req, res) => {
-    const result = { services: [], tellers: [], stats: {} };
-    const { date } = getPHDateTime();
+    // =========================
+    // & DASHBOARD LIVE
+    // =========================
+    router.get('/admin/dashboard/live', (req, res) => {
+        const result = { services: [], tellers: [], stats: {} };
+        const { date } = getPHDateTime();
 
-    const servicePromise = new Promise((resolve) => {
-        db.all(`
+        const servicePromise = new Promise((resolve) => {
+            db.all(`
             SELECT 
                 s.sname,
                 s.shortSname,
@@ -164,14 +164,14 @@ module.exports = function createTellerApiRouter(io) {
                 WHERE s.status = 1
                 GROUP BY s.sname
         `, [date, date, date, date], (err, rows) => {
-            if (err) console.error("Service query error:", err);
-            else result.services = rows;
-            resolve();
+                if (err) console.error("Service query error:", err);
+                else result.services = rows;
+                resolve();
+            });
         });
-    });
 
-    const tellerPromise = new Promise((resolve) => {
-        db.all(`
+        const tellerPromise = new Promise((resolve) => {
+            db.all(`
             SELECT 
                 c.id,
                 c.cname,
@@ -207,29 +207,29 @@ module.exports = function createTellerApiRouter(io) {
             GROUP BY c.id
         `, [date, date, date, date], (err, tellers) => {
 
-            if (err) {
-                console.error("Teller query error:", err);
-                return resolve();
-            }
-
-            tellers.forEach(teller => {
-                if (teller.serving_ticket) {
-                    teller.status = `Serving ${teller.serving_ticket}`;
-                    teller.status_code = 'busy';
-                } else {
-                    teller.status = 'Idle';
-                    teller.status_code = 'idle';
+                if (err) {
+                    console.error("Teller query error:", err);
+                    return resolve();
                 }
+
+                tellers.forEach(teller => {
+                    if (teller.serving_ticket) {
+                        teller.status = `Serving ${teller.serving_ticket}`;
+                        teller.status_code = 'busy';
+                    } else {
+                        teller.status = 'Idle';
+                        teller.status_code = 'idle';
+                    }
+                });
+
+                result.tellers = tellers;
+                resolve();
             });
-
-            result.tellers = tellers;
-            resolve();
         });
-    });
 
-    // 3️⃣ OVERALL STATS
-    const statsPromise = new Promise((resolve) => {
-        db.get(`
+        // 3️⃣ OVERALL STATS
+        const statsPromise = new Promise((resolve) => {
+            db.get(`
             SELECT 
                 COUNT(CASE 
                     WHEN status = 'pending' 
@@ -270,42 +270,42 @@ module.exports = function createTellerApiRouter(io) {
             WHERE date = ?
         `, [date, date, date, date], (err, row) => {
 
-            if (err) console.error("Stats query error:", err);
-            else result.stats = row;
+                if (err) console.error("Stats query error:", err);
+                else result.stats = row;
 
-            resolve();
+                resolve();
+            });
         });
+
+        Promise.all([servicePromise, tellerPromise, statsPromise])
+            .then(() => res.json(result))
+            .catch(err => res.status(500).json({ error: err.message }));
     });
 
-    Promise.all([servicePromise, tellerPromise, statsPromise])
-        .then(() => res.json(result))
-        .catch(err => res.status(500).json({ error: err.message }));
-  });
+    // =========================
+    // & OVERVIEW
+    // =========================
 
-  // =========================
-  // & OVERVIEW
-  // =========================
+    router.get('/admin/analytics/overview', (req, res) => {
+        const stats = {};
+        const { date } = getPHDateTime(); // e.g., '2026-02-20'
 
-  router.get('/admin/analytics/overview', (req, res) => {
-    const stats = {};
-    const { date } = getPHDateTime(); // e.g., '2026-02-20'
+        // 1️⃣ Total tickets for today
+        db.get(`SELECT COUNT(*) as total FROM transactions WHERE date = ?`, [date], (err, row) => {
+            if (err) return res.status(500).json({ error: err.message });
+            stats.totalTickets = row.total;
 
-    // 1️⃣ Total tickets for today
-    db.get(`SELECT COUNT(*) as total FROM transactions WHERE date = ?`, [date], (err, row) => {
-        if (err) return res.status(500).json({ error: err.message });
-        stats.totalTickets = row.total;
+            // 2️⃣ Tickets by status for today
+            db.all(
+                `SELECT status, COUNT(*) as count FROM transactions WHERE date = ? GROUP BY status`,
+                [date],
+                (err, rows) => {
+                    if (err) return res.status(500).json({ error: err.message });
+                    stats.byStatus = rows;
 
-        // 2️⃣ Tickets by status for today
-        db.all(
-            `SELECT status, COUNT(*) as count FROM transactions WHERE date = ? GROUP BY status`,
-            [date],
-            (err, rows) => {
-                if (err) return res.status(500).json({ error: err.message });
-                stats.byStatus = rows;
-
-                // 3️⃣ Tickets by service for today
-                db.all(
-                    `SELECT
+                    // 3️⃣ Tickets by service for today
+                    db.all(
+                        `SELECT
                         COALESCE(s.shortSname, t.sname, t.ticketservice, 'General') AS sname,
                         COUNT(*) AS count
                      FROM transactions t
@@ -313,14 +313,14 @@ module.exports = function createTellerApiRouter(io) {
                      WHERE t.date = ?
                      GROUP BY COALESCE(s.shortSname, t.sname, t.ticketservice, 'General')
                      ORDER BY count DESC`,
-                    [date],
-                    (err, rows) => {
-                        if (err) return res.status(500).json({ error: err.message });
-                        stats.byService = rows;
+                        [date],
+                        (err, rows) => {
+                            if (err) return res.status(500).json({ error: err.message });
+                            stats.byService = rows;
 
-                        // 4️⃣ Average service time per service for today
-                        db.all(
-                            `
+                            // 4️⃣ Average service time per service for today
+                            db.all(
+                                `
                             SELECT ticketservice as sname,
                                 AVG(
                                     (strftime('%s', date || ' ' || end_time) - strftime('%s', date || ' ' || start_time)) / 60.0
@@ -332,27 +332,27 @@ module.exports = function createTellerApiRouter(io) {
                                 AND date = ?
                             GROUP BY ticketservice
                             `,
-                            [date],
-                            (err, rows) => {
-                                if (err) return res.status(500).json({ error: err.message });
-                                stats.avgServiceTime = rows;
+                                [date],
+                                (err, rows) => {
+                                    if (err) return res.status(500).json({ error: err.message });
+                                    stats.avgServiceTime = rows;
 
-                                res.json(stats);
-                            }
-                        );
-                    }
-                );
-            }
-        );
+                                    res.json(stats);
+                                }
+                            );
+                        }
+                    );
+                }
+            );
+        });
     });
-  });
 
-  // & Per Hour Analytics for Today+
-  router.get('/admin/analytics/hourly', (req, res) => {
-    const { date: today } = getPHDateTime();
-    const date = /^\d{4}-\d{2}-\d{2}$/.test(req.query.date || '') ? req.query.date : today;
+    // & Per Hour Analytics for Today+
+    router.get('/admin/analytics/hourly', (req, res) => {
+        const { date: today } = getPHDateTime();
+        const date = /^\d{4}-\d{2}-\d{2}$/.test(req.query.date || '') ? req.query.date : today;
 
-    db.all(`
+        db.all(`
         SELECT 
             strftime('%H', t.date || ' ' || t.time) AS hour,
             CASE 
@@ -368,19 +368,19 @@ module.exports = function createTellerApiRouter(io) {
         GROUP BY hour, minute_block, COALESCE(s.shortSname, t.ticketservice, t.sname, 'General')
         ORDER BY hour, minute_block, sname
     `,
-    [date],
-    (err, rows) => {
-        if (err) {
-            console.error("Hourly analytics query error:", err);
-            return res.status(500).json({ error: err.message });
-        }
+            [date],
+            (err, rows) => {
+                if (err) {
+                    console.error("Hourly analytics query error:", err);
+                    return res.status(500).json({ error: err.message });
+                }
 
-        res.json(rows);
+                res.json(rows);
+            });
     });
-  });
 
     //   ! Per Day Analytics for Current Month
-  router.get('/admin/analytics/daily', (req, res) => {
+    router.get('/admin/analytics/daily', (req, res) => {
         const { date } = getPHDateTime();
 
         const currentMonth = /^\d{4}-\d{2}$/.test(req.query.month || '')
@@ -398,23 +398,23 @@ module.exports = function createTellerApiRouter(io) {
             GROUP BY day, COALESCE(s.shortSname, t.ticketservice, t.sname, 'General')
             ORDER BY day ASC
         `,
-        [`${currentMonth}%`],
-        (err, rows) => {
-            if (err) {
-                console.error("Daily analytics query error:", err);
-                return res.status(500).json({ error: err.message });
-            }
+            [`${currentMonth}%`],
+            (err, rows) => {
+                if (err) {
+                    console.error("Daily analytics query error:", err);
+                    return res.status(500).json({ error: err.message });
+                }
 
-            res.json(rows);
-        });
+                res.json(rows);
+            });
     });
 
-  // & Per Month Analytics for Current Year
-  router.get('/admin/analytics/monthly', (req, res) => {
-    const { date } = getPHDateTime();
-    const year = /^\d{4}$/.test(req.query.year || '') ? req.query.year : date.substring(0, 4);
+    // & Per Month Analytics for Current Year
+    router.get('/admin/analytics/monthly', (req, res) => {
+        const { date } = getPHDateTime();
+        const year = /^\d{4}$/.test(req.query.year || '') ? req.query.year : date.substring(0, 4);
 
-    db.all(`
+        db.all(`
         SELECT
             CAST(strftime('%m', t.date) AS INTEGER) AS month,
             COALESCE(s.shortSname, t.ticketservice, t.sname, 'General') AS sname,
@@ -425,22 +425,22 @@ module.exports = function createTellerApiRouter(io) {
         GROUP BY month, COALESCE(s.shortSname, t.ticketservice, t.sname, 'General')
         ORDER BY month ASC, sname ASC
     `, [`${year}%`], (err, rows) => {
-        if (err) {
-            console.error('Monthly analytics query error:', err);
-            return res.status(500).json({ error: err.message });
-        }
-        res.json(rows || []);
+            if (err) {
+                console.error('Monthly analytics query error:', err);
+                return res.status(500).json({ error: err.message });
+            }
+            res.json(rows || []);
+        });
     });
-  });
 
-  // Current day, week, and month snapshots for the overview workspace
-  router.get('/admin/analytics/period-overview', async (req, res) => {
-    const { date: today } = getPHDateTime();
-    const periodDefinitions = {
-      day: {
-        start: today,
-        end: today,
-        trendSql: `
+    // Current day, week, and month snapshots for the overview workspace
+    router.get('/admin/analytics/period-overview', async (req, res) => {
+        const { date: today } = getPHDateTime();
+        const periodDefinitions = {
+            day: {
+                start: today,
+                end: today,
+                trendSql: `
           SELECT
             strftime('%H', date || ' ' || time) || ':' ||
               CASE WHEN CAST(strftime('%M', date || ' ' || time) AS INTEGER) < 30 THEN '00' ELSE '30' END AS label,
@@ -456,27 +456,27 @@ module.exports = function createTellerApiRouter(io) {
           WHERE date = ?
           GROUP BY label
           ORDER BY label`
-      },
-      week: {
-        startSql: `date(?, '-' || ((CAST(strftime('%w', ?) AS INTEGER) + 6) % 7) || ' days')`,
-        end: today
-      },
-      month: {
-        start: `${today.substring(0, 7)}-01`,
-        end: today
-      }
-    };
+            },
+            week: {
+                startSql: `date(?, '-' || ((CAST(strftime('%w', ?) AS INTEGER) + 6) % 7) || ' days')`,
+                end: today
+            },
+            month: {
+                start: `${today.substring(0, 7)}-01`,
+                end: today
+            }
+        };
 
-    try {
-      const weekStartRow = await db.getAsync(
-        `SELECT ${periodDefinitions.week.startSql} AS start_date`,
-        [today, today]
-      );
-      periodDefinitions.week.start = weekStartRow.start_date;
+        try {
+            const weekStartRow = await db.getAsync(
+                `SELECT ${periodDefinitions.week.startSql} AS start_date`,
+                [today, today]
+            );
+            periodDefinitions.week.start = weekStartRow.start_date;
 
-      const result = {};
-      for (const [period, definition] of Object.entries(periodDefinitions)) {
-        const summary = await db.getAsync(`
+            const result = {};
+            for (const [period, definition] of Object.entries(periodDefinitions)) {
+                const summary = await db.getAsync(`
           SELECT
             COUNT(*) AS total,
             COUNT(CASE WHEN status = 'finished' THEN 1 END) AS completed,
@@ -496,9 +496,9 @@ module.exports = function createTellerApiRouter(io) {
           WHERE date BETWEEN ? AND ?
         `, [definition.start, definition.end]);
 
-        const trend = period === 'day'
-          ? await db.allAsync(definition.trendSql, [today])
-          : await db.allAsync(`
+                const trend = period === 'day'
+                    ? await db.allAsync(definition.trendSql, [today])
+                    : await db.allAsync(`
               SELECT
                 date AS label,
                 COUNT(*) AS total,
@@ -515,27 +515,27 @@ module.exports = function createTellerApiRouter(io) {
               ORDER BY date
             `, [definition.start, definition.end]);
 
-        result[period] = {
-          start: definition.start,
-          end: definition.end,
-          summary: summary || {},
-          trend: trend || []
-        };
-      }
+                result[period] = {
+                    start: definition.start,
+                    end: definition.end,
+                    summary: summary || {},
+                    trend: trend || []
+                };
+            }
 
-      res.json(result);
-    } catch (error) {
-      console.error('Period overview analytics error:', error);
-      res.status(500).json({ error: error.message });
-    }
-  });
+            res.json(result);
+        } catch (error) {
+            console.error('Period overview analytics error:', error);
+            res.status(500).json({ error: error.message });
+        }
+    });
 
-  // & Live 30-minute ticket arrivals and teller throughput
-  router.get('/admin/analytics/live-flow', (req, res) => {
-    const { date } = getPHDateTime();
+    // & Live 30-minute ticket arrivals and teller throughput
+    router.get('/admin/analytics/live-flow', (req, res) => {
+        const { date } = getPHDateTime();
 
-    const ticketFlow = new Promise((resolve, reject) => {
-        db.all(`
+        const ticketFlow = new Promise((resolve, reject) => {
+            db.all(`
             SELECT
                 strftime('%H', t.date || ' ' || t.time) || ':' ||
                     CASE WHEN CAST(strftime('%M', t.date || ' ' || t.time) AS INTEGER) < 30 THEN '00' ELSE '30' END AS time_block,
@@ -547,10 +547,10 @@ module.exports = function createTellerApiRouter(io) {
             GROUP BY time_block, service_name
             ORDER BY time_block, service_name
         `, [date], (err, rows) => err ? reject(err) : resolve(rows || []));
-    });
+        });
 
-    const tellerFlow = new Promise((resolve, reject) => {
-        db.all(`
+        const tellerFlow = new Promise((resolve, reject) => {
+            db.all(`
             SELECT
                 strftime('%H', t.date || ' ' || t.end_time) || ':' ||
                     CASE WHEN CAST(strftime('%M', t.date || ' ' || t.end_time) AS INTEGER) < 30 THEN '00' ELSE '30' END AS time_block,
@@ -562,23 +562,23 @@ module.exports = function createTellerApiRouter(io) {
             GROUP BY time_block, teller_name
             ORDER BY time_block, teller_name
         `, [date], (err, rows) => err ? reject(err) : resolve(rows || []));
+        });
+
+        Promise.all([ticketFlow, tellerFlow])
+            .then(([tickets, tellers]) => res.json({ tickets, tellers }))
+            .catch((err) => {
+                console.error('Live flow analytics query error:', err);
+                res.status(500).json({ error: err.message });
+            });
     });
 
-    Promise.all([ticketFlow, tellerFlow])
-        .then(([tickets, tellers]) => res.json({ tickets, tellers }))
-        .catch((err) => {
-            console.error('Live flow analytics query error:', err);
-            res.status(500).json({ error: err.message });
-        });
-  });
+    // & Operational insight cards for the Overview workspace
+    router.get('/admin/analytics/insights', (req, res) => {
+        const { date } = getPHDateTime();
+        const result = {};
 
-  // & Operational insight cards for the Overview workspace
-  router.get('/admin/analytics/insights', (req, res) => {
-    const { date } = getPHDateTime();
-    const result = {};
-
-    const summary = new Promise((resolve, reject) => {
-        db.get(`
+        const summary = new Promise((resolve, reject) => {
+            db.get(`
             SELECT
                 COUNT(*) AS total_tickets,
                 COUNT(CASE WHEN status = 'finished' THEN 1 END) AS completed_tickets,
@@ -591,14 +591,14 @@ module.exports = function createTellerApiRouter(io) {
             FROM transactions
             WHERE date = ?
         `, [date, date], (err, row) => {
-            if (err) return reject(err);
-            result.summary = row || {};
-            resolve();
+                if (err) return reject(err);
+                result.summary = row || {};
+                resolve();
+            });
         });
-    });
 
-    const busiestService = new Promise((resolve, reject) => {
-        db.get(`
+        const busiestService = new Promise((resolve, reject) => {
+            db.get(`
             SELECT COALESCE(s.shortSname, t.ticketservice, t.sname, 'General') AS service_name, COUNT(*) AS ticket_count
             FROM transactions t
             LEFT JOIN services s ON t.sname = s.sname
@@ -607,14 +607,14 @@ module.exports = function createTellerApiRouter(io) {
             ORDER BY ticket_count DESC
             LIMIT 1
         `, [date], (err, row) => {
-            if (err) return reject(err);
-            result.busiest_service = row || null;
-            resolve();
+                if (err) return reject(err);
+                result.busiest_service = row || null;
+                resolve();
+            });
         });
-    });
 
-    const peakWindow = new Promise((resolve, reject) => {
-        db.get(`
+        const peakWindow = new Promise((resolve, reject) => {
+            db.get(`
             SELECT
                 strftime('%H', date || ' ' || time) || ':' ||
                     CASE WHEN CAST(strftime('%M', date || ' ' || time) AS INTEGER) < 30 THEN '00' ELSE '30' END AS time_block,
@@ -625,314 +625,314 @@ module.exports = function createTellerApiRouter(io) {
             ORDER BY ticket_count DESC, time_block ASC
             LIMIT 1
         `, [date], (err, row) => {
-            if (err) return reject(err);
-            result.peak_window = row || null;
-            resolve();
+                if (err) return reject(err);
+                result.peak_window = row || null;
+                resolve();
+            });
+        });
+
+        Promise.all([summary, busiestService, peakWindow])
+            .then(() => res.json(result))
+            .catch((err) => {
+                console.error('Operational insights query error:', err);
+                res.status(500).json({ error: err.message });
+            });
+    });
+
+    // ! -------- SERVICES -------- !
+    // & Services List for Admin  
+    router.get('/admin/services', (req, res) => {
+        db.all('SELECT * FROM services', (err, rows) => {
+            if (err) return res.status(500).json({ error: err.message });
+            res.json(rows);
         });
     });
 
-    Promise.all([summary, busiestService, peakWindow])
-        .then(() => res.json(result))
-        .catch((err) => {
-            console.error('Operational insights query error:', err);
-            res.status(500).json({ error: err.message });
-        });
-  });
+    // & Add Service
+    router.post('/admin/services', async (req, res) => {
+        const { shortSname, sub_sname, sub_services, prefix, priority_prefix, is_active, cutoff_time } = req.body;
+        const displayName = String(shortSname || '').trim();
+        const serviceKey = normalizeServiceKey(displayName);
 
-  // ! -------- SERVICES -------- !
-  // & Services List for Admin  
-  router.get('/admin/services', (req, res) => {
-    db.all('SELECT * FROM services', (err, rows) => {
-        if (err) return res.status(500).json({ error: err.message });
-        res.json(rows);
-    });
-  });
+        if (!displayName) return res.status(400).json({ error: 'Service display name is required' });
 
-  // & Add Service
-  router.post('/admin/services', async (req, res) => {
-    const { shortSname, sub_sname, sub_services, prefix, priority_prefix, is_active, cutoff_time } = req.body;
-    const displayName = String(shortSname || '').trim();
-    const serviceKey = normalizeServiceKey(displayName);
+        try {
+            const existing = await db.getAsync('SELECT id FROM services WHERE UPPER(sname) = UPPER(?)', [serviceKey]);
+            if (existing) return res.status(409).json({ error: `The service key ${serviceKey} is already in use` });
 
-    if (!displayName) return res.status(400).json({ error: 'Service display name is required' });
-
-    try {
-      const existing = await db.getAsync('SELECT id FROM services WHERE UPPER(sname) = UPPER(?)', [serviceKey]);
-      if (existing) return res.status(409).json({ error: `The service key ${serviceKey} is already in use` });
-
-      const result = await inTransaction(db, async () => {
-        const insert = await db.runAsync(
-          `INSERT INTO services (sname, shortSname, sub_sname, sub_services, regular, priority, status, sched)
+            const result = await inTransaction(db, async () => {
+                const insert = await db.runAsync(
+                    `INSERT INTO services (sname, shortSname, sub_sname, sub_services, regular, priority, status, sched)
            VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-          [serviceKey, displayName, sub_sname, sub_services || null, prefix, priority_prefix, is_active, cutoff_time]
-        );
-        await synchronizeServiceGroups(db);
-        return insert;
-      });
+                    [serviceKey, displayName, sub_sname, sub_services || null, prefix, priority_prefix, is_active, cutoff_time]
+                );
+                await synchronizeServiceGroups(db);
+                return insert;
+            });
 
-      res.json({ success: true, id: result.lastID, sname: serviceKey });
-      io.emit('service_update');
-      io.emit('teller_assignment_updated', { all: true });
-      io.emit('calledticketsArrived');
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
-  });
+            res.json({ success: true, id: result.lastID, sname: serviceKey });
+            io.emit('service_update');
+            io.emit('teller_assignment_updated', { all: true });
+            io.emit('calledticketsArrived');
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    });
 
-  // & Edit Service
-  router.put('/admin/services/:id', async (req, res) => {
-    const { shortSname, sub_sname, sub_services, prefix, priority_prefix, cutoff_time, is_active } = req.body;
-    const displayName = String(shortSname || '').trim();
-    const serviceKey = normalizeServiceKey(displayName);
-    const serviceId = Number(req.params.id);
+    // & Edit Service
+    router.put('/admin/services/:id', async (req, res) => {
+        const { shortSname, sub_sname, sub_services, prefix, priority_prefix, cutoff_time, is_active } = req.body;
+        const displayName = String(shortSname || '').trim();
+        const serviceKey = normalizeServiceKey(displayName);
+        const serviceId = Number(req.params.id);
 
-    if (!displayName) return res.status(400).json({ error: 'Service display name is required' });
+        if (!displayName) return res.status(400).json({ error: 'Service display name is required' });
 
-    try {
-      const current = await db.getAsync('SELECT * FROM services WHERE id = ?', [serviceId]);
-      if (!current) return res.status(404).json({ error: 'Service not found' });
+        try {
+            const current = await db.getAsync('SELECT * FROM services WHERE id = ?', [serviceId]);
+            if (!current) return res.status(404).json({ error: 'Service not found' });
 
-      const duplicate = await db.getAsync(
-        'SELECT id FROM services WHERE UPPER(sname) = UPPER(?) AND id != ?',
-        [serviceKey, serviceId]
-      );
-      if (duplicate) return res.status(409).json({ error: `The service key ${serviceKey} is already in use` });
+            const duplicate = await db.getAsync(
+                'SELECT id FROM services WHERE UPPER(sname) = UPPER(?) AND id != ?',
+                [serviceKey, serviceId]
+            );
+            if (duplicate) return res.status(409).json({ error: `The service key ${serviceKey} is already in use` });
 
-      await inTransaction(db, async () => {
-        await db.runAsync(
-          `UPDATE services
+            await inTransaction(db, async () => {
+                await db.runAsync(
+                    `UPDATE services
            SET sname = ?, shortSname = ?, sub_sname = ?, sub_services = ?, regular = ?, priority = ?, sched = ?, status = ?
            WHERE id = ?`,
-          [serviceKey, displayName, sub_sname, sub_services || null, prefix, priority_prefix, cutoff_time, is_active, serviceId]
-        );
-        await synchronizeServiceGroups(db, { renames: [[current.sname, serviceKey]] });
-      });
+                    [serviceKey, displayName, sub_sname, sub_services || null, prefix, priority_prefix, cutoff_time, is_active, serviceId]
+                );
+                await synchronizeServiceGroups(db, { renames: [[current.sname, serviceKey]] });
+            });
 
-      res.json({ success: true, sname: serviceKey });
-      io.emit('service_update');
-      io.emit('teller_assignment_updated', { all: true });
-      io.emit('calledticketsArrived');
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
-  });
-  
-  // & Delete Service
-  router.delete('/admin/services/:id', requireRole('superadmin'), async (req, res) => {
-    try {
-      const current = await db.getAsync('SELECT * FROM services WHERE id = ?', [req.params.id]);
-      if (!current) return res.status(404).json({ error: 'Service not found' });
-
-      await inTransaction(db, async () => {
-        await db.runAsync('DELETE FROM services WHERE id = ?', [req.params.id]);
-        await synchronizeServiceGroups(db, { removedKeys: [current.sname] });
-      });
-
-      res.json({ success: true });
-      io.emit('service_update');
-      io.emit('teller_assignment_updated', { all: true });
-      io.emit('calledticketsArrived');
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
-  });  
-
-  //   ! -------- GROUPS -------- !
-  // & Groups List for Admin
-  router.get('/admin/groups', (req, res) => {
-    db.all('SELECT * FROM counter_groups', (err, rows) => {
-        if (err) return res.status(500).json({ error: err.message });
-        res.json(rows);
+            res.json({ success: true, sname: serviceKey });
+            io.emit('service_update');
+            io.emit('teller_assignment_updated', { all: true });
+            io.emit('calledticketsArrived');
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
     });
-  });
 
-  const groupsAreAutomatic = (req, res) => res.status(405).json({
-    error: 'Groups are managed automatically from the service catalog'
-  });
-  router.post('/admin/groups', groupsAreAutomatic);
-  router.put('/admin/groups/:id', groupsAreAutomatic);
-  router.delete('/admin/groups/:id', groupsAreAutomatic);
+    // & Delete Service
+    router.delete('/admin/services/:id', requireRole('superadmin'), async (req, res) => {
+        try {
+            const current = await db.getAsync('SELECT * FROM services WHERE id = ?', [req.params.id]);
+            if (!current) return res.status(404).json({ error: 'Service not found' });
+
+            await inTransaction(db, async () => {
+                await db.runAsync('DELETE FROM services WHERE id = ?', [req.params.id]);
+                await synchronizeServiceGroups(db, { removedKeys: [current.sname] });
+            });
+
+            res.json({ success: true });
+            io.emit('service_update');
+            io.emit('teller_assignment_updated', { all: true });
+            io.emit('calledticketsArrived');
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    });
+
+    //   ! -------- GROUPS -------- !
+    // & Groups List for Admin
+    router.get('/admin/groups', (req, res) => {
+        db.all('SELECT * FROM counter_groups', (err, rows) => {
+            if (err) return res.status(500).json({ error: err.message });
+            res.json(rows);
+        });
+    });
+
+    const groupsAreAutomatic = (req, res) => res.status(405).json({
+        error: 'Groups are managed automatically from the service catalog'
+    });
+    router.post('/admin/groups', groupsAreAutomatic);
+    router.put('/admin/groups/:id', groupsAreAutomatic);
+    router.delete('/admin/groups/:id', groupsAreAutomatic);
 
     //   ! -------- TELLERS -------- !
-  // & Tellers List for Admin
-  router.get('/admin/tellers', (req, res) => {
-    db.all(`SELECT t.*, tg.group_name as group_name FROM counters t 
+    // & Tellers List for Admin
+    router.get('/admin/tellers', (req, res) => {
+        db.all(`SELECT t.*, tg.group_name as group_name FROM counters t 
             LEFT JOIN counter_groups tg ON t.group_id = tg.id`, (err, rows) => {
-        if (err) return res.status(500).json({ error: err.message });
-        res.json(rows);
+            if (err) return res.status(500).json({ error: err.message });
+            res.json(rows);
+        });
     });
-  });
 
-  // & Add Tellers 
-  router.post('/admin/tellers', (req, res) => {
-    const { name, username, password, counter_number, services, group_id, group_name, groupName, is_active } = req.body;
+    // & Add Tellers 
+    router.post('/admin/tellers', (req, res) => {
+        const { name, username, password, counter_number, services, group_id, group_name, groupName, is_active } = req.body;
 
-    if (!username || !password) {
-        return res.status(400).json({ error: 'Username and password are required' });
-    }
+        if (!username || !password) {
+            return res.status(400).json({ error: 'Username and password are required' });
+        }
 
 
-    // const hashedPassword = bcrypt.hashSync(password, 10);
+        // const hashedPassword = bcrypt.hashSync(password, 10);
 
-    db.run(
-        `INSERT INTO counters
+        db.run(
+            `INSERT INTO counters
          (cname, cuser, cpass, cnum, services, group_id, group_name, cstatus)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-        [
-            name,
-            username,
-            password,
-            counter_number,
-            services,
-            group_id,
-            group_name || groupName || null,
-            is_active
-        ],
-        function (err) {
-            if (err) {
-                console.error(err);
-                return res.status(500).json({ error: err.message });
+            [
+                name,
+                username,
+                password,
+                counter_number,
+                services,
+                group_id,
+                group_name || groupName || null,
+                is_active
+            ],
+            function (err) {
+                if (err) {
+                    console.error(err);
+                    return res.status(500).json({ error: err.message });
+                }
+                res.json({ success: true, id: this.lastID });
             }
-            res.json({ success: true, id: this.lastID });
-        }
-    );
-  });
+        );
+    });
 
-  //   & Edit Tellers
-  router.put('/admin/tellers/:id', (req, res) => {
-    const { name, username, counter_number, services, group_id, groupName, is_active, password } = req.body;
-    const tellerId = Number(req.params.id);
+    //   & Edit Tellers
+    router.put('/admin/tellers/:id', (req, res) => {
+        const { name, username, counter_number, services, group_id, groupName, is_active, password } = req.body;
+        const tellerId = Number(req.params.id);
 
-    const completeTellerUpdate = err => {
-        if (err) return res.status(500).json({ error: err.message });
+        const completeTellerUpdate = err => {
+            if (err) return res.status(500).json({ error: err.message });
 
-        io.emit('teller_assignment_updated', { tellerId });
-        res.json({ success: true });
-    };
+            io.emit('teller_assignment_updated', { tellerId });
+            res.json({ success: true });
+        };
 
 
-    if (password) {
-        // const hashedPassword = bcrypt.hashSync(password, 10);
+        if (password) {
+            // const hashedPassword = bcrypt.hashSync(password, 10);
 
-        db.run(
-            `UPDATE counters
+            db.run(
+                `UPDATE counters
              SET cname = ?, cuser = ?, cpass = ?, cnum = ?, services = ?, group_id = ?,group_name = ?, cstatus = ?
              WHERE id = ?`,
-            [name, username, password, counter_number, services, group_id, groupName, is_active, req.params.id],
-            completeTellerUpdate
-        );
-    } else {
-        db.run(
-            `UPDATE counters
+                [name, username, password, counter_number, services, group_id, groupName, is_active, req.params.id],
+                completeTellerUpdate
+            );
+        } else {
+            db.run(
+                `UPDATE counters
              SET cname = ?, cuser = ?, cnum = ?, services = ?, group_id = ?,group_name = ?, cstatus = ?
              WHERE id = ?`,
-            [name, username, counter_number, services, group_id, groupName, is_active, req.params.id],
-            completeTellerUpdate
-        );
-    }
-  });
-
-  // & Delete Tellers
-  router.delete('/admin/tellers/:id', requireRole('superadmin'), (req, res) => {
-    db.run('DELETE FROM counters WHERE id = ?', [req.params.id], (err) => {
-        if (err) return res.status(500).json({ error: err.message });
-        res.json({ success: true });
-    });
-  });
-
-      //   ! -------- Accounts -------- !
-  // & Accounts List for Admin
-  router.get('/admin/accounts', (req, res) => {
-    db.all(`SELECT * FROM accounts`, (err, rows) => {
-        if (err) return res.status(500).json({ error: err.message });
-        res.json(rows);
-    });
-  });
-
-  // & Add Accounts 
-  router.post('/admin/accounts', requireRole('superadmin'), (req, res) => {
-    const { name, username, password, role, is_active } = req.body;
-
-    if (!username || !password) {
-        return res.status(400).json({ error: 'Username and password are required' });
-    }
-
-
-    // const hashedPassword = bcrypt.hashSync(password, 10);
-
-    db.run(
-        `INSERT INTO accounts
-         (name, username, password, role, status)
-         VALUES (?, ?, ?, ?, ?)`,
-        [
-            name,
-            username,
-            password,
-            role,
-            is_active
-        ],
-        function (err) {
-            if (err) {
-                console.error(err);
-                return res.status(500).json({ error: err.message });
-            }
-            res.json({ success: true, id: this.lastID });
+                [name, username, counter_number, services, group_id, groupName, is_active, req.params.id],
+                completeTellerUpdate
+            );
         }
-    );
-  });
+    });
 
-  //   & Edit Accounts
-  router.put('/admin/accounts/:id', requireRole('superadmin'), (req, res) => {
-    const { name, username, role, is_active, password } = req.body;
+    // & Delete Tellers
+    router.delete('/admin/tellers/:id', requireRole('superadmin'), (req, res) => {
+        db.run('DELETE FROM counters WHERE id = ?', [req.params.id], (err) => {
+            if (err) return res.status(500).json({ error: err.message });
+            res.json({ success: true });
+        });
+    });
+
+    //   ! -------- Accounts -------- !
+    // & Accounts List for Admin
+    router.get('/admin/accounts', (req, res) => {
+        db.all(`SELECT * FROM accounts`, (err, rows) => {
+            if (err) return res.status(500).json({ error: err.message });
+            res.json(rows);
+        });
+    });
+
+    // & Add Accounts 
+    router.post('/admin/accounts', requireRole('superadmin'), (req, res) => {
+        const { name, username, password, role, is_active } = req.body;
+
+        if (!username || !password) {
+            return res.status(400).json({ error: 'Username and password are required' });
+        }
 
 
-    if (password) {
         // const hashedPassword = bcrypt.hashSync(password, 10);
 
         db.run(
-            `UPDATE accounts
+            `INSERT INTO accounts
+         (name, username, password, role, status)
+         VALUES (?, ?, ?, ?, ?)`,
+            [
+                name,
+                username,
+                password,
+                role,
+                is_active
+            ],
+            function (err) {
+                if (err) {
+                    console.error(err);
+                    return res.status(500).json({ error: err.message });
+                }
+                res.json({ success: true, id: this.lastID });
+            }
+        );
+    });
+
+    //   & Edit Accounts
+    router.put('/admin/accounts/:id', requireRole('superadmin'), (req, res) => {
+        const { name, username, role, is_active, password } = req.body;
+
+
+        if (password) {
+            // const hashedPassword = bcrypt.hashSync(password, 10);
+
+            db.run(
+                `UPDATE accounts
              SET name = ?, username = ?, password = ?, role = ?, status = ?
              WHERE id = ?`,
-            [name, username, password, role, is_active, req.params.id],
-            err => {
-                if (err) return res.status(500).json({ error: err.message });
-                res.json({ success: true });
-            }
-        );
-    } else {
-        db.run(
-            `UPDATE accounts
+                [name, username, password, role, is_active, req.params.id],
+                err => {
+                    if (err) return res.status(500).json({ error: err.message });
+                    res.json({ success: true });
+                }
+            );
+        } else {
+            db.run(
+                `UPDATE accounts
              SET name = ?, username = ?, role = ?, status = ?
              WHERE id = ?`,
-            [name, username, role, is_active, req.params.id],
-            err => {
-                if (err) return res.status(500).json({ error: err.message });
-                res.json({ success: true });
-            }
-        );
-    }
-  });
-
-  // & Delete Accounts
-  router.delete('/admin/accounts/:id', requireRole('superadmin'), (req, res) => {
-    db.run('DELETE FROM accounts WHERE id = ?', [req.params.id], (err) => {
-        if (err) return res.status(500).json({ error: err.message });
-        res.json({ success: true });
+                [name, username, role, is_active, req.params.id],
+                err => {
+                    if (err) return res.status(500).json({ error: err.message });
+                    res.json({ success: true });
+                }
+            );
+        }
     });
-  });
 
-  //   ! -------- Ticket history -------- !
-  // & get all tickets
-  router.get('/admin/tickets/all', (req, res) => {
-    const search = String(req.query.search || '').trim();
-    const queryLimit = Math.min(Math.max(parseInt(req.query.limit, 10) || 10, 1), 50);
-    const requestedPage = Math.max(parseInt(req.query.page, 10) || 1, 1);
+    // & Delete Accounts
+    router.delete('/admin/accounts/:id', requireRole('superadmin'), (req, res) => {
+        db.run('DELETE FROM accounts WHERE id = ?', [req.params.id], (err) => {
+            if (err) return res.status(500).json({ error: err.message });
+            res.json({ success: true });
+        });
+    });
 
-    let whereClause = 'WHERE 1=1';
-    const filterParams = [];
+    //   ! -------- Ticket history -------- !
+    // & get all tickets
+    router.get('/admin/tickets/all', (req, res) => {
+        const search = String(req.query.search || '').trim();
+        const queryLimit = Math.min(Math.max(parseInt(req.query.limit, 10) || 10, 1), 50);
+        const requestedPage = Math.max(parseInt(req.query.page, 10) || 1, 1);
 
-    if (search) {
-        whereClause += `
+        let whereClause = 'WHERE 1=1';
+        const filterParams = [];
+
+        if (search) {
+            whereClause += `
             AND (
                 CAST(t.ticketnum AS TEXT) LIKE ?
                 OR t.ticketservice LIKE ?
@@ -942,21 +942,21 @@ module.exports = function createTellerApiRouter(io) {
                 OR t.status LIKE ?
             )
         `;
-        const likeSearch = `%${search}%`;
-        filterParams.push(likeSearch, likeSearch, likeSearch, likeSearch, likeSearch, likeSearch);
-    }
+            const likeSearch = `%${search}%`;
+            filterParams.push(likeSearch, likeSearch, likeSearch, likeSearch, likeSearch, likeSearch);
+        }
 
-    const countQuery = `SELECT COUNT(*) AS total FROM transactions t ${whereClause}`;
+        const countQuery = `SELECT COUNT(*) AS total FROM transactions t ${whereClause}`;
 
-    db.get(countQuery, filterParams, (countError, countRow) => {
-        if (countError) return res.status(500).json({ error: countError.message });
+        db.get(countQuery, filterParams, (countError, countRow) => {
+            if (countError) return res.status(500).json({ error: countError.message });
 
-        const totalRows = Number(countRow?.total || 0);
-        const totalPages = Math.ceil(totalRows / queryLimit);
-        const currentPage = totalPages ? Math.min(requestedPage, totalPages) : 1;
-        const queryOffset = (currentPage - 1) * queryLimit;
+            const totalRows = Number(countRow?.total || 0);
+            const totalPages = Math.ceil(totalRows / queryLimit);
+            const currentPage = totalPages ? Math.min(requestedPage, totalPages) : 1;
+            const queryOffset = (currentPage - 1) * queryLimit;
 
-        const dataQuery = `
+            const dataQuery = `
         SELECT
             t.*,
             counter.cname as teller_name,
@@ -968,406 +968,406 @@ module.exports = function createTellerApiRouter(io) {
         LIMIT ? OFFSET ?
         `;
 
-        db.all(dataQuery, [...filterParams, queryLimit, queryOffset], (err, rows) => {
-            if (err) return res.status(500).json({ error: err.message });
+            db.all(dataQuery, [...filterParams, queryLimit, queryOffset], (err, rows) => {
+                if (err) return res.status(500).json({ error: err.message });
+                res.json({
+                    tickets: rows || [],
+                    pagination: {
+                        page: currentPage,
+                        limit: queryLimit,
+                        totalRows,
+                        totalPages,
+                        hasPrevious: currentPage > 1,
+                        hasNext: currentPage < totalPages
+                    }
+                });
+            });
+        });
+    });
+
+    // & get ticket details
+    router.get('/admin/tickets/details/:id', (req, res) => {
+        const ticketId = req.params.id;
+
+        db.get('SELECT * FROM transactions WHERE id = ?', [ticketId], (err, ticket) => {
+            if (err) {
+                return res.status(500).json({ error: err.message });
+            }
+
+            if (!ticket) {
+                return res.status(404).json({ error: 'Ticket not found' });
+            }
+
+            const timeline = [];
+
+            if (ticket.history) {
+                const entries = ticket.history.split(';').filter(Boolean);
+
+                entries.forEach(entry => {
+                    const clean = entry.replace(/[\[\]]/g, '');
+                    const parts = clean.split('-');
+
+                    // Expected format:
+                    // [time-actor-counter-action]
+                    if (parts.length >= 4) {
+                        const time = parts[0];
+                        const actor = parts[1];
+                        const counter = parts[2];
+                        const action = parts.slice(3).join('-'); // in case action has dash
+
+                        timeline.push({
+                            event: action,
+                            time: time,
+                            actor: actor,
+                            counter: counter,
+                            details: `${actor} - Counter ${counter}`
+                        });
+                    } else if (parts.length === 3) {
+                        // For kiosk or entries without counter
+                        const time = parts[0];
+                        const actor = parts[1];
+                        const action = parts[2];
+
+                        timeline.push({
+                            event: action,
+                            time: time,
+                            actor: actor,
+                            counter: null,
+                            details: `${actor}`
+                        });
+                    }
+                });
+            }
+
             res.json({
-                tickets: rows || [],
-                pagination: {
-                    page: currentPage,
-                    limit: queryLimit,
-                    totalRows,
-                    totalPages,
-                    hasPrevious: currentPage > 1,
-                    hasNext: currentPage < totalPages
-                }
+                ticket_id: ticket.id,
+                ticket: {
+                    number: `${ticket.ticketservice || ''}${ticket.ticketnum || ''}`,
+                    service: ticket.sname || ticket.ticketservice || 'Unknown service',
+                    status: ticket.status,
+                    date: ticket.date,
+                    created_time: ticket.time,
+                    start_time: ticket.start_time,
+                    end_time: ticket.end_time
+                },
+                timeline
             });
         });
     });
-  });
 
-  // & get ticket details
-  router.get('/admin/tickets/details/:id', (req, res) => {
-    const ticketId = req.params.id;
+    //   ! -------- SETTINGS -------- !
+    router.get('/admin/configuration', (req, res) => {
+        const config = loadConfig().MainServer;
+        res.json({
+            port: Number(config.port),
+            camscan: Boolean(config.camscan),
+            onlineTicketExpiry: Number(config.expiry),
+            onlineTicketing: Boolean(config.ticketonline)
+        });
+    });
 
-    db.get('SELECT * FROM transactions WHERE id = ?', [ticketId], (err, ticket) => {
-        if (err) {
-            return res.status(500).json({ error: err.message });
+    router.put('/admin/configuration', (req, res) => {
+        const portText = String(req.body?.port ?? '').trim();
+        const expiryText = String(req.body?.onlineTicketExpiry ?? '').trim();
+        const port = Number(portText);
+        const onlineTicketExpiry = Number(expiryText);
+
+        if (!/^\d{1,5}$/.test(portText) || !Number.isInteger(port) || port < 1 || port > 65535) {
+            return res.status(400).json({ error: 'Port must be a valid number from 1 to 65535 using no more than 5 digits.' });
         }
 
-        if (!ticket) {
-            return res.status(404).json({ error: 'Ticket not found' });
+        if (!/^\d+$/.test(expiryText) || !Number.isSafeInteger(onlineTicketExpiry) || onlineTicketExpiry < 1 || onlineTicketExpiry > 999999) {
+            return res.status(400).json({ error: 'Online ticket expiry must be a whole number from 1 to 999999 minutes.' });
         }
 
-        const timeline = [];
+        if (typeof req.body?.camscan !== 'boolean' || typeof req.body?.onlineTicketing !== 'boolean') {
+            return res.status(400).json({ error: 'Camera scan and online ticketing must be true or false.' });
+        }
 
-        if (ticket.history) {
-            const entries = ticket.history.split(';').filter(Boolean);
+        try {
+            const previousPort = Number(loadConfig().MainServer.port);
+            const config = saveConfig({
+                port,
+                camscan: req.body.camscan,
+                expiry: onlineTicketExpiry,
+                ticketonline: req.body.onlineTicketing
+            }).MainServer;
 
-            entries.forEach(entry => {
-                const clean = entry.replace(/[\[\]]/g, '');
-                const parts = clean.split('-');
+            const responseConfig = {
+                port: Number(config.port),
+                camscan: Boolean(config.camscan),
+                onlineTicketExpiry: Number(config.expiry),
+                onlineTicketing: Boolean(config.ticketonline)
+            };
 
-                // Expected format:
-                // [time-actor-counter-action]
-                if (parts.length >= 4) {
-                    const time = parts[0];
-                    const actor = parts[1];
-                    const counter = parts[2];
-                    const action = parts.slice(3).join('-'); // in case action has dash
-
-                    timeline.push({
-                        event: action,
-                        time: time,
-                        actor: actor,
-                        counter: counter,
-                        details: `${actor} - Counter ${counter}`
-                    });
-                } else if (parts.length === 3) {
-                    // For kiosk or entries without counter
-                    const time = parts[0];
-                    const actor = parts[1];
-                    const action = parts[2];
-
-                    timeline.push({
-                        event: action,
-                        time: time,
-                        actor: actor,
-                        counter: null,
-                        details: `${actor}`
-                    });
-                }
+            io.emit('systemConfigurationUpdated', responseConfig);
+            res.json({
+                success: true,
+                config: responseConfig,
+                restartRequired: previousPort !== port
             });
+        } catch (error) {
+            console.error('Failed to update system configuration:', error);
+            res.status(500).json({ error: 'Failed to save system configuration.' });
         }
-
-        res.json({
-            ticket_id: ticket.id,
-            ticket: {
-                number: `${ticket.ticketservice || ''}${ticket.ticketnum || ''}`,
-                service: ticket.sname || ticket.ticketservice || 'Unknown service',
-                status: ticket.status,
-                date: ticket.date,
-                created_time: ticket.time,
-                start_time: ticket.start_time,
-                end_time: ticket.end_time
-            },
-            timeline
-        });
     });
-  });
 
-  //   ! -------- SETTINGS -------- !
-  router.get('/admin/configuration', (req, res) => {
-    const config = loadConfig().MainServer;
-    res.json({
-      port: Number(config.port),
-      camscan: Boolean(config.camscan),
-      onlineTicketExpiry: Number(config.expiry),
-      onlineTicketing: Boolean(config.ticketonline)
+    router.get('/admin/display-audio', (req, res) => {
+        res.json(readSoundConfig());
     });
-  });
 
-  router.put('/admin/configuration', (req, res) => {
-    const portText = String(req.body?.port ?? '').trim();
-    const expiryText = String(req.body?.onlineTicketExpiry ?? '').trim();
-    const port = Number(portText);
-    const onlineTicketExpiry = Number(expiryText);
-
-    if (!/^\d{1,5}$/.test(portText) || !Number.isInteger(port) || port < 1 || port > 65535) {
-      return res.status(400).json({ error: 'Port must be a valid number from 1 to 65535 using no more than 5 digits.' });
-    }
-
-    if (!/^\d+$/.test(expiryText) || !Number.isSafeInteger(onlineTicketExpiry) || onlineTicketExpiry < 1 || onlineTicketExpiry > 999999) {
-      return res.status(400).json({ error: 'Online ticket expiry must be a whole number from 1 to 999999 minutes.' });
-    }
-
-    if (typeof req.body?.camscan !== 'boolean' || typeof req.body?.onlineTicketing !== 'boolean') {
-      return res.status(400).json({ error: 'Camera scan and online ticketing must be true or false.' });
-    }
-
-    try {
-      const previousPort = Number(loadConfig().MainServer.port);
-      const config = saveConfig({
-        port,
-        camscan: req.body.camscan,
-        expiry: onlineTicketExpiry,
-        ticketonline: req.body.onlineTicketing
-      }).MainServer;
-
-      const responseConfig = {
-        port: Number(config.port),
-        camscan: Boolean(config.camscan),
-        onlineTicketExpiry: Number(config.expiry),
-        onlineTicketing: Boolean(config.ticketonline)
-      };
-
-      io.emit('systemConfigurationUpdated', responseConfig);
-      res.json({
-        success: true,
-        config: responseConfig,
-        restartRequired: previousPort !== port
-      });
-    } catch (error) {
-      console.error('Failed to update system configuration:', error);
-      res.status(500).json({ error: 'Failed to save system configuration.' });
-    }
-  });
-
-  router.get('/admin/display-audio', (req, res) => {
-    res.json(readSoundConfig());
-  });
-
-  router.post('/admin/display-audio', (req, res) => {
-    try {
-      const config = writeSoundConfig(req.body || {});
-      io.emit('voiceConfigUpdate', config);
-      res.json({ success: true, config });
-    } catch (error) {
-      console.error('Failed to update display audio configuration:', error);
-      res.status(500).json({ error: 'Failed to save display audio configuration' });
-    }
-  });
-
-  const DEFAULT_ROLE_PERMISSIONS = {
-    user: {
-      tabs: ['dashboard', 'live', 'reports', 'history'],
-      settings: []
-    },
-    admin: {
-      tabs: ['dashboard', 'live', 'reports', 'history', 'services', 'tellers', 'settings'],
-      settings: ['advertisement', 'announcement']
-    },
-    superadmin: {
-      tabs: ['dashboard', 'live', 'reports', 'history', 'services', 'tellers', 'accounts', 'settings'],
-      settings: ['configuration', 'advertisement', 'announcement', 'displayaudio', 'images', 'smsconfig', 'systemlogs']
-    }
-  };
-
-  // & Role Permissions endpoints
-  router.get('/admin/role-permissions', (req, res) => {
-    db.get(`SELECT value FROM settings WHERE key = 'role_permissions'`, (err, row) => {
-      if (err) return res.status(500).json({ error: err.message });
-      if (!row || !row.value) {
-        return res.json({
-          ...DEFAULT_ROLE_PERMISSIONS,
-          accounts: {}
-        });
-      }
-      try {
-        const permissions = JSON.parse(row.value);
-        res.json({
-          user: permissions.user || DEFAULT_ROLE_PERMISSIONS.user,
-          admin: permissions.admin || DEFAULT_ROLE_PERMISSIONS.admin,
-          superadmin: DEFAULT_ROLE_PERMISSIONS.superadmin,
-          accounts: typeof permissions.accounts === 'object' && permissions.accounts !== null ? permissions.accounts : {}
-        });
-      } catch (e) {
-        res.json({
-          ...DEFAULT_ROLE_PERMISSIONS,
-          accounts: {}
-        });
-      }
+    router.post('/admin/display-audio', (req, res) => {
+        try {
+            const config = writeSoundConfig(req.body || {});
+            io.emit('voiceConfigUpdate', config);
+            res.json({ success: true, config });
+        } catch (error) {
+            console.error('Failed to update display audio configuration:', error);
+            res.status(500).json({ error: 'Failed to save display audio configuration' });
+        }
     });
-  });
 
-  router.put('/admin/role-permissions', requireRole('superadmin'), (req, res) => {
-    const { user, admin, accounts } = req.body || {};
-    const permissions = {
-      user: {
-        tabs: Array.isArray(user?.tabs) ? user.tabs : DEFAULT_ROLE_PERMISSIONS.user.tabs,
-        settings: Array.isArray(user?.settings) ? user.settings : DEFAULT_ROLE_PERMISSIONS.user.settings
-      },
-      admin: {
-        tabs: Array.isArray(admin?.tabs) ? admin.tabs : DEFAULT_ROLE_PERMISSIONS.admin.tabs,
-        settings: Array.isArray(admin?.settings) ? admin.settings : DEFAULT_ROLE_PERMISSIONS.admin.settings
-      },
-      superadmin: DEFAULT_ROLE_PERMISSIONS.superadmin,
-      accounts: typeof accounts === 'object' && accounts !== null ? accounts : {}
+    const DEFAULT_ROLE_PERMISSIONS = {
+        user: {
+            tabs: ['dashboard', 'live', 'reports', 'history'],
+            settings: []
+        },
+        admin: {
+            tabs: ['dashboard', 'live', 'reports', 'history', 'services', 'tellers', 'settings'],
+            settings: ['advertisement', 'announcement']
+        },
+        superadmin: {
+            tabs: ['dashboard', 'live', 'reports', 'history', 'services', 'tellers', 'accounts', 'settings'],
+            settings: ['configuration', 'advertisement', 'announcement', 'displayaudio', 'images', 'smsconfig', 'systemlogs']
+        }
     };
 
-    const valStr = JSON.stringify(permissions);
-    db.run(
-      `UPDATE settings SET value = ?, status = 1 WHERE key = 'role_permissions'`,
-      [valStr],
-      function (err) {
-        if (err) return res.status(500).json({ error: err.message });
-        if (this.changes === 0) {
-          db.run(
-            `INSERT INTO settings (key, value, status) VALUES ('role_permissions', ?, 1)`,
-            [valStr],
-            err2 => {
-              if (err2) return res.status(500).json({ error: err2.message });
-              io.emit('role_permissions_updated', permissions);
-              res.json({ success: true, permissions });
+    // & Role Permissions endpoints
+    router.get('/admin/role-permissions', (req, res) => {
+        db.get(`SELECT value FROM settings WHERE key = 'role_permissions'`, (err, row) => {
+            if (err) return res.status(500).json({ error: err.message });
+            if (!row || !row.value) {
+                return res.json({
+                    ...DEFAULT_ROLE_PERMISSIONS,
+                    accounts: {}
+                });
             }
-          );
-        } else {
-          io.emit('role_permissions_updated', permissions);
-          res.json({ success: true, permissions });
-        }
-      }
-    );
-  });
-
-  // & settings
-router.get('/settings', (req, res) => {
-    db.all('SELECT * FROM settings', (err, settings) => {
-        if (err) {
-            return res.status(500).json({ error: 'Database error' });
-        }
-
-        const settingsObj = {};
-
-        settings.forEach(setting => {
-            let parsedValue;
             try {
-                parsedValue = JSON.parse(setting.value);
+                const permissions = JSON.parse(row.value);
+                res.json({
+                    user: permissions.user || DEFAULT_ROLE_PERMISSIONS.user,
+                    admin: permissions.admin || DEFAULT_ROLE_PERMISSIONS.admin,
+                    superadmin: DEFAULT_ROLE_PERMISSIONS.superadmin,
+                    accounts: typeof permissions.accounts === 'object' && permissions.accounts !== null ? permissions.accounts : {}
+                });
             } catch (e) {
-                parsedValue = setting.value; // use as-is if not JSON
+                res.json({
+                    ...DEFAULT_ROLE_PERMISSIONS,
+                    accounts: {}
+                });
+            }
+        });
+    });
+
+    router.put('/admin/role-permissions', requireRole('superadmin'), (req, res) => {
+        const { user, admin, accounts } = req.body || {};
+        const permissions = {
+            user: {
+                tabs: Array.isArray(user?.tabs) ? user.tabs : DEFAULT_ROLE_PERMISSIONS.user.tabs,
+                settings: Array.isArray(user?.settings) ? user.settings : DEFAULT_ROLE_PERMISSIONS.user.settings
+            },
+            admin: {
+                tabs: Array.isArray(admin?.tabs) ? admin.tabs : DEFAULT_ROLE_PERMISSIONS.admin.tabs,
+                settings: Array.isArray(admin?.settings) ? admin.settings : DEFAULT_ROLE_PERMISSIONS.admin.settings
+            },
+            superadmin: DEFAULT_ROLE_PERMISSIONS.superadmin,
+            accounts: typeof accounts === 'object' && accounts !== null ? accounts : {}
+        };
+
+        const valStr = JSON.stringify(permissions);
+        db.run(
+            `UPDATE settings SET value = ?, status = 1 WHERE key = 'role_permissions'`,
+            [valStr],
+            function (err) {
+                if (err) return res.status(500).json({ error: err.message });
+                if (this.changes === 0) {
+                    db.run(
+                        `INSERT INTO settings (key, value, status) VALUES ('role_permissions', ?, 1)`,
+                        [valStr],
+                        err2 => {
+                            if (err2) return res.status(500).json({ error: err2.message });
+                            io.emit('role_permissions_updated', permissions);
+                            res.json({ success: true, permissions });
+                        }
+                    );
+                } else {
+                    io.emit('role_permissions_updated', permissions);
+                    res.json({ success: true, permissions });
+                }
+            }
+        );
+    });
+
+    // & settings
+    router.get('/settings', (req, res) => {
+        db.all('SELECT * FROM settings', (err, settings) => {
+            if (err) {
+                return res.status(500).json({ error: 'Database error' });
             }
 
-            settingsObj[setting.key] = {
-                value: parsedValue,
-                status: setting.status
-            };
-        });
+            const settingsObj = {};
 
-        // Inject SMS Messages from message.json
-        try {
-            const fs = require('fs');
-            const path = require('path');
-            const messagePath = path.join(__dirname, '../config/message.json');
-            if (fs.existsSync(messagePath)) {
-                settingsObj['sms_messages'] = JSON.parse(fs.readFileSync(messagePath, 'utf8'));
-            } else {
-                settingsObj['sms_messages'] = {
-                    "generate": { "type": "generate", "message": "Your ticket is #ticket for #service. Please wait for your number to be called." },
-                    "call": { "type": "call", "message": "Your ticket #ticket is called. Please proceed to #counter." },
-                    "forward": { "type": "forward", "message": "Your ticket #ticket has been forwarded to #counter." },
-                    "hold": { "type": "hold", "message": "Your ticket #ticket is currently on hold." },
-                    "void": { "type": "void", "message": "Your ticket #ticket has been voided." },
-                    "finish": { "type": "finish", "message": "From #branch: Thank you, come again we are happy to serve you." }
+            settings.forEach(setting => {
+                let parsedValue;
+                try {
+                    parsedValue = JSON.parse(setting.value);
+                } catch (e) {
+                    parsedValue = setting.value; // use as-is if not JSON
+                }
+
+                settingsObj[setting.key] = {
+                    value: parsedValue,
+                    status: setting.status
                 };
+            });
+
+            // Inject SMS Messages from message.json
+            try {
+                const fs = require('fs');
+                const path = require('path');
+                const messagePath = path.join(__dirname, '../config/message.json');
+                if (fs.existsSync(messagePath)) {
+                    settingsObj['sms_messages'] = JSON.parse(fs.readFileSync(messagePath, 'utf8'));
+                } else {
+                    settingsObj['sms_messages'] = {
+                        "generate": { "type": "generate", "message": "Your ticket is #ticket for #service. Please wait for your number to be called." },
+                        "call": { "type": "call", "message": "Your ticket #ticket is called. Please proceed to #counter." },
+                        "forward": { "type": "forward", "message": "Your ticket #ticket has been forwarded to #counter." },
+                        "hold": { "type": "hold", "message": "Your ticket #ticket is currently on hold." },
+                        "void": { "type": "void", "message": "Your ticket #ticket has been voided." },
+                        "finish": { "type": "finish", "message": "From #branch: Thank you, come again we are happy to serve you." }
+                    };
+                }
+            } catch (e) {
+                console.error('Failed to read message.json', e);
+            }
+
+            res.json(settingsObj);
+        });
+    })
+
+    // & Save Settings
+    router.post('/settings', requireManagementAccess, (req, res) => {
+        const settings = req.body;
+
+        if (!settings || typeof settings !== 'object') {
+            return res.status(400).json({ error: 'Invalid settings payload' });
+        }
+
+        try {
+            if (settings.sms_messages) {
+                const fs = require('fs');
+                const path = require('path');
+                const configPath = path.join(__dirname, '../config');
+                if (!fs.existsSync(configPath)) {
+                    fs.mkdirSync(configPath, { recursive: true });
+                }
+                const messagePath = path.join(configPath, 'message.json');
+                fs.writeFileSync(messagePath, JSON.stringify(settings.sms_messages, null, 2));
+                delete settings.sms_messages; // Prevent saving to DB
             }
         } catch (e) {
-            console.error('Failed to read message.json', e);
+            console.error('Failed to save message.json', e);
         }
 
-        res.json(settingsObj);
+        const role = String(req.session?.admin?.role || '').trim().toLowerCase();
+        const adminAnnouncementKeys = new Set([
+            'announcement',
+            'announcement2',
+            'announcement3',
+            'annbgcolor',
+            'anntextcolor',
+            'annspeed'
+        ]);
+        const requestedKeys = Object.keys(settings);
+
+        if (role === 'admin' && requestedKeys.some(key => !adminAnnouncementKeys.has(key))) {
+            return res.status(403).json({ error: 'Admin accounts can update announcement settings only.' });
+        }
+
+        try {
+            Object.entries(settings).forEach(([key, data]) => {
+                // Extract value and status from the object
+                const value = typeof data === 'object' ? (data.value ?? '') : (data ?? '');
+                const status = typeof data === 'object' ? (data.status ?? 0) : 0;
+
+                db.run(
+                    `UPDATE settings SET value = ?, status = ? WHERE key = ?`,
+                    [value, status, key],
+                    function (err) {
+                        if (err) {
+                            console.error(`Failed to update setting ${key}:`, err);
+                            return;
+                        }
+
+                        if (this.changes === 0) {
+                            db.run(
+                                `INSERT INTO settings (key, value, status) VALUES (?, ?, ?)`,
+                                [key, value, status],
+                                (err2) => {
+                                    if (err2) console.error(`Failed to insert setting ${key}:`, err2);
+                                }
+                            );
+                        }
+
+                        io.emit('settings_updated', { key, value, status });
+                        io.emit('footerUpdated');
+                    }
+                );
+            });
+
+            res.json({ success: true });
+        } catch (err) {
+            console.error('Failed to update settings:', err);
+            res.status(500).json({ error: 'Failed to update settings' });
+        }
     });
-})
-  
-  // & Save Settings
-  router.post('/settings', requireManagementAccess, (req, res) => {
-    const settings = req.body;
 
-    if (!settings || typeof settings !== 'object') {
-        return res.status(400).json({ error: 'Invalid settings payload' });
-    }
+    // ! -------- REPORTS -------- !
+    // & Get Reports with Date Range
+    router.get('/admin/reports/data', (req, res) => {
+        const { dateFrom, dateTo } = req.query;
 
-    try {
-        if (settings.sms_messages) {
-            const fs = require('fs');
-            const path = require('path');
-            const configPath = path.join(__dirname, '../config');
-            if (!fs.existsSync(configPath)) {
-                fs.mkdirSync(configPath, { recursive: true });
-            }
-            const messagePath = path.join(configPath, 'message.json');
-            fs.writeFileSync(messagePath, JSON.stringify(settings.sms_messages, null, 2));
-            delete settings.sms_messages; // Prevent saving to DB
+        if (!dateFrom || !dateTo) {
+            return res.status(400).json({ error: 'dateFrom and dateTo are required' });
         }
-    } catch (e) {
-        console.error('Failed to save message.json', e);
-    }
 
-    const role = String(req.session?.admin?.role || '').trim().toLowerCase();
-    const adminAnnouncementKeys = new Set([
-        'announcement',
-        'announcement2',
-        'announcement3',
-        'annbgcolor',
-        'anntextcolor',
-        'annspeed'
-    ]);
-    const requestedKeys = Object.keys(settings);
+        const { date: today } = getPHDateTime();
+        const reports = {};
 
-    if (role === 'admin' && requestedKeys.some(key => !adminAnnouncementKeys.has(key))) {
-        return res.status(403).json({ error: 'Admin accounts can update announcement settings only.' });
-    }
+        // ─── Effective-status rules ───────────────────────────────────────────────
+        // • status = 'finished'                          → 'finished'
+        // • date < today  AND status != 'finished'       → 'voided'  (reason: not served)
+        // • date = today  AND status != 'finished'       → keep original status
+        // ─────────────────────────────────────────────────────────────────────────
 
-    try {
-        Object.entries(settings).forEach(([key, data]) => {
-            // Extract value and status from the object
-            const value = typeof data === 'object' ? (data.value ?? '') : (data ?? '');
-            const status = typeof data === 'object' ? (data.status ?? 0) : 0;
-
-            db.run(
-                `UPDATE settings SET value = ?, status = ? WHERE key = ?`,
-                [value, status, key],
-                function(err) {
-                    if (err) {
-                        console.error(`Failed to update setting ${key}:`, err);
-                        return;
-                    }
-
-                    if (this.changes === 0) {
-                        db.run(
-                            `INSERT INTO settings (key, value, status) VALUES (?, ?, ?)`,
-                            [key, value, status],
-                            (err2) => {
-                                if (err2) console.error(`Failed to insert setting ${key}:`, err2);
-                            }
-                        );
-                    }
-
-                    io.emit('settings_updated', { key, value, status });
-                    io.emit('footerUpdated');
-                }
-            );
-        });
-
-        res.json({ success: true });
-    } catch (err) {
-        console.error('Failed to update settings:', err);
-        res.status(500).json({ error: 'Failed to update settings' });
-    }
-});
-
-  // ! -------- REPORTS -------- !
-  // & Get Reports with Date Range
-  router.get('/admin/reports/data', (req, res) => {
-    const { dateFrom, dateTo } = req.query;
-
-    if (!dateFrom || !dateTo) {
-        return res.status(400).json({ error: 'dateFrom and dateTo are required' });
-    }
-
-    const { date: today } = getPHDateTime();
-    const reports = {};
-
-    // ─── Effective-status rules ───────────────────────────────────────────────
-    // • status = 'finished'                          → 'finished'
-    // • date < today  AND status != 'finished'       → 'voided'  (reason: not served)
-    // • date = today  AND status != 'finished'       → keep original status
-    // ─────────────────────────────────────────────────────────────────────────
-
-    // For queries that alias the transactions table as "t"
-    const effT = `CASE
+        // For queries that alias the transactions table as "t"
+        const effT = `CASE
         WHEN t.status = 'finished'                         THEN 'finished'
         WHEN t.date  < '${today}' AND t.status != 'finished' THEN 'voided'
         ELSE t.status
     END`;
 
-    // For queries without a table alias
-    const eff = `CASE
+        // For queries without a table alias
+        const eff = `CASE
         WHEN status = 'finished'                        THEN 'finished'
         WHEN date   < '${today}' AND status != 'finished' THEN 'voided'
         ELSE status
     END`;
 
-    // 1. Summary Statistics
-    const summaryPromise = new Promise((resolve) => {
-        db.get(`
+        // 1. Summary Statistics
+        const summaryPromise = new Promise((resolve) => {
+            db.get(`
             SELECT
                 COUNT(*) as total_tickets,
                 COUNT(CASE WHEN (${eff}) = 'finished' THEN 1 END) as completed_tickets,
@@ -1384,15 +1384,15 @@ router.get('/settings', (req, res) => {
             FROM transactions
             WHERE date BETWEEN ? AND ?
         `, [dateFrom, dateTo], (err, row) => {
-            if (err) console.error('Summary query error:', err);
-            else reports.summary = row;
-            resolve();
+                if (err) console.error('Summary query error:', err);
+                else reports.summary = row;
+                resolve();
+            });
         });
-    });
 
-    // 2. Tickets by Service
-    const byServicePromise = new Promise((resolve) => {
-        db.all(`
+        // 2. Tickets by Service
+        const byServicePromise = new Promise((resolve) => {
+            db.all(`
             SELECT
                 t.ticketservice as service_code,
                 COALESCE(s.shortSname, t.ticketservice) as service_name,
@@ -1410,16 +1410,16 @@ router.get('/settings', (req, res) => {
             GROUP BY t.ticketservice
             ORDER BY ticket_count DESC
         `, [dateFrom, dateTo], (err, rows) => {
-            if (err) console.error('By service query error:', err);
-            else reports.byService = rows || [];
-            resolve();
+                if (err) console.error('By service query error:', err);
+                else reports.byService = rows || [];
+                resolve();
+            });
         });
-    });
 
-    // 3. Tickets by Teller
-    //    tickets_served = only FINISHED tickets (actually served by the teller)
-    const byTellerPromise = new Promise((resolve) => {
-        db.all(`
+        // 3. Tickets by Teller
+        //    tickets_served = only FINISHED tickets (actually served by the teller)
+        const byTellerPromise = new Promise((resolve) => {
+            db.all(`
             SELECT
                 t.teller_id,
                 COALESCE(c.cname, 'Unknown') as teller_name,
@@ -1438,15 +1438,15 @@ router.get('/settings', (req, res) => {
             GROUP BY t.teller_id
             ORDER BY tickets_served DESC
         `, [dateFrom, dateTo], (err, rows) => {
-            if (err) console.error('By teller query error:', err);
-            else reports.byTeller = rows || [];
-            resolve();
+                if (err) console.error('By teller query error:', err);
+                else reports.byTeller = rows || [];
+                resolve();
+            });
         });
-    });
 
-    // 4. Tickets by Effective Status
-    const byStatusPromise = new Promise((resolve) => {
-        db.all(`
+        // 4. Tickets by Effective Status
+        const byStatusPromise = new Promise((resolve) => {
+            db.all(`
             SELECT
                 (${eff}) as status,
                 COUNT(*)  as count
@@ -1455,15 +1455,15 @@ router.get('/settings', (req, res) => {
             GROUP BY (${eff})
             ORDER BY count DESC
         `, [dateFrom, dateTo], (err, rows) => {
-            if (err) console.error('By status query error:', err);
-            else reports.byStatus = rows || [];
-            resolve();
+                if (err) console.error('By status query error:', err);
+                else reports.byStatus = rows || [];
+                resolve();
+            });
         });
-    });
 
-    // 5. Daily Trends
-    const dailyTrendsPromise = new Promise((resolve) => {
-        db.all(`
+        // 5. Daily Trends
+        const dailyTrendsPromise = new Promise((resolve) => {
+            db.all(`
             SELECT
                 date,
                 COUNT(*)                                                             as daily_tickets,
@@ -1478,15 +1478,15 @@ router.get('/settings', (req, res) => {
             GROUP BY date
             ORDER BY date
         `, [dateFrom, dateTo], (err, rows) => {
-            if (err) console.error('Daily trends query error:', err);
-            else reports.dailyTrends = rows || [];
-            resolve();
+                if (err) console.error('Daily trends query error:', err);
+                else reports.dailyTrends = rows || [];
+                resolve();
+            });
         });
-    });
 
-    // 6. Service volume by hour of day for the selected range
-    const serviceHourlyPromise = new Promise((resolve) => {
-        db.all(`
+        // 6. Service volume by hour of day for the selected range
+        const serviceHourlyPromise = new Promise((resolve) => {
+            db.all(`
             SELECT
                 CAST(strftime('%H', t.date || ' ' || t.time) AS INTEGER) AS hour,
                 COALESCE(s.shortSname, t.ticketservice, t.sname, 'General') AS service_name,
@@ -1497,15 +1497,15 @@ router.get('/settings', (req, res) => {
             GROUP BY hour, service_name
             ORDER BY hour, service_name
         `, [dateFrom, dateTo], (err, rows) => {
-            if (err) console.error('Service hourly report query error:', err);
-            else reports.serviceHourly = rows || [];
-            resolve();
+                if (err) console.error('Service hourly report query error:', err);
+                else reports.serviceHourly = rows || [];
+                resolve();
+            });
         });
-    });
 
-    // 7. Service volume by calendar day for the selected range
-    const serviceDailyPromise = new Promise((resolve) => {
-        db.all(`
+        // 7. Service volume by calendar day for the selected range
+        const serviceDailyPromise = new Promise((resolve) => {
+            db.all(`
             SELECT
                 t.date,
                 COALESCE(s.shortSname, t.ticketservice, t.sname, 'General') AS service_name,
@@ -1516,15 +1516,15 @@ router.get('/settings', (req, res) => {
             GROUP BY t.date, service_name
             ORDER BY t.date, service_name
         `, [dateFrom, dateTo], (err, rows) => {
-            if (err) console.error('Service daily report query error:', err);
-            else reports.serviceDaily = rows || [];
-            resolve();
+                if (err) console.error('Service daily report query error:', err);
+                else reports.serviceDaily = rows || [];
+                resolve();
+            });
         });
-    });
 
-    // 8. Service volume by calendar month for the selected range
-    const serviceMonthlyPromise = new Promise((resolve) => {
-        db.all(`
+        // 8. Service volume by calendar month for the selected range
+        const serviceMonthlyPromise = new Promise((resolve) => {
+            db.all(`
             SELECT
                 substr(t.date, 1, 7) AS month,
                 COALESCE(s.shortSname, t.ticketservice, t.sname, 'General') AS service_name,
@@ -1535,15 +1535,15 @@ router.get('/settings', (req, res) => {
             GROUP BY month, service_name
             ORDER BY month, service_name
         `, [dateFrom, dateTo], (err, rows) => {
-            if (err) console.error('Service monthly report query error:', err);
-            else reports.serviceMonthly = rows || [];
-            resolve();
+                if (err) console.error('Service monthly report query error:', err);
+                else reports.serviceMonthly = rows || [];
+                resolve();
+            });
         });
-    });
 
-    // 9. Detailed Transactions (effective status shown)
-    const detailedPromise = new Promise((resolve) => {
-        db.all(`
+        // 9. Detailed Transactions (effective status shown)
+        const detailedPromise = new Promise((resolve) => {
+            db.all(`
             SELECT
                 t.id,
                 t.date,
@@ -1571,25 +1571,25 @@ router.get('/settings', (req, res) => {
             ORDER BY t.date DESC, t.time DESC
             LIMIT 1000
         `, [dateFrom, dateTo], (err, rows) => {
-            if (err) console.error('Detailed transactions query error:', err);
-            else reports.detailedTransactions = rows || [];
-            resolve();
+                if (err) console.error('Detailed transactions query error:', err);
+                else reports.detailedTransactions = rows || [];
+                resolve();
+            });
         });
+        Promise.all([
+            summaryPromise,
+            byServicePromise,
+            byTellerPromise,
+            byStatusPromise,
+            dailyTrendsPromise,
+            serviceHourlyPromise,
+            serviceDailyPromise,
+            serviceMonthlyPromise,
+            detailedPromise
+        ])
+            .then(() => res.json(reports))
+            .catch(err => res.status(500).json({ error: err.message }));
     });
-    Promise.all([
-        summaryPromise,
-        byServicePromise,
-        byTellerPromise,
-        byStatusPromise,
-        dailyTrendsPromise,
-        serviceHourlyPromise,
-        serviceDailyPromise,
-        serviceMonthlyPromise,
-        detailedPromise
-    ])
-        .then(() => res.json(reports))
-        .catch(err => res.status(500).json({ error: err.message }));
-  });
 
     router.post('/admin/upload-image', (req, res) => {
         try {
@@ -1600,13 +1600,13 @@ router.get('/settings', (req, res) => {
             if (!data || !data.startsWith('data:image/png;base64,')) {
                 return res.status(400).json({ error: 'Invalid image format, expected base64 png' });
             }
-            
+
             const base64Data = data.replace(/^data:image\/png;base64,/, "");
             const filename = type === 'banner' ? 'banner.png' : 'bg.png';
             // Save in public/images
             const imageRoot = global.ROOT_PATH || path.join(__dirname, '../../');
             const filepath = path.join(imageRoot, 'public', 'images', filename);
-            
+
             fs.writeFile(filepath, base64Data, 'base64', (err) => {
                 if (err) {
                     console.error('Error saving image:', err);
@@ -1629,12 +1629,12 @@ router.get('/settings', (req, res) => {
             const serialPort = process.env.SERIAL_PORT || 'COM3';
             const serialBaudrate = parseInt(process.env.SERIAL_BAUDRATE || '9600', 10);
             let privacyPolicy = 'By proceeding, you agree to receive SMS notifications about your queue ticket status.';
-            
+
             const row = await db.getAsync(`SELECT value FROM settings WHERE key = 'privacy_policy'`);
             if (row) {
                 privacyPolicy = row.value;
             }
-            
+
             let sms_messages = {
                 "generate": { "type": "generate", "message": "Your ticket is #ticket for #service. Please wait for your number to be called." },
                 "call": { "type": "call", "message": "Your ticket #ticket is called. Please proceed to #counter." },
@@ -1654,7 +1654,7 @@ router.get('/settings', (req, res) => {
                     console.error('Failed to parse message.json', e);
                 }
             }
-            
+
             res.json({ success: true, allowSms, branch, privacyPolicy, sms_messages, callRangeGap, serialPort, serialBaudrate });
         } catch (err) {
             console.error('Failed to get sms config:', err);
@@ -1665,35 +1665,35 @@ router.get('/settings', (req, res) => {
     router.post('/admin/sms-config', requireRole('superadmin'), async (req, res) => {
         try {
             const { allowSms, branch, privacyPolicy, sms_messages, callRangeGap, serialPort, serialBaudrate } = req.body;
-            
+
             // Update .env
             const envPath = path.join(__dirname, '../config/.env');
             let envContent = '';
             if (fs.existsSync(envPath)) {
                 envContent = fs.readFileSync(envPath, 'utf8');
             }
-            
+
             // Replace or append ALLOWSMS
             if (/^ALLOWSMS=.*$/m.test(envContent)) {
                 envContent = envContent.replace(/^ALLOWSMS=.*$/m, `ALLOWSMS=${allowSms}`);
             } else {
                 envContent += `\nALLOWSMS=${allowSms}`;
             }
-            
+
             // Replace or append BRANCH
             if (/^BRANCH=.*$/m.test(envContent)) {
                 envContent = envContent.replace(/^BRANCH=.*$/m, `BRANCH=${branch}`);
             } else {
                 envContent += `\nBRANCH=${branch}`;
             }
-            
+
             // Replace or append CALL_RANGE_GAP
             if (/^CALL_RANGE_GAP=.*$/m.test(envContent)) {
                 envContent = envContent.replace(/^CALL_RANGE_GAP=.*$/m, `CALL_RANGE_GAP=${callRangeGap}`);
             } else {
                 envContent += `\nCALL_RANGE_GAP=${callRangeGap}`;
             }
-            
+
             // Replace or append SERIAL_PORT
             if (/^SERIAL_PORT=.*$/m.test(envContent)) {
                 envContent = envContent.replace(/^SERIAL_PORT=.*$/m, `SERIAL_PORT=${serialPort || 'COM3'}`);
@@ -1707,16 +1707,16 @@ router.get('/settings', (req, res) => {
             } else {
                 envContent += `\nSERIAL_BAUDRATE=${serialBaudrate || 9600}`;
             }
-            
+
             fs.writeFileSync(envPath, envContent.trim() + '\n', 'utf8');
-            
+
             // Reload into process.env
             process.env.ALLOWSMS = allowSms;
             process.env.BRANCH = branch;
             process.env.CALL_RANGE_GAP = callRangeGap;
             process.env.SERIAL_PORT = serialPort || 'COM3';
             process.env.SERIAL_BAUDRATE = serialBaudrate || 9600;
-            
+
             // Save message.json
             if (sms_messages) {
                 const fs = require('fs');
@@ -1728,14 +1728,14 @@ router.get('/settings', (req, res) => {
                 const messagePath = path.join(configPath, 'message.json');
                 fs.writeFileSync(messagePath, JSON.stringify(sms_messages, null, 2));
             }
-            
+
             // Save Privacy Policy to DB
             await db.runAsync(
                 `INSERT INTO settings (key, value) VALUES ('privacy_policy', ?)
                  ON CONFLICT(key) DO UPDATE SET value = ?`,
                 [privacyPolicy, privacyPolicy]
             );
-            
+
             res.json({ success: true });
         } catch (err) {
             console.error('Failed to save sms config:', err);
@@ -1750,7 +1750,7 @@ router.get('/settings', (req, res) => {
         const path = require('path');
         const fileName = type === 'error' ? 'error.log' : 'logs.log';
         const logPath = path.join(__dirname, '../../public/logs', fileName);
-        
+
         if (fs.existsSync(logPath)) {
             const content = fs.readFileSync(logPath, 'utf8');
             res.send(content);
@@ -1765,11 +1765,11 @@ router.get('/settings', (req, res) => {
         const path = require('path');
         const fileName = type === 'error' ? 'error.log' : 'logs.log';
         const logPath = path.join(__dirname, '../../public/logs', fileName);
-        
+
         try {
             fs.writeFileSync(logPath, '', 'utf8');
             res.json({ success: true });
-        } catch(e) {
+        } catch (e) {
             console.error('Failed to clear log', e);
             res.status(500).json({ error: 'Failed to clear log' });
         }
@@ -1782,13 +1782,13 @@ router.get('/settings', (req, res) => {
         const path = require('path');
         const fileName = type === 'error' ? 'error.log' : 'logs.log';
         const logPath = path.join(__dirname, '../../public/logs', fileName);
-        
+
         if (!fs.existsSync(logPath)) {
             return res.status(404).send('Log not found');
         }
-        
+
         let content = fs.readFileSync(logPath, 'utf8');
-        
+
         if (format === 'csv') {
             const lines = content.split('\n').filter(l => l.trim()).map(line => `"${line.replace(/"/g, '""')}"`).join('\n');
             res.setHeader('Content-Type', 'text/csv');

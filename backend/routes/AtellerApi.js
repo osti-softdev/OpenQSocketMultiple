@@ -158,13 +158,26 @@ module.exports = function createTellerApiRouter(io) {
         });
     });
 
-    router.get('/teller/report-data', requireTellerSession, (req, res) => {
-        const teller = req.session.teller;
+
+    router.get('/teller/report-data', (req, res) => {
+        let tellerUsername;
+        let tellerCnum;
+
+        if (req.session && req.session.teller) {
+            tellerUsername = req.session.teller.username;
+            tellerCnum = req.session.teller.counter_number;
+        } else if (req.query.username && req.query.cnum) {
+            tellerUsername = req.query.username;
+            tellerCnum = req.query.cnum;
+        } else {
+            return res.status(401).json({ success: false, message: 'Unauthorized' });
+        }
+
         const { date } = getPHDateTime();
         const dateFrom = req.query.datefrom || date;
         const dateTo = req.query.dateto || date;
-        const historyMatch = `%-${teller.username}-%`;
-        const reportParams = [dateFrom, dateTo, teller.counter_number, historyMatch];
+        const historyMatch = `%-${tellerUsername}-%`;
+        const reportParams = [dateFrom, dateTo, tellerCnum, historyMatch];
 
         const chartQuery = `
         SELECT

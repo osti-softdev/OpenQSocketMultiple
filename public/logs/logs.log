@@ -117824,3 +117824,332 @@
 ✔ 2026-07-30 5:30:15 PM [node:events:508] [ADS] Client disconnected: R8qSRcxJCAlRjLfrAABV
 ✔ 2026-07-30 5:30:16 PM [node:events:508] [ADS] Client disconnected: 6Spv_K7PCRuNndtqAAIg
 ✔ 2026-07-30 5:30:18 PM [node:events:508] [ADS] Client disconnected: qbka6uuX3OAEP9KoAAJA
+✔ 2026-07-31 9:22:45 AM [backend\utilities\logger.js:149] Logger initialized at: E:\FOR PRODUCT TEST\TellerFLutter\OpenQSocketMultiple\public\logs
+✔ 2026-07-31 9:22:46 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌁ auth for agents [www.vestauth.com][0m
+✔ 2026-07-31 9:22:48 AM [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-07-31 9:22:48 AM [unknown-location] Connected to SQLite database
+✔ 2026-07-31 9:22:48 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-31 9:22:48 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-31 9:22:48 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-31 9:22:48 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-31 9:23:22 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 9:23:22 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 9:23:22 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 9:23:22 AM [node:events:508] [ADS] Client connected: 2RD_9JIIEl3b9JxiAAAB
+✔ 2026-07-31 9:24:01 AM [node:events:508] [ADS] Client connected: e528MlXG1X8syyyQAAAD
+✔ 2026-07-31 9:24:03 AM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-07-31 9:24:08 AM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-07-31 9:24:12 AM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-07-31 9:24:18 AM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-07-31 9:24:31 AM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-07-31 9:24:35 AM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-07-31 9:24:46 AM [node:events:508] [ADS] Client connected: zOEFxDSYqE40KOgsAAAF
+✔ 2026-07-31 9:24:50 AM [backend\routes\AtellerApi.js:441] 1
+✔ 2026-07-31 9:24:59 AM [node:events:508] [ADS] Client disconnected: zOEFxDSYqE40KOgsAAAF
+✔ 2026-07-31 9:24:59 AM [node:events:508] [ADS] Client connected: B_N3ugYLmwaxf7bqAAAH
+✔ 2026-07-31 9:25:10 AM [node:events:508] [ADS] Client disconnected: e528MlXG1X8syyyQAAAD
+✔ 2026-07-31 9:26:39 AM [backend\routes\AtellerApi.js:441] 1
+✔ 2026-07-31 9:26:43 AM [backend\routes\AtellerApi.js:441] 1
+✔ 2026-07-31 9:27:00 AM [backend\routes\AtellerApi.js:441] 1
+✔ 2026-07-31 9:27:19 AM [node:events:508] [ADS] Client disconnected: 2RD_9JIIEl3b9JxiAAAB
+✔ 2026-07-31 9:28:25 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 9:28:25 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 9:28:25 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 9:28:26 AM [node:events:508] [ADS] Client connected: tpwhogLeoj7XQ_MDAAAJ
+✔ 2026-07-31 9:28:30 AM [node:events:508] [ADS] Client disconnected: tpwhogLeoj7XQ_MDAAAJ
+✔ 2026-07-31 9:33:12 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 9:33:12 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 9:33:12 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 9:33:13 AM [node:events:508] [ADS] Client connected: E7TdnLyRlpB8AEQlAAAL
+✔ 2026-07-31 9:33:40 AM [node:events:508] [ADS] Client disconnected: E7TdnLyRlpB8AEQlAAAL
+✔ 2026-07-31 9:34:19 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 9:34:19 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 9:34:19 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 9:34:19 AM [node:events:508] [ADS] Client connected: 3cjTUCmUjZdBPlovAAAN
+✔ 2026-07-31 9:39:18 AM [node:events:508] [ADS] Client disconnected: 3cjTUCmUjZdBPlovAAAN
+✔ 2026-07-31 9:42:42 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 9:42:42 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 9:42:42 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 9:42:43 AM [node:events:508] [ADS] Client connected: 0ODssRUum69uOQtKAAAP
+✔ 2026-07-31 9:56:23 AM [node:events:508] [ADS] Client disconnected: 0ODssRUum69uOQtKAAAP
+✔ 2026-07-31 9:58:33 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 9:58:33 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 9:58:33 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 9:58:34 AM [node:events:508] [ADS] Client connected: 2beXuU-ad7U2OzXqAAAR
+✔ 2026-07-31 10:02:59 AM [node:events:508] [ADS] Client connected: pN8gxzkHevcio2HXAAAT
+✔ 2026-07-31 10:03:00 AM [node:events:508] [ADS] Client disconnected: pN8gxzkHevcio2HXAAAT
+✔ 2026-07-31 10:03:05 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 10:03:05 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 10:03:05 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 10:03:05 AM [node:events:508] [ADS] Client connected: 6kONBErplVJjZ36WAAAV
+✔ 2026-07-31 10:04:43 AM [backend\routes\AtellerApi.js:441] 1
+✔ 2026-07-31 10:04:58 AM [backend\routes\AtellerApi.js:441] 1
+✔ 2026-07-31 10:07:28 AM [node:events:508] [ADS] Client disconnected: 2beXuU-ad7U2OzXqAAAR
+✔ 2026-07-31 10:53:32 AM [node:events:508] [ADS] Client disconnected: 6kONBErplVJjZ36WAAAV
+✔ 2026-07-31 10:56:47 AM [node:events:508] [ADS] Client disconnected: B_N3ugYLmwaxf7bqAAAH
+✔ 2026-07-31 11:17:45 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 11:17:45 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 11:17:45 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 11:17:46 AM [node:events:508] [ADS] Client connected: FwLb4gIX6x5kCGZlAAAX
+✔ 2026-07-31 11:38:43 AM [node:events:508] [ADS] Client disconnected: FwLb4gIX6x5kCGZlAAAX
+✔ 2026-07-31 11:42:42 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 11:42:42 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 11:42:42 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 11:42:43 AM [node:events:508] [ADS] Client connected: O2KWA8pnRZBOs3ayAAAZ
+✔ 2026-07-31 11:43:22 AM [backend\routes\AtellerApi.js:441] 1
+✔ 2026-07-31 11:45:05 AM [node:events:508] [ADS] Client connected: rMOGocg2gWlvTpvQAAAb
+✔ 2026-07-31 11:45:08 AM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-07-31 11:45:12 AM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-07-31 11:45:18 AM [backend\routes\AtellerApi.js:441] 1
+✔ 2026-07-31 11:45:26 AM [node:events:508] [ADS] Client connected: Dg3vBmQ39GHC6GNXAAAd
+✔ 2026-07-31 11:47:24 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 11:47:24 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 11:47:24 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 11:47:24 AM [node:events:508] [ADS] Client connected: aI2t9PKRdfu95O4CAAAf
+✔ 2026-07-31 11:54:56 AM [node:events:508] [ADS] Client disconnected: O2KWA8pnRZBOs3ayAAAZ
+✔ 2026-07-31 11:58:43 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 11:58:43 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 11:58:43 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 11:58:43 AM [node:events:508] [ADS] Client connected: go-6vhVQjotHTQ4RAAAh
+✔ 2026-07-31 12:02:12 PM [node:events:508] [ADS] Client disconnected: go-6vhVQjotHTQ4RAAAh
+✔ 2026-07-31 12:07:28 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 12:07:28 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 12:07:28 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 12:07:29 PM [node:events:508] [ADS] Client connected: Dv2IcEbINcFfOp9tAAAj
+✔ 2026-07-31 12:08:00 PM [node:events:508] [ADS] Client disconnected: aI2t9PKRdfu95O4CAAAf
+✔ 2026-07-31 12:08:01 PM [node:events:508] [ADS] Client connected: mAzhcpB4FJAyVFOMAAAl
+✔ 2026-07-31 12:08:22 PM [node:events:508] [ADS] Client disconnected: Dv2IcEbINcFfOp9tAAAj
+✔ 2026-07-31 12:08:27 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller2
+✔ 2026-07-31 12:08:27 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 12:08:27 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller2
+✔ 2026-07-31 12:08:28 PM [node:events:508] [ADS] Client connected: Gi6GbfgaM3-LmaUKAAAn
+✔ 2026-07-31 12:08:39 PM [backend\routes\AtellerApi.js:441] 2
+✔ 2026-07-31 12:09:15 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller2
+✔ 2026-07-31 12:09:15 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 12:09:15 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller2
+✔ 2026-07-31 12:09:16 PM [node:events:508] [ADS] Client connected: 2xxiwApdSp3dclW6AAAp
+✔ 2026-07-31 12:09:20 PM [node:events:508] [ADS] Client disconnected: 2xxiwApdSp3dclW6AAAp
+✔ 2026-07-31 12:09:21 PM [node:events:508] [ADS] Client connected: BQZJpXrcmQd0blCpAAAr
+✔ 2026-07-31 12:09:27 PM [backend\routes\AtellerApi.js:441] 2
+✔ 2026-07-31 12:09:36 PM [node:events:508] [ADS] Client disconnected: mAzhcpB4FJAyVFOMAAAl
+✔ 2026-07-31 12:09:40 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 12:09:40 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 12:09:40 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 12:09:40 PM [node:events:508] [ADS] Client connected: SFwfF1w41e3K0hASAAAt
+✔ 2026-07-31 12:09:44 PM [backend\routes\AtellerApi.js:441] 1
+✔ 2026-07-31 12:10:06 PM [node:events:508] [ADS] Client disconnected: BQZJpXrcmQd0blCpAAAr
+✔ 2026-07-31 12:13:06 PM [node:events:508] [ADS] Client disconnected: Gi6GbfgaM3-LmaUKAAAn
+✔ 2026-07-31 12:20:25 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 12:20:25 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 12:20:25 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 12:20:26 PM [node:events:508] [ADS] Client connected: nZESaQzGqI7Q5nL8AAAv
+✔ 2026-07-31 12:26:19 PM [node:events:508] [ADS] Client disconnected: nZESaQzGqI7Q5nL8AAAv
+✔ 2026-07-31 12:28:46 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 12:28:46 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 12:28:46 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 12:28:47 PM [node:events:508] [ADS] Client connected: 2DnVNv7eUnr7ruS9AAAx
+✔ 2026-07-31 12:31:00 PM [node:events:508] [ADS] Client disconnected: 2DnVNv7eUnr7ruS9AAAx
+✔ 2026-07-31 12:33:34 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 12:33:34 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 12:33:34 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 12:33:35 PM [node:events:508] [ADS] Client connected: rjiqggkW_pQAGShWAAAz
+✔ 2026-07-31 12:41:44 PM [node:events:508] [ADS] Client disconnected: rjiqggkW_pQAGShWAAAz
+✔ 2026-07-31 12:47:18 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 12:47:18 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 12:47:18 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 12:47:19 PM [node:events:508] [ADS] Client connected: URr1WQffNC3pxj9cAAA1
+✔ 2026-07-31 12:47:56 PM [backend\utilities\logger.js:149] Logger initialized at: E:\FOR PRODUCT TEST\TellerFLutter\OpenQSocketMultiple\public\logs
+✔ 2026-07-31 12:47:57 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ override existing { override: true }[0m
+✔ 2026-07-31 12:47:58 PM [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-07-31 12:47:58 PM [unknown-location] Connected to SQLite database
+✔ 2026-07-31 12:47:58 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-31 12:47:58 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-31 12:47:58 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-31 12:47:58 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-31 12:48:00 PM [node:events:508] [ADS] Client connected: KrhreSJ381sCfbqgAAAB
+✔ 2026-07-31 12:48:02 PM [node:events:508] [ADS] Client connected: j13H7q3xIyiOJ_IEAAAE
+✔ 2026-07-31 12:48:02 PM [node:events:508] [ADS] Client connected: CEsf3Myfu47mJnQsAAAF
+✔ 2026-07-31 12:48:03 PM [node:events:508] [ADS] Client connected: xwv9dYh9KfN3TgCFAAAH
+✔ 2026-07-31 12:53:24 PM [backend\utilities\logger.js:149] Logger initialized at: E:\FOR PRODUCT TEST\TellerFLutter\OpenQSocketMultiple\public\logs
+✔ 2026-07-31 12:53:25 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ suppress logs { quiet: true }[0m
+✔ 2026-07-31 12:53:25 PM [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-07-31 12:53:25 PM [unknown-location] Connected to SQLite database
+✔ 2026-07-31 12:53:25 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-31 12:53:25 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-31 12:53:25 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-31 12:53:26 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-31 12:53:26 PM [node:events:508] [ADS] Client connected: TCXyLXur9tbuum8aAAAB
+✔ 2026-07-31 12:53:26 PM [node:events:508] [ADS] Client connected: inf25eBtd_s3hazcAAAD
+✔ 2026-07-31 12:53:26 PM [node:events:508] [ADS] Client connected: Ob3GN8-scB5QtCAeAAAF
+✔ 2026-07-31 12:53:28 PM [node:events:508] [ADS] Client connected: krvShmaq7ICGVXJcAAAH
+✔ 2026-07-31 12:53:30 PM [node:events:508] [ADS] Client disconnected: krvShmaq7ICGVXJcAAAH
+✔ 2026-07-31 12:58:37 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 12:58:37 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 12:58:37 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 12:58:38 PM [node:events:508] [ADS] Client connected: 45yMPfGVbXPypXflAAAJ
+✔ 2026-07-31 1:00:18 PM [backend\utilities\logger.js:149] Logger initialized at: E:\FOR PRODUCT TEST\TellerFLutter\OpenQSocketMultiple\public\logs
+✔ 2026-07-31 1:00:18 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ override existing { override: true }[0m
+✔ 2026-07-31 1:00:18 PM [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-07-31 1:00:18 PM [unknown-location] Connected to SQLite database
+✔ 2026-07-31 1:00:18 PM [node:events:508] [ADS] Client connected: Aeqjx8MiTVqTrQXfAAAC
+✔ 2026-07-31 1:00:18 PM [node:events:508] [ADS] Client connected: Fl5hVK5YV87g6BjgAAAD
+✔ 2026-07-31 1:00:18 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-31 1:00:18 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-31 1:00:18 PM [node:events:508] [ADS] Client connected: MuazSNNz-1J4wva-AAAF
+✔ 2026-07-31 1:00:19 PM [unknown-location] Found 43503 transactions older than 365 days. Archiving...
+✔ 2026-07-31 1:00:20 PM [backend\utilities\db.js:352] Successfully archived 43503 transactions to E:\FOR PRODUCT TEST\TellerFLutter\OpenQSocketMultiple\backend\backups\transactions_archive_2026-07-31T05-00-20-011Z.csv
+✔ 2026-07-31 1:00:21 PM [unknown-location] Deleted 43503 old transactions from database.
+✔ 2026-07-31 1:00:22 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-31 1:01:28 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 1:01:28 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 1:01:28 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 1:01:29 PM [node:events:508] [ADS] Client connected: bkNYxNvBXmqh4UWGAAAH
+✔ 2026-07-31 1:01:43 PM [backend\routes\AtellerApi.js:447] 1
+✔ 2026-07-31 1:03:13 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller2
+✔ 2026-07-31 1:03:13 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 1:03:13 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller2
+✔ 2026-07-31 1:03:13 PM [node:events:508] [ADS] Client connected: -Ic2vggSYzGPcMc7AAAJ
+✔ 2026-07-31 1:03:33 PM [node:events:508] [ADS] Client disconnected: Aeqjx8MiTVqTrQXfAAAC
+✔ 2026-07-31 1:03:50 PM [backend\routes\AtellerApi.js:447] 1
+✔ 2026-07-31 1:04:33 PM [node:events:508] [ADS] Client disconnected: -Ic2vggSYzGPcMc7AAAJ
+✔ 2026-07-31 1:04:33 PM [node:events:508] [ADS] Client connected: UrJtExhZisJd4EuNAAAL
+✔ 2026-07-31 1:06:40 PM [backend\utilities\logger.js:149] Logger initialized at: E:\FOR PRODUCT TEST\TellerFLutter\OpenQSocketMultiple\public\logs
+✔ 2026-07-31 1:06:40 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ encrypted .env [www.dotenvx.com][0m
+✔ 2026-07-31 1:06:41 PM [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-07-31 1:06:41 PM [unknown-location] Connected to SQLite database
+✔ 2026-07-31 1:06:41 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-31 1:06:41 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-31 1:06:41 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-31 1:06:41 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-31 1:06:42 PM [node:events:508] [ADS] Client connected: dARvzdme1iUBjjwvAAAB
+✔ 2026-07-31 1:06:42 PM [node:events:508] [ADS] Client connected: IohoB1C_9eURmrR8AAAD
+✔ 2026-07-31 1:06:42 PM [node:events:508] [ADS] Client disconnected: IohoB1C_9eURmrR8AAAD
+✔ 2026-07-31 1:06:43 PM [node:events:508] [ADS] Client connected: e9HMsa3aS3Mb-Y-XAAAF
+✔ 2026-07-31 1:06:44 PM [node:events:508] [ADS] Client connected: Oy5-OyowliWH86taAAAH
+✔ 2026-07-31 1:06:46 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller2
+✔ 2026-07-31 1:06:46 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 1:06:46 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller2
+✔ 2026-07-31 1:06:47 PM [node:events:508] [ADS] Client connected: 3svg9fYDw0AlnmNrAAAJ
+✔ 2026-07-31 1:09:59 PM [backend\utilities\logger.js:149] Logger initialized at: E:\FOR PRODUCT TEST\TellerFLutter\OpenQSocketMultiple\public\logs
+✔ 2026-07-31 1:09:59 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ custom filepath { path: '/custom/path/.env' }[0m
+✔ 2026-07-31 1:10:00 PM [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-07-31 1:10:00 PM [unknown-location] Connected to SQLite database
+✔ 2026-07-31 1:10:00 PM [node:events:508] [ADS] Client connected: LWwlrpSGnT8R8UyUAAAD
+✔ 2026-07-31 1:10:00 PM [node:events:508] [ADS] Client connected: dNGqRLzCCuw56YogAAAE
+✔ 2026-07-31 1:10:00 PM [node:events:508] [ADS] Client connected: FtKcZjJ_IBmySrtNAAAF
+✔ 2026-07-31 1:10:00 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-31 1:10:00 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-31 1:10:00 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-31 1:10:00 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-31 1:10:00 PM [node:events:508] [ADS] Client connected: 8wDfHC_RxZJTGnmgAAAH
+✔ 2026-07-31 1:10:02 PM [node:events:508] [ADS] Client disconnected: LWwlrpSGnT8R8UyUAAAD
+✔ 2026-07-31 1:10:07 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller2
+✔ 2026-07-31 1:10:07 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 1:10:07 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller2
+✔ 2026-07-31 1:10:07 PM [node:events:508] [ADS] Client connected: v2TJrs3FuR8p95pBAAAJ
+✔ 2026-07-31 1:10:47 PM [backend\utilities\logger.js:149] Logger initialized at: E:\FOR PRODUCT TEST\TellerFLutter\OpenQSocketMultiple\public\logs
+✔ 2026-07-31 1:10:47 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ enable debugging { debug: true }[0m
+✔ 2026-07-31 1:10:48 PM [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-07-31 1:10:48 PM [unknown-location] Connected to SQLite database
+✔ 2026-07-31 1:10:49 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-31 1:10:49 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-31 1:10:49 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-31 1:10:49 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-31 1:10:49 PM [node:events:508] [ADS] Client connected: 2h3PqNESReyp4tgrAAAC
+✔ 2026-07-31 1:10:49 PM [node:events:508] [ADS] Client connected: c8uO2VBhGvgS3FpeAAAD
+✔ 2026-07-31 1:10:50 PM [node:events:508] [ADS] Client connected: pmVRrfaN2hnP1EtSAAAF
+✔ 2026-07-31 1:10:51 PM [node:events:508] [ADS] Client connected: DM1DTelEVDq3yt19AAAH
+✔ 2026-07-31 1:11:25 PM [node:events:508] [ADS] Client disconnected: c8uO2VBhGvgS3FpeAAAD
+✔ 2026-07-31 1:11:30 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller2
+✔ 2026-07-31 1:11:30 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 1:11:30 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller2
+✔ 2026-07-31 1:11:30 PM [node:events:508] [ADS] Client connected: oDhj7UoW79JMKbHAAAAJ
+✔ 2026-07-31 1:16:27 PM [node:events:508] [ADS] Client disconnected: pmVRrfaN2hnP1EtSAAAF
+✔ 2026-07-31 1:16:36 PM [node:events:508] [ADS] Client disconnected: oDhj7UoW79JMKbHAAAAJ
+✔ 2026-07-31 1:16:36 PM [node:events:508] [ADS] Client connected: Dzk130-SG34iLs2sAAAL
+✔ 2026-07-31 1:20:35 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 1:20:35 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 1:20:35 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 1:20:36 PM [node:events:508] [ADS] Client connected: k1jGV1noDo5ejB3dAAAN
+✔ 2026-07-31 1:22:35 PM [node:events:508] [ADS] Client disconnected: k1jGV1noDo5ejB3dAAAN
+✔ 2026-07-31 1:25:29 PM [node:events:508] [ADS] Client disconnected: Dzk130-SG34iLs2sAAAL
+✔ 2026-07-31 1:25:30 PM [node:events:508] [ADS] Client connected: maVeeZfK6i5rfSanAAAP
+✔ 2026-07-31 1:26:10 PM [node:events:508] [ADS] Client disconnected: maVeeZfK6i5rfSanAAAP
+✔ 2026-07-31 1:26:10 PM [node:events:508] [ADS] Client connected: Otu8mIY94luhOZ2nAAAR
+✔ 2026-07-31 1:28:10 PM [backend\utilities\logger.js:149] Logger initialized at: E:\FOR PRODUCT TEST\TellerFLutter\OpenQSocketMultiple\public\logs
+✔ 2026-07-31 1:28:10 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ multiple files { path: ['.env.local', '.env'] }[0m
+✔ 2026-07-31 1:28:11 PM [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-07-31 1:28:11 PM [unknown-location] Connected to SQLite database
+✔ 2026-07-31 1:28:11 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-31 1:28:11 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-31 1:28:11 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-31 1:28:11 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-31 1:28:12 PM [node:events:508] [ADS] Client connected: Lbnqj199foT5YJRNAAAB
+✔ 2026-07-31 1:28:13 PM [node:events:508] [ADS] Client connected: of10k6Sd_xCu4pKNAAAE
+✔ 2026-07-31 1:28:13 PM [node:events:508] [ADS] Client connected: aPeAmuqUh9JEaApnAAAF
+✔ 2026-07-31 1:29:23 PM [node:events:508] [ADS] Client disconnected: Lbnqj199foT5YJRNAAAB
+✔ 2026-07-31 1:29:28 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 1:29:28 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 1:29:28 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 1:29:28 PM [node:events:508] [ADS] Client connected: wiOvxDSi3JpvxjMVAAAH
+✔ 2026-07-31 1:31:27 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 1:31:27 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 1:31:27 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 1:31:28 PM [node:events:508] [ADS] Client connected: qVJcmDsjR59tY_JRAAAJ
+✔ 2026-07-31 1:36:28 PM [backend\utilities\logger.js:149] Logger initialized at: E:\FOR PRODUCT TEST\TellerFLutter\OpenQSocketMultiple\public\logs
+✔ 2026-07-31 1:36:28 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ custom filepath { path: '/custom/path/.env' }[0m
+✔ 2026-07-31 1:36:28 PM [node:events:622] Queue System running on http://localhost:12341
+✔ 2026-07-31 1:36:28 PM [unknown-location] Connected to SQLite database
+✔ 2026-07-31 1:36:28 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-07-31 1:36:28 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-07-31 1:36:28 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-07-31 1:36:28 PM [node:events:508] [ADS] Client connected: VgMjEhCqoI59Uf4XAAAB
+✔ 2026-07-31 1:36:28 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-07-31 1:36:28 PM [node:events:508] [ADS] Client connected: lugVFAvL7b0p5KrJAAAD
+✔ 2026-07-31 1:36:29 PM [node:events:508] [ADS] Client disconnected: VgMjEhCqoI59Uf4XAAAB
+✔ 2026-07-31 1:36:29 PM [node:events:508] [ADS] Client connected: kUlfWKzP9PuAHY1OAAAF
+✔ 2026-07-31 1:36:30 PM [node:events:508] [ADS] Client connected: rprmhGRrFMdWh-RLAAAH
+✔ 2026-07-31 1:36:40 PM [node:events:508] [ADS] Client disconnected: lugVFAvL7b0p5KrJAAAD
+✔ 2026-07-31 1:36:44 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 1:36:44 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 1:36:44 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 1:36:44 PM [node:events:508] [ADS] Client connected: NkYIimdyE_DUGktDAAAJ
+✔ 2026-07-31 1:40:25 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 1:40:25 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 1:40:25 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 1:40:26 PM [node:events:508] [ADS] Client connected: jUw5LYU_WdRqczLQAAAL
+✔ 2026-07-31 1:48:09 PM [node:events:508] [ADS] Client disconnected: jUw5LYU_WdRqczLQAAAL
+✔ 2026-07-31 1:50:40 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 1:50:40 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 1:50:40 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 1:50:41 PM [node:events:508] [ADS] Client connected: WNbmWZkKMuleNjUOAAAN
+✔ 2026-07-31 1:51:15 PM [node:events:508] [ADS] Client disconnected: WNbmWZkKMuleNjUOAAAN
+✔ 2026-07-31 1:51:19 PM [node:events:508] [ADS] Client disconnected: NkYIimdyE_DUGktDAAAJ
+✔ 2026-07-31 1:51:19 PM [node:events:508] [ADS] Client connected: ecwpIjMBvbqyhJPqAAAP
+✔ 2026-07-31 1:51:45 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 1:51:45 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 1:51:45 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 1:51:46 PM [node:events:508] [ADS] Client connected: sl84J4uY2AgTgPdNAAAR
+✔ 2026-07-31 1:56:15 PM [node:events:508] [ADS] Client disconnected: sl84J4uY2AgTgPdNAAAR
+✔ 2026-07-31 2:39:08 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-07-31 2:39:08 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 2:39:08 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-07-31 2:39:08 PM [node:events:508] [ADS] Client connected: LBrG9MfU54xTijCdAAAT
+✔ 2026-07-31 2:39:12 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-07-31 2:39:45 PM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-07-31 2:39:48 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-07-31 2:40:04 PM [node:events:508] [ADS] Client disconnected: LBrG9MfU54xTijCdAAAT
+✔ 2026-07-31 3:03:14 PM [node:events:508] [ADS] Client connected: 9ChL5vfqW27ebQfPAAAV
+✔ 2026-07-31 3:03:16 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller2
+✔ 2026-07-31 3:03:16 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-07-31 3:03:16 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller2
+✔ 2026-07-31 3:03:16 PM [node:events:508] [ADS] Client connected: 0-KV-XhcEsCusLtUAAAX
+✔ 2026-07-31 3:03:27 PM [backend\routes\AtellerApi.js:454] 2
+✔ 2026-07-31 3:03:44 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-07-31 3:03:48 PM [node:events:508] [ADS] Client disconnected: ecwpIjMBvbqyhJPqAAAP
+✔ 2026-07-31 3:04:41 PM [node:events:508] [ADS] Client disconnected: 9ChL5vfqW27ebQfPAAAV
+✔ 2026-07-31 3:05:11 PM [node:events:508] [ADS] Client connected: DZxjSPp_IRddYvvQAAAZ
+✔ 2026-07-31 3:07:11 PM [node:events:508] [ADS] Client disconnected: DZxjSPp_IRddYvvQAAAZ
+✔ 2026-07-31 3:41:07 PM [node:events:508] [ADS] Client disconnected: 0-KV-XhcEsCusLtUAAAX
+✔ 2026-07-31 6:29:49 PM [node:events:508] [ADS] Client disconnected: rprmhGRrFMdWh-RLAAAH
+✔ 2026-07-31 6:29:49 PM [node:events:508] [ADS] Client disconnected: kUlfWKzP9PuAHY1OAAAF

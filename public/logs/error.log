@@ -17,3 +17,30 @@
     at IncomingMessage.emit (node:events:508:28)
     at endReadableNT (node:internal/streams/readable:1701:12)
     at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+❌ 2026-07-31 9:24:03 AM [backend\utilities\printer.js:23] exec error: Error: Command failed: php E:\FOR PRODUCT TEST\TellerFLutter\OpenQSocketMultiple/public/printer/print.php ED,1,EDUCATION,
+Could not open input file: E:\FOR
+
+❌ 2026-07-31 9:24:08 AM [backend\utilities\printer.js:23] exec error: Error: Command failed: php E:\FOR PRODUCT TEST\TellerFLutter\OpenQSocketMultiple/public/printer/print.php ED,2,EDUCATION,
+Could not open input file: E:\FOR
+
+❌ 2026-07-31 9:24:12 AM [backend\utilities\printer.js:23] exec error: Error: Command failed: php E:\FOR PRODUCT TEST\TellerFLutter\OpenQSocketMultiple/public/printer/print.php ED,3,EDUCATION,
+Could not open input file: E:\FOR
+
+❌ 2026-07-31 9:24:18 AM [backend\utilities\printer.js:23] exec error: Error: Command failed: php E:\FOR PRODUCT TEST\TellerFLutter\OpenQSocketMultiple/public/printer/print.php OP,1,OPERATIONS,Checkpoint
+Could not open input file: E:\FOR
+
+❌ 2026-07-31 9:24:31 AM [backend\utilities\printer.js:23] exec error: Error: Command failed: php E:\FOR PRODUCT TEST\TellerFLutter\OpenQSocketMultiple/public/printer/print.php DP,1,DEPARTMENT_HEAD,
+Could not open input file: E:\FOR
+
+❌ 2026-07-31 9:24:38 AM [backend\utilities\printer.js:23] exec error: Error: Command failed: php E:\FOR PRODUCT TEST\TellerFLutter\OpenQSocketMultiple/public/printer/print.php PED,1,EDUCATION,
+Could not open input file: E:\FOR
+
+❌ 2026-07-31 11:45:09 AM [backend\utilities\printer.js:23] exec error: Error: Command failed: php E:\FOR PRODUCT TEST\TellerFLutter\OpenQSocketMultiple/public/printer/print.php ED,4,EDUCATION,
+Could not open input file: E:\FOR
+
+❌ 2026-07-31 11:45:12 AM [backend\utilities\printer.js:23] exec error: Error: Command failed: php E:\FOR PRODUCT TEST\TellerFLutter\OpenQSocketMultiple/public/printer/print.php ED,5,EDUCATION,
+Could not open input file: E:\FOR
+
+❌ 2026-07-31 2:39:45 PM [backend\utilities\printer.js:23] exec error: Error: Command failed: php E:\FOR PRODUCT TEST\TellerFLutter\OpenQSocketMultiple/public/printer/print.php OP,28,OPERATIONS,Checkpoint
+Could not open input file: E:\FOR
+
