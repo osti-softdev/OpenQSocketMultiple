@@ -100,10 +100,10 @@ function setServicesDisplay(count) {
 		"width": "75%",
 	});
 	$(".timer").css({
-		"left": "66%",
+		"left": "10%",
 		"width": "fit-content",
 		"flex-direction": "row",
-		"top": "1%",
+		"top": "15%",
 	})
 	if (count <= 10) {
 		$(".video-container").css({
@@ -123,7 +123,7 @@ function setServicesDisplay(count) {
 			"display": "none",
 		})
 		$(".content-container").css({
-			"top": "10%",
+			"top": "0%",
 			"height": "83%",
 			"left": "0%",
 			"width": "100%",
