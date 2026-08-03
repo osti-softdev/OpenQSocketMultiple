@@ -1,0 +1,8 @@
+E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller\bin\Debug\CallerApp.exe.config
+E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller\bin\Debug\CallerApp.exe
+E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller\bin\Debug\CallerApp.pdb
+E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller\obj\Debug\CallerApp.exe
+E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller\obj\Debug\CallerApp.pdb
+E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller\obj\Debug\CallerApp.LoginForm.resources
+E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller\obj\Debug\CallerApp.csproj.GenerateResource.cache
+E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller\obj\Debug\CallerApp.csprojResolveAssemblyReference.cache
