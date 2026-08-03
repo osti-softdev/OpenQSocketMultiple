@@ -4,6 +4,7 @@ using System.Net;
 using System.Text;
 using System.Web.Script.Serialization;
 using System.Collections.Generic;
+using SocketIOClient;
 
 namespace CallerApp
 {
@@ -25,6 +26,8 @@ namespace CallerApp
 
         // Data Models to store current Teller info
         public static Dictionary<string, object> CurrentTeller { get; set; }
+
+        public static SocketIO Socket { get; set; }
 
         public static Dictionary<string, object> Post(string endpoint, object data)
         {

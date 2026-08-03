@@ -225,3 +225,103 @@
 ✔ 2026-08-03 2:46:20 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller2
 ✔ 2026-08-03 2:46:37 PM [backend\routes\AtellerApi.js:454] 2
 ✔ 2026-08-03 2:46:52 PM [backend\routes\AtellerApi.js:454] 2
+✔ 2026-08-03 8:35:40 PM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-03 8:35:41 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ custom filepath { path: '/custom/path/.env' }[0m
+✔ 2026-08-03 8:35:41 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-03 8:35:41 PM [unknown-location] Connected to SQLite database
+✔ 2026-08-03 8:35:41 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-03 8:35:41 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-03 8:35:41 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-03 8:35:41 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-03 8:46:52 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-03 8:46:52 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 8:46:52 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-03 8:47:44 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-03 8:47:44 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 8:47:44 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-03 8:50:47 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-03 8:50:47 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 8:50:47 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-03 8:50:51 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-03 8:52:02 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-03 8:52:02 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 8:52:02 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-03 9:00:21 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-03 9:00:21 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 9:00:21 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-03 9:01:54 PM [node:events:509] [ADS] Client connected: Ms4oMBOSiPwiPE4JAAAB
+✔ 2026-08-03 9:01:57 PM [node:events:509] [ADS] Client disconnected: Ms4oMBOSiPwiPE4JAAAB
+✔ 2026-08-03 9:01:57 PM [node:events:509] [ADS] Client connected: 058z9WzBEwoHa-KmAAAD
+✔ 2026-08-03 9:02:02 PM [node:events:509] [ADS] Client connected: 93iRmb8tSnUU5VICAAAF
+✔ 2026-08-03 9:02:13 PM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-08-03 9:02:22 PM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-08-03 9:18:26 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-03 9:18:26 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 9:18:26 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-03 9:18:58 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-03 9:21:52 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-03 9:21:52 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 9:21:52 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-03 9:32:36 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-03 9:32:36 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 9:32:36 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-03 9:32:56 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-03 9:34:31 PM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-08-03 9:34:38 PM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-08-03 9:49:06 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-03 9:49:06 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 9:49:06 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-03 9:51:29 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-03 9:51:29 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 9:51:29 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-03 9:53:32 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-03 9:53:32 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 9:53:32 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-03 9:56:06 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-03 9:56:06 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 9:56:06 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-03 9:56:24 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-03 9:56:37 PM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-08-03 10:04:49 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-03 10:04:49 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 10:04:49 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-03 10:05:00 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-03 10:05:08 PM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-08-03 10:05:13 PM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-08-03 10:09:39 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-03 10:09:39 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 10:09:39 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-03 10:09:48 PM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-08-03 10:12:40 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-03 10:12:40 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 10:12:40 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-03 10:12:51 PM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-08-03 10:12:57 PM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-08-03 10:13:04 PM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-08-03 10:13:09 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-03 10:17:13 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-03 10:17:13 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 10:17:13 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-03 10:17:31 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller2
+✔ 2026-08-03 10:17:31 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 10:17:31 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller2
+✔ 2026-08-03 10:17:49 PM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-08-03 10:21:00 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller2
+✔ 2026-08-03 10:21:00 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 10:21:00 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller2
+✔ 2026-08-03 10:27:03 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-03 10:27:03 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 10:27:03 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-03 10:27:30 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-03 10:27:30 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 10:27:30 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-03 10:27:40 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller2
+✔ 2026-08-03 10:27:40 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 10:27:40 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller2
+✔ 2026-08-03 10:34:06 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller2
+✔ 2026-08-03 10:34:06 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 10:34:06 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller2
+✔ 2026-08-03 10:38:03 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller2
+✔ 2026-08-03 10:38:03 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 10:38:03 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller2
+✔ 2026-08-03 10:38:32 PM [backend\routes\AtellerApi.js:454] 2
