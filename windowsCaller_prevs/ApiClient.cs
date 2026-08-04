@@ -4,7 +4,6 @@ using System.Net;
 using System.Text;
 using System.Web.Script.Serialization;
 using System.Collections.Generic;
-using SocketIOClient;
 
 namespace CallerApp
 {
@@ -12,9 +11,11 @@ namespace CallerApp
     {
         private static bool _autoFinishEnabled = false;
         private static bool _showReceivedInWaiting = false;
+        private static bool _showTooltips = true;
 
         public static bool AutoFinishEnabled { get { return _autoFinishEnabled; } set { _autoFinishEnabled = value; } }
         public static bool ShowReceivedInWaiting { get { return _showReceivedInWaiting; } set { _showReceivedInWaiting = value; } }
+        public static bool ShowTooltips { get { return _showTooltips; } set { _showTooltips = value; } }
 
         private static string GetConfigPath()
         {
@@ -36,6 +37,7 @@ namespace CallerApp
                     if (data.ContainsKey("BaseUrl")) ApiClient.BaseUrl = data["BaseUrl"].ToString();
                     if (data.ContainsKey("AutoFinishEnabled")) _autoFinishEnabled = (bool)data["AutoFinishEnabled"];
                     if (data.ContainsKey("ShowReceivedInWaiting")) _showReceivedInWaiting = (bool)data["ShowReceivedInWaiting"];
+                    if (data.ContainsKey("ShowTooltips")) _showTooltips = (bool)data["ShowTooltips"];
                 }
             } catch {}
         }
@@ -46,7 +48,8 @@ namespace CallerApp
                 var data = new Dictionary<string, object> {
                     { "BaseUrl", ApiClient.BaseUrl },
                     { "AutoFinishEnabled", _autoFinishEnabled },
-                    { "ShowReceivedInWaiting", _showReceivedInWaiting }
+                    { "ShowReceivedInWaiting", _showReceivedInWaiting },
+                    { "ShowTooltips", _showTooltips }
                 };
                 string json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(data);
                 File.WriteAllText(GetConfigPath(), json);
@@ -64,7 +67,6 @@ namespace CallerApp
         // Data Models to store current Teller info
         public static Dictionary<string, object> CurrentTeller { get; set; }
 
-        public static SocketIO Socket { get; set; }
 
         public static Dictionary<string, object> Post(string endpoint, object data)
         {

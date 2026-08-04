@@ -1,11 +1,10 @@
-using System;
+    using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
-using SocketIOClient;
+using System.Threading;
 
 namespace CallerApp
 {
@@ -21,16 +20,18 @@ namespace CallerApp
         private string lastHeldJson = "";
         private string lastForwardedJson = "";
 
+        public ToolTip appToolTip = new ToolTip();
+
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void BtnRecall_Click(object sender, EventArgs e) => RecallTicket();
-        private void BtnHold_Click(object sender, EventArgs e) => HoldTicket();
-        private void BtnForward_Click(object sender, EventArgs e) => OpenForwardModal();
-        private void BtnVoid_Click(object sender, EventArgs e) => OpenVoidModal();
-        private void BtnComplete_Click(object sender, EventArgs e) => CompleteTicket();
+        private void BtnRecall_Click(object sender, EventArgs e) { RecallTicket(); }
+        private void BtnHold_Click(object sender, EventArgs e) { HoldTicket(); }
+        private void BtnForward_Click(object sender, EventArgs e) { OpenForwardModal(); }
+        private void BtnVoid_Click(object sender, EventArgs e) { OpenVoidModal(); }
+        private void BtnComplete_Click(object sender, EventArgs e) { CompleteTicket(); }
         private void BtnAutoCall_Click(object sender, EventArgs e)
         {
             CallNext("auto");
@@ -56,6 +57,14 @@ namespace CallerApp
                 this.Text = string.Format("{0} - Counter {1}", ApiClient.CurrentTeller["username"], ApiClient.CurrentTeller["counter_number"]);
             }
 
+            appToolTip.Active = AppSettings.ShowTooltips;
+            appToolTip.SetToolTip(btnRecall, "Recall Ticket");
+            appToolTip.SetToolTip(btnHold, "Hold Ticket");
+            appToolTip.SetToolTip(btnForward, "Forward Ticket");
+            appToolTip.SetToolTip(btnVoid, "Void Ticket");
+            appToolTip.SetToolTip(btnComplete, "Complete Ticket");
+            if (btnAutoCall != null) appToolTip.SetToolTip(btnAutoCall, "Auto Call Next");
+
             ApplyTabSettings();
             LoadCatalogServices();
             CreateServiceBoxes();
@@ -71,47 +80,12 @@ namespace CallerApp
 
             // Setup a 5-second fallback polling timer
             fallbackTimer = new System.Windows.Forms.Timer();
-            fallbackTimer.Interval = 5000;
+            fallbackTimer.Interval = 3000;
             fallbackTimer.Tick += (s, ev) => {
                 ThreadPool.QueueUserWorkItem(state => { FetchQueues(); });
                 CheckCurrentTicket();
             };
             fallbackTimer.Start();
-            
-            if (ApiClient.Socket == null)
-            {
-                ApiClient.Socket = new SocketIO(new Uri(ApiClient.BaseUrl));
-                
-                ApiClient.Socket.OnConnected += (s, ev) => {
-                    // Handled by initial load, but keep for reconnects
-                    this.BeginInvoke(new Action(() => {
-                        ThreadPool.QueueUserWorkItem(state => { FetchQueues(); });
-                    }));
-                };
-                
-                Action triggerUpdate = () => {
-                    ThreadPool.QueueUserWorkItem(state => {
-                        FetchQueues();
-                    });
-                    CheckCurrentTicket();
-                };
-
-                ApiClient.Socket.On("ticket_completed", response => { triggerUpdate(); return Task.CompletedTask; });
-                ApiClient.Socket.On("calledticketsArrived", response => { triggerUpdate(); return Task.CompletedTask; });
-                ApiClient.Socket.On("ticket_called", response => { triggerUpdate(); return Task.CompletedTask; });
-                ApiClient.Socket.On("ticket_held", response => { triggerUpdate(); return Task.CompletedTask; });
-                ApiClient.Socket.On("ticket_voided", response => { triggerUpdate(); return Task.CompletedTask; });
-                ApiClient.Socket.On("ticket_forwarded", response => { triggerUpdate(); return Task.CompletedTask; });
-                ApiClient.Socket.On("new-ticket", response => { triggerUpdate(); return Task.CompletedTask; });
-                ApiClient.Socket.On("service_update", response => { triggerUpdate(); return Task.CompletedTask; });
-
-                ApiClient.Socket.OnAny((name, response) => {
-                    triggerUpdate();
-                    return Task.CompletedTask;
-                });
-
-                ApiClient.Socket.ConnectAsync();
-            }
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -121,12 +95,7 @@ namespace CallerApp
                 fallbackTimer.Stop();
                 fallbackTimer.Dispose();
             }
-            if (ApiClient.Socket != null)
-            {
-                ApiClient.Socket.DisconnectAsync();
-                ApiClient.Socket.Dispose();
-                ApiClient.Socket = null;
-            }
+
             durationTimer.Stop();
         }
 
@@ -146,6 +115,7 @@ namespace CallerApp
                 if (sm.ShowDialog() == DialogResult.OK)
                 {
                     ApplyTabSettings();
+                    appToolTip.Active = AppSettings.ShowTooltips;
                     FetchQueues();
                     
                     if (sm.ShowHistoryClicked)
@@ -198,17 +168,20 @@ namespace CallerApp
                 string srv = rawSrv.Trim();
                 if (string.IsNullOrEmpty(srv)) continue;
 
-                Panel pRow = new Panel() { Width = 240, Height = 40, Margin = new Padding(2) };
+                Panel pRow = new Panel() { Width = 215, Height = 34, Margin = new Padding(2) };
                 
-                Label lblName = new Label() { Text = srv, Font = new Font("Segoe UI", 9, FontStyle.Bold), Location = new Point(5, 12), AutoSize = true, ForeColor = Color.DimGray };
+                Label lblName = new Label() { Text = srv, Font = new Font("Segoe UI", 7.5f, FontStyle.Bold), Location = new Point(2, 9), AutoSize = true, ForeColor = Color.DimGray };
                 
-                Button btnReg = CreateModernButton("Reg [0]", 100, 5, 65, 30, Color.FromArgb(52, 152, 219), Color.White);
+                Button btnReg = CreateModernButton("0", 130, 4, 35, 26, Color.FromArgb(52, 152, 219), Color.White);
                 btnReg.Font = new Font("Segoe UI", 8, FontStyle.Bold);
                 btnReg.Click += (s, e) => CallNext("regular", srv);
 
-                Button btnPri = CreateModernButton("Pri [0]", 170, 5, 65, 30, Color.FromArgb(155, 89, 182), Color.White);
+                Button btnPri = CreateModernButton("0", 170, 4, 35, 26, Color.FromArgb(155, 89, 182), Color.White);
                 btnPri.Font = new Font("Segoe UI", 8, FontStyle.Bold);
                 btnPri.Click += (s, e) => CallNext("priority", srv);
+                
+                appToolTip.SetToolTip(btnReg, "Regular");
+                appToolTip.SetToolTip(btnPri, "Priority");
 
                 pRow.Controls.Add(lblName);
                 pRow.Controls.Add(btnReg);
@@ -268,8 +241,8 @@ namespace CallerApp
                     }
                 }
 
-                kvp.Value[0].Text = string.Format("Reg [{0}]", rCount);
-                kvp.Value[1].Text = string.Format("Pri [{0}]", pCount);
+                kvp.Value[0].Text = rCount.ToString();
+                kvp.Value[1].Text = pCount.ToString();
             }
         }
 
@@ -422,33 +395,37 @@ namespace CallerApp
                 bgColor = Color.FromArgb(250, 219, 216); // Light Red
             }
 
-            Panel p = new Panel() { Width = 240, Height = 45, BorderStyle = BorderStyle.FixedSingle, Margin = new Padding(2), BackColor = bgColor };
+            Panel p = new Panel() { Width = 215, Height = 38, BorderStyle = BorderStyle.FixedSingle, Margin = new Padding(2), BackColor = bgColor };
             
             string tNum = t.ContainsKey("ticketservice") ? string.Format("{0}{1}", t["ticketservice"], t["ticketnum"]) : t["ticketnum"].ToString();
             string sName = t.ContainsKey("sname") ? t["sname"].ToString().Replace("_", " ") : "";
             if (string.IsNullOrEmpty(sName) && t.ContainsKey("status")) sName = t["status"].ToString();
             
-            Label lblNum = new Label() { Text = tNum, Font = new Font("Segoe UI", 10, FontStyle.Bold), Location = new Point(5, 5), AutoSize = true, ForeColor = Color.FromArgb(40,40,40) };
-            Label lblSvc = new Label() { Text = sName, Location = new Point(5, 23), AutoSize = true, Font = new Font("Segoe UI", 8), ForeColor = Color.DimGray };
+            Label lblNum = new Label() { Text = tNum, Font = new Font("Segoe UI", 9, FontStyle.Bold), Location = new Point(2, 3), AutoSize = true, ForeColor = Color.FromArgb(40,40,40) };
+            Label lblSvc = new Label() { Text = sName, Location = new Point(2, 19), AutoSize = true, Font = new Font("Segoe UI", 7), ForeColor = Color.DimGray };
 
             if (!string.IsNullOrEmpty(btn2Text) && btn2Color.HasValue)
             {
-                Button btn1 = CreateModernButton(btn1Text, 125, 8, 52, 28, btn1Color, Color.White);
-                btn1.Font = new Font("Segoe UI", 7, FontStyle.Bold);
+                Button btn1 = CreateModernButton(btn1Text, 110, 5, 45, 26, btn1Color, Color.White);
+                btn1.Font = new Font("Segoe UI", 6.5f, FontStyle.Bold);
                 btn1.Click += onBtn1Click;
                 
-                Button btn2 = CreateModernButton(btn2Text, 180, 8, 52, 28, btn2Color.Value, Color.White);
-                btn2.Font = new Font("Segoe UI", 7, FontStyle.Bold);
+                Button btn2 = CreateModernButton(btn2Text, 160, 5, 45, 26, btn2Color.Value, Color.White);
+                btn2.Font = new Font("Segoe UI", 6.5f, FontStyle.Bold);
                 btn2.Click += onBtn2Click;
+                
+                appToolTip.SetToolTip(btn1, btn1Text.Replace("📢 ", "").Replace("▶ ", "").Replace("➡️ ", ""));
+                appToolTip.SetToolTip(btn2, btn2Text.Replace("📢 ", "").Replace("▶ ", "").Replace("➡️ ", ""));
 
                 p.Controls.Add(btn1);
                 p.Controls.Add(btn2);
             }
             else
             {
-                Button btn1 = CreateModernButton(btn1Text, 155, 8, 80, 28, btn1Color, Color.White);
-                btn1.Font = new Font("Segoe UI", 8, FontStyle.Bold);
+                Button btn1 = CreateModernButton(btn1Text, 135, 5, 70, 26, btn1Color, Color.White);
+                btn1.Font = new Font("Segoe UI", 7, FontStyle.Bold);
                 btn1.Click += onBtn1Click;
+                appToolTip.SetToolTip(btn1, btn1Text.Replace("📢 ", "").Replace("▶ ", "").Replace("➡️ ", ""));
                 p.Controls.Add(btn1);
             }
 

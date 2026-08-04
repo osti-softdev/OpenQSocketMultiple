@@ -9,6 +9,7 @@ namespace CallerApp
         private TextBox txtBaseUrl;
         private CheckBox chkAutoFinish;
         private CheckBox chkShowReceived;
+        private CheckBox chkShowTooltips;
         
         private Button btnHistory;
         private Button btnSave;
@@ -24,7 +25,7 @@ namespace CallerApp
         private void InitializeComponent()
         {
             this.Text = "Settings";
-            this.Size = new Size(320, 350);
+            this.Size = new Size(320, 385);
             this.StartPosition = FormStartPosition.CenterParent;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -43,6 +44,9 @@ namespace CallerApp
             chkShowReceived = new CheckBox() { Text = "Mix Received Tickets into Waiting List", Location = new Point(20, 145), Size = new Size(260, 25), Font = new Font("Segoe UI", 9) };
             chkShowReceived.Checked = AppSettings.ShowReceivedInWaiting;
 
+            chkShowTooltips = new CheckBox() { Text = "Show Button ToolTips on Hover", Location = new Point(20, 175), Size = new Size(260, 25), Font = new Font("Segoe UI", 9) };
+            chkShowTooltips.Checked = AppSettings.ShowTooltips;
+
             // Only show auto-finish/received/history if user is logged in
             bool isLoggedIn = ApiClient.CurrentTeller != null;
             chkAutoFinish.Visible = isLoggedIn;
@@ -50,7 +54,7 @@ namespace CallerApp
 
             btnHistory = new Button() { 
                 Text = "📜 View Ticket History", 
-                Location = new Point(20, 185), 
+                Location = new Point(20, 215), 
                 Size = new Size(260, 35), 
                 BackColor = Color.FromArgb(52, 152, 219), 
                 ForeColor = Color.White,
@@ -68,7 +72,7 @@ namespace CallerApp
 
             btnSave = new Button() { 
                 Text = "✅ Save Changes", 
-                Location = new Point(20, 250), 
+                Location = new Point(20, 280), 
                 Size = new Size(125, 35), 
                 BackColor = Color.FromArgb(46, 204, 113), 
                 ForeColor = Color.White,
@@ -81,7 +85,7 @@ namespace CallerApp
             
             btnCancel = new Button() { 
                 Text = "Cancel", 
-                Location = new Point(155, 250), 
+                Location = new Point(155, 280), 
                 Size = new Size(125, 35), 
                 BackColor = Color.WhiteSmoke, 
                 ForeColor = Color.DimGray,
@@ -97,6 +101,7 @@ namespace CallerApp
             this.Controls.Add(txtBaseUrl);
             this.Controls.Add(chkAutoFinish);
             this.Controls.Add(chkShowReceived);
+            this.Controls.Add(chkShowTooltips);
             this.Controls.Add(btnHistory);
             this.Controls.Add(btnSave);
             this.Controls.Add(btnCancel);
@@ -114,6 +119,7 @@ namespace CallerApp
             ApiClient.BaseUrl = txtBaseUrl.Text.Trim();
             AppSettings.AutoFinishEnabled = chkAutoFinish.Checked;
             AppSettings.ShowReceivedInWaiting = chkShowReceived.Checked;
+            AppSettings.ShowTooltips = chkShowTooltips.Checked;
             AppSettings.Save();
 
             ShowHistoryClicked = false;

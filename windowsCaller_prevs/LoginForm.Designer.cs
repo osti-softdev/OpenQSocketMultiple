@@ -43,19 +43,19 @@ namespace CallerApp
             // 
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtUsername.Location = new System.Drawing.Point(50, 90);
+            this.txtUsername.Location = new System.Drawing.Point(9, 90);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(240, 27);
+            this.txtUsername.Size = new System.Drawing.Size(197, 27);
             this.txtUsername.TabIndex = 1;
             // 
             // txtPassword
             // 
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtPassword.Location = new System.Drawing.Point(50, 145);
+            this.txtPassword.Location = new System.Drawing.Point(9, 145);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '•';
-            this.txtPassword.Size = new System.Drawing.Size(240, 27);
+            this.txtPassword.Size = new System.Drawing.Size(197, 27);
             this.txtPassword.TabIndex = 3;
             // 
             // btnLogin
@@ -66,9 +66,9 @@ namespace CallerApp
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(50, 185);
+            this.btnLogin.Location = new System.Drawing.Point(9, 185);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(240, 35);
+            this.btnLogin.Size = new System.Drawing.Size(197, 35);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "🔒 Login";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -90,9 +90,9 @@ namespace CallerApp
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.lblTitle.Location = new System.Drawing.Point(20, 29);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(300, 35);
+            this.lblTitle.Size = new System.Drawing.Size(186, 35);
             this.lblTitle.TabIndex = 6;
-            this.lblTitle.Text = "🔑 OpenQ Teller Login";
+            this.lblTitle.Text = "🔑 OpenQ Login";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnSettings
@@ -115,7 +115,7 @@ namespace CallerApp
             // 
             this.lblUser.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblUser.ForeColor = System.Drawing.Color.Gray;
-            this.lblUser.Location = new System.Drawing.Point(50, 70);
+            this.lblUser.Location = new System.Drawing.Point(9, 70);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(80, 20);
             this.lblUser.TabIndex = 8;
@@ -125,7 +125,7 @@ namespace CallerApp
             // 
             this.lblPass.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblPass.ForeColor = System.Drawing.Color.Gray;
-            this.lblPass.Location = new System.Drawing.Point(50, 125);
+            this.lblPass.Location = new System.Drawing.Point(9, 125);
             this.lblPass.Name = "lblPass";
             this.lblPass.Size = new System.Drawing.Size(80, 20);
             this.lblPass.TabIndex = 9;
@@ -135,7 +135,7 @@ namespace CallerApp
             // 
             this.AcceptButton = this.btnLogin;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(350, 260);
+            this.ClientSize = new System.Drawing.Size(214, 231);
             this.Controls.Add(this.lblPass);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.btnSettings);

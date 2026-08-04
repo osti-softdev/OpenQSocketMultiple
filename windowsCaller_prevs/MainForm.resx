@@ -289,7 +289,7 @@
   <data name="btnHold.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADqqSURBVHhe7d0H
+        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADqqSURBVHhe7d0H
         lG1lffdxmlIsgFQVAUEFS1BEiJ1YABURE7siKlhQsb52BTEQe1QQUdMQUUAxMW9MqFaC2MAKYgmIBRuC
         iCBV3/f3C85l7tzfuXfKmTnP/9nf71qftVw4M3fP2c/Z58zZez/PakRERERERERERFSgDWRrubvsNM19
         5eHT7CZPmOHxMvX/7yz+vu1kG7mtbCi3ECIiIlqk1pI7yAPkSfJCeYO8U/5J/lU+I+fIBXKZ/L8ldLX8
@@ -546,7 +546,7 @@
   <data name="btnRecall.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAC89SURBVHhe7d15
+        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAC89SURBVHhe7d15
         /G31vPjxnOZRSaFBk2ZKJeKKKC5RRBEumTJdV8QtGZKhFC4yXBLKVMlwzUpuSkUXlaKSNKd5nke/3+t9
         61zH6X3Od9p7rfX5fF6vx+P58BfOXvv7+ay991rr81nAzIrsQdgB38MV+H+4CsfgjVgCZmZmVlEPx3GI
         k/68XIqtYWZmZhW0Iv6C7KQ/t7uwPczMzKzgFsJE3/zndgNWhpmZmRXaAchO8hP5DMzMzKzAno+/ITvB
@@ -754,7 +754,7 @@
   <data name="btnForward.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAABuRSURBVHhe7d3J
+        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAABuRSURBVHhe7d3J
         q219Xt/xqymNUR8lIJbBgcGJHbErgwEtiVp2pYVN1JGzgCTgUFAxjSIVjCYzFS31LwhoDRRBSwTRmaLY
         Tywpu3QlCZZtVWnyXc+t+9zuc87Za+/V/JrXG14g3ubss/dat77PWr/1O48kSZIkSZIkSZIkSZIkSZIk
         SZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIkSZIk
