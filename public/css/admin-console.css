@@ -4902,44 +4902,43 @@ html.compact-sidebar .logout-btn span {
     width: 100% !important;
   }
 }
-
 /* Compact admin workspace spacing */
 .content-header {
-    min-height: 64px !important;
-    padding: 8px 15px !important;
-    gap: 10px !important;
+  min-height: 64px !important;
+  padding: 8px 15px !important;
+  gap: 10px !important;
 }
 
 .tab-content {
-    padding: 12px 14px 16px !important;
+  padding: 12px 14px 16px !important;
 }
 
 .workspace-page,
 .reports-container,
 .content .tab-content#reports-tab .reports-container {
-    gap: 9px !important;
+  gap: 9px !important;
 }
 
 .page-intro {
-    min-height: 68px !important;
-    padding: 11px 14px !important;
-    gap: 12px !important;
-    border-radius: 14px !important;
+  min-height: 68px !important;
+  padding: 11px 14px !important;
+  gap: 12px !important;
+  border-radius: 14px !important;
 }
 
 .page-intro h1 {
-    font-size: clamp(20px, 1.7vw, 26px) !important;
+  font-size: clamp(20px, 1.7vw, 26px) !important;
 }
 
 .page-intro p {
-    margin-top: 5px !important;
-    font-size: 10px !important;
-    line-height: 1.35 !important;
+  margin-top: 5px !important;
+  font-size: 10px !important;
+  line-height: 1.35 !important;
 }
 
 .page-kicker,
 .section-kicker {
-    margin-bottom: 5px !important;
+  margin-bottom: 5px !important;
 }
 
 .overview-shortcuts,
@@ -4951,145 +4950,145 @@ html.compact-sidebar .logout-btn span {
 .reports-charts-sections,
 .reports-data-sections,
 .report-service-analytics {
-    gap: 8px !important;
+  gap: 8px !important;
 }
 
 .overview-shortcuts button {
-    min-height: 70px !important;
-    padding: 10px 11px !important;
+  min-height: 70px !important;
+  padding: 10px 11px !important;
 }
 
 .insight-card {
-    min-height: 88px !important;
-    padding: 10px 11px !important;
+  min-height: 88px !important;
+  padding: 10px 11px !important;
 }
 
 .stat-card {
-    min-height: 96px !important;
-    padding: 11px 12px !important;
-    gap: 8px !important;
+  min-height: 96px !important;
+  padding: 11px 12px !important;
+  gap: 8px !important;
 }
 
 .analytics-card,
 .operations-card,
 .live-market-card,
 .report-trend-card {
-    padding: 12px !important;
+  padding: 12px !important;
 }
 
 .operations-card > .section-heading,
 .chart-card-heading {
-    margin-bottom: 7px !important;
+  margin-bottom: 7px !important;
 }
 
 .section-heading {
-    min-height: 30px !important;
-    gap: 8px !important;
+  min-height: 30px !important;
+  gap: 8px !important;
 }
 
 .card {
-    margin: 9px auto 0 !important;
-    padding: 12px !important;
+  margin: 9px auto 0 !important;
+  padding: 12px !important;
 }
 
 .content .tab-content#history-tab > .card {
-    margin-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 .card-header,
 .card-headerrep,
 .content .tab-content#reports-tab .reports-filters > .card-header {
-    min-height: 36px !important;
-    margin-bottom: 8px !important;
-    padding-bottom: 8px !important;
-    gap: 8px !important;
+  min-height: 36px !important;
+  margin-bottom: 8px !important;
+  padding-bottom: 8px !important;
+  gap: 8px !important;
 }
 
 .content .tab-content#reports-tab .reports-filters {
-    padding: 12px !important;
+  padding: 12px !important;
 }
 
 .content .tab-content#reports-tab .reports-filters .reports-filter-group {
-    gap: 9px !important;
+  gap: 9px !important;
 }
 
 .report-controls {
-    padding: 10px !important;
-    gap: 8px !important;
+  padding: 10px !important;
+  gap: 8px !important;
 }
 
 .content .tab-content#reports-tab .reports-filters .reports-filter-group .summary-grid {
-    gap: 6px !important;
+  gap: 6px !important;
 }
 
 .content .tab-content#reports-tab .reports-filters .reports-filter-group .summary-grid .summary-card {
-    min-height: 76px !important;
-    padding: 9px 10px !important;
-    gap: 4px !important;
+  min-height: 76px !important;
+  padding: 9px 10px !important;
+  gap: 4px !important;
 }
 
 .content .tab-content#reports-tab .reports-charts-sections {
-    gap: 8px !important;
+  gap: 8px !important;
 }
 
 .content .tab-content#reports-tab .reports-charts-sections .chartdiv,
 .cardrep,
 .report-trend-card {
-    padding: 12px !important;
+  padding: 12px !important;
 }
 
 .content .tab-content#reports-tab .reports-charts-sections .chartdiv h3 {
-    margin-bottom: 8px !important;
+  margin-bottom: 8px !important;
 }
 
 .report-trend-heading {
-    min-height: 40px !important;
-    gap: 8px !important;
+  min-height: 40px !important;
+  gap: 8px !important;
 }
 
 .content .tab-content#settings-tab .settabs.activetab {
-    margin-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 .content .tab-content#settings-tab #announcement-settab.activetab,
 .content .tab-content#settings-tab #advertisement-settab.activetab,
 .content .tab-content#settings-tab #displayaudio-settab.activetab,
 .content .tab-content#settings-tab #configuration-settab.activetab {
-    padding: 12px !important;
+  padding: 12px !important;
 }
 
 .settings-panel-heading {
-    margin-bottom: 10px !important;
-    padding-bottom: 9px !important;
+  margin-bottom: 10px !important;
+  padding-bottom: 9px !important;
 }
 
 .content .tab-content#settings-tab #announcement-settab #settings-form.announcement-copy-grid,
 .content .tab-content#settings-tab #announcement-settab #settings-form2.announcement-appearance-grid {
-    padding: 10px !important;
-    gap: 8px !important;
+  padding: 10px !important;
+  gap: 8px !important;
 }
 
 .content .tab-content#settings-tab #announcement-settab #settings-form2.announcement-appearance-grid {
-    margin-top: 8px !important;
+  margin-top: 8px !important;
 }
 
 .announcement-preview-heading {
-    margin-top: 10px !important;
+  margin-top: 10px !important;
 }
 
 .content .tab-content#settings-tab #advertisement-settab.activetab {
-    gap: 9px !important;
+  gap: 9px !important;
 }
 
 .content .tab-content#settings-tab #advertisement-settab .adsmainconfigtitle {
-    min-height: 52px !important;
-    padding-bottom: 8px !important;
-    gap: 10px !important;
+  min-height: 52px !important;
+  padding-bottom: 8px !important;
+  gap: 10px !important;
 }
 
 .content .tab-content#settings-tab #advertisement-settab .media-library-panel,
 .content .tab-content#settings-tab #advertisement-settab .media-preview-panel {
-    padding: 9px !important;
+  padding: 9px !important;
 }
 
 .configuration-grid,
@@ -5097,137 +5096,117 @@ html.compact-sidebar .logout-btn span {
 .display-audio-grid,
 .audio-slider-grid,
 .output-channel-list {
-    gap: 9px !important;
+  gap: 9px !important;
 }
 
 .configuration-field,
 .configuration-toggle-card {
-    min-height: 96px !important;
-    padding: 11px !important;
+  min-height: 96px !important;
+  padding: 11px !important;
 }
 
 .configuration-save-bar,
 .audio-save-bar {
-    min-height: 56px !important;
-    padding: 10px 11px !important;
+  min-height: 56px !important;
+  padding: 10px 11px !important;
 }
 
 @media (min-width: 861px) {
-    .overview-page {
-        height: 100% !important;
-        grid-template-rows: 72px 150px 76px minmax(0, 1fr) !important;
-        gap: 7px !important;
-        align-content: stretch !important;
-        overflow: hidden !important;
-    }
-
-    .overview-page .insight-grid {
-        min-height: 0 !important;
-        height: 76px !important;
-        align-items: stretch !important;
-    }
-
-    .overview-page .insight-card {
-        min-height: 0 !important;
-        height: 100% !important;
-        padding: 8px 9px !important;
-        align-content: center !important;
-    }
-
-    .overview-page .card-chart-dashboard {
-        min-height: 0 !important;
-        height: 100% !important;
-        grid-template-rows: 52px minmax(0, 1fr) !important;
-        gap: 7px !important;
-    }
-
-    .overview-page .card-chart-dashboard > .section-heading {
-        min-height: 52px !important;
-        align-content: center !important;
-    }
-
-    .overview-page .analytics-card {
-        min-height: 0 !important;
-        padding: 9px 10px !important;
-    }
-
-    .overview-page .chart-card-heading {
-        min-height: 32px !important;
-        margin-bottom: 4px !important;
-    }
-
-    .overview-page .chart-canvas-wrap,
-    .overview-page .trend-card .chart-canvas-wrap {
-        min-height: 0 !important;
-        height: auto !important;
-        max-height: none !important;
-        flex: 1 1 auto !important;
-    }
-
-    .live-page {
-        grid-template-rows: 70px 64px minmax(170px, 1.12fr) minmax(130px, .88fr) !important;
-        gap: 7px !important;
-    }
-
-    .content .tab-content#history-tab.active {
-        display: grid !important;
-        grid-template-rows: minmax(0, 1fr) !important;
-        gap: 0 !important;
-        overflow: hidden !important;
-    }
-
-    .content .tab-content#history-tab > .card {
-        min-height: 0 !important;
-        height: 100% !important;
-    }
-
-    .content .tab-content#tellers-tab.active {
-        grid-template-rows: 70px minmax(0, 1fr) !important;
-        gap: 7px !important;
-    }
-
-    .content .tab-content#settings-tab.active:has(#advertisement-settab.activetab) {
-        display: grid !important;
-        grid-template-rows: minmax(0, 1fr) !important;
-        gap: 0 !important;
-        overflow: hidden !important;
-    }
-
-    .content .tab-content#settings-tab #advertisement-settab.activetab {
-        height: 100% !important;
-        margin: 0 auto !important;
-        grid-template-rows: auto minmax(0, 1fr) !important;
-    }
+  .overview-page {
+    height: 100% !important;
+    grid-template-rows: 72px 150px 76px minmax(0, 1fr) !important;
+    gap: 7px !important;
+    align-content: stretch !important;
+    overflow: hidden !important;
+  }
+  .overview-page .insight-grid {
+    min-height: 0 !important;
+    height: 76px !important;
+    align-items: stretch !important;
+  }
+  .overview-page .insight-card {
+    min-height: 0 !important;
+    height: 100% !important;
+    padding: 8px 9px !important;
+    align-content: center !important;
+  }
+  .overview-page .card-chart-dashboard {
+    min-height: 0 !important;
+    height: 100% !important;
+    grid-template-rows: 52px minmax(0, 1fr) !important;
+    gap: 7px !important;
+  }
+  .overview-page .card-chart-dashboard > .section-heading {
+    min-height: 52px !important;
+    align-content: center !important;
+  }
+  .overview-page .analytics-card {
+    min-height: 0 !important;
+    padding: 9px 10px !important;
+  }
+  .overview-page .chart-card-heading {
+    min-height: 32px !important;
+    margin-bottom: 4px !important;
+  }
+  .overview-page .chart-canvas-wrap,
+  .overview-page .trend-card .chart-canvas-wrap {
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    flex: 1 1 auto !important;
+  }
+  .live-page {
+    grid-template-rows: 70px 64px minmax(170px, 1.12fr) minmax(130px, 0.88fr) !important;
+    gap: 7px !important;
+  }
+  .content .tab-content#history-tab.active {
+    display: grid !important;
+    grid-template-rows: minmax(0, 1fr) !important;
+    gap: 0 !important;
+    overflow: hidden !important;
+  }
+  .content .tab-content#history-tab > .card {
+    min-height: 0 !important;
+    height: 100% !important;
+  }
+  .content .tab-content#tellers-tab.active {
+    grid-template-rows: 70px minmax(0, 1fr) !important;
+    gap: 7px !important;
+  }
+  .content .tab-content#settings-tab.active:has(#advertisement-settab.activetab) {
+    display: grid !important;
+    grid-template-rows: minmax(0, 1fr) !important;
+    gap: 0 !important;
+    overflow: hidden !important;
+  }
+  .content .tab-content#settings-tab #advertisement-settab.activetab {
+    height: 100% !important;
+    margin: 0 auto !important;
+    grid-template-rows: auto minmax(0, 1fr) !important;
+  }
 }
-
 @media (min-width: 861px) and (max-height: 760px) {
-    .overview-page .card-chart-dashboard {
-        grid-template-rows: 52px minmax(0, 1fr) !important;
-    }
-
-    .overview-page .card-chart-dashboard > .section-heading {
-        display: flex !important;
-        grid-row: 1 !important;
-    }
-
-    .overview-page .analytics-card {
-        grid-row: 2 !important;
-        height: 100% !important;
-    }
+  .overview-page .card-chart-dashboard {
+    grid-template-rows: 52px minmax(0, 1fr) !important;
+  }
+  .overview-page .card-chart-dashboard > .section-heading {
+    display: flex !important;
+    grid-row: 1 !important;
+  }
+  .overview-page .analytics-card {
+    grid-row: 2 !important;
+    height: 100% !important;
+  }
 }
-
 @media (max-width: 860px) {
-    .content-header {
-        min-height: 58px !important;
-        padding: 7px 11px !important;
-    }
-
-    .tab-content {
-        padding: 9px 10px 12px !important;
-    }
-
-    .page-intro {
-        padding: 10px 11px !important;
-    }
-}
-/*# sourceMappingURL=admin-console.css.map */
+  .content-header {
+    min-height: 58px !important;
+    padding: 7px 11px !important;
+  }
+  .tab-content {
+    padding: 9px 10px 12px !important;
+  }
+  .page-intro {
+    padding: 10px 11px !important;
+  }
+}/*# sourceMappingURL=admin-console.css.map */

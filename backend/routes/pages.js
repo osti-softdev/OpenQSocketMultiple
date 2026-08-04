@@ -55,6 +55,9 @@ function requireAuth(req, res, next) {
   pageRouter.get("/display", (req, res) => {
     res.sendFile(path.join(rootpath, "public/html","index.html"));
   });
+  pageRouter.get("/integrated_display", (req, res) => {
+    res.sendFile(path.join(rootpath, "public/integrated_display", "integ_display.html"));
+  });
   pageRouter.get("/", (req, res) => {
     res.redirect("/display");
   });
