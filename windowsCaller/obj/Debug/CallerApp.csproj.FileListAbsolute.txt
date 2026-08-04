@@ -3,8 +3,15 @@ C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\obj\Debug\
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\obj\Debug\CallerApp.MainForm.resources
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\obj\Debug\CallerApp.Properties.Resources.resources
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\obj\Debug\CallerApp.csproj.GenerateResource.cache
+C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\obj\Debug\CallerApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\obj\Debug\CallerApp.exe.config
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\obj\Debug\CallerApp.csproj.CoreCompileInputs.cache
+C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\obj\Debug\CallerApp.TrustInfo.xml
+C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\obj\Debug\CallerApp.exe
+C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\obj\Debug\CallerApp.pdb
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\CallerApp.exe.config
+C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\CallerApp.exe.manifest
+C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\CallerApp.application
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\CallerApp.exe
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\CallerApp.pdb
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
@@ -22,6 +29,7 @@ C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\System.IO.Pipelines.dll
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\System.Memory.dll
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\System.Resources.Extensions.dll
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\System.Text.Encodings.Web.dll
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\System.Text.Json.dll
@@ -38,10 +46,11 @@ C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\System.IO.Pipelines.xml
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\System.Memory.xml
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\System.Resources.Extensions.xml
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\System.Text.Encodings.Web.xml
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\System.Text.Json.xml
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\obj\Debug\CallerApp.exe.manifest
+C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\obj\Debug\CallerApp.application
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\obj\Debug\CallerApp.csproj.Up2Date
-C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\obj\Debug\CallerApp.exe
-C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\obj\Debug\CallerApp.pdb

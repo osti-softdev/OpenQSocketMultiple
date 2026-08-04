@@ -325,3 +325,66 @@
 ✔ 2026-08-03 10:38:03 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
 ✔ 2026-08-03 10:38:03 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller2
 ✔ 2026-08-03 10:38:32 PM [backend\routes\AtellerApi.js:454] 2
+✔ 2026-08-03 10:47:11 PM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-03 10:47:12 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ enable debugging { debug: true }[0m
+✔ 2026-08-03 10:47:12 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-03 10:47:12 PM [unknown-location] Connected to SQLite database
+✔ 2026-08-03 10:47:12 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-03 10:47:12 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-03 10:47:13 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-03 10:47:13 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-03 10:47:13 PM [node:events:509] [ADS] Client connected: C-Wzm7Pa3B04bxQ_AAAC
+✔ 2026-08-03 10:47:13 PM [node:events:509] [ADS] Client connected: p626oXuQmJRyMHbcAAAD
+✔ 2026-08-03 10:47:18 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller2
+✔ 2026-08-03 10:47:18 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-03 10:47:18 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller2
+✔ 2026-08-03 10:47:22 PM [backend\routes\AtellerApi.js:454] 2
+✔ 2026-08-03 10:53:21 PM [node:events:509] [ADS] Client disconnected: p626oXuQmJRyMHbcAAAD
+✔ 2026-08-03 10:53:21 PM [node:events:509] [ADS] Client disconnected: C-Wzm7Pa3B04bxQ_AAAC
+✔ 2026-08-04 8:56:49 AM [node:events:509] [ADS] Client connected: QhMkwacPubE0HDkSAAAG
+✔ 2026-08-04 8:56:55 AM [node:events:509] [ADS] Client connected: 0-ngbv-38Foy9-8bAAAI
+✔ 2026-08-04 10:39:40 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-04 10:39:41 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ custom filepath { path: '/custom/path/.env' }[0m
+✔ 2026-08-04 10:39:41 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-04 10:39:41 AM [unknown-location] Connected to SQLite database
+✔ 2026-08-04 10:39:41 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-04 10:39:41 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-04 10:39:41 AM [unknown-location] Found 85 transactions older than 365 days. Archiving...
+✔ 2026-08-04 10:39:41 AM [backend\utilities\db.js:352] Successfully archived 85 transactions to C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\backend\backups\transactions_archive_2026-08-04T02-39-41-686Z.csv
+✔ 2026-08-04 10:39:41 AM [unknown-location] Deleted 85 old transactions from database.
+✔ 2026-08-04 10:39:41 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-04 10:41:32 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller2
+✔ 2026-08-04 10:41:32 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-04 10:41:32 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller2
+✔ 2026-08-04 10:44:03 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-04 10:44:03 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-04 10:44:03 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-04 10:44:43 AM [node:events:509] [ADS] Client connected: ngsq9o93N9asfO10AAAB
+✔ 2026-08-04 10:44:45 AM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-08-04 10:44:53 AM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-08-04 10:44:58 AM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-08-04 10:45:04 AM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-08-04 10:45:12 AM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-08-04 10:45:20 AM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-04 10:45:26 AM [node:events:509] [ADS] Client connected: xZ1ECDh02XlRFJOSAAAD
+✔ 2026-08-04 10:45:28 AM [node:events:509] [ADS] Client disconnected: xZ1ECDh02XlRFJOSAAAD
+✔ 2026-08-04 10:45:28 AM [node:events:509] [ADS] Client connected: 68nlRUxk-d7SRud4AAAF
+✔ 2026-08-04 10:45:53 AM [node:events:509] [ADS] Client disconnected: ngsq9o93N9asfO10AAAB
+✔ 2026-08-04 10:46:12 AM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-04 10:46:25 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller2
+✔ 2026-08-04 10:46:25 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-04 10:46:25 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller2
+✔ 2026-08-04 10:46:52 AM [backend\routes\AtellerApi.js:454] 2
+✔ 2026-08-04 10:53:32 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-04 10:53:32 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-04 10:53:32 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-04 10:59:25 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller2
+✔ 2026-08-04 10:59:25 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-04 10:59:25 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller2
+✔ 2026-08-04 10:59:34 AM [backend\routes\AtellerApi.js:454] 2
+✔ 2026-08-04 10:59:56 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-04 10:59:56 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-04 10:59:56 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-04 11:09:51 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-04 11:09:51 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-04 11:09:51 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1

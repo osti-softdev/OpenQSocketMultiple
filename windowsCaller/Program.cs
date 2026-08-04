@@ -11,6 +11,8 @@ namespace CallerApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
+            AppSettings.Load();
+            
             // Show login form first
             LoginForm loginForm = new LoginForm();
             if (loginForm.ShowDialog() == DialogResult.OK)
