@@ -12,9 +12,11 @@ namespace CallerApp
     {
         private static bool _autoFinishEnabled = false;
         private static bool _showReceivedInWaiting = false;
+        private static bool _showTooltips = true;
 
         public static bool AutoFinishEnabled { get { return _autoFinishEnabled; } set { _autoFinishEnabled = value; } }
         public static bool ShowReceivedInWaiting { get { return _showReceivedInWaiting; } set { _showReceivedInWaiting = value; } }
+        public static bool ShowTooltips { get { return _showTooltips; } set { _showTooltips = value; } }
 
         private static string GetConfigPath()
         {
@@ -36,6 +38,7 @@ namespace CallerApp
                     if (data.ContainsKey("BaseUrl")) ApiClient.BaseUrl = data["BaseUrl"].ToString();
                     if (data.ContainsKey("AutoFinishEnabled")) _autoFinishEnabled = (bool)data["AutoFinishEnabled"];
                     if (data.ContainsKey("ShowReceivedInWaiting")) _showReceivedInWaiting = (bool)data["ShowReceivedInWaiting"];
+                    if (data.ContainsKey("ShowTooltips")) _showTooltips = (bool)data["ShowTooltips"];
                 }
             } catch {}
         }
@@ -46,7 +49,8 @@ namespace CallerApp
                 var data = new Dictionary<string, object> {
                     { "BaseUrl", ApiClient.BaseUrl },
                     { "AutoFinishEnabled", _autoFinishEnabled },
-                    { "ShowReceivedInWaiting", _showReceivedInWaiting }
+                    { "ShowReceivedInWaiting", _showReceivedInWaiting },
+                    { "ShowTooltips", _showTooltips }
                 };
                 string json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(data);
                 File.WriteAllText(GetConfigPath(), json);
