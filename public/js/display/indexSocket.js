@@ -102,8 +102,8 @@ function setServicesDisplay(count) {
 	$(".timer").css({
 		"left": "10%",
 		"width": "fit-content",
-		"flex-direction": "row",
-		"top": "15%",
+		"flex-direction": "column",
+		"top": "10%",
 	})
 	if (count <= 10) {
 		$(".video-container").css({
@@ -223,10 +223,10 @@ function setServicesDisplay(count) {
 		});
 		$(".service-name").css({
 			"height": "25%",
-			"font-size": "2.2rem"
+			"font-size": "1.0rem"
 		});
 		$(".counter").css({
-			"font-size": "5rem",
+			"font-size": "4rem",
 
 		});
 		$(".service-ticket").css({
@@ -402,13 +402,13 @@ function adjustServiceNameFont() {
 		let size;
 
 		if (length <= 12) {
-			size = "2.3rem";
+			size = "1.5rem";
 		} else if (length <= 16) {
-			size = "2.5rem";
+			size = "2.0rem";
 		} else if (length <= 22) {
 			size = "2rem";
 		} else {
-			size = "1.5rem";
+			size = "1.3rem";
 		}
 
 		this.style.setProperty("font-size", size, "important");
