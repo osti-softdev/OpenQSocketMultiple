@@ -2,6 +2,7 @@
 let currentTab = null;
 let currentAdminRole = null;
 let editId = null;
+let currentModalType = null;
 let charts = {};
 
 const ADMIN_ROLE_TABS = Object.freeze({
@@ -566,6 +567,7 @@ function serviceKeyFromDisplay(value) {
 }
 
 function openModal(type = currentTab, data = null) {
+    currentModalType = type;
     editId = data ? data.id : null;
 
     const $form = $('#admin-form');
@@ -706,7 +708,77 @@ function openModal(type = currentTab, data = null) {
     }).fail(() => {
         showMsg('error', 'Failed to load groups or services');
     });
-    }else if (type === 'accounts') {
+    } else if (type === 'multiplyTeller') {
+        $.get('/api/admin/tellers').done((tellers) => {
+            const tellerOptions = tellers.map(t => 
+                `<option value="${t.id}" data-cuser="${t.cuser}" data-cnum="${t.cnum}">${t.cname} (${t.cuser})</option>`
+            ).join('');
+
+            const checkBoxes = Array.from({length: 20}, (_, i) => i + 1).map(n => `
+                <label style="margin-right: 15px; display: inline-block;">
+                    <input type="checkbox" class="multiply-cnum-checkbox" value="${n}"> ${n}
+                </label>
+            `).join('');
+
+            $form.html(`
+                <div class="form-group">
+                    <label for="multiply-base-teller">Select Base Teller</label>
+                    <select id="multiply-base-teller" class="form-control" required>
+                        <option value="">-- Select a Teller --</option>
+                        ${tellerOptions}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="multiply-base-username">Base Username Prefix</label>
+                    <input type="text" id="multiply-base-username" class="form-control" required>
+                    <small style="color: var(--text-secondary); display: block; margin-top: 5px;">The counter number will be appended to this prefix (e.g. prefix "FAS450" + counter "2" = "FAS4502").</small>
+                </div>
+                <div class="form-group">
+                    <label>Select Counter Numbers to Create (Check all that apply)</label>
+                    <div style="margin-top: 10px; max-height: 150px; overflow-y: auto; border: 1px solid var(--console-border); padding: 10px; border-radius: 4px;">
+                        ${checkBoxes}
+                    </div>
+                </div>
+            `);
+
+            $('#multiply-base-teller').on('change', function() {
+                const selected = $(this).find('option:selected');
+                let cuser = selected.data('cuser') || '';
+                let cnum = selected.data('cnum') || '';
+                if(cuser && cnum) {
+                    const suffix = String(cnum);
+                    if(cuser.endsWith(suffix)) {
+                        cuser = cuser.substring(0, cuser.length - suffix.length);
+                    }
+                }
+                $('#multiply-base-username').val(cuser);
+                updateCheckboxes();
+            });
+
+            const existingUsernames = tellers.map(t => String(t.cuser).toLowerCase());
+
+            function updateCheckboxes() {
+                const prefix = $('#multiply-base-username').val().trim().toLowerCase();
+                $('.multiply-cnum-checkbox').each(function() {
+                    const n = $(this).val();
+                    const targetUsername = prefix + n;
+                    if (existingUsernames.includes(targetUsername)) {
+                        $(this).prop('disabled', true).prop('checked', false);
+                        $(this).parent().css('opacity', '0.5');
+                        $(this).parent().attr('title', 'Username already exists');
+                    } else {
+                        $(this).prop('disabled', false);
+                        $(this).parent().css('opacity', '1');
+                        $(this).parent().removeAttr('title');
+                    }
+                });
+            }
+
+            $('#multiply-base-username').on('input', updateCheckboxes);
+        }).fail(() => {
+            showMsg('error', 'Failed to load tellers');
+        });
+    } else if (type === 'accounts') {
         const accRole = data?.role || 'admin';
         const accId = String(data?.id || '');
         const accOverrides = (rolePermissionsData && rolePermissionsData.accounts && (rolePermissionsData.accounts[accId] || rolePermissionsData.accounts[data?.username])) || null;
@@ -862,6 +934,32 @@ function openModal(type = currentTab, data = null) {
 
 // & ===== SAVE ITEM (CREATE/EDIT) =====
 function saveItem() {
+
+    if (currentModalType === 'multiplyTeller') {
+        const baseTellerId = $('#multiply-base-teller').val();
+        const baseUsername = $('#multiply-base-username').val();
+        const targetNumbers = $('.multiply-cnum-checkbox:checked').map(function() { return parseInt($(this).val(), 10); }).get();
+
+        if (!baseTellerId) return showMsg('error', 'Please select a base teller');
+        if (!baseUsername || baseUsername.trim() === '') return showMsg('error', 'Base username is required');
+        if (targetNumbers.length === 0) return showMsg('error', 'Please select at least one counter number');
+
+        $.ajax({
+            url: '/api/admin/tellers/multiply',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ baseTellerId, baseUsername: baseUsername.trim(), targetNumbers }),
+            success: () => {
+                $('#modal-overlay').hide();
+                if (typeof loadTellers === 'function') loadTellers();
+                showMsg('success', 'Tellers multiplied successfully!');
+            },
+            error: (xhr) => {
+                showMsg('error', xhr.responseJSON?.error || 'Failed to multiply tellers');
+            }
+        });
+        return;
+    }
 
     if (currentTab === 'services') {
 

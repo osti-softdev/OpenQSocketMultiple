@@ -798,6 +798,70 @@ module.exports = function createTellerApiRouter(io) {
         );
     });
 
+    // & Multiply Tellers
+    router.post('/admin/tellers/multiply', (req, res) => {
+        const { baseTellerId, baseUsername, targetNumbers } = req.body;
+
+        if (!baseTellerId || !baseUsername || !targetNumbers || !Array.isArray(targetNumbers)) {
+            return res.status(400).json({ error: 'Missing or invalid parameters' });
+        }
+
+        db.get('SELECT * FROM counters WHERE id = ?', [baseTellerId], (err, baseTeller) => {
+            if (err) return res.status(500).json({ error: 'Database error fetching base teller' });
+            if (!baseTeller) return res.status(404).json({ error: 'Base teller not found' });
+
+            const targetUsernames = targetNumbers.map(n => baseUsername + n);
+            const placeholdersForIn = targetUsernames.map(() => '?').join(',');
+
+            db.all(`SELECT cuser FROM counters WHERE cuser IN (${placeholdersForIn})`, targetUsernames, (err, rows) => {
+                if (err) return res.status(500).json({ error: 'Database error checking existing tellers' });
+
+                const existingCusers = (rows || []).map(r => String(r.cuser).toLowerCase());
+                const validNumbers = [];
+
+                targetNumbers.forEach(n => {
+                    const cuser = baseUsername + n;
+                    if (!existingCusers.includes(cuser.toLowerCase())) {
+                        validNumbers.push(n);
+                    }
+                });
+
+                if (validNumbers.length === 0) {
+                    return res.json({ success: true, count: 0, message: 'All requested tellers already exist' });
+                }
+
+                const placeholders = validNumbers.map(() => '(?, ?, ?, ?, ?, ?, ?, ?)').join(', ');
+                const params = [];
+
+                validNumbers.forEach(cnum => {
+                    params.push(
+                        baseTeller.cname,
+                        baseUsername + cnum,
+                        baseTeller.cpass,
+                        cnum,
+                        baseTeller.services,
+                        baseTeller.group_id,
+                        baseTeller.group_name,
+                        baseTeller.cstatus
+                    );
+                });
+
+                db.run(
+                    `INSERT INTO counters (cname, cuser, cpass, cnum, services, group_id, group_name, cstatus) VALUES ${placeholders}`,
+                    params,
+                    function (err) {
+                        if (err) {
+                            console.error('Error multiplying tellers:', err);
+                            return res.status(500).json({ error: 'Failed to multiply tellers: ' + err.message });
+                        }
+                        io.emit('teller_assignment_updated', { });
+                        res.json({ success: true, count: validNumbers.length });
+                    }
+                );
+            });
+        });
+    });
+
     //   & Edit Tellers
     router.put('/admin/tellers/:id', (req, res) => {
         const { name, username, counter_number, services, group_id, groupName, is_active, password } = req.body;
@@ -833,7 +897,7 @@ module.exports = function createTellerApiRouter(io) {
     });
 
     // & Delete Tellers
-    router.delete('/admin/tellers/:id', requireRole('superadmin'), (req, res) => {
+    router.delete('/admin/tellers/:id', requireRole('admin', 'superadmin'), (req, res) => {
         db.run('DELETE FROM counters WHERE id = ?', [req.params.id], (err) => {
             if (err) return res.status(500).json({ error: err.message });
             res.json({ success: true });

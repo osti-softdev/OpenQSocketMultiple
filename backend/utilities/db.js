@@ -185,16 +185,27 @@ function initializeDatabase() {
     counterGroups.forEach(cg => db.run(`INSERT OR IGNORE INTO counter_groups (id, group_name) VALUES (?, ?)`, cg));
 
     const counters = [
-      [1, 'TELLER 1', 1, 'teller1', '1234', '1', 'REAL_PROPERTY_TAX,BUSINESS_TAX,GENERAL,MDRRMO,ASSESSMENT,CASHIER,EVALUATOR,ASSESSOR', 'REAL_PROPERTY_TAX', 75],
-      [2, 'TELLER 2', 2, 'teller2', '1234', '1', 'BUSINESS_TAX', 'BUSINESS_TAX', 71],
-      [3, 'TELLER 3', 3, 'teller3', '1234', '1', 'MDRRMO', 'MDRRMO', 72],
-      [4, 'TELLER 4', 4, 'teller4', '1234', '1', 'CASHIER', 'CASHIER', 73],
-      [5, 'TELLER 5', 5, 'teller5', '1234', '1', 'GENERAL', 'GENERAL', 76],
-      [6, 'TELLER 6', 6, 'teller6', '1234', '1', 'ASSESSMENT', 'ASSESSMENT', 77],
-      [7, 'TELLER 7', 7, 'teller7', '1234', '1', 'ASSESSMENT', 'ASSESSMENT', 77],
-      [8, 'TELLER 8', 8, 'teller8', '1234', '1', 'EVALUATOR', 'EVALUATOR', 78],
-      [9, 'TELLER 9', 9, 'teller9', '1234', '1', 'EVALUATOR', 'EVALUATOR', 78],
-      [10, 'TELLER 10', 10, 'teller10', '1234', '1', 'ASSESSOR', 'ASSESSOR', 79]
+      [1, 'TELLER 1', 1, 'FAS', 'FAS', '1', 'REAL_PROPERTY_TAX,BUSINESS_TAX,GENERAL,MDRRMO,ASSESSMENT,CASHIER,EVALUATOR,ASSESSOR', 'REAL_PROPERTY_TAX', 75],
+      [2, 'TELLER 2', 2, 'FAS', 'FAS', '1', 'BUSINESS_TAX', 'BUSINESS_TAX', 71],
+      [3, 'TELLER 3', 3, 'FAS', 'FAS', '1', 'MDRRMO', 'MDRRMO', 72],
+      [4, 'TELLER 4', 4, 'FAS', 'FAS', '1', 'CASHIER', 'CASHIER', 73],
+      [5, 'TELLER 5', 5, 'FAS', 'FAS', '1', 'GENERAL', 'GENERAL', 76],
+      [6, 'TELLER 6', 6, 'FAS', 'FAS', '1', 'ASSESSMENT', 'ASSESSMENT', 77],
+      [7, 'TELLER 7', 7, 'FAS', 'FAS', '1', 'ASSESSMENT', 'ASSESSMENT', 77],
+      [8, 'TELLER 8', 8, 'FAS', 'FAS', '1', 'EVALUATOR', 'EVALUATOR', 78],
+      [9, 'TELLER 9', 9, 'FAS', 'FAS', '1', 'EVALUATOR', 'EVALUATOR', 78],
+      [10, 'ESTRELLA LETECIA', 7, 'FAS4507', 'FAS450', '1', 'CASHIER', 'CASHIER', 73],
+      [11, 'ESTRELLA LETECIA', 8, 'FAS4508', 'FAS450', '1', 'CASHIER', 'CASHIER', 73],
+      [12, 'ESTRELLA LETECIA', 9, 'FAS4509', 'FAS450', '1', 'CASHIER', 'CASHIER', 73],
+      [13, 'ESTRELLA LETECIA', 10, 'FAS45010', 'FAS450', '1', 'CASHIER', 'CASHIER', 73],
+      [14, 'HAW TAY ELVIE', 7, 'FAS4297', 'FAS429', '1', 'CASHIER', 'CASHIER', 73],
+      [15, 'HAW TAY ELVIE', 8, 'FAS4298', 'FAS429', '1', 'CASHIER', 'CASHIER', 73],
+      [16, 'HAW TAY ELVIE', 9, 'FAS4299', 'FAS429', '1', 'CASHIER', 'CASHIER', 73],
+      [17, 'HAW TAY ELVIE', 10, 'FAS42910', 'FAS429', '1', 'CASHIER', 'CASHIER', 73],
+      [18, 'PARRENO SHARON', 7, 'FAS4617', 'FAS461', '1', 'CASHIER', 'CASHIER', 73],
+      [19, 'PARRENO SHARON', 8, 'FAS4618', 'FAS461', '1', 'CASHIER', 'CASHIER', 73],
+      [20, 'PARRENO SHARON', 9, 'FAS4619', 'FAS461', '1', 'CASHIER', 'CASHIER', 73],
+      [21, 'PARRENO SHARON', 10, 'FAS46110', 'FAS461', '1', 'CASHIER', 'CASHIER', 73]
     ];
     counters.forEach(c => db.run(`INSERT OR IGNORE INTO counters (id, cname, cnum, cuser, cpass, cstatus, services, group_name, group_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`, c));
 
