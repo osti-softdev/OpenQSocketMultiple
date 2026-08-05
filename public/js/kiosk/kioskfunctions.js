@@ -80,6 +80,8 @@ $(document).ready(async function () {
                 $regularServices.append(`
                 <button class="service-button regbtn ${isLocked ? 'locked' : ''}"
                     data-sname="${service.sname}"
+                    data-shortSname="${service.shortSname}"
+                    data-subsname="${service.sub_sname}"
                     data-ticketservice="${service.regular}"
                     data-subservices="${subServicesAttr}"
                     ${isLocked ? 'disabled' : ''}>
@@ -95,6 +97,8 @@ $(document).ready(async function () {
                 $priorityServices.append(`
                 <button class="service-button priobtn ${isLocked ? 'locked' : ''}"
                     data-sname="${service.sname}"
+                    data-shortsname="${service.shortSname}"
+                    data-subsname="${service.sub_sname}"
                     data-ticketservice="${service.priority}"
                     data-subservices="${subServicesAttr}"
                     ${isLocked ? 'disabled' : ''}>
@@ -122,6 +126,8 @@ $(document).ready(async function () {
         // Click handler for active (non-locked) buttons
         $(document).off("click", ".service-button:not(.locked)").on("click", ".service-button:not(.locked)", function () {
             const sname = $(this).data("sname");
+            const shortSname = $(this).data("shortsname");
+            const subsname = $(this).data("subsname");
             const ticketservice = $(this).data("ticketservice");
             const subservicesRaw = $(this).data("subservices");
             const subserviceName = $(this).data("subservice");
@@ -130,15 +136,15 @@ $(document).ready(async function () {
             if (subservicesRaw && !subserviceName) {
                 const subList = String(subservicesRaw).split(',').map(s => s.trim()).filter(Boolean);
                 if (subList.length > 0) {
-                    renderSubServicesView(sname, ticketservice, subList);
+                    renderSubServicesView(sname, shortSname, subsname, ticketservice, subList);
                     return;
                 }
             }
 
-            triggerTicketCreation(sname, ticketservice, subserviceName || null);
+            triggerTicketCreation(sname, shortSname, subsname, ticketservice, subserviceName || null);
         });
 
-        function renderSubServicesView(sname, ticketservice, subList) {
+        function renderSubServicesView(sname, shortSname, subsname, ticketservice, subList) {
             const $container = selectedType === 0 ? $("#regularServices") : $("#priorityServices");
             $container.empty();
 
@@ -163,23 +169,23 @@ $(document).ready(async function () {
             setServicesKiosk(subList.length);
         }
 
-        function triggerTicketCreation(sname, ticketservice, subService) {
+        function triggerTicketCreation(sname, shortSname, subsname, ticketservice, subService) {
             // Fetch SMS config to determine if we should show dialer
             $.get('/api/sms-config', function (config) {
                 if (config.success && config.allowSms) {
                     // Show Dialer UI
-                    showDialerModal(sname, ticketservice, subService, config.privacyPolicy);
+                    showDialerModal(sname, shortSname,subsname, ticketservice, subService, config.privacyPolicy);
                 } else {
                     // SMS disabled, process normally
-                    processTicket(sname, ticketservice, null, subService);
+                    processTicket(sname, shortSname,subsname, ticketservice, null, subService);
                 }
             }).fail(function () {
                 // Fallback if API fails
-                processTicket(sname, ticketservice, null, subService);
+                processTicket(sname, shortSname, subsname,ticketservice, null, subService);
             });
         }
 
-        function showDialerModal(sname, ticketservice, subService, privacyPolicy) {
+        function showDialerModal(sname, shortSname, subsname,ticketservice, subService, privacyPolicy) {
             let dialerHtml = `
             <div class="dialer-container" style="display: flex; gap: 20px; text-align: left; height: 50vh; min-height: 400px;">
                 
@@ -244,18 +250,18 @@ $(document).ready(async function () {
                     // Validate exactly 11 digits and starts with 09
                     if (mobile.length !== 11 || !mobile.startsWith('09')) {
                         Swal.fire('Invalid Number', 'Mobile number must start with 09 and be exactly 11 digits long.', 'error').then(() => {
-                            showDialerModal(sname, ticketservice, subService, privacyPolicy);
+                            showDialerModal(sname, shortSname, subsname,ticketservice, subService, privacyPolicy);
                         });
                         return;
                     }
-                    processTicket(sname, ticketservice, mobile, subService);
+                    processTicket(sname, shortSname,subsname, ticketservice, mobile, subService);
                 } else if (result.isDenied) {
-                    processTicket(sname, ticketservice, null, subService);
+                    processTicket(sname, shortSname,subsname, ticketservice, null, subService);
                 }
             });
         }
 
-        function processTicket(sname, ticketservice, mobile, subService) {
+        function processTicket(sname, shortSname,subsname, ticketservice, mobile, subService) {
             Swal.fire({
                 title: "Processing...",
                 html: "<p>Inserting and Printing your ticket, please wait...</p>",
@@ -264,7 +270,7 @@ $(document).ready(async function () {
                 didOpen: () => Swal.showLoading(),
             });
 
-            const payload = { sname, ticketservice, selectedType, stats: "onprem" };
+            const payload = { sname, shortSname,subsname, ticketservice, selectedType, stats: "onprem" };
             if (mobile) payload.mobile = mobile;
             if (subService) payload.sub_services = subService;
 

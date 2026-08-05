@@ -976,3 +976,175 @@
 ✔ 2026-08-05 6:38:37 PM [node:events:509] [ADS] Client connected: U5uPkyqszLqi1KSNAACz
 ✔ 2026-08-05 6:38:49 PM [node:events:509] [ADS] Client disconnected: U5uPkyqszLqi1KSNAACz
 ✔ 2026-08-05 6:38:49 PM [node:events:509] [ADS] Client connected: rvYkqSCxnpIeIoWWAAC1
+✔ 2026-08-05 6:41:55 PM [node:events:509] [ADS] Client disconnected: rvYkqSCxnpIeIoWWAAC1
+✔ 2026-08-05 6:41:55 PM [node:events:509] [ADS] Client connected: XhXnKCik-tI7CNgFAAC3
+✔ 2026-08-05 6:42:10 PM [node:events:509] [ADS] Client disconnected: XhXnKCik-tI7CNgFAAC3
+✔ 2026-08-05 6:42:10 PM [node:events:509] [ADS] Client connected: EBCcSQsrO8NbJpyPAAC5
+✔ 2026-08-05 6:42:23 PM [node:events:509] [ADS] Client disconnected: EBCcSQsrO8NbJpyPAAC5
+✔ 2026-08-05 6:42:23 PM [node:events:509] [ADS] Client connected: il2bLbxBbwRIbpnZAAC7
+✔ 2026-08-05 6:42:24 PM [node:events:509] [ADS] Client disconnected: il2bLbxBbwRIbpnZAAC7
+✔ 2026-08-05 6:42:24 PM [node:events:509] [ADS] Client connected: hggZFz5QXCXBfT_6AAC9
+✔ 2026-08-05 6:42:43 PM [node:events:509] [ADS] Client disconnected: hggZFz5QXCXBfT_6AAC9
+✔ 2026-08-05 6:42:43 PM [node:events:509] [ADS] Client connected: Whb1DwubPEH11DYqAAC_
+✔ 2026-08-05 6:42:44 PM [node:events:509] [ADS] Client disconnected: Whb1DwubPEH11DYqAAC_
+✔ 2026-08-05 6:42:44 PM [node:events:509] [ADS] Client connected: 9T2OTBUpd-ysTZvbAADB
+✔ 2026-08-05 6:43:50 PM [node:events:509] [ADS] Client disconnected: 9T2OTBUpd-ysTZvbAADB
+✔ 2026-08-05 6:43:50 PM [node:events:509] [ADS] Client connected: xnDYurUygyOVwKcUAADD
+✔ 2026-08-05 6:44:23 PM [node:events:509] [ADS] Client disconnected: xnDYurUygyOVwKcUAADD
+✔ 2026-08-05 6:44:23 PM [node:events:509] [ADS] Client connected: 6RabnUOPq7JeFkl_AADF
+✔ 2026-08-05 6:44:54 PM [node:events:509] [ADS] Client disconnected: 6RabnUOPq7JeFkl_AADF
+✔ 2026-08-05 6:44:54 PM [node:events:509] [ADS] Client connected: VYC7LpxvyxYcYC-_AADH
+✔ 2026-08-05 6:45:37 PM [node:events:509] [ADS] Client disconnected: VYC7LpxvyxYcYC-_AADH
+✔ 2026-08-05 6:45:37 PM [node:events:509] [ADS] Client connected: 4kEavqeNijNt1KSMAADJ
+✔ 2026-08-05 6:45:50 PM [node:events:509] [ADS] Client disconnected: 4kEavqeNijNt1KSMAADJ
+✔ 2026-08-05 6:45:50 PM [node:events:509] [ADS] Client connected: puMN2WZovagDXqQ_AADL
+✔ 2026-08-05 6:47:29 PM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-08-05 6:47:29 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-05 6:47:29 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-08-05 6:47:29 PM [node:events:509] [ADS] Client connected: Sw7wX19MWVhjfaAZAADN
+✔ 2026-08-05 6:49:02 PM [node:events:509] [ADS] Client disconnected: puMN2WZovagDXqQ_AADL
+✔ 2026-08-05 6:49:02 PM [node:events:509] [ADS] Client connected: PfDHZbYrjhY0-_SnAADP
+✔ 2026-08-05 6:49:14 PM [node:events:509] [ADS] Client disconnected: PfDHZbYrjhY0-_SnAADP
+✔ 2026-08-05 6:49:14 PM [node:events:509] [ADS] Client connected: PCmLHcTq2TtUVOj2AADR
+✔ 2026-08-05 6:49:16 PM [node:events:509] [ADS] Client disconnected: PCmLHcTq2TtUVOj2AADR
+✔ 2026-08-05 6:49:16 PM [node:events:509] [ADS] Client connected: XF-GeQPkgs3NF5okAADT
+✔ 2026-08-05 6:49:23 PM [node:events:509] [ADS] Client disconnected: XF-GeQPkgs3NF5okAADT
+✔ 2026-08-05 6:49:23 PM [node:events:509] [ADS] Client connected: BWUOt9HQczy_3796AADV
+✔ 2026-08-05 6:50:30 PM [node:events:509] [ADS] Client disconnected: hBcNlPKqUU1Y8hffAAAD
+✔ 2026-08-05 6:50:30 PM [node:events:509] [ADS] Client connected: AzZpozUHuwZFBx6AAADX
+✔ 2026-08-05 6:50:33 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 6:51:44 PM [node:events:509] [ADS] Client disconnected: AzZpozUHuwZFBx6AAADX
+✔ 2026-08-05 6:51:44 PM [node:events:509] [ADS] Client connected: z-1LBruSXGPcjHTJAADZ
+✔ 2026-08-05 6:51:46 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 6:52:18 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 7:09:36 PM [backend\utilities\logger.js:149] Logger initialized at: C:\openq\OpenQSocketMultiple\public\logs
+✔ 2026-08-05 7:09:36 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌁ auth for agents [www.vestauth.com][0m
+✔ 2026-08-05 7:09:36 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-05 7:09:36 PM [unknown-location] Connected to SQLite database
+✔ 2026-08-05 7:09:36 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-05 7:09:36 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-05 7:09:37 PM [node:events:509] [ADS] Client connected: rkMS0ViLXBJO3wagAAAB
+✔ 2026-08-05 7:09:37 PM [unknown-location] Found 44069 transactions older than 365 days. Archiving...
+✔ 2026-08-05 7:09:38 PM [backend\utilities\db.js:363] Successfully archived 44069 transactions to C:\openq\OpenQSocketMultiple\backend\backups\transactions_archive_2026-08-05T11-09-37-707Z.csv
+✔ 2026-08-05 7:09:38 PM [node:events:509] [ADS] Client connected: 7J_h9W-cn1Ikz_WiAAAD
+✔ 2026-08-05 7:09:39 PM [unknown-location] Deleted 44069 old transactions from database.
+✔ 2026-08-05 7:09:39 PM [node:events:509] [ADS] Client connected: J4PgFABdNjvHxDk9AAAF
+✔ 2026-08-05 7:09:39 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-05 7:09:42 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 7:11:09 PM [backend\utilities\logger.js:149] Logger initialized at: C:\openq\OpenQSocketMultiple\public\logs
+✔ 2026-08-05 7:11:09 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ multiple files { path: ['.env.local', '.env'] }[0m
+✔ 2026-08-05 7:11:10 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-05 7:11:10 PM [unknown-location] Connected to SQLite database
+✔ 2026-08-05 7:11:10 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-05 7:11:10 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-05 7:11:10 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-05 7:11:10 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-05 7:11:10 PM [node:events:509] [ADS] Client connected: GXhp4b1jA82aV7ECAAAB
+✔ 2026-08-05 7:11:11 PM [node:events:509] [ADS] Client connected: h_aYBUVjVaGJKydpAAAD
+✔ 2026-08-05 7:11:12 PM [node:events:509] [ADS] Client connected: etkUIXQXmoqc0NVUAAAF
+✔ 2026-08-05 7:11:22 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 7:12:02 PM [backend\utilities\logger.js:149] Logger initialized at: C:\openq\OpenQSocketMultiple\public\logs
+✔ 2026-08-05 7:12:02 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ multiple files { path: ['.env.local', '.env'] }[0m
+✔ 2026-08-05 7:12:02 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-05 7:12:02 PM [unknown-location] Connected to SQLite database
+✔ 2026-08-05 7:12:02 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-05 7:12:02 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-05 7:12:02 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-05 7:12:02 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-05 7:12:04 PM [node:events:509] [ADS] Client connected: ikMsWcuolx5WR4OHAAAC
+✔ 2026-08-05 7:12:04 PM [node:events:509] [ADS] Client connected: 5Ls-ft5LnunrMLNYAAAD
+✔ 2026-08-05 7:12:04 PM [node:events:509] [ADS] Client connected: 2Gh8flUixUJHKklSAAAF
+✔ 2026-08-05 7:12:06 PM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-08-05 7:12:07 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 7:14:51 PM [node:events:509] [ADS] Client disconnected: 5Ls-ft5LnunrMLNYAAAD
+✔ 2026-08-05 7:14:52 PM [node:events:509] [ADS] Client connected: Nqjjc0-5GJXm979JAAAH
+✔ 2026-08-05 7:14:53 PM [backend\routes\AkioskApi.js:56] OUTPATIENT EMERGENCY CARE (OECB)
+✔ 2026-08-05 7:14:53 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 7:18:12 PM [backend\utilities\logger.js:149] Logger initialized at: C:\openq\OpenQSocketMultiple\public\logs
+✔ 2026-08-05 7:18:13 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ enable debugging { debug: true }[0m
+✔ 2026-08-05 7:18:13 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-05 7:18:13 PM [unknown-location] Connected to SQLite database
+✔ 2026-08-05 7:18:13 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-05 7:18:13 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-05 7:18:13 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-05 7:18:13 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-05 7:18:13 PM [node:events:509] [ADS] Client connected: OmCXA831R0fgq3ymAAAB
+✔ 2026-08-05 7:18:14 PM [node:events:509] [ADS] Client connected: i_vvimex7mp4zDCAAAAD
+✔ 2026-08-05 7:18:15 PM [node:events:509] [ADS] Client connected: _iNaE_tBAdKeE0FKAAAF
+✔ 2026-08-05 7:18:21 PM [backend\routes\AkioskApi.js:56] OUTPATIENT EMERGENCY CARE (OECB)
+✔ 2026-08-05 7:18:21 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 7:19:03 PM [backend\utilities\logger.js:149] Logger initialized at: C:\openq\OpenQSocketMultiple\public\logs
+✔ 2026-08-05 7:19:03 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ override existing { override: true }[0m
+✔ 2026-08-05 7:19:03 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-05 7:19:03 PM [unknown-location] Connected to SQLite database
+✔ 2026-08-05 7:19:03 PM [node:events:509] [ADS] Client connected: wddBF1COpd1vkFoNAAAB
+✔ 2026-08-05 7:19:03 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-05 7:19:03 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-05 7:19:03 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-05 7:19:03 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-05 7:19:05 PM [node:events:509] [ADS] Client connected: zFiR15gKR9l22KnxAAAD
+✔ 2026-08-05 7:19:05 PM [node:events:509] [ADS] Client connected: 5ce2HwzVqhnfiu7ZAAAF
+✔ 2026-08-05 7:21:43 PM [backend\routes\AkioskApi.js:56] OUTPATIENT EMERGENCY CARE (OECB)
+✔ 2026-08-05 7:21:43 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 7:21:44 PM [backend\utilities\printer.js:41] PHP STDOUT: 
+Warning: Undefined variable $dateni in C:\openq\OpenQSocketMultiple\public\printer\print.php on line 33
+
+✔ 2026-08-05 7:21:51 PM [backend\routes\AkioskApi.js:56] HMO/EMPLOYEE
+✔ 2026-08-05 7:21:51 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 7:21:51 PM [backend\utilities\printer.js:41] PHP STDOUT: 
+Warning: Undefined variable $dateni in C:\openq\OpenQSocketMultiple\public\printer\print.php on line 33
+
+✔ 2026-08-05 7:22:07 PM [backend\routes\AkioskApi.js:56] OUTPATIENT EMERGENCY CARE (OECB)
+✔ 2026-08-05 7:22:07 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 7:22:07 PM [backend\utilities\printer.js:41] PHP STDOUT: 
+Warning: Undefined variable $dateni in C:\openq\OpenQSocketMultiple\public\printer\print.php on line 33
+
+✔ 2026-08-05 7:22:20 PM [node:events:509] [ADS] Client disconnected: wddBF1COpd1vkFoNAAAB
+✔ 2026-08-05 7:22:26 PM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-08-05 7:22:26 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-05 7:22:26 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-08-05 7:22:26 PM [node:events:509] [ADS] Client connected: Q-5L3WIE_7Uy6le9AAAH
+✔ 2026-08-05 7:22:41 PM [node:events:509] [ADS] Client disconnected: 5ce2HwzVqhnfiu7ZAAAF
+✔ 2026-08-05 7:22:42 PM [node:events:509] [ADS] Client connected: uAAPW42SnKhlM4egAAAJ
+✔ 2026-08-05 7:23:27 PM [backend\routes\AkioskApi.js:56] TENTATIVE BILLING/INQUIRY
+✔ 2026-08-05 7:23:27 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 7:23:28 PM [backend\utilities\printer.js:41] PHP STDOUT: 
+Warning: Undefined variable $dateni in C:\openq\OpenQSocketMultiple\public\printer\print.php on line 33
+
+✔ 2026-08-05 7:29:53 PM [backend\utilities\logger.js:149] Logger initialized at: C:\openq\OpenQSocketMultiple\public\logs
+✔ 2026-08-05 7:29:53 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌁ auth for agents [www.vestauth.com][0m
+✔ 2026-08-05 7:29:54 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-05 7:29:54 PM [unknown-location] Connected to SQLite database
+✔ 2026-08-05 7:29:54 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-05 7:29:54 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-05 7:29:54 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-05 7:29:54 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-05 7:29:55 PM [node:events:509] [ADS] Client connected: pNHNXtOU4zIMFYscAAAB
+✔ 2026-08-05 7:29:56 PM [node:events:509] [ADS] Client connected: LIE2YV__5i1Ag6IHAAAD
+✔ 2026-08-05 7:29:57 PM [node:events:509] [ADS] Client connected: yulzcQd3SqXQFrDGAAAF
+✔ 2026-08-05 7:30:00 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 7:30:00 PM [backend\utilities\printer.js:43] PHP STDOUT: 
+Warning: Undefined variable $dateni in C:\openq\OpenQSocketMultiple\public\printer\print.php on line 34
+
+✔ 2026-08-05 7:32:25 PM [backend\utilities\logger.js:149] Logger initialized at: C:\openq\OpenQSocketMultiple\public\logs
+✔ 2026-08-05 7:32:26 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ multiple files { path: ['.env.local', '.env'] }[0m
+✔ 2026-08-05 7:32:26 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-05 7:32:26 PM [unknown-location] Connected to SQLite database
+✔ 2026-08-05 7:32:26 PM [node:events:509] [ADS] Client connected: NW9jZYYlXaF234WWAAAB
+✔ 2026-08-05 7:32:26 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-05 7:32:26 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-05 7:32:26 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-05 7:32:26 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-05 7:32:27 PM [node:events:509] [ADS] Client connected: T1mrJX-HIe5r8Yx1AAAD
+✔ 2026-08-05 7:32:28 PM [node:events:509] [ADS] Client connected: k7boLFFDY1SD8FyhAAAF
+✔ 2026-08-05 7:32:34 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 7:32:34 PM [backend\utilities\printer.js:43] PHP STDOUT: 
+Warning: Undefined variable $timestamp in C:\openq\OpenQSocketMultiple\public\printer\print.php on line 32
+
+✔ 2026-08-05 7:33:56 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 7:34:36 PM [node:events:509] [ADS] Client disconnected: k7boLFFDY1SD8FyhAAAF
+✔ 2026-08-05 7:34:36 PM [node:events:509] [ADS] Client connected: MKuR1LrO_WT7B2SLAAAH
+✔ 2026-08-05 7:34:37 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 7:34:43 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 7:35:11 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 7:35:27 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...

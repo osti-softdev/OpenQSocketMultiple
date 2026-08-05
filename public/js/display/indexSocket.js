@@ -97,7 +97,7 @@ function setServicesDisplay(count) {
 		"display": "flex",
 	});
 	$(".service-ticket").css({
-		"width": "75%",
+		"width": "70%",
 	});
 	$(".timer").css({
 		"left": "10%",
@@ -230,7 +230,7 @@ function setServicesDisplay(count) {
 
 		});
 		$(".service-ticket").css({
-			"font-size": "4.7rem"
+			"font-size": "3.5rem"
 		});
 	} else if (count === 7) {
 		$(".service-row").css({

@@ -1,5 +1,4 @@
 <?php
-$argument = $argv[1];
 require_once __DIR__ . '../vendor/autoload.php';
 
 use Mike42\Escpos\Printer;
@@ -16,22 +15,20 @@ use Mike42\Escpos\EscposImage;
 //     // if logo missing
 // }
 
-$connector = new WindowsPrintConnector("POS-90");
+$connector = new WindowsPrintConnector("POS-80");
 $printer = new Printer($connector);
+// Receive arguments individually
+$ticket      = $argv[1] ?? '';
+$count       = $argv[2] ?? '';
+$shortSname  = $argv[3] ?? '';
+$subsname  = $argv[4] ?? '';
+$sub_service = $argv[5] ?? '';
 
-$ticket = '';
-$count = '';
-$service_name = '';
 date_default_timezone_set('Asia/Manila');
 $now = time();
 $date = date('Y-m-d');
 $time = date('H:i:s');
 $today = date('Y-m-d', time());
-$sub_service = '';
-// execute the SQL query
-list($ticket, $count, $service_name, $sub_service) = array_pad(explode(',', $argument), 4, '');
-$timestamp = strtotime($dateni);
-$formattedDate = date('D, M d, Y', $timestamp);
 $service = '';
 $initial = '';
 // $ticket = 1;
@@ -49,8 +46,8 @@ $printer->selectPrintMode(Printer::MODE_DOUBLE_HEIGHT | Printer::MODE_DOUBLE_WID
 $printer->setFont(Printer::FONT_B);
 $printer->setTextSize(3, 2);
 
-$printer->text("CEBU CITY\n");
-$printer->text("TRANSPORTATION OFFICE\n");
+$printer->text("SAN PEDRO HOSPITAL\n");
+$printer->text("OF DAVAO CITY INC.\n");
 
 $printer->setTextSize(1, 1);
 $printer->text($date ." ". $time."\n");
@@ -70,7 +67,8 @@ $printer->text($count . "\n\n");
 $printer->setTextSize(2, 1);
 $printer->setFont(Printer::MODE_FONT_B);
 
-$printer->text($service_name . "\n");
+$printer->text($shortSname . "\n");
+$printer->text($subsname . "\n");
 if (!empty(trim($sub_service))) {
     $printer->text(trim($sub_service) . "\n");
 }
@@ -79,7 +77,7 @@ $printer->text("\n");
 $printer->setTextSize(1, 1);
 $printer->setJustification(Printer::JUSTIFY_CENTER);
 $printer->setFont(Printer::FONT_C);
-$printer->text("This Ticket is valid only on the day it is dispensed. \n\n\n");
+$printer->text("This Ticket is valid only on the day it is dispensed.");
 
 
 $printer->feed(2);

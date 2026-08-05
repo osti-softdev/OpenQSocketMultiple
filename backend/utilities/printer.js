@@ -1,33 +1,52 @@
-const { exec } = require("child_process");
-const path = require("path");
+const { execFile } = require("child_process");
 
 let argumentprevious = "";
-const rootpath =
-	global.ROOT_PATH;
+const rootpath = global.ROOT_PATH;
 
 function executephp(
-	ticket,
-	count,
-	service_name,
-	sub_service = ""
+    ticket,
+    count,
+    shortSname,
+	subsname,
+    sub_service = ""
 ) {
-	const argument = `${ticket},${count},${service_name},${sub_service || ''}`;
+    const args = [
+        `${ticket}`,
+        `${count}`,
+        `${shortSname || ""}`,
+        `${subsname || ""}`,
+        `${sub_service || ""}`
+    ];
 
-	if (argument !== argumentprevious) {
-		exec(
-			`php ${rootpath}/public/printer/print.php ${argument}`,
-			(error, stdout, stderr) => {
-				argumentprevious = argument;
+    const argument = JSON.stringify(args);
 
-				if (error) {
-					console.error(`exec error: ${error}`);
-					return;
-				}
-			}
-		);
-	} else {
-		console.log("Duplicate argument detected, skipping PHP execution.");
-	}
+    if (argument !== argumentprevious) {
+        execFile(
+            "php",
+            [
+                `${rootpath}/public/printer/print.php`,
+                ...args
+            ],
+            (error, stdout, stderr) => {
+                argumentprevious = argument;
+
+                if (error) {
+                    console.error("PHP Error:", error);
+                    return;
+                }
+
+                if (stderr) {
+                    console.error("PHP STDERR:", stderr);
+                }
+
+                if (stdout) {
+                    console.log("PHP STDOUT:", stdout);
+                }
+            }
+        );
+    } else {
+        console.log("Duplicate argument detected, skipping PHP execution.");
+    }
 }
 
 module.exports = { executephp };

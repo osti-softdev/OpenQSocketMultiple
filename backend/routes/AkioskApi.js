@@ -50,10 +50,9 @@ module.exports = function createKioskApiRouter(io) {
 
   // ^ INSERT NEW TICKET
   router.post("/newServiceTicket", kioskLimiter, async (req, res) => {
-    const { sname, ticketservice, selectedType, stats, mobile, sub_services } = req.body;
+    const { sname, shortSname, subsname, ticketservice, selectedType, stats, mobile, sub_services } = req.body;
     const { date, time } = getPHDateTime();
     const expiryMinutes = Number(config.MainServer.expiry);
-
     if (!sname || !ticketservice) {
       return res.status(400).json({
         success: false,
@@ -117,7 +116,8 @@ module.exports = function createKioskApiRouter(io) {
               service: ticketservice,
               ticket: nextTicket,
               note: "",
-              service_name: sname,
+              shortSname: shortSname,
+              subsname:subsname,
               date: date,
               time: time,
               ip: req.ip
@@ -131,7 +131,7 @@ module.exports = function createKioskApiRouter(io) {
           } else {
             // Request came from the Main Kiosk (local), so print it locally
             console.log("On-prem ticket requested locally, printing on Main Kiosk...");
-            await executephp(ticketservice, nextTicket, sname, selectedSubService);
+            await executephp(ticketservice, nextTicket, shortSname,subsname, selectedSubService);
           }
 
         } else {

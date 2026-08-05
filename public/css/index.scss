@@ -238,8 +238,8 @@ body {
         .service-name {
           position: absolute;
           top: 0%;
-          left: 25%;
-          width: 75%;
+          left: 30%;
+          width: 70%;
           height: 40% !important;
           display: flex;
           text-align: center;
@@ -257,7 +257,7 @@ body {
           position: absolute;
           top: 0%;
           left: 0%;
-          width: 25%;
+          width: 30%;
           height: 40% !important;
           display: flex;
           text-align: center;
@@ -291,8 +291,8 @@ body {
         .service-ticket {
           position: absolute;
           top: 40%;
-          right: 0%;
-          width: 100%;
+          left: 30%;
+          width: 70%;
           height: 60%;
           background-color: #ffffff;
           color: rgb(0, 0, 0);
@@ -422,7 +422,7 @@ body {
       display: inline-block;
       padding-left: 50%;
       animation: marquee 41s linear infinite;
-      font-size: 45px;
+      font-size: 55px;
       font-weight: 900;
       color: white;
       white-space: nowrap;

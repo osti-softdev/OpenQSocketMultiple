@@ -1,0 +1,12 @@
+❌ 2026-08-05 7:21:44 PM [backend\utilities\printer.js:37] PHP STDERR: PHP Warning:  Undefined variable $dateni in C:\openq\OpenQSocketMultiple\public\printer\print.php on line 33
+
+❌ 2026-08-05 7:21:51 PM [backend\utilities\printer.js:37] PHP STDERR: PHP Warning:  Undefined variable $dateni in C:\openq\OpenQSocketMultiple\public\printer\print.php on line 33
+
+❌ 2026-08-05 7:22:07 PM [backend\utilities\printer.js:37] PHP STDERR: PHP Warning:  Undefined variable $dateni in C:\openq\OpenQSocketMultiple\public\printer\print.php on line 33
+
+❌ 2026-08-05 7:23:28 PM [backend\utilities\printer.js:37] PHP STDERR: PHP Warning:  Undefined variable $dateni in C:\openq\OpenQSocketMultiple\public\printer\print.php on line 33
+
+❌ 2026-08-05 7:30:00 PM [backend\utilities\printer.js:39] PHP STDERR: PHP Warning:  Undefined variable $dateni in C:\openq\OpenQSocketMultiple\public\printer\print.php on line 34
+
+❌ 2026-08-05 7:32:34 PM [backend\utilities\printer.js:39] PHP STDERR: PHP Warning:  Undefined variable $timestamp in C:\openq\OpenQSocketMultiple\public\printer\print.php on line 32
+
