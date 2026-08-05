@@ -1,0 +1,83 @@
+2024-10-14T08:18:41.520Z App threw an error during load
+2024-10-14T08:18:41.524Z ReferenceError: bodyParser is not defined
+    at Object.<anonymous> (E:\don_tats\stabilized\express\index.js:195:18)
+    at Module._compile (node:internal/modules/cjs/loader:1484:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1564:10)
+    at Module.load (node:internal/modules/cjs/loader:1295:32)
+    at Module._load (node:internal/modules/cjs/loader:1111:12)
+    at c._load (node:electron/js2c/node_init:2:16955)
+    at cjsLoader (node:internal/modules/esm/translators:350:17)
+    at ModuleWrap.<anonymous> (node:internal/modules/esm/translators:286:7)
+    at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2024-10-14T08:18:45.708Z Failed to print: 
+2024-10-14T08:19:00.073Z App threw an error during load
+2024-10-14T08:19:00.075Z ReferenceError: bodyParser is not defined
+    at Object.<anonymous> (E:\don_tats\stabilized\express\index.js:195:18)
+    at Module._compile (node:internal/modules/cjs/loader:1484:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1564:10)
+    at Module.load (node:internal/modules/cjs/loader:1295:32)
+    at Module._load (node:internal/modules/cjs/loader:1111:12)
+    at c._load (node:electron/js2c/node_init:2:16955)
+    at cjsLoader (node:internal/modules/esm/translators:350:17)
+    at ModuleWrap.<anonymous> (node:internal/modules/esm/translators:286:7)
+    at ModuleJob.run (node:internal/modules/esm/module_job:234:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:473:24)
+2024-10-14T08:19:06.144Z Failed to print: 
+2024-10-14T08:24:14.517Z Failed to print: 
+2024-10-14T09:24:47.613Z Failed to print: 
+2024-10-14T09:26:56.688Z ReferenceError: alert is not defined
+    at E:\don_tats\stabilized\express\index.js:209:3
+    at Layer.handle [as handle_request] (E:\don_tats\stabilized\express\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\don_tats\stabilized\express\node_modules\express\lib\router\route.js:149:13)
+    at multerMiddleware (E:\don_tats\stabilized\express\node_modules\multer\lib\make-middleware.js:13:41)
+    at Layer.handle [as handle_request] (E:\don_tats\stabilized\express\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\don_tats\stabilized\express\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (E:\don_tats\stabilized\express\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (E:\don_tats\stabilized\express\node_modules\express\lib\router\layer.js:95:5)
+    at E:\don_tats\stabilized\express\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (E:\don_tats\stabilized\express\node_modules\express\lib\router\index.js:346:12)
+2024-10-14T09:28:43.116Z ReferenceError: alert is not defined
+    at E:\don_tats\stabilized\express\index.js:209:3
+    at Layer.handle [as handle_request] (E:\don_tats\stabilized\express\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\don_tats\stabilized\express\node_modules\express\lib\router\route.js:149:13)
+    at multerMiddleware (E:\don_tats\stabilized\express\node_modules\multer\lib\make-middleware.js:13:41)
+    at Layer.handle [as handle_request] (E:\don_tats\stabilized\express\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\don_tats\stabilized\express\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (E:\don_tats\stabilized\express\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (E:\don_tats\stabilized\express\node_modules\express\lib\router\layer.js:95:5)
+    at E:\don_tats\stabilized\express\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (E:\don_tats\stabilized\express\node_modules\express\lib\router\index.js:346:12)
+2024-10-14T09:29:35.695Z ReferenceError: count is not defined
+    at executephp (E:\don_tats\stabilized\express\index.js:228:33)
+    at E:\don_tats\stabilized\express\index.js:211:3
+    at Layer.handle [as handle_request] (E:\don_tats\stabilized\express\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\don_tats\stabilized\express\node_modules\express\lib\router\route.js:149:13)
+    at multerMiddleware (E:\don_tats\stabilized\express\node_modules\multer\lib\make-middleware.js:13:41)
+    at Layer.handle [as handle_request] (E:\don_tats\stabilized\express\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\don_tats\stabilized\express\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (E:\don_tats\stabilized\express\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (E:\don_tats\stabilized\express\node_modules\express\lib\router\layer.js:95:5)
+    at E:\don_tats\stabilized\express\node_modules\express\lib\router\index.js:284:15
+2024-10-14T09:29:36.751Z ReferenceError: count is not defined
+    at executephp (E:\don_tats\stabilized\express\index.js:228:33)
+    at E:\don_tats\stabilized\express\index.js:211:3
+    at Layer.handle [as handle_request] (E:\don_tats\stabilized\express\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\don_tats\stabilized\express\node_modules\express\lib\router\route.js:149:13)
+    at multerMiddleware (E:\don_tats\stabilized\express\node_modules\multer\lib\make-middleware.js:13:41)
+    at Layer.handle [as handle_request] (E:\don_tats\stabilized\express\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\don_tats\stabilized\express\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (E:\don_tats\stabilized\express\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (E:\don_tats\stabilized\express\node_modules\express\lib\router\layer.js:95:5)
+    at E:\don_tats\stabilized\express\node_modules\express\lib\router\index.js:284:15
+2024-10-14T09:30:09.343Z ReferenceError: count is not defined
+    at executephp (E:\don_tats\stabilized\express\index.js:227:33)
+    at E:\don_tats\stabilized\express\index.js:211:3
+    at Layer.handle [as handle_request] (E:\don_tats\stabilized\express\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\don_tats\stabilized\express\node_modules\express\lib\router\route.js:149:13)
+    at multerMiddleware (E:\don_tats\stabilized\express\node_modules\multer\lib\make-middleware.js:13:41)
+    at Layer.handle [as handle_request] (E:\don_tats\stabilized\express\node_modules\express\lib\router\layer.js:95:5)
+    at next (E:\don_tats\stabilized\express\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (E:\don_tats\stabilized\express\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (E:\don_tats\stabilized\express\node_modules\express\lib\router\layer.js:95:5)
+    at E:\don_tats\stabilized\express\node_modules\express\lib\router\index.js:284:15

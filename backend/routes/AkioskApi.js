@@ -4,6 +4,7 @@ const express = require('express');
 const path = require('path');
 const fs = require("fs");
 const QRCode = require('qrcode');
+const axios = require('axios');
 const { kioskLimiter } = require(`${rootpath}/utilities/rateLimiter`);
 
 module.exports = function createKioskApiRouter(io) {
@@ -107,8 +108,32 @@ module.exports = function createKioskApiRouter(io) {
 
       try {
         if (stats === "onprem") {
-          await executephp(ticketservice, nextTicket, sname, selectedSubService);
-          console.log("On-prem ticket, printing required.");
+          const kiosk2IP = process.env.KIOSK2_IP || '10.1.0.98';
+          
+          // Check if the request came from the 2nd Kiosk
+          if (req.ip.includes(kiosk2IP)) {
+            console.log("On-prem ticket requested from 2nd Kiosk, sending print command to Kiosk 2...");
+            const insertedTicketData = {
+              service: ticketservice,
+              ticket: nextTicket,
+              note: "",
+              service_name: sname,
+              date: date,
+              time: time,
+              ip: req.ip
+            };
+            try {
+              await axios.post(`http://${kiosk2IP}:3234/api/requestor/`, insertedTicketData);
+              console.log("Sent ticket to 2nd kiosk successfully.");
+            } catch (kioskErr) {
+              console.error("Error sending data to 2nd kiosk:", kioskErr.message);
+            }
+          } else {
+            // Request came from the Main Kiosk (local), so print it locally
+            console.log("On-prem ticket requested locally, printing on Main Kiosk...");
+            await executephp(ticketservice, nextTicket, sname, selectedSubService);
+          }
+
         } else {
           console.log("Online ticket, no printing required.");
         }

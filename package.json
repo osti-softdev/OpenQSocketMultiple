@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"bin": "index.js",
 	"scripts": {
-		"start": "node index.js",
+		"start": "electron index.js .",
 		"dev": "node --inspect index.js",
 		"stop": "node tools/stop.js"
 	},
@@ -22,6 +22,7 @@
 		"cors": "^2.8.6",
 		"crc": "^4.3.2",
 		"dotenv": "^17.4.2",
+		"electron": "^43.3.0",
 		"express": "^5.2.1",
 		"express-rate-limit": "^8.5.2",
 		"express-session": "^1.19.0",

@@ -794,6 +794,18 @@ module.exports = function createTellerApiRouter(io) {
         });
     });
 
+    // =========================
+    // & Groups List
+    // =========================
+    router.get('/groups/list', (req, res) => {
+        db.all('SELECT id, group_name FROM counter_groups ORDER BY group_name ASC', [], (err, groups) => {
+            if (err) {
+                return res.status(500).json({ error: 'Database error' });
+            }
+            res.json(groups);
+        });
+    });
+
     //   ! -------- GROUPS -------- !
     // =========================
     // & Complete A Ticket

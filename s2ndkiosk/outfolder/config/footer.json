@@ -1,0 +1,23 @@
+{
+    "announcements_txt": {
+        "firstann": "WELCOME TO SAN PEDRO HOSPITAL OF DAVAO CITY, INC",
+        "secondann": "WE ARE HAPPY TO SERVE YOU!!",
+        "thirdann": "WELCOME TO PHILIPPINES"
+    },
+    "ann_data": {
+        "bgcolor": "#0d81cc",
+        "color": "#ffffff",
+        "speed": "10",
+        "fontsize": "100",
+        "fontweight": "900",
+        "shadowcolorvalue": "#000000"
+    },
+    "activated": {
+        "ann1": "1",
+        "ann2": 0,
+        "ann3": 0
+    },
+    "video_volume": {
+        "volume": 1
+    }
+}

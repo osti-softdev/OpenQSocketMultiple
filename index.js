@@ -1,100 +1,94 @@
-let tagline = "../../";
-tagline = "./";	// comment this on deployment
-
-// ===== Core & Built-in =====
+const { app, BrowserWindow, screen } = require("electron");
 const path = require("path");
-// ===== Express & Socket.IO =====
-const express = require("express");
-const http = require("http");
-const socketIo = require("socket.io");
-const cookieParser = require("cookie-parser");
-const cors = require("cors");
-const session = require('express-session');
-const appExpress = express();
-const server = http.createServer(appExpress);
-const io = socketIo(server);
 
-appExpress.set('trust proxy', 1);
+// Ensure global paths are set up so envconfig.js works
+let tagline = "./";
 const rootpath = path.join(__dirname);
-const MainRootpath = path.join(rootpath);
-const BackEndPath = path.join(rootpath, `${tagline}backend`);
-global.ROOT_PATH = MainRootpath;
-global.BACKEND_PATH = BackEndPath;
+global.ROOT_PATH = rootpath;
+global.BACKEND_PATH = path.join(rootpath, `${tagline}backend`);
 
-// ===== Local Modules =====
-const { setupLogger } = require("./backend/utilities/logger");
-setupLogger();
+// Now start the Express server
+require("./server.js");
 
-// Rate Limiter (Applied strictly to API routes so static assets load freely)
-const { apiLimiter } = require("./backend/utilities/rateLimiter");
-appExpress.use('/api', apiLimiter);
+// Load the configuration to get the server port
+const { loadConfig } = require(path.join(global.BACKEND_PATH, "utilities/envconfig.js"));
+const config = loadConfig();
+const SERVER_PORT = config?.MainServer?.port || 3000;
+const BASE_URL = `http://localhost:${SERVER_PORT}`;
 
-require('./backend/utilities/db');
+let kioskWindow = null;
+let displayWindow = null;
 
-// ^ create Server
-const { serverCreator } = require("./backend/utilities/serverCreator");
-serverCreator(server);
-
-appExpress.use(cors({
-    origin: function(origin, callback) {
-        callback(null, true);
-    },
-    credentials: true
-}));
-appExpress.use(express.json({ limit: '50mb' }));
-appExpress.use(cookieParser());
-appExpress.use(express.urlencoded({ limit: '50mb', extended: true }));
-appExpress.use(session({
-    secret: 'asdasdasd-wejjks9qweqewe-cdvfretvert-asdrace323c23-c234234cf3324234-2026asds',
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        httpOnly: true,          // prevents JS access
-        secure: false,           // ← set true in production + HTTPS
-        maxAge: 1000 * 60 * 60,  // 1 hour
-        sameSite: 'strict'
-    }
-}));
-appExpress.use((req, res, next) => {
-    const protectedHtml = ['/html/caller.html'];
-    if (protectedHtml.includes(req.path) && !req.session?.teller) {
-        return res.redirect('/312Xtellerlogin');
-    }
-
-    if (req.path === '/html/admin.html') {
-        const role = String(req.session?.admin?.role || '').trim().toLowerCase();
-        if (!['user', 'admin', 'superadmin'].includes(role)) return res.redirect('/admin');
-    }
-
-    express.static(path.join(rootpath, 'public'))(req, res, next);
+app.whenReady().then(() => {
+    // Small delay to ensure Express is fully listening before windows load
+    setTimeout(() => {
+        createWindows();
+    }, 1000);
 });
 
-appExpress.use('/ads', express.static(path.join(__dirname, 'public/ads'), {
-    setHeaders: (res, path) => {
-        if (path.endsWith('.mp4')) {
-            res.setHeader('Content-Type', 'video/mp4');
+function createWindows() {
+    const displays = screen.getAllDisplays();
+    const primaryDisplay = screen.getPrimaryDisplay();
+
+    // Find a secondary display, if any
+    const externalDisplay = displays.find((display) => {
+        return display.bounds.x !== 0 || display.bounds.y !== 0;
+    });
+
+    // 1. Create Kiosk Window (on Primary Display)
+    kioskWindow = new BrowserWindow({
+        x: primaryDisplay.bounds.x,
+        y: primaryDisplay.bounds.y,
+        width: primaryDisplay.bounds.width,
+        height: primaryDisplay.bounds.height,
+        fullscreen: true,
+        autoHideMenuBar: true,
+        webPreferences: {
+            nodeIntegration: false,
+            contextIsolation: true
         }
+    });
+
+    kioskWindow.loadURL(`${BASE_URL}/kiosk`);
+
+    kioskWindow.on('closed', () => {
+        kioskWindow = null;
+    });
+
+    // 2. Create Display Window (on Extended Display, if available)
+    if (externalDisplay) {
+        displayWindow = new BrowserWindow({
+            x: externalDisplay.bounds.x,
+            y: externalDisplay.bounds.y,
+            width: externalDisplay.bounds.width,
+            height: externalDisplay.bounds.height,
+            fullscreen: true,
+            autoHideMenuBar: true,
+            webPreferences: {
+                nodeIntegration: false,
+                contextIsolation: true
+            }
+        });
+
+        displayWindow.loadURL(`${BASE_URL}/display`);
+
+        displayWindow.on('closed', () => {
+            displayWindow = null;
+        });
+    } else {
+        console.log("No external display found for the /display window.");
     }
-}));
-
-appExpress.use('/', require('./backend/routes/pages'));
-appExpress.use('/api', require('./backend/routes/AkioskApi')(io));
-appExpress.use('/api', require('./backend/routes/AdisplayApi')(io));
-appExpress.use('/api', require('./backend/routes/AtellerApi')(io));
-appExpress.use('/api', require('./backend/routes/AadminApi')(io));
-
-appExpress.use('/api', require('./backend/routes/AonlineKioskApi')(io));
-
-
-// ^ Video API
-const { setupAds } = require("./backend/routes/getads");
-const adsModule = setupAds(io);
-
-// --- Setup videos API ---
-require("./backend/routes/videos")(appExpress, adsModule);
-
-// --- Initialize GSM Modem ---
-if (process.env.ALLOWSMS === 'true') {
-    const { initializeGSM } = require('./backend/utilities/smsService');
-    initializeGSM(io);
 }
+
+// Quit when all windows are closed
+app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') {
+        app.quit();
+    }
+});
+
+app.on('activate', () => {
+    if (kioskWindow === null) {
+        createWindows();
+    }
+});

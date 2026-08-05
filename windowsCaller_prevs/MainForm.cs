@@ -67,7 +67,6 @@ namespace CallerApp
 
             ApplyTabSettings();
             LoadCatalogServices();
-            CreateServiceBoxes();
 
             // Force initial load immediately on the UI thread
             this.BeginInvoke(new Action(() => {
@@ -150,6 +149,7 @@ namespace CallerApp
                 {
                     catalogServicesList = ((System.Collections.ArrayList)response["data"]).ToArray();
                 }
+                this.BeginInvoke(new Action(() => CreateServiceBoxes()));
             });
         }
 
@@ -168,9 +168,34 @@ namespace CallerApp
                 string srv = rawSrv.Trim();
                 if (string.IsNullOrEmpty(srv)) continue;
 
+                string displaySrv = srv;
+                if (catalogServicesList != null)
+                {
+                    foreach (Dictionary<string, object> cat in catalogServicesList)
+                    {
+                        if (cat.ContainsKey("sname") && cat["sname"].ToString().Equals(srv, StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            if (cat.ContainsKey("shortSname") && cat["shortSname"] != null && !string.IsNullOrEmpty(cat["shortSname"].ToString()))
+                            {
+                                displaySrv = cat["shortSname"].ToString();
+                            }
+                            break;
+                        }
+                    }
+                }
+                displaySrv = displaySrv.Replace("_", " ");
+
                 Panel pRow = new Panel() { Width = 215, Height = 34, Margin = new Padding(2) };
                 
-                Label lblName = new Label() { Text = srv, Font = new Font("Segoe UI", 7.5f, FontStyle.Bold), Location = new Point(2, 9), AutoSize = true, ForeColor = Color.DimGray };
+                Label lblName = new Label() { 
+                    Text = displaySrv, 
+                    Font = new Font("Segoe UI", 7.5f, FontStyle.Bold), 
+                    Location = new Point(2, 2), 
+                    Size = new Size(126, 30),
+                    AutoSize = false,
+                    TextAlign = ContentAlignment.MiddleLeft,
+                    ForeColor = Color.DimGray 
+                };
                 
                 Button btnReg = CreateModernButton("0", 130, 4, 35, 26, Color.FromArgb(52, 152, 219), Color.White);
                 btnReg.Font = new Font("Segoe UI", 8, FontStyle.Bold);
@@ -473,7 +498,9 @@ namespace CallerApp
             lblCurrentTicket.Text = tNum;
             lblCurrentTicket.ForeColor = Color.FromArgb(39, 174, 96); // Green when active
 
-            string sname = ticket.ContainsKey("sname") ? ticket["sname"].ToString().Replace("_", " ") : "";
+            string sname = ticket.ContainsKey("shortSname") && ticket["shortSname"] != null && !string.IsNullOrEmpty(ticket["shortSname"].ToString())
+                           ? ticket["shortSname"].ToString().Replace("_", " ") 
+                           : (ticket.ContainsKey("sname") ? ticket["sname"].ToString().Replace("_", " ") : "");
             lblShortSname.Text = sname;
 
             if (ticket.ContainsKey("start_time") && ticket["start_time"] != null && ticket.ContainsKey("date") && ticket["date"] != null)

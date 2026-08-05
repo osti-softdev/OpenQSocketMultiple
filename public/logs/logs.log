@@ -416,3 +416,178 @@
 ✔ 2026-08-05 3:24:51 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
 ✔ 2026-08-05 3:24:51 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
 ✔ 2026-08-05 3:24:51 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-05 9:04:57 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-05 9:04:57 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ enable debugging { debug: true }[0m
+✔ 2026-08-05 9:04:58 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-05 9:04:58 AM [unknown-location] Connected to SQLite database
+✔ 2026-08-05 9:04:58 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-05 9:04:58 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-05 9:04:58 AM [unknown-location] Found 167 transactions older than 365 days. Archiving...
+✔ 2026-08-05 9:04:58 AM [backend\utilities\db.js:352] Successfully archived 167 transactions to C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\backend\backups\transactions_archive_2026-08-05T01-04-58-552Z.csv
+✔ 2026-08-05 9:04:58 AM [node:events:509] [ADS] Client connected: sv8d-oDrMxZZtfobAAAC
+✔ 2026-08-05 9:04:58 AM [node:events:509] [ADS] Client connected: nL9s-o4p_mjLD6KGAAAD
+✔ 2026-08-05 9:04:58 AM [unknown-location] Deleted 167 old transactions from database.
+✔ 2026-08-05 9:04:58 AM [node:events:509] [ADS] Client connected: s9-9dB9acf7ov27dAAAF
+✔ 2026-08-05 9:04:58 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-05 9:05:07 AM [node:events:509] [ADS] Client disconnected: sv8d-oDrMxZZtfobAAAC
+✔ 2026-08-05 9:05:08 AM [node:events:509] [ADS] Client connected: mwjer4b5nc0E0O8WAAAH
+✔ 2026-08-05 9:05:12 AM [node:events:509] [ADS] Client disconnected: nL9s-o4p_mjLD6KGAAAD
+✔ 2026-08-05 9:05:15 AM [node:events:509] [ADS] Client disconnected: s9-9dB9acf7ov27dAAAF
+✔ 2026-08-05 9:05:18 AM [backend\routes\AtellerApi.js:73] Login attempt for: clc
+✔ 2026-08-05 9:05:18 AM [node_modules\sqlite3\lib\trace.js:25] User not found: clc
+✔ 2026-08-05 9:05:29 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-05 9:05:29 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-05 9:05:29 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-05 9:05:29 AM [node:events:509] [ADS] Client connected: tkiE0vwrwLU6DZuzAAAJ
+✔ 2026-08-05 9:05:37 AM [node:events:509] [ADS] Client connected: vPGTBYsmQQnJsi7mAAAL
+✔ 2026-08-05 9:05:47 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-08-05 9:05:47 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-05 9:05:47 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-08-05 9:05:47 AM [node:events:509] [ADS] Client connected: un8vi--rdBBRlBSVAAAN
+✔ 2026-08-05 9:06:22 AM [node:events:509] [ADS] Client disconnected: mwjer4b5nc0E0O8WAAAH
+✔ 2026-08-05 9:06:22 AM [node:events:509] [ADS] Client connected: c8anEr3g4QQ_pIV7AAAP
+✔ 2026-08-05 9:06:45 AM [node:events:509] [ADS] Client disconnected: un8vi--rdBBRlBSVAAAN
+✔ 2026-08-05 9:06:46 AM [node:events:509] [ADS] Client connected: sL833qEaUHdUlRUxAAAR
+✔ 2026-08-05 9:08:41 AM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-08-05 9:10:23 AM [backend\routes\AkioskApi.js:111] On-prem ticket, printing required.
+✔ 2026-08-05 9:11:06 AM [node:events:509] [ADS] Client disconnected: sL833qEaUHdUlRUxAAAR
+✔ 2026-08-05 9:11:11 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-08-05 9:11:11 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-05 9:11:11 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-08-05 9:11:11 AM [node:events:509] [ADS] Client connected: UHNDb0t2dguqbEiZAAAT
+✔ 2026-08-05 9:11:39 AM [node:events:509] [ADS] Client disconnected: tkiE0vwrwLU6DZuzAAAJ
+✔ 2026-08-05 9:21:09 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-05 9:21:09 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-05 9:21:09 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-05 9:21:09 AM [node:events:509] [ADS] Client connected: k2Rp5YxbCXDNMpANAAAV
+✔ 2026-08-05 9:23:03 AM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-05 9:23:18 AM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-05 9:25:05 AM [node:events:509] [ADS] Client disconnected: k2Rp5YxbCXDNMpANAAAV
+✔ 2026-08-05 9:25:05 AM [node:events:509] [ADS] Client connected: dCZKFKwo-R9IVSsYAAAX
+✔ 2026-08-05 9:26:14 AM [node:events:509] [ADS] Client disconnected: dCZKFKwo-R9IVSsYAAAX
+✔ 2026-08-05 9:26:14 AM [node:events:509] [ADS] Client disconnected: UHNDb0t2dguqbEiZAAAT
+✔ 2026-08-05 9:26:14 AM [node:events:509] [ADS] Client disconnected: vPGTBYsmQQnJsi7mAAAL
+✔ 2026-08-05 9:26:14 AM [node:events:509] [ADS] Client disconnected: c8anEr3g4QQ_pIV7AAAP
+✔ 2026-08-05 12:04:19 PM [node:events:509] [ADS] Client connected: qHNMWyktrkzQu_LnAAAb
+✔ 2026-08-05 12:04:19 PM [node:events:509] [ADS] Client connected: e7v7aaV8S6n4lsgDAAAc
+✔ 2026-08-05 12:04:19 PM [node:events:509] [ADS] Client connected: D-WJx6sMlTPRwsqDAAAe
+✔ 2026-08-05 12:04:20 PM [node:events:509] [ADS] Client disconnected: e7v7aaV8S6n4lsgDAAAc
+✔ 2026-08-05 12:04:58 PM [node:events:509] [ADS] Client disconnected: qHNMWyktrkzQu_LnAAAb
+✔ 2026-08-05 12:30:05 PM [node:events:509] [ADS] Client connected: 7sVEUd_vLO3Vso1XAAAg
+✔ 2026-08-05 12:30:13 PM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-08-05 12:30:13 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-05 12:30:13 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-08-05 12:30:14 PM [node:events:509] [ADS] Client connected: yEpPlKzj1Q-GdEWPAAAi
+✔ 2026-08-05 12:35:23 PM [node:events:509] [ADS] Client disconnected: 7sVEUd_vLO3Vso1XAAAg
+✔ 2026-08-05 12:35:23 PM [node:events:509] [ADS] Client connected: B8jlnExyMV_h8YhAAAAk
+✔ 2026-08-05 12:36:41 PM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-05 12:36:41 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ enable debugging { debug: true }[0m
+✔ 2026-08-05 12:36:42 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-05 12:36:42 PM [unknown-location] Connected to SQLite database
+✔ 2026-08-05 12:36:42 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-05 12:36:42 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-05 12:36:42 PM [node:events:509] [ADS] Client connected: GL_Aibp140O9VQnNAAAD
+✔ 2026-08-05 12:36:42 PM [node:events:509] [ADS] Client connected: n409Br0Xgqkq-aNuAAAE
+✔ 2026-08-05 12:36:42 PM [node:events:509] [ADS] Client connected: de0f_0heH4bXJ4QiAAAF
+✔ 2026-08-05 12:36:43 PM [unknown-location] Found 43981 transactions older than 365 days. Archiving...
+✔ 2026-08-05 12:36:43 PM [backend\utilities\db.js:352] Successfully archived 43981 transactions to C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\backend\backups\transactions_archive_2026-08-05T04-36-43-189Z.csv
+✔ 2026-08-05 12:36:44 PM [unknown-location] Deleted 43981 old transactions from database.
+✔ 2026-08-05 12:36:44 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-05 12:36:46 PM [node:events:509] [ADS] Client disconnected: n409Br0Xgqkq-aNuAAAE
+✔ 2026-08-05 12:36:46 PM [node:events:509] [ADS] Client connected: 4emwkIOmZq6dwWLAAAAH
+✔ 2026-08-05 12:37:13 PM [node:events:509] [ADS] Client disconnected: 4emwkIOmZq6dwWLAAAAH
+✔ 2026-08-05 12:37:14 PM [node:events:509] [ADS] Client connected: UzufOU_h9OcVwejTAAAJ
+✔ 2026-08-05 12:58:50 PM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-05 12:58:50 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ suppress logs { quiet: true }[0m
+✔ 2026-08-05 12:58:51 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-05 12:58:51 PM [unknown-location] Connected to SQLite database
+✔ 2026-08-05 12:58:51 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-05 12:58:51 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-05 12:58:51 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-05 12:58:51 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-05 12:58:53 PM [node:events:509] [ADS] Client connected: fQsJ11gz4qR3duWaAAAB
+✔ 2026-08-05 12:58:55 PM [node:events:509] [ADS] Client connected: YGWKijLCKDtkH3ayAAAE
+✔ 2026-08-05 12:58:55 PM [node:events:509] [ADS] Client connected: p0cWdxakQ-RGbbPqAAAF
+✔ 2026-08-05 1:02:38 PM [node:events:509] [ADS] Client connected: NqY9Qck8IotFsHkCAAAH
+✔ 2026-08-05 1:03:00 PM [node:events:509] [ADS] Client disconnected: NqY9Qck8IotFsHkCAAAH
+✔ 2026-08-05 1:03:04 PM [node:events:509] [ADS] Client connected: sjubZE1jX-dua4dLAAAJ
+✔ 2026-08-05 1:03:30 PM [node:events:509] [ADS] Client connected: kF2vuI104lyiilitAAAL
+✔ 2026-08-05 1:03:33 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 1:03:36 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 1:03:43 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 1:03:46 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 1:04:05 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 1:04:13 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 1:04:15 PM [node:events:509] [ADS] Client disconnected: p0cWdxakQ-RGbbPqAAAF
+✔ 2026-08-05 1:10:03 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-05 1:10:03 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-05 1:10:03 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-05 1:10:04 PM [node:events:509] [ADS] Client connected: OIcLciuFH0sI_5zPAAAN
+✔ 2026-08-05 1:13:20 PM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-05 1:13:20 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ suppress logs { quiet: true }[0m
+✔ 2026-08-05 1:13:20 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-05 1:13:20 PM [unknown-location] Connected to SQLite database
+✔ 2026-08-05 1:13:20 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-05 1:13:20 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-05 1:13:20 PM [node:events:509] [ADS] Client connected: qdfjhnQeS-KARDItAAAB
+✔ 2026-08-05 1:13:20 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-05 1:13:20 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-05 1:13:20 PM [node:events:509] [ADS] Client connected: 8SYseKxO-2iyox5cAAAD
+✔ 2026-08-05 1:13:21 PM [node:events:509] [ADS] Client connected: x1jgKA7Vy7ARlAI5AAAF
+✔ 2026-08-05 1:13:21 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 1:13:23 PM [node:events:509] [ADS] Client connected: WJbS-zpeJLFcSIZZAAAI
+✔ 2026-08-05 1:13:23 PM [node:events:509] [ADS] Client connected: iffaf4dlycQnGG3xAAAJ
+✔ 2026-08-05 1:13:29 PM [node:events:509] [ADS] Client disconnected: x1jgKA7Vy7ARlAI5AAAF
+✔ 2026-08-05 1:13:33 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-05 1:13:33 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-05 1:13:33 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-05 1:13:33 PM [node:events:509] [ADS] Client connected: lGfdUFqW3hA01n-MAAAL
+✔ 2026-08-05 1:15:03 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-05 1:15:03 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-05 1:15:03 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-05 1:15:28 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-05 1:22:11 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-05 1:22:11 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-05 1:22:11 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-05 1:23:15 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-05 1:25:04 PM [node:events:509] [ADS] Client disconnected: iffaf4dlycQnGG3xAAAJ
+✔ 2026-08-05 1:25:33 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-05 1:25:33 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-05 1:25:33 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-05 1:27:11 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-05 1:27:11 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-05 1:27:11 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-05 1:36:07 PM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-05 1:36:07 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ secrets for agents [www.dotenvx.com][0m
+✔ 2026-08-05 1:36:14 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-05 1:36:15 PM [unknown-location] Connected to SQLite database
+✔ 2026-08-05 1:36:15 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-05 1:36:15 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-05 1:36:15 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-05 1:36:15 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-05 1:36:15 PM [node:events:509] [ADS] Client connected: acl9wixxHQAxnYsbAAAB
+✔ 2026-08-05 1:36:16 PM [index.js:79] No external display found for the /display window.
+✔ 2026-08-05 1:36:19 PM [node:events:509] [ADS] Client connected: hMl9PTgosch19iFRAAAF
+✔ 2026-08-05 1:36:19 PM [node:events:509] [ADS] Client connected: 1PAczTVoupqeDWD1AAAG
+✔ 2026-08-05 1:36:19 PM [node:events:509] [ADS] Client connected: GQjyOUk6tv4uGESRAAAH
+✔ 2026-08-05 1:36:22 PM [node:events:509] [ADS] Client connected: aQFFlb_zyS7Ccv_yAAAJ
+✔ 2026-08-05 1:37:13 PM [node:events:509] [ADS] Client disconnected: GQjyOUk6tv4uGESRAAAH
+✔ 2026-08-05 1:37:17 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-08-05 1:37:17 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-05 1:37:17 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: teller1
+✔ 2026-08-05 1:37:17 PM [node:events:509] [ADS] Client connected: _X1vdYBu1Zc-7NjSAAAL
+✔ 2026-08-05 1:37:43 PM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-05 1:37:43 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ suppress logs { quiet: true }[0m
+✔ 2026-08-05 1:37:44 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-05 1:37:44 PM [unknown-location] Connected to SQLite database
+✔ 2026-08-05 1:37:44 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-05 1:37:44 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-05 1:37:44 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-05 1:37:44 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-05 1:37:44 PM [node:events:509] [ADS] Client connected: x_HTxF4_kcs_PeWEAAAC
+✔ 2026-08-05 1:37:44 PM [node:events:509] [ADS] Client connected: GRW7w1L-KkOgOqC4AAAD
+✔ 2026-08-05 1:37:44 PM [node:events:509] [ADS] Client connected: zeT0rLQzkW3DH6jZAAAF
+✔ 2026-08-05 1:37:45 PM [index.js:79] No external display found for the /display window.
+✔ 2026-08-05 1:37:46 PM [node:events:509] [ADS] Client connected: 3jVWv5-1dUbsjZ08AAAH
+✔ 2026-08-05 1:38:28 PM [node:events:509] [ADS] Client connected: AUXSxVANjtECYvp8AAAJ
+✔ 2026-08-05 1:38:44 PM [node:events:509] [ADS] Client disconnected: AUXSxVANjtECYvp8AAAJ

@@ -688,7 +688,7 @@ function openForwardModal(ticket = currentTicket) {
     });
 
     // Load groups
-    $.get('/api/admin/groups', function(groups) {
+    $.get('/api/groups/list', function(groups) {
         const $select = $('#forward-group-id');
         $select.find('option:not(:first)').remove();
         groups.forEach(g => {

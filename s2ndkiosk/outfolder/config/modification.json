@@ -1,0 +1,14 @@
+{
+    "labelinputbg": "#124bce",
+    "ticketinputbg": "#ffffff",
+    "counterinputbg": "#15136c",
+    "labelinputfnt": "#ffffff",
+    "ticketinputfnt": "#000000",
+    "counterinputfnt": "#ffffff",
+    "labelinputfz": "18",
+    "ticketinputfz": "43",
+    "counterinputfz": "69",
+    "labelinputfw": "700",
+    "ticketinputfw": "700",
+    "counterinputfw": "700"
+}

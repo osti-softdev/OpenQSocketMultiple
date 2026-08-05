@@ -1,0 +1,18 @@
+RAST,1,voided,no-show,2024-10-10,00:04:52,1,dave,2,1,,,00:06:11,,,00:06:11,dave, [forwarded to 1], dave[calling], dave[held]
+RAST,2,voided,no-show,2024-10-10,00:04:55,1,dave,2,1,,,00:19:10,,,00:19:10,dave, [forwarded to 1], dave[calling], dave[held]
+RAMT,1,voided,no-show,2024-10-10,00:04:58,2,dave,1,2,,,01:00:53,,,01:00:53,dave, [forwarded to BILLING], dave[calling], dave[held], dave[calling], [forwarded to 2], dave[calling], dave[held]
+RAST,3,voided,no-show,2024-10-10,00:05:01,1,dave,2,1,,,00:34:54,,,00:34:54,dave, [forwarded to 1], dave[calling], dave[held]
+RAST,4,voided,no-show,2024-10-10,00:40:21,1,dave,2,1,,,00:40:21,,,00:40:21,dave, [forwarded to 1], dave[calling], dave[held]
+RAST,5,voided,no-show,2024-10-10,00:40:24,1,dave,2,1,,,01:00:53,,,01:00:53,dave, [forwarded to 1], dave[calling], dave[held]
+RAST,6,voided,no-show,2024-10-10,00:40:27,2,dave,,,,2024-10-10,09:21:03,,,,dave
+RVCC,1,voided,no-show,2024-10-10,00:56:25,1,dave,2,1,,,00:55:00,,,00:55:00,dave, [forwarded to 1], dave[calling], dave[held]
+RAMT,2,voided,no-show,2024-10-10,01:03:50,2,dave,1,2,,,01:00:53,,,01:00:53,dave, dave[held], dave[calling], [forwarded to 2], dave[calling], dave[held]
+PAMT,1,voided,no-show,2024-10-10,01:08:28,2,dave,1,2,,,01:00:53,,,01:00:53,dave, dave[held], dave[calling], [forwarded to 2], dave[calling], dave[held]
+PAST,1,voided,no-show,2024-10-10,01:08:32,1,dave,2,1,,,01:00:53,,,01:00:53,dave, [forwarded to 1], dave[calling], dave[held]
+RAST,7,voided,no-show,2024-10-10,09:24:59,2,dave,,,,2024-10-10,09:25:11,,,,dave
+RAST,8,voided,no-show,2024-10-10,09:28:50,,,,,,,,,,,
+PVCC,1,voided,no-show,2024-10-10,09:29:05,,,,,,,,,,,
+TBR,1,voided,no-show,2024-10-10,10:34:03,1,dave,,,,2024-10-10,10:34:46,,,,dave
+TBR,2,voided,no-show,2024-10-10,10:34:06,1,dave,,,,2024-10-10,21:06:51,,,,dave
+PCR,1,voided,no-show,2024-10-10,11:12:38,,,,,,,,,,,
+TBR,3,voided,no-show,2024-10-10,21:06:39,,,,,,,,,,,

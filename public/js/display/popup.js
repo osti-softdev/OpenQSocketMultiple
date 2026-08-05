@@ -15,45 +15,45 @@ let ticketQueue = [];
 let isProcessing = false;
 let activeTicketIds = new Set();
 
-socket.on("calledticketsArrived", function() {
+socket.on("calledticketsArrived", function () {
 	getCalledTickets();
 });
 getCalledTickets();
 async function getCalledTickets() {
-    try {
-        const response = await fetch('/api/getCallingTickets', {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json' 
-            }
-        });
+	try {
+		const response = await fetch('/api/getCallingTickets', {
+			method: 'GET',
+			headers: {
+				'Accept': 'application/json'
+			}
+		});
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status} ${response.statusText}`);
-        }
+		if (!response.ok) {
+			throw new Error(`HTTP error! Status: ${response.status} ${response.statusText}`);
+		}
 
-        const data = await response.json();
+		const data = await response.json();
 
-        // Same logic as before
-        if (!data.success) {
-            console.error('Invalid response from server:', data);
-            return;
-        }
+		// Same logic as before
+		if (!data.success) {
+			console.error('Invalid response from server:', data);
+			return;
+		}
 
-        const calledList = data.tickets || []; 
+		const calledList = data.tickets || [];
 
-        calledList.forEach((ticket) => {
-            if (activeTicketIds.has(ticket.id)) return; 
+		calledList.forEach((ticket) => {
+			if (activeTicketIds.has(ticket.id)) return;
 
-            ticketQueue.push(ticket);
-            activeTicketIds.add(ticket.id);
-        });
+			ticketQueue.push(ticket);
+			activeTicketIds.add(ticket.id);
+		});
 
-        processQueue();
+		processQueue();
 
-    } catch (error) {
-        console.error('Failed to fetch calling tickets:', error.message);
-    }
+	} catch (error) {
+		console.error('Failed to fetch calling tickets:', error.message);
+	}
 }
 // --- Voice config updates ---
 socket.on("voiceConfigUpdate", (config) => {
@@ -80,15 +80,15 @@ async function processQueue() {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify({ id: ticket.id })
-		})
+	})
 		.then(r => r.json())
 		.then(data => {
-		if (data.success) {
-			console.log("Ticket called successfully!");
-		} else {
-			console.error("Error: " + data.error);
-		}
-	});
+			if (data.success) {
+				console.log("Ticket called successfully!");
+			} else {
+				console.error("Error: " + data.error);
+			}
+		});
 	// Speak the ticket twice, then continue
 	speakTicketTwice(ticket, () => {
 		hidePopup();
@@ -104,9 +104,9 @@ function showPopup(ticketData) {
 	if (videoElement && !videoElement.paused) videoElement.pause();
 	$("#popup").show();
 
-		$("#counterpop").text("Counter " + ticketData.counter_num);
-		$("#ticketpop").text(`${ticketData.service}-${ticketData.ticket}`);	
-		// $("#ticketpop").text(`${ticketData.service}-${ticketData.ticket}`);	
+	$("#counterpop").text("Counter " + ticketData.counter_num);
+	$("#ticketpop").text(`${ticketData.service}${ticketData.ticket}`);
+	// $("#ticketpop").text(`${ticketData.service}-${ticketData.ticket}`);	
 }
 
 function hidePopup() {
@@ -127,7 +127,7 @@ function speakTicketTwice(ticketData, onFinish) {
 	const playBell = () => {
 		if (!audioElement) return;
 		audioElement.currentTime = 0;
-		audioElement.play().catch(() => {});
+		audioElement.play().catch(() => { });
 	};
 
 	if (voiceConfig.voice_enabled === false) {
@@ -140,7 +140,7 @@ function speakTicketTwice(ticketData, onFinish) {
 
 	const serviceCleaned = ticketData.service.replace(/-/g, " ");
 	const serviceSeparated = serviceCleaned.split("").join(", ");
-	
+
 	const defaultFormat = "Now serving, #serviceticket! Please proceed to counter #counternumber";
 	const formatStr = voiceConfig.voice_message_format || defaultFormat;
 	const ticketStr = `${serviceSeparated}${ticketData.ticket}`;

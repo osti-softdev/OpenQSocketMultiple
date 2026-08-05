@@ -1,0 +1,53 @@
+<link rel="stylesheet" type="text/css" href="./reso/css/error.css">
+<script src="reso/js/jquery.js"></script>
+
+<div class="window">
+<div class="errorcont">
+    <h1>Database Not Connected</h1>
+    <h3>PLEASE CHECK XAMPP CONNECTION APACHE & MYSQL</h3>
+    <label for="countdown">App automatically relaunches every 15s</label>
+    <label for="countdown" class="rl">App will relaunch on</label>
+    <label for="countdown" class="cl">App closes on</label>
+    <div class="countdown" id="countdown"></div>
+    <div class="butons">
+        <div class="relaunch botonsnani" onclick="updateCountdown('relaunch');">RELAUNCH</div>
+        <div class="closeapp botonsnani" onclick="updateCountdown('close');">CLOSE</div>
+    </div>
+</div>
+
+</div>
+<script>
+let countdownValue = 5;
+const buttons = document.querySelectorAll('.butons');
+const labelrelauch = document.querySelectorAll('.rl');
+const labelclose = document.querySelectorAll('.cl');
+
+function updateCountdown(item) {
+    if(item == 'relaunch'){
+        $('.rl').css('display','flex');
+        $('.cl').css('display','none');
+        $('.butons').css('display','none');
+    }else{
+        $('.rl').css('display','none');
+        $('.cl').css('display','flex');
+        $('.butons').css('display','none');
+    }
+    
+        const timer = setInterval(() => {
+        document.getElementById('countdown').innerText = countdownValue;
+        countdownValue--;
+        if (countdownValue < 0) {
+            clearInterval(timer);
+            document.getElementById('countdown').innerText = 'Time\'s up!';
+            window.electronAPI.appstatus(item,(result) => {
+            })
+        }
+
+    }, 1000);
+    
+}
+
+</script>
+
+</body>
+</html>
