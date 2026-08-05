@@ -3,15 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|solutionrelative:loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|c:\\users\\technical\\documents\\github\\openqsocketmultiple\\windowscaller_prevs\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\settingsmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|solutionrelative:settingsmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|c:\\users\\technical\\documents\\github\\openqsocketmultiple\\windowscaller_prevs\\settingsmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|c:\\users\\technical\\documents\\github\\openqsocketmultiple\\windowscaller_prevs\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|solutionrelative:loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\settingsmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|solutionrelative:settingsmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -41,7 +45,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -61,6 +65,18 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\MainForm.cs",
+              "RelativeDocumentMoniker": "MainForm.cs",
+              "ToolTip": "C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\MainForm.cs [Design]",
+              "RelativeToolTip": "MainForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-05T22:25:58.636Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "SettingsModal.cs [Design]",
               "DocumentMoniker": "C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\SettingsModal.cs",
@@ -73,7 +89,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "LoginForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\LoginForm.cs",
               "RelativeDocumentMoniker": "LoginForm.cs",
@@ -85,7 +101,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "LoginForm.cs",
               "DocumentMoniker": "C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\LoginForm.cs",
               "RelativeDocumentMoniker": "LoginForm.cs",
@@ -93,12 +109,11 @@
               "RelativeToolTip": "LoginForm.cs",
               "ViewState": "AgIAACMAAAAAAAAAAAAlwCsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-03T12:44:55.873Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-03T12:44:55.873Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "SettingsModal.cs",
               "DocumentMoniker": "C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\SettingsModal.cs",
               "RelativeDocumentMoniker": "SettingsModal.cs",
@@ -111,7 +126,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "CallerApp",
               "DocumentMoniker": "C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\CallerApp.csproj",
               "RelativeDocumentMoniker": "CallerApp.csproj",
@@ -122,7 +137,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "MainForm.cs",
               "DocumentMoniker": "C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
@@ -135,7 +150,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "HistoryModal.cs [Design]",
               "DocumentMoniker": "C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\HistoryModal.cs",
               "RelativeDocumentMoniker": "HistoryModal.cs",
@@ -146,7 +161,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "ForwardModal.cs",
               "DocumentMoniker": "C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\ForwardModal.cs",
               "RelativeDocumentMoniker": "ForwardModal.cs",

@@ -96,7 +96,7 @@ namespace CallerApp
             this.tabs.Location = new System.Drawing.Point(5, 25);
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
-            this.tabs.Size = new System.Drawing.Size(263, 221);
+            this.tabs.Size = new System.Drawing.Size(263, 156);
             this.tabs.TabIndex = 2;
             // 
             // tabHome
@@ -107,7 +107,7 @@ namespace CallerApp
             this.tabHome.Location = new System.Drawing.Point(4, 22);
             this.tabHome.Name = "tabHome";
             this.tabHome.Padding = new System.Windows.Forms.Padding(3);
-            this.tabHome.Size = new System.Drawing.Size(255, 195);
+            this.tabHome.Size = new System.Drawing.Size(255, 130);
             this.tabHome.TabIndex = 0;
             this.tabHome.Text = "🏠 Home";
             // 
@@ -133,7 +133,7 @@ namespace CallerApp
             this.pnlServicesList.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.pnlServicesList.Location = new System.Drawing.Point(6, 45);
             this.pnlServicesList.Name = "pnlServicesList";
-            this.pnlServicesList.Size = new System.Drawing.Size(245, 144);
+            this.pnlServicesList.Size = new System.Drawing.Size(245, 81);
             this.pnlServicesList.TabIndex = 12;
             this.pnlServicesList.WrapContents = false;
             // 
@@ -144,7 +144,7 @@ namespace CallerApp
             this.tabWait.Location = new System.Drawing.Point(4, 22);
             this.tabWait.Name = "tabWait";
             this.tabWait.Padding = new System.Windows.Forms.Padding(3);
-            this.tabWait.Size = new System.Drawing.Size(275, 224);
+            this.tabWait.Size = new System.Drawing.Size(255, 195);
             this.tabWait.TabIndex = 1;
             this.tabWait.Text = "🕒 Wait";
             // 
@@ -155,7 +155,7 @@ namespace CallerApp
             this.pnlWaitingList.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.pnlWaitingList.Location = new System.Drawing.Point(3, 3);
             this.pnlWaitingList.Name = "pnlWaitingList";
-            this.pnlWaitingList.Size = new System.Drawing.Size(269, 218);
+            this.pnlWaitingList.Size = new System.Drawing.Size(249, 189);
             this.pnlWaitingList.TabIndex = 0;
             this.pnlWaitingList.WrapContents = false;
             // 
@@ -166,7 +166,7 @@ namespace CallerApp
             this.tabHeld.Location = new System.Drawing.Point(4, 22);
             this.tabHeld.Name = "tabHeld";
             this.tabHeld.Padding = new System.Windows.Forms.Padding(3);
-            this.tabHeld.Size = new System.Drawing.Size(275, 224);
+            this.tabHeld.Size = new System.Drawing.Size(255, 195);
             this.tabHeld.TabIndex = 2;
             this.tabHeld.Text = "⏸ Held";
             // 
@@ -177,7 +177,7 @@ namespace CallerApp
             this.pnlHeldList.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.pnlHeldList.Location = new System.Drawing.Point(3, 3);
             this.pnlHeldList.Name = "pnlHeldList";
-            this.pnlHeldList.Size = new System.Drawing.Size(269, 218);
+            this.pnlHeldList.Size = new System.Drawing.Size(249, 189);
             this.pnlHeldList.TabIndex = 0;
             this.pnlHeldList.WrapContents = false;
             // 
@@ -188,7 +188,7 @@ namespace CallerApp
             this.tabRecv.Location = new System.Drawing.Point(4, 22);
             this.tabRecv.Name = "tabRecv";
             this.tabRecv.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRecv.Size = new System.Drawing.Size(275, 224);
+            this.tabRecv.Size = new System.Drawing.Size(255, 195);
             this.tabRecv.TabIndex = 3;
             this.tabRecv.Text = "📩 Recv";
             // 
@@ -199,7 +199,7 @@ namespace CallerApp
             this.pnlForwardedList.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.pnlForwardedList.Location = new System.Drawing.Point(3, 3);
             this.pnlForwardedList.Name = "pnlForwardedList";
-            this.pnlForwardedList.Size = new System.Drawing.Size(269, 218);
+            this.pnlForwardedList.Size = new System.Drawing.Size(249, 189);
             this.pnlForwardedList.TabIndex = 0;
             this.pnlForwardedList.WrapContents = false;
             // 
@@ -207,7 +207,7 @@ namespace CallerApp
             // 
             this.lblCurrentTicket.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.lblCurrentTicket.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.lblCurrentTicket.Location = new System.Drawing.Point(139, 246);
+            this.lblCurrentTicket.Location = new System.Drawing.Point(139, 179);
             this.lblCurrentTicket.Name = "lblCurrentTicket";
             this.lblCurrentTicket.Size = new System.Drawing.Size(125, 35);
             this.lblCurrentTicket.TabIndex = 0;
@@ -218,7 +218,7 @@ namespace CallerApp
             // 
             this.lblShortSname.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblShortSname.ForeColor = System.Drawing.Color.Gray;
-            this.lblShortSname.Location = new System.Drawing.Point(12, 248);
+            this.lblShortSname.Location = new System.Drawing.Point(12, 181);
             this.lblShortSname.Name = "lblShortSname";
             this.lblShortSname.Size = new System.Drawing.Size(125, 20);
             this.lblShortSname.TabIndex = 7;
@@ -228,7 +228,7 @@ namespace CallerApp
             // 
             this.lblDuration.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblDuration.ForeColor = System.Drawing.Color.DimGray;
-            this.lblDuration.Location = new System.Drawing.Point(12, 268);
+            this.lblDuration.Location = new System.Drawing.Point(12, 201);
             this.lblDuration.Name = "lblDuration";
             this.lblDuration.Size = new System.Drawing.Size(125, 20);
             this.lblDuration.TabIndex = 1;
@@ -245,7 +245,7 @@ namespace CallerApp
             this.btnComplete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnComplete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnComplete.ForeColor = System.Drawing.Color.Transparent;
-            this.btnComplete.Location = new System.Drawing.Point(12, 291);
+            this.btnComplete.Location = new System.Drawing.Point(12, 224);
             this.btnComplete.Name = "btnComplete";
             this.btnComplete.Size = new System.Drawing.Size(43, 30);
             this.btnComplete.TabIndex = 2;
@@ -262,7 +262,7 @@ namespace CallerApp
             this.btnHold.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnHold.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnHold.ForeColor = System.Drawing.Color.White;
-            this.btnHold.Location = new System.Drawing.Point(63, 291);
+            this.btnHold.Location = new System.Drawing.Point(63, 224);
             this.btnHold.Name = "btnHold";
             this.btnHold.Size = new System.Drawing.Size(43, 30);
             this.btnHold.TabIndex = 3;
@@ -279,7 +279,7 @@ namespace CallerApp
             this.btnRecall.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRecall.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnRecall.ForeColor = System.Drawing.Color.White;
-            this.btnRecall.Location = new System.Drawing.Point(114, 291);
+            this.btnRecall.Location = new System.Drawing.Point(114, 224);
             this.btnRecall.Name = "btnRecall";
             this.btnRecall.Size = new System.Drawing.Size(43, 30);
             this.btnRecall.TabIndex = 4;
@@ -296,7 +296,7 @@ namespace CallerApp
             this.btnForward.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnForward.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnForward.ForeColor = System.Drawing.Color.White;
-            this.btnForward.Location = new System.Drawing.Point(166, 291);
+            this.btnForward.Location = new System.Drawing.Point(166, 224);
             this.btnForward.Name = "btnForward";
             this.btnForward.Size = new System.Drawing.Size(43, 30);
             this.btnForward.TabIndex = 5;
@@ -313,7 +313,7 @@ namespace CallerApp
             this.btnVoid.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnVoid.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnVoid.ForeColor = System.Drawing.Color.White;
-            this.btnVoid.Location = new System.Drawing.Point(218, 291);
+            this.btnVoid.Location = new System.Drawing.Point(218, 224);
             this.btnVoid.Name = "btnVoid";
             this.btnVoid.Size = new System.Drawing.Size(42, 30);
             this.btnVoid.TabIndex = 6;
@@ -328,7 +328,7 @@ namespace CallerApp
             // MainForm
             // 
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(270, 325);
+            this.ClientSize = new System.Drawing.Size(270, 261);
             this.Controls.Add(this.lblCurrentTicket);
             this.Controls.Add(this.lblShortSname);
             this.Controls.Add(this.lblDuration);
