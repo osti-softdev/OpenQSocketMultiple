@@ -22,6 +22,7 @@ namespace CallerApp
         private void InitializeComponent()
         {
             this.Text = "Void Ticket";
+            this.TopMost = AppSettings.AlwaysOnTop;
             this.Size = new Size(350, 270);
             this.StartPosition = FormStartPosition.CenterParent;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;

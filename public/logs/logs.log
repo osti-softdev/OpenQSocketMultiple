@@ -1457,3 +1457,5 @@ Deprecated: Mike42\Escpos\PrintBuffers\PrintBuffer::setPrinter(): Implicitly mar
 ✔ 2026-08-06 10:16:59 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
 ✔ 2026-08-06 10:17:02 PM [backend\routes\AtellerApi.js:454] 1
 ✔ 2026-08-06 10:17:33 PM [backend\routes\AtellerApi.js:454] 6
+✔ 2026-08-06 10:24:59 PM [node:events:509] [ADS] Client disconnected: e5gcM7UeNwGGcueyAAAH
+✔ 2026-08-06 11:09:20 PM [node:events:509] [ADS] Client disconnected: ietnnZBnhIOZYWLzAAAJ

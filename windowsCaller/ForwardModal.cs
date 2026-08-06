@@ -27,6 +27,7 @@ namespace CallerApp
         private void InitializeComponent(object[] tellers, object[] groups)
         {
             this.Text = "Forward Ticket";
+            this.TopMost = AppSettings.AlwaysOnTop;
             this.Size = new Size(350, 320);
             this.StartPosition = FormStartPosition.CenterParent;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
