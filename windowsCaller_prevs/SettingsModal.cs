@@ -11,6 +11,7 @@ namespace CallerApp
         private CheckBox chkShowReceived;
         private CheckBox chkShowTooltips;
         private CheckBox chkAlwaysOnTop;
+        private CheckBox chkSoundAlerts;
         
         private Button btnLogout;
         private Button btnSave;
@@ -24,7 +25,7 @@ namespace CallerApp
         {
             this.Text = "Settings";
             this.TopMost = AppSettings.AlwaysOnTop;
-            this.Size = new Size(320, 360);
+            this.Size = new Size(320, 390);
             this.StartPosition = FormStartPosition.CenterParent;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -49,6 +50,9 @@ namespace CallerApp
             chkAlwaysOnTop = new CheckBox() { Text = "App Always on Top", Location = new Point(20, 205), Size = new Size(260, 25), Font = new Font("Segoe UI", 9) };
             chkAlwaysOnTop.Checked = AppSettings.AlwaysOnTop;
 
+            chkSoundAlerts = new CheckBox() { Text = "Enable Sound Alerts", Location = new Point(20, 235), Size = new Size(260, 25), Font = new Font("Segoe UI", 9) };
+            chkSoundAlerts.Checked = AppSettings.EnableSoundAlerts;
+
             // Only show auto-finish/received/history if user is logged in
             bool isLoggedIn = ApiClient.CurrentTeller != null;
             chkAutoFinish.Visible = isLoggedIn;
@@ -56,7 +60,7 @@ namespace CallerApp
 
             btnLogout = new Button() { 
                 Text = "🚪 Logout", 
-                Location = new Point(20, 240), 
+                Location = new Point(20, 265), 
                 Size = new Size(260, 35), 
                 BackColor = Color.Crimson, 
                 ForeColor = Color.White,
@@ -76,7 +80,7 @@ namespace CallerApp
 
             btnSave = new Button() { 
                 Text = "✅ Save Changes", 
-                Location = new Point(20, 285), 
+                Location = new Point(20, 310), 
                 Size = new Size(125, 35), 
                 BackColor = Color.FromArgb(46, 204, 113), 
                 ForeColor = Color.White,
@@ -89,7 +93,7 @@ namespace CallerApp
             
             btnCancel = new Button() { 
                 Text = "Cancel", 
-                Location = new Point(155, 285), 
+                Location = new Point(155, 310), 
                 Size = new Size(125, 35), 
                 BackColor = Color.WhiteSmoke, 
                 ForeColor = Color.DimGray,
@@ -107,6 +111,7 @@ namespace CallerApp
             this.Controls.Add(chkShowReceived);
             this.Controls.Add(chkShowTooltips);
             this.Controls.Add(chkAlwaysOnTop);
+            this.Controls.Add(chkSoundAlerts);
             this.Controls.Add(btnLogout);
             this.Controls.Add(btnSave);
             this.Controls.Add(btnCancel);
@@ -126,6 +131,7 @@ namespace CallerApp
             AppSettings.ShowReceivedInWaiting = chkShowReceived.Checked;
             AppSettings.ShowTooltips = chkShowTooltips.Checked;
             AppSettings.AlwaysOnTop = chkAlwaysOnTop.Checked;
+            AppSettings.EnableSoundAlerts = chkSoundAlerts.Checked;
             AppSettings.Save();
 
             this.DialogResult = DialogResult.OK;

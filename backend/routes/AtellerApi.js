@@ -388,7 +388,7 @@ module.exports = function createTellerApiRouter(io) {
     router.post('/tickets/call', (req, res) => {
         const { date } = getPHDateTime();
 
-        const { ticketId, tellerId, counterNumber, counter_group, counter_user, mode } = req.body;
+        const { ticketId, tellerId, counterNumber, counter_group, counter_user, mode, mix_received } = req.body;
         if (mode === 'auto') {
             // Get teller's services
             db.get('SELECT services, group_id FROM counters WHERE id = ?', [tellerId], (err, teller) => {
@@ -408,13 +408,16 @@ module.exports = function createTellerApiRouter(io) {
                     autoConditions.push(`(t.status = 'pending' AND UPPER(t.sname) IN (${placeholders}))`);
                     params.push(...services);
                 }
-                autoConditions.push(
-                    `(t.status = 'received' AND (ft.to_teller_id = ? OR ft.to_group_id = ?))`
-                );
-                params.push(tellerId, teller.group_id, date);
+                if (mix_received) {
+                    autoConditions.push(
+                        `(t.status = 'received' AND (ft.to_teller_id = ? OR ft.to_group_id = ?))`
+                    );
+                    params.push(tellerId, teller.group_id);
+                }
+                params.push(date);
 
-                // Queue order: pending priority, received priority,
-                // received regular, then pending regular.
+                // Queue order: received priority, received regular,
+                // pending priority, then pending regular.
                 const query = `SELECT t.*, s.shortSname,
                                     CASE WHEN t.status = 'received' THEN 1 ELSE 0 END AS isReceived
                             FROM transactions t
@@ -423,9 +426,9 @@ module.exports = function createTellerApiRouter(io) {
                             WHERE (${autoConditions.join(' OR ')})
                             AND t.date = ?
                             ORDER BY CASE
-                                       WHEN t.status = 'pending' AND t.priority = 1 THEN 1
-                                       WHEN t.status = 'received' AND t.priority = 1 THEN 2
-                                       WHEN t.status = 'received' THEN 3
+                                       WHEN t.status = 'received' AND t.priority = 1 THEN 1
+                                       WHEN t.status = 'received' THEN 2
+                                       WHEN t.status = 'pending' AND t.priority = 1 THEN 3
                                        ELSE 4
                                      END,
                                      t.time ASC
@@ -781,10 +784,16 @@ module.exports = function createTellerApiRouter(io) {
     // & Tellers List
     // =========================
     router.get('/tellers/list', (req, res) => {
-        const { id } = req.query;
+        const { id, activeToday } = req.query;
+        const { date } = getPHDateTime();
 
         let query = 'SELECT id, cname, cnum,group_name, group_id FROM counters WHERE id != ?';
         let params = [id];
+
+        if (activeToday === 'true') {
+            query += ' AND id IN (SELECT teller_id FROM transactions WHERE date = ?)';
+            params.push(date);
+        }
 
         db.all(query, params, (err, tellers) => {
             if (err) {

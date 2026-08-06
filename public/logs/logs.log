@@ -1381,3 +1381,79 @@ Deprecated: Mike42\Escpos\PrintBuffers\PrintBuffer::setPrinter(): Implicitly mar
 ✔ 2026-08-06 9:37:14 PM [backend\routes\AtellerApi.js:454] 6
 ✔ 2026-08-06 9:37:20 PM [backend\routes\AtellerApi.js:454] 6
 ✔ 2026-08-06 9:37:29 PM [backend\routes\AtellerApi.js:454] 6
+✔ 2026-08-06 9:39:14 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-06 9:39:14 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 9:39:14 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-06 9:43:40 PM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-08-06 9:43:40 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 9:43:40 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-08-06 9:43:40 PM [node:events:509] [ADS] Client connected: JysNRuM_S2ctKqSmAAAJ
+✔ 2026-08-06 9:43:46 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-06 9:44:03 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-06 9:44:03 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 9:44:03 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-06 9:44:11 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 9:44:15 PM [backend\routes\AtellerApi.js:454] 6
+✔ 2026-08-06 9:44:40 PM [backend\routes\AtellerApi.js:454] 6
+✔ 2026-08-06 9:45:05 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 9:45:18 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 9:47:10 PM [backend\routes\AtellerApi.js:454] 6
+✔ 2026-08-06 9:52:18 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-06 9:52:18 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 9:52:18 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-06 9:52:22 PM [backend\routes\AtellerApi.js:454] 6
+✔ 2026-08-06 9:52:46 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-06 9:54:37 PM [backend\routes\AtellerApi.js:454] 6
+✔ 2026-08-06 9:56:06 PM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-06 9:56:06 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌁ auth for agents [www.vestauth.com][0m
+✔ 2026-08-06 9:56:06 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-06 9:56:06 PM [unknown-location] Connected to SQLite database
+✔ 2026-08-06 9:56:06 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-06 9:56:06 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-06 9:56:06 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-06 9:56:06 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-06 9:56:06 PM [node:events:509] [ADS] Client connected: vsVdUMU65RvV2Y-wAAAB
+✔ 2026-08-06 9:56:07 PM [index.js:79] No external display found for the /display window.
+✔ 2026-08-06 9:56:08 PM [node:events:509] [ADS] Client connected: 02s1ljJia1pgpSeJAAAD
+✔ 2026-08-06 9:56:08 PM [node:events:509] [ADS] Client connected: fyZQx8zD_0X93fcwAAAF
+✔ 2026-08-06 9:56:09 PM [node:events:509] [ADS] Client connected: e5gcM7UeNwGGcueyAAAH
+✔ 2026-08-06 9:56:12 PM [node:events:509] [ADS] Client disconnected: vsVdUMU65RvV2Y-wAAAB
+✔ 2026-08-06 9:56:15 PM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-08-06 9:56:15 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 9:56:15 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-08-06 9:56:15 PM [node:events:509] [ADS] Client connected: ietnnZBnhIOZYWLzAAAJ
+✔ 2026-08-06 9:56:20 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-06 9:56:45 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-06 9:56:45 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 9:56:45 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-06 10:01:59 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-06 10:01:59 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 10:01:59 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-06 10:02:20 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 10:02:26 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 10:02:32 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 10:04:27 PM [backend\routes\AtellerApi.js:454] 6
+✔ 2026-08-06 10:04:43 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 10:04:58 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 10:05:05 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 10:05:11 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 10:05:21 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 10:06:02 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-06 10:06:02 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 10:06:02 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-06 10:07:04 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-06 10:08:29 PM [backend\routes\AtellerApi.js:454] 6
+✔ 2026-08-06 10:11:37 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-06 10:11:37 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 10:11:37 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-06 10:11:47 PM [backend\routes\AtellerApi.js:454] 6
+✔ 2026-08-06 10:12:05 PM [backend\routes\AtellerApi.js:454] 6
+✔ 2026-08-06 10:12:17 PM [backend\routes\AtellerApi.js:454] 6
+✔ 2026-08-06 10:14:22 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-06 10:16:00 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-06 10:16:00 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 10:16:00 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-06 10:16:20 PM [backend\routes\AtellerApi.js:454] 6
+✔ 2026-08-06 10:16:59 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 10:17:02 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-06 10:17:33 PM [backend\routes\AtellerApi.js:454] 6

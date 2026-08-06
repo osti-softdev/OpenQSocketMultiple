@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CallerApp_win7.exe" size="1353208">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CallerApp_win7.exe" size="1355256">
       <assemblyIdentity name="CallerApp_win7" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Ik9v0QIf44thmUFzDV2PDgEzjtN4EoVZvArS/4JUg4Y=</dsig:DigestValue>
+        <dsig:DigestValue>C59wz0vYfKVmaXZXml7V7dfntJI81TE4MFCqfNbDfnA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

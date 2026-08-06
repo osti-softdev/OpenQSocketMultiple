@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using System.Media;
 
 namespace CallerApp
 {
@@ -18,6 +19,7 @@ namespace CallerApp
         private string lastWaitingJson = "";
         private string lastHeldJson = "";
         private string lastForwardedJson = "";
+        private int lastForwardedCount = 0;
 
         public ToolTip appToolTip = new ToolTip();
 
@@ -419,7 +421,7 @@ namespace CallerApp
                     .Select(t => (Dictionary<string, object>)t)
                     .OrderByDescending(t => t.ContainsKey("status") && t["status"].ToString() == "received" ? 1 : 0)
                     .ThenByDescending(t => t.ContainsKey("priority") && Convert.ToInt32(t["priority"]) == 1 ? 1 : 0)
-                    .ThenByDescending(t => t.ContainsKey("id") ? Convert.ToInt64(t["id"]) : 0)
+                    .ThenBy(t => t.ContainsKey("id") ? Convert.ToInt64(t["id"]) : 0)
                     .ToList();
 
                 foreach (var t in sortedTickets)
@@ -442,7 +444,11 @@ namespace CallerApp
             int count = 0;
             if (tickets != null)
             {
-                var sortedTickets = tickets.Select(t => (Dictionary<string, object>)t).OrderByDescending(t => t.ContainsKey("id") ? Convert.ToInt64(t["id"]) : 0).ToList();
+                var sortedTickets = tickets
+                    .Select(t => (Dictionary<string, object>)t)
+                    .OrderByDescending(t => t.ContainsKey("priority") && Convert.ToInt32(t["priority"]) == 1 ? 1 : 0)
+                    .ThenBy(t => t.ContainsKey("id") ? Convert.ToInt64(t["id"]) : 0)
+                    .ToList();
                 foreach (var t in sortedTickets)
                 {
                     count++;
@@ -459,13 +465,24 @@ namespace CallerApp
         {
             string newJson = tickets != null ? jsSerializer.Serialize(tickets) : "";
             if (newJson == lastForwardedJson) return;
+
+            int currentLength = tickets != null ? tickets.Length : 0;
+            if (lastForwardedJson != "" && currentLength > lastForwardedCount)
+            {
+                PlayCustomSound("alarm"); // Alarm for newly received ticket
+            }
+            lastForwardedCount = currentLength;
             lastForwardedJson = newJson;
 
             pnlForwardedList.Controls.Clear();
             int count = 0;
             if (tickets != null)
             {
-                var sortedTickets = tickets.Select(t => (Dictionary<string, object>)t).OrderByDescending(t => t.ContainsKey("id") ? Convert.ToInt64(t["id"]) : 0).ToList();
+                var sortedTickets = tickets
+                    .Select(t => (Dictionary<string, object>)t)
+                    .OrderByDescending(t => t.ContainsKey("priority") && Convert.ToInt32(t["priority"]) == 1 ? 1 : 0)
+                    .ThenBy(t => t.ContainsKey("id") ? Convert.ToInt64(t["id"]) : 0)
+                    .ToList();
                 foreach (var t in sortedTickets)
                 {
                     count++;
@@ -652,6 +669,7 @@ namespace CallerApp
             if (type == "auto")
             {
                 reqData.Add("mode", "auto");
+                reqData.Add("mix_received", AppSettings.ShowReceivedInWaiting);
                 ExecuteCall(reqData);
             }
             else
@@ -744,6 +762,7 @@ namespace CallerApp
         private void RecallTicket()
         {
             if (currentTicket == null) return;
+            PlayCustomSound("ring");
             var reqData = new { ticketId = currentTicket["id"], cname = ApiClient.CurrentTeller["username"], cnum = ApiClient.CurrentTeller["counter_number"] };
             ThreadPool.QueueUserWorkItem(delegate(object state) { ApiClient.Post("/api/tickets/recall", reqData); });
         }
@@ -772,6 +791,7 @@ namespace CallerApp
                 ApiClient.Post("/api/tickets/hold", reqData);
                 this.BeginInvoke(new Action(() =>
                 {
+                    PlayCustomSound("alarm");
                     ClearCurrentTicket();
                     FetchQueues();
                 }));
@@ -820,7 +840,7 @@ namespace CallerApp
             string targetTicketId = specificTicketId != null ? specificTicketId : (currentTicket != null ? currentTicket["id"].ToString() : null);
             if (targetTicketId == null) return;
             
-            object[] tellers = ApiClient.GetArray("/api/tellers/list", new Dictionary<string, string> { { "id", ApiClient.CurrentTeller["id"].ToString() } });
+            object[] tellers = ApiClient.GetArray("/api/tellers/list", new Dictionary<string, string> { { "id", ApiClient.CurrentTeller["id"].ToString() }, { "activeToday", "true" } });
             
             // Extract unique groups from the tellers list since /api/admin/groups is restricted
             var uniqueGroups = new Dictionary<string, Dictionary<string, object>>();
@@ -869,7 +889,7 @@ namespace CallerApp
                                 ClearCurrentTicket();
                             }
                             FetchQueues();
-                            MessageBox.Show("Ticket forwarded successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ShowToastPopup("Ticket forwarded successfully", true);
                         }));
                     });
                 }
@@ -898,12 +918,70 @@ namespace CallerApp
                         ApiClient.Post("/api/tickets/void", reqData);
                         this.BeginInvoke(new Action(() =>
                         {
+                            PlayCustomSound("alarm");
                             ClearCurrentTicket();
                             FetchQueues();
                         }));
                     });
                 }
             }
+        }
+
+        private void ShowToastPopup(string message, bool isSuccess)
+        {
+            Form toast = new Form();
+            toast.FormBorderStyle = FormBorderStyle.None;
+            toast.StartPosition = FormStartPosition.CenterScreen;
+            toast.Size = new Size(300, 100);
+            toast.BackColor = isSuccess ? Color.FromArgb(46, 204, 113) : Color.FromArgb(231, 76, 60);
+            toast.TopMost = true;
+
+            Label lbl = new Label();
+            lbl.Text = message;
+            lbl.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            lbl.ForeColor = Color.White;
+            lbl.AutoSize = false;
+            lbl.Dock = DockStyle.Fill;
+            lbl.TextAlign = ContentAlignment.MiddleCenter;
+            toast.Controls.Add(lbl);
+
+            PlayCustomSound(isSuccess ? "success" : "alarm");
+
+            System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
+            t.Interval = 3000;
+            t.Tick += (s, e) => { t.Stop(); toast.Close(); };
+            
+            toast.Load += (s, e) => { t.Start(); };
+            toast.Show();
+        }
+
+        private void PlayCustomSound(string soundType)
+        {
+            if (!AppSettings.EnableSoundAlerts) return;
+            ThreadPool.QueueUserWorkItem(delegate(object state)
+            {
+                try 
+                {
+                    string path = "";
+                    if (soundType == "alarm") path = @"C:\Windows\Media\Alarm01.wav";
+                    else if (soundType == "ring") path = @"C:\Windows\Media\Ring01.wav";
+                    else if (soundType == "success") path = @"C:\Windows\Media\tada.wav";
+                    
+                    if (System.IO.File.Exists(path))
+                    {
+                        using (var player = new System.Media.SoundPlayer(path))
+                        {
+                            player.PlaySync();
+                        }
+                    }
+                    else
+                    {
+                        if (soundType == "alarm") System.Media.SystemSounds.Exclamation.Play();
+                        else System.Media.SystemSounds.Asterisk.Play();
+                    }
+                }
+                catch { }
+            });
         }
     }
 }

@@ -13,6 +13,7 @@ namespace CallerApp
         private static bool _showReceivedInWaiting = false;
         private static bool _showTooltips = true;
         private static bool _alwaysOnTop = false;
+        private static bool _enableSoundAlerts = true;
         private static string _savedUsername = "";
         private static string _savedPassword = "";
 
@@ -20,6 +21,7 @@ namespace CallerApp
         public static bool ShowReceivedInWaiting { get { return _showReceivedInWaiting; } set { _showReceivedInWaiting = value; } }
         public static bool ShowTooltips { get { return _showTooltips; } set { _showTooltips = value; } }
         public static bool AlwaysOnTop { get { return _alwaysOnTop; } set { _alwaysOnTop = value; } }
+        public static bool EnableSoundAlerts { get { return _enableSoundAlerts; } set { _enableSoundAlerts = value; } }
         public static string SavedUsername { get { return _savedUsername; } set { _savedUsername = value; } }
         public static string SavedPassword { get { return _savedPassword; } set { _savedPassword = value; } }
 
@@ -45,6 +47,7 @@ namespace CallerApp
                     if (data.ContainsKey("ShowReceivedInWaiting")) _showReceivedInWaiting = (bool)data["ShowReceivedInWaiting"];
                     if (data.ContainsKey("ShowTooltips")) _showTooltips = (bool)data["ShowTooltips"];
                     if (data.ContainsKey("AlwaysOnTop")) _alwaysOnTop = (bool)data["AlwaysOnTop"];
+                    if (data.ContainsKey("EnableSoundAlerts")) _enableSoundAlerts = (bool)data["EnableSoundAlerts"];
                     if (data.ContainsKey("SavedUsername")) _savedUsername = data["SavedUsername"].ToString();
                     if (data.ContainsKey("SavedPassword")) _savedPassword = data["SavedPassword"].ToString();
                 }
@@ -60,6 +63,7 @@ namespace CallerApp
                     { "ShowReceivedInWaiting", _showReceivedInWaiting },
                     { "ShowTooltips", _showTooltips },
                     { "AlwaysOnTop", _alwaysOnTop },
+                    { "EnableSoundAlerts", _enableSoundAlerts },
                     { "SavedUsername", _savedUsername },
                     { "SavedPassword", _savedPassword }
                 };
