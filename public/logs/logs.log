@@ -1148,3 +1148,236 @@ Warning: Undefined variable $timestamp in C:\openq\OpenQSocketMultiple\public\pr
 ✔ 2026-08-05 7:34:43 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
 ✔ 2026-08-05 7:35:11 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
 ✔ 2026-08-05 7:35:27 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 8:37:20 PM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-06 8:37:20 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ custom filepath { path: '/custom/path/.env' }[0m
+✔ 2026-08-06 8:37:21 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-06 8:37:21 PM [unknown-location] Connected to SQLite database
+✔ 2026-08-06 8:37:21 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-06 8:37:21 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-06 8:37:21 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-06 8:37:21 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-06 8:37:22 PM [index.js:79] No external display found for the /display window.
+✔ 2026-08-06 8:37:23 PM [node:events:509] [ADS] Client connected: UMaeHXHicTENCNPQAAAB
+✔ 2026-08-06 8:37:23 PM [node:events:509] [ADS] Client connected: 0safYl0eVJSH78tBAAAD
+✔ 2026-08-06 8:37:24 PM [node:events:509] [ADS] Client connected: sPAmqIiIfidok71mAAAF
+✔ 2026-08-06 8:37:27 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller2
+✔ 2026-08-06 8:37:27 PM [node_modules\sqlite3\lib\trace.js:25] User not found: teller2
+✔ 2026-08-06 8:37:29 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller2
+✔ 2026-08-06 8:37:29 PM [node_modules\sqlite3\lib\trace.js:25] User not found: teller2
+✔ 2026-08-06 8:37:39 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller2
+✔ 2026-08-06 8:37:39 PM [node_modules\sqlite3\lib\trace.js:25] User not found: teller2
+✔ 2026-08-06 8:37:44 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller2
+✔ 2026-08-06 8:37:44 PM [node_modules\sqlite3\lib\trace.js:25] User not found: teller2
+✔ 2026-08-06 8:38:00 PM [backend\routes\AtellerApi.js:73] Login attempt for: teller2
+✔ 2026-08-06 8:38:00 PM [node_modules\sqlite3\lib\trace.js:25] User not found: teller2
+✔ 2026-08-06 8:38:07 PM [backend\routes\AtellerApi.js:73] Login attempt for: FAS
+✔ 2026-08-06 8:38:07 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 8:38:07 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: FAS
+✔ 2026-08-06 8:38:45 PM [backend\routes\AtellerApi.js:73] Login attempt for: FAS
+✔ 2026-08-06 8:38:45 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 8:38:45 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: FAS
+✔ 2026-08-06 8:38:56 PM [node:events:509] [ADS] Client disconnected: 0safYl0eVJSH78tBAAAD
+✔ 2026-08-06 8:38:59 PM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-08-06 8:38:59 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 8:38:59 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-08-06 8:38:59 PM [node:events:509] [ADS] Client connected: TU308yNvEA4QQ2kPAAAH
+✔ 2026-08-06 8:39:30 PM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-08-06 8:39:30 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 8:39:30 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-08-06 8:39:43 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 8:39:44 PM [backend\utilities\printer.js:43] PHP STDOUT: 
+Deprecated: Mike42\Escpos\Printer::__construct(): Implicitly marking parameter $profile as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\Printer.php on line 361
+
+Deprecated: Mike42\Escpos\PrintBuffers\EscposPrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\EscposPrintBuffer.php on line 79
+
+Deprecated: Mike42\Escpos\PrintBuffers\PrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\PrintBuffer.php on line 48
+
+✔ 2026-08-06 8:39:49 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 8:39:49 PM [backend\utilities\printer.js:43] PHP STDOUT: 
+Deprecated: Mike42\Escpos\Printer::__construct(): Implicitly marking parameter $profile as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\Printer.php on line 361
+
+Deprecated: Mike42\Escpos\PrintBuffers\EscposPrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\EscposPrintBuffer.php on line 79
+
+Deprecated: Mike42\Escpos\PrintBuffers\PrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\PrintBuffer.php on line 48
+
+✔ 2026-08-06 8:39:54 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 8:39:54 PM [backend\utilities\printer.js:43] PHP STDOUT: 
+Deprecated: Mike42\Escpos\Printer::__construct(): Implicitly marking parameter $profile as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\Printer.php on line 361
+
+Deprecated: Mike42\Escpos\PrintBuffers\EscposPrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\EscposPrintBuffer.php on line 79
+
+Deprecated: Mike42\Escpos\PrintBuffers\PrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\PrintBuffer.php on line 48
+
+✔ 2026-08-06 8:39:58 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 8:39:59 PM [backend\utilities\printer.js:43] PHP STDOUT: 
+Deprecated: Mike42\Escpos\Printer::__construct(): Implicitly marking parameter $profile as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\Printer.php on line 361
+
+Deprecated: Mike42\Escpos\PrintBuffers\EscposPrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\EscposPrintBuffer.php on line 79
+
+Deprecated: Mike42\Escpos\PrintBuffers\PrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\PrintBuffer.php on line 48
+
+✔ 2026-08-06 8:41:20 PM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-08-06 8:41:20 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 8:41:20 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-08-06 8:42:18 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-06 8:45:10 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 8:45:10 PM [backend\utilities\printer.js:43] PHP STDOUT: 
+Deprecated: Mike42\Escpos\Printer::__construct(): Implicitly marking parameter $profile as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\Printer.php on line 361
+
+Deprecated: Mike42\Escpos\PrintBuffers\EscposPrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\EscposPrintBuffer.php on line 79
+
+Deprecated: Mike42\Escpos\PrintBuffers\PrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\PrintBuffer.php on line 48
+
+✔ 2026-08-06 8:48:22 PM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-08-06 8:48:22 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 8:48:22 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-08-06 8:48:35 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-06 8:49:51 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-06 8:58:54 PM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-08-06 8:58:54 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 8:58:54 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-08-06 8:59:11 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-06 8:59:37 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-06 9:00:09 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 9:00:09 PM [backend\utilities\printer.js:43] PHP STDOUT: 
+Deprecated: Mike42\Escpos\Printer::__construct(): Implicitly marking parameter $profile as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\Printer.php on line 361
+
+Deprecated: Mike42\Escpos\PrintBuffers\EscposPrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\EscposPrintBuffer.php on line 79
+
+Deprecated: Mike42\Escpos\PrintBuffers\PrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\PrintBuffer.php on line 48
+
+✔ 2026-08-06 9:00:15 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 9:00:16 PM [backend\utilities\printer.js:43] PHP STDOUT: 
+Deprecated: Mike42\Escpos\Printer::__construct(): Implicitly marking parameter $profile as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\Printer.php on line 361
+
+Deprecated: Mike42\Escpos\PrintBuffers\EscposPrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\EscposPrintBuffer.php on line 79
+
+Deprecated: Mike42\Escpos\PrintBuffers\PrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\PrintBuffer.php on line 48
+
+✔ 2026-08-06 9:00:20 PM [backend\routes\AtellerApi.js:454] 1
+✔ 2026-08-06 9:00:28 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 9:00:29 PM [backend\utilities\printer.js:43] PHP STDOUT: 
+Deprecated: Mike42\Escpos\Printer::__construct(): Implicitly marking parameter $profile as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\Printer.php on line 361
+
+Deprecated: Mike42\Escpos\PrintBuffers\EscposPrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\EscposPrintBuffer.php on line 79
+
+Deprecated: Mike42\Escpos\PrintBuffers\PrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\PrintBuffer.php on line 48
+
+✔ 2026-08-06 9:00:33 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 9:00:33 PM [backend\utilities\printer.js:43] PHP STDOUT: 
+Deprecated: Mike42\Escpos\Printer::__construct(): Implicitly marking parameter $profile as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\Printer.php on line 361
+
+Deprecated: Mike42\Escpos\PrintBuffers\EscposPrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\EscposPrintBuffer.php on line 79
+
+Deprecated: Mike42\Escpos\PrintBuffers\PrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\PrintBuffer.php on line 48
+
+✔ 2026-08-06 9:01:33 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-06 9:01:33 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 9:01:33 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-06 9:01:49 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-06 9:01:49 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 9:01:49 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-06 9:02:29 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-06 9:02:29 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 9:02:29 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-06 9:02:44 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 9:02:44 PM [backend\utilities\printer.js:43] PHP STDOUT: 
+Deprecated: Mike42\Escpos\Printer::__construct(): Implicitly marking parameter $profile as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\Printer.php on line 361
+
+Deprecated: Mike42\Escpos\PrintBuffers\EscposPrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\EscposPrintBuffer.php on line 79
+
+Deprecated: Mike42\Escpos\PrintBuffers\PrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\PrintBuffer.php on line 48
+
+✔ 2026-08-06 9:02:59 PM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-08-06 9:02:59 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 9:02:59 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-08-06 9:03:05 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 9:03:05 PM [backend\utilities\printer.js:43] PHP STDOUT: 
+Deprecated: Mike42\Escpos\Printer::__construct(): Implicitly marking parameter $profile as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\Printer.php on line 361
+
+Deprecated: Mike42\Escpos\PrintBuffers\EscposPrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\EscposPrintBuffer.php on line 79
+
+Deprecated: Mike42\Escpos\PrintBuffers\PrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\PrintBuffer.php on line 48
+
+✔ 2026-08-06 9:03:42 PM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-08-06 9:03:42 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 9:03:42 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-08-06 9:03:50 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 9:03:51 PM [backend\utilities\printer.js:43] PHP STDOUT: 
+Deprecated: Mike42\Escpos\Printer::__construct(): Implicitly marking parameter $profile as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\Printer.php on line 361
+
+Deprecated: Mike42\Escpos\PrintBuffers\EscposPrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\EscposPrintBuffer.php on line 79
+
+Deprecated: Mike42\Escpos\PrintBuffers\PrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\PrintBuffer.php on line 48
+
+✔ 2026-08-06 9:05:41 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-06 9:05:41 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 9:05:41 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-06 9:05:47 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 9:05:47 PM [backend\utilities\printer.js:43] PHP STDOUT: 
+Deprecated: Mike42\Escpos\Printer::__construct(): Implicitly marking parameter $profile as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\Printer.php on line 361
+
+Deprecated: Mike42\Escpos\PrintBuffers\EscposPrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\EscposPrintBuffer.php on line 79
+
+Deprecated: Mike42\Escpos\PrintBuffers\PrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\PrintBuffer.php on line 48
+
+✔ 2026-08-06 9:06:55 PM [backend\routes\AtellerApi.js:454] 6
+✔ 2026-08-06 9:11:21 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-06 9:11:21 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 9:11:21 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-06 9:11:27 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 9:11:27 PM [backend\utilities\printer.js:43] PHP STDOUT: 
+Deprecated: Mike42\Escpos\Printer::__construct(): Implicitly marking parameter $profile as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\Printer.php on line 361
+
+Deprecated: Mike42\Escpos\PrintBuffers\EscposPrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\EscposPrintBuffer.php on line 79
+
+Deprecated: Mike42\Escpos\PrintBuffers\PrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\PrintBuffer.php on line 48
+
+✔ 2026-08-06 9:12:08 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-06 9:12:08 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 9:12:08 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-06 9:16:49 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-06 9:16:49 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 9:16:49 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-06 9:16:58 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 9:16:58 PM [backend\utilities\printer.js:43] PHP STDOUT: 
+Deprecated: Mike42\Escpos\Printer::__construct(): Implicitly marking parameter $profile as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\Printer.php on line 361
+
+Deprecated: Mike42\Escpos\PrintBuffers\EscposPrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\EscposPrintBuffer.php on line 79
+
+Deprecated: Mike42\Escpos\PrintBuffers\PrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\PrintBuffer.php on line 48
+
+✔ 2026-08-06 9:17:40 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-06 9:17:40 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 9:17:40 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-06 9:17:48 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 9:17:48 PM [backend\utilities\printer.js:43] PHP STDOUT: 
+Deprecated: Mike42\Escpos\Printer::__construct(): Implicitly marking parameter $profile as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\Printer.php on line 361
+
+Deprecated: Mike42\Escpos\PrintBuffers\EscposPrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\EscposPrintBuffer.php on line 79
+
+Deprecated: Mike42\Escpos\PrintBuffers\PrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\PrintBuffer.php on line 48
+
+✔ 2026-08-06 9:17:55 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-06 9:17:55 PM [backend\utilities\printer.js:43] PHP STDOUT: 
+Deprecated: Mike42\Escpos\Printer::__construct(): Implicitly marking parameter $profile as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\Printer.php on line 361
+
+Deprecated: Mike42\Escpos\PrintBuffers\EscposPrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\EscposPrintBuffer.php on line 79
+
+Deprecated: Mike42\Escpos\PrintBuffers\PrintBuffer::setPrinter(): Implicitly marking parameter $printer as nullable is deprecated, the explicit nullable type must be used instead in C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintBuffers\PrintBuffer.php on line 48
+
+✔ 2026-08-06 9:18:34 PM [backend\routes\AtellerApi.js:454] 6
+✔ 2026-08-06 9:21:08 PM [backend\routes\AtellerApi.js:454] 6
+✔ 2026-08-06 9:30:57 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-06 9:30:57 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 9:30:57 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-06 9:34:30 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-06 9:34:30 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 9:34:30 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-06 9:36:54 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-06 9:36:54 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-06 9:36:54 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-06 9:37:04 PM [backend\routes\AtellerApi.js:454] 6
+✔ 2026-08-06 9:37:14 PM [backend\routes\AtellerApi.js:454] 6
+✔ 2026-08-06 9:37:20 PM [backend\routes\AtellerApi.js:454] 6
+✔ 2026-08-06 9:37:29 PM [backend\routes\AtellerApi.js:454] 6

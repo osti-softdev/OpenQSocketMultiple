@@ -10,13 +10,11 @@ namespace CallerApp
         private CheckBox chkAutoFinish;
         private CheckBox chkShowReceived;
         private CheckBox chkShowTooltips;
+        private CheckBox chkAlwaysOnTop;
         
-        private Button btnHistory;
+        private Button btnLogout;
         private Button btnSave;
         private Button btnCancel;
-
-        public bool ShowHistoryClicked { get; private set; }
-
         public SettingsModal()
         {
             InitializeComponent();
@@ -25,7 +23,8 @@ namespace CallerApp
         private void InitializeComponent()
         {
             this.Text = "Settings";
-            this.Size = new Size(320, 385);
+            this.TopMost = AppSettings.AlwaysOnTop;
+            this.Size = new Size(320, 360);
             this.StartPosition = FormStartPosition.CenterParent;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -47,32 +46,37 @@ namespace CallerApp
             chkShowTooltips = new CheckBox() { Text = "Show Button ToolTips on Hover", Location = new Point(20, 175), Size = new Size(260, 25), Font = new Font("Segoe UI", 9) };
             chkShowTooltips.Checked = AppSettings.ShowTooltips;
 
+            chkAlwaysOnTop = new CheckBox() { Text = "App Always on Top", Location = new Point(20, 205), Size = new Size(260, 25), Font = new Font("Segoe UI", 9) };
+            chkAlwaysOnTop.Checked = AppSettings.AlwaysOnTop;
+
             // Only show auto-finish/received/history if user is logged in
             bool isLoggedIn = ApiClient.CurrentTeller != null;
             chkAutoFinish.Visible = isLoggedIn;
             chkShowReceived.Visible = isLoggedIn;
 
-            btnHistory = new Button() { 
-                Text = "📜 View Ticket History", 
-                Location = new Point(20, 215), 
+            btnLogout = new Button() { 
+                Text = "🚪 Logout", 
+                Location = new Point(20, 240), 
                 Size = new Size(260, 35), 
-                BackColor = Color.FromArgb(52, 152, 219), 
+                BackColor = Color.Crimson, 
                 ForeColor = Color.White,
                 Font = new Font("Segoe UI", 9, FontStyle.Bold),
                 FlatStyle = FlatStyle.Flat,
                 Cursor = Cursors.Hand,
                 Visible = isLoggedIn
             };
-            btnHistory.FlatAppearance.BorderSize = 0;
-            btnHistory.Click += (s, e) => {
-                ShowHistoryClicked = true;
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+            btnLogout.FlatAppearance.BorderSize = 0;
+            btnLogout.Click += (s, e) => {
+                if (MessageBox.Show("Logout?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ApiClient.Post("/api/logout", new { });
+                    Application.Restart();
+                }
             };
 
             btnSave = new Button() { 
                 Text = "✅ Save Changes", 
-                Location = new Point(20, 280), 
+                Location = new Point(20, 285), 
                 Size = new Size(125, 35), 
                 BackColor = Color.FromArgb(46, 204, 113), 
                 ForeColor = Color.White,
@@ -85,7 +89,7 @@ namespace CallerApp
             
             btnCancel = new Button() { 
                 Text = "Cancel", 
-                Location = new Point(155, 280), 
+                Location = new Point(155, 285), 
                 Size = new Size(125, 35), 
                 BackColor = Color.WhiteSmoke, 
                 ForeColor = Color.DimGray,
@@ -102,7 +106,8 @@ namespace CallerApp
             this.Controls.Add(chkAutoFinish);
             this.Controls.Add(chkShowReceived);
             this.Controls.Add(chkShowTooltips);
-            this.Controls.Add(btnHistory);
+            this.Controls.Add(chkAlwaysOnTop);
+            this.Controls.Add(btnLogout);
             this.Controls.Add(btnSave);
             this.Controls.Add(btnCancel);
         }
@@ -120,9 +125,9 @@ namespace CallerApp
             AppSettings.AutoFinishEnabled = chkAutoFinish.Checked;
             AppSettings.ShowReceivedInWaiting = chkShowReceived.Checked;
             AppSettings.ShowTooltips = chkShowTooltips.Checked;
+            AppSettings.AlwaysOnTop = chkAlwaysOnTop.Checked;
             AppSettings.Save();
 
-            ShowHistoryClicked = false;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

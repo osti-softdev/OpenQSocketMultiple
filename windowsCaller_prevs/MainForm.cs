@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using System.Threading;
 
 namespace CallerApp
 {
@@ -98,14 +97,6 @@ namespace CallerApp
             durationTimer.Stop();
         }
 
-        private void BtnLogout_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Logout?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                ApiClient.Post("/api/logout", new { });
-                Application.Restart();
-            }
-        }
 
         private void BtnSettings_Click(object sender, EventArgs e)
         {
@@ -116,21 +107,22 @@ namespace CallerApp
                     ApplyTabSettings();
                     appToolTip.Active = AppSettings.ShowTooltips;
                     FetchQueues();
-                    
-                    if (sm.ShowHistoryClicked)
-                    {
-                        var histParams = new Dictionary<string, string> { { "counterNumber", ApiClient.CurrentTeller["counter_number"].ToString() }, { "cname", ApiClient.CurrentTeller["username"].ToString() } };
-                        object[] historyTickets = ApiClient.GetArray("/api/tickets/history", histParams);
-                        
-                        HistoryModal hm = new HistoryModal(historyTickets, CallSpecificTicket, OpenForwardModal);
-                        hm.Show();
-                    }
                 }
             }
         }
 
+        private void BtnHistory_Click(object sender, EventArgs e)
+        {
+            var histParams = new Dictionary<string, string> { { "counterNumber", ApiClient.CurrentTeller["counter_number"].ToString() }, { "cname", ApiClient.CurrentTeller["username"].ToString() } };
+            object[] historyTickets = ApiClient.GetArray("/api/tickets/history", histParams);
+            
+            HistoryModal hm = new HistoryModal(historyTickets, CallSpecificTicket, OpenForwardModal);
+            hm.Show();
+        }
+
         private void ApplyTabSettings()
         {
+            this.TopMost = AppSettings.AlwaysOnTop;
             // The user requested to ALWAYS display the Recv tab, regardless of settings.
             if (!tabs.TabPages.Contains(tabRecv)) 
             {
@@ -154,6 +146,7 @@ namespace CallerApp
         }
 
         private Dictionary<string, Button[]> serviceButtons = new Dictionary<string, Button[]>();
+        private Dictionary<string, Label> serviceLastLabels = new Dictionary<string, Label>();
 
         private void CreateServiceBoxes()
         {
@@ -162,6 +155,7 @@ namespace CallerApp
 
             pnlServicesList.Controls.Clear();
             serviceButtons.Clear();
+            serviceLastLabels.Clear();
 
             foreach (string rawSrv in services)
             {
@@ -191,10 +185,20 @@ namespace CallerApp
                     Text = displaySrv, 
                     Font = new Font("Segoe UI", 7.5f, FontStyle.Bold), 
                     Location = new Point(2, 2), 
-                    Size = new Size(126, 30),
+                    Size = new Size(82, 30),
                     AutoSize = false,
                     TextAlign = ContentAlignment.MiddleLeft,
                     ForeColor = Color.DimGray 
+                };
+
+                Label lblLast = new Label() { 
+                    Text = "---", 
+                    Font = new Font("Segoe UI", 7.5f, FontStyle.Bold), 
+                    Location = new Point(84, 2), 
+                    Size = new Size(44, 30),
+                    AutoSize = false,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    ForeColor = Color.FromArgb(46, 204, 113) 
                 };
                 
                 Button btnReg = CreateModernButton("0", 130, 4, 35, 26, Color.FromArgb(52, 152, 219), Color.White);
@@ -209,12 +213,14 @@ namespace CallerApp
                 appToolTip.SetToolTip(btnPri, "Priority");
 
                 pRow.Controls.Add(lblName);
+                pRow.Controls.Add(lblLast);
                 pRow.Controls.Add(btnReg);
                 pRow.Controls.Add(btnPri);
 
                 pnlServicesList.Controls.Add(pRow);
                 
                 serviceButtons[srv] = new Button[] { btnReg, btnPri };
+                serviceLastLabels[srv] = lblLast;
             }
         }
 
@@ -250,18 +256,39 @@ namespace CallerApp
 
             foreach (var kvp in serviceButtons)
             {
-                string srv = kvp.Key;
+                string srv = kvp.Key.Trim();
+                string srvSpace = srv.Replace("_", " ");
+                string srvShort = srv;
+                if (catalogServicesList != null)
+                {
+                    foreach (Dictionary<string, object> cat in catalogServicesList)
+                    {
+                        if (cat.ContainsKey("sname") && cat["sname"].ToString().Trim().Replace("_", " ").Equals(srvSpace, StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            if (cat.ContainsKey("shortSname") && cat["shortSname"] != null && !string.IsNullOrEmpty(cat["shortSname"].ToString()))
+                            {
+                                srvShort = cat["shortSname"].ToString().Trim();
+                            }
+                            break;
+                        }
+                    }
+                }
+                string srvShortSpace = srvShort.Replace("_", " ");
+
                 int rCount = 0;
                 int pCount = 0;
                 
-                // Try matching exact or prefix (since sometimes service strings differ)
                 foreach(var rK in regCounts.Keys) {
-                    if (rK.Equals(srv, StringComparison.InvariantCultureIgnoreCase) || srv.Equals(rK, StringComparison.InvariantCultureIgnoreCase) || rK.StartsWith(srv)) {
+                    string rKSpace = rK.Trim().Replace("_", " ");
+                    if (rKSpace.Equals(srvSpace, StringComparison.InvariantCultureIgnoreCase) || rKSpace.StartsWith(srvSpace, StringComparison.InvariantCultureIgnoreCase) || srvSpace.StartsWith(rKSpace, StringComparison.InvariantCultureIgnoreCase) ||
+                        rKSpace.Equals(srvShortSpace, StringComparison.InvariantCultureIgnoreCase) || rKSpace.StartsWith(srvShortSpace, StringComparison.InvariantCultureIgnoreCase) || srvShortSpace.StartsWith(rKSpace, StringComparison.InvariantCultureIgnoreCase)) {
                         rCount += regCounts[rK];
                     }
                 }
                 foreach(var pK in priCounts.Keys) {
-                    if (pK.Equals(srv, StringComparison.InvariantCultureIgnoreCase) || srv.Equals(pK, StringComparison.InvariantCultureIgnoreCase) || pK.StartsWith(srv)) {
+                    string pKSpace = pK.Trim().Replace("_", " ");
+                    if (pKSpace.Equals(srvSpace, StringComparison.InvariantCultureIgnoreCase) || pKSpace.StartsWith(srvSpace, StringComparison.InvariantCultureIgnoreCase) || srvSpace.StartsWith(pKSpace, StringComparison.InvariantCultureIgnoreCase) ||
+                        pKSpace.Equals(srvShortSpace, StringComparison.InvariantCultureIgnoreCase) || pKSpace.StartsWith(srvShortSpace, StringComparison.InvariantCultureIgnoreCase) || srvShortSpace.StartsWith(pKSpace, StringComparison.InvariantCultureIgnoreCase)) {
                         pCount += priCounts[pK];
                     }
                 }
@@ -287,6 +314,8 @@ namespace CallerApp
 
             var forwardParams = new Dictionary<string, string> { { "tellerId", tellerId }, { "groupId", groupId } };
             object[] forwardedTickets = ApiClient.GetArray("/api/tickets/forwarded", forwardParams);
+
+            object[] lastCalledTickets = ApiClient.GetArray("/api/tickets/last_called");
 
             if (this.IsHandleCreated && !this.IsDisposed)
             {
@@ -324,12 +353,55 @@ namespace CallerApp
 
                         UpdateHeldQueue(heldTickets);
                         UpdateServiceCounts(waitingTickets);
+                        UpdateLastCalledTickets(lastCalledTickets);
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Error in FetchQueues UI update:\n" + ex.ToString());
                     }
                 }));
+            }
+        }
+
+        private void UpdateLastCalledTickets(object[] tickets)
+        {
+            if (tickets == null) return;
+            foreach (Dictionary<string, object> t in tickets)
+            {
+                string sname = t.ContainsKey("sname") ? t["sname"].ToString().Trim() : "";
+                if (string.IsNullOrEmpty(sname) && t.ContainsKey("ticketservice")) sname = t["ticketservice"].ToString().Trim();
+                
+                string tNum = t.ContainsKey("ticketservice") ? string.Format("{0}{1}", t["ticketservice"], t["ticketnum"]) : (t.ContainsKey("ticketnum") ? t["ticketnum"].ToString() : "");
+                
+                foreach (var srvKey in serviceLastLabels.Keys)
+                {
+                    string srvTrim = srvKey.Trim();
+                    string srvSpace = srvTrim.Replace("_", " ");
+                    string srvShort = srvTrim;
+                    if (catalogServicesList != null)
+                    {
+                        foreach (Dictionary<string, object> cat in catalogServicesList)
+                        {
+                            if (cat.ContainsKey("sname") && cat["sname"].ToString().Trim().Replace("_", " ").Equals(srvSpace, StringComparison.InvariantCultureIgnoreCase))
+                            {
+                                if (cat.ContainsKey("shortSname") && cat["shortSname"] != null && !string.IsNullOrEmpty(cat["shortSname"].ToString()))
+                                {
+                                    srvShort = cat["shortSname"].ToString().Trim();
+                                }
+                                break;
+                            }
+                        }
+                    }
+                    string srvShortSpace = srvShort.Replace("_", " ");
+                    string snameSpace = sname.Replace("_", " ");
+
+                    if (snameSpace.Equals(srvSpace, StringComparison.InvariantCultureIgnoreCase) || snameSpace.StartsWith(srvSpace, StringComparison.InvariantCultureIgnoreCase) || srvSpace.StartsWith(snameSpace, StringComparison.InvariantCultureIgnoreCase) ||
+                        snameSpace.Equals(srvShortSpace, StringComparison.InvariantCultureIgnoreCase) || snameSpace.StartsWith(srvShortSpace, StringComparison.InvariantCultureIgnoreCase) || srvShortSpace.StartsWith(snameSpace, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        serviceLastLabels[srvKey].Text = tNum;
+                        break;
+                    }
+                }
             }
         }
 
@@ -420,22 +492,34 @@ namespace CallerApp
                 bgColor = Color.FromArgb(250, 219, 216); // Light Red
             }
 
-            Panel p = new Panel() { Width = 215, Height = 38, BorderStyle = BorderStyle.FixedSingle, Margin = new Padding(2), BackColor = bgColor };
+            Panel p = new Panel() { Width = 215, Height = 65, BorderStyle = BorderStyle.FixedSingle, Margin = new Padding(2), BackColor = bgColor };
             
             string tNum = t.ContainsKey("ticketservice") ? string.Format("{0}{1}", t["ticketservice"], t["ticketnum"]) : t["ticketnum"].ToString();
             string sName = t.ContainsKey("sname") ? t["sname"].ToString().Replace("_", " ") : "";
             if (string.IsNullOrEmpty(sName) && t.ContainsKey("status")) sName = t["status"].ToString();
+
+            string tTime = "";
+            if (t.ContainsKey("start_time") && t["start_time"] != null && t["start_time"].ToString().Length > 0) tTime = t["start_time"].ToString();
+            else if (t.ContainsKey("created_at") && t["created_at"] != null && t["created_at"].ToString().Length > 0)
+            {
+                DateTime dt;
+                if (DateTime.TryParse(t["created_at"].ToString(), out dt)) tTime = dt.ToString("HH:mm:ss");
+                else tTime = t["created_at"].ToString();
+            }
+            else if (t.ContainsKey("time") && t["time"] != null && t["time"].ToString().Length > 0) tTime = t["time"].ToString();
+            
+            if (!string.IsNullOrEmpty(tTime)) sName += " ⌚ " + tTime;
             
             Label lblNum = new Label() { Text = tNum, Font = new Font("Segoe UI", 9, FontStyle.Bold), Location = new Point(2, 3), AutoSize = true, ForeColor = Color.FromArgb(40,40,40) };
-            Label lblSvc = new Label() { Text = sName, Location = new Point(2, 19), AutoSize = true, Font = new Font("Segoe UI", 7), ForeColor = Color.DimGray };
+            Label lblSvc = new Label() { Text = sName, Location = new Point(2, 19), AutoSize = true, MaximumSize = new Size(105, 0), Font = new Font("Segoe UI", 7), ForeColor = Color.DimGray };
 
             if (!string.IsNullOrEmpty(btn2Text) && btn2Color.HasValue)
             {
-                Button btn1 = CreateModernButton(btn1Text, 110, 5, 45, 26, btn1Color, Color.White);
+                Button btn1 = CreateModernButton(btn1Text, 110, 18, 45, 26, btn1Color, Color.White);
                 btn1.Font = new Font("Segoe UI", 6.5f, FontStyle.Bold);
                 btn1.Click += onBtn1Click;
                 
-                Button btn2 = CreateModernButton(btn2Text, 160, 5, 45, 26, btn2Color.Value, Color.White);
+                Button btn2 = CreateModernButton(btn2Text, 160, 18, 45, 26, btn2Color.Value, Color.White);
                 btn2.Font = new Font("Segoe UI", 6.5f, FontStyle.Bold);
                 btn2.Click += onBtn2Click;
                 
@@ -447,8 +531,8 @@ namespace CallerApp
             }
             else
             {
-                Button btn1 = CreateModernButton(btn1Text, 135, 5, 70, 26, btn1Color, Color.White);
-                btn1.Font = new Font("Segoe UI", 7, FontStyle.Bold);
+                Button btn1 = CreateModernButton(btn1Text, 150, 18, 55, 26, btn1Color, Color.White);
+                btn1.Font = new Font("Segoe UI", 7.5f, FontStyle.Bold);
                 btn1.Click += onBtn1Click;
                 appToolTip.SetToolTip(btn1, btn1Text.Replace("📢 ", "").Replace("▶ ", "").Replace("➡️ ", ""));
                 p.Controls.Add(btn1);

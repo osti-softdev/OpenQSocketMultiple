@@ -10,6 +10,20 @@ namespace CallerApp
         public LoginForm()
         {
             InitializeComponent();
+            this.Load += LoginForm_Load;
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(AppSettings.SavedUsername))
+            {
+                txtUsername.Text = AppSettings.SavedUsername;
+                chkRemember.Checked = true;
+            }
+            if (!string.IsNullOrEmpty(AppSettings.SavedPassword))
+            {
+                txtPassword.Text = AppSettings.SavedPassword;
+            }
         }
 
         private void BtnSettings_Click(object sender, EventArgs e)
@@ -30,6 +44,18 @@ namespace CallerApp
 
             if (response.ContainsKey("success") && (bool)response["success"])
             {
+                if (chkRemember != null && chkRemember.Checked)
+                {
+                    AppSettings.SavedUsername = txtUsername.Text;
+                    AppSettings.SavedPassword = txtPassword.Text;
+                }
+                else
+                {
+                    AppSettings.SavedUsername = "";
+                    AppSettings.SavedPassword = "";
+                }
+                AppSettings.Save();
+
                 ApiClient.CurrentTeller = response["teller"] as Dictionary<string, object>;
                 this.DialogResult = DialogResult.OK;
                 this.Close();

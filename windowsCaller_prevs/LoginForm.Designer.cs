@@ -37,6 +37,7 @@ namespace CallerApp
             this.btnSettings = new System.Windows.Forms.Button();
             this.lblUser = new System.Windows.Forms.Label();
             this.lblPass = new System.Windows.Forms.Label();
+            this.chkRemember = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -66,7 +67,7 @@ namespace CallerApp
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(9, 185);
+            this.btnLogin.Location = new System.Drawing.Point(9, 215);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(197, 35);
             this.btnLogin.TabIndex = 4;
@@ -78,7 +79,7 @@ namespace CallerApp
             // 
             this.lblError.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lblError.ForeColor = System.Drawing.Color.Crimson;
-            this.lblError.Location = new System.Drawing.Point(20, 225);
+            this.lblError.Location = new System.Drawing.Point(20, 255);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(300, 20);
             this.lblError.TabIndex = 5;
@@ -131,11 +132,24 @@ namespace CallerApp
             this.lblPass.TabIndex = 9;
             this.lblPass.Text = "Password";
             // 
+            // chkRemember
+            // 
+            this.chkRemember.AutoSize = true;
+            this.chkRemember.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.chkRemember.ForeColor = System.Drawing.Color.Gray;
+            this.chkRemember.Location = new System.Drawing.Point(9, 180);
+            this.chkRemember.Name = "chkRemember";
+            this.chkRemember.Size = new System.Drawing.Size(180, 24);
+            this.chkRemember.TabIndex = 10;
+            this.chkRemember.Text = "Remember credentials";
+            this.chkRemember.UseVisualStyleBackColor = true;
+            // 
             // LoginForm
             // 
             this.AcceptButton = this.btnLogin;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(214, 231);
+            this.ClientSize = new System.Drawing.Size(214, 280);
+            this.Controls.Add(this.chkRemember);
             this.Controls.Add(this.lblPass);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.btnSettings);
@@ -166,5 +180,6 @@ namespace CallerApp
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label lblPass;
+        private System.Windows.Forms.CheckBox chkRemember;
     }
 }

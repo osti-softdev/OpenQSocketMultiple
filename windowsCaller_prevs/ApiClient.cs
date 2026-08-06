@@ -12,10 +12,16 @@ namespace CallerApp
         private static bool _autoFinishEnabled = false;
         private static bool _showReceivedInWaiting = false;
         private static bool _showTooltips = true;
+        private static bool _alwaysOnTop = false;
+        private static string _savedUsername = "";
+        private static string _savedPassword = "";
 
         public static bool AutoFinishEnabled { get { return _autoFinishEnabled; } set { _autoFinishEnabled = value; } }
         public static bool ShowReceivedInWaiting { get { return _showReceivedInWaiting; } set { _showReceivedInWaiting = value; } }
         public static bool ShowTooltips { get { return _showTooltips; } set { _showTooltips = value; } }
+        public static bool AlwaysOnTop { get { return _alwaysOnTop; } set { _alwaysOnTop = value; } }
+        public static string SavedUsername { get { return _savedUsername; } set { _savedUsername = value; } }
+        public static string SavedPassword { get { return _savedPassword; } set { _savedPassword = value; } }
 
         private static string GetConfigPath()
         {
@@ -38,6 +44,9 @@ namespace CallerApp
                     if (data.ContainsKey("AutoFinishEnabled")) _autoFinishEnabled = (bool)data["AutoFinishEnabled"];
                     if (data.ContainsKey("ShowReceivedInWaiting")) _showReceivedInWaiting = (bool)data["ShowReceivedInWaiting"];
                     if (data.ContainsKey("ShowTooltips")) _showTooltips = (bool)data["ShowTooltips"];
+                    if (data.ContainsKey("AlwaysOnTop")) _alwaysOnTop = (bool)data["AlwaysOnTop"];
+                    if (data.ContainsKey("SavedUsername")) _savedUsername = data["SavedUsername"].ToString();
+                    if (data.ContainsKey("SavedPassword")) _savedPassword = data["SavedPassword"].ToString();
                 }
             } catch {}
         }
@@ -49,7 +58,10 @@ namespace CallerApp
                     { "BaseUrl", ApiClient.BaseUrl },
                     { "AutoFinishEnabled", _autoFinishEnabled },
                     { "ShowReceivedInWaiting", _showReceivedInWaiting },
-                    { "ShowTooltips", _showTooltips }
+                    { "ShowTooltips", _showTooltips },
+                    { "AlwaysOnTop", _alwaysOnTop },
+                    { "SavedUsername", _savedUsername },
+                    { "SavedPassword", _savedPassword }
                 };
                 string json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(data);
                 File.WriteAllText(GetConfigPath(), json);
