@@ -181,7 +181,7 @@ namespace CallerApp
                 }
                 displaySrv = displaySrv.Replace("_", " ");
 
-                Panel pRow = new Panel() { Width = 215, Height = 34, Margin = new Padding(2) };
+                Panel pRow = new Panel() { Width = 235, Height = 34, Margin = new Padding(2) };
                 
                 Label lblName = new Label() { 
                     Text = displaySrv, 
@@ -203,12 +203,12 @@ namespace CallerApp
                     ForeColor = Color.FromArgb(46, 204, 113) 
                 };
                 
-                Button btnReg = CreateModernButton("0", 130, 4, 35, 26, Color.FromArgb(52, 152, 219), Color.White);
-                btnReg.Font = new Font("Segoe UI", 8, FontStyle.Bold);
+                Button btnReg = CreateModernButton("0", 140, 4, 45, 36, Color.FromArgb(52, 152, 219), Color.White);
+                btnReg.Font = new Font("Segoe UI", 8.5f, FontStyle.Bold);
                 btnReg.Click += (s, e) => CallNext("regular", srv);
 
-                Button btnPri = CreateModernButton("0", 170, 4, 35, 26, Color.FromArgb(155, 89, 182), Color.White);
-                btnPri.Font = new Font("Segoe UI", 8, FontStyle.Bold);
+                Button btnPri = CreateModernButton("0", 190, 4, 45, 36, Color.FromArgb(155, 89, 182), Color.White);
+                btnPri.Font = new Font("Segoe UI", 8.5f, FontStyle.Bold);
                 btnPri.Click += (s, e) => CallNext("priority", srv);
                 
                 appToolTip.SetToolTip(btnReg, "Regular");
@@ -509,7 +509,7 @@ namespace CallerApp
                 bgColor = Color.FromArgb(250, 219, 216); // Light Red
             }
 
-            Panel p = new Panel() { Width = 215, Height = 65, BorderStyle = BorderStyle.FixedSingle, Margin = new Padding(2), BackColor = bgColor };
+            Panel p = new Panel() { Width = 235, Height = 65, BorderStyle = BorderStyle.FixedSingle, Margin = new Padding(2), BackColor = bgColor };
             
             string tNum = t.ContainsKey("ticketservice") ? string.Format("{0}{1}", t["ticketservice"], t["ticketnum"]) : t["ticketnum"].ToString();
             string sName = t.ContainsKey("sname") ? t["sname"].ToString().Replace("_", " ") : "";

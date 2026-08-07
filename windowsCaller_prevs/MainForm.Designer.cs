@@ -34,7 +34,6 @@ namespace CallerApp
             this.btnHistory = new System.Windows.Forms.Button();
             this.tabs = new System.Windows.Forms.TabControl();
             this.tabHome = new System.Windows.Forms.TabPage();
-            this.btnAutoCall = new System.Windows.Forms.Button();
             this.pnlServicesList = new System.Windows.Forms.FlowLayoutPanel();
             this.tabWait = new System.Windows.Forms.TabPage();
             this.pnlWaitingList = new System.Windows.Forms.FlowLayoutPanel();
@@ -42,6 +41,7 @@ namespace CallerApp
             this.pnlHeldList = new System.Windows.Forms.FlowLayoutPanel();
             this.tabRecv = new System.Windows.Forms.TabPage();
             this.pnlForwardedList = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnAutoCall = new System.Windows.Forms.Button();
             this.lblCurrentTicket = new System.Windows.Forms.Label();
             this.lblShortSname = new System.Windows.Forms.Label();
             this.lblDuration = new System.Windows.Forms.Label();
@@ -82,7 +82,7 @@ namespace CallerApp
             this.btnHistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHistory.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.btnHistory.ForeColor = System.Drawing.Color.DimGray;
-            this.btnHistory.Location = new System.Drawing.Point(90, 5);
+            this.btnHistory.Location = new System.Drawing.Point(99, 5);
             this.btnHistory.Name = "btnHistory";
             this.btnHistory.Size = new System.Drawing.Size(100, 20);
             this.btnHistory.TabIndex = 20;
@@ -90,21 +90,6 @@ namespace CallerApp
             this.btnHistory.UseVisualStyleBackColor = false;
             this.btnHistory.Click += new System.EventHandler(this.BtnHistory_Click);
             // 
-            // btnAutoCall
-            // 
-            this.btnAutoCall.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAutoCall.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAutoCall.FlatAppearance.BorderSize = 0;
-            this.btnAutoCall.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAutoCall.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
-            this.btnAutoCall.ForeColor = System.Drawing.Color.DimGray;
-            this.btnAutoCall.Location = new System.Drawing.Point(195, 5);
-            this.btnAutoCall.Name = "btnAutoCall";
-            this.btnAutoCall.Size = new System.Drawing.Size(70, 20);
-            this.btnAutoCall.TabIndex = 21;
-            this.btnAutoCall.Text = "⚡ Auto";
-            this.btnAutoCall.UseVisualStyleBackColor = false;
-            this.btnAutoCall.Click += new System.EventHandler(this.BtnAutoCall_Click);
             // tabs
             // 
             this.tabs.Controls.Add(this.tabHome);
@@ -115,8 +100,9 @@ namespace CallerApp
             this.tabs.Location = new System.Drawing.Point(5, 25);
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
-            this.tabs.Size = new System.Drawing.Size(260, 133);
+            this.tabs.Size = new System.Drawing.Size(284, 133);
             this.tabs.TabIndex = 2;
+            // 
             // tabHome
             // 
             this.tabHome.BackColor = System.Drawing.Color.White;
@@ -124,7 +110,7 @@ namespace CallerApp
             this.tabHome.Location = new System.Drawing.Point(4, 22);
             this.tabHome.Name = "tabHome";
             this.tabHome.Padding = new System.Windows.Forms.Padding(3);
-            this.tabHome.Size = new System.Drawing.Size(252, 107);
+            this.tabHome.Size = new System.Drawing.Size(276, 107);
             this.tabHome.TabIndex = 0;
             this.tabHome.Text = "🏠 Home";
             // 
@@ -134,7 +120,7 @@ namespace CallerApp
             this.pnlServicesList.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.pnlServicesList.Location = new System.Drawing.Point(3, 3);
             this.pnlServicesList.Name = "pnlServicesList";
-            this.pnlServicesList.Size = new System.Drawing.Size(246, 101);
+            this.pnlServicesList.Size = new System.Drawing.Size(270, 101);
             this.pnlServicesList.TabIndex = 12;
             this.pnlServicesList.WrapContents = false;
             // 
@@ -145,7 +131,7 @@ namespace CallerApp
             this.tabWait.Location = new System.Drawing.Point(4, 22);
             this.tabWait.Name = "tabWait";
             this.tabWait.Padding = new System.Windows.Forms.Padding(3);
-            this.tabWait.Size = new System.Drawing.Size(252, 137);
+            this.tabWait.Size = new System.Drawing.Size(252, 107);
             this.tabWait.TabIndex = 1;
             this.tabWait.Text = "🕒 Wait";
             // 
@@ -156,7 +142,7 @@ namespace CallerApp
             this.pnlWaitingList.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.pnlWaitingList.Location = new System.Drawing.Point(3, 3);
             this.pnlWaitingList.Name = "pnlWaitingList";
-            this.pnlWaitingList.Size = new System.Drawing.Size(246, 131);
+            this.pnlWaitingList.Size = new System.Drawing.Size(246, 101);
             this.pnlWaitingList.TabIndex = 0;
             this.pnlWaitingList.WrapContents = false;
             // 
@@ -167,7 +153,7 @@ namespace CallerApp
             this.tabHeld.Location = new System.Drawing.Point(4, 22);
             this.tabHeld.Name = "tabHeld";
             this.tabHeld.Padding = new System.Windows.Forms.Padding(3);
-            this.tabHeld.Size = new System.Drawing.Size(252, 137);
+            this.tabHeld.Size = new System.Drawing.Size(252, 107);
             this.tabHeld.TabIndex = 2;
             this.tabHeld.Text = "⏸ Held";
             // 
@@ -178,7 +164,7 @@ namespace CallerApp
             this.pnlHeldList.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.pnlHeldList.Location = new System.Drawing.Point(3, 3);
             this.pnlHeldList.Name = "pnlHeldList";
-            this.pnlHeldList.Size = new System.Drawing.Size(246, 131);
+            this.pnlHeldList.Size = new System.Drawing.Size(246, 101);
             this.pnlHeldList.TabIndex = 0;
             this.pnlHeldList.WrapContents = false;
             // 
@@ -189,7 +175,7 @@ namespace CallerApp
             this.tabRecv.Location = new System.Drawing.Point(4, 22);
             this.tabRecv.Name = "tabRecv";
             this.tabRecv.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRecv.Size = new System.Drawing.Size(252, 137);
+            this.tabRecv.Size = new System.Drawing.Size(252, 107);
             this.tabRecv.TabIndex = 3;
             this.tabRecv.Text = "📩 Recv";
             // 
@@ -200,15 +186,31 @@ namespace CallerApp
             this.pnlForwardedList.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.pnlForwardedList.Location = new System.Drawing.Point(3, 3);
             this.pnlForwardedList.Name = "pnlForwardedList";
-            this.pnlForwardedList.Size = new System.Drawing.Size(246, 131);
+            this.pnlForwardedList.Size = new System.Drawing.Size(246, 101);
             this.pnlForwardedList.TabIndex = 0;
             this.pnlForwardedList.WrapContents = false;
+            // 
+            // btnAutoCall
+            // 
+            this.btnAutoCall.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAutoCall.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAutoCall.FlatAppearance.BorderSize = 0;
+            this.btnAutoCall.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAutoCall.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
+            this.btnAutoCall.ForeColor = System.Drawing.Color.DimGray;
+            this.btnAutoCall.Location = new System.Drawing.Point(215, 5);
+            this.btnAutoCall.Name = "btnAutoCall";
+            this.btnAutoCall.Size = new System.Drawing.Size(70, 20);
+            this.btnAutoCall.TabIndex = 21;
+            this.btnAutoCall.Text = "⚡ Auto";
+            this.btnAutoCall.UseVisualStyleBackColor = false;
+            this.btnAutoCall.Click += new System.EventHandler(this.BtnAutoCall_Click);
             // 
             // lblCurrentTicket
             // 
             this.lblCurrentTicket.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.lblCurrentTicket.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.lblCurrentTicket.Location = new System.Drawing.Point(130, 158);
+            this.lblCurrentTicket.Location = new System.Drawing.Point(158, 163);
             this.lblCurrentTicket.Name = "lblCurrentTicket";
             this.lblCurrentTicket.Size = new System.Drawing.Size(120, 35);
             this.lblCurrentTicket.TabIndex = 0;
@@ -219,7 +221,7 @@ namespace CallerApp
             // 
             this.lblShortSname.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.lblShortSname.ForeColor = System.Drawing.Color.Gray;
-            this.lblShortSname.Location = new System.Drawing.Point(12, 158);
+            this.lblShortSname.Location = new System.Drawing.Point(26, 158);
             this.lblShortSname.Name = "lblShortSname";
             this.lblShortSname.Size = new System.Drawing.Size(98, 20);
             this.lblShortSname.TabIndex = 7;
@@ -229,7 +231,7 @@ namespace CallerApp
             // 
             this.lblDuration.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblDuration.ForeColor = System.Drawing.Color.DimGray;
-            this.lblDuration.Location = new System.Drawing.Point(12, 178);
+            this.lblDuration.Location = new System.Drawing.Point(26, 178);
             this.lblDuration.Name = "lblDuration";
             this.lblDuration.Size = new System.Drawing.Size(98, 20);
             this.lblDuration.TabIndex = 1;
@@ -246,7 +248,7 @@ namespace CallerApp
             this.btnComplete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnComplete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnComplete.ForeColor = System.Drawing.Color.Transparent;
-            this.btnComplete.Location = new System.Drawing.Point(222, 201);
+            this.btnComplete.Location = new System.Drawing.Point(242, 201);
             this.btnComplete.Name = "btnComplete";
             this.btnComplete.Size = new System.Drawing.Size(33, 30);
             this.btnComplete.TabIndex = 2;
@@ -263,7 +265,7 @@ namespace CallerApp
             this.btnHold.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnHold.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnHold.ForeColor = System.Drawing.Color.White;
-            this.btnHold.Location = new System.Drawing.Point(172, 201);
+            this.btnHold.Location = new System.Drawing.Point(188, 201);
             this.btnHold.Name = "btnHold";
             this.btnHold.Size = new System.Drawing.Size(33, 30);
             this.btnHold.TabIndex = 3;
@@ -297,7 +299,7 @@ namespace CallerApp
             this.btnForward.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnForward.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnForward.ForeColor = System.Drawing.Color.White;
-            this.btnForward.Location = new System.Drawing.Point(119, 201);
+            this.btnForward.Location = new System.Drawing.Point(131, 201);
             this.btnForward.Name = "btnForward";
             this.btnForward.Size = new System.Drawing.Size(33, 30);
             this.btnForward.TabIndex = 5;
@@ -314,7 +316,7 @@ namespace CallerApp
             this.btnVoid.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnVoid.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnVoid.ForeColor = System.Drawing.Color.White;
-            this.btnVoid.Location = new System.Drawing.Point(67, 201);
+            this.btnVoid.Location = new System.Drawing.Point(74, 201);
             this.btnVoid.Name = "btnVoid";
             this.btnVoid.Size = new System.Drawing.Size(33, 30);
             this.btnVoid.TabIndex = 6;
@@ -329,7 +331,7 @@ namespace CallerApp
             // MainForm
             // 
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(268, 237);
+            this.ClientSize = new System.Drawing.Size(290, 237);
             this.Controls.Add(this.lblCurrentTicket);
             this.Controls.Add(this.lblShortSname);
             this.Controls.Add(this.lblDuration);

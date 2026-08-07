@@ -1459,3 +1459,52 @@ Deprecated: Mike42\Escpos\PrintBuffers\PrintBuffer::setPrinter(): Implicitly mar
 ✔ 2026-08-06 10:17:33 PM [backend\routes\AtellerApi.js:454] 6
 ✔ 2026-08-06 10:24:59 PM [node:events:509] [ADS] Client disconnected: e5gcM7UeNwGGcueyAAAH
 ✔ 2026-08-06 11:09:20 PM [node:events:509] [ADS] Client disconnected: ietnnZBnhIOZYWLzAAAJ
+✔ 2026-08-07 9:15:05 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-07 9:15:06 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ suppress logs { quiet: true }[0m
+✔ 2026-08-07 9:15:13 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-07 9:15:14 AM [unknown-location] Connected to SQLite database
+✔ 2026-08-07 9:15:14 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-07 9:15:14 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-07 9:15:14 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-07 9:15:14 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-07 9:15:15 AM [index.js:79] No external display found for the /display window.
+✔ 2026-08-07 9:15:18 AM [node:events:509] [ADS] Client connected: BnKtO9pY1hlPm33XAAAB
+✔ 2026-08-07 9:16:07 AM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-08-07 9:16:07 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-07 9:16:07 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-08-07 9:17:14 AM [backend\routes\AtellerApi.js:73] Login attempt for: '
+✔ 2026-08-07 9:17:14 AM [node_modules\sqlite3\lib\trace.js:25] User not found: '
+✔ 2026-08-07 9:17:16 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-07 9:17:16 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-07 9:17:16 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-07 9:18:14 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-07 9:22:41 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-07 9:22:41 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-07 9:22:41 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-07 9:26:00 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-07 9:26:00 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-07 9:26:00 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-07 9:27:08 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-07 9:27:08 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-07 9:27:08 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-07 9:27:55 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-07 9:27:55 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-07 9:27:55 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-07 9:28:28 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-07 9:28:28 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-07 9:28:28 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-07 9:29:08 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-07 9:29:08 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-07 9:29:08 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-07 9:30:41 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-07 9:30:41 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-07 9:30:41 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-07 9:31:28 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-07 9:31:28 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-07 9:31:28 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-07 9:32:47 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-07 9:32:47 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-07 9:32:47 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-07 9:33:33 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-07 9:33:33 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-07 9:33:33 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
