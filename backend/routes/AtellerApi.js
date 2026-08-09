@@ -791,7 +791,7 @@ module.exports = function createTellerApiRouter(io) {
         let params = [id];
 
         if (activeToday === 'true') {
-            query += ' AND id IN (SELECT teller_id FROM transactions WHERE date = ?)';
+            query += ' AND id IN (SELECT DISTINCT teller_id FROM transactions WHERE date = ?)';
             params.push(date);
         }
 

@@ -56,3 +56,207 @@
 ✔ 2026-08-08 1:11:06 PM [node:events:509] [ADS] Client connected: rJVlMEmgtHTxYLI-AAAd
 ✔ 2026-08-08 1:11:12 PM [node:events:509] [ADS] Client disconnected: edHhLW_3VmXD6lGCAAAc
 ✔ 2026-08-08 1:11:12 PM [node:events:509] [ADS] Client disconnected: rJVlMEmgtHTxYLI-AAAd
+✔ 2026-08-09 10:46:27 PM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-09 10:46:28 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ custom filepath { path: '/custom/path/.env' }[0m
+✔ 2026-08-09 10:46:37 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-09 10:46:37 PM [unknown-location] Connected to SQLite database
+✔ 2026-08-09 10:46:37 PM [backend\utilities\smsService.js:44] 8/9/2026, 10:46:37 PM | SYSTEM | - | ❌ Failed to open COM10: Opening COM10: File not found
+✔ 2026-08-09 10:46:37 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-09 10:46:37 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-09 10:46:37 PM [unknown-location] Found 61 transactions older than 365 days. Archiving...
+✔ 2026-08-09 10:46:37 PM [backend\utilities\db.js:363] Successfully archived 61 transactions to C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\backend\backups\transactions_archive_2026-08-09T14-46-37-834Z.csv
+✔ 2026-08-09 10:46:37 PM [unknown-location] Deleted 61 old transactions from database.
+✔ 2026-08-09 10:46:37 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-09 10:46:38 PM [index.js:79] No external display found for the /display window.
+✔ 2026-08-09 10:46:42 PM [backend\utilities\smsService.js:44] 8/9/2026, 10:46:42 PM | SYSTEM | - | ❌ Failed to open COM10: Opening COM10: File not found
+✔ 2026-08-09 10:46:44 PM [node:events:509] [ADS] Client connected: tEn4Ff3Q2jyuggUlAAAB
+✔ 2026-08-09 10:46:47 PM [backend\utilities\smsService.js:44] 8/9/2026, 10:46:47 PM | SYSTEM | - | ❌ Failed to open COM10: Opening COM10: File not found
+✔ 2026-08-09 10:46:52 PM [backend\utilities\smsService.js:44] 8/9/2026, 10:46:52 PM | SYSTEM | - | ❌ Failed to open COM10: Opening COM10: File not found
+✔ 2026-08-09 10:46:57 PM [backend\utilities\smsService.js:44] 8/9/2026, 10:46:57 PM | SYSTEM | - | ❌ Failed to open COM10: Opening COM10: File not found
+✔ 2026-08-09 10:47:02 PM [backend\utilities\smsService.js:44] 8/9/2026, 10:47:02 PM | SYSTEM | - | ❌ Failed to open COM10: Opening COM10: File not found
+✔ 2026-08-09 10:47:07 PM [backend\utilities\smsService.js:44] 8/9/2026, 10:47:07 PM | SYSTEM | - | ❌ Failed to open COM10: Opening COM10: File not found
+✔ 2026-08-09 10:47:12 PM [backend\utilities\smsService.js:44] 8/9/2026, 10:47:12 PM | SYSTEM | - | ❌ Failed to open COM10: Opening COM10: File not found
+✔ 2026-08-09 10:47:17 PM [backend\utilities\smsService.js:44] 8/9/2026, 10:47:17 PM | SYSTEM | - | ❌ Failed to open COM10: Opening COM10: File not found
+✔ 2026-08-09 10:47:22 PM [backend\utilities\smsService.js:44] 8/9/2026, 10:47:22 PM | SYSTEM | - | ❌ Failed to open COM10: Opening COM10: File not found
+✔ 2026-08-09 10:47:27 PM [backend\utilities\smsService.js:44] 8/9/2026, 10:47:27 PM | SYSTEM | - | ❌ Failed to open COM10: Opening COM10: File not found
+✔ 2026-08-09 10:47:32 PM [backend\utilities\smsService.js:44] 8/9/2026, 10:47:32 PM | SYSTEM | - | ❌ Failed to open COM10: Opening COM10: File not found
+✔ 2026-08-09 10:47:35 PM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-08-09 10:47:35 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-09 10:47:35 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-08-09 10:47:35 PM [node:events:509] [ADS] Client connected: a8V3CJlvWQKSopXtAAAD
+✔ 2026-08-09 10:47:37 PM [backend\utilities\smsService.js:44] 8/9/2026, 10:47:37 PM | SYSTEM | - | ❌ Failed to open COM10: Opening COM10: File not found
+✔ 2026-08-09 10:47:42 PM [backend\utilities\smsService.js:44] 8/9/2026, 10:47:42 PM | SYSTEM | - | ❌ Failed to open COM10: Opening COM10: File not found
+✔ 2026-08-09 10:47:47 PM [backend\utilities\smsService.js:44] 8/9/2026, 10:47:47 PM | SYSTEM | - | ❌ Failed to open COM10: Opening COM10: File not found
+✔ 2026-08-09 10:47:52 PM [backend\utilities\smsService.js:44] 8/9/2026, 10:47:52 PM | SYSTEM | - | ❌ Failed to open COM10: Opening COM10: File not found
+✔ 2026-08-09 10:47:58 PM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-09 10:47:58 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ secrets for agents [www.dotenvx.com][0m
+✔ 2026-08-09 10:47:58 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-09 10:47:58 PM [unknown-location] Connected to SQLite database
+✔ 2026-08-09 10:47:58 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-09 10:47:58 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-09 10:47:58 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-09 10:47:58 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-09 10:48:00 PM [index.js:79] No external display found for the /display window.
+✔ 2026-08-09 10:48:00 PM [node:events:509] [ADS] Client connected: w1ju62aw8K3tvo4qAAAB
+✔ 2026-08-09 10:48:01 PM [node:events:509] [ADS] Client connected: DRDRS3SvHF14eXRwAAAD
+✔ 2026-08-09 10:48:03 PM [node:events:509] [ADS] Client disconnected: w1ju62aw8K3tvo4qAAAB
+✔ 2026-08-09 10:48:05 PM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-08-09 10:48:05 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-09 10:48:05 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-08-09 10:48:06 PM [node:events:509] [ADS] Client connected: R9cUpvsLPoEMfV9qAAAF
+✔ 2026-08-09 10:48:42 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-09 10:48:42 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-09 10:48:42 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-09 10:48:50 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-09 10:48:55 PM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-09 10:48:57 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-09 10:49:01 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-09 10:49:08 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-09 10:49:13 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-09 10:49:18 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-09 10:49:26 PM [node:events:509] [ADS] Client connected: 6Vf8ZuSYg9jW5koYAAAH
+✔ 2026-08-09 10:49:28 PM [node:events:509] [ADS] Client disconnected: 6Vf8ZuSYg9jW5koYAAAH
+✔ 2026-08-09 10:49:33 PM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-08-09 10:49:33 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-09 10:49:33 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-08-09 10:49:33 PM [node:events:509] [ADS] Client connected: sua6ahywsbBZ_oglAAAJ
+✔ 2026-08-09 10:49:48 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-09 10:49:52 PM [backend\routes\AtellerApi.js:457] 1
+✔ 2026-08-09 10:57:44 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-09 10:57:44 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-09 10:57:44 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-09 10:59:15 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-09 10:59:15 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-09 10:59:15 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-09 10:59:29 PM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-09 11:21:23 PM [node:events:509] [ADS] Client disconnected: sua6ahywsbBZ_oglAAAJ
+✔ 2026-08-09 11:21:23 PM [node:events:509] [ADS] Client connected: N61BW2U5CGYX7IXHAAAL
+✔ 2026-08-09 11:21:35 PM [backend\routes\AtellerApi.js:457] 1
+✔ 2026-08-09 11:22:08 PM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-09 11:22:28 PM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-09 11:28:47 PM [node:events:509] [ADS] Client connected: JbemBe2DcOulC6h8AAAN
+✔ 2026-08-09 11:28:49 PM [node:events:509] [ADS] Client disconnected: JbemBe2DcOulC6h8AAAN
+✔ 2026-08-09 11:28:49 PM [node:events:509] [ADS] Client connected: XUDiFcTbDqYkAohXAAAP
+✔ 2026-08-09 11:28:57 PM [node:events:509] [ADS] Client connected: RLH56LBH-YbUEO36AAAR
+✔ 2026-08-09 11:29:01 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-09 11:29:07 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-09 11:29:12 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-09 11:29:13 PM [node:events:509] [ADS] Client disconnected: N61BW2U5CGYX7IXHAAAL
+✔ 2026-08-09 11:29:17 PM [node:events:509] [ADS] Client disconnected: R9cUpvsLPoEMfV9qAAAF
+✔ 2026-08-09 11:29:18 PM [node:events:509] [ADS] Client connected: R4C6uqAfEULwlQCUAAAT
+✔ 2026-08-09 11:29:21 PM [node:events:509] [ADS] Client disconnected: R4C6uqAfEULwlQCUAAAT
+✔ 2026-08-09 11:29:21 PM [node:events:509] [ADS] Client connected: X1_-wphMn6YZdTgUAAAV
+✔ 2026-08-09 11:29:23 PM [backend\routes\AtellerApi.js:457] 1
+✔ 2026-08-09 11:49:53 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-09 11:49:53 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-09 11:49:53 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-09 11:50:35 PM [backend\routes\AtellerApi.js:457] 1
+✔ 2026-08-09 11:53:14 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-09 11:53:14 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-09 11:53:14 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-09 11:53:24 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-09 11:53:26 PM [backend\routes\AtellerApi.js:457] 1
+✔ 2026-08-09 11:53:36 PM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-09 11:53:52 PM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-09 11:54:03 PM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-09 11:54:34 PM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-09 11:58:05 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-09 11:58:05 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-09 11:58:05 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-09 11:58:11 PM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 12:01:44 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-10 12:01:44 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ suppress logs { quiet: true }[0m
+✔ 2026-08-10 12:01:51 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-10 12:01:51 AM [unknown-location] Connected to SQLite database
+✔ 2026-08-10 12:01:51 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-10 12:01:51 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-10 12:01:51 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-10 12:01:51 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-10 12:01:52 AM [index.js:79] No external display found for the /display window.
+✔ 2026-08-10 12:01:54 AM [node:events:509] [ADS] Client connected: 7wcdexwq8nwRKb9sAAAB
+✔ 2026-08-10 12:01:55 AM [node:events:509] [ADS] Client connected: 5HvVItgycqnLLzPVAAAE
+✔ 2026-08-10 12:01:55 AM [node:events:509] [ADS] Client connected: 3So6oBiWL7LUK0rLAAAF
+✔ 2026-08-10 12:01:55 AM [node:events:509] [ADS] Client connected: Ljxx0NpDKcDMvy3vAAAH
+✔ 2026-08-10 12:02:36 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-10 12:02:36 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-10 12:02:36 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-10 12:02:47 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-10 12:02:51 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-10 12:02:56 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-10 12:02:58 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 12:05:46 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-10 12:05:46 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌁ auth for agents [www.vestauth.com][0m
+✔ 2026-08-10 12:05:46 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-10 12:05:46 AM [unknown-location] Connected to SQLite database
+✔ 2026-08-10 12:05:46 AM [node:events:509] [ADS] Client connected: NrthTJL4ptPr7SIwAAAD
+✔ 2026-08-10 12:05:47 AM [node:events:509] [ADS] Client connected: W2H-ZaKgvShJSQEoAAAE
+✔ 2026-08-10 12:05:47 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-10 12:05:47 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-10 12:05:47 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-10 12:05:47 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-10 12:05:47 AM [node:events:509] [ADS] Client connected: R56rxV2P-QWlj1niAAAF
+✔ 2026-08-10 12:05:48 AM [index.js:79] No external display found for the /display window.
+✔ 2026-08-10 12:05:49 AM [node:events:509] [ADS] Client connected: VR6JWYCBuod9dvOiAAAH
+✔ 2026-08-10 12:06:09 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-10 12:06:09 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-10 12:06:09 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-10 12:32:45 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-10 12:32:45 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ encrypted .env [www.dotenvx.com][0m
+✔ 2026-08-10 12:32:45 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-10 12:32:45 AM [unknown-location] Connected to SQLite database
+✔ 2026-08-10 12:32:46 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-10 12:32:46 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-10 12:32:46 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-10 12:32:46 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-10 12:32:46 AM [node:events:509] [ADS] Client connected: ANFyMApP_6Oa6PiHAAAC
+✔ 2026-08-10 12:32:46 AM [node:events:509] [ADS] Client connected: 20wNGA8-YetS5Fs5AAAD
+✔ 2026-08-10 12:32:47 AM [index.js:79] No external display found for the /display window.
+✔ 2026-08-10 12:32:47 AM [node:events:509] [ADS] Client connected: gRkny-clUPGNASbdAAAF
+✔ 2026-08-10 12:32:48 AM [node:events:509] [ADS] Client connected: R5Sb2cf1riohJ4o6AAAH
+✔ 2026-08-10 12:33:15 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-10 12:33:15 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-10 12:33:15 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-10 12:33:33 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-10 12:33:44 AM [backend\routes\AtellerApi.js:457] 1
+✔ 2026-08-10 12:34:04 AM [backend\routes\AtellerApi.js:457] 1
+✔ 2026-08-10 12:34:18 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 12:34:31 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 12:34:41 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-10 12:34:46 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-10 12:34:50 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-10 12:34:53 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 12:35:11 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 12:35:31 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-10 12:35:40 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-10 12:35:47 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-10 12:35:58 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 12:36:24 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 12:43:06 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-10 12:43:06 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-10 12:43:06 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-10 12:43:13 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 12:43:35 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 12:44:15 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 12:44:24 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-10 12:44:24 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-10 12:44:24 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-10 12:44:26 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 12:47:37 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-10 12:47:37 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-10 12:47:37 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-10 12:47:44 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 12:52:16 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-10 12:52:16 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-10 12:52:16 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-10 12:52:19 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 1:02:56 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-10 1:02:56 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-10 1:02:56 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-10 1:02:59 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 1:03:41 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-10 1:03:41 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-10 1:03:41 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-10 1:03:43 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 1:03:52 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 1:03:58 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 1:04:19 AM [backend\routes\AtellerApi.js:457] 6

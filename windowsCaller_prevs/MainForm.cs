@@ -53,6 +53,9 @@ namespace CallerApp
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            tabs.DrawMode = TabDrawMode.OwnerDrawFixed;
+            tabs.DrawItem += Tabs_DrawItem;
+
             if (ApiClient.CurrentTeller != null)
             {
                 this.Text = string.Format("{0} - Counter {1}", ApiClient.CurrentTeller["username"], ApiClient.CurrentTeller["counter_number"]);
@@ -86,6 +89,28 @@ namespace CallerApp
                 CheckCurrentTicket();
             };
             fallbackTimer.Start();
+        }
+
+        private void Tabs_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            TabControl tabControl = sender as TabControl;
+            TabPage page = tabControl.TabPages[e.Index];
+            
+            using (SolidBrush brush = new SolidBrush(page.BackColor))
+            {
+                e.Graphics.FillRectangle(brush, e.Bounds);
+            }
+            
+            StringFormat sf = new StringFormat();
+            sf.Alignment = StringAlignment.Center;
+            sf.LineAlignment = StringAlignment.Center;
+            
+            Rectangle textRect = e.Bounds;
+            
+            using (SolidBrush textBrush = new SolidBrush(page.ForeColor))
+            {
+                e.Graphics.DrawString(page.Text, page.Font, textBrush, textRect, sf);
+            }
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -432,6 +457,8 @@ namespace CallerApp
                 }
             }
             tabWait.Text = string.Format("🕒 Wait ({0})", count);
+            tabWait.BackColor = count > 0 ? Color.LightCoral : Color.White;
+            tabs.Invalidate();
         }
 
         private void UpdateHeldQueue(object[] tickets)
@@ -459,6 +486,8 @@ namespace CallerApp
                 }
             }
             tabHeld.Text = string.Format("⏸ Held ({0})", count);
+            tabHeld.BackColor = count > 0 ? Color.Yellow : Color.White;
+            tabs.Invalidate();
         }
 
         private void UpdateForwardedQueue(object[] tickets)
@@ -469,7 +498,7 @@ namespace CallerApp
             int currentLength = tickets != null ? tickets.Length : 0;
             if (lastForwardedJson != "" && currentLength > lastForwardedCount)
             {
-                PlayCustomSound("alarm"); // Alarm for newly received ticket
+                PlayCustomSound("received"); // Alarm for newly received ticket
             }
             lastForwardedCount = currentLength;
             lastForwardedJson = newJson;
@@ -493,6 +522,8 @@ namespace CallerApp
                 }
             }
             tabRecv.Text = string.Format("📩 Recv ({0})", count);
+            tabRecv.BackColor = count > 0 ? Color.LightBlue : Color.White;
+            tabs.Invalidate();
         }
 
         private Panel CreateQueueItem(Dictionary<string, object> t, 
@@ -762,7 +793,7 @@ namespace CallerApp
         private void RecallTicket()
         {
             if (currentTicket == null) return;
-            PlayCustomSound("ring");
+            //PlayCustomSound("ring");
             var reqData = new { ticketId = currentTicket["id"], cname = ApiClient.CurrentTeller["username"], cnum = ApiClient.CurrentTeller["counter_number"] };
             ThreadPool.QueueUserWorkItem(delegate(object state) { ApiClient.Post("/api/tickets/recall", reqData); });
         }
@@ -791,7 +822,7 @@ namespace CallerApp
                 ApiClient.Post("/api/tickets/hold", reqData);
                 this.BeginInvoke(new Action(() =>
                 {
-                    PlayCustomSound("alarm");
+                    PlayCustomSound("held");
                     ClearCurrentTicket();
                     FetchQueues();
                 }));
@@ -842,27 +873,7 @@ namespace CallerApp
             
             object[] tellers = ApiClient.GetArray("/api/tellers/list", new Dictionary<string, string> { { "id", ApiClient.CurrentTeller["id"].ToString() }, { "activeToday", "true" } });
             
-            // Extract unique groups from the tellers list since /api/admin/groups is restricted
-            var uniqueGroups = new Dictionary<string, Dictionary<string, object>>();
-            if (tellers != null)
-            {
-                foreach (Dictionary<string, object> t in tellers)
-                {
-                    if (t.ContainsKey("group_id") && t["group_id"] != null && !string.IsNullOrEmpty(t["group_id"].ToString()) &&
-                        t.ContainsKey("group_name") && t["group_name"] != null && !string.IsNullOrEmpty(t["group_name"].ToString()))
-                    {
-                        string gId = t["group_id"].ToString();
-                        if (!uniqueGroups.ContainsKey(gId))
-                        {
-                            var g = new Dictionary<string, object>();
-                            g["id"] = gId;
-                            g["group_name"] = t["group_name"];
-                            uniqueGroups[gId] = g;
-                        }
-                    }
-                }
-            }
-            object[] groups = new List<Dictionary<string, object>>(uniqueGroups.Values).ToArray();
+            object[] groups = ApiClient.GetArray("/api/groups/list");
 
             using (ForwardModal fm = new ForwardModal(tellers, groups))
             {
@@ -918,7 +929,7 @@ namespace CallerApp
                         ApiClient.Post("/api/tickets/void", reqData);
                         this.BeginInvoke(new Action(() =>
                         {
-                            PlayCustomSound("alarm");
+                            PlayCustomSound("void");
                             ClearCurrentTicket();
                             FetchQueues();
                         }));
@@ -962,22 +973,37 @@ namespace CallerApp
             {
                 try 
                 {
-                    string path = "";
-                    if (soundType == "alarm") path = @"C:\Windows\Media\Alarm01.wav";
-                    else if (soundType == "ring") path = @"C:\Windows\Media\Ring01.wav";
-                    else if (soundType == "success") path = @"C:\Windows\Media\tada.wav";
-                    
-                    if (System.IO.File.Exists(path))
+                    if (soundType == "alarm" || soundType == "ring")
                     {
-                        using (var player = new System.Media.SoundPlayer(path))
+                        string path = soundType == "alarm" ? @"C:\Windows\Media\Alarm01.wav" : @"C:\Windows\Media\Ring01.wav";
+                        if (System.IO.File.Exists(path))
                         {
-                            player.PlaySync();
+                            using (var player = new System.Media.SoundPlayer(path))
+                            {
+                                player.PlaySync();
+                            }
+                        }
+                        else
+                        {
+                            if (soundType == "alarm") System.Media.SystemSounds.Exclamation.Play();
+                            else System.Media.SystemSounds.Asterisk.Play();
                         }
                     }
                     else
                     {
-                        if (soundType == "alarm") System.Media.SystemSounds.Exclamation.Play();
-                        else System.Media.SystemSounds.Asterisk.Play();
+                        System.IO.Stream audioStream = null;
+                        if (soundType == "success") audioStream = Properties.Resources._success;
+                        else if (soundType == "held") audioStream = Properties.Resources._held;
+                        else if (soundType == "received") audioStream = Properties.Resources._received;
+                        else if (soundType == "void") audioStream = Properties.Resources._void;
+
+                        if (audioStream != null)
+                        {
+                            using (var player = new System.Media.SoundPlayer(audioStream))
+                            {
+                                player.PlaySync();
+                            }
+                        }
                     }
                 }
                 catch { }
