@@ -260,3 +260,15 @@
 ✔ 2026-08-10 1:03:52 AM [backend\routes\AtellerApi.js:457] 6
 ✔ 2026-08-10 1:03:58 AM [backend\routes\AtellerApi.js:457] 6
 ✔ 2026-08-10 1:04:19 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 1:21:17 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-10 1:21:17 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-10 1:21:17 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-10 1:21:23 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 1:28:54 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-10 1:28:54 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-10 1:28:54 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-10 1:29:00 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 1:29:18 AM [backend\routes\AtellerApi.js:457] 1
+✔ 2026-08-10 1:42:02 AM [backend\routes\AtellerApi.js:457] 6
+✔ 2026-08-10 1:42:11 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-10 1:42:16 AM [backend\routes\AtellerApi.js:457] 6

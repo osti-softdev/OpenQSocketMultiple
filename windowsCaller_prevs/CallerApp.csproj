@@ -28,7 +28,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>QCaller</ProductName>
     <PublisherName>Open%27Space Technologies Inc.</PublisherName>
-    <ApplicationRevision>2</ApplicationRevision>
+    <SuiteName>OSTI</SuiteName>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -63,7 +64,8 @@
     <ManifestCertificateThumbprint>89530B925933FAD704272EBE7D389DD264BB814B</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>CallerApp_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
