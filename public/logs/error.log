@@ -405,3 +405,55 @@
   signal: null,
   cmd: 'php C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple/public/printer/print.php O 4 OUTPATIENT EMERGENCY CARE (OECB) Counter 3 '
 }
+❌ 2026-08-10 10:02:29 AM [backend\utilities\printer.js:34] PHP Error: Error: Command failed: php C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple/public/printer/print.php O 5 OUTPATIENT EMERGENCY CARE (OECB) Counter 3 
+
+    at genericNodeError (node:internal/errors:985:15)
+    at wrappedFn (node:internal/errors:539:14)
+    at ChildProcess.exithandler (node:child_process:417:12)
+    at ChildProcess.emit (node:events:509:28)
+    at maybeClose (node:internal/child_process:1124:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:306:5) {
+  code: 255,
+  killed: false,
+  signal: null,
+  cmd: 'php C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple/public/printer/print.php O 5 OUTPATIENT EMERGENCY CARE (OECB) Counter 3 '
+}
+❌ 2026-08-10 10:02:32 AM [backend\utilities\printer.js:34] PHP Error: Error: Command failed: php C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple/public/printer/print.php C 2 CASHIER Counter 7,8,9,10 
+
+    at genericNodeError (node:internal/errors:985:15)
+    at wrappedFn (node:internal/errors:539:14)
+    at ChildProcess.exithandler (node:child_process:417:12)
+    at ChildProcess.emit (node:events:509:28)
+    at maybeClose (node:internal/child_process:1124:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:306:5) {
+  code: 255,
+  killed: false,
+  signal: null,
+  cmd: 'php C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple/public/printer/print.php C 2 CASHIER Counter 7,8,9,10 '
+}
+❌ 2026-08-10 10:02:38 AM [backend\utilities\printer.js:34] PHP Error: Error: Command failed: php C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple/public/printer/print.php O 6 OUTPATIENT EMERGENCY CARE (OECB) Counter 3 
+
+    at genericNodeError (node:internal/errors:985:15)
+    at wrappedFn (node:internal/errors:539:14)
+    at ChildProcess.exithandler (node:child_process:417:12)
+    at ChildProcess.emit (node:events:509:28)
+    at maybeClose (node:internal/child_process:1124:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:306:5) {
+  code: 255,
+  killed: false,
+  signal: null,
+  cmd: 'php C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple/public/printer/print.php O 6 OUTPATIENT EMERGENCY CARE (OECB) Counter 3 '
+}
+❌ 2026-08-10 10:02:43 AM [backend\utilities\printer.js:34] PHP Error: Error: Command failed: php C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple/public/printer/print.php O 7 OUTPATIENT EMERGENCY CARE (OECB) Counter 3 
+
+    at genericNodeError (node:internal/errors:985:15)
+    at wrappedFn (node:internal/errors:539:14)
+    at ChildProcess.exithandler (node:child_process:417:12)
+    at ChildProcess.emit (node:events:509:28)
+    at maybeClose (node:internal/child_process:1124:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:306:5) {
+  code: 255,
+  killed: false,
+  signal: null,
+  cmd: 'php C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple/public/printer/print.php O 7 OUTPATIENT EMERGENCY CARE (OECB) Counter 3 '
+}

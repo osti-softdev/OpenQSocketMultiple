@@ -790,7 +790,7 @@ namespace CallerApp
             });
         }
 
-        private void RecallTicket()
+        private void RecallTicket() 
         {
             if (currentTicket == null) return;
             //PlayCustomSound("ring");

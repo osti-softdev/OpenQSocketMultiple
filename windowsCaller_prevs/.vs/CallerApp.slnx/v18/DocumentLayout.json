@@ -3,19 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|CallerApp||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\settingsmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|solutionrelative:settingsmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|CallerApp||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\settingsmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|solutionrelative:settingsmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -38,7 +38,7 @@
       "RelativeMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|solutionrelative:forwardmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|c:\\users\\technical\\documents\\github\\openqsocketmultiple\\windowscaller_prevs\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|f8d6553f-f752-4dbf-acb6-f291b744a792"
+      "AbsoluteMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|c:\\users\\technical\\documents\\github\\openqsocketmultiple\\windowscaller_prevs\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
     }
   ],
   "DocumentGroupContainers": [
@@ -48,7 +48,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
@@ -58,10 +58,11 @@
               "RelativeDocumentMoniker": "MainForm.cs",
               "ToolTip": "C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\MainForm.cs",
               "RelativeToolTip": "MainForm.cs",
-              "ViewState": "AgIAAGUDAAAAAAAAAADgv2gDAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAA0DAAAAAAAAAAAAABgDAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-09T17:20:34.821Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -81,7 +82,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "CallerApp",
               "DocumentMoniker": "C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\CallerApp.csproj",
               "RelativeDocumentMoniker": "CallerApp.csproj",
@@ -93,14 +94,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
               "ToolTip": "C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\MainForm.cs [Design]",
               "RelativeToolTip": "MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-09T17:20:38.713Z"
+              "WhenOpened": "2026-08-09T17:20:38.713Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -127,7 +129,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "SettingsModal.cs",
               "DocumentMoniker": "C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple\\windowsCaller_prevs\\SettingsModal.cs",
               "RelativeDocumentMoniker": "SettingsModal.cs",

@@ -7,6 +7,6 @@
   "voice_pitch": 0.85,
   "voice_volume": 1,
   "bell_volume": 0.75,
-  "ad_volume": 0.04,
+  "ad_volume": 0,
   "voice_message_format": "Now Serving, #serviceticket; Please proceed to counter #counternumber"
 }
