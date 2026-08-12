@@ -226,11 +226,11 @@ function setServicesDisplay(count) {
 			"font-size": "1.0rem"
 		});
 		$(".counter").css({
-			"font-size": "4rem",
+			"font-size": "5rem",
 
 		});
 		$(".service-ticket").css({
-			"font-size": "3.5rem"
+			"font-size": "4rem"
 		});
 	} else if (count === 7) {
 		$(".service-row").css({
@@ -402,13 +402,13 @@ function adjustServiceNameFont() {
 		let size;
 
 		if (length <= 12) {
-			size = "2rem";
+			size = "2.5rem";
 		} else if (length <= 16) {
-			size = "2.0rem";
+			size = "2.3rem";
 		} else if (length <= 22) {
 			size = "2rem";
 		} else {
-			size = "1.3rem";
+			size = "1.5rem";
 		}
 
 		this.style.setProperty("font-size", size, "important");

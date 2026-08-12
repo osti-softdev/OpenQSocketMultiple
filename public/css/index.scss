@@ -42,6 +42,21 @@ body {
   src: url("/libs/fonts/compostela/QUANTU1H.TTF");
 }
 
+@font-face {
+  font-family: titan;
+  src: url("/libs/fonts/Titan_One/TitanOne-Regular.ttf");
+}
+
+@font-face {
+  font-family: candal;
+  src: url("/libs/fonts/Candal/Candal-Regular.ttf");
+}
+
+@font-face {
+  font-family: anton;
+  src: url("/libs/fonts/Anton_SC/AntonSC-Regular.ttf");
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -248,8 +263,8 @@ body {
           background-color: #fde701;
           color: #000000;
           font-size: 1.0vw !important;
-          font-weight: bolder;
-          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          font-weight: 900;
+          font-family: candal;
           text-transform: uppercase;
         }
 
@@ -278,14 +293,14 @@ body {
           left: 0%;
           width: 30%;
           height: 60%;
-          color: #fb2e00;
+          color: #fde701;
           background-color: #1f006c;
           justify-content: center;
           align-items: center;
           display: flex;
           font-size: 4rem;
           font-weight: 900;
-          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          font-family: calibri;
         }
 
         .service-ticket {
@@ -303,7 +318,7 @@ body {
           text-align: center;
           font-size: 7rem;
           font-weight: 900;
-          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          font-family: calibri;
         }
 
         // span{

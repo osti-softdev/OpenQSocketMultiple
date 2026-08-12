@@ -457,3 +457,58 @@
   signal: null,
   cmd: 'php C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple/public/printer/print.php O 7 OUTPATIENT EMERGENCY CARE (OECB) Counter 3 '
 }
+❌ 2026-08-12 9:52:38 AM [backend\utilities\printer.js:34] PHP Error: Error: Command failed: php E:\SOURCE_CODES\NODE\OpenQSocketMultiple/public/printer/print.php L 1 LEGAL Counter 4 
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:514:28)
+    at maybeClose (node:internal/child_process:1105:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:305:5) {
+  code: 255,
+  killed: false,
+  signal: null,
+  cmd: 'php E:\\SOURCE_CODES\\NODE\\OpenQSocketMultiple/public/printer/print.php L 1 LEGAL Counter 4 '
+}
+❌ 2026-08-12 9:52:43 AM [backend\utilities\printer.js:34] PHP Error: Error: Command failed: php E:\SOURCE_CODES\NODE\OpenQSocketMultiple/public/printer/print.php OT 1 OTHERS Counter 7,8,9,10 
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:514:28)
+    at maybeClose (node:internal/child_process:1105:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:305:5) {
+  code: 255,
+  killed: false,
+  signal: null,
+  cmd: 'php E:\\SOURCE_CODES\\NODE\\OpenQSocketMultiple/public/printer/print.php OT 1 OTHERS Counter 7,8,9,10 '
+}
+❌ 2026-08-12 9:52:48 AM [backend\utilities\printer.js:34] PHP Error: Error: Command failed: php E:\SOURCE_CODES\NODE\OpenQSocketMultiple/public/printer/print.php E 1   sub 2 ito(123)
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:514:28)
+    at maybeClose (node:internal/child_process:1105:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:305:5) {
+  code: 255,
+  killed: false,
+  signal: null,
+  cmd: 'php E:\\SOURCE_CODES\\NODE\\OpenQSocketMultiple/public/printer/print.php E 1   sub 2 ito(123)'
+}
+❌ 2026-08-12 11:54:50 AM [backend\utilities\printer.js:34] PHP Error: Error: Command failed: php E:\SOURCE_CODES\NODE\OpenQSocketMultiple/public/printer/print.php E 33   sub 2 ito(123)
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:514:28)
+    at maybeClose (node:internal/child_process:1105:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:305:5) {
+  code: 255,
+  killed: false,
+  signal: null,
+  cmd: 'php E:\\SOURCE_CODES\\NODE\\OpenQSocketMultiple/public/printer/print.php E 33   sub 2 ito(123)'
+}
+❌ 2026-08-12 11:54:53 AM [backend\utilities\printer.js:34] PHP Error: Error: Command failed: php E:\SOURCE_CODES\NODE\OpenQSocketMultiple/public/printer/print.php OT 29 OTHERS Counter 7,8,9,10 
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:514:28)
+    at maybeClose (node:internal/child_process:1105:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:305:5) {
+  code: 255,
+  killed: false,
+  signal: null,
+  cmd: 'php E:\\SOURCE_CODES\\NODE\\OpenQSocketMultiple/public/printer/print.php OT 29 OTHERS Counter 7,8,9,10 '
+}

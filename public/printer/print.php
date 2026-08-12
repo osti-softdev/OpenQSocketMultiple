@@ -46,8 +46,8 @@ $printer->selectPrintMode(Printer::MODE_DOUBLE_HEIGHT | Printer::MODE_DOUBLE_WID
 $printer->setFont(Printer::FONT_B);
 $printer->setTextSize(3, 2);
 
-$printer->text("SAN PEDRO HOSPITAL\n");
-$printer->text("OF DAVAO CITY INC.\n");
+$printer->text("CEBU CITY\n");
+$printer->text("TRANSPORTATION OFFICE.\n");
 
 $printer->setTextSize(1, 1);
 $printer->text($date ." ". $time."\n");

@@ -4,7 +4,7 @@
   <description asmv2:publisher="Open'Space Technologies Inc." co.v1:suiteName="OSTI" asmv2:product="QCaller" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true" co.v1:createDesktopShortcut="true" />
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
-    <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
+    <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
     <dependentAssembly dependencyType="install" codebase="CallerApp_win7.exe.manifest" size="19145">
@@ -14,7 +14,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>9QATgREKBb4BeBnz98BW22xXWCFOuqdpCoZ8WP014qA=</dsig:DigestValue>
+        <dsig:DigestValue>Y6w79TNYT2xlwGCY68CEq2UZkN7YKBjYJpPXsdhEAzk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

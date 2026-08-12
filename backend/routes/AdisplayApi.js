@@ -66,7 +66,7 @@ module.exports = function createDisplayApiRouter(io) {
           shortSname: service.shortSname,
           sub_sname: service.sub_sname,
           ticket: tx && tx.ticketservice && tx.ticketnum
-            ? `${tx.ticketservice}${tx.ticketnum}`
+            ? `${tx.ticketservice}-${tx.ticketnum}`
             : "--",
           status: tx ? tx.status : null,
           counter_num: tx ? tx.counter_num : null,

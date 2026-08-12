@@ -179,53 +179,42 @@ function initializeDatabase() {
     accounts.forEach(acc => db.run(`INSERT OR IGNORE INTO accounts (id, name, username, password, role, status) VALUES (?, ?, ?, ?, ?, ?)`, acc));
 
     const counterGroups = [
-      [71, 'BUSINESS_TAX'], [72, 'MDRRMO'], [73, 'CASHIER'], [75, 'REAL_PROPERTY_TAX'],
-      [76, 'GENERAL'], [77, 'ASSESSMENT']
+      [71, 'BILLING'], [72, 'EDUCATION'], [73, 'LEGAL'], [75, 'OPERATIONS'],
+      [76, 'PLANNING'], [77, 'OTHERS']
     ];
     counterGroups.forEach(cg => db.run(`INSERT OR IGNORE INTO counter_groups (id, group_name) VALUES (?, ?)`, cg));
 
     const counters = [
-      [1, 'TELLER 1', 1, 'FAS', 'FAS', '1', 'REAL_PROPERTY_TAX,BUSINESS_TAX,GENERAL,MDRRMO,ASSESSMENT,CASHIER,EVALUATOR,ASSESSOR', 'REAL_PROPERTY_TAX', 75],
-      [2, 'TELLER 2', 2, 'FAS', 'FAS', '1', 'BUSINESS_TAX', 'BUSINESS_TAX', 71],
-      [3, 'TELLER 3', 3, 'FAS', 'FAS', '1', 'MDRRMO', 'MDRRMO', 72],
-      [4, 'TELLER 4', 4, 'FAS', 'FAS', '1', 'CASHIER', 'CASHIER', 73],
-      [5, 'TELLER 5', 5, 'FAS', 'FAS', '1', 'GENERAL', 'GENERAL', 76],
-      [6, 'TELLER 6', 6, 'FAS', 'FAS', '1', 'ASSESSMENT', 'ASSESSMENT', 77],
-      [7, 'TELLER 7', 7, 'FAS', 'FAS', '1', 'ASSESSMENT', 'ASSESSMENT', 77],
-      [8, 'TELLER 8', 8, 'FAS', 'FAS', '1', 'EVALUATOR', 'EVALUATOR', 78],
-      [9, 'TELLER 9', 9, 'FAS', 'FAS', '1', 'EVALUATOR', 'EVALUATOR', 78],
-      [10, 'ESTRELLA LETECIA', 7, 'FAS4507', 'FAS450', '1', 'CASHIER', 'CASHIER', 73],
-      [11, 'ESTRELLA LETECIA', 8, 'FAS4508', 'FAS450', '1', 'CASHIER', 'CASHIER', 73],
-      [12, 'ESTRELLA LETECIA', 9, 'FAS4509', 'FAS450', '1', 'CASHIER', 'CASHIER', 73],
-      [13, 'ESTRELLA LETECIA', 10, 'FAS45010', 'FAS450', '1', 'CASHIER', 'CASHIER', 73],
-      [14, 'HAW TAY ELVIE', 7, 'FAS4297', 'FAS429', '1', 'CASHIER', 'CASHIER', 73],
-      [15, 'HAW TAY ELVIE', 8, 'FAS4298', 'FAS429', '1', 'CASHIER', 'CASHIER', 73],
-      [16, 'HAW TAY ELVIE', 9, 'FAS4299', 'FAS429', '1', 'CASHIER', 'CASHIER', 73],
-      [17, 'HAW TAY ELVIE', 10, 'FAS42910', 'FAS429', '1', 'CASHIER', 'CASHIER', 73],
-      [18, 'PARRENO SHARON', 7, 'FAS4617', 'FAS461', '1', 'CASHIER', 'CASHIER', 73],
-      [19, 'PARRENO SHARON', 8, 'FAS4618', 'FAS461', '1', 'CASHIER', 'CASHIER', 73],
-      [20, 'PARRENO SHARON', 9, 'FAS4619', 'FAS461', '1', 'CASHIER', 'CASHIER', 73],
-      [21, 'PARRENO SHARON', 10, 'FAS46110', 'FAS461', '1', 'CASHIER', 'CASHIER', 73]
+      [1, 'TELLER 1', 1, 'tel1', 'tel1', '1', 'BILLING', 'BILLING', 71],
+      [2, 'TELLER 2', 2, 'tel2', 'tel2', '1', 'EDUCATION', 'EDUCATION', 72],
+      [3, 'TELLER 3', 3, 'tel3', 'tel3', '1', 'LEGAL', 'LEGAL', 73],
+      [4, 'TELLER 4', 4, 'tel4', 'tel4', '1', 'OPERATIONS', 'OPERATIONS', 75],
+      [5, 'TELLER 5', 5, 'tel5', 'tel5', '1', 'PLANNING', 'PLANNING', 76],
+      [6, 'TELLER 6', 6, 'tel6', 'tel6', '1', 'OTHERS', 'OTHERS', 77],
+      [7, 'TELLER 7', 7, 'tel7', 'tel7', '1', 'OTHERS', 'OTHERS', 78],
+      [8, 'TELLER 8', 8, 'tel8', 'tel8', '1', 'OTHERS', 'OTHERS', 79],
+      [9, 'TELLER 9', 9, 'tel9', 'tel9', '1', 'OTHERS', 'OTHERS', 80],
+      [10, 'TELLER 10', 10, 'tel10', 'tel10', '1', 'OTHERS', 'OTHERS', 81],
     ];
     counters.forEach(c => db.run(`INSERT OR IGNORE INTO counters (id, cname, cnum, cuser, cpass, cstatus, services, group_name, group_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`, c));
 
     const services = [
-      [1, 'REAL_PROPERTY_TAX', 'RPT', 'PRPT', 1, 'REAL PROPERTY TAX', 'Counter 1, 2', '11:09:01'],
-      [2, 'BUSINESS_TAX', 'BT', 'PBT', 1, 'BUSINESS TAX', 'Counter 1, 2,3', ''],
-      [3, 'GENERAL', 'G', 'PG', 1, 'GENERAL', 'Counter 3', ''],
-      [4, 'MDRRMO', 'MO', 'PMO', 1, 'MDRRMO', 'Counter 5', ''],
-      [5, 'ASSESSMENT', 'A', 'AS', 1, 'ASSESSMENT', 'Counter 6', ''],
-      [6, 'CASHIER', 'C', 'CP', 1, 'CASHIER', 'Counter 7,8,9,10', ''],
+      [1, 'BILLING', 'B', 'PB', 1, 'BILLING', 'Counter 1, 2', '11:09:01', ''],
+      [2, 'EDUCATION', 'E', 'PE', 1, 'EDUCATION', 'Counter 2', '', ''],
+      [3, 'LEGAL', 'L', 'PL', 1, 'LEGAL', 'Counter 3', '', ''],
+      [4, 'OPERATIONS', 'O', 'PO', 1, 'OPERATIONS', 'Counter 4', '', ''],
+      [5, 'PLANNING', 'P', 'PP', 1, 'PLANNING', 'Counter 5', '', ''],
+      [6, 'OTHERS', 'O', 'PO', 1, 'OTHERS', 'Counter 6', '', ''],
     ];
-    services.forEach(s => db.run(`INSERT OR IGNORE INTO services (id, sname, regular, priority, status, shortSname, sub_sname, sched) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`, s));
+    services.forEach(s => db.run(`INSERT OR IGNORE INTO services (id, sname, regular, priority, status, shortSname, sub_sname, sched, sub_services) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`, s));
 
     const settings = [
-      [7, 'announcement', '', 1],
-      [8, 'announcement2', '', 1],
+      [7, 'announcement', 'Welcome to CEBU CITY TRANSPORTATION OFFICE.', 1],
+      [8, 'announcement2', 'Roads were made for journeys, not destinations.', 1],
       [9, 'announcement3', 'WE ARE HAPPY TO SERVE YOU!', 1],
-      [10, 'annbgcolor', '#08228d', 0],
-      [11, 'anntextcolor', '#1bb18c', 0],
-      [12, 'annspeed', '43', 0],
+      [10, 'annbgcolor', '#2c039b', 0],
+      [11, 'anntextcolor', '#fde701', 0],
+      [12, 'annspeed', '17', 0],
       [13, 'privacy_policy', `# Privacy Policy
 
       **Effective Date:** January 1, 2024
@@ -307,7 +296,8 @@ function initializeDatabase() {
       Email: admin@sample.com
       Phone: (082) 222-2222
       Address: San Pedro Street, Davao City`, 1],
-      [14, 'voice_message_format', 'Serving #serviceticket on #counternumber', 1]
+      [14, 'voice_message_format', 'Serving #serviceticket on #counternumber', 1],
+      [15, 'role_permissions', '{"user":{"tabs":["dashboard","live","reports","history"],"settings":[]},"admin":{"tabs":["dashboard","live","reports","history","services","tellers","settings"],"settings":["advertisement","announcement"]},"superadmin":{"tabs":["dashboard","live","reports","history","services","tellers","accounts","settings"],"settings":["configuration","advertisement","announcement","displayaudio","images","smsconfig","systemlogs"]},"accounts":{"2":{"tabs":["dashboard","live","reports","history","services","tellers","settings"],"settings":["advertisement","announcement"],"actions":[]},"admin1":{"tabs":["dashboard","live","reports","history","services","tellers","settings"],"settings":["advertisement","announcement"],"actions":[]}}}', 1],
     ];
     settings.forEach(st => db.run(`INSERT OR IGNORE INTO settings (id, key, value, status) VALUES (?, ?, ?, ?)`, st));
 

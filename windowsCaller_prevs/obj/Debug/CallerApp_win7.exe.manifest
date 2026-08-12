@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CallerApp_win7.exe" size="4156408">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CallerApp_win7.exe" size="4156352">
       <assemblyIdentity name="CallerApp_win7" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>nvLL8ZornSm5l7+Cpn2OsifUfPp9SZCJx4+01nDU4ls=</dsig:DigestValue>
+        <dsig:DigestValue>v+41dKLNleoqL4ChVYN2vT/vgisAvC82TZhb0Qr6S24=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -294,13 +294,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="CallerApp_win7.exe.config" size="1924">
+  <file name="CallerApp_win7.exe.config" size="1922">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>bWTOC+erTahCOnYKE52sIlqaeYIlUw0+fnlVreG2mD4=</dsig:DigestValue>
+      <dsig:DigestValue>0Q2FJ28tY8paUPUyvotub49VNknhM6fYrXYQjshBx/I=</dsig:DigestValue>
     </hash>
   </file>
   <file name="favicon.ico" size="410598">

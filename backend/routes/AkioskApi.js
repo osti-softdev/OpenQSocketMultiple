@@ -108,7 +108,7 @@ module.exports = function createKioskApiRouter(io) {
       try {
         if (stats === "onprem") {
           const kiosk2IP = process.env.KIOSK2_IP || '10.1.0.98';
-          
+
           // Check if the request came from the 2nd Kiosk
           if (req.ip.includes(kiosk2IP)) {
             console.log("On-prem ticket requested from 2nd Kiosk, sending print command to Kiosk 2...");
@@ -117,7 +117,7 @@ module.exports = function createKioskApiRouter(io) {
               ticket: nextTicket,
               note: "",
               shortSname: shortSname,
-              subsname:subsname,
+              subsname: subsname,
               date: date,
               time: time,
               ip: req.ip
@@ -131,7 +131,7 @@ module.exports = function createKioskApiRouter(io) {
           } else {
             // Request came from the Main Kiosk (local), so print it locally
             console.log("On-prem ticket requested locally, printing on Main Kiosk...");
-            await executephp(ticketservice, nextTicket, shortSname,subsname, selectedSubService);
+            await executephp(ticketservice, nextTicket, shortSname, subsname, selectedSubService);
           }
 
         } else {
