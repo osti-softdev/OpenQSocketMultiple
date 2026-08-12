@@ -5,17 +5,7 @@ use Mike42\Escpos\Printer;
 use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
 use Mike42\Escpos\EscposImage;
 
-// --- PRINT LOGO ---
-// try {
-//     $logo = EscposImage::load(__DIR__ . "/../images/dbp.png", false);
-//     $printer->setJustification(Printer::JUSTIFY_CENTER);
-//     $printer->bitImage($logo, Printer::IMG_DEFAULT);
-//     $printer->feed();
-// } catch (Exception $e) {
-//     // if logo missing
-// }
-
-$connector = new WindowsPrintConnector("POS-80");
+    $connector = new WindowsPrintConnector("POS-86");
 $printer = new Printer($connector);
 // Receive arguments individually
 $ticket      = $argv[1] ?? '';
@@ -39,8 +29,24 @@ $modes = array(
     Printer::MODE_DOUBLE_WIDTH,
     Printer::MODE_UNDERLINE
 );
-
 $printer->setJustification(Printer::JUSTIFY_CENTER);
+
+/* Print Stored NV Logo */
+try {
+    // This is the raw ESC/POS hex command to print the logo stored at 48, 48
+    // Breakdown: GS ( L + parameters targeting key-code 30 30 (hex for 48, 48)
+    $nvLogoCommand = "\x1D\x28\x4C\x06\x00\x30\x45\x30\x30\x01\x01";
+    
+    // Write the raw command directly to the printer
+    $printer->getPrintConnector()->write($nvLogoCommand);
+    
+    // Add a little space after the logo
+    $printer->feed(1);
+    
+} catch (Exception $e) {
+    echo "Error triggering stored logo: " . $e->getMessage() . "\n";
+}
+
 $printer->selectPrintMode(Printer::MODE_EMPHASIZED);
 $printer->selectPrintMode(Printer::MODE_DOUBLE_HEIGHT | Printer::MODE_DOUBLE_WIDTH);
 $printer->setFont(Printer::FONT_B);
@@ -48,6 +54,7 @@ $printer->setTextSize(3, 2);
 
 $printer->text("CEBU CITY\n");
 $printer->text("TRANSPORTATION OFFICE.\n");
+
 
 $printer->setTextSize(1, 1);
 $printer->text($date ." ". $time."\n");

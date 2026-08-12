@@ -45,7 +45,6 @@ interface PrintBuffer
      *
      * @param Printer|null $printer New printer
      */
-    public function setPrinter(Printer $printer = null);
     public function setPrinter(?Printer $printer = null);
 
     /**

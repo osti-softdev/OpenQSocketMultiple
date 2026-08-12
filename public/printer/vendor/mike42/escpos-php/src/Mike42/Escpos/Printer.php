@@ -358,7 +358,7 @@ class Printer
      * @param CapabilityProfile|null $profile Supported features of this printer. If not set, the "default" CapabilityProfile will be used, which is suitable for Epson printers.
      * @throws InvalidArgumentException
      */
-    public function __construct(PrintConnector $connector, CapabilityProfile $profile = null)
+    public function __construct(PrintConnector $connector, ?CapabilityProfile $profile = null)
     {
         /* Set connector */
         $this -> connector = $connector;
