@@ -339,3 +339,41 @@
 ✔ 2026-08-10 10:12:41 AM [node:events:509] [ADS] Client disconnected: _fpSKZyxrXygcBleAAAH
 ✔ 2026-08-10 10:39:42 AM [node:events:509] [ADS] Client disconnected: yIeyrsS_AtzCUZPfAAAJ
 ✔ 2026-08-10 10:39:42 AM [node:events:509] [ADS] Client disconnected: 4tixyqlzHsfJlufYAAAF
+✔ 2026-08-12 9:23:09 AM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-08-12 9:23:11 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env // tip: ⌘ enable debugging { debug: true }
+✔ 2026-08-12 9:23:23 AM [node:events:628] Queue System running on http://localhost:12341
+✔ 2026-08-12 9:23:23 AM [unknown-location] Connected to SQLite database
+✔ 2026-08-12 9:23:23 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-12 9:23:23 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-12 9:23:23 AM [unknown-location] Found 127 transactions older than 365 days. Archiving...
+✔ 2026-08-12 9:23:23 AM [backend\utilities\db.js:363] Successfully archived 127 transactions to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\backups\transactions_archive_2026-08-12T01-23-23-710Z.csv
+✔ 2026-08-12 9:23:23 AM [unknown-location] Deleted 127 old transactions from database.
+✔ 2026-08-12 9:23:23 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-12 9:24:46 AM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-08-12 9:24:46 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+✔ 2026-08-12 9:24:47 AM [node:events:628] Queue System running on http://localhost:12341
+✔ 2026-08-12 9:24:47 AM [unknown-location] Connected to SQLite database
+✔ 2026-08-12 9:24:47 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-12 9:24:47 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-12 9:24:47 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-12 9:24:47 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-12 9:25:25 AM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-08-12 9:25:25 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env // tip: ⌁ auth for agents [www.vestauth.com]
+✔ 2026-08-12 9:25:25 AM [node:events:628] Queue System running on http://localhost:12341
+✔ 2026-08-12 9:25:25 AM [unknown-location] Connected to SQLite database
+✔ 2026-08-12 9:25:25 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-12 9:25:25 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-12 9:25:25 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-12 9:25:25 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-12 9:25:28 AM [node:events:514] [ADS] Client connected: jkdzLNLGg-JqnZ7XAAAC
+✔ 2026-08-12 9:25:28 AM [node:events:514] [ADS] Client connected: wlBbMXxoNGQhSkAnAAAD
+✔ 2026-08-12 9:26:09 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-08-12 9:26:09 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-12 9:26:09 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-08-12 9:26:10 AM [node:events:514] [ADS] Client connected: bfiiBgT6iu4fI2cpAAAF
+✔ 2026-08-12 9:26:48 AM [node:events:514] [ADS] Client disconnected: jkdzLNLGg-JqnZ7XAAAC
+✔ 2026-08-12 9:26:49 AM [node:events:514] [ADS] Client connected: hKsG-tFqjqat547eAAAH
+✔ 2026-08-12 9:26:53 AM [node:events:514] [ADS] Client disconnected: wlBbMXxoNGQhSkAnAAAD
+✔ 2026-08-12 9:26:54 AM [node:events:514] [ADS] Client connected: ngKhocABic7S2BvnAAAJ
+✔ 2026-08-12 9:26:56 AM [node:events:514] [ADS] Client disconnected: ngKhocABic7S2BvnAAAJ
+✔ 2026-08-12 9:26:56 AM [node:events:514] [ADS] Client connected: ZCVpPuC6N0e8oBBMAAAL
