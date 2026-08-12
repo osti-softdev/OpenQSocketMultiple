@@ -100,10 +100,10 @@ function setServicesDisplay(count) {
 		"width": "70%",
 	});
 	$(".timer").css({
-		"left": "10%",
+		"left": "66%",
 		"width": "fit-content",
-		"flex-direction": "column",
-		"top": "10%",
+		"flex-direction": "rpw",
+		"top": "1%",
 	})
 	if (count <= 10) {
 		$(".video-container").css({
@@ -402,7 +402,7 @@ function adjustServiceNameFont() {
 		let size;
 
 		if (length <= 12) {
-			size = "1.5rem";
+			size = "2rem";
 		} else if (length <= 16) {
 			size = "2.0rem";
 		} else if (length <= 22) {
