@@ -853,3 +853,192 @@
 ✔ 2026-08-12 10:33:32 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
 ✔ 2026-08-12 10:33:32 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
 ✔ 2026-08-12 10:33:33 PM [node:events:509] [ADS] Client connected: fWC0TpjTYydBymcFAAAP
+✔ 2026-08-13 9:19:22 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-13 9:19:24 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌁ auth for agents [www.vestauth.com][0m
+✔ 2026-08-13 9:19:31 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-13 9:19:31 AM [unknown-location] Connected to SQLite database
+✔ 2026-08-13 9:19:31 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-13 9:19:31 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-13 9:19:31 AM [unknown-location] Found 68 transactions older than 365 days. Archiving...
+✔ 2026-08-13 9:19:31 AM [backend\utilities\db.js:353] Successfully archived 68 transactions to C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\backend\backups\transactions_archive_2026-08-13T01-19-31-968Z.csv
+✔ 2026-08-13 9:19:32 AM [unknown-location] Deleted 68 old transactions from database.
+✔ 2026-08-13 9:19:32 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-13 9:19:33 AM [index.js:79] No external display found for the /display window.
+✔ 2026-08-13 9:19:35 AM [node:events:509] [ADS] Client connected: Cplh3EE2lS2hW8PpAAAB
+✔ 2026-08-13 9:20:22 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 9:21:01 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 9:21:20 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 9:24:46 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 9:30:58 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 9:54:44 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 9:54:59 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 9:55:50 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 9:56:18 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 9:56:37 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 9:56:54 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 9:57:36 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 9:58:59 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 10:00:19 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 10:01:04 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 10:01:13 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 10:01:19 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 10:03:23 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 10:03:43 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 10:04:06 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-08-13 10:04:06 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-13 10:04:06 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-08-13 10:04:07 AM [node:events:509] [ADS] Client connected: vYr7EfohPyv2mXKFAAAD
+✔ 2026-08-13 10:04:25 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 10:04:31 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 10:12:25 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-13 10:12:25 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ suppress logs { quiet: true }[0m
+✔ 2026-08-13 10:12:26 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-13 10:12:26 AM [unknown-location] Connected to SQLite database
+✔ 2026-08-13 10:12:26 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-13 10:12:26 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-13 10:12:26 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-13 10:12:26 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-13 10:12:27 AM [index.js:79] No external display found for the /display window.
+✔ 2026-08-13 10:12:28 AM [node:events:509] [ADS] Client connected: Tf4h7gTTXl9ZrB9jAAAB
+✔ 2026-08-13 11:06:23 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-08-13 11:06:23 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-13 11:06:23 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-08-13 11:06:23 AM [node:events:509] [ADS] Client connected: ECpkQuch9tUyf-gHAAAD
+✔ 2026-08-13 11:07:23 AM [node:events:509] [ADS] Client disconnected: ECpkQuch9tUyf-gHAAAD
+✔ 2026-08-13 11:07:23 AM [node:events:509] [ADS] Client connected: 1PwKTnBl4InlLkfiAAAF
+✔ 2026-08-13 11:07:43 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-13 11:07:43 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-13 11:07:43 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-13 11:07:45 AM [backend\routes\AtellerApi.js:457] 3
+✔ 2026-08-13 11:08:22 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-13 11:08:22 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ multiple files { path: ['.env.local', '.env'] }[0m
+✔ 2026-08-13 11:08:22 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-13 11:08:22 AM [unknown-location] Connected to SQLite database
+✔ 2026-08-13 11:08:22 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-13 11:08:22 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-13 11:08:22 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-13 11:08:22 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-13 11:08:28 AM [node:events:509] [ADS] Client connected: Ac9KcIsCcCM11gibAAAB
+✔ 2026-08-13 11:08:29 AM [node:events:509] [ADS] Client connected: NPT93BtVbEvhP30vAAAD
+✔ 2026-08-13 11:09:05 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-13 11:09:05 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌁ auth for agents [www.vestauth.com][0m
+✔ 2026-08-13 11:09:06 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-13 11:09:06 AM [unknown-location] Connected to SQLite database
+✔ 2026-08-13 11:09:06 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-13 11:09:06 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-13 11:09:06 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-13 11:09:06 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-13 11:09:06 AM [node:events:509] [ADS] Client connected: jKgSx2hyyH0JeYFMAAAB
+✔ 2026-08-13 11:09:08 AM [node:events:509] [ADS] Client connected: 2DVOr_MHH80qeFGtAAAE
+✔ 2026-08-13 11:09:08 AM [node:events:509] [ADS] Client connected: g-IJlqyrw3h6mhizAAAF
+✔ 2026-08-13 11:10:31 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-13 11:10:32 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ enable debugging { debug: true }[0m
+✔ 2026-08-13 11:10:32 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-13 11:10:32 AM [unknown-location] Connected to SQLite database
+✔ 2026-08-13 11:10:32 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-13 11:10:32 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-13 11:10:32 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-13 11:10:32 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-13 11:10:32 AM [node:events:509] [ADS] Client connected: BwPOoXJuA3a90AFtAAAB
+✔ 2026-08-13 11:10:34 AM [node:events:509] [ADS] Client connected: EioqRjmUeU4S6y9zAAAD
+✔ 2026-08-13 11:10:34 AM [node:events:509] [ADS] Client connected: JciMzX9kGA6qsbHcAAAF
+✔ 2026-08-13 11:10:37 AM [node:events:509] [ADS] Client disconnected: EioqRjmUeU4S6y9zAAAD
+✔ 2026-08-13 11:10:37 AM [node:events:509] [ADS] Client connected: tBZlSIS-2XTH-TgIAAAH
+✔ 2026-08-13 11:10:42 AM [node:events:509] [ADS] Client disconnected: tBZlSIS-2XTH-TgIAAAH
+✔ 2026-08-13 11:10:51 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-13 11:10:51 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ override existing { override: true }[0m
+✔ 2026-08-13 11:10:51 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-13 11:10:51 AM [unknown-location] Connected to SQLite database
+✔ 2026-08-13 11:10:51 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-13 11:10:51 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-13 11:10:51 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-13 11:10:51 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-13 11:10:51 AM [node:events:509] [ADS] Client connected: 2GqkbUAOCP_ak_P1AAAB
+✔ 2026-08-13 11:10:53 AM [node:events:509] [ADS] Client connected: Wv_6V5vhal_szSZ8AAAD
+✔ 2026-08-13 11:10:53 AM [node:events:509] [ADS] Client connected: FuaXfdvQRZWRpPKsAAAF
+✔ 2026-08-13 11:11:10 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-13 11:11:11 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ multiple files { path: ['.env.local', '.env'] }[0m
+✔ 2026-08-13 11:11:11 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-13 11:11:11 AM [unknown-location] Connected to SQLite database
+✔ 2026-08-13 11:11:11 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-13 11:11:11 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-13 11:11:11 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-13 11:11:11 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-13 11:11:11 AM [node:events:509] [ADS] Client connected: wSMSh4gAszHXwcVMAAAB
+✔ 2026-08-13 11:11:13 AM [node:events:509] [ADS] Client connected: qqYspGO23z2nvei5AAAD
+✔ 2026-08-13 11:11:13 AM [node:events:509] [ADS] Client connected: t1tYnm4zWoaV9rAaAAAF
+✔ 2026-08-13 11:12:27 AM [node:events:509] [ADS] Client disconnected: qqYspGO23z2nvei5AAAD
+✔ 2026-08-13 11:12:27 AM [node:events:509] [ADS] Client connected: ZQbRytMdzmjZiTRtAAAH
+✔ 2026-08-13 11:12:34 AM [node:events:509] [ADS] Client disconnected: ZQbRytMdzmjZiTRtAAAH
+✔ 2026-08-13 11:12:40 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-13 11:12:40 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ secrets for agents [www.dotenvx.com][0m
+✔ 2026-08-13 11:12:41 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-13 11:12:41 AM [unknown-location] Connected to SQLite database
+✔ 2026-08-13 11:12:41 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-13 11:12:41 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-13 11:12:41 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-13 11:12:41 AM [node:events:509] [ADS] Client connected: -jjBeciiaCbbViL8AAAB
+✔ 2026-08-13 11:12:41 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-13 11:12:43 AM [node:events:509] [ADS] Client connected: eTQu45iT9ezMUMqcAAAD
+✔ 2026-08-13 11:12:43 AM [node:events:509] [ADS] Client connected: teS0sNp7TQ1ySmFCAAAF
+✔ 2026-08-13 11:13:00 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 11:13:06 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 11:13:11 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 11:13:15 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 11:13:20 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 11:13:28 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 11:18:21 AM [node:events:509] [ADS] Client disconnected: -jjBeciiaCbbViL8AAAB
+✔ 2026-08-13 11:18:23 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-08-13 11:18:23 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-13 11:18:23 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-08-13 11:18:27 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-08-13 11:18:27 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-13 11:18:27 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-08-13 11:18:28 AM [node:events:509] [ADS] Client connected: Gc434YiOjuhbahyIAAAH
+✔ 2026-08-13 11:18:47 AM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-13 11:18:47 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-13 11:18:47 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-13 12:20:56 PM [node:events:509] [ADS] Client disconnected: teS0sNp7TQ1ySmFCAAAF
+✔ 2026-08-13 12:58:19 PM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-13 12:58:19 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ secrets for agents [www.dotenvx.com][0m
+✔ 2026-08-13 12:58:19 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-13 12:58:19 PM [unknown-location] Connected to SQLite database
+✔ 2026-08-13 12:58:19 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-13 12:58:19 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-13 12:58:19 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-13 12:58:19 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-13 12:58:23 PM [node:events:509] [ADS] Client connected: lXNr_0VjvuTOwLezAAAC
+✔ 2026-08-13 12:58:23 PM [node:events:509] [ADS] Client connected: EYPIJsYOS3f5fBF2AAAD
+✔ 2026-08-13 1:02:37 PM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-08-13 1:02:37 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-13 1:02:37 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-08-13 1:02:38 PM [node:events:509] [ADS] Client connected: QRSZYk0EpGOzO5VMAAAF
+✔ 2026-08-13 1:03:53 PM [node:events:509] [ADS] Client disconnected: EYPIJsYOS3f5fBF2AAAD
+✔ 2026-08-13 1:03:53 PM [node:events:509] [ADS] Client connected: GAD7AsZXI1XBXdI0AAAH
+✔ 2026-08-13 1:04:21 PM [node:events:509] [ADS] Client disconnected: GAD7AsZXI1XBXdI0AAAH
+✔ 2026-08-13 1:04:21 PM [node:events:509] [ADS] Client connected: jLPwOEMbzGDkZm1kAAAJ
+✔ 2026-08-13 1:04:30 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 1:10:32 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 1:10:53 PM [backend\routes\AtellerApi.js:73] Login attempt for: erp
+✔ 2026-08-13 1:10:53 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-13 1:10:53 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: erp
+✔ 2026-08-13 1:16:58 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 1:19:06 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 1:30:30 PM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-13 1:45:33 PM [node:events:509] [ADS] Client disconnected: lXNr_0VjvuTOwLezAAAC
+✔ 2026-08-13 1:45:34 PM [node:events:509] [ADS] Client disconnected: QRSZYk0EpGOzO5VMAAAF
+✔ 2026-08-13 5:15:35 PM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-08-13 5:15:35 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ override existing { override: true }[0m
+✔ 2026-08-13 5:15:35 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-13 5:15:35 PM [unknown-location] Connected to SQLite database
+✔ 2026-08-13 5:15:35 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-13 5:15:35 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-13 5:15:35 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-13 5:15:35 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-13 5:15:39 PM [node:events:509] [ADS] Client connected: DKSbvqAT-_7cFUceAAAB
+✔ 2026-08-13 5:15:39 PM [node:events:509] [ADS] Client connected: MksRhqCoXc4OnGRzAAAD
+✔ 2026-08-13 5:16:25 PM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-08-13 5:16:25 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-13 5:16:25 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-08-13 5:16:25 PM [node:events:509] [ADS] Client connected: 2oMOqw_WD0b6I6xNAAAF
+✔ 2026-08-13 5:27:25 PM [node:events:509] [ADS] Client connected: _dXgbE3gA0zUyhXsAAAH
