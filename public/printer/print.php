@@ -5,7 +5,7 @@ use Mike42\Escpos\Printer;
 use Mike42\Escpos\PrintConnectors\WindowsPrintConnector;
 use Mike42\Escpos\EscposImage;
 
-    $connector = new WindowsPrintConnector("POS-86");
+    $connector = new WindowsPrintConnector("POS-85");
 $printer = new Printer($connector);
 // Receive arguments individually
 $ticket      = $argv[1] ?? '';
@@ -50,26 +50,19 @@ try {
 $printer->selectPrintMode(Printer::MODE_EMPHASIZED);
 $printer->selectPrintMode(Printer::MODE_DOUBLE_HEIGHT | Printer::MODE_DOUBLE_WIDTH);
 $printer->setFont(Printer::FONT_B);
-$printer->setTextSize(3, 2);
-
-$printer->text("CEBU CITY\n");
-$printer->text("TRANSPORTATION OFFICE.\n");
-
-
 $printer->setTextSize(1, 1);
 $printer->text($date ." ". $time."\n");
+$printer->text("___________________________________________" . "\n");
 
 $printer->setFont(Printer::MODE_FONT_B);
 $printer->setJustification(Printer::JUSTIFY_CENTER);
-$printer->setTextSize(2, 1);
-$printer->text("____________________");
 $printer->feed();
 
 $printer->setJustification(Printer::JUSTIFY_CENTER);
 $printer->selectPrintMode(Printer::MODE_EMPHASIZED | Printer::MODE_DOUBLE_HEIGHT | Printer::MODE_DOUBLE_WIDTH);
 $printer->setTextSize(5, 3);
 $printer->text($ticket);
-$printer->text($count . "\n\n");
+$printer->text($count . "\n");
 
 $printer->setTextSize(2, 1);
 $printer->setFont(Printer::MODE_FONT_B);
