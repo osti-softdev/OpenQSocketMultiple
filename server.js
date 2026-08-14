@@ -82,16 +82,20 @@ appExpress.use('/api', require('./backend/routes/AkioskApi')(io));
 appExpress.use('/api', require('./backend/routes/AdisplayApi')(io));
 appExpress.use('/api', require('./backend/routes/AtellerApi')(io));
 appExpress.use('/api', require('./backend/routes/AadminApi')(io));
-
 appExpress.use('/api', require('./backend/routes/AonlineKioskApi')(io));
 
 
 // ^ Video API
 const { setupAds } = require("./backend/routes/getads");
+const setupAdsSchedulingApi = require("./backend/routes/adsScheduling");
+
 const adsModule = setupAds(io);
 
-// --- Setup videos API ---
+// --- Setup videos API (upload/rename/delete) ---
 require("./backend/routes/videos")(appExpress, adsModule);
+
+// --- Setup playlists/schedules API (mounts /api/ads/*) ---
+setupAdsSchedulingApi(appExpress, adsModule);
 
 // --- Initialize GSM Modem ---
 if (process.env.ALLOWSMS === 'true') {

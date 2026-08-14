@@ -26,6 +26,14 @@ $(document).ready(function () {
     initAdminAppearance();
     checkAdmin();
 
+    // Automatically handle session timeouts across all AJAX calls
+    $.ajaxSetup({
+        statusCode: {
+            401: function() { window.location.href = '/admin'; },
+            403: function() { window.location.href = '/admin'; }
+        }
+    });
+
     // & NAVIGATION 
     $('.nav-item').click(function () {
         const tab = $(this).data('tab');

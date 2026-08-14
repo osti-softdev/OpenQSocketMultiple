@@ -99,11 +99,20 @@ module.exports = function setupVideosApi(app, adsModule) {
     // Delete
     app.delete("/delete-video/:videoName", requireSettingsAccess, (req, res) => {
         const videoPath = path.join(rootpath, "public/ads", req.params.videoName);
-        fs.unlink(videoPath, err => {
+        fs.unlink(videoPath, async err => {
             if (err) return res.status(500).send("Failed to delete video");
+
+            // Remove dangling references so it doesn't linger in any playlist
+            try {
+                const rootUtil = global.BACKEND_PATH || __dirname;
+                const db = require(path.join(rootUtil, "utilities/db"));
+                await db.runAsync(`DELETE FROM playlist_items WHERE filename = ?`, [req.params.videoName]);
+            } catch (cleanupErr) {
+                console.error("[ADS] Failed to clean up playlist_items after delete:", cleanupErr);
+            }
+
             adsModule.refreshAds();
             res.send(`Video ${req.params.videoName} deleted successfully`);
-            adsModule.refreshAds();
         });
     });
 

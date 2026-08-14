@@ -1,115 +1,150 @@
-let adQueue = [];
-let currentAdIndex = 0;
-let videoElement = null;
-let playing = false;
-let adVolume = 0;
+// /js/display/video.js
+// Handles ad rotation on the display screen.
+// Listens for "adsList" (queue + volume) and "voiceConfigUpdate" (volume only)
+// from getads.js over Socket.io, then plays the videos back-to-back in a loop.
 
-function applyAdVolume(value) {
-	adVolume = Math.min(Math.max(Number(value ?? 0), 0), 1);
-	if (!videoElement) return;
-	videoElement.muted = adVolume <= 0;
-	videoElement.volume = adVolume;
-}
+(function () {
+	"use strict";
 
-socket.on('voiceConfigUpdate', config => {
-	if (config && config.ad_volume !== undefined) applyAdVolume(config.ad_volume);
-});
+	const AD_ELEMENT_ID = "dep";
+	const CONTAINER_SELECTOR = ".video-container";
 
-// --- Ads + Volume handler ---
-socket.on("adsList", (data) => {
-	if (!data || !Array.isArray(data.ads) || !data.ads.length) return;
-	const oldQueue = adQueue.join(",");
-	adQueue = [...data.ads];
-	
-	// clamp volume between 0-1
-	adVolume = Math.min(Math.max(Number(data.volume ?? 0), 0), 1);
+	let adQueue = [];
+	let currentAdIndex = 0;
+	let adVolume = 0;
+	let videoElement = null;
+	let containerElement = null;
 
-	// 🔥 update volume instantly if already playing
-	if (videoElement) {
-		videoElement.muted = adVolume <= 0;
-		videoElement.volume = adVolume;
+	// --- Element helpers (cached, since #dep never changes) ---
+	function getVideoElement() {
+		if (!videoElement) videoElement = document.getElementById(AD_ELEMENT_ID);
+		return videoElement;
 	}
 
-	// Only reset index if ads changed or nothing is playing
-	// if (!playing || oldQueue !== adQueue.join(",")) {
-	if (oldQueue !== adQueue.join(",")) {
-		currentAdIndex = 0;
-		playNextAd();
-	}
-});
-function playNextAd() {
-	if (!adQueue.length) return;
-
-	if (currentAdIndex >= adQueue.length) {
-		currentAdIndex = 0; // loop back
+	function getContainerElement() {
+		if (!containerElement) containerElement = document.querySelector(CONTAINER_SELECTOR);
+		return containerElement;
 	}
 
-	const adFile = adQueue[currentAdIndex++];
-	playing = true;
-
-	console.log(`[ADS] Playing ad: ${adFile} at volume ${adVolume}`);
-
-	const encodedFile = encodeURIComponent(adFile);
-
-	// Use existing hardcoded video element
-	videoElement = document.getElementById("dep");
-
-
-	videoElement.src = `/ads/${encodedFile}`;
-	videoElement.autoplay = true;
-	videoElement.playsInline = true;
-	videoElement.load();
-	videoElement.play().catch(() => { });
-
-
-	// Volume logic
-	if (adVolume > 0) {
-		videoElement.muted = false;
-		videoElement.volume = adVolume;
-	} else {
-		videoElement.muted = true;
-		videoElement.volume = 0;
+	function isContainerVisible() {
+		const el = getContainerElement();
+		return !!el && $(el).is(":visible");
 	}
 
-	// Ensure autoplay actually fires  
-	videoElement.play().catch(err => {
-		console.warn("[ADS] Autoplay blocked, retrying...", err);
-		setTimeout(() => videoElement.play(), 300);
+	// --- Volume ---
+	function applyAdVolume(value) {
+		adVolume = Math.min(Math.max(Number(value ?? 0), 0), 1);
+		const el = getVideoElement();
+		if (!el) return;
+		el.muted = adVolume <= 0;
+		el.volume = adVolume;
+	}
+
+	// --- Playback ---
+	function attemptPlay(el, fileName, retry = true) {
+		if (!el) return;
+		el.play().catch(err => {
+			console.warn(`[ADS] Autoplay blocked for "${fileName}", retrying...`, err);
+			if (retry) setTimeout(() => attemptPlay(el, fileName, false), 300);
+		});
+	}
+
+	function loadAd(fileName) {
+		const el = getVideoElement();
+		if (!el || !fileName) return;
+
+		el.src = `/ads/${encodeURIComponent(fileName)}`;
+		el.autoplay = true;
+		el.playsInline = true;
+		el.muted = adVolume <= 0;
+		el.volume = adVolume;
+		el.load();
+		attemptPlay(el, fileName);
+	}
+
+	function playNextAd() {
+		if (!adQueue.length) return;
+
+		if (currentAdIndex >= adQueue.length) currentAdIndex = 0; // loop back
+		const adFile = adQueue[currentAdIndex++];
+
+		console.log(`[ADS] Playing: ${adFile} (volume ${adVolume})`);
+		loadAd(adFile);
+
+		const el = getVideoElement();
+		el.onended = () => {
+			console.log(`[ADS] Finished: ${adFile}`);
+			playNextAd();
+		};
+		el.onerror = () => {
+			console.warn(`[ADS] Failed to load "${adFile}", skipping to next`);
+			playNextAd();
+		};
+	}
+
+	function pausevid() {
+		const el = getVideoElement();
+		if (el) {
+			el.pause();
+			console.log("[ADS] Video paused");
+		}
+	}
+
+	function playvid() {
+		const el = getVideoElement();
+		if (el && isContainerVisible()) {
+			attemptPlay(el, adQueue[currentAdIndex - 1] || "");
+			console.log("[ADS] Video playing");
+		}
+	}
+
+	// --- Socket handlers ---
+	socket.on("voiceConfigUpdate", config => {
+		if (config && config.ad_volume !== undefined) applyAdVolume(config.ad_volume);
 	});
 
-	// When finished, load next ad
-	videoElement.onended = () => {
-		console.log(`[ADS] Finished: ${adFile}`);
-		playNextAd();
-	};
-}
+	// "displayQueue" carries the schedule-resolved active queue (pinned video or
+	// active playlist, falling back to the default playlist). This is distinct
+	// from "adsList", which is the full admin video library and is NOT what
+	// should be played on the display.
+	socket.on("displayQueue", data => {
+		if (!data || !Array.isArray(data.ads) || !data.ads.length) return;
 
-function pausevid() {
-	if (videoElement) {
-		videoElement.pause();
-		console.log("[ADS] Video paused");
-	}
-}
+		const incomingQueue = data.ads.join(",");
+		const queueChanged = incomingQueue !== adQueue.join(",");
 
-function playvid() {
-	if (videoElement && $(".video-container").is(":visible")) {
-		videoElement.play().catch((err) => {
-			console.warn("[ADS] play() failed:", err);
+		adQueue = [...data.ads];
+		applyAdVolume(data.volume);
+
+		// Only restart from the top if the queue actually changed
+		if (queueChanged) {
+			currentAdIndex = 0;
+			playNextAd();
+		}
+	});
+
+	// --- Pause/resume when the ad slot is hidden (e.g. behind the ticket popup) ---
+	function initVisibilityObserver() {
+		const container = getContainerElement();
+		if (!container) return;
+
+		const observer = new MutationObserver(() => {
+			const el = getVideoElement();
+			if (!el) return;
+			if (isContainerVisible()) attemptPlay(el, adQueue[currentAdIndex - 1] || "");
+			else el.pause();
 		});
-		console.log("[ADS] Video playing");
+
+		observer.observe(container, { attributes: true, attributeFilter: ["style", "class"] });
 	}
-}
 
-
-const observer = new MutationObserver(() => {
-	if (!$(".video-container").is(":visible")) {
-		videoElement.pause();
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", initVisibilityObserver);
 	} else {
-		videoElement.play().catch(() => { });
+		initVisibilityObserver();
 	}
-});
 
-observer.observe(document.querySelector(".video-container"), {
-	attributes: true,
-	attributeFilter: ["style", "class"]
-});
+	// Exposed for other display scripts (popup.js, indexSocket.js, etc.)
+	window.pausevid = pausevid;
+	window.playvid = playvid;
+})();

@@ -170,6 +170,42 @@ function initializeDatabase() {
       FOREIGN KEY(to_teller_id) REFERENCES counters(id)
     )`);
 
+    db.run(`CREATE TABLE IF NOT EXISTS playlists (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      is_default INTEGER NOT NULL DEFAULT 0,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )`);
+
+    db.run(`CREATE TABLE IF NOT EXISTS playlist_items (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      playlist_id INTEGER NOT NULL REFERENCES playlists(id) ON DELETE CASCADE,
+      filename TEXT NOT NULL,
+      order_index INTEGER NOT NULL DEFAULT 0
+    )`);
+
+    db.run(`CREATE TABLE IF NOT EXISTS schedules (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      type TEXT NOT NULL CHECK(type IN ('playlist','video')),
+      playlist_id INTEGER REFERENCES playlists(id) ON DELETE CASCADE,
+      video_filename TEXT,
+      start_date TEXT,
+      end_date TEXT,
+      start_time TEXT NOT NULL DEFAULT '00:00:00',
+      end_time TEXT NOT NULL DEFAULT '23:59:59',
+      days_of_week TEXT,
+      priority INTEGER NOT NULL DEFAULT 0,
+      active INTEGER NOT NULL DEFAULT 1,
+      color TEXT DEFAULT '#4f6df5',
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )`);
+
+    // Migration for color column
+    db.run("ALTER TABLE schedules ADD COLUMN color TEXT DEFAULT '#4f6df5';", (err) => {
+      // Ignore if exists
+    });
+
     // 3. SEED DEFAULT DATA
     const accounts = [
       [1, 'Cade Lawrenzo Caña', 'admin', 'admin', 'superadmin', 1],
@@ -300,6 +336,25 @@ function initializeDatabase() {
       [15, 'role_permissions', '{"user":{"tabs":["dashboard","live","reports","history"],"settings":[]},"admin":{"tabs":["dashboard","live","reports","history","services","tellers","settings"],"settings":["advertisement","announcement"]},"superadmin":{"tabs":["dashboard","live","reports","history","services","tellers","accounts","settings"],"settings":["configuration","advertisement","announcement","displayaudio","images","smsconfig","systemlogs"]},"accounts":{"2":{"tabs":["dashboard","live","reports","history","services","tellers","settings"],"settings":["advertisement","announcement"],"actions":[]},"admin1":{"tabs":["dashboard","live","reports","history","services","tellers","settings"],"settings":["advertisement","announcement"],"actions":[]}}}', 1],
     ];
     settings.forEach(st => db.run(`INSERT OR IGNORE INTO settings (id, key, value, status) VALUES (?, ?, ?, ?)`, st));
+
+    // Ads Migration: Seed default playlist if it doesn't exist
+    db.get(`SELECT id FROM playlists WHERE is_default = 1 LIMIT 1`, (err, existingDefault) => {
+      if (!err && !existingDefault) {
+        const adsFolder = path.join(global.ROOT_PATH || path.join(__dirname, '../../'), "public", "ads");
+        const files = fs.existsSync(adsFolder)
+          ? fs.readdirSync(adsFolder).filter(f => /\.(mp4|webm|ogg)$/i.test(f)).sort()
+          : [];
+
+        db.run(`INSERT INTO playlists (name, is_default) VALUES (?, 1)`, ["Default rotation"], function (insertErr) {
+          if (insertErr) return;
+          const playlistId = this.lastID;
+          files.forEach((file, i) => {
+            db.run(`INSERT INTO playlist_items (playlist_id, filename, order_index) VALUES (?, ?, ?)`, [playlistId, file, i]);
+          });
+          console.log(`[ADS] Migrated ${files.length} existing video(s) into "Default rotation" playlist (id ${playlistId})`);
+        });
+      }
+    });
 
     console.log("Database schema auto-creation and seed verification completed.");
     archiveOldData();

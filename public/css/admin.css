@@ -1477,7 +1477,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  height: 10%;
+  height: 12%;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -1491,14 +1491,15 @@ body {
   border-top-right-radius: 16px;
   padding: 0 24px;
   text-indent: 0;
+  overflow: hidden;
 }
 .content .tab-content#settings-tab .adsmain .adsmainconfigtitle #videoUploadForm {
   position: absolute;
-  top: 0;
+  top: 15%;
   right: 1%;
   width: 20%;
   display: flex;
-  height: 50%;
+  height: 40%;
   flex-direction: row;
   justify-content: center;
   gap: 12px;
@@ -1549,7 +1550,7 @@ body {
 }
 .content .tab-content#settings-tab .adsmain .adsmainconfigtitle #uploadStatus {
   position: absolute;
-  top: 50%;
+  top: 60%;
   right: 1%;
   width: 20%;
   display: flex;
@@ -1578,11 +1579,18 @@ body {
   background: #4caf50;
   transition: width 0.2s ease-in-out;
 }
-.content .tab-content#settings-tab .adsmain .adslist {
+.content .tab-content#settings-tab .adsmain .media-library-panel {
+  position: absolute;
+  top: 13%;
+  left: 1%;
+  height: 37%;
+  width: 35%;
+}
+.content .tab-content#settings-tab .adsmain .media-library-panel .adslist {
   position: absolute;
   top: 10%;
   left: 0;
-  height: 90%;
+  height: 10%;
   width: 40%;
   display: flex;
   flex-direction: column;
@@ -1591,7 +1599,7 @@ body {
   scrollbar-width: thin;
   overflow-y: auto;
 }
-.content .tab-content#settings-tab .adsmain .adslist .adsitem {
+.content .tab-content#settings-tab .adsmain .media-library-panel .adslist .adsitem {
   margin-top: 5px;
   margin-bottom: 5px;
   transform: scale(0.95);
@@ -1611,11 +1619,11 @@ body {
   font-size: 1rem;
   transition: all 0.2s ease;
 }
-.content .tab-content#settings-tab .adsmain .adslist .adsitem:hover {
+.content .tab-content#settings-tab .adsmain .media-library-panel .adslist .adsitem:hover {
   background-color: #f1f5f9;
   border-color: #cbd5e1;
 }
-.content .tab-content#settings-tab .adsmain .adslist .adsitem .labelCont {
+.content .tab-content#settings-tab .adsmain .media-library-panel .adslist .adsitem .labelCont {
   position: absolute;
   left: 0;
   width: 75%;
@@ -1628,7 +1636,7 @@ body {
   text-indent: 10px;
   letter-spacing: 2px;
 }
-.content .tab-content#settings-tab .adsmain .adslist .adsitem .btnCont {
+.content .tab-content#settings-tab .adsmain .media-library-panel .adslist .adsitem .btnCont {
   position: absolute;
   right: 0;
   width: 25%;
@@ -1636,46 +1644,67 @@ body {
   display: flex;
   flex-direction: row;
 }
-.content .tab-content#settings-tab .adsmain .adslist .adsitem .btnCont button {
+.content .tab-content#settings-tab .adsmain .media-library-panel .adslist .adsitem .btnCont button {
   transform: scale(0.9);
   height: 100%;
   width: 50%;
   cursor: pointer;
 }
-.content .tab-content#settings-tab .adsmain .adslist .adsitem .btnCont button:hover {
+.content .tab-content#settings-tab .adsmain .media-library-panel .adslist .adsitem .btnCont button:hover {
   filter: brightness(120%);
 }
-.content .tab-content#settings-tab .adsmain .adslist .adsitem .btnCont button:active {
+.content .tab-content#settings-tab .adsmain .media-library-panel .adslist .adsitem .btnCont button:active {
   transform: scale(0.8);
 }
-.content .tab-content#settings-tab .adsmain .adslist .adsitem .btnCont .rename-btn {
+.content .tab-content#settings-tab .adsmain .media-library-panel .adslist .adsitem .btnCont .rename-btn {
   background-color: #86c2af;
   border: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
-.content .tab-content#settings-tab .adsmain .adslist .adsitem .btnCont .delete-btn {
+.content .tab-content#settings-tab .adsmain .media-library-panel .adslist .adsitem .btnCont .delete-btn {
   background-color: #d86d6d;
   border: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
-.content .tab-content#settings-tab .adsmain .adslist .adsitem.active {
+.content .tab-content#settings-tab .adsmain .media-library-panel .adslist .adsitem.active {
   color: white;
   background-color: #764ba2;
   border-color: #667eea;
 }
-.content .tab-content#settings-tab .adsmain .videocontainer {
+.content .tab-content#settings-tab .adsmain .media-preview-panel {
+  position: absolute;
+  top: 13%;
+  left: 36.5%;
+  height: 37%;
+  width: 63%;
+}
+.content .tab-content#settings-tab .adsmain .media-preview-panel .videocontainer {
   position: absolute;
   top: 10%;
   left: 40%;
-  height: 90%;
+  height: 45%;
   width: 60%;
 }
-.content .tab-content#settings-tab .adsmain .videocontainer video {
-  transform: scale(0.9);
+.content .tab-content#settings-tab .adsmain .media-preview-panel .videocontainer video {
+  transform: scale(0.8);
   border-radius: 16px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.content .tab-content#settings-tab .adsmain .playlists-panel {
+  position: absolute;
+  top: 51%;
+  left: 1%;
+  height: 48%;
+  width: 35%;
+}
+.content .tab-content#settings-tab .adsmain .schedule-panel {
+  position: absolute;
+  top: 51%;
+  left: 36.5%;
+  height: 48%;
+  width: 63%;
 }
 .content .tab-content#settings-tab .settingimages {
   display: none;

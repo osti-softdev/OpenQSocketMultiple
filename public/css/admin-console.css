@@ -12,10 +12,10 @@
   --console-bg-accent: #e9effc;
   --console-surface: #ffffff;
   --console-surface-raised: #ffffff;
-  --console-surface-soft: #f7f9fc;
-  --console-surface-hover: #eef3fb;
-  --console-border: #dfe6ef;
-  --console-border-strong: #ccd6e4;
+  --console-surface-soft: #f4f7fb;
+  --console-surface-hover: #eaf0f8;
+  --console-border: #cbd4e1;
+  --console-border-strong: #a0b0c2;
   --console-text: #1e293b;
   --console-heading: #0f172a;
   --console-muted: #64748b;
@@ -31,8 +31,8 @@
   --console-sidebar-raised: #18253b;
   --console-sidebar-text: #e8eef9;
   --console-sidebar-muted: #8494ae;
-  --console-shadow: 0 18px 45px rgba(32, 52, 89, .08);
-  --console-shadow-small: 0 6px 18px rgba(32, 52, 89, .07);
+  --console-shadow: 0 10px 35px rgba(15, 25, 45, 0.12);
+  --console-shadow-small: 0 4px 15px rgba(15, 25, 45, 0.09);
   --console-radius: 18px;
   --console-radius-small: 12px;
   --sidebar-width: 276px;
@@ -2926,7 +2926,8 @@ html[data-theme=dark] .settingfonts {
   grid-template-columns: minmax(320px, 0.7fr) minmax(420px, 1.3fr) !important;
   grid-template-rows: auto minmax(480px, 1fr) !important;
   gap: 14px !important;
-  overflow: visible !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
   border: 1px solid var(--console-border) !important;
   border-radius: var(--console-radius) !important;
   background: var(--console-surface) !important;
@@ -2939,7 +2940,7 @@ html[data-theme=dark] .settingfonts {
   grid-column: 1/-1 !important;
   width: 100% !important;
   height: auto !important;
-  min-height: 72px !important;
+  min-height: 30px !important;
   margin: 0 !important;
   padding: 0 0 15px !important;
   display: flex !important;
@@ -3059,7 +3060,9 @@ html[data-theme=dark] .settingfonts {
 }
 
 .media-library-panel,
-.media-preview-panel {
+.media-preview-panel,
+.playlists-panel,
+.schedule-panel {
   min-width: 0 !important;
   padding: 14px !important;
   display: flex !important;
@@ -3088,7 +3091,9 @@ html[data-theme=dark] .settingfonts {
 }
 
 .content .tab-content#settings-tab #advertisement-settab .media-library-panel .adslist,
-.content .tab-content#settings-tab #advertisement-settab .media-preview-panel .videocontainer {
+.content .tab-content#settings-tab #advertisement-settab .media-preview-panel .videocontainer,
+.content .tab-content#settings-tab #advertisement-settab .playlists-panel .playlists-list,
+.content .tab-content#settings-tab #advertisement-settab .schedule-panel .schedule-calendar-wrap {
   position: relative !important;
   inset: auto !important;
   width: 100% !important;
@@ -4191,22 +4196,54 @@ html.compact-sidebar .logout-btn span {
     overflow: hidden !important;
   }
   .content .tab-content#settings-tab #advertisement-settab .adsmainconfigtitle {
-    min-height: 58px !important;
     padding-bottom: 9px !important;
   }
-  .content .tab-content#settings-tab #advertisement-settab .media-library-panel,
-  .content .tab-content#settings-tab #advertisement-settab .media-preview-panel {
+  .content .tab-content#settings-tab #advertisement-settab .media-library-panel {
     min-height: 0 !important;
-    height: 100% !important;
     padding: 10px !important;
   }
-  .content .tab-content#settings-tab #advertisement-settab .media-library-panel .adslist,
+  .content .tab-content#settings-tab #advertisement-settab .media-library-panel .adslist {
+    min-height: 0 !important;
+    height: auto !important;
+    flex: 1 1 auto !important;
+  }
+  .content .tab-content#settings-tab #advertisement-settab .playlists-panel {
+    min-height: 0 !important;
+    padding: 10px !important;
+  }
+  .content .tab-content#settings-tab #advertisement-settab .playlists-panel .playlists-list {
+    min-height: 0 !important;
+    height: auto !important;
+    flex: 1 1 auto !important;
+  }
+  .content .tab-content#settings-tab #advertisement-settab .schedule-panel {
+    min-height: 0 !important;
+    padding: 10px !important;
+  }
+  .content .tab-content#settings-tab #advertisement-settab .schedule-panel .schedule-calendar-wrap {
+    min-height: 0 !important;
+    height: auto !important;
+    flex: 1 1 auto !important;
+  }
+  .content .tab-content#settings-tab #advertisement-settab .media-preview-panel {
+    min-height: 0 !important;
+    padding: 10px !important;
+  }
   .content .tab-content#settings-tab #advertisement-settab .media-preview-panel .videocontainer {
     min-height: 0 !important;
     height: auto !important;
     flex: 1 1 auto !important;
   }
-  .content .tab-content#settings-tab #advertisement-settab .media-preview-panel .videocontainer video,
+  .content .tab-content#settings-tab #advertisement-settab .media-preview-panel .videocontainer video {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    transform: none !important;
+    border-radius: 0 !important;
+  }
   .content .tab-content#settings-tab #advertisement-settab .media-preview-panel #adminAdPlayer {
     position: absolute !important;
     inset: 0 !important;
@@ -5107,7 +5144,10 @@ html.compact-sidebar .logout-btn span {
 }
 
 .content .tab-content#settings-tab #advertisement-settab .media-library-panel,
-.content .tab-content#settings-tab #advertisement-settab .media-preview-panel {
+.content .tab-content#settings-tab #advertisement-settab .media-preview-panel,
+.content .tab-content#settings-tab #advertisement-settab .playlists-panel,
+.content .tab-content#settings-tab #advertisement-settab .schedule-panel {
+  min-height: 0 !important;
   padding: 9px !important;
 }
 
@@ -5237,4 +5277,387 @@ html.compact-sidebar .logout-btn span {
 .sidebar .sidebar-nav .settingsMenu .settingsmenubtn[aria-hidden=true],
 .sidebar .sidebar-nav .settingsMenu .settingsmenubtn[style*="display: none"] {
   display: none !important;
+}
+
+/* ==========================================================
+   Playlist manager + weekly schedule calendar
+   (advertisement tab additions)
+   ========================================================== */
+.playlists-panel,
+.schedule-panel {
+  background: var(--console-surface, #fff);
+  border: 1px solid var(--console-border, #e4e7ec);
+  border-radius: 10px;
+  padding: 16px;
+}
+.playlists-panel .media-panel-title,
+.schedule-panel .media-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.playlists-panel .media-panel-title strong,
+.schedule-panel .media-panel-title strong {
+  font-size: 15px;
+}
+.playlists-panel .media-panel-title span,
+.schedule-panel .media-panel-title span {
+  color: var(--text-secondary, #6b7280);
+  font-size: 12.5px;
+  flex: 1;
+}
+
+.ads-empty-state {
+  padding: 18px;
+  text-align: center;
+  color: var(--text-secondary, #6b7280);
+  font-size: 13px;
+  border: 1px dashed var(--console-border, #e4e7ec);
+  border-radius: 8px;
+}
+.ads-empty-state.small {
+  padding: 10px;
+  font-size: 12px;
+}
+
+/* --- Playlists list --- */
+.playlists-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.playlist-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border: 1px solid var(--console-border, #e4e7ec);
+  border-radius: 8px;
+  background: var(--console-surface);
+  color: var(--console-text);
+  cursor: pointer;
+}
+.playlist-card.active {
+  border-color: color-mix(in srgb, var(--console-primary) 45%, var(--console-border)) !important;
+  background: var(--console-primary-soft) !important;
+}
+.playlist-card .playlist-card-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.playlist-card .playlist-card-info strong {
+  font-size: 13.5px;
+}
+.playlist-card .playlist-card-info small {
+  color: var(--console-muted, #6b7280);
+  font-size: 12px;
+}
+.playlist-card .badge-default {
+  font-size: 10.5px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(74, 108, 247, 0.12);
+  color: #4a6cf7;
+  font-weight: 600;
+}
+
+.btn-sm {
+  padding: 5px 12px !important;
+  font-size: 12.5px !important;
+}
+
+.btn-xs {
+  padding: 3px 9px !important;
+  font-size: 11.5px !important;
+}
+
+/* --- Playlist builder (inside modal) --- */
+.playlist-builder-list,
+.playlist-source-list {
+  max-height: 180px;
+  overflow-y: auto;
+  border: 1px solid var(--console-border, #e4e7ec);
+  border-radius: 8px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.builder-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: var(--console-surface-alt, #fafbfc);
+  cursor: grab;
+  font-size: 12.5px;
+}
+.builder-item.dragging {
+  opacity: 0.4;
+}
+.builder-item .drag-handle {
+  color: var(--text-secondary, #6b7280);
+}
+.builder-item .builder-item-name {
+  flex: 1;
+}
+.builder-item .builder-item-remove {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--text-secondary, #6b7280);
+}
+.builder-item .builder-item-remove:hover {
+  color: #e5484d;
+}
+
+.source-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  font-size: 12.5px;
+}
+
+/* --- Weekly schedule calendar --- */
+.schedule-legend {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: var(--text-secondary, #6b7280);
+}
+.schedule-legend .legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.schedule-legend .legend-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.swatch-playlist {
+  background: #4a6cf7;
+}
+
+.swatch-video {
+  background: #f7924a;
+}
+
+.swatch-inactive {
+  background: #9aa0ac;
+}
+
+.schedule-calendar-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--console-border, #e4e7ec);
+  border-radius: 8px;
+}
+
+.schedule-calendar {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  min-width: 720px;
+}
+.schedule-calendar .schedule-calendar-corner {
+  grid-column: 1;
+  grid-row: 1;
+  border-bottom: 1px solid var(--console-border, #e4e7ec);
+}
+.schedule-calendar .schedule-calendar-days {
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 1px solid var(--console-border, #e4e7ec);
+}
+.schedule-calendar .schedule-calendar-days .schedule-day-head {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 0;
+  color: var(--text-secondary, #6b7280);
+  border-left: 1px solid var(--console-border, #e4e7ec);
+}
+.schedule-calendar .schedule-calendar-days .schedule-day-head:first-child {
+  border-left: none;
+}
+.schedule-calendar .schedule-calendar-hours {
+  grid-column: 1;
+  grid-row: 2;
+  border-right: 1px solid var(--console-border, #e4e7ec);
+}
+.schedule-calendar .schedule-calendar-hours .schedule-hour-label {
+  font-size: 10.5px;
+  color: var(--text-secondary, #6b7280);
+  text-align: right;
+  padding-right: 6px;
+  box-sizing: border-box;
+  border-top: 1px solid var(--console-border, #f0f1f3);
+}
+.schedule-calendar .schedule-calendar-grid {
+  grid-column: 2;
+  grid-row: 2;
+  position: relative;
+  display: flex;
+}
+.schedule-calendar .schedule-calendar-grid .schedule-day-col {
+  flex: 1;
+  border-left: 1px solid var(--console-border, #f0f1f3);
+  display: flex;
+  flex-direction: column;
+}
+.schedule-calendar .schedule-calendar-grid .schedule-day-col:first-child {
+  border-left: none;
+}
+.schedule-calendar .schedule-calendar-grid .schedule-hour-cell {
+  box-sizing: border-box;
+  border-top: 1px solid var(--console-border, #f5f6f8);
+  cursor: pointer;
+}
+.schedule-calendar .schedule-calendar-grid .schedule-hour-cell:hover {
+  background: rgba(74, 108, 247, 0.06);
+}
+.schedule-calendar .schedule-calendar-grid .schedule-block {
+  position: absolute;
+  border-radius: 6px;
+  padding: 3px 6px;
+  color: #fff;
+  font-size: 11px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+.schedule-calendar .schedule-calendar-grid .schedule-block strong {
+  display: block;
+  font-size: 11px;
+  line-height: 1.3;
+}
+.schedule-calendar .schedule-calendar-grid .schedule-block small {
+  display: block;
+  opacity: 0.85;
+  font-size: 10px;
+}
+.schedule-calendar .schedule-calendar-grid .schedule-block:hover {
+  filter: brightness(1.08);
+  z-index: 3;
+}
+
+/* --- Lightweight modal (playlist + schedule editors) --- */
+.ads-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+.ads-modal-overlay.open {
+  display: flex;
+}
+
+.ads-modal {
+  background: var(--console-surface, #fff);
+  border-radius: 12px;
+  width: min(560px, 92vw);
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+.ads-modal .ads-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--console-border, #e4e7ec);
+}
+.ads-modal .ads-modal-header h4 {
+  font-size: 15px;
+}
+.ads-modal .ads-modal-header .ads-modal-close {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--text-secondary, #6b7280);
+  line-height: 1;
+}
+.ads-modal .ads-modal-body {
+  padding: 16px 18px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ads-modal .ads-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px 18px;
+  border-top: 1px solid var(--console-border, #e4e7ec);
+}
+.ads-modal .ads-modal-footer .btn-danger {
+  margin-right: auto;
+}
+
+.ads-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+.ads-field span {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary, #6b7280);
+}
+.ads-field input,
+.ads-field select {
+  padding: 7px 9px;
+  border: 1px solid var(--console-border, #e4e7ec);
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.ads-field-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.ads-field-inline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+}
+
+.days-checklist {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.days-checklist label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 9px;
+  border: 1px solid var(--console-border, #e4e7ec);
+  border-radius: 999px;
+  font-size: 12px;
+  cursor: pointer;
 }/*# sourceMappingURL=admin-console.css.map */
