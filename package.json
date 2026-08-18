@@ -15,7 +15,6 @@
 		"@ffmpeg/core": "^0.12.10",
 		"@ffmpeg/core-mt": "^0.12.10",
 		"@ffmpeg/ffmpeg": "^0.12.15",
-		"@serialport/parser-readline": "^13.0.0",
 		"axios": "^1.12.2",
 		"body-parser": "^2.2.0",
 		"cookie-parser": "^1.4.7",
