@@ -1621,3 +1621,50 @@ Error: Failed to copy file to printer
 ✔ 2026-08-14 5:12:53 PM [node:events:514] [ADS] Client connected: WTy1WBjz88e-flaRAAAJ
 ✔ 2026-08-14 5:14:14 PM [node:events:514] [ADS] Client disconnected: KKThlG-unLOuDxeQAAAF
 ✔ 2026-08-14 5:14:15 PM [node:events:514] [ADS] Client connected: PvDPgbo0Y-oMzSSLAAAL
+✔ 2026-08-14 5:17:41 PM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-08-14 5:17:41 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env // tip: ⌁ auth for agents [www.vestauth.com]
+✔ 2026-08-14 5:17:41 PM [node:events:628] Queue System running on http://localhost:12341
+✔ 2026-08-14 5:17:41 PM [unknown-location] Connected to SQLite database
+✔ 2026-08-14 5:17:41 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-14 5:17:41 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-14 5:17:41 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-08-14 5:17:41 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-14 5:17:43 PM [node:events:514] [ADS] Client connected: ZT3Dd8LW4XBSB-4hAAAB
+✔ 2026-08-14 5:17:43 PM [node:events:514] [ADS] Client connected: _rlg3zUhMviTXN8pAAAD
+✔ 2026-08-14 5:17:43 PM [node:events:514] [ADS] Client connected: v8S37fM7tBkMrol5AAAF
+✔ 2026-08-14 5:17:44 PM [node:events:514] [ADS] Client connected: l5JF6EngSXGJmxHhAAAH
+✔ 2026-08-14 5:18:28 PM [node:events:514] [ADS] Client disconnected: ZT3Dd8LW4XBSB-4hAAAB
+✔ 2026-08-14 5:22:17 PM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-08-14 5:22:17 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-14 5:22:17 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-08-14 5:22:17 PM [node:events:514] [ADS] Client connected: qTyXQFBi2UOsLltBAAAJ
+✔ 2026-08-14 5:33:15 PM [node:events:514] [ADS] Client disconnected: v8S37fM7tBkMrol5AAAF
+✔ 2026-08-15 8:24:52 AM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-08-15 8:24:53 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env // tip: ◈ encrypted .env [www.dotenvx.com]
+✔ 2026-08-15 8:25:03 AM [node:events:628] Queue System running on http://localhost:12341
+✔ 2026-08-15 8:25:03 AM [unknown-location] Connected to SQLite database
+✔ 2026-08-15 8:25:03 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-15 8:25:03 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-15 8:25:03 AM [unknown-location] Found 77 transactions older than 365 days. Archiving...
+✔ 2026-08-15 8:25:03 AM [backend\utilities\db.js:408] Successfully archived 77 transactions to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\backups\transactions_archive_2026-08-15T00-25-03-884Z.csv
+✔ 2026-08-15 8:25:06 AM [unknown-location] Deleted 77 old transactions from database.
+✔ 2026-08-15 8:25:06 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-15 8:25:09 AM [node:events:514] [ADS] Client connected: _OTkfKKE1Q883U-gAAAB
+✔ 2026-08-15 8:25:10 AM [node:events:514] [ADS] Client connected: -60gtmIQ3YeVWzDaAAAD
+✔ 2026-08-15 8:25:52 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-08-15 8:25:52 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-15 8:25:52 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-08-15 8:25:54 AM [node:events:514] [ADS] Client connected: d79ExXaYgFB2zsVpAAAF
+✔ 2026-08-15 8:29:39 AM [node:events:514] [ADS] Client disconnected: -60gtmIQ3YeVWzDaAAAD
+✔ 2026-08-15 8:29:39 AM [node:events:514] [ADS] Client connected: wz2gO_aVGkVHv2nlAAAH
+✔ 2026-08-15 9:26:01 AM [node:events:514] [ADS] Client disconnected: d79ExXaYgFB2zsVpAAAF
+✔ 2026-08-15 9:37:26 AM [node:events:514] [ADS] Client connected: JEYGvwpk-2N8W1ZyAAAJ
+✔ 2026-08-15 9:37:30 AM [node:events:514] [ADS] Client disconnected: JEYGvwpk-2N8W1ZyAAAJ
+✔ 2026-08-15 9:37:30 AM [node:events:514] [ADS] Client connected: YKzmq4gdn732uGPrAAAL
+✔ 2026-08-15 9:37:33 AM [node:events:514] [ADS] Client disconnected: YKzmq4gdn732uGPrAAAL
+✔ 2026-08-15 9:37:33 AM [node:events:514] [ADS] Client connected: 6Qx0hAvdOAPVjP7zAAAN
+✔ 2026-08-15 9:37:34 AM [node:events:514] [ADS] Client disconnected: 6Qx0hAvdOAPVjP7zAAAN
+✔ 2026-08-15 9:37:34 AM [node:events:514] [ADS] Client connected: grZWjaDSxsyiogawAAAP
+✔ 2026-08-15 9:37:39 AM [node:events:514] [ADS] Client disconnected: grZWjaDSxsyiogawAAAP
+✔ 2026-08-15 9:37:39 AM [node:events:514] [ADS] Client connected: OQJMe59_SbxkHziqAAAR
+✔ 2026-08-15 9:37:45 AM [node:events:514] [ADS] Client disconnected: OQJMe59_SbxkHziqAAAR
