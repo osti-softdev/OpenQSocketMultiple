@@ -153,6 +153,8 @@ $(document).ready(async function () {
                     <button class="service-button ${selectedType === 0 ? 'regbtn' : 'priobtn'} sub-service-button"
                         data-sname="${sname}"
                         data-ticketservice="${ticketservice}"
+                        data-shortsname="${shortSname}"
+                        data-subsname="${subsname}"
                         data-subservice="${subItem}">
                         ${subItem}
                     </button>
@@ -174,18 +176,18 @@ $(document).ready(async function () {
             $.get('/api/sms-config', function (config) {
                 if (config.success && config.allowSms) {
                     // Show Dialer UI
-                    showDialerModal(sname, shortSname,subsname, ticketservice, subService, config.privacyPolicy);
+                    showDialerModal(sname, shortSname, subsname, ticketservice, subService, config.privacyPolicy);
                 } else {
                     // SMS disabled, process normally
-                    processTicket(sname, shortSname,subsname, ticketservice, null, subService);
+                    processTicket(sname, shortSname, subsname, ticketservice, null, subService);
                 }
             }).fail(function () {
                 // Fallback if API fails
-                processTicket(sname, shortSname, subsname,ticketservice, null, subService);
+                processTicket(sname, shortSname, subsname, ticketservice, null, subService);
             });
         }
 
-        function showDialerModal(sname, shortSname, subsname,ticketservice, subService, privacyPolicy) {
+        function showDialerModal(sname, shortSname, subsname, ticketservice, subService, privacyPolicy) {
             let dialerHtml = `
             <div class="dialer-container" style="display: flex; gap: 20px; text-align: left; height: 50vh; min-height: 400px;">
                 
@@ -250,18 +252,18 @@ $(document).ready(async function () {
                     // Validate exactly 11 digits and starts with 09
                     if (mobile.length !== 11 || !mobile.startsWith('09')) {
                         Swal.fire('Invalid Number', 'Mobile number must start with 09 and be exactly 11 digits long.', 'error').then(() => {
-                            showDialerModal(sname, shortSname, subsname,ticketservice, subService, privacyPolicy);
+                            showDialerModal(sname, shortSname, subsname, ticketservice, subService, privacyPolicy);
                         });
                         return;
                     }
-                    processTicket(sname, shortSname,subsname, ticketservice, mobile, subService);
+                    processTicket(sname, shortSname, subsname, ticketservice, mobile, subService);
                 } else if (result.isDenied) {
-                    processTicket(sname, shortSname,subsname, ticketservice, null, subService);
+                    processTicket(sname, shortSname, subsname, ticketservice, null, subService);
                 }
             });
         }
 
-        function processTicket(sname, shortSname,subsname, ticketservice, mobile, subService) {
+        function processTicket(sname, shortSname, subsname, ticketservice, mobile, subService) {
             Swal.fire({
                 title: "Processing...",
                 html: "<p>Inserting and Printing your ticket, please wait...</p>",
@@ -270,7 +272,7 @@ $(document).ready(async function () {
                 didOpen: () => Swal.showLoading(),
             });
 
-            const payload = { sname, shortSname,subsname, ticketservice, selectedType, stats: "onprem" };
+            const payload = { sname, shortSname, subsname, ticketservice, selectedType, stats: "onprem" };
             if (mobile) payload.mobile = mobile;
             if (subService) payload.sub_services = subService;
 
