@@ -60,8 +60,6 @@
    97  cd OpenQSocketMultiple
    98  ls
    99  cd outfolder
-  100  ls
-  101  nano .env
   102  ls
   103  cd config
   104  ls
