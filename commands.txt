@@ -67,3 +67,25 @@
   106  cd ..
   139  {- OPEN FILE NGINX_CONFIG.txt and follow all instructions - }
   270  pm2 monit
+ 194  source venv/bin/activate
+  195  python -m pip install --upgrade pip
+  196  python -m pip install gpiozero
+ python -c "from gpiozero import Button, LED; print('GPIOZERO OK')"
+204  npm start
+  205  python -m pip install RPLCD
+npm start
+python -m pip install smbus2
+npm start
+sudo apt install -y swig build-essential python3-dev
+  228  sudo apt update
+sudo apt install -y liblgpio-dev~
+  233  cat /etc/os-release
+  234  apt-cache search lgpio
+  235  sudo apt update
+  236  sudo apt install -y liblgpio-dev liblgpio1
+  237  dpkg -L liblgpio-dev | grep liblgpio
+  238  ldconfig -p | grep lgpio
+  239  python -m pip install --no-cache-dir lgpio
+  240  python -c "import lgpio; print('LGPIO OK')"
+  241  npm start
+
