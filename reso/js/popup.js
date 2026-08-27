@@ -97,51 +97,128 @@ function hidePopup() {
 	if (videoElement && videoElement.readyState >= 3) videoElement.play();
 }
 
+// function speakTicketTwice(ticketData, onFinish) {
+// 	const synth = window.speechSynthesis;
+// 	if (!voices.length) voices = synth.getVoices();
+
+// 	const audioElement = $("#audio")[0];
+// 	if (audioElement) audioElement.volume = voiceConfig.bell_volume || 1;
+
+// 	const serviceCleaned = ticketData.service.replace(/-/g, " ");
+// 	const serviceSeparated = serviceCleaned.split("").join(", ");
+// 	let ticks = ticketData.sname.replace("_"," ");
+
+// 	let msg = null;
+	
+// 	if(counterDisplayer != 1){
+// 		msg = new SpeechSynthesisUtterance(
+// 			`Now serving, ${serviceSeparated}${ticketData.ticket}, ${ticks}`
+// 		);
+// 	}else{
+// 		msg = new SpeechSynthesisUtterance(
+// 			`Now serving, ${serviceSeparated}${ticketData.ticket}, Counter ${ticketData.counter_num}`
+// 		);
+// 	}
+	
+// 	msg.voice = voices[voiceConfig.voice] || voices[0];
+// 	msg.pitch = voiceConfig.voice_pitch || 1;
+// 	msg.rate = voiceConfig.voice_rate || 1;
+// 	msg.volume = voiceConfig.voice_volume || 1;
+
+// 	let speakCount = 0;
+
+// 	msg.onstart = () => {
+// 		if (audioElement) {
+// 			audioElement.currentTime = 0;
+// 			audioElement.play();
+// 		}
+// 	};
+
+// 	msg.onend = () => {
+// 		speakCount++;
+// 		if (speakCount < 2) {
+// 			synth.speak(msg);
+// 		} else {
+// 			if (typeof onFinish === "function") onFinish();
+// 		}
+// 	};
+
+// 	synth.speak(msg);
+// }
+
+
 function speakTicketTwice(ticketData, onFinish) {
-	const synth = window.speechSynthesis;
-	if (!voices.length) voices = synth.getVoices();
+    const audioElement = $("#audio")[0];
+    if (audioElement) audioElement.volume = voiceConfig.bell_volume || 1;
 
-	const audioElement = $("#audio")[0];
-	if (audioElement) audioElement.volume = voiceConfig.bell_volume || 1;
+    // Build the announcement text (same logic as before)
+    const serviceCleaned = ticketData.service.replace(/-/g, " ");
+    const serviceSeparated = serviceCleaned.split("").join(", ");
+    let ticks = ticketData.sname.replace("_", " ");
 
-	const serviceCleaned = ticketData.service.replace(/-/g, " ");
-	const serviceSeparated = serviceCleaned.split("").join(", ");
-	let ticks = ticketData.sname.replace("_"," ");
+    let text = "";
+    if (counterDisplayer != 1) {
+        text = `Now serving, ${serviceSeparated}${ticketData.ticket}, ${ticks}`;
+    } else {
+        text = `Now serving, ${serviceSeparated}${ticketData.ticket}, Counter ${ticketData.counter_num}`;
+    }
 
-	let msg = null;
-	
-	if(counterDisplayer != 1){
-		msg = new SpeechSynthesisUtterance(
-			`Now serving, ${serviceSeparated}${ticketData.ticket}, ${ticks}`
-		);
-	}else{
-		msg = new SpeechSynthesisUtterance(
-			`Now serving, ${serviceSeparated}${ticketData.ticket}, Counter ${ticketData.counter_num}`
-		);
-	}
-	
-	msg.voice = voices[voiceConfig.voice] || voices[0];
-	msg.pitch = voiceConfig.voice_pitch || 1;
-	msg.rate = voiceConfig.voice_rate || 1;
-	msg.volume = voiceConfig.voice_volume || 1;
+    // ── 🔀 Route to Flutter Native TTS (Android TV kiosk) ─────────────────
+    // When running inside the Flutter WebView, window.NativeTTS is injected
+    // by the JS channel. Android TV has no system TTS engine, so we must
+    // use the Flutter bridge. The bell sound still plays normally.
+    if (window.NativeTTS) {
+        // Play bell first
+        if (audioElement) {
+            audioElement.currentTime = 0;
+            audioElement.play();
+        }
 
-	let speakCount = 0;
+        // Send text to Flutter → flutter_tts speaks it natively.
+        // We speak it twice with a delay between repetitions.
+        NativeTTS.postMessage(text);
 
-	msg.onstart = () => {
-		if (audioElement) {
-			audioElement.currentTime = 0;
-			audioElement.play();
-		}
-	};
+        // Estimate speech duration: ~130 words/min at rate 0.5, 
+        // or use a flat delay based on text length.
+        const durationMs = Math.max(3000, text.length * 60) / (voiceConfig.voice_rate || 1);
 
-	msg.onend = () => {
-		speakCount++;
-		if (speakCount < 2) {
-			synth.speak(msg);
-		} else {
-			if (typeof onFinish === "function") onFinish();
-		}
-	};
+        setTimeout(() => {
+            NativeTTS.postMessage(text);         // second repetition
+            setTimeout(() => {
+                if (typeof onFinish === "function") onFinish();
+            }, durationMs);
+        }, durationMs);
 
-	synth.speak(msg);
+        return; // ← exit early; don't run the SpeechSynthesis path below
+    }
+
+    // ── 🌐 Fallback: Browser SpeechSynthesis (desktop / mobile browser) ───
+    const synth = window.speechSynthesis;
+    if (!voices.length) voices = synth.getVoices();
+
+    const msg = new SpeechSynthesisUtterance(text);
+    msg.voice = voices[voiceConfig.voice] || voices[0];
+    msg.pitch = voiceConfig.voice_pitch || 1;
+    msg.rate  = voiceConfig.voice_rate  || 1;
+    msg.volume = voiceConfig.voice_volume || 1;
+
+    let speakCount = 0;
+
+    msg.onstart = () => {
+        if (audioElement) {
+            audioElement.currentTime = 0;
+            audioElement.play();
+        }
+    };
+
+    msg.onend = () => {
+        speakCount++;
+        if (speakCount < 2) {
+            synth.speak(msg);
+        } else {
+            if (typeof onFinish === "function") onFinish();
+        }
+    };
+
+    synth.speak(msg);
 }
