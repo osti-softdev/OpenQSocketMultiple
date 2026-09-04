@@ -1788,3 +1788,51 @@ Error: Failed to copy file to printer
 ✔ 2026-08-19 5:39:36 PM [node:events:509] [ADS] Client connected: R81TTsMwaAk9a3sFAABe
 ✔ 2026-08-19 5:41:57 PM [node:events:509] [ADS] Client disconnected: UOF6psp31UUB7yZQAAAD
 ✔ 2026-08-19 5:41:57 PM [node:events:509] [ADS] Client disconnected: R81TTsMwaAk9a3sFAABe
+✔ 2026-08-28 9:16:26 AM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-08-28 9:16:29 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ encrypted .env [www.dotenvx.com][0m
+✔ 2026-08-28 9:16:35 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-08-28 9:16:35 AM [unknown-location] Connected to SQLite database
+✔ 2026-08-28 9:16:36 AM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-08-28 9:16:37 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-28 9:16:37 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-08-28 9:16:37 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-08-28 9:16:37 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-08-28 9:16:37 AM [unknown-location] Found 607 transactions older than 365 days. Archiving...
+✔ 2026-08-28 9:16:37 AM [backend\utilities\db.js:408] Successfully archived 607 transactions to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\backups\transactions_archive_2026-08-28T01-16-37-833Z.csv
+✔ 2026-08-28 9:16:37 AM [unknown-location] Deleted 607 old transactions from database.
+✔ 2026-08-28 9:16:40 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-08-28 9:16:48 AM [node:events:509] [ADS] Client connected: SZFlbN5dDXJmW4zEAAAC
+✔ 2026-08-28 9:16:50 AM [node:events:509] [ADS] Client connected: FAhxaP2wpn_pbRM-AAAD
+✔ 2026-08-28 9:26:26 AM [backend\routes\AkioskApi.js:55] PLANNING
+✔ 2026-08-28 9:26:26 AM [backend\routes\AkioskApi.js:56] PLANNING
+✔ 2026-08-28 9:26:26 AM [backend\routes\AkioskApi.js:57] Counter 6
+✔ 2026-08-28 9:26:26 AM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-08-28 9:26:26 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-28 9:26:28 AM [backend\utilities\printer.js:43] PHP STDOUT: 
+Warning: copy(\\OCTAGRAM\POS-85): Failed to open stream: No such file or directory in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintConnectors\WindowsPrintConnector.php on line 372
+Error: Failed to copy file to printer
+✔ 2026-08-28 9:26:34 AM [backend\routes\AkioskApi.js:55] OTHERS
+✔ 2026-08-28 9:26:34 AM [backend\routes\AkioskApi.js:56] OTHERS
+✔ 2026-08-28 9:26:34 AM [backend\routes\AkioskApi.js:57] Counter 7,8,9,10
+✔ 2026-08-28 9:26:34 AM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-08-28 9:26:34 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-28 9:26:35 AM [backend\utilities\printer.js:43] PHP STDOUT: 
+Warning: copy(\\OCTAGRAM\POS-85): Failed to open stream: No such file or directory in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintConnectors\WindowsPrintConnector.php on line 372
+Error: Failed to copy file to printer
+✔ 2026-08-28 9:26:40 AM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-08-28 9:26:40 AM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-08-28 9:26:40 AM [backend\routes\AkioskApi.js:57] Counter 3
+✔ 2026-08-28 9:26:40 AM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-08-28 9:26:40 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-08-28 9:26:40 AM [backend\utilities\printer.js:43] PHP STDOUT: 
+Warning: copy(\\OCTAGRAM\POS-85): Failed to open stream: No such file or directory in E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\printer\vendor\mike42\escpos-php\src\Mike42\Escpos\PrintConnectors\WindowsPrintConnector.php on line 372
+Error: Failed to copy file to printer
+✔ 2026-08-28 9:26:44 AM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-08-28 9:26:44 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-28 9:26:44 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-08-28 9:27:59 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-08-28 9:27:59 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-08-28 9:27:59 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-08-28 9:28:00 AM [node:events:509] [ADS] Client connected: D0oHT455uWSv_UGiAAAF
+✔ 2026-08-28 9:29:25 AM [node:events:509] [ADS] Client disconnected: D0oHT455uWSv_UGiAAAF
+✔ 2026-08-28 9:29:27 AM [node:events:509] [ADS] Client disconnected: FAhxaP2wpn_pbRM-AAAD
