@@ -24,7 +24,7 @@ function initDashboard() {
     loadQueueData();
     loadHeldTickets();
     loadForwardedTickets();
-    
+
     // Check if teller is currently serving a ticket (refresh case)
     $.ajax({
         url: '/api/tickets/called',
@@ -34,7 +34,7 @@ function initDashboard() {
                 t => Number(t.counter_num) === Number(currentTeller.counter_number)
             );
             if (myTicket) {
-                if(myTicket.status === 'held' || myTicket.status === 'received' || myTicket.status === 'voided' || myTicket.status === 'finished') {
+                if (myTicket.status === 'held' || myTicket.status === 'received' || myTicket.status === 'voided' || myTicket.status === 'finished') {
                     return;
                 }
                 currentTicket = myTicket;
@@ -73,16 +73,16 @@ function refreshTellerAssignment() {
 }
 // ^ Auto-call next ticket for any service
 $('#auto-call-btn').click(function () {
-        if (!currentTeller) return;
-        callNext('auto');
+    if (!currentTeller) return;
+    callNext('auto');
 });
 // ^ Search functionality for waiting queue
- $('#queue-search').on('input', function () {
-        const val = $(this).val().toLowerCase();
-        $('.queue-item').each(function () {
-            const text = $(this).text().toLowerCase();
-            $(this).toggle(text.indexOf(val) > -1);
-        });
+$('#queue-search').on('input', function () {
+    const val = $(this).val().toLowerCase();
+    $('.queue-item').each(function () {
+        const text = $(this).text().toLowerCase();
+        $(this).toggle(text.indexOf(val) > -1);
+    });
 });
 // ^ DISPLAY LOGIN SECTION
 function showLoginSection() {
@@ -95,9 +95,9 @@ function showLoginSection() {
 function showTellerSection() {
     $('#loginSec').hide();
     $('#tellerSec').show();
-    $('#counter-number').text("Counter "+currentTeller.counter_number);
+    $('#counter-number').text("Counter " + currentTeller.counter_number);
     $('#teller-username').text(currentTeller.username);
-    $('#avatar-initials').text(currentTeller.username.charAt(0).toUpperCase()+currentTeller.counter_number);
+    $('#avatar-initials').text(currentTeller.username.charAt(0).toUpperCase() + currentTeller.counter_number);
 }
 // ^ Load queue data
 function loadQueueData() {
@@ -152,7 +152,7 @@ function getTicketServiceName(ticket) {
 function loadHeldTickets() {
     if (!currentTeller) return;
 
-    $.get('/api/tickets/held', { tellerId: currentTeller.counter_number }, function(tickets) {
+    $.get('/api/tickets/held', { tellerId: currentTeller.counter_number }, function (tickets) {
         const $queue = $('#held-queue');
         $queue.empty();
 
@@ -166,7 +166,7 @@ function loadHeldTickets() {
 
         // Held Tickets Render Update
         tickets.forEach(ticket => {
-        const isPriority = ticket.priority === 1;
+            const isPriority = ticket.priority === 1;
             const $item = $(`
                 <div class="queue-item ${isPriority ? 'priority' : ''}">
                     <div class="queue-item-info">
@@ -190,10 +190,10 @@ function loadHeldTickets() {
 function loadForwardedTickets() {
     if (!currentTeller) return;
 
-    $.get('/api/tickets/forwarded', { 
-        tellerId: currentTeller.id, 
-        groupId: currentTeller.group_id 
-    }, function(tickets) {
+    $.get('/api/tickets/forwarded', {
+        tellerId: currentTeller.id,
+        groupId: currentTeller.group_id
+    }, function (tickets) {
         const $queue = $('#forward-queue');
         $queue.empty();
 
@@ -206,7 +206,7 @@ function loadForwardedTickets() {
         updateTicketCountBadge('.forwardTickets', tickets.length);
 
         tickets.forEach(ticket => {
-        const isPriority = ticket.priority === 1;
+            const isPriority = ticket.priority === 1;
             const $item = $(`
                 <div class="queue-item ${isPriority ? 'priority' : ''}">
                     <div class="queue-item-info">
@@ -231,8 +231,8 @@ function loadForwardedTickets() {
 function loadHistory() {
     if (!currentTeller) return;
 
-    $.get('/api/tickets/history', { 
-          counterNumber: currentTeller.counter_number, cname: currentTeller.username,
+    $.get('/api/tickets/history', {
+        counterNumber: currentTeller.counter_number, cname: currentTeller.username,
     }, function (tickets) {
         const $list = $('#history-list');
         $list.empty();
@@ -282,8 +282,8 @@ function loadHistory() {
                 </tr>
             `);
 
-            
-            $row.find('.call-again-btn').click(function() {
+
+            $row.find('.call-again-btn').click(function () {
                 if (currentTicket) {
                     showMsg("warning", `Please complete or hold your current ticket first.`);
                     return;
@@ -298,16 +298,16 @@ function loadHistory() {
 }
 // ^ Update last called tickets
 function updateLastCalled(calledTickets) {
-        const services = currentTeller.services.split(',').map(s => s.trim());
+    const services = currentTeller.services.split(',').map(s => s.trim());
 
     services.forEach(service => {
         const lastTicket = calledTickets.find(t => t.sname === service);
-        $(`#service-box-${service} .last`).text(lastTicket ? lastTicket.ticketservice+lastTicket.ticketnum : '-');
+        $(`#service-box-${service} .last`).text(lastTicket ? lastTicket.ticketservice + lastTicket.ticketnum : '-');
     });
 }
 // ^ Display current ticket
 function displayCurrentTicket(ticket) {
-    if(ticket.status === 'held' || ticket.status === 'forwarded' || ticket.status === 'voided' || ticket.status === 'finished') {
+    if (ticket.status === 'held' || ticket.status === 'forwarded' || ticket.status === 'voided' || ticket.status === 'finished') {
         return;
     }
     const $display = $('.currentCalledTicket');
@@ -320,7 +320,7 @@ function displayCurrentTicket(ticket) {
         </div>
     `);
     $('#start-time').text(ticket.start_time);
-    startDurationTimer(ticket.start_time,ticket.date);
+    startDurationTimer(ticket.start_time, ticket.date);
 }
 // ^ Clear Current Ticket
 function clearCurrentTicket() {
@@ -346,8 +346,19 @@ function createServiceBoxes() {
             catalogServicesList = response.data;
         }
 
+        $grid.empty();
+
         services.forEach(service => {
-            const $box = $('<div>').addClass('service-box').attr('id', `service-box-${service}`);
+            const $box = $('<div>')
+                .addClass('service-box')
+                .attr('id', `service-box-${service}`)
+                .css({
+                    'position': 'relative',
+                    'width': '100%',
+                    'flex-shrink': '0',
+                    'margin-bottom': '12px',
+                    'box-sizing': 'border-box'
+                });
             const Sname = service.replace(/_/g, " ");
 
             const sObj = catalogServicesList.find(x => x.sname === service);
@@ -358,32 +369,34 @@ function createServiceBoxes() {
             let subServicesHtml = '';
             if (subList.length > 0) {
                 subServicesHtml = `
-                <div class="sub-service-section" style="margin-top: 10px; border-top: 1px dashed rgba(0,0,0,0.15); padding-top: 8px;">
-                    <div style="font-size: 11px; font-weight: bold; margin-bottom: 6px; color: #555; text-transform: uppercase;">Sub Services Call Buttons</div>
-                    <div class="sub-service-list" style="display: flex; flex-direction: column; gap: 6px;">
+                <div class="sub-service-section" style="width: 100%; margin-top: 8px; border-top: 1px dashed var(--caller-border, rgba(0,0,0,0.15)); padding-top: 6px; flex: 1; min-height: 0; display: flex; flex-direction: column;">
+                    <div style="font-size: 11px; font-weight: bold; margin-bottom: 6px; color: var(--caller-muted, #555); text-transform: uppercase; flex-shrink: 0;">Sub Services Call Buttons</div>
+                    <div class="sub-service-list" style="display: flex; flex-direction: column; gap: 6px; max-height: 140px; overflow-y: auto; padding-right: 4px; scrollbar-width: thin;">
                         ${subList.map(subItem => {
-                            const safeSubId = subItem.replace(/[^a-zA-Z0-9]/g, '_');
-                            return `
-                            <div class="sub-service-row" style="display: flex; align-items: center; justify-content: space-between; gap: 6px; font-size: 12px; background: rgba(0,0,0,0.03); padding: 4px 8px; border-radius: 4px;">
-                                <span class="sub-service-title" style="flex: 1; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${subItem}">${subItem}</span>
-                                <button class="btn btn-sm btn-primary call-sub-regular" data-service="${service}" data-subservice="${subItem}" style="padding: 2px 6px; font-size: 11px;">Reg (<b class="count-sub-reg-${service}-${safeSubId}">0</b>)</button>
-                                <button class="btn btn-sm btn-danger call-sub-priority" data-service="${service}" data-subservice="${subItem}" style="padding: 2px 6px; font-size: 11px;">Pri (<b class="count-sub-pri-${service}-${safeSubId}">0</b>)</button>
+                    const safeSubId = subItem.replace(/[^a-zA-Z0-9]/g, '_');
+                    return `
+                            <div class="sub-service-row" style="display: flex; align-items: center; justify-content: space-between; gap: 6px; font-size: 12px; background: var(--caller-surface, rgba(0,0,0,0.03)); border: 1px solid var(--caller-border, transparent); padding: 4px 8px; border-radius: 4px; flex-shrink: 0;">
+                                <span class="sub-service-title" style="flex: 1; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--caller-text, inherit);" title="${subItem}">${subItem}</span>
+                                <button class="btn btn-sm btn-primary call-sub-regular" data-service="${service}" data-subservice="${subItem}" style="padding: 2px 6px; font-size: 11px; flex-shrink: 0;">Reg (<b class="count-sub-reg-${service}-${safeSubId}">0</b>)</button>
+                                <button class="btn btn-sm btn-danger call-sub-priority" data-service="${service}" data-subservice="${subItem}" style="padding: 2px 6px; font-size: 11px; flex-shrink: 0;">Pri (<b class="count-sub-pri-${service}-${safeSubId}">0</b>)</button>
                             </div>
                             `;
-                        }).join('')}
+                }).join('')}
                     </div>
                 </div>
                 `;
             }
 
             $box.html(`
-                <div class="service-stats">
-                    <h5>${Sname}</h5>
-                    <div class="stat-item">Last: <span class="last">-</span></div>
-                </div>
-                <div class="service-btns">
-                    <button class="btn btn-primary call-regular" data-service="${service}">Reg ( <b class="count-reg">0</b> )</button>
-                    <button class="btn btn-danger call-priority" data-service="${service}">Pri ( <b class="count-pri">0</b> )</button>
+                <div class="service-main-row" style="flex-shrink: 0;">
+                    <div class="service-stats">
+                        <h5>${Sname}</h5>
+                        <div class="stat-item">Last: <span class="last">-</span></div>
+                    </div>
+                    <div class="service-btns">
+                        <button class="btn btn-primary call-regular" data-service="${service}">Reg ( <b class="count-reg">0</b> )</button>
+                        <button class="btn btn-danger call-priority" data-service="${service}">Pri ( <b class="count-pri">0</b> )</button>
+                    </div>
                 </div>
                 ${subServicesHtml}
             `);
@@ -555,7 +568,7 @@ function executeCall(data) {
                 loadHeldTickets();
                 loadForwardedTickets();
             } else {
-                    showMsg("warning", `${response.message || 'No tickets available'}`);
+                showMsg("warning", `${response.message || 'No tickets available'}`);
             }
         }
     });
@@ -567,7 +580,7 @@ function recallTicket() {
         method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({ ticketId: currentTicket.id, cname: currentTeller.username, cnum: currentTeller.counter_number }),
-        success: function(response) {
+        success: function (response) {
             showMsg("info", `Ticket recalled`);
         }
     });
@@ -575,20 +588,20 @@ function recallTicket() {
 // ^ Complete a Ticket
 function completeTicket() {
     $.ajax({
-            url: '/api/tickets/complete',
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({ ticketId: currentTicket.id, cname: currentTeller.username, cnum: currentTeller.counter_number }),
-            success: function () {
-                currentTicket = null;
-                stopDurationTimer();
-                clearCurrentTicket();
-                loadQueueData();
-                loadHeldTickets();
-                loadForwardedTickets();
-                // showMsg("info", `Ticket ${currentTicket} finished`);
-            }
-        });
+        url: '/api/tickets/complete',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ ticketId: currentTicket.id, cname: currentTeller.username, cnum: currentTeller.counter_number }),
+        success: function () {
+            currentTicket = null;
+            stopDurationTimer();
+            clearCurrentTicket();
+            loadQueueData();
+            loadHeldTickets();
+            loadForwardedTickets();
+            // showMsg("info", `Ticket ${currentTicket} finished`);
+        }
+    });
 }
 // ^ Hold a Ticket
 function holdTicket() {
@@ -597,7 +610,7 @@ function holdTicket() {
         method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({ ticketId: currentTicket.id, cname: currentTeller.username, cnum: currentTeller.counter_number }),
-        success: function() {
+        success: function () {
             currentTicket = null;
             clearCurrentTicket();
             loadQueueData();
@@ -612,21 +625,21 @@ function resumeHeldTicket(ticketId) {
         url: '/api/tickets/resume',
         method: 'POST',
         contentType: 'application/json',
-        data: JSON.stringify({ 
+        data: JSON.stringify({
             ticketId: ticketId,
             tellerId: currentTeller.id,
             counterNumber: currentTeller.counter_number,
             counter_group: currentTeller.group_name,
             counter_user: currentTeller.username
         }),
-        success: function(response) {
+        success: function (response) {
             if (response.success) {
                 currentTicket = response.ticket;
                 displayCurrentTicket(currentTicket);
                 loadQueueData();
                 loadHeldTickets();
 
-            // showMsg("info", `Ticket ${currentTicket} called`);
+                // showMsg("info", `Ticket ${currentTicket} called`);
             }
         }
     });
@@ -677,7 +690,7 @@ function openForwardModal(ticket = currentTicket) {
     forwardTicketContext = ticket;
 
     // Load tellers
-    $.get('/api/tellers/list', { groupId: currentTeller.group_id, id: currentTeller.id }, function(tellers) {
+    $.get('/api/tellers/list', { groupId: currentTeller.group_id, id: currentTeller.id }, function (tellers) {
         const $select = $('#forward-teller-id');
         $select.find('option:not(:first)').remove();
         tellers.forEach(t => {
@@ -688,7 +701,7 @@ function openForwardModal(ticket = currentTicket) {
     });
 
     // Load groups
-    $.get('/api/groups/list', function(groups) {
+    $.get('/api/groups/list', function (groups) {
         const $select = $('#forward-group-id');
         $select.find('option:not(:first)').remove();
         groups.forEach(g => {
@@ -712,7 +725,7 @@ function confirmForward() {
     }
 
     if (!toTellerId && !toGroupId) {
-           showMsg("warning", "Please select a teller or group");
+        showMsg("warning", "Please select a teller or group");
         return;
     }
 
@@ -729,7 +742,7 @@ function confirmForward() {
             cname: currentTeller.username,
             cnum: currentTeller.counter_number
         }),
-        success: function() {
+        success: function () {
             $('#forward-modal').hide();
             if (currentTicket && Number(currentTicket.id) === Number(ticketToForward.id)) {
                 currentTicket = null;
@@ -740,7 +753,7 @@ function confirmForward() {
             loadHeldTickets();
             loadForwardedTickets();
             loadHistory();
-           showMsg("success", "Ticket sent ✅")
+            showMsg("success", "Ticket sent ✅")
         }
     });
 }
@@ -761,15 +774,15 @@ function confirmVoid() {
             ticketId: currentTicket.id,
             reason: reason,
             notes: notes,
-            cname: currentTeller.username, 
-            cnum: currentTeller.counter_number 
+            cname: currentTeller.username,
+            cnum: currentTeller.counter_number
         }),
-        success: function() {
+        success: function () {
             $('#void-modal').hide();
             currentTicket = null;
             clearCurrentTicket();
             loadQueueData();
-           showMsg("success", "Ticket voided successfully");
+            showMsg("success", "Ticket voided successfully");
         }
     });
 }

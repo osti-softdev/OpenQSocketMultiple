@@ -1836,3 +1836,332 @@ Error: Failed to copy file to printer
 ✔ 2026-08-28 9:28:00 AM [node:events:509] [ADS] Client connected: D0oHT455uWSv_UGiAAAF
 ✔ 2026-08-28 9:29:25 AM [node:events:509] [ADS] Client disconnected: D0oHT455uWSv_UGiAAAF
 ✔ 2026-08-28 9:29:27 AM [node:events:509] [ADS] Client disconnected: FAhxaP2wpn_pbRM-AAAD
+✔ 2026-09-04 4:24:52 PM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-09-04 4:24:53 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ secrets for agents [www.dotenvx.com][0m
+✔ 2026-09-04 4:25:00 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-09-04 4:25:01 PM [unknown-location] Connected to SQLite database
+✔ 2026-09-04 4:25:02 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-09-04 4:25:02 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-09-04 4:25:03 PM [unknown-location] Found 492 transactions older than 365 days. Archiving...
+✔ 2026-09-04 4:25:03 PM [backend\utilities\db.js:408] Successfully archived 492 transactions to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\backups\transactions_archive_2026-09-04T08-25-03-058Z.csv
+✔ 2026-09-04 4:25:06 PM [unknown-location] Deleted 492 old transactions from database.
+✔ 2026-09-04 4:25:07 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-09-04 4:25:11 PM [node:events:509] [ADS] Client connected: rXO2QKLC5y8DiOhnAAAC
+✔ 2026-09-04 4:25:11 PM [node:events:509] [ADS] Client connected: YO0aVL4hY2X6HvvuAAAD
+✔ 2026-09-04 4:25:22 PM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-09-04 4:25:22 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-09-04 4:25:22 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-09-04 4:25:24 PM [node:events:509] [ADS] Client connected: QeW_hlmcBdSECS47AAAF
+✔ 2026-09-04 4:25:52 PM [node:events:509] [ADS] Client disconnected: QeW_hlmcBdSECS47AAAF
+✔ 2026-09-04 4:27:13 PM [node:events:509] [ADS] Client disconnected: YO0aVL4hY2X6HvvuAAAD
+✔ 2026-09-09 5:16:28 PM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-09-09 5:16:30 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ override existing { override: true }[0m
+✔ 2026-09-09 5:16:37 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-09-09 5:16:38 PM [unknown-location] Connected to SQLite database
+✔ 2026-09-09 5:16:40 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-09-09 5:16:40 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-09-09 5:16:42 PM [unknown-location] Found 375 transactions older than 365 days. Archiving...
+✔ 2026-09-09 5:16:43 PM [backend\utilities\db.js:408] Successfully archived 375 transactions to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\backups\transactions_archive_2026-09-09T09-16-42-954Z.csv
+✔ 2026-09-09 5:16:43 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-09-09 5:16:43 PM [unknown-location] Deleted 375 old transactions from database.
+✔ 2026-09-09 5:16:48 PM [node:events:509] [ADS] Client connected: F9OfOMZQCaAb5Xb8AAAC
+✔ 2026-09-09 5:16:48 PM [node:events:509] [ADS] Client connected: Tbh9-Dtxeq6SfWUZAAAD
+✔ 2026-09-09 5:24:34 PM [backend\routes\AkioskApi.js:55] PLANNING
+✔ 2026-09-09 5:24:34 PM [backend\routes\AkioskApi.js:56] PLANNING
+✔ 2026-09-09 5:24:34 PM [backend\routes\AkioskApi.js:57] Counter 6
+✔ 2026-09-09 5:24:34 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:24:34 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:24:46 PM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-09-09 5:24:46 PM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-09-09 5:24:46 PM [backend\routes\AkioskApi.js:57] Counter 3
+✔ 2026-09-09 5:24:46 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:24:46 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:24:52 PM [backend\routes\AkioskApi.js:55] OTHERS
+✔ 2026-09-09 5:24:52 PM [backend\routes\AkioskApi.js:56] OTHERS
+✔ 2026-09-09 5:24:52 PM [backend\routes\AkioskApi.js:57] Counter 7,8,9,10
+✔ 2026-09-09 5:24:52 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:24:52 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:24:57 PM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-09-09 5:24:57 PM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-09-09 5:24:57 PM [backend\routes\AkioskApi.js:57] Counter 3
+✔ 2026-09-09 5:24:57 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:24:57 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:25:01 PM [backend\routes\AkioskApi.js:55] OTHERS
+✔ 2026-09-09 5:25:01 PM [backend\routes\AkioskApi.js:56] OTHERS
+✔ 2026-09-09 5:25:01 PM [backend\routes\AkioskApi.js:57] Counter 7,8,9,10
+✔ 2026-09-09 5:25:01 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:25:01 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:25:06 PM [backend\routes\AkioskApi.js:55] LEGAL_RETURN
+✔ 2026-09-09 5:25:06 PM [backend\routes\AkioskApi.js:56] LEGAL / RETURN
+✔ 2026-09-09 5:25:06 PM [backend\routes\AkioskApi.js:57] Counter 4
+✔ 2026-09-09 5:25:06 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:25:06 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:25:11 PM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-09-09 5:25:11 PM [backend\routes\AkioskApi.js:56] BILLING
+✔ 2026-09-09 5:25:11 PM [backend\routes\AkioskApi.js:57] Counter 1 & 2
+✔ 2026-09-09 5:25:11 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:25:11 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:25:18 PM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-09-09 5:25:18 PM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-09-09 5:25:18 PM [backend\routes\AkioskApi.js:57] Counter 3
+✔ 2026-09-09 5:25:18 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:25:18 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:26:14 PM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-09-09 5:26:14 PM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-09-09 5:26:14 PM [backend\routes\AkioskApi.js:57] Counter 3
+✔ 2026-09-09 5:26:14 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:26:14 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:27:27 PM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-09-09 5:27:27 PM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-09-09 5:27:27 PM [backend\routes\AkioskApi.js:57] Counter 3
+✔ 2026-09-09 5:27:27 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:27:27 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:27:32 PM [backend\routes\AkioskApi.js:55] OTHERS
+✔ 2026-09-09 5:27:32 PM [backend\routes\AkioskApi.js:56] OTHERS
+✔ 2026-09-09 5:27:32 PM [backend\routes\AkioskApi.js:57] Counter 7,8,9,10
+✔ 2026-09-09 5:27:32 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:27:32 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:27:38 PM [backend\routes\AkioskApi.js:55] ADMIN
+✔ 2026-09-09 5:27:38 PM [backend\routes\AkioskApi.js:56] ADMIN
+✔ 2026-09-09 5:27:38 PM [backend\routes\AkioskApi.js:57] Counter 10
+✔ 2026-09-09 5:27:38 PM [backend\routes\AkioskApi.js:58] 1
+✔ 2026-09-09 5:27:38 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:27:42 PM [backend\routes\AkioskApi.js:55] PLANNING
+✔ 2026-09-09 5:27:42 PM [backend\routes\AkioskApi.js:56] PLANNING
+✔ 2026-09-09 5:27:42 PM [backend\routes\AkioskApi.js:57] Counter 6
+✔ 2026-09-09 5:27:42 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:27:42 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:27:46 PM [backend\routes\AkioskApi.js:55] OPERATIONS_RETURN
+✔ 2026-09-09 5:27:46 PM [backend\routes\AkioskApi.js:56] OPERATIONS / RETURN
+✔ 2026-09-09 5:27:46 PM [backend\routes\AkioskApi.js:57] Counter 5
+✔ 2026-09-09 5:27:46 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:27:46 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:27:50 PM [backend\routes\AkioskApi.js:55] LEGAL_RETURN
+✔ 2026-09-09 5:27:50 PM [backend\routes\AkioskApi.js:56] LEGAL / RETURN
+✔ 2026-09-09 5:27:50 PM [backend\routes\AkioskApi.js:57] Counter 4
+✔ 2026-09-09 5:27:50 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:27:51 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:29:24 PM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-09-09 5:29:24 PM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-09-09 5:29:24 PM [backend\routes\AkioskApi.js:57] Counter 3
+✔ 2026-09-09 5:29:24 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:29:24 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:29:29 PM [backend\routes\AkioskApi.js:55] OTHERS
+✔ 2026-09-09 5:29:29 PM [backend\routes\AkioskApi.js:56] OTHERS
+✔ 2026-09-09 5:29:29 PM [backend\routes\AkioskApi.js:57] Counter 7,8,9,10
+✔ 2026-09-09 5:29:29 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:29:29 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:29:33 PM [backend\routes\AkioskApi.js:55] LEGAL_RETURN
+✔ 2026-09-09 5:29:33 PM [backend\routes\AkioskApi.js:56] LEGAL / RETURN
+✔ 2026-09-09 5:29:33 PM [backend\routes\AkioskApi.js:57] Counter 4
+✔ 2026-09-09 5:29:33 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:29:33 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:29:37 PM [backend\routes\AkioskApi.js:55] OPERATIONS_RETURN
+✔ 2026-09-09 5:29:37 PM [backend\routes\AkioskApi.js:56] OPERATIONS / RETURN
+✔ 2026-09-09 5:29:37 PM [backend\routes\AkioskApi.js:57] Counter 5
+✔ 2026-09-09 5:29:37 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:29:37 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:29:42 PM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-09-09 5:29:42 PM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-09-09 5:29:42 PM [backend\routes\AkioskApi.js:57] Counter 3
+✔ 2026-09-09 5:29:42 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:29:42 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:29:46 PM [backend\routes\AkioskApi.js:55] OTHERS
+✔ 2026-09-09 5:29:46 PM [backend\routes\AkioskApi.js:56] OTHERS
+✔ 2026-09-09 5:29:46 PM [backend\routes\AkioskApi.js:57] Counter 7,8,9,10
+✔ 2026-09-09 5:29:46 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:29:46 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:29:52 PM [backend\routes\AkioskApi.js:55] PLANNING
+✔ 2026-09-09 5:29:52 PM [backend\routes\AkioskApi.js:56] PLANNING
+✔ 2026-09-09 5:29:52 PM [backend\routes\AkioskApi.js:57] Counter 6
+✔ 2026-09-09 5:29:52 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:29:52 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-09 5:30:22 PM [backend\routes\AkioskApi.js:55] OTHERS
+✔ 2026-09-09 5:30:22 PM [backend\routes\AkioskApi.js:56] OTHERS
+✔ 2026-09-09 5:30:22 PM [backend\routes\AkioskApi.js:57] Counter 7,8,9,10
+✔ 2026-09-09 5:30:22 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-09 5:30:22 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-14 1:31:17 PM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-09-14 1:31:18 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ enable debugging { debug: true }[0m
+✔ 2026-09-14 1:31:26 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-09-14 1:31:27 PM [unknown-location] Connected to SQLite database
+✔ 2026-09-14 1:31:35 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-09-14 1:31:35 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-09-14 1:31:35 PM [unknown-location] Found 365 transactions older than 365 days. Archiving...
+✔ 2026-09-14 1:31:35 PM [backend\utilities\db.js:408] Successfully archived 365 transactions to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\backups\transactions_archive_2026-09-14T05-31-35-054Z.csv
+✔ 2026-09-14 1:31:35 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-09-14 1:31:35 PM [unknown-location] Deleted 365 old transactions from database.
+✔ 2026-09-14 1:31:37 PM [node:events:509] [ADS] Client connected: Te8HzOZ3TM-PGP6AAAAB
+✔ 2026-09-14 1:31:42 PM [node:events:509] [ADS] Client connected: j7QxqjNWbKva0S4-AAAE
+✔ 2026-09-14 1:31:43 PM [node:events:509] [ADS] Client connected: NLg_GHj4j3WpdfY5AAAF
+✔ 2026-09-14 1:32:15 PM [node:events:509] [ADS] Client connected: -NTwdPi5mRAt6SSuAAAH
+✔ 2026-09-14 1:32:30 PM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-09-14 1:32:30 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-09-14 1:32:30 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-09-14 1:32:31 PM [node:events:509] [ADS] Client connected: CgG3NxkcDEK6fC9pAAAJ
+✔ 2026-09-14 1:33:13 PM [node:events:509] [ADS] Client disconnected: -NTwdPi5mRAt6SSuAAAH
+✔ 2026-09-14 1:33:14 PM [node:events:509] [ADS] Client disconnected: Te8HzOZ3TM-PGP6AAAAB
+✔ 2026-09-14 1:33:31 PM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-09-14 1:33:31 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-09-14 1:33:31 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-09-14 1:35:20 PM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-09-14 1:35:20 PM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-09-14 1:35:20 PM [backend\routes\AkioskApi.js:57] Counter 3
+✔ 2026-09-14 1:35:20 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-14 1:35:20 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-14 1:35:59 PM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-09-14 1:35:59 PM [backend\routes\AkioskApi.js:56] BILLING
+✔ 2026-09-14 1:35:59 PM [backend\routes\AkioskApi.js:57] Counter 1 & 2
+✔ 2026-09-14 1:35:59 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-14 1:35:59 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-14 1:46:58 PM [node:events:509] [ADS] Client disconnected: CgG3NxkcDEK6fC9pAAAJ
+✔ 2026-09-14 1:46:59 PM [node:events:509] [ADS] Client disconnected: j7QxqjNWbKva0S4-AAAE
+✔ 2026-09-15 2:12:29 PM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-09-15 2:12:30 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ override existing { override: true }[0m
+✔ 2026-09-15 2:12:44 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-09-15 2:12:45 PM [unknown-location] Connected to SQLite database
+✔ 2026-09-15 2:12:47 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-09-15 2:12:47 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-09-15 2:12:47 PM [unknown-location] Found 69 transactions older than 365 days. Archiving...
+✔ 2026-09-15 2:12:50 PM [backend\utilities\db.js:408] Successfully archived 69 transactions to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\backups\transactions_archive_2026-09-15T06-12-47-409Z.csv
+✔ 2026-09-15 2:12:51 PM [unknown-location] Deleted 69 old transactions from database.
+✔ 2026-09-15 2:12:51 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-09-15 2:12:55 PM [node:events:509] [ADS] Client connected: dwUhjyXr00V-D3IqAAAB
+✔ 2026-09-15 2:12:56 PM [node:events:509] [ADS] Client connected: 3EfD4qTE79gfxhwFAAAD
+✔ 2026-09-15 2:40:23 PM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-09-15 2:40:23 PM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-09-15 2:40:23 PM [backend\routes\AkioskApi.js:57] Counter 3
+✔ 2026-09-15 2:40:23 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-15 2:40:23 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-15 2:43:49 PM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-09-15 2:43:49 PM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-09-15 2:43:49 PM [backend\routes\AkioskApi.js:57] Counter 3
+✔ 2026-09-15 2:43:49 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-15 2:43:49 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-16 8:45:34 AM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-09-16 8:45:35 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ suppress logs { quiet: true }[0m
+✔ 2026-09-16 8:45:44 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-09-16 8:45:45 AM [unknown-location] Connected to SQLite database
+✔ 2026-09-16 8:45:51 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-09-16 8:45:51 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-09-16 8:45:51 AM [unknown-location] Found 100 transactions older than 365 days. Archiving...
+✔ 2026-09-16 8:45:51 AM [backend\utilities\db.js:408] Successfully archived 100 transactions to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\backups\transactions_archive_2026-09-16T00-45-51-560Z.csv
+✔ 2026-09-16 8:45:51 AM [unknown-location] Deleted 100 old transactions from database.
+✔ 2026-09-16 8:45:51 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-09-16 8:45:56 AM [node:events:509] [ADS] Client connected: NqMjShANxX3B98N0AAAB
+✔ 2026-09-16 8:45:57 AM [node:events:509] [ADS] Client connected: DwaPbGX3Iw6LoSCWAAAD
+✔ 2026-09-16 8:48:20 AM [node:events:509] [ADS] Client connected: nfPaeS_k29IHqkjCAAAF
+✔ 2026-09-16 8:49:05 AM [node:events:509] [ADS] Client disconnected: nfPaeS_k29IHqkjCAAAF
+✔ 2026-09-16 8:50:43 AM [backend\routes\AtellerApi.js:73] Login attempt for: topline
+✔ 2026-09-16 8:50:43 AM [node_modules\sqlite3\lib\trace.js:25] User not found: topline
+✔ 2026-09-16 8:50:52 AM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-09-16 8:50:52 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-09-16 8:50:52 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-09-16 8:50:54 AM [node:events:509] [ADS] Client connected: qtWUdGjrhycYbWrhAAAH
+✔ 2026-09-16 8:51:54 AM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-09-16 8:51:54 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-09-16 8:51:54 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-09-16 8:54:37 AM [node:events:509] [ADS] Client disconnected: qtWUdGjrhycYbWrhAAAH
+✔ 2026-09-16 8:54:37 AM [node:events:509] [ADS] Client connected: _LhOO7t7zXtKEPB_AAAJ
+✔ 2026-09-16 8:54:38 AM [node:events:509] [ADS] Client disconnected: _LhOO7t7zXtKEPB_AAAJ
+✔ 2026-09-16 8:54:38 AM [node:events:509] [ADS] Client connected: Ce9IPYzHksgRGetiAAAL
+✔ 2026-09-16 8:54:45 AM [node:events:509] [ADS] Client disconnected: Ce9IPYzHksgRGetiAAAL
+✔ 2026-09-16 8:54:45 AM [node:events:509] [ADS] Client connected: -fN8rM6R7Am5A5-cAAAN
+✔ 2026-09-16 8:55:25 AM [node:events:509] [ADS] Client disconnected: -fN8rM6R7Am5A5-cAAAN
+✔ 2026-09-16 8:55:25 AM [node:events:509] [ADS] Client connected: xnKH1n0IVKX-d8jGAAAP
+✔ 2026-09-16 8:55:26 AM [node:events:509] [ADS] Client disconnected: xnKH1n0IVKX-d8jGAAAP
+✔ 2026-09-16 8:55:26 AM [node:events:509] [ADS] Client connected: vnk7LSrgaRjqMFbJAAAR
+✔ 2026-09-16 8:55:39 AM [node:events:509] [ADS] Client disconnected: vnk7LSrgaRjqMFbJAAAR
+✔ 2026-09-16 8:55:39 AM [node:events:509] [ADS] Client connected: 5mEW5DKxPSbKw0j4AAAT
+✔ 2026-09-16 8:55:40 AM [node:events:509] [ADS] Client disconnected: 5mEW5DKxPSbKw0j4AAAT
+✔ 2026-09-16 8:55:40 AM [node:events:509] [ADS] Client connected: Dg04bCskBhxveol0AAAV
+✔ 2026-09-16 8:55:43 AM [node:events:509] [ADS] Client disconnected: Dg04bCskBhxveol0AAAV
+✔ 2026-09-16 8:55:44 AM [node:events:509] [ADS] Client connected: sNJ3jRzs3N6oS6ZUAAAX
+✔ 2026-09-16 8:55:45 AM [node:events:509] [ADS] Client disconnected: sNJ3jRzs3N6oS6ZUAAAX
+✔ 2026-09-16 8:55:45 AM [node:events:509] [ADS] Client connected: PUiijHh-FDejcHNIAAAZ
+✔ 2026-09-16 8:56:40 AM [node:events:509] [ADS] Client disconnected: PUiijHh-FDejcHNIAAAZ
+✔ 2026-09-16 8:56:40 AM [node:events:509] [ADS] Client connected: CjBac-4GwP5Yyp4oAAAb
+✔ 2026-09-16 8:56:53 AM [node:events:509] [ADS] Client disconnected: CjBac-4GwP5Yyp4oAAAb
+✔ 2026-09-16 8:56:54 AM [node:events:509] [ADS] Client connected: UwuuIOWWA5ypcxj5AAAd
+✔ 2026-09-16 9:00:06 AM [node:events:509] [ADS] Client disconnected: UwuuIOWWA5ypcxj5AAAd
+✔ 2026-09-16 9:00:06 AM [node:events:509] [ADS] Client connected: GULoTA1QIYB-j8LaAAAf
+✔ 2026-09-16 9:00:07 AM [node:events:509] [ADS] Client disconnected: GULoTA1QIYB-j8LaAAAf
+✔ 2026-09-16 9:00:07 AM [node:events:509] [ADS] Client connected: 6CdFSnA6iejKzHygAAAh
+✔ 2026-09-16 9:00:07 AM [node:events:509] [ADS] Client disconnected: 6CdFSnA6iejKzHygAAAh
+✔ 2026-09-16 9:00:08 AM [node:events:509] [ADS] Client connected: mkklX3Jqe7rRSicdAAAj
+✔ 2026-09-16 9:00:08 AM [node:events:509] [ADS] Client disconnected: mkklX3Jqe7rRSicdAAAj
+✔ 2026-09-16 9:00:09 AM [node:events:509] [ADS] Client connected: Uw3dTgJzMfAcmHbAAAAl
+✔ 2026-09-16 9:00:39 AM [node:events:509] [ADS] Client disconnected: Uw3dTgJzMfAcmHbAAAAl
+✔ 2026-09-16 9:00:40 AM [node:events:509] [ADS] Client connected: iDsdfeTHmt9qkV0UAAAn
+✔ 2026-09-16 9:00:40 AM [node:events:509] [ADS] Client disconnected: iDsdfeTHmt9qkV0UAAAn
+✔ 2026-09-16 9:00:40 AM [node:events:509] [ADS] Client connected: 08yhf4S-at1hO9p6AAAp
+✔ 2026-09-16 9:00:40 AM [node:events:509] [ADS] Client disconnected: 08yhf4S-at1hO9p6AAAp
+✔ 2026-09-16 9:00:40 AM [node:events:509] [ADS] Client connected: QPMtnQFzpY5g3ATDAAAr
+✔ 2026-09-16 9:00:41 AM [node:events:509] [ADS] Client disconnected: QPMtnQFzpY5g3ATDAAAr
+✔ 2026-09-16 9:00:41 AM [node:events:509] [ADS] Client connected: 69mOff5n4zklvc4eAAAt
+✔ 2026-09-16 9:00:41 AM [node:events:509] [ADS] Client disconnected: 69mOff5n4zklvc4eAAAt
+✔ 2026-09-16 9:00:42 AM [node:events:509] [ADS] Client connected: Cfr1sGpKpdZlHYnbAAAv
+✔ 2026-09-16 9:00:42 AM [node:events:509] [ADS] Client disconnected: Cfr1sGpKpdZlHYnbAAAv
+✔ 2026-09-16 9:00:42 AM [node:events:509] [ADS] Client connected: FgNM0BqgC8k6za1kAAAx
+✔ 2026-09-16 9:00:42 AM [node:events:509] [ADS] Client disconnected: FgNM0BqgC8k6za1kAAAx
+✔ 2026-09-16 9:00:42 AM [node:events:509] [ADS] Client connected: FaXlko3sjwcFInxNAAAz
+✔ 2026-09-16 9:00:43 AM [node:events:509] [ADS] Client disconnected: FaXlko3sjwcFInxNAAAz
+✔ 2026-09-16 9:00:43 AM [node:events:509] [ADS] Client connected: Bv6xpoy_ThVIx29nAAA1
+✔ 2026-09-16 9:00:43 AM [node:events:509] [ADS] Client disconnected: Bv6xpoy_ThVIx29nAAA1
+✔ 2026-09-16 9:00:44 AM [node:events:509] [ADS] Client connected: hf3Ou9ZJ7VH45FhgAAA4
+✔ 2026-09-16 9:00:44 AM [node:events:509] [ADS] Client disconnected: hf3Ou9ZJ7VH45FhgAAA4
+✔ 2026-09-16 9:00:45 AM [node:events:509] [ADS] Client connected: 5OJGvczw_z4U_hsfAAA6
+✔ 2026-09-16 9:00:45 AM [node:events:509] [ADS] Client disconnected: 5OJGvczw_z4U_hsfAAA6
+✔ 2026-09-16 9:00:45 AM [node:events:509] [ADS] Client connected: 9TQ7tnQIhVOgJEJdAAA8
+✔ 2026-09-16 9:02:10 AM [node:events:509] [ADS] Client disconnected: 9TQ7tnQIhVOgJEJdAAA8
+✔ 2026-09-16 9:02:10 AM [node:events:509] [ADS] Client connected: NdxwMueoDWL89czoAAA-
+✔ 2026-09-16 9:02:11 AM [node:events:509] [ADS] Client disconnected: NdxwMueoDWL89czoAAA-
+✔ 2026-09-16 9:02:11 AM [node:events:509] [ADS] Client connected: TJ5MF3e_zgi2tkUhAABA
+✔ 2026-09-16 9:02:52 AM [node:events:509] [ADS] Client disconnected: TJ5MF3e_zgi2tkUhAABA
+✔ 2026-09-16 9:02:52 AM [node:events:509] [ADS] Client connected: _5jFmELU61_aXktVAABC
+✔ 2026-09-16 9:02:53 AM [node:events:509] [ADS] Client disconnected: _5jFmELU61_aXktVAABC
+✔ 2026-09-16 9:02:53 AM [node:events:509] [ADS] Client connected: Y_soo7X0oVkikfwCAABE
+✔ 2026-09-16 9:02:54 AM [node:events:509] [ADS] Client disconnected: Y_soo7X0oVkikfwCAABE
+✔ 2026-09-16 9:02:54 AM [node:events:509] [ADS] Client connected: nWmdgkvqKeTmCGrPAABG
+✔ 2026-09-16 9:04:10 AM [node:events:509] [ADS] Client disconnected: nWmdgkvqKeTmCGrPAABG
+✔ 2026-09-16 9:04:10 AM [node:events:509] [ADS] Client connected: EHSis7gP92fLFrSaAABI
+✔ 2026-09-16 9:04:10 AM [node:events:509] [ADS] Client disconnected: EHSis7gP92fLFrSaAABI
+✔ 2026-09-16 9:04:11 AM [node:events:509] [ADS] Client connected: ovU-pouuj5xCs0hGAABK
+✔ 2026-09-16 9:04:12 AM [node:events:509] [ADS] Client disconnected: ovU-pouuj5xCs0hGAABK
+✔ 2026-09-16 9:04:12 AM [node:events:509] [ADS] Client connected: 0xc0iQmnU6YRk7FeAABM
+✔ 2026-09-16 9:04:14 AM [node:events:509] [ADS] Client disconnected: 0xc0iQmnU6YRk7FeAABM
+✔ 2026-09-16 9:04:14 AM [node:events:509] [ADS] Client connected: om7YdmkcWpThGoqlAABO
+✔ 2026-09-16 9:04:14 AM [node:events:509] [ADS] Client disconnected: om7YdmkcWpThGoqlAABO
+✔ 2026-09-16 9:04:14 AM [node:events:509] [ADS] Client connected: Qr5IxqnLyOHWPYyfAABQ
+✔ 2026-09-16 9:04:47 AM [node:events:509] [ADS] Client disconnected: Qr5IxqnLyOHWPYyfAABQ
+✔ 2026-09-16 9:04:48 AM [node:events:509] [ADS] Client connected: AY-jyoQX_BPjW6a6AABS
+✔ 2026-09-16 9:04:48 AM [node:events:509] [ADS] Client disconnected: AY-jyoQX_BPjW6a6AABS
+✔ 2026-09-16 9:04:48 AM [node:events:509] [ADS] Client connected: Boy8JzzveWp0z5PmAABU
+✔ 2026-09-16 9:04:49 AM [node:events:509] [ADS] Client disconnected: Boy8JzzveWp0z5PmAABU
+✔ 2026-09-16 9:04:49 AM [node:events:509] [ADS] Client connected: 2SD-0u7_vnLcslwLAABW
+✔ 2026-09-16 9:04:49 AM [node:events:509] [ADS] Client disconnected: 2SD-0u7_vnLcslwLAABW
+✔ 2026-09-16 9:04:49 AM [node:events:509] [ADS] Client connected: PSO66czZM2vRtu1cAABY
+✔ 2026-09-16 9:04:50 AM [node:events:509] [ADS] Client disconnected: PSO66czZM2vRtu1cAABY
+✔ 2026-09-16 9:04:50 AM [node:events:509] [ADS] Client connected: ZjvuyHSCjJsROw6XAABa
+✔ 2026-09-16 9:07:14 AM [node:events:509] [ADS] Client disconnected: ZjvuyHSCjJsROw6XAABa
+✔ 2026-09-16 9:07:15 AM [node:events:509] [ADS] Client connected: fvhRNAedAIuHk0LrAABc
+✔ 2026-09-16 9:07:15 AM [node:events:509] [ADS] Client disconnected: fvhRNAedAIuHk0LrAABc
+✔ 2026-09-16 9:07:15 AM [node:events:509] [ADS] Client connected: QuDnD8HTu-rz0YnSAABe
+✔ 2026-09-16 9:07:15 AM [node:events:509] [ADS] Client disconnected: QuDnD8HTu-rz0YnSAABe
+✔ 2026-09-16 9:07:16 AM [node:events:509] [ADS] Client connected: hzpoJsvv9QBmWn2bAABg
+✔ 2026-09-16 9:07:16 AM [node:events:509] [ADS] Client disconnected: hzpoJsvv9QBmWn2bAABg
+✔ 2026-09-16 9:07:16 AM [node:events:509] [ADS] Client connected: jFqXGzj0lMF46JhOAABi
+✔ 2026-09-16 9:07:16 AM [node:events:509] [ADS] Client disconnected: jFqXGzj0lMF46JhOAABi
+✔ 2026-09-16 9:07:17 AM [node:events:509] [ADS] Client connected: 51IyjYW4zGz9LnfNAABk
+✔ 2026-09-16 9:08:13 AM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-09-16 9:08:13 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-09-16 9:08:13 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-09-16 9:08:14 AM [node:events:509] [ADS] Client connected: phd1g_3KezumrBI9AABm
+✔ 2026-09-16 9:08:37 AM [node:events:509] [ADS] Client disconnected: 51IyjYW4zGz9LnfNAABk
+✔ 2026-09-16 1:08:24 PM [node:events:509] [ADS] Client disconnected: phd1g_3KezumrBI9AABm
+✔ 2026-09-16 1:08:31 PM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-09-16 1:08:31 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-09-16 1:08:31 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-09-16 1:08:31 PM [node:events:509] [ADS] Client connected: yY2Xb1_gVDdbW6OIAABo
+✔ 2026-09-16 1:08:38 PM [node:events:509] [ADS] Client disconnected: yY2Xb1_gVDdbW6OIAABo
+✔ 2026-09-16 1:08:38 PM [node:events:509] [ADS] Client connected: FiFBW6gSOJ5EoAjkAABq
