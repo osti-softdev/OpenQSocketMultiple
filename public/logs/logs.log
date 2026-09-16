@@ -2165,3 +2165,8 @@ Error: Failed to copy file to printer
 ✔ 2026-09-16 1:08:31 PM [node:events:509] [ADS] Client connected: yY2Xb1_gVDdbW6OIAABo
 ✔ 2026-09-16 1:08:38 PM [node:events:509] [ADS] Client disconnected: yY2Xb1_gVDdbW6OIAABo
 ✔ 2026-09-16 1:08:38 PM [node:events:509] [ADS] Client connected: FiFBW6gSOJ5EoAjkAABq
+✔ 2026-09-16 2:27:07 PM [node:events:509] [ADS] Client disconnected: FiFBW6gSOJ5EoAjkAABq
+✔ 2026-09-16 2:27:11 PM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-09-16 2:27:11 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-09-16 2:27:11 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-09-16 2:27:11 PM [node:events:509] [ADS] Client connected: CM_cE2_3DSTH8ZRZAABs
