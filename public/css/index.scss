@@ -82,9 +82,9 @@ body {
   .timer {
     position: absolute;
     top: 1%;
-    left: 5%;
+    right: 0%;
     height: 5%;
-    width: 50%;
+    width: 40%;
     z-index: 100;
     display: flex;
     gap: 30px;
@@ -115,7 +115,7 @@ body {
     height: 10%;
     display: flex;
     background-image: url("/images/banner.png");
-    background-size: auto 100%;
+    background-size: 100% 100%;
     background-position: left center;
     background-repeat: no-repeat;
     // background-color: #08228d;
@@ -260,8 +260,8 @@ body {
           text-align: center;
           justify-content: center;
           align-items: center;
-          background-color: #fde701;
-          color: #000000;
+          background-color: #23a950;
+          color: #ffffff;
           font-size: 1.0vw !important;
           font-weight: 900;
           font-family: candal;

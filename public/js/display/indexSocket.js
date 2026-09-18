@@ -100,9 +100,9 @@ function setServicesDisplay(count) {
 		"width": "70%",
 	});
 	$(".timer").css({
-		"left": "66%",
-		"width": "fit-content",
-		"flex-direction": "rpw",
+		"right": "0%",
+		"width": "40%",
+		"flex-direction": "row",
 		"top": "1%",
 	})
 	if (count <= 10) {

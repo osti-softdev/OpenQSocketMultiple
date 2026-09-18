@@ -101,7 +101,7 @@ body {
     height: 10%;
     display: flex;
     background-image: url("/images/banner.png");
-    background-size: auto 100%;
+    background-size: 100% 100%;
     background-position: left center;
     background-repeat: no-repeat;
     // background-color: #08228d;
@@ -111,8 +111,8 @@ body {
 
     .companyLogo {
       position: absolute;
-      display: flex;
-      top: 0%;
+      display: none;
+      bottom: 0%;
       right: 1%;
       width: 20%;
       height: 50%;
