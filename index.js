@@ -1,3 +1,5 @@
+process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = "true";
+
 const { app, BrowserWindow, screen } = require("electron");
 const path = require("path");
 

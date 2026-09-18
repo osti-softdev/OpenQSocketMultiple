@@ -35,6 +35,23 @@ require('./backend/utilities/db');
 const { serverCreator } = require("./backend/utilities/serverCreator");
 serverCreator(server);
 
+// Content Security Policy
+appExpress.use((req, res, next) => {
+    res.setHeader(
+        "Content-Security-Policy",
+        "default-src 'self'; " +
+        "script-src 'self' 'unsafe-inline' https://unpkg.com blob:; " +
+        "style-src 'self' 'unsafe-inline' https:; " +
+        "img-src 'self' data: blob: https:; " +
+        "media-src 'self' blob: data:; " +
+        "font-src 'self' data: https:; " +
+        "connect-src 'self' ws: wss: http: https:; " +
+        "object-src 'none'; " +
+        "base-uri 'self';"
+    );
+    next();
+});
+
 appExpress.use(cors({
     origin: function (origin, callback) {
         callback(null, true);

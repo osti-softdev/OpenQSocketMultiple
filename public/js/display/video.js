@@ -43,10 +43,27 @@
 	// --- Playback ---
 	function attemptPlay(el, fileName, retry = true) {
 		if (!el) return;
-		el.play().catch(err => {
-			console.warn(`[ADS] Autoplay blocked for "${fileName}", retrying...`, err);
-			if (retry) setTimeout(() => attemptPlay(el, fileName, false), 300);
-		});
+		// Guard against playing with no valid source
+		if (!el.currentSrc && !el.getAttribute("src")) return;
+
+		const playPromise = el.play();
+		if (playPromise !== undefined) {
+			playPromise.catch(err => {
+				if (err.name === "NotAllowedError") {
+					console.warn(`[ADS] Autoplay blocked for "${fileName || 'video'}", retrying muted...`, err);
+					el.muted = true;
+					if (retry) {
+						setTimeout(() => attemptPlay(el, fileName, false), 300);
+					}
+				} else if (err.name === "AbortError") {
+					// Expected when video load or pause interrupts play()
+				} else if (err.name === "NotSupportedError") {
+					console.warn(`[ADS] Video source not supported for "${fileName || 'video'}"`, err);
+				} else {
+					console.warn(`[ADS] Play error for "${fileName || 'video'}":`, err);
+				}
+			});
+		}
 	}
 
 	function loadAd(fileName) {
@@ -54,7 +71,6 @@
 		if (!el || !fileName) return;
 
 		el.src = `/ads/${encodeURIComponent(fileName)}`;
-		el.autoplay = true;
 		el.playsInline = true;
 		el.muted = adVolume <= 0;
 		el.volume = adVolume;
@@ -72,19 +88,21 @@
 		loadAd(adFile);
 
 		const el = getVideoElement();
-		el.onended = () => {
-			console.log(`[ADS] Finished: ${adFile}`);
-			playNextAd();
-		};
-		el.onerror = () => {
-			console.warn(`[ADS] Failed to load "${adFile}", skipping to next`);
-			playNextAd();
-		};
+		if (el) {
+			el.onended = () => {
+				console.log(`[ADS] Finished: ${adFile}`);
+				playNextAd();
+			};
+			el.onerror = () => {
+				console.warn(`[ADS] Failed to load "${adFile}", skipping to next`);
+				setTimeout(() => playNextAd(), 1000);
+			};
+		}
 	}
 
 	function pausevid() {
 		const el = getVideoElement();
-		if (el) {
+		if (el && !el.paused) {
 			el.pause();
 			console.log("[ADS] Video paused");
 		}
@@ -92,8 +110,19 @@
 
 	function playvid() {
 		const el = getVideoElement();
-		if (el && isContainerVisible()) {
-			attemptPlay(el, adQueue[currentAdIndex - 1] || "");
+		if (!el || !isContainerVisible()) return;
+
+		if (!adQueue.length) return;
+
+		const hasValidSource = !!(el.currentSrc || el.getAttribute("src"));
+		if (!hasValidSource) {
+			playNextAd();
+			return;
+		}
+
+		if (el.paused) {
+			const currentFile = adQueue[currentAdIndex - 1] || adQueue[0] || "";
+			attemptPlay(el, currentFile);
 			console.log("[ADS] Video playing");
 		}
 	}
@@ -108,18 +137,36 @@
 	// from "adsList", which is the full admin video library and is NOT what
 	// should be played on the display.
 	socket.on("displayQueue", data => {
-		if (!data || !Array.isArray(data.ads) || !data.ads.length) return;
+		if (!data || !Array.isArray(data.ads)) return;
+
+		applyAdVolume(data.volume);
+
+		if (!data.ads.length) {
+			adQueue = [];
+			currentAdIndex = 0;
+			pausevid();
+			const el = getVideoElement();
+			if (el) {
+				el.removeAttribute("src");
+				el.load();
+			}
+			return;
+		}
 
 		const incomingQueue = data.ads.join(",");
 		const queueChanged = incomingQueue !== adQueue.join(",");
 
 		adQueue = [...data.ads];
-		applyAdVolume(data.volume);
 
-		// Only restart from the top if the queue actually changed
-		if (queueChanged) {
+		const el = getVideoElement();
+		const hasValidSource = el && !!(el.currentSrc || el.getAttribute("src"));
+
+		// Restart or start if queue changed or if nothing is loaded yet
+		if (queueChanged || !hasValidSource) {
 			currentAdIndex = 0;
-			playNextAd();
+			if (isContainerVisible()) {
+				playNextAd();
+			}
 		}
 	});
 
@@ -131,8 +178,21 @@
 		const observer = new MutationObserver(() => {
 			const el = getVideoElement();
 			if (!el) return;
-			if (isContainerVisible()) attemptPlay(el, adQueue[currentAdIndex - 1] || "");
-			else el.pause();
+			if (isContainerVisible()) {
+				if (adQueue.length) {
+					const hasValidSource = !!(el.currentSrc || el.getAttribute("src"));
+					if (!hasValidSource) {
+						playNextAd();
+					} else if (el.paused) {
+						const currentFile = adQueue[currentAdIndex - 1] || adQueue[0] || "";
+						attemptPlay(el, currentFile);
+					}
+				}
+			} else {
+				if (!el.paused) {
+					el.pause();
+				}
+			}
 		});
 
 		observer.observe(container, { attributes: true, attributeFilter: ["style", "class"] });
