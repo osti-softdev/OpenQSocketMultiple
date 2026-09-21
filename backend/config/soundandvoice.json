@@ -1,0 +1,12 @@
+{
+  "voice_enabled": true,
+  "voice": "",
+  "voice_uri": "",
+  "voice_name": "",
+  "voice_rate": 1,
+  "voice_pitch": 1,
+  "voice_volume": 0.8,
+  "bell_volume": 0.7,
+  "ad_volume": 0.5,
+  "voice_message_format": "Serving #serviceticket on #counternumber"
+}

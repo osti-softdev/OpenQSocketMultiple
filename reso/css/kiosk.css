@@ -103,8 +103,7 @@ body {
   overflow: hidden;
   box-shadow: 0px 0px 10px rgb(255, 255, 255);
   background-color: rgba(0, 0, 0, 0.13);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   display: flex;
   filter: brightness(100%);
 }
@@ -357,7 +356,8 @@ body {
   justify-content: space-evenly;
   align-items: center;
 }
-.mainkioskcontainer .servicesContainer .service-container #regularServices, .mainkioskcontainer .servicesContainer .service-container #priorityServices {
+.mainkioskcontainer .servicesContainer .service-container #regularServices,
+.mainkioskcontainer .servicesContainer .service-container #priorityServices {
   position: absolute;
   top: 0;
   height: 90%;
@@ -368,7 +368,8 @@ body {
   align-items: center;
   gap: 1%;
 }
-.mainkioskcontainer .servicesContainer .service-container #regularServices .back-btn, .mainkioskcontainer .servicesContainer .service-container #priorityServices .back-btn {
+.mainkioskcontainer .servicesContainer .service-container #regularServices .back-btn,
+.mainkioskcontainer .servicesContainer .service-container #priorityServices .back-btn {
   position: absolute;
   bottom: -11%;
   right: 0.5%;
@@ -381,11 +382,13 @@ body {
   border-radius: 16px;
   box-shadow: 0px 0px 18px rgb(255, 255, 255);
 }
-.mainkioskcontainer .servicesContainer .service-container #regularServices .back-btn:active, .mainkioskcontainer .servicesContainer .service-container #priorityServices .back-btn:active {
+.mainkioskcontainer .servicesContainer .service-container #regularServices .back-btn:active,
+.mainkioskcontainer .servicesContainer .service-container #priorityServices .back-btn:active {
   transform: scale(0.95);
   box-shadow: 0px 0px 8px rgb(255, 255, 255);
 }
-.mainkioskcontainer .servicesContainer .service-container #regularServices div, .mainkioskcontainer .servicesContainer .service-container #priorityServices div {
+.mainkioskcontainer .servicesContainer .service-container #regularServices div,
+.mainkioskcontainer .servicesContainer .service-container #priorityServices div {
   position: relative;
   width: 30%;
   height: 30%;
@@ -404,16 +407,19 @@ body {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.5);
 }
-.mainkioskcontainer .servicesContainer .service-container #regularServices div:active, .mainkioskcontainer .servicesContainer .service-container #priorityServices div:active {
+.mainkioskcontainer .servicesContainer .service-container #regularServices div:active,
+.mainkioskcontainer .servicesContainer .service-container #priorityServices div:active {
   transform: scale(0.95);
   box-shadow: 0px 0px 8px rgb(255, 255, 255);
 }
-.mainkioskcontainer .servicesContainer .service-container #regularServices:nth-child(1) div, .mainkioskcontainer .servicesContainer .service-container #priorityServices:nth-child(1) div {
+.mainkioskcontainer .servicesContainer .service-container #regularServices:nth-child(1) div,
+.mainkioskcontainer .servicesContainer .service-container #priorityServices:nth-child(1) div {
   background-image: url("/images/buttons/button_regular.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
-.mainkioskcontainer .servicesContainer .service-container #regularServices:nth-child(2) div, .mainkioskcontainer .servicesContainer .service-container #priorityServices:nth-child(2) div {
+.mainkioskcontainer .servicesContainer .service-container #regularServices:nth-child(2) div,
+.mainkioskcontainer .servicesContainer .service-container #priorityServices:nth-child(2) div {
   color: black;
   background-image: url("/images/buttons/button_priority.png");
   background-size: 100% 100%;
