@@ -2504,3 +2504,68 @@ Error: Failed to copy file to printer
 ✔ 2026-09-18 3:27:23 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
 ✔ 2026-09-18 3:27:23 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
 ✔ 2026-09-18 3:27:24 PM [node:events:509] [ADS] Client connected: HLl16GS19FAamWU_AAAT
+✔ 2026-09-18 3:57:53 PM [node:events:509] [ADS] Client disconnected: KvTbruDCLFRERIojAAAR
+✔ 2026-09-18 3:57:53 PM [node:events:509] [ADS] Client connected: MRm2V-ctZuxHvthlAAAV
+✔ 2026-09-18 3:57:54 PM [node:events:509] [ADS] Client disconnected: MRm2V-ctZuxHvthlAAAV
+✔ 2026-09-18 3:57:54 PM [node:events:509] [ADS] Client connected: sbq3vdLy63DtlxuEAAAX
+✔ 2026-09-18 4:24:41 PM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-09-18 4:24:41 PM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-09-18 4:24:41 PM [backend\routes\AkioskApi.js:57] Counter 3
+✔ 2026-09-18 4:24:41 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-18 4:24:41 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-18 4:24:47 PM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-09-18 4:24:47 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-09-18 4:24:47 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-09-18 4:24:51 PM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-09-18 4:24:51 PM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-09-18 4:24:51 PM [backend\routes\AkioskApi.js:57] Counter 3
+✔ 2026-09-18 4:24:51 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-18 4:24:51 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-18 4:24:56 PM [backend\routes\AkioskApi.js:55] OTHERS
+✔ 2026-09-18 4:24:56 PM [backend\routes\AkioskApi.js:56] OTHERS
+✔ 2026-09-18 4:24:56 PM [backend\routes\AkioskApi.js:57] Counter 7,8,9,10
+✔ 2026-09-18 4:24:56 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-18 4:24:56 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-18 4:25:04 PM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-09-18 4:25:04 PM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-09-18 4:25:04 PM [backend\routes\AkioskApi.js:57] Counter 3
+✔ 2026-09-18 4:25:04 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-18 4:25:04 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-18 4:25:09 PM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-09-18 4:25:09 PM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-09-18 4:25:09 PM [backend\routes\AkioskApi.js:57] Counter 3
+✔ 2026-09-18 4:25:09 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-18 4:25:09 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-18 4:25:14 PM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-09-18 4:25:14 PM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-09-18 4:25:14 PM [backend\routes\AkioskApi.js:57] Counter 3
+✔ 2026-09-18 4:25:14 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-18 4:25:14 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-18 4:28:10 PM [node:events:509] [ADS] Client disconnected: HLl16GS19FAamWU_AAAT
+✔ 2026-09-18 4:33:59 PM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-09-18 4:33:59 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-09-18 4:33:59 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-09-18 4:33:59 PM [node:events:509] [ADS] Client connected: JFYBlbktX_3M4JMDAAAZ
+✔ 2026-09-18 4:47:08 PM [node:events:509] [ADS] Client disconnected: sbq3vdLy63DtlxuEAAAX
+✔ 2026-09-18 4:47:08 PM [node:events:509] [ADS] Client disconnected: Om4dMlRt4uDbsI2sAAAF
+✔ 2026-09-21 9:02:20 AM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-09-21 9:02:21 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ secrets for agents [www.dotenvx.com][0m
+✔ 2026-09-21 9:02:33 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-09-21 9:02:34 AM [unknown-location] Connected to SQLite database
+✔ 2026-09-21 9:02:39 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-09-21 9:02:39 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-09-21 9:02:40 AM [unknown-location] Found 207 transactions older than 365 days. Archiving...
+✔ 2026-09-21 9:02:40 AM [backend\utilities\db.js:408] Successfully archived 207 transactions to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\backups\transactions_archive_2026-09-21T01-02-40-220Z.csv
+✔ 2026-09-21 9:02:43 AM [unknown-location] Deleted 207 old transactions from database.
+✔ 2026-09-21 9:02:43 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-09-21 9:02:47 AM [node:events:509] [ADS] Client connected: MuzcYfJQPez_YyodAAAC
+✔ 2026-09-21 9:02:47 AM [node:events:509] [ADS] Client connected: Q3uyw7pkE7X9VnSFAAAD
+✔ 2026-09-21 9:04:34 AM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-09-21 9:04:34 AM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-09-21 9:04:34 AM [backend\routes\AkioskApi.js:57] Counter 3
+✔ 2026-09-21 9:04:34 AM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-21 9:04:34 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-21 9:04:43 AM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-09-21 9:04:43 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-09-21 9:04:43 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-09-21 9:04:44 AM [node:events:509] [ADS] Client connected: 0EIdMnlVnbRlBuR6AAAF
