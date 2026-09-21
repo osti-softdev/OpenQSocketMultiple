@@ -102,7 +102,7 @@ function setServicesDisplay(count) {
 	$(".timer").css({
 		"right": "0%",
 		"width": "40%",
-		"flex-direction": "row",
+		"flex-direction": "column",
 		"top": "1%",
 	})
 	if (count <= 10) {

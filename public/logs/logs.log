@@ -2569,3 +2569,27 @@ Error: Failed to copy file to printer
 ✔ 2026-09-21 9:04:43 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
 ✔ 2026-09-21 9:04:43 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
 ✔ 2026-09-21 9:04:44 AM [node:events:509] [ADS] Client connected: 0EIdMnlVnbRlBuR6AAAF
+✔ 2026-09-21 9:41:35 AM [backend\routes\AkioskApi.js:55] COLLECTION
+✔ 2026-09-21 9:41:35 AM [backend\routes\AkioskApi.js:56] COLLECTION
+✔ 2026-09-21 9:41:35 AM [backend\routes\AkioskApi.js:57] Counter 3
+✔ 2026-09-21 9:41:35 AM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-09-21 9:41:35 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-09-21 9:42:18 AM [node:events:509] [ADS] Client disconnected: Q3uyw7pkE7X9VnSFAAAD
+✔ 2026-09-21 9:42:18 AM [node:events:509] [ADS] Client connected: NLHvhN3e1L3VIlKTAAAH
+✔ 2026-09-21 9:42:23 AM [node:events:509] [ADS] Client disconnected: NLHvhN3e1L3VIlKTAAAH
+✔ 2026-09-21 9:42:23 AM [node:events:509] [ADS] Client connected: ac44mxLWqYvB3YNTAAAJ
+✔ 2026-09-21 9:42:24 AM [node:events:509] [ADS] Client disconnected: ac44mxLWqYvB3YNTAAAJ
+✔ 2026-09-21 9:42:24 AM [node:events:509] [ADS] Client connected: Pwy1g_UID6tPoW8yAAAL
+✔ 2026-09-21 9:42:27 AM [node:events:509] [ADS] Client disconnected: Pwy1g_UID6tPoW8yAAAL
+✔ 2026-09-21 9:42:27 AM [node:events:509] [ADS] Client connected: cqR-RoeBf66ZftnNAAAN
+✔ 2026-09-21 9:42:28 AM [node:events:509] [ADS] Client disconnected: cqR-RoeBf66ZftnNAAAN
+✔ 2026-09-21 9:42:28 AM [node:events:509] [ADS] Client connected: ctUFRsTW035H4OKoAAAP
+✔ 2026-09-21 9:43:06 AM [node:events:509] [ADS] Client disconnected: ctUFRsTW035H4OKoAAAP
+✔ 2026-09-21 9:43:06 AM [node:events:509] [ADS] Client connected: 0cVPi1sSOGrfGoXWAAAR
+✔ 2026-09-21 9:43:16 AM [node:events:509] [ADS] Client disconnected: 0cVPi1sSOGrfGoXWAAAR
+✔ 2026-09-21 9:43:16 AM [node:events:509] [ADS] Client connected: pljmd2jTSbXCdk72AAAT
+✔ 2026-09-21 9:43:18 AM [node:events:509] [ADS] Client disconnected: pljmd2jTSbXCdk72AAAT
+✔ 2026-09-21 9:43:18 AM [node:events:509] [ADS] Client connected: 6ZgNQQ6AbSe8rZAWAAAV
+✔ 2026-09-21 9:43:19 AM [node:events:509] [ADS] Client disconnected: 6ZgNQQ6AbSe8rZAWAAAV
+✔ 2026-09-21 9:43:19 AM [node:events:509] [ADS] Client connected: y90GkULBP3C6EkZDAAAX
+✔ 2026-09-21 10:05:55 AM [node:events:509] [ADS] Client disconnected: 0EIdMnlVnbRlBuR6AAAF
