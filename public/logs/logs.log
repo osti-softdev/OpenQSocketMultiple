@@ -2593,3 +2593,32 @@ Error: Failed to copy file to printer
 ✔ 2026-09-21 9:43:19 AM [node:events:509] [ADS] Client disconnected: 6ZgNQQ6AbSe8rZAWAAAV
 ✔ 2026-09-21 9:43:19 AM [node:events:509] [ADS] Client connected: y90GkULBP3C6EkZDAAAX
 ✔ 2026-09-21 10:05:55 AM [node:events:509] [ADS] Client disconnected: 0EIdMnlVnbRlBuR6AAAF
+✔ 2026-09-21 4:47:55 PM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-09-21 4:47:56 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ multiple files { path: ['.env.local', '.env'] }[0m
+✔ 2026-09-21 4:48:00 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-09-21 4:48:01 PM [unknown-location] Connected to SQLite database
+✔ 2026-09-21 4:48:03 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-09-21 4:48:03 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-09-21 4:48:03 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-09-21 4:48:08 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-09-21 4:48:13 PM [node:events:509] [ADS] Client connected: IVdl2sVhIpUh3YKlAAAC
+✔ 2026-09-21 4:48:14 PM [node:events:509] [ADS] Client connected: xyWzGnanaE1zAEr0AAAD
+✔ 2026-09-21 4:48:33 PM [node:events:509] [ADS] Client connected: kK4kN72Sho22uGcEAAAF
+✔ 2026-09-21 4:49:05 PM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-09-21 4:49:05 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-09-21 4:49:05 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-09-21 4:49:05 PM [node:events:509] [ADS] Client connected: 2ac-nfK5fCsTqhIEAAAH
+✔ 2026-09-21 4:49:18 PM [node:events:509] [ADS] Client disconnected: kK4kN72Sho22uGcEAAAF
+✔ 2026-09-21 4:49:44 PM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-09-21 4:49:44 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ enable debugging { debug: true }[0m
+✔ 2026-09-21 4:49:45 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-09-21 4:49:45 PM [unknown-location] Connected to SQLite database
+✔ 2026-09-21 4:49:45 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-09-21 4:49:45 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-09-21 4:49:45 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-09-21 4:49:45 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-09-21 4:49:47 PM [node:events:509] [ADS] Client connected: buoQduu8aFdgwPj8AAAB
+✔ 2026-09-21 4:49:47 PM [node:events:509] [ADS] Client connected: ijUW-verGkldn7TNAAAD
+✔ 2026-09-21 4:49:54 PM [node:events:509] [ADS] Client connected: vmtv5TPp8hg0WOBIAAAF
+✔ 2026-09-21 4:49:54 PM [node:events:509] [ADS] Client disconnected: vmtv5TPp8hg0WOBIAAAF
+✔ 2026-09-21 5:03:20 PM [node:events:509] [ADS] Client disconnected: buoQduu8aFdgwPj8AAAB
