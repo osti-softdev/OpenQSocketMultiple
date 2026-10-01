@@ -13,7 +13,7 @@
 }
 ❌ 2026-08-08 10:26:19 AM [backend\utilities\printer.js:34] PHP Error: Error: Command failed: php C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple/public/printer/print.php H 1 HMO/EMPLOYEE Counter 6 
 
-    at genericNodeError (node:internal/errors:985:15)
+    at genericNodeError (node:internal/errcsadcasdcasdcsadcaors:985:15)
     at wrappedFn (node:internal/errors:539:14)
     at ChildProcess.exithandler (node:child_process:417:12)
     at ChildProcess.emit (node:events:509:28)
