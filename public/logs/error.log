@@ -604,7 +604,7 @@
   cmd: 'php C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple/public/printer/print.php P 37 PLANNING Counter 6 '
 }
 ❌ 2026-08-12 4:46:54 PM [backend\utilities\printer.js:34] PHP Error: Error: Command failed: php C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple/public/printer/print.php P 38 PLANNING Counter 6 
-
+salkdhmasihdaisudmopauscj[pakw[pcl[pecascas
     at genericNodeError (node:internal/errors:985:15)
     at wrappedFn (node:internal/errors:539:14)
     at ChildProcess.exithandler (node:child_process:417:12)
