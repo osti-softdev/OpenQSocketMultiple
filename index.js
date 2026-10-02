@@ -58,14 +58,14 @@ function createWindows() {
     // 2. Create Display Window (on Extended Display, if available)
     // if (externalDisplay) {
     displayWindow = new BrowserWindow({
-        // x: externalDisplay.bounds.x,
-        // y: externalDisplay.bounds.y,
-        // width: externalDisplay.bounds.width,
-        // height: externalDisplay.bounds.height,
-        x: primaryDisplay.bounds.x,
-        y: primaryDisplay.bounds.y,
-        width: primaryDisplay.bounds.width,
-        height: primaryDisplay.bounds.height,
+        x: externalDisplay.bounds.x,
+        y: externalDisplay.bounds.y,
+        width: externalDisplay.bounds.width,
+        height: externalDisplay.bounds.height,
+        // x: primaryDisplay.bounds.x,
+        // y: primaryDisplay.bounds.y,
+        // width: primaryDisplay.bounds.width,
+        // height: primaryDisplay.bounds.height,
         fullscreen: true,
         autoHideMenuBar: true,
         webPreferences: {

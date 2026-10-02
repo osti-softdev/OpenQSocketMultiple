@@ -2679,3 +2679,75 @@ Error: Failed to copy file to printer
 ✔ 2026-10-01 1:30:14 PM [node:events:509] [ADS] Client connected: q_Hf4o358C07T6TNAABN
 ✔ 2026-10-01 1:30:59 PM [node:events:509] [ADS] Client disconnected: q_Hf4o358C07T6TNAABN
 ✔ 2026-10-01 1:31:19 PM [node:events:509] [ADS] Client connected: YGBJ09Lo4T-gWWbRAABP
+✔ 2026-10-01 1:32:01 PM [node:events:509] [ADS] Client disconnected: YGBJ09Lo4T-gWWbRAABP
+✔ 2026-10-01 1:32:15 PM [node:events:509] [ADS] Client connected: a7ZxWSPq6GGnpmsQAABR
+✔ 2026-10-01 1:33:00 PM [node:events:509] [ADS] Client disconnected: a7ZxWSPq6GGnpmsQAABR
+✔ 2026-10-01 1:33:13 PM [node:events:509] [ADS] Client connected: N-Xb2U22uiVID5QFAABT
+✔ 2026-10-01 1:42:15 PM [node:events:509] [ADS] Client disconnected: N-Xb2U22uiVID5QFAABT
+✔ 2026-10-01 1:42:16 PM [node:events:509] [ADS] Client connected: k6xBEN2RTNC8vzuiAABV
+✔ 2026-10-01 1:42:35 PM [node:events:509] [ADS] Client disconnected: k6xBEN2RTNC8vzuiAABV
+✔ 2026-10-01 1:43:13 PM [node:events:509] [ADS] Client connected: CbdSnD2xQcMbMNM7AABX
+✔ 2026-10-01 1:43:58 PM [node:events:509] [ADS] Client disconnected: CbdSnD2xQcMbMNM7AABX
+✔ 2026-10-01 1:44:15 PM [node:events:509] [ADS] Client connected: 9KYheSwCXk_-76pjAABZ
+✔ 2026-10-01 1:45:00 PM [node:events:509] [ADS] Client disconnected: 9KYheSwCXk_-76pjAABZ
+✔ 2026-10-01 1:45:15 PM [node:events:509] [ADS] Client connected: s5JIniY5IL0fiWnCAABb
+✔ 2026-10-01 1:46:00 PM [node:events:509] [ADS] Client disconnected: s5JIniY5IL0fiWnCAABb
+✔ 2026-10-01 1:46:15 PM [node:events:509] [ADS] Client connected: 97QpfPDe6IGPya77AABd
+✔ 2026-10-01 1:47:00 PM [node:events:509] [ADS] Client disconnected: 97QpfPDe6IGPya77AABd
+✔ 2026-10-01 1:47:15 PM [node:events:509] [ADS] Client connected: Cf_f-MdjJiI6R_vHAABf
+✔ 2026-10-01 1:48:00 PM [node:events:509] [ADS] Client disconnected: Cf_f-MdjJiI6R_vHAABf
+✔ 2026-10-01 1:48:15 PM [node:events:509] [ADS] Client connected: 28Hp9KFUPzT2BqwYAABh
+✔ 2026-10-01 1:49:00 PM [node:events:509] [ADS] Client disconnected: 28Hp9KFUPzT2BqwYAABh
+✔ 2026-10-01 1:49:15 PM [node:events:509] [ADS] Client connected: JJe0rk7t_6PDY4paAABj
+✔ 2026-10-01 1:50:00 PM [node:events:509] [ADS] Client disconnected: JJe0rk7t_6PDY4paAABj
+✔ 2026-10-01 1:50:04 PM [node:events:509] [ADS] Client connected: nU6luxJErtEZGHFnAABl
+✔ 2026-10-01 1:51:03 PM [node:events:509] [ADS] Client disconnected: prpeQqj67yegs2z4AAAn
+✔ 2026-10-01 1:51:43 PM [node:events:509] [ADS] Client connected: 8P8gJm-uYMlWC-FOAABn
+✔ 2026-10-01 1:55:50 PM [node:events:509] [ADS] Client disconnected: nU6luxJErtEZGHFnAABl
+✔ 2026-10-01 2:11:23 PM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-10-01 2:11:23 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-01 2:11:23 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-10-01 2:11:24 PM [node:events:509] [ADS] Client connected: 2euZkbtkDfn7SZhyAABp
+✔ 2026-10-01 2:13:24 PM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-10-01 2:13:24 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-01 2:13:24 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-10-01 2:13:24 PM [node:events:509] [ADS] Client connected: hP1VRFccsvn5Ah92AABr
+✔ 2026-10-01 2:13:35 PM [node:events:509] [ADS] Client disconnected: 2euZkbtkDfn7SZhyAABp
+✔ 2026-10-01 2:13:53 PM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-10-01 2:13:53 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-01 2:13:53 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: cade
+✔ 2026-10-01 2:13:54 PM [node:events:509] [ADS] Client connected: Q3E9ZU3TQ8GDT0eYAABt
+✔ 2026-10-01 2:14:53 PM [node:events:509] [ADS] Client disconnected: hP1VRFccsvn5Ah92AABr
+✔ 2026-10-01 2:15:54 PM [node:events:509] [ADS] Client disconnected: Q3E9ZU3TQ8GDT0eYAABt
+✔ 2026-10-01 2:51:05 PM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-10-01 2:51:06 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌁ auth for agents [www.vestauth.com][0m
+✔ 2026-10-01 2:51:09 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-10-01 2:51:10 PM [unknown-location] Connected to SQLite database
+✔ 2026-10-01 2:51:13 PM [node:events:509] [ADS] Client connected: fCsg0E7r3AJnfajXAAAB
+✔ 2026-10-01 2:51:17 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-10-01 2:51:17 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-01 2:51:17 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-01 2:51:17 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-10-01 2:51:25 PM [node:events:509] [ADS] Client connected: pmEuZY60BUb7oyxxAAAD
+✔ 2026-10-01 2:51:28 PM [node:events:509] [ADS] Client connected: OHDNq9rZGxPIXMayAAAF
+✔ 2026-10-01 2:53:47 PM [node:events:509] [ADS] Client disconnected: fCsg0E7r3AJnfajXAAAB
+✔ 2026-10-01 3:24:33 PM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-10-01 3:24:33 PM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-10-01 3:24:33 PM [backend\routes\AkioskApi.js:57] Counter 3
+✔ 2026-10-01 3:24:33 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-10-01 3:24:33 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-01 3:30:16 PM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-10-01 3:30:16 PM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-10-01 3:30:16 PM [backend\routes\AkioskApi.js:57] Counter 3
+✔ 2026-10-01 3:30:16 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-10-01 3:30:16 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-01 3:32:36 PM [backend\routes\AkioskApi.js:55] OPERATIONS_RETURN
+✔ 2026-10-01 3:32:36 PM [backend\routes\AkioskApi.js:56] OPERATIONS / RETURN
+✔ 2026-10-01 3:32:36 PM [backend\routes\AkioskApi.js:57] Counter 5
+✔ 2026-10-01 3:32:36 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-10-01 3:32:36 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-01 3:44:59 PM [backend\routes\AkioskApi.js:55] OPERATIONS_RETURN
+✔ 2026-10-01 3:44:59 PM [backend\routes\AkioskApi.js:56] OPERATIONS / RETURN
+✔ 2026-10-01 3:44:59 PM [backend\routes\AkioskApi.js:57] Counter 5
+✔ 2026-10-01 3:44:59 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-10-01 3:44:59 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
