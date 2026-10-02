@@ -222,5 +222,23 @@ module.exports = function createDisplayApiRouter(io) {
     }
   });
 
+  // =========================
+    // & Pending Tickets
+    // =========================
+  router.get('/tickets/pendingTickets', (req, res) => {
+      const { date } = getPHDateTime();
+
+      db.all(`SELECT * FROM transactions 
+          WHERE status = 'pending' AND date = ?
+          ORDER BY time ASC`,
+          [date],
+          (err, tickets) => {
+              if (err) {
+                  return res.status(500).json({ error: 'Database error' });
+              }
+              res.json(tickets);
+          });
+    });
+
   return router;
 }
