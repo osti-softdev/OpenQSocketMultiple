@@ -56,7 +56,7 @@ function createWindows() {
     });
 
     // 2. Create Display Window (on Extended Display, if available)
-    // if (externalDisplay) {
+    if (externalDisplay) {
     displayWindow = new BrowserWindow({
         x: externalDisplay.bounds.x,
         y: externalDisplay.bounds.y,
@@ -79,9 +79,9 @@ function createWindows() {
     displayWindow.on('closed', () => {
         displayWindow = null;
     });
-    // } else {
-    //     console.log("No external display found for the /display window.");
-    // }
+    } else {
+        console.log("No external display found for the /display window.");
+    }
 }
 
 // Quit when all windows are closed
