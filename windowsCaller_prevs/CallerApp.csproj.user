@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <PublishUrlHistory>C:\Users\TECHNICAL\Documents\Cade\VS-built-applications\Caller_v1.0\QCaller_prev1.1\|C:\Users\TECHNICAL\Documents\Cade\VS-built-applications\Caller_v1.0\QCaller_prev1.0\|C:\Users\TECHNICAL\Documents\Arduino\|publish\</PublishUrlHistory>
-    <InstallUrlHistory />
-    <SupportUrlHistory />
+    <PublishUrlHistory>C:\Users\TECHNICAL\Documents\Cade\VS-built-applications\QCallerv4\|C:\Users\TECHNICAL\Documents\Cade\VS-built-applications\QCallerv3\|E:\SOURCE_CODES\DOTNET\QCaller_v1.0.0\|C:\Users\TECHNICAL\Documents\Cade\VS-built-applications\Caller_v1.0\QCaller_prev1.1\|C:\Users\TECHNICAL\Documents\Cade\VS-built-applications\Caller_v1.0\QCaller_prev1.0\</PublishUrlHistory>
+    <InstallUrlHistory>https://dev.osti.com.ph/</InstallUrlHistory>
+    <SupportUrlHistory>https://dev.osti.com.ph</SupportUrlHistory>
     <UpdateUrlHistory />
     <BootstrapperUrlHistory />
-    <ErrorReportUrlHistory />
+    <ErrorReportUrlHistory>https://dev.osti.com.ph</ErrorReportUrlHistory>
     <FallbackCulture>en-US</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
