@@ -2922,3 +2922,25 @@ Error: Failed to copy file to printer
 ✔ 2026-10-06 11:32:07 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
 ✔ 2026-10-06 11:32:07 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
 ✔ 2026-10-06 11:32:08 AM [node:events:509] [ADS] Client connected: PJDvB0C-cXeryfJQAAAD
+✔ 2026-10-06 3:25:48 PM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-10-06 3:25:48 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ suppress logs { quiet: true }[0m
+✔ 2026-10-06 3:25:50 PM [node:events:639] Queue System running on http://localhost:12341
+✔ 2026-10-06 3:25:50 PM [unknown-location] Connected to SQLite database
+✔ 2026-10-06 3:25:50 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-10-06 3:25:50 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-06 3:25:50 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-06 3:25:50 PM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-10-06 3:25:52 PM [node:events:514] [ADS] Client connected: B0gAmIQfiwbIsWq-AAAA
+✔ 2026-10-06 3:25:52 PM [node:events:514] [ADS] Client connected: eLI1HKoc3YKpz_W6AAAB
+✔ 2026-10-06 3:26:17 PM [backend\routes\AadminApi.js:54] Login attempt for: admin
+✔ 2026-10-06 3:26:17 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-06 3:26:17 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-06 3:26:17 PM [node:events:514] [ADS] Client connected: cJAOtpoiwvQeen0RAAAC
+✔ 2026-10-06 3:27:12 PM [node:events:514] [ADS] Client disconnected: cJAOtpoiwvQeen0RAAAC
+✔ 2026-10-06 3:27:12 PM [node:events:514] [ADS] Client connected: iw7iA-y7JrHd0eZjAAAD
+✔ 2026-10-06 3:28:34 PM [node:events:514] [ADS] Client disconnected: iw7iA-y7JrHd0eZjAAAD
+✔ 2026-10-06 3:28:34 PM [node:events:514] [ADS] Client connected: 083A_eMSnb4QMicSAAAE
+✔ 2026-10-06 3:29:10 PM [node:events:514] [ADS] Client disconnected: 083A_eMSnb4QMicSAAAE
+✔ 2026-10-06 3:29:10 PM [node:events:514] [ADS] Client connected: jX1WBMFVEAHoyDoUAAAF
+✔ 2026-10-06 3:29:21 PM [node:events:514] [ADS] Client disconnected: jX1WBMFVEAHoyDoUAAAF
+✔ 2026-10-06 3:29:21 PM [node:events:514] [ADS] Client connected: pFuPy1cRvmaufAGzAAAG
