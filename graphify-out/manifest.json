@@ -84,10 +84,10 @@
     "semantic_hash": "76bd24add3e86733604c0bd78d5ecc4b"
   },
   "backend/routes/AadminApi.js": {
-    "mtime": 1787015627.7906425,
-    "seen": 1791986594.0176022,
-    "ast_hash": "23da33d0a70c910c70ae6ea11dbb5688",
-    "semantic_hash": "23da33d0a70c910c70ae6ea11dbb5688"
+    "mtime": 1791989492.368047,
+    "seen": 1791989693.8629694,
+    "ast_hash": "b1635febfffbffc2171e6dcc8755466c",
+    "semantic_hash": ""
   },
   "backend/routes/AdisplayApi.js": {
     "mtime": 1790923408.0201848,
@@ -236,8 +236,8 @@
   "openq (1).sql": {
     "mtime": 1787015628.0966163,
     "seen": 1791986594.0176613,
-    "ast_hash": "8169f8a8580372ae084ed9e08b5ffa4d",
-    "semantic_hash": "8169f8a8580372ae084ed9e08b5ffa4d"
+    "ast_hash": "",
+    "semantic_hash": ""
   },
   "package.json": {
     "mtime": 1787015628.0976155,
@@ -11770,5 +11770,3947 @@
     "seen": 1791986594.0243926,
     "ast_hash": "acdf922796db638baae0359aa2ee8055",
     "semantic_hash": "acdf922796db638baae0359aa2ee8055"
+  },
+  "backend/utilities/ticketHistoryHelper.js": {
+    "mtime": 1791989151.7766094,
+    "seen": 1791989693.868646,
+    "ast_hash": "64074a2c430c8240aded599ea014608e",
+    "semantic_hash": ""
+  },
+  ".github/copilot-instructions.md": {
+    "mtime": 1783912628.6864226,
+    "seen": 1791989694.3435664,
+    "ast_hash": "061ce67a86ca29cae87ccb866ed4e6e8",
+    "semantic_hash": ""
+  },
+  "ADVERTISEMENT_README.md": {
+    "mtime": 1787015626.7836118,
+    "seen": 1791989694.343569,
+    "ast_hash": "3394da69cd8a52f5dafa8174d9e8933b",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1787015626.7846115,
+    "seen": 1791989694.3435717,
+    "ast_hash": "ef3c164bcd5047b3f3ddedafe1e8f3c2",
+    "semantic_hash": ""
+  },
+  "TESTER/api/README.md": {
+    "mtime": 1787015626.8006105,
+    "seen": 1791989694.3435736,
+    "ast_hash": "668307f27a7a1cc8a0640ffeb4d5b415",
+    "semantic_hash": ""
+  },
+  "TESTER/stress/README.md": {
+    "mtime": 1787015626.9956858,
+    "seen": 1791989694.3435767,
+    "ast_hash": "7c3420f8d913a8cffaec7097ef0f12f6",
+    "semantic_hash": ""
+  },
+  "TESTER/unit/README.md": {
+    "mtime": 1787015627.0206842,
+    "seen": 1791989694.3435786,
+    "ast_hash": "28f9bc44983ff6f530c05150cf47b49e",
+    "semantic_hash": ""
+  },
+  "estimated.txt": {
+    "mtime": 1787015628.0276146,
+    "seen": 1791989694.3435805,
+    "ast_hash": "aed472882eedfc61c7bbdd46a5889a49",
+    "semantic_hash": ""
+  },
+  "public/html/admin.html": {
+    "mtime": 1787132743.8919563,
+    "seen": 1791989694.3435824,
+    "ast_hash": "71b36df18f8383efa2b52faf3060cf57",
+    "semantic_hash": ""
+  },
+  "public/html/admin_login.html": {
+    "mtime": 1787015630.1920695,
+    "seen": 1791989694.343585,
+    "ast_hash": "bbbea1c5960fb355359aafc99712f179",
+    "semantic_hash": ""
+  },
+  "public/html/caller.html": {
+    "mtime": 1787015630.1930676,
+    "seen": 1791989694.3435872,
+    "ast_hash": "17be985c11b5a4ee32374bdddd93608b",
+    "semantic_hash": ""
+  },
+  "public/html/caller_login.html": {
+    "mtime": 1787015630.1940658,
+    "seen": 1791989694.343589,
+    "ast_hash": "8c752eb71205c5d2c7806762f62118c2",
+    "semantic_hash": ""
+  },
+  "public/html/icon.html": {
+    "mtime": 1787015630.1960704,
+    "seen": 1791989694.3435915,
+    "ast_hash": "4663812c82a89f0149ed56e19f684fa5",
+    "semantic_hash": ""
+  },
+  "public/html/index.html": {
+    "mtime": 1787015630.198067,
+    "seen": 1791989694.3435931,
+    "ast_hash": "587e0adbb2a78b5c36fd0f1c1166c5e5",
+    "semantic_hash": ""
+  },
+  "public/html/kiosk.html": {
+    "mtime": 1787015630.1990676,
+    "seen": 1791989694.3435957,
+    "ast_hash": "fd7050d650a7b1fec177ce86d3719ed3",
+    "semantic_hash": ""
+  },
+  "public/html/maintenance.html": {
+    "mtime": 1787015630.2000718,
+    "seen": 1791989694.343598,
+    "ast_hash": "53e01b0bac73ac27f54d99b80d927ca8",
+    "semantic_hash": ""
+  },
+  "public/html/onlinekiosk.html": {
+    "mtime": 1787015630.2010722,
+    "seen": 1791989694.3435996,
+    "ast_hash": "7d668576511c6e142b28b154619a5bc8",
+    "semantic_hash": ""
+  },
+  "public/libs/fonts/Anton_SC/OFL.txt": {
+    "mtime": 1787015633.8306782,
+    "seen": 1791989694.343602,
+    "ast_hash": "c4355d5e5b49066ad682db03e786324c",
+    "semantic_hash": ""
+  },
+  "public/libs/fonts/Candal/OFL.txt": {
+    "mtime": 1787015633.832677,
+    "seen": 1791989694.3436036,
+    "ast_hash": "d9f2c94dee6f2eb1bfa4e0468edde005",
+    "semantic_hash": ""
+  },
+  "public/libs/fonts/Titan_One/OFL.txt": {
+    "mtime": 1787015633.8916898,
+    "seen": 1791989694.3436055,
+    "ast_hash": "900b109eb2da31eee4dba322f426e5ad",
+    "semantic_hash": ""
+  },
+  "public/libs/fonts/akuro/OFL.txt": {
+    "mtime": 1787015633.9006891,
+    "seen": 1791989694.3436084,
+    "ast_hash": "0a1c236ead3dc17acd65da78a4f85992",
+    "semantic_hash": ""
+  },
+  "public/libs/fonts/digital/readme.txt": {
+    "mtime": 1787015633.998544,
+    "seen": 1791989694.34361,
+    "ast_hash": "6684f2fbf9a830f35d179b3682795407",
+    "semantic_hash": ""
+  },
+  "public/libs/fonts/slab/OFL.txt": {
+    "mtime": 1787015634.0025403,
+    "seen": 1791989694.3436122,
+    "ast_hash": "a36c1679aa1e48278ecbee4c29daab95",
+    "semantic_hash": ""
+  },
+  "public/libs/icons/Material_Symbols_Outlined/LICENSE.txt": {
+    "mtime": 1787015634.012542,
+    "seen": 1791989694.3436139,
+    "ast_hash": "d273d63619c9aeaf15cdaf76422c4f87",
+    "semantic_hash": ""
+  },
+  "public/libs/icons/Material_Symbols_Outlined/README.txt": {
+    "mtime": 1787015634.2385974,
+    "seen": 1791989694.3436162,
+    "ast_hash": "cde9cac46110c280851df1d0dfb9f11f",
+    "semantic_hash": ""
+  },
+  "public/libs/icons/Material_Symbols_Rounded/LICENSE.txt": {
+    "mtime": 1787015635.4952404,
+    "seen": 1791989694.3436186,
+    "ast_hash": "d273d63619c9aeaf15cdaf76422c4f87",
+    "semantic_hash": ""
+  },
+  "public/libs/icons/Material_Symbols_Rounded/README.txt": {
+    "mtime": 1787015635.7478883,
+    "seen": 1791989694.3436208,
+    "ast_hash": "2e8b7c7127b7e2a269dfbdfea9d8387f",
+    "semantic_hash": ""
+  },
+  "public/libs/icons/Material_Symbols_Sharp/LICENSE.txt": {
+    "mtime": 1787015637.344209,
+    "seen": 1791989694.3436232,
+    "ast_hash": "d273d63619c9aeaf15cdaf76422c4f87",
+    "semantic_hash": ""
+  },
+  "public/libs/icons/Material_Symbols_Sharp/README.txt": {
+    "mtime": 1787015637.5453148,
+    "seen": 1791989694.343625,
+    "ast_hash": "2e3107eefa7a514a5b50784d2c678976",
+    "semantic_hash": ""
+  },
+  "public/libs/jquery-ui-1.14.1/AUTHORS.txt": {
+    "mtime": 1787015638.3535204,
+    "seen": 1791989694.3436267,
+    "ast_hash": "dd3ebbd1abdd6c428208b124a9a418fb",
+    "semantic_hash": ""
+  },
+  "public/libs/jquery-ui-1.14.1/LICENSE.txt": {
+    "mtime": 1787015638.3535204,
+    "seen": 1791989694.343629,
+    "ast_hash": "298619b5f1327b27a80ce83e084c579d",
+    "semantic_hash": ""
+  },
+  "public/libs/jquery-ui-1.14.1/index.html": {
+    "mtime": 1787015638.3645244,
+    "seen": 1791989694.343631,
+    "ast_hash": "5b2c4f34f9569c8a0cc11436b84aa925",
+    "semantic_hash": ""
+  },
+  "public/logs/smslog.txt": {
+    "mtime": 1787015638.4405282,
+    "seen": 1791989694.3436327,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/CHANGELOG.md": {
+    "mtime": 1787015638.5005298,
+    "seen": 1791989694.3436348,
+    "ast_hash": "8e22e73a690c2662f069bd9212c4ef57",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/README.md": {
+    "mtime": 1787015638.5035212,
+    "seen": 1791989694.343637,
+    "ast_hash": "cb4773a7c56f71be2b15cbe7c0e840d4",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.AllowedClasses.txt": {
+    "mtime": 1787015638.6158447,
+    "seen": 1791989694.3436391,
+    "ast_hash": "6d6be07f921f8af8fb6badd53e6d96a5",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.AllowedFrameTargets.txt": {
+    "mtime": 1787015638.6168456,
+    "seen": 1791989694.3436413,
+    "ast_hash": "44a56892b5e6985794ee568ce5db0dc4",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.AllowedRel.txt": {
+    "mtime": 1787015638.6178448,
+    "seen": 1791989694.343644,
+    "ast_hash": "973f8a1fb2508444214a930b5fb98823",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.AllowedRev.txt": {
+    "mtime": 1787015638.6188438,
+    "seen": 1791989694.3436463,
+    "ast_hash": "a5717950a0602362d8fdec59963a409f",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.ClassUseCDATA.txt": {
+    "mtime": 1787015638.6188438,
+    "seen": 1791989694.3436484,
+    "ast_hash": "e69e0e16d5deeacaf4e9550a56becc3e",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.DefaultImageAlt.txt": {
+    "mtime": 1787015638.6198425,
+    "seen": 1791989694.3436508,
+    "ast_hash": "41816d03167d0dfa5a9658ec5c49c2c1",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.DefaultInvalidImage.txt": {
+    "mtime": 1787015638.620842,
+    "seen": 1791989694.3436527,
+    "ast_hash": "4f8860ac6f26fef07d5a097647a3bc11",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.DefaultInvalidImageAlt.txt": {
+    "mtime": 1787015638.620842,
+    "seen": 1791989694.3436544,
+    "ast_hash": "6bed0833d3148f134cc78a2966b15d19",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.DefaultTextDir.txt": {
+    "mtime": 1787015638.6218414,
+    "seen": 1791989694.3436565,
+    "ast_hash": "f7d78647810958a5923b01b44a534dc4",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.EnableID.txt": {
+    "mtime": 1787015638.622843,
+    "seen": 1791989694.3436584,
+    "ast_hash": "0353456fe8398ea43adc4e5ae9f1a0d6",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.ForbiddenClasses.txt": {
+    "mtime": 1787015638.623844,
+    "seen": 1791989694.3436604,
+    "ast_hash": "8b48cb2971595b49fc04f4a90634a0c0",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.ID.HTML5.txt": {
+    "mtime": 1787015638.623844,
+    "seen": 1791989694.343662,
+    "ast_hash": "ddb0d2c21b2ecff48f03f9a1dd5f5939",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.IDBlacklist.txt": {
+    "mtime": 1787015638.6248412,
+    "seen": 1791989694.3436637,
+    "ast_hash": "bac7a76cdc4e4eb42a102fde36199fa9",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.IDBlacklistRegexp.txt": {
+    "mtime": 1787015638.6258411,
+    "seen": 1791989694.3436658,
+    "ast_hash": "2a11df2541dd85f8196f923c781750c2",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.IDPrefix.txt": {
+    "mtime": 1787015638.6258411,
+    "seen": 1791989694.3436682,
+    "ast_hash": "db521581336f6bc00f3772749f585762",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.IDPrefixLocal.txt": {
+    "mtime": 1787015638.626842,
+    "seen": 1791989694.3436704,
+    "ast_hash": "3787ba847a4452dd59ad4d8fbcd92298",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.AutoParagraph.txt": {
+    "mtime": 1787015638.6278427,
+    "seen": 1791989694.3436718,
+    "ast_hash": "68ea5382d79d1710bfebdd341bbec2ed",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.Custom.txt": {
+    "mtime": 1787015638.6288433,
+    "seen": 1791989694.3436737,
+    "ast_hash": "6a348641fd2ab2e1a4eace5c31c21385",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.DisplayLinkURI.txt": {
+    "mtime": 1787015638.6288433,
+    "seen": 1791989694.3436759,
+    "ast_hash": "ca6aab0a69b94231a0e5f62f416e3ac8",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.Linkify.txt": {
+    "mtime": 1787015638.629843,
+    "seen": 1791989694.3436778,
+    "ast_hash": "9db069e3ba6d9fb79cabbdfa6fb8c7fe",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.PurifierLinkify.DocURL.txt": {
+    "mtime": 1787015638.630842,
+    "seen": 1791989694.3436792,
+    "ast_hash": "8d6015585789776db60e0a94090b7901",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.PurifierLinkify.txt": {
+    "mtime": 1787015638.6318436,
+    "seen": 1791989694.3436813,
+    "ast_hash": "8f03fa47360675ae31f9ac9092d04806",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveEmpty.Predicate.txt": {
+    "mtime": 1787015638.6318436,
+    "seen": 1791989694.3436835,
+    "ast_hash": "8e8ec5bf4aa6b49a5c8383439a3315bc",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveEmpty.RemoveNbsp.Exceptions.txt": {
+    "mtime": 1787015638.632842,
+    "seen": 1791989694.3436859,
+    "ast_hash": "3ae173542dea0be2368ecb052f78b69b",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveEmpty.RemoveNbsp.txt": {
+    "mtime": 1787015638.6338425,
+    "seen": 1791989694.3436882,
+    "ast_hash": "9bb483de50dbb3b2d3015a0530882fd9",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveEmpty.txt": {
+    "mtime": 1787015638.6348417,
+    "seen": 1791989694.3436902,
+    "ast_hash": "6e17b1a2ced03a308deb7b3269c873dc",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveSpansWithoutAttributes.txt": {
+    "mtime": 1787015638.6348417,
+    "seen": 1791989694.3436923,
+    "ast_hash": "2481c4aa804624154381155f658ef5fc",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/CSS.AllowDuplicates.txt": {
+    "mtime": 1787015638.6358418,
+    "seen": 1791989694.343694,
+    "ast_hash": "56d9302b197b1c002fe2ab33465a5928",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/CSS.AllowImportant.txt": {
+    "mtime": 1787015638.6368423,
+    "seen": 1791989694.3436959,
+    "ast_hash": "5de3cebbc2cd68213eb1250a23ba559e",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/CSS.AllowTricky.txt": {
+    "mtime": 1787015638.6368423,
+    "seen": 1791989694.3436985,
+    "ast_hash": "2abc7e888ee653301b9db591fe42257d",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/CSS.AllowedFonts.txt": {
+    "mtime": 1787015638.637841,
+    "seen": 1791989694.3437006,
+    "ast_hash": "659385aa9410d93d589f816e01b1bfc5",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/CSS.AllowedProperties.txt": {
+    "mtime": 1787015638.6388426,
+    "seen": 1791989694.343703,
+    "ast_hash": "e7b6edbd1acc5ede3ed4facc783f565e",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/CSS.DefinitionRev.txt": {
+    "mtime": 1787015638.6398418,
+    "seen": 1791989694.343705,
+    "ast_hash": "8628739c56d6ec504951e9209e7b9489",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/CSS.ForbiddenProperties.txt": {
+    "mtime": 1787015638.6408434,
+    "seen": 1791989694.3437066,
+    "ast_hash": "cde52830ca3e9fd9c49d3cbed822df69",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/CSS.MaxImgLength.txt": {
+    "mtime": 1787015638.6418443,
+    "seen": 1791989694.3437085,
+    "ast_hash": "6349395c0bf5796fcbf7a3c8c712761b",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/CSS.Proprietary.txt": {
+    "mtime": 1787015638.6418443,
+    "seen": 1791989694.3437107,
+    "ast_hash": "4dfb68d9697568a96106e018986dd160",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/CSS.Trusted.txt": {
+    "mtime": 1787015638.6428518,
+    "seen": 1791989694.3437126,
+    "ast_hash": "8bc538d73140b36b8eea88aa2bd60a55",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Cache.DefinitionImpl.txt": {
+    "mtime": 1787015638.6438427,
+    "seen": 1791989694.3437142,
+    "ast_hash": "725fd42a1a72e1ffa6b696c8aa4cab8a",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Cache.SerializerPath.txt": {
+    "mtime": 1787015638.6438427,
+    "seen": 1791989694.3437161,
+    "ast_hash": "6ce09865df3e809578face5b41695330",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Cache.SerializerPermissions.txt": {
+    "mtime": 1787015638.6458423,
+    "seen": 1791989694.3437183,
+    "ast_hash": "6102edd59c336fd8fe7a69b96809409e",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.AggressivelyFixLt.txt": {
+    "mtime": 1787015638.6468422,
+    "seen": 1791989694.34372,
+    "ast_hash": "abee202df282eece3f2ed827262f4859",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.AggressivelyRemoveScript.txt": {
+    "mtime": 1787015638.6468422,
+    "seen": 1791989694.3437219,
+    "ast_hash": "76e63407aa507e0fc39b61489fb0cc87",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.AllowHostnameUnderscore.txt": {
+    "mtime": 1787015638.6478438,
+    "seen": 1791989694.3437238,
+    "ast_hash": "0eb9dae0db0216a00e23390c2d865f28",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.AllowParseManyTags.txt": {
+    "mtime": 1787015638.6488419,
+    "seen": 1791989694.343726,
+    "ast_hash": "1c3576c01c3bc647be739b6dfd690ef7",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.CollectErrors.txt": {
+    "mtime": 1787015638.6498442,
+    "seen": 1791989694.3437276,
+    "ast_hash": "f52cd2bd655514fc2947a5a10ea012ae",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.ColorKeywords.txt": {
+    "mtime": 1787015638.6508424,
+    "seen": 1791989694.3437302,
+    "ast_hash": "425e86a5fc841c81e2628776adcd99c0",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.ConvertDocumentToFragment.txt": {
+    "mtime": 1787015638.6518435,
+    "seen": 1791989694.343732,
+    "ast_hash": "09fecad1fa71fcb64356f6c7ab00730d",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.DirectLexLineNumberSyncInterval.txt": {
+    "mtime": 1787015638.6528418,
+    "seen": 1791989694.343734,
+    "ast_hash": "a1d4938e1f0a0db40c9f1f319d4cbd68",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.DisableExcludes.txt": {
+    "mtime": 1787015638.653841,
+    "seen": 1791989694.3437362,
+    "ast_hash": "0685722fdc7e2a0999b16071a7612ab3",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.EnableIDNA.txt": {
+    "mtime": 1787015638.654843,
+    "seen": 1791989694.343738,
+    "ast_hash": "73d6bd1c1a5ccebd2a6ee97cc5132a5e",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.Encoding.txt": {
+    "mtime": 1787015638.6558435,
+    "seen": 1791989694.34374,
+    "ast_hash": "d63004bc5705e2fc63c01f682579d912",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.EscapeInvalidChildren.txt": {
+    "mtime": 1787015638.6568456,
+    "seen": 1791989694.3437414,
+    "ast_hash": "fa9b8dbf86b853a130afd58ecc6a2239",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.EscapeInvalidTags.txt": {
+    "mtime": 1787015638.6568456,
+    "seen": 1791989694.3437438,
+    "ast_hash": "d6a64dd936580e6285b92b26335cbd7b",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.EscapeNonASCIICharacters.txt": {
+    "mtime": 1787015638.6588435,
+    "seen": 1791989694.343746,
+    "ast_hash": "7d01a5e6222a9b0c0d44728a1b879fef",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.HiddenElements.txt": {
+    "mtime": 1787015638.6588435,
+    "seen": 1791989694.3437479,
+    "ast_hash": "27eba64d29c76d3f88b89194eeac7fbf",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.Language.txt": {
+    "mtime": 1787015638.6598444,
+    "seen": 1791989694.3437495,
+    "ast_hash": "850f16bf853273ba4909e9526c82e680",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.LegacyEntityDecoder.txt": {
+    "mtime": 1787015638.6608436,
+    "seen": 1791989694.3437514,
+    "ast_hash": "fa0ebefa12493cee804ed4750b36ad90",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.LexerImpl.txt": {
+    "mtime": 1787015638.6618443,
+    "seen": 1791989694.343753,
+    "ast_hash": "3d213d862792ac198b9d30a3486b53e8",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.MaintainLineNumbers.txt": {
+    "mtime": 1787015638.662843,
+    "seen": 1791989694.3437555,
+    "ast_hash": "1e248f2dae6f647b8852481d1ea07eef",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.NormalizeNewlines.txt": {
+    "mtime": 1787015638.662843,
+    "seen": 1791989694.3437579,
+    "ast_hash": "7e28f83e93797e6ef80599ccb9c12bb2",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.RemoveInvalidImg.txt": {
+    "mtime": 1787015638.6638424,
+    "seen": 1791989694.3437598,
+    "ast_hash": "630c99a8bae11f3a1209d798fdd2e3f4",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.RemoveProcessingInstructions.txt": {
+    "mtime": 1787015638.6648414,
+    "seen": 1791989694.343762,
+    "ast_hash": "bf241bff7f0adc83fbd921d4807a7946",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.RemoveScriptContents.txt": {
+    "mtime": 1787015638.6658442,
+    "seen": 1791989694.3437638,
+    "ast_hash": "f8e78147724d1f30d237896b482cfc7d",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Filter.Custom.txt": {
+    "mtime": 1787015638.6658442,
+    "seen": 1791989694.343766,
+    "ast_hash": "32d1b9088c0b4a851664252443fe9ea7",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.Escaping.txt": {
+    "mtime": 1787015638.6668432,
+    "seen": 1791989694.343768,
+    "ast_hash": "afbdc4be679a92dfea310702b6d4f323",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.Scope.txt": {
+    "mtime": 1787015638.6678424,
+    "seen": 1791989694.3437693,
+    "ast_hash": "c64b77500b2c383f1cffc717148e10f1",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.TidyImpl.txt": {
+    "mtime": 1787015638.668844,
+    "seen": 1791989694.3437715,
+    "ast_hash": "ac08406ddabb3a526d0eafd361c0123b",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.txt": {
+    "mtime": 1787015638.668844,
+    "seen": 1791989694.3437731,
+    "ast_hash": "834291f9849896737b9d9181223b4eb2",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Filter.YouTube.txt": {
+    "mtime": 1787015638.6698418,
+    "seen": 1791989694.343775,
+    "ast_hash": "a020b55940d8562474cb4fcfcf7e4135",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.Allowed.txt": {
+    "mtime": 1787015638.6708426,
+    "seen": 1791989694.343777,
+    "ast_hash": "0dfdc65063984b71a46247d10f380518",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.AllowedAttributes.txt": {
+    "mtime": 1787015638.6718428,
+    "seen": 1791989694.3437786,
+    "ast_hash": "fca0da3308968423a2e42447f5ea12d9",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.AllowedComments.txt": {
+    "mtime": 1787015638.672842,
+    "seen": 1791989694.3437808,
+    "ast_hash": "b4da33fb26f1c01b340ea983f831f897",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.AllowedCommentsRegexp.txt": {
+    "mtime": 1787015638.672842,
+    "seen": 1791989694.3437827,
+    "ast_hash": "81ae234369b6a84ce0f067fa6a1fc681",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.AllowedElements.txt": {
+    "mtime": 1787015638.6738422,
+    "seen": 1791989694.3437848,
+    "ast_hash": "f23ef98f5a07823a6eed12ca2844d91b",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.AllowedModules.txt": {
+    "mtime": 1787015638.6748435,
+    "seen": 1791989694.3437867,
+    "ast_hash": "a9ef6bff4a6455178e64617648583f0d",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.Attr.Name.UseCDATA.txt": {
+    "mtime": 1787015638.6748435,
+    "seen": 1791989694.3437886,
+    "ast_hash": "3f7f4c727732dad71589a4d3008e4a5b",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.BlockWrapper.txt": {
+    "mtime": 1787015638.6758418,
+    "seen": 1791989694.3437903,
+    "ast_hash": "f3a722176896f29d167820be0ce684f8",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.CoreModules.txt": {
+    "mtime": 1787015638.6768448,
+    "seen": 1791989694.3437922,
+    "ast_hash": "6c47bd04d4e9f9085acc5349e123c5f1",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.CustomDoctype.txt": {
+    "mtime": 1787015638.6778488,
+    "seen": 1791989694.3437939,
+    "ast_hash": "d29e183f5e1fe940e256db1760bf77ef",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.DefinitionID.txt": {
+    "mtime": 1787015638.6788423,
+    "seen": 1791989694.3437963,
+    "ast_hash": "8b6120e1262c010661009059b50d33cb",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.DefinitionRev.txt": {
+    "mtime": 1787015638.6788423,
+    "seen": 1791989694.3437982,
+    "ast_hash": "c320acdde56d83744adb37738832ef6d",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.Doctype.txt": {
+    "mtime": 1787015638.6798422,
+    "seen": 1791989694.3438,
+    "ast_hash": "60e89296929dd1f79a581acdb2d7e401",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.FlashAllowFullScreen.txt": {
+    "mtime": 1787015638.6808438,
+    "seen": 1791989694.3438022,
+    "ast_hash": "c93e3d1c4f01a578d27006fe2fc547e5",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.ForbiddenAttributes.txt": {
+    "mtime": 1787015638.6818419,
+    "seen": 1791989694.3438041,
+    "ast_hash": "22e3dd7184f3f45bba14ccfc7e63744e",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.ForbiddenElements.txt": {
+    "mtime": 1787015638.6818419,
+    "seen": 1791989694.343806,
+    "ast_hash": "3572f64d6691f18fce21a59f8e2d7bf1",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.Forms.txt": {
+    "mtime": 1787015638.6828418,
+    "seen": 1791989694.343808,
+    "ast_hash": "fdd5d67cceac4ac58c593e67fb7931dc",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.MaxImgLength.txt": {
+    "mtime": 1787015638.6838415,
+    "seen": 1791989694.3441956,
+    "ast_hash": "21fffcd64eddd22f2f30d92489047082",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.Nofollow.txt": {
+    "mtime": 1787015638.6838415,
+    "seen": 1791989694.3441987,
+    "ast_hash": "ed728c1aee0f091d3bce7dada693b813",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.Parent.txt": {
+    "mtime": 1787015638.6848419,
+    "seen": 1791989694.3442006,
+    "ast_hash": "bb4ec0c9670b9d11c253b8d6f768b4b5",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.Proprietary.txt": {
+    "mtime": 1787015638.6848419,
+    "seen": 1791989694.344203,
+    "ast_hash": "6346dce7c03e0115566b1d6f331338c4",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.SafeEmbed.txt": {
+    "mtime": 1787015638.6858451,
+    "seen": 1791989694.344205,
+    "ast_hash": "2a29187c466d482efd37676d9f93cce7",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.SafeIframe.txt": {
+    "mtime": 1787015638.6858451,
+    "seen": 1791989694.3442066,
+    "ast_hash": "e1c0ead2880e835d3dba22d8c07074fe",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.SafeObject.txt": {
+    "mtime": 1787015638.6868434,
+    "seen": 1791989694.3442085,
+    "ast_hash": "1f9441d29fc0a47321adb3da6d4258a7",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.SafeScripting.txt": {
+    "mtime": 1787015638.6868434,
+    "seen": 1791989694.3442104,
+    "ast_hash": "85401de744f9e8de7a1efca975a4a874",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.Strict.txt": {
+    "mtime": 1787015638.6878412,
+    "seen": 1791989694.3442128,
+    "ast_hash": "177bd984c7512636f6aade67af068ba7",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.TargetBlank.txt": {
+    "mtime": 1787015638.688841,
+    "seen": 1791989694.3442147,
+    "ast_hash": "fc5a7bc33c7ad7b75115b8b58a08fe10",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.TargetNoopener.txt": {
+    "mtime": 1787015638.688841,
+    "seen": 1791989694.3442166,
+    "ast_hash": "34fe41ee8dfd4342be01ce7b0de962a2",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.TargetNoreferrer.txt": {
+    "mtime": 1787015638.689842,
+    "seen": 1791989694.3442187,
+    "ast_hash": "c0722cf01c32dd334a98070b73e2bfa5",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.TidyAdd.txt": {
+    "mtime": 1787015638.6908429,
+    "seen": 1791989694.3442204,
+    "ast_hash": "beec3adbff9da244f22b82e24c88f9c3",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.TidyLevel.txt": {
+    "mtime": 1787015638.6908429,
+    "seen": 1791989694.3442225,
+    "ast_hash": "f8201332b27cd22460e0ce0091851ee3",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.TidyRemove.txt": {
+    "mtime": 1787015638.6918423,
+    "seen": 1791989694.3442242,
+    "ast_hash": "47846357d1244a892edb81602bc17afd",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.Trusted.txt": {
+    "mtime": 1787015638.6928518,
+    "seen": 1791989694.344226,
+    "ast_hash": "63cea66c9caac2f38e747ef3da6e88de",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.XHTML.txt": {
+    "mtime": 1787015638.6938443,
+    "seen": 1791989694.3442276,
+    "ast_hash": "4e02bdb86d15f95c48ee1c1f04eb16e0",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Output.CommentScriptContents.txt": {
+    "mtime": 1787015638.6948428,
+    "seen": 1791989694.3442295,
+    "ast_hash": "6b32709ec83f7739df29d9f6d63a58eb",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Output.FixInnerHTML.txt": {
+    "mtime": 1787015638.6948428,
+    "seen": 1791989694.3442314,
+    "ast_hash": "de37029cbbadf5161cd7cb371f3c5f64",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Output.FlashCompat.txt": {
+    "mtime": 1787015638.6958418,
+    "seen": 1791989694.3442335,
+    "ast_hash": "1504937c65241193f84e80dd54120e37",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Output.Newline.txt": {
+    "mtime": 1787015638.6968434,
+    "seen": 1791989694.3442364,
+    "ast_hash": "e559fe594c75c8cea4aef28c6dbb9371",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Output.SortAttr.txt": {
+    "mtime": 1787015638.6968434,
+    "seen": 1791989694.344238,
+    "ast_hash": "0f87daf575923cca8a4e2cea81e94e0a",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Output.TidyFormat.txt": {
+    "mtime": 1787015638.6978428,
+    "seen": 1791989694.3442402,
+    "ast_hash": "097cf98f27b205ecaf28dee33bd726b0",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Test.ForceNoIconv.txt": {
+    "mtime": 1787015638.6988425,
+    "seen": 1791989694.3442416,
+    "ast_hash": "0688f96799d71124eed66c4f7a356986",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.AllowedSchemes.txt": {
+    "mtime": 1787015638.6998425,
+    "seen": 1791989694.3442442,
+    "ast_hash": "4d34c876e60f95756325fae6bd51c8fe",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.Base.txt": {
+    "mtime": 1787015638.7008443,
+    "seen": 1791989694.344246,
+    "ast_hash": "b0386cd91b2b9f9d40d53a2a88c68ebc",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.DefaultScheme.txt": {
+    "mtime": 1787015638.7008443,
+    "seen": 1791989694.3442478,
+    "ast_hash": "0562b7cd4c3a6b2571e59c92bd935a36",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.DefinitionID.txt": {
+    "mtime": 1787015638.701843,
+    "seen": 1791989694.3442502,
+    "ast_hash": "81065c2cfce3161b03d1765800b7f75e",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.DefinitionRev.txt": {
+    "mtime": 1787015638.701843,
+    "seen": 1791989694.3442519,
+    "ast_hash": "83fac4afbcf2ffe2af50f8b61360ef6a",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.Disable.txt": {
+    "mtime": 1787015638.702843,
+    "seen": 1791989694.3442535,
+    "ast_hash": "b972d99f139271ad07d767970404d3d1",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.DisableExternal.txt": {
+    "mtime": 1787015638.7038426,
+    "seen": 1791989694.344255,
+    "ast_hash": "c55849f2ce54b65192dbd14be95a6436",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.DisableExternalResources.txt": {
+    "mtime": 1787015638.7048416,
+    "seen": 1791989694.3442569,
+    "ast_hash": "7b0ae75954b03b8295775d2a3a600ec3",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.DisableResources.txt": {
+    "mtime": 1787015638.7048416,
+    "seen": 1791989694.344259,
+    "ast_hash": "0ab4e7598ee261c65876501145e8249e",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.Host.txt": {
+    "mtime": 1787015638.7058425,
+    "seen": 1791989694.3442612,
+    "ast_hash": "53a82afb0c1fb356cf304382b028f01e",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.HostBlacklist.txt": {
+    "mtime": 1787015638.7058425,
+    "seen": 1791989694.3442628,
+    "ast_hash": "de43a7ca982700e83a7bdc11fb0b2071",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.MakeAbsolute.txt": {
+    "mtime": 1787015638.7068417,
+    "seen": 1791989694.3442652,
+    "ast_hash": "a9b4ba8ea2d489197000c45a3ff26714",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.Munge.txt": {
+    "mtime": 1787015638.707842,
+    "seen": 1791989694.3442676,
+    "ast_hash": "e507ab3c6f95164d9b11022e4d09230e",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.MungeResources.txt": {
+    "mtime": 1787015638.707842,
+    "seen": 1791989694.3442698,
+    "ast_hash": "f342226984cf11bd7988cd60fb0f566f",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.MungeSecretKey.txt": {
+    "mtime": 1787015638.7088437,
+    "seen": 1791989694.344272,
+    "ast_hash": "49cacc330e1dca87b4dd9a743bf7daed",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.OverrideAllowedSchemes.txt": {
+    "mtime": 1787015638.7098446,
+    "seen": 1791989694.3442743,
+    "ast_hash": "871ad138d8209f3deec0cc66ef07594e",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.SafeIframeRegexp.txt": {
+    "mtime": 1787015638.7108424,
+    "seen": 1791989694.3442757,
+    "ast_hash": "d724e9611060293034a35ce9749ddf10",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/maennchen/zipstream-php/README.md": {
+    "mtime": 1787015638.8709126,
+    "seen": 1791989694.344278,
+    "ast_hash": "15e3ca5744cca4140322560e9dd3e16f",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/maennchen/zipstream-php/guides/ContentLength.rst": {
+    "mtime": 1787015638.8729236,
+    "seen": 1791989694.3442798,
+    "ast_hash": "93dc3eb32fa91fa61b839ea431f271a5",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/maennchen/zipstream-php/guides/FlySystem.rst": {
+    "mtime": 1787015638.8739212,
+    "seen": 1791989694.3442822,
+    "ast_hash": "2ba5fe71207d474f89ee44161544b734",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/maennchen/zipstream-php/guides/Nginx.rst": {
+    "mtime": 1787015638.8739212,
+    "seen": 1791989694.344284,
+    "ast_hash": "30dea743f37d325b7ed6643eb9d41188",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/maennchen/zipstream-php/guides/Options.rst": {
+    "mtime": 1787015638.8759232,
+    "seen": 1791989694.3442862,
+    "ast_hash": "fcd6148621ba7c2c63b5d745deadf17c",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/maennchen/zipstream-php/guides/PSR7Streams.rst": {
+    "mtime": 1787015638.8769226,
+    "seen": 1791989694.344288,
+    "ast_hash": "6283da4ac416a09bad8ccafa885e9b29",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/maennchen/zipstream-php/guides/StreamOutput.rst": {
+    "mtime": 1787015638.8779228,
+    "seen": 1791989694.3442895,
+    "ast_hash": "84c3895703ede6dd284761fd0577d8a2",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/maennchen/zipstream-php/guides/Symfony.rst": {
+    "mtime": 1787015638.8789241,
+    "seen": 1791989694.3442912,
+    "ast_hash": "a54f39a993ef2c7413341cc8ee632421",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/maennchen/zipstream-php/guides/Varnish.rst": {
+    "mtime": 1787015638.8789241,
+    "seen": 1791989694.344293,
+    "ast_hash": "8d8d8acb44f0f157a5bdc9fc6ffe5cbe",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/maennchen/zipstream-php/guides/index.rst": {
+    "mtime": 1787015638.8799243,
+    "seen": 1791989694.3442955,
+    "ast_hash": "10303599544d67a4c094a52bf0537ff4",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/markbaker/complex/README.md": {
+    "mtime": 1787015638.910922,
+    "seen": 1791989694.3442972,
+    "ast_hash": "41c7808beaa767154455bc348e9da624",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/markbaker/complex/license.md": {
+    "mtime": 1787015638.9279225,
+    "seen": 1791989694.344299,
+    "ast_hash": "3476550548546975aa7ab188ece6ee36",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/markbaker/matrix/README.md": {
+    "mtime": 1787015638.928924,
+    "seen": 1791989694.3443012,
+    "ast_hash": "348e8d47efef0f5db8879b8b1aedc5ba",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/markbaker/matrix/license.md": {
+    "mtime": 1787015638.956923,
+    "seen": 1791989694.3443036,
+    "ast_hash": "ca324df69bc83cb3a412c785c5e395d6",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/.coveralls.yml": {
+    "mtime": 1787015638.9589221,
+    "seen": 1791989694.3443062,
+    "ast_hash": "13517a1d9e2781324e5261d6b6075df0",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/CONTRIBUTING.md": {
+    "mtime": 1787015638.9619224,
+    "seen": 1791989694.3443081,
+    "ast_hash": "5936dfea7accd0e5a8d7f7978aad148c",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/CONTRIBUTORS.md": {
+    "mtime": 1787015638.963924,
+    "seen": 1791989694.3443103,
+    "ast_hash": "6e20e57d05b32479fd64babb543498a1",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/LICENSE.md": {
+    "mtime": 1787015638.9649224,
+    "seen": 1791989694.3443124,
+    "ast_hash": "2c62dc66e38ff8079cd008ff2a4e8734",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/README.md": {
+    "mtime": 1787015638.9659657,
+    "seen": 1791989694.3443146,
+    "ast_hash": "c31ec594bcfab38289dd5eb8e287f82b",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/doc/FAQ.md": {
+    "mtime": 1787015638.9709225,
+    "seen": 1791989694.3443167,
+    "ast_hash": "32bc0e78ebccbcb0e22491b4307a9a0a",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/example/README.md": {
+    "mtime": 1787015638.9803658,
+    "seen": 1791989694.3443189,
+    "ast_hash": "baacdc7b1fade4f77d37437b3c0c4d69",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/example/interface/README.md": {
+    "mtime": 1787015638.99789,
+    "seen": 1791989694.3443208,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/example/rawbt-receipt.html": {
+    "mtime": 1787015639.0851212,
+    "seen": 1791989694.3443224,
+    "ast_hash": "c601153aceb6d5b6b987400c5050bdd1",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/example/resources/document.html": {
+    "mtime": 1787015639.0951335,
+    "seen": 1791989694.3443244,
+    "ast_hash": "c0689a2684c55b1bd8c00dc39106aac4",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/example/specific/README.md": {
+    "mtime": 1787015639.1381204,
+    "seen": 1791989694.3443263,
+    "ast_hash": "501b10079108e00e60c149236ae23ecb",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/src/Mike42/Escpos/PrintConnectors/printer.txt": {
+    "mtime": 1787015639.2755456,
+    "seen": 1791989694.344328,
+    "ast_hash": "ee8c2c1f01c7b68abaf0b4ac9e024b37",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/myclabs/php-enum/README.md": {
+    "mtime": 1787015639.4055486,
+    "seen": 1791989694.34433,
+    "ast_hash": "3b75be9696aed75dd9f7e7353b9b279d",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/myclabs/php-enum/SECURITY.md": {
+    "mtime": 1787015639.4065483,
+    "seen": 1791989694.3443317,
+    "ast_hash": "68c633a6ddbef8234bce82d08b6c7cc7",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/phpoffice/phpspreadsheet/CHANGELOG.md": {
+    "mtime": 1787015639.414548,
+    "seen": 1791989694.3443341,
+    "ast_hash": "db1bb1d1221232bd1a081741291477c1",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/phpoffice/phpspreadsheet/CONTRIBUTING.md": {
+    "mtime": 1787015639.4155474,
+    "seen": 1791989694.3443358,
+    "ast_hash": "10b3e02ea7c7113d1951be8fd0f1b2d1",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/phpoffice/phpspreadsheet/README.md": {
+    "mtime": 1787015639.4165478,
+    "seen": 1791989694.3443377,
+    "ast_hash": "85a30c67c148fd9bb721fb95c9edfb53",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Chart/Renderer/PHP Charting Libraries.txt": {
+    "mtime": 1787015639.7275589,
+    "seen": 1791989694.34434,
+    "ast_hash": "6f079b6d143c5797e761b9f35570db7b",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/psr/http-client/CHANGELOG.md": {
+    "mtime": 1787015640.1507597,
+    "seen": 1791989694.3443418,
+    "ast_hash": "a736a0ac8917db6a0c8ed51cdbc3d0b4",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/psr/http-client/README.md": {
+    "mtime": 1787015640.1517603,
+    "seen": 1791989694.3443437,
+    "ast_hash": "c149b14d66a5655de1e77b95653c9551",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/psr/http-factory/README.md": {
+    "mtime": 1787015640.1587634,
+    "seen": 1791989694.344346,
+    "ast_hash": "e0ec1141e086a8829e32d91d068883d8",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/psr/http-message/CHANGELOG.md": {
+    "mtime": 1787015640.1737614,
+    "seen": 1791989694.3443484,
+    "ast_hash": "b9960896c46673e4aaac6289724f0aee",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/psr/http-message/README.md": {
+    "mtime": 1787015640.1757605,
+    "seen": 1791989694.3443506,
+    "ast_hash": "4722ad0f8fadda28c3c20f95f92f5a54",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/psr/http-message/docs/PSR7-Interfaces.md": {
+    "mtime": 1787015640.177762,
+    "seen": 1791989694.3443525,
+    "ast_hash": "2b05dd318db3f4ee3ccc48b95aeaeddf",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/psr/http-message/docs/PSR7-Usage.md": {
+    "mtime": 1787015640.178763,
+    "seen": 1791989694.3443549,
+    "ast_hash": "a707636c94701ffce11f477cc9362725",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/psr/simple-cache/LICENSE.md": {
+    "mtime": 1787015640.188763,
+    "seen": 1791989694.3443565,
+    "ast_hash": "e0a99594991d4eb65b02b5c74346bad8",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/psr/simple-cache/README.md": {
+    "mtime": 1787015640.188763,
+    "seen": 1791989694.3443584,
+    "ast_hash": "f0d0a4e6ec2b77cdc8609a4bc53a746f",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/error.html": {
+    "mtime": 1787015640.211763,
+    "seen": 1791989694.3443606,
+    "ast_hash": "95ad5127ca332876af8d59febb065ddc",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/CHANGELOG.md": {
+    "mtime": 1787015642.0993075,
+    "seen": 1791989694.3443625,
+    "ast_hash": "8e22e73a690c2662f069bd9212c4ef57",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/README.md": {
+    "mtime": 1787015642.109306,
+    "seen": 1791989694.3443646,
+    "ast_hash": "cb4773a7c56f71be2b15cbe7c0e840d4",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.AllowedClasses.txt": {
+    "mtime": 1787015642.2403085,
+    "seen": 1791989694.3443666,
+    "ast_hash": "6d6be07f921f8af8fb6badd53e6d96a5",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.AllowedFrameTargets.txt": {
+    "mtime": 1787015642.241341,
+    "seen": 1791989694.344369,
+    "ast_hash": "44a56892b5e6985794ee568ce5db0dc4",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.AllowedRel.txt": {
+    "mtime": 1787015642.2423067,
+    "seen": 1791989694.3443706,
+    "ast_hash": "973f8a1fb2508444214a930b5fb98823",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.AllowedRev.txt": {
+    "mtime": 1787015642.243307,
+    "seen": 1791989694.3443725,
+    "ast_hash": "a5717950a0602362d8fdec59963a409f",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.ClassUseCDATA.txt": {
+    "mtime": 1787015642.243307,
+    "seen": 1791989694.344375,
+    "ast_hash": "e69e0e16d5deeacaf4e9550a56becc3e",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.DefaultImageAlt.txt": {
+    "mtime": 1787015642.2443068,
+    "seen": 1791989694.344377,
+    "ast_hash": "41816d03167d0dfa5a9658ec5c49c2c1",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.DefaultInvalidImage.txt": {
+    "mtime": 1787015642.245307,
+    "seen": 1791989694.344379,
+    "ast_hash": "4f8860ac6f26fef07d5a097647a3bc11",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.DefaultInvalidImageAlt.txt": {
+    "mtime": 1787015642.245307,
+    "seen": 1791989694.3443806,
+    "ast_hash": "6bed0833d3148f134cc78a2966b15d19",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.DefaultTextDir.txt": {
+    "mtime": 1787015642.2463067,
+    "seen": 1791989694.3443823,
+    "ast_hash": "f7d78647810958a5923b01b44a534dc4",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.EnableID.txt": {
+    "mtime": 1787015642.2803085,
+    "seen": 1791989694.344384,
+    "ast_hash": "0353456fe8398ea43adc4e5ae9f1a0d6",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.ForbiddenClasses.txt": {
+    "mtime": 1787015642.2823074,
+    "seen": 1791989694.3443859,
+    "ast_hash": "8b48cb2971595b49fc04f4a90634a0c0",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.ID.HTML5.txt": {
+    "mtime": 1787015642.283306,
+    "seen": 1791989694.3443875,
+    "ast_hash": "ddb0d2c21b2ecff48f03f9a1dd5f5939",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.IDBlacklist.txt": {
+    "mtime": 1787015642.283306,
+    "seen": 1791989694.3443894,
+    "ast_hash": "bac7a76cdc4e4eb42a102fde36199fa9",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.IDBlacklistRegexp.txt": {
+    "mtime": 1787015642.2853062,
+    "seen": 1791989694.3443918,
+    "ast_hash": "2a11df2541dd85f8196f923c781750c2",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.IDPrefix.txt": {
+    "mtime": 1787015642.2873056,
+    "seen": 1791989694.3443937,
+    "ast_hash": "db521581336f6bc00f3772749f585762",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Attr.IDPrefixLocal.txt": {
+    "mtime": 1787015642.289325,
+    "seen": 1791989694.3443952,
+    "ast_hash": "3787ba847a4452dd59ad4d8fbcd92298",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.AutoParagraph.txt": {
+    "mtime": 1787015642.2903056,
+    "seen": 1791989694.344397,
+    "ast_hash": "68ea5382d79d1710bfebdd341bbec2ed",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.Custom.txt": {
+    "mtime": 1787015642.2913432,
+    "seen": 1791989694.3443987,
+    "ast_hash": "6a348641fd2ab2e1a4eace5c31c21385",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.DisplayLinkURI.txt": {
+    "mtime": 1787015642.292307,
+    "seen": 1791989694.3444004,
+    "ast_hash": "ca6aab0a69b94231a0e5f62f416e3ac8",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.Linkify.txt": {
+    "mtime": 1787015642.2933059,
+    "seen": 1791989694.3444028,
+    "ast_hash": "9db069e3ba6d9fb79cabbdfa6fb8c7fe",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.PurifierLinkify.DocURL.txt": {
+    "mtime": 1787015642.2933059,
+    "seen": 1791989694.3444047,
+    "ast_hash": "8d6015585789776db60e0a94090b7901",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.PurifierLinkify.txt": {
+    "mtime": 1787015642.2943065,
+    "seen": 1791989694.3444068,
+    "ast_hash": "8f03fa47360675ae31f9ac9092d04806",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveEmpty.Predicate.txt": {
+    "mtime": 1787015642.2953053,
+    "seen": 1791989694.3444085,
+    "ast_hash": "8e8ec5bf4aa6b49a5c8383439a3315bc",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveEmpty.RemoveNbsp.Exceptions.txt": {
+    "mtime": 1787015642.2963092,
+    "seen": 1791989694.3444107,
+    "ast_hash": "3ae173542dea0be2368ecb052f78b69b",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveEmpty.RemoveNbsp.txt": {
+    "mtime": 1787015642.297307,
+    "seen": 1791989694.3444123,
+    "ast_hash": "9bb483de50dbb3b2d3015a0530882fd9",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveEmpty.txt": {
+    "mtime": 1787015642.2983081,
+    "seen": 1791989694.3444142,
+    "ast_hash": "6e17b1a2ced03a308deb7b3269c873dc",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveSpansWithoutAttributes.txt": {
+    "mtime": 1787015642.2983081,
+    "seen": 1791989694.344416,
+    "ast_hash": "2481c4aa804624154381155f658ef5fc",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/CSS.AllowDuplicates.txt": {
+    "mtime": 1787015642.2993076,
+    "seen": 1791989694.344418,
+    "ast_hash": "56d9302b197b1c002fe2ab33465a5928",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/CSS.AllowImportant.txt": {
+    "mtime": 1787015642.300306,
+    "seen": 1791989694.3444195,
+    "ast_hash": "5de3cebbc2cd68213eb1250a23ba559e",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/CSS.AllowTricky.txt": {
+    "mtime": 1787015642.300306,
+    "seen": 1791989694.3444214,
+    "ast_hash": "2abc7e888ee653301b9db591fe42257d",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/CSS.AllowedFonts.txt": {
+    "mtime": 1787015642.301305,
+    "seen": 1791989694.3444235,
+    "ast_hash": "659385aa9410d93d589f816e01b1bfc5",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/CSS.AllowedProperties.txt": {
+    "mtime": 1787015642.3023062,
+    "seen": 1791989694.3444254,
+    "ast_hash": "e7b6edbd1acc5ede3ed4facc783f565e",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/CSS.DefinitionRev.txt": {
+    "mtime": 1787015642.303306,
+    "seen": 1791989694.344427,
+    "ast_hash": "8628739c56d6ec504951e9209e7b9489",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/CSS.ForbiddenProperties.txt": {
+    "mtime": 1787015642.307307,
+    "seen": 1791989694.3444288,
+    "ast_hash": "cde52830ca3e9fd9c49d3cbed822df69",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/CSS.MaxImgLength.txt": {
+    "mtime": 1787015642.3093073,
+    "seen": 1791989694.3444307,
+    "ast_hash": "6349395c0bf5796fcbf7a3c8c712761b",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/CSS.Proprietary.txt": {
+    "mtime": 1787015642.3103054,
+    "seen": 1791989694.3444324,
+    "ast_hash": "4dfb68d9697568a96106e018986dd160",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/CSS.Trusted.txt": {
+    "mtime": 1787015642.311306,
+    "seen": 1791989694.3444343,
+    "ast_hash": "8bc538d73140b36b8eea88aa2bd60a55",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Cache.DefinitionImpl.txt": {
+    "mtime": 1787015642.311306,
+    "seen": 1791989694.3444364,
+    "ast_hash": "725fd42a1a72e1ffa6b696c8aa4cab8a",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Cache.SerializerPath.txt": {
+    "mtime": 1787015642.312306,
+    "seen": 1791989694.3444383,
+    "ast_hash": "6ce09865df3e809578face5b41695330",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Cache.SerializerPermissions.txt": {
+    "mtime": 1787015642.313308,
+    "seen": 1791989694.34444,
+    "ast_hash": "6102edd59c336fd8fe7a69b96809409e",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.AggressivelyFixLt.txt": {
+    "mtime": 1787015642.3153062,
+    "seen": 1791989694.3444417,
+    "ast_hash": "abee202df282eece3f2ed827262f4859",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.AggressivelyRemoveScript.txt": {
+    "mtime": 1787015642.3163059,
+    "seen": 1791989694.3444433,
+    "ast_hash": "76e63407aa507e0fc39b61489fb0cc87",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.AllowHostnameUnderscore.txt": {
+    "mtime": 1787015642.3173077,
+    "seen": 1791989694.3444452,
+    "ast_hash": "0eb9dae0db0216a00e23390c2d865f28",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.AllowParseManyTags.txt": {
+    "mtime": 1787015642.3183112,
+    "seen": 1791989694.3444471,
+    "ast_hash": "1c3576c01c3bc647be739b6dfd690ef7",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.CollectErrors.txt": {
+    "mtime": 1787015642.3193069,
+    "seen": 1791989694.344449,
+    "ast_hash": "f52cd2bd655514fc2947a5a10ea012ae",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.ColorKeywords.txt": {
+    "mtime": 1787015642.320308,
+    "seen": 1791989694.3444512,
+    "ast_hash": "425e86a5fc841c81e2628776adcd99c0",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.ConvertDocumentToFragment.txt": {
+    "mtime": 1787015642.3233252,
+    "seen": 1791989694.344453,
+    "ast_hash": "09fecad1fa71fcb64356f6c7ab00730d",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.DirectLexLineNumberSyncInterval.txt": {
+    "mtime": 1787015642.3243318,
+    "seen": 1791989694.3444552,
+    "ast_hash": "a1d4938e1f0a0db40c9f1f319d4cbd68",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.DisableExcludes.txt": {
+    "mtime": 1787015642.3253083,
+    "seen": 1791989694.3444571,
+    "ast_hash": "0685722fdc7e2a0999b16071a7612ab3",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.EnableIDNA.txt": {
+    "mtime": 1787015642.3563218,
+    "seen": 1791989694.344459,
+    "ast_hash": "73d6bd1c1a5ccebd2a6ee97cc5132a5e",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.Encoding.txt": {
+    "mtime": 1787015642.3583076,
+    "seen": 1791989694.3444607,
+    "ast_hash": "d63004bc5705e2fc63c01f682579d912",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.EscapeInvalidChildren.txt": {
+    "mtime": 1787015642.3613062,
+    "seen": 1791989694.3444633,
+    "ast_hash": "fa9b8dbf86b853a130afd58ecc6a2239",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.EscapeInvalidTags.txt": {
+    "mtime": 1787015642.3613062,
+    "seen": 1791989694.3444653,
+    "ast_hash": "d6a64dd936580e6285b92b26335cbd7b",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.EscapeNonASCIICharacters.txt": {
+    "mtime": 1787015642.3623085,
+    "seen": 1791989694.3444672,
+    "ast_hash": "7d01a5e6222a9b0c0d44728a1b879fef",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.HiddenElements.txt": {
+    "mtime": 1787015642.3633075,
+    "seen": 1791989694.344469,
+    "ast_hash": "27eba64d29c76d3f88b89194eeac7fbf",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.Language.txt": {
+    "mtime": 1787015642.3673074,
+    "seen": 1791989694.3444707,
+    "ast_hash": "850f16bf853273ba4909e9526c82e680",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.LegacyEntityDecoder.txt": {
+    "mtime": 1787015642.3683057,
+    "seen": 1791989694.344473,
+    "ast_hash": "fa0ebefa12493cee804ed4750b36ad90",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.LexerImpl.txt": {
+    "mtime": 1787015642.3693056,
+    "seen": 1791989694.3444748,
+    "ast_hash": "3d213d862792ac198b9d30a3486b53e8",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.MaintainLineNumbers.txt": {
+    "mtime": 1787015642.3693056,
+    "seen": 1791989694.3444767,
+    "ast_hash": "1e248f2dae6f647b8852481d1ea07eef",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.NormalizeNewlines.txt": {
+    "mtime": 1787015642.370307,
+    "seen": 1791989694.344479,
+    "ast_hash": "7e28f83e93797e6ef80599ccb9c12bb2",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.RemoveInvalidImg.txt": {
+    "mtime": 1787015642.3713098,
+    "seen": 1791989694.344481,
+    "ast_hash": "630c99a8bae11f3a1209d798fdd2e3f4",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.RemoveProcessingInstructions.txt": {
+    "mtime": 1787015642.3733046,
+    "seen": 1791989694.3444827,
+    "ast_hash": "bf241bff7f0adc83fbd921d4807a7946",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Core.RemoveScriptContents.txt": {
+    "mtime": 1787015642.3733046,
+    "seen": 1791989694.3444848,
+    "ast_hash": "f8e78147724d1f30d237896b482cfc7d",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Filter.Custom.txt": {
+    "mtime": 1787015642.374308,
+    "seen": 1791989694.344487,
+    "ast_hash": "32d1b9088c0b4a851664252443fe9ea7",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.Escaping.txt": {
+    "mtime": 1787015642.375308,
+    "seen": 1791989694.3444886,
+    "ast_hash": "afbdc4be679a92dfea310702b6d4f323",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.Scope.txt": {
+    "mtime": 1787015642.3763108,
+    "seen": 1791989694.3444908,
+    "ast_hash": "c64b77500b2c383f1cffc717148e10f1",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.TidyImpl.txt": {
+    "mtime": 1787015642.3763108,
+    "seen": 1791989694.344493,
+    "ast_hash": "ac08406ddabb3a526d0eafd361c0123b",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.txt": {
+    "mtime": 1787015642.3773057,
+    "seen": 1791989694.3444948,
+    "ast_hash": "834291f9849896737b9d9181223b4eb2",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Filter.YouTube.txt": {
+    "mtime": 1787015642.378306,
+    "seen": 1791989694.344497,
+    "ast_hash": "a020b55940d8562474cb4fcfcf7e4135",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.Allowed.txt": {
+    "mtime": 1787015642.379307,
+    "seen": 1791989694.3444984,
+    "ast_hash": "0dfdc65063984b71a46247d10f380518",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.AllowedAttributes.txt": {
+    "mtime": 1787015642.379307,
+    "seen": 1791989694.3445005,
+    "ast_hash": "fca0da3308968423a2e42447f5ea12d9",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.AllowedComments.txt": {
+    "mtime": 1787015642.3803058,
+    "seen": 1791989694.3445022,
+    "ast_hash": "b4da33fb26f1c01b340ea983f831f897",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.AllowedCommentsRegexp.txt": {
+    "mtime": 1787015642.3813064,
+    "seen": 1791989694.3445044,
+    "ast_hash": "81ae234369b6a84ce0f067fa6a1fc681",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.AllowedElements.txt": {
+    "mtime": 1787015642.3813064,
+    "seen": 1791989694.344506,
+    "ast_hash": "f23ef98f5a07823a6eed12ca2844d91b",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.AllowedModules.txt": {
+    "mtime": 1787015642.382305,
+    "seen": 1791989694.344508,
+    "ast_hash": "a9ef6bff4a6455178e64617648583f0d",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.Attr.Name.UseCDATA.txt": {
+    "mtime": 1787015642.3833053,
+    "seen": 1791989694.3445096,
+    "ast_hash": "3f7f4c727732dad71589a4d3008e4a5b",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.BlockWrapper.txt": {
+    "mtime": 1787015642.3833053,
+    "seen": 1791989694.3445115,
+    "ast_hash": "f3a722176896f29d167820be0ce684f8",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.CoreModules.txt": {
+    "mtime": 1787015642.384319,
+    "seen": 1791989694.3445132,
+    "ast_hash": "6c47bd04d4e9f9085acc5349e123c5f1",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.CustomDoctype.txt": {
+    "mtime": 1787015642.384319,
+    "seen": 1791989694.344515,
+    "ast_hash": "d29e183f5e1fe940e256db1760bf77ef",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.DefinitionID.txt": {
+    "mtime": 1787015642.3853068,
+    "seen": 1791989694.3445175,
+    "ast_hash": "8b6120e1262c010661009059b50d33cb",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.DefinitionRev.txt": {
+    "mtime": 1787015642.386306,
+    "seen": 1791989694.3445191,
+    "ast_hash": "c320acdde56d83744adb37738832ef6d",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.Doctype.txt": {
+    "mtime": 1787015642.386306,
+    "seen": 1791989694.344521,
+    "ast_hash": "60e89296929dd1f79a581acdb2d7e401",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.FlashAllowFullScreen.txt": {
+    "mtime": 1787015642.387306,
+    "seen": 1791989694.3445232,
+    "ast_hash": "c93e3d1c4f01a578d27006fe2fc547e5",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.ForbiddenAttributes.txt": {
+    "mtime": 1787015642.3883085,
+    "seen": 1791989694.3445253,
+    "ast_hash": "22e3dd7184f3f45bba14ccfc7e63744e",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.ForbiddenElements.txt": {
+    "mtime": 1787015642.389306,
+    "seen": 1791989694.344527,
+    "ast_hash": "3572f64d6691f18fce21a59f8e2d7bf1",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.Forms.txt": {
+    "mtime": 1787015642.3903105,
+    "seen": 1791989694.344529,
+    "ast_hash": "fdd5d67cceac4ac58c593e67fb7931dc",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.MaxImgLength.txt": {
+    "mtime": 1787015642.3903105,
+    "seen": 1791989694.3445303,
+    "ast_hash": "21fffcd64eddd22f2f30d92489047082",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.Nofollow.txt": {
+    "mtime": 1787015642.391322,
+    "seen": 1791989694.3445325,
+    "ast_hash": "ed728c1aee0f091d3bce7dada693b813",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.Parent.txt": {
+    "mtime": 1787015642.3923056,
+    "seen": 1791989694.3445342,
+    "ast_hash": "bb4ec0c9670b9d11c253b8d6f768b4b5",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.Proprietary.txt": {
+    "mtime": 1787015642.3923056,
+    "seen": 1791989694.3445363,
+    "ast_hash": "6346dce7c03e0115566b1d6f331338c4",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.SafeEmbed.txt": {
+    "mtime": 1787015642.3933046,
+    "seen": 1791989694.3445382,
+    "ast_hash": "2a29187c466d482efd37676d9f93cce7",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.SafeIframe.txt": {
+    "mtime": 1787015642.3943071,
+    "seen": 1791989694.3445399,
+    "ast_hash": "e1c0ead2880e835d3dba22d8c07074fe",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.SafeObject.txt": {
+    "mtime": 1787015642.3953085,
+    "seen": 1791989694.344542,
+    "ast_hash": "1f9441d29fc0a47321adb3da6d4258a7",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.SafeScripting.txt": {
+    "mtime": 1787015642.4003043,
+    "seen": 1791989694.3445437,
+    "ast_hash": "85401de744f9e8de7a1efca975a4a874",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.Strict.txt": {
+    "mtime": 1787015642.4083073,
+    "seen": 1791989694.3445458,
+    "ast_hash": "177bd984c7512636f6aade67af068ba7",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.TargetBlank.txt": {
+    "mtime": 1787015642.4123056,
+    "seen": 1791989694.3445487,
+    "ast_hash": "fc5a7bc33c7ad7b75115b8b58a08fe10",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.TargetNoopener.txt": {
+    "mtime": 1787015642.4133086,
+    "seen": 1791989694.3445504,
+    "ast_hash": "34fe41ee8dfd4342be01ce7b0de962a2",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.TargetNoreferrer.txt": {
+    "mtime": 1787015642.4173045,
+    "seen": 1791989694.344552,
+    "ast_hash": "c0722cf01c32dd334a98070b73e2bfa5",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.TidyAdd.txt": {
+    "mtime": 1787015642.4183052,
+    "seen": 1791989694.3445537,
+    "ast_hash": "beec3adbff9da244f22b82e24c88f9c3",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.TidyLevel.txt": {
+    "mtime": 1787015642.4193056,
+    "seen": 1791989694.3445556,
+    "ast_hash": "f8201332b27cd22460e0ce0091851ee3",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.TidyRemove.txt": {
+    "mtime": 1787015642.4203134,
+    "seen": 1791989694.3445573,
+    "ast_hash": "47846357d1244a892edb81602bc17afd",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.Trusted.txt": {
+    "mtime": 1787015642.4223092,
+    "seen": 1791989694.344559,
+    "ast_hash": "63cea66c9caac2f38e747ef3da6e88de",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/HTML.XHTML.txt": {
+    "mtime": 1787015642.4233074,
+    "seen": 1791989694.3445609,
+    "ast_hash": "4e02bdb86d15f95c48ee1c1f04eb16e0",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Output.CommentScriptContents.txt": {
+    "mtime": 1787015642.4243083,
+    "seen": 1791989694.3445628,
+    "ast_hash": "6b32709ec83f7739df29d9f6d63a58eb",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Output.FixInnerHTML.txt": {
+    "mtime": 1787015642.4253068,
+    "seen": 1791989694.3445644,
+    "ast_hash": "de37029cbbadf5161cd7cb371f3c5f64",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Output.FlashCompat.txt": {
+    "mtime": 1787015642.426306,
+    "seen": 1791989694.3445663,
+    "ast_hash": "1504937c65241193f84e80dd54120e37",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Output.Newline.txt": {
+    "mtime": 1787015642.426306,
+    "seen": 1791989694.344568,
+    "ast_hash": "e559fe594c75c8cea4aef28c6dbb9371",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Output.SortAttr.txt": {
+    "mtime": 1787015642.4273062,
+    "seen": 1791989694.34457,
+    "ast_hash": "0f87daf575923cca8a4e2cea81e94e0a",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Output.TidyFormat.txt": {
+    "mtime": 1787015642.4283056,
+    "seen": 1791989694.3445714,
+    "ast_hash": "097cf98f27b205ecaf28dee33bd726b0",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/Test.ForceNoIconv.txt": {
+    "mtime": 1787015642.4293065,
+    "seen": 1791989694.3445733,
+    "ast_hash": "0688f96799d71124eed66c4f7a356986",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.AllowedSchemes.txt": {
+    "mtime": 1787015642.4303083,
+    "seen": 1791989694.3445747,
+    "ast_hash": "4d34c876e60f95756325fae6bd51c8fe",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.Base.txt": {
+    "mtime": 1787015642.4303083,
+    "seen": 1791989694.3445764,
+    "ast_hash": "b0386cd91b2b9f9d40d53a2a88c68ebc",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.DefaultScheme.txt": {
+    "mtime": 1787015642.431306,
+    "seen": 1791989694.344578,
+    "ast_hash": "0562b7cd4c3a6b2571e59c92bd935a36",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.DefinitionID.txt": {
+    "mtime": 1787015642.432306,
+    "seen": 1791989694.3445802,
+    "ast_hash": "81065c2cfce3161b03d1765800b7f75e",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.DefinitionRev.txt": {
+    "mtime": 1787015642.432306,
+    "seen": 1791989694.3445816,
+    "ast_hash": "83fac4afbcf2ffe2af50f8b61360ef6a",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.Disable.txt": {
+    "mtime": 1787015642.4333062,
+    "seen": 1791989694.3445835,
+    "ast_hash": "b972d99f139271ad07d767970404d3d1",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.DisableExternal.txt": {
+    "mtime": 1787015642.4343343,
+    "seen": 1791989694.3445854,
+    "ast_hash": "c55849f2ce54b65192dbd14be95a6436",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.DisableExternalResources.txt": {
+    "mtime": 1787015642.4353068,
+    "seen": 1791989694.344587,
+    "ast_hash": "7b0ae75954b03b8295775d2a3a600ec3",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.DisableResources.txt": {
+    "mtime": 1787015642.4353068,
+    "seen": 1791989694.344589,
+    "ast_hash": "0ab4e7598ee261c65876501145e8249e",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.Host.txt": {
+    "mtime": 1787015642.4363062,
+    "seen": 1791989694.3445911,
+    "ast_hash": "53a82afb0c1fb356cf304382b028f01e",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.HostBlacklist.txt": {
+    "mtime": 1787015642.4383056,
+    "seen": 1791989694.344593,
+    "ast_hash": "de43a7ca982700e83a7bdc11fb0b2071",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.MakeAbsolute.txt": {
+    "mtime": 1787015642.439306,
+    "seen": 1791989694.3445952,
+    "ast_hash": "a9b4ba8ea2d489197000c45a3ff26714",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.Munge.txt": {
+    "mtime": 1787015642.4403057,
+    "seen": 1791989694.344597,
+    "ast_hash": "e507ab3c6f95164d9b11022e4d09230e",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.MungeResources.txt": {
+    "mtime": 1787015642.4403057,
+    "seen": 1791989694.3445988,
+    "ast_hash": "f342226984cf11bd7988cd60fb0f566f",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.MungeSecretKey.txt": {
+    "mtime": 1787015642.4413338,
+    "seen": 1791989694.3446007,
+    "ast_hash": "49cacc330e1dca87b4dd9a743bf7daed",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.OverrideAllowedSchemes.txt": {
+    "mtime": 1787015642.4423058,
+    "seen": 1791989694.3446033,
+    "ast_hash": "871ad138d8209f3deec0cc66ef07594e",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/library/HTMLPurifier/ConfigSchema/schema/URI.SafeIframeRegexp.txt": {
+    "mtime": 1787015642.4423058,
+    "seen": 1791989694.3446054,
+    "ast_hash": "d724e9611060293034a35ce9749ddf10",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/maennchen/zipstream-php/README.md": {
+    "mtime": 1787015642.657098,
+    "seen": 1791989694.344611,
+    "ast_hash": "15e3ca5744cca4140322560e9dd3e16f",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/maennchen/zipstream-php/guides/ContentLength.rst": {
+    "mtime": 1787015642.6600971,
+    "seen": 1791989694.3446193,
+    "ast_hash": "93dc3eb32fa91fa61b839ea431f271a5",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/maennchen/zipstream-php/guides/FlySystem.rst": {
+    "mtime": 1787015642.6600971,
+    "seen": 1791989694.3446243,
+    "ast_hash": "2ba5fe71207d474f89ee44161544b734",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/maennchen/zipstream-php/guides/Nginx.rst": {
+    "mtime": 1787015642.6610978,
+    "seen": 1791989694.344626,
+    "ast_hash": "30dea743f37d325b7ed6643eb9d41188",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/maennchen/zipstream-php/guides/Options.rst": {
+    "mtime": 1787015642.6620975,
+    "seen": 1791989694.3446333,
+    "ast_hash": "fcd6148621ba7c2c63b5d745deadf17c",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/maennchen/zipstream-php/guides/PSR7Streams.rst": {
+    "mtime": 1787015642.6630979,
+    "seen": 1791989694.3446412,
+    "ast_hash": "6283da4ac416a09bad8ccafa885e9b29",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/maennchen/zipstream-php/guides/StreamOutput.rst": {
+    "mtime": 1787015642.6640978,
+    "seen": 1791989694.3446462,
+    "ast_hash": "84c3895703ede6dd284761fd0577d8a2",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/maennchen/zipstream-php/guides/Symfony.rst": {
+    "mtime": 1787015642.665097,
+    "seen": 1791989694.3446512,
+    "ast_hash": "a54f39a993ef2c7413341cc8ee632421",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/maennchen/zipstream-php/guides/Varnish.rst": {
+    "mtime": 1787015642.6660974,
+    "seen": 1791989694.344653,
+    "ast_hash": "8d8d8acb44f0f157a5bdc9fc6ffe5cbe",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/maennchen/zipstream-php/guides/index.rst": {
+    "mtime": 1787015642.667097,
+    "seen": 1791989694.3446548,
+    "ast_hash": "10303599544d67a4c094a52bf0537ff4",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/markbaker/complex/README.md": {
+    "mtime": 1787015642.7130988,
+    "seen": 1791989694.344657,
+    "ast_hash": "41c7808beaa767154455bc348e9da624",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/markbaker/complex/license.md": {
+    "mtime": 1787015642.7250984,
+    "seen": 1791989694.344659,
+    "ast_hash": "3476550548546975aa7ab188ece6ee36",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/markbaker/matrix/README.md": {
+    "mtime": 1787015642.7261,
+    "seen": 1791989694.3446612,
+    "ast_hash": "348e8d47efef0f5db8879b8b1aedc5ba",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/markbaker/matrix/license.md": {
+    "mtime": 1787015642.7520967,
+    "seen": 1791989694.3446631,
+    "ast_hash": "ca324df69bc83cb3a412c785c5e395d6",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/.coveralls.yml": {
+    "mtime": 1787015642.7600963,
+    "seen": 1791989694.3446655,
+    "ast_hash": "13517a1d9e2781324e5261d6b6075df0",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/CONTRIBUTING.md": {
+    "mtime": 1787015642.7620983,
+    "seen": 1791989694.3446677,
+    "ast_hash": "5936dfea7accd0e5a8d7f7978aad148c",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/CONTRIBUTORS.md": {
+    "mtime": 1787015642.7620983,
+    "seen": 1791989694.3446696,
+    "ast_hash": "6e20e57d05b32479fd64babb543498a1",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/LICENSE.md": {
+    "mtime": 1787015642.7630978,
+    "seen": 1791989694.3446715,
+    "ast_hash": "2c62dc66e38ff8079cd008ff2a4e8734",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/README.md": {
+    "mtime": 1787015642.7650979,
+    "seen": 1791989694.344673,
+    "ast_hash": "c31ec594bcfab38289dd5eb8e287f82b",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/doc/FAQ.md": {
+    "mtime": 1787015642.7690973,
+    "seen": 1791989694.344675,
+    "ast_hash": "32bc0e78ebccbcb0e22491b4307a9a0a",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/example/README.md": {
+    "mtime": 1787015642.7770963,
+    "seen": 1791989694.344677,
+    "ast_hash": "baacdc7b1fade4f77d37437b3c0c4d69",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/example/interface/README.md": {
+    "mtime": 1787015642.7890995,
+    "seen": 1791989694.3446786,
+    "ast_hash": "1bbdd166e9c5f5b8a9ca9bee2d122232",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/example/rawbt-receipt.html": {
+    "mtime": 1787015642.8620975,
+    "seen": 1791989694.3446808,
+    "ast_hash": "c601153aceb6d5b6b987400c5050bdd1",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/example/resources/document.html": {
+    "mtime": 1787015642.8681,
+    "seen": 1791989694.3446827,
+    "ast_hash": "c0689a2684c55b1bd8c00dc39106aac4",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/example/specific/README.md": {
+    "mtime": 1787015642.9274025,
+    "seen": 1791989694.3446846,
+    "ast_hash": "501b10079108e00e60c149236ae23ecb",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/src/Mike42/Escpos/PrintConnectors/printer.txt": {
+    "mtime": 1787015643.0004084,
+    "seen": 1791989694.3446863,
+    "ast_hash": "ee8c2c1f01c7b68abaf0b4ac9e024b37",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/myclabs/php-enum/README.md": {
+    "mtime": 1787015643.064406,
+    "seen": 1791989694.3446884,
+    "ast_hash": "3b75be9696aed75dd9f7e7353b9b279d",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/myclabs/php-enum/SECURITY.md": {
+    "mtime": 1787015643.0654051,
+    "seen": 1791989694.3446898,
+    "ast_hash": "68c633a6ddbef8234bce82d08b6c7cc7",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/phpoffice/phpspreadsheet/CHANGELOG.md": {
+    "mtime": 1787015643.0774033,
+    "seen": 1791989694.344692,
+    "ast_hash": "db1bb1d1221232bd1a081741291477c1",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/phpoffice/phpspreadsheet/CONTRIBUTING.md": {
+    "mtime": 1787015643.0784035,
+    "seen": 1791989694.3446937,
+    "ast_hash": "10b3e02ea7c7113d1951be8fd0f1b2d1",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/phpoffice/phpspreadsheet/README.md": {
+    "mtime": 1787015643.0834043,
+    "seen": 1791989694.3446956,
+    "ast_hash": "85a30c67c148fd9bb721fb95c9edfb53",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Chart/Renderer/PHP Charting Libraries.txt": {
+    "mtime": 1787015643.511408,
+    "seen": 1791989694.3446977,
+    "ast_hash": "6f079b6d143c5797e761b9f35570db7b",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/psr/http-client/CHANGELOG.md": {
+    "mtime": 1787015643.867936,
+    "seen": 1791989694.3446996,
+    "ast_hash": "a736a0ac8917db6a0c8ed51cdbc3d0b4",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/psr/http-client/README.md": {
+    "mtime": 1787015643.8689344,
+    "seen": 1791989694.3447018,
+    "ast_hash": "c149b14d66a5655de1e77b95653c9551",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/psr/http-factory/README.md": {
+    "mtime": 1787015643.874935,
+    "seen": 1791989694.3447034,
+    "ast_hash": "e0ec1141e086a8829e32d91d068883d8",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/psr/http-message/CHANGELOG.md": {
+    "mtime": 1787015643.8819351,
+    "seen": 1791989694.3447053,
+    "ast_hash": "b9960896c46673e4aaac6289724f0aee",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/psr/http-message/README.md": {
+    "mtime": 1787015643.8829427,
+    "seen": 1791989694.344707,
+    "ast_hash": "4722ad0f8fadda28c3c20f95f92f5a54",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/psr/http-message/docs/PSR7-Interfaces.md": {
+    "mtime": 1787015643.8849375,
+    "seen": 1791989694.3447092,
+    "ast_hash": "2b05dd318db3f4ee3ccc48b95aeaeddf",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/psr/http-message/docs/PSR7-Usage.md": {
+    "mtime": 1787015643.8849375,
+    "seen": 1791989694.3447115,
+    "ast_hash": "a707636c94701ffce11f477cc9362725",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/psr/simple-cache/LICENSE.md": {
+    "mtime": 1787015643.8941917,
+    "seen": 1791989694.3447134,
+    "ast_hash": "e0a99594991d4eb65b02b5c74346bad8",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/psr/simple-cache/README.md": {
+    "mtime": 1787015643.8941917,
+    "seen": 1791989694.3447154,
+    "ast_hash": "f0d0a4e6ec2b77cdc8609a4bc53a746f",
+    "semantic_hash": ""
+  },
+  "windowsCaller/AI_INSTRUCTIONS.md": {
+    "mtime": 1787015644.3366628,
+    "seen": 1791989694.3447173,
+    "ast_hash": "85f06bcf16f58b2f36940b089b395def",
+    "semantic_hash": ""
+  },
+  "windowsCaller/obj/Debug/CallerApp.csproj.FileListAbsolute.txt": {
+    "mtime": 1787015646.6898696,
+    "seen": 1791989694.3447194,
+    "ast_hash": "adfd46148bd7325fbbcb7b2ebac55086",
+    "semantic_hash": ""
+  },
+  "windowsCaller/obj/Release/CallerApp.csproj.FileListAbsolute.txt": {
+    "mtime": 1787015646.9437208,
+    "seen": 1791989694.344721,
+    "ast_hash": "3411983ff5191630437e8d1528fd7633",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Bcl.AsyncInterfaces.10.0.3/PACKAGE.md": {
+    "mtime": 1787015647.1037216,
+    "seen": 1791989694.3447232,
+    "ast_hash": "3dcdb22610a9976cdd8de1782e3436be",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Bcl.AsyncInterfaces.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015647.1197193,
+    "seen": 1791989694.344725,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Bcl.AsyncInterfaces.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015647.19672,
+    "seen": 1791989694.3447268,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.DependencyInjection.10.0.3/PACKAGE.md": {
+    "mtime": 1787015647.2577195,
+    "seen": 1791989694.344729,
+    "ast_hash": "c7e8247862e7885ffe2a2d912d40087e",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.DependencyInjection.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015647.2597482,
+    "seen": 1791989694.3447309,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.DependencyInjection.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015647.5637226,
+    "seen": 1791989694.344733,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.DependencyInjection.Abstractions.10.0.3/PACKAGE.md": {
+    "mtime": 1787015647.627725,
+    "seen": 1791989694.3447347,
+    "ast_hash": "6c73bc22a9ba7492bca0942b7bd825b8",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.DependencyInjection.Abstractions.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015647.630725,
+    "seen": 1791989694.3447366,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.DependencyInjection.Abstractions.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015647.841538,
+    "seen": 1791989694.3447382,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.Logging.10.0.3/PACKAGE.md": {
+    "mtime": 1787015647.9085329,
+    "seen": 1791989694.3447402,
+    "ast_hash": "41dd1dcb3a2a707b039cf1a52f19e083",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.Logging.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015647.9105365,
+    "seen": 1791989694.3447428,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.Logging.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015648.0895376,
+    "seen": 1791989694.3447447,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.Logging.Abstractions.10.0.3/PACKAGE.md": {
+    "mtime": 1787015648.1745355,
+    "seen": 1791989694.3447466,
+    "ast_hash": "23ec091c2efe5acae1c8a780376876ee",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.Logging.Abstractions.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015648.214538,
+    "seen": 1791989694.344748,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.Logging.Abstractions.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015648.8202775,
+    "seen": 1791989694.3447506,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.Options.10.0.3/PACKAGE.md": {
+    "mtime": 1787015648.891277,
+    "seen": 1791989694.3447528,
+    "ast_hash": "844336fe4ddf266a860dccdd35a9678b",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.Options.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015648.8932776,
+    "seen": 1791989694.344755,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.Options.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015649.8688447,
+    "seen": 1791989694.344757,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.Primitives.10.0.3/PACKAGE.md": {
+    "mtime": 1787015650.011424,
+    "seen": 1791989694.3447587,
+    "ast_hash": "fd3ecdfee7385616180e66a32d226f2d",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.Primitives.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015650.0134027,
+    "seen": 1791989694.3447611,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.Primitives.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015650.2491353,
+    "seen": 1791989694.3447628,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/SocketIOClient.4.0.5/README.md": {
+    "mtime": 1787015650.292133,
+    "seen": 1791989694.3447645,
+    "ast_hash": "08a720c9cf1e23dab14c091c11469e9c",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/SocketIOClient.4.0.5/README.zh.md": {
+    "mtime": 1787015650.308131,
+    "seen": 1791989694.3447664,
+    "ast_hash": "fb14a1cb1bc29b11ce1ecb7b0cd0052b",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Buffers.4.6.1/PACKAGE.md": {
+    "mtime": 1787015651.8886497,
+    "seen": 1791989694.3447683,
+    "ast_hash": "5fe657bd4f0ab12e907f7949239a1816",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Diagnostics.DiagnosticSource.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015652.0860264,
+    "seen": 1791989694.34477,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Diagnostics.DiagnosticSource.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015652.2680247,
+    "seen": 1791989694.3447716,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.IO.4.3.0/ThirdPartyNotices.txt": {
+    "mtime": 1787015655.1888165,
+    "seen": 1791989694.3447738,
+    "ast_hash": "c967cb8266866e70f817fee256966091",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.IO.4.3.0/dotnet_library_license.txt": {
+    "mtime": 1787015655.3118942,
+    "seen": 1791989694.3447757,
+    "ast_hash": "db62529d9c74388f3885fad4b435b3f7",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.IO.Pipelines.10.0.3/PACKAGE.md": {
+    "mtime": 1787015656.4347296,
+    "seen": 1791989694.3447778,
+    "ast_hash": "cafac9081515a104881751badbcdce49",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.IO.Pipelines.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015656.4667108,
+    "seen": 1791989694.3447795,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.IO.Pipelines.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015656.7867117,
+    "seen": 1791989694.3447812,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Memory.4.6.3/PACKAGE.md": {
+    "mtime": 1787015656.88379,
+    "seen": 1791989694.3447833,
+    "ast_hash": "368ef44d43ed9990747121e7e3d1e0cd",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Net.Http.4.3.4/ThirdPartyNotices.txt": {
+    "mtime": 1787015657.0597894,
+    "seen": 1791989694.344785,
+    "ast_hash": "c967cb8266866e70f817fee256966091",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Net.Http.4.3.4/dotnet_library_license.txt": {
+    "mtime": 1787015657.0607908,
+    "seen": 1791989694.3447866,
+    "ast_hash": "db62529d9c74388f3885fad4b435b3f7",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Numerics.Vectors.4.6.1/PACKAGE.md": {
+    "mtime": 1787015657.423792,
+    "seen": 1791989694.3447888,
+    "ast_hash": "73eef9d4aa6bf18569388e2bf0adf122",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Resources.Extensions.4.6.0/LICENSE.TXT": {
+    "mtime": 1787015657.5998096,
+    "seen": 1791989694.3447907,
+    "ast_hash": "ba2bed45d99b13d4c31485d0631ae675",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Resources.Extensions.4.6.0/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015657.6417913,
+    "seen": 1791989694.3447926,
+    "ast_hash": "bb8ff70a18e8d63d43b06eea1caefb96",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Resources.Extensions.4.6.0/useSharedDesignerContext.txt": {
+    "mtime": 1787015657.71579,
+    "seen": 1791989694.3447943,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Resources.Extensions.4.6.0/version.txt": {
+    "mtime": 1787015657.734791,
+    "seen": 1791989694.3447962,
+    "ast_hash": "f2962fe8afa5ea706c3e3357ab4be331",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Runtime.4.3.0/ThirdPartyNotices.txt": {
+    "mtime": 1787015657.9301012,
+    "seen": 1791989694.3447983,
+    "ast_hash": "c967cb8266866e70f817fee256966091",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Runtime.4.3.0/dotnet_library_license.txt": {
+    "mtime": 1787015657.9311006,
+    "seen": 1791989694.3448,
+    "ast_hash": "db62529d9c74388f3885fad4b435b3f7",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Runtime.CompilerServices.Unsafe.6.1.2/PACKAGE.md": {
+    "mtime": 1787015660.0708034,
+    "seen": 1791989694.344802,
+    "ast_hash": "0bc8a306a687e37d8c858a90f9b0b7f3",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Security.Cryptography.Algorithms.4.3.0/ThirdPartyNotices.txt": {
+    "mtime": 1787015660.3746023,
+    "seen": 1791989694.3448038,
+    "ast_hash": "c967cb8266866e70f817fee256966091",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Security.Cryptography.Algorithms.4.3.0/dotnet_library_license.txt": {
+    "mtime": 1787015660.3756032,
+    "seen": 1791989694.344806,
+    "ast_hash": "db62529d9c74388f3885fad4b435b3f7",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Security.Cryptography.Encoding.4.3.0/ThirdPartyNotices.txt": {
+    "mtime": 1787015660.690606,
+    "seen": 1791989694.3448076,
+    "ast_hash": "c967cb8266866e70f817fee256966091",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Security.Cryptography.Encoding.4.3.0/dotnet_library_license.txt": {
+    "mtime": 1787015660.6916063,
+    "seen": 1791989694.3448095,
+    "ast_hash": "db62529d9c74388f3885fad4b435b3f7",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Security.Cryptography.Primitives.4.3.0/ThirdPartyNotices.txt": {
+    "mtime": 1787015661.1002734,
+    "seen": 1791989694.3448114,
+    "ast_hash": "c967cb8266866e70f817fee256966091",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Security.Cryptography.Primitives.4.3.0/dotnet_library_license.txt": {
+    "mtime": 1787015661.1012726,
+    "seen": 1791989694.3448133,
+    "ast_hash": "db62529d9c74388f3885fad4b435b3f7",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Security.Cryptography.X509Certificates.4.3.0/ThirdPartyNotices.txt": {
+    "mtime": 1787015661.2672708,
+    "seen": 1791989694.344815,
+    "ast_hash": "c967cb8266866e70f817fee256966091",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Security.Cryptography.X509Certificates.4.3.0/dotnet_library_license.txt": {
+    "mtime": 1787015661.2682748,
+    "seen": 1791989694.3448167,
+    "ast_hash": "db62529d9c74388f3885fad4b435b3f7",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Text.Encodings.Web.10.0.3/PACKAGE.md": {
+    "mtime": 1787015662.1538315,
+    "seen": 1791989694.3448184,
+    "ast_hash": "e23c42dec51e1b7dad1259c23d75b513",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Text.Encodings.Web.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015662.186832,
+    "seen": 1791989694.3448205,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Text.Encodings.Web.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015662.5858319,
+    "seen": 1791989694.344823,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Text.Json.10.0.3/PACKAGE.md": {
+    "mtime": 1787015662.66883,
+    "seen": 1791989694.3448246,
+    "ast_hash": "97e7030f8149eb6b8f77c84743f160b8",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Text.Json.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015662.7738333,
+    "seen": 1791989694.344827,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Text.Json.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015663.5009599,
+    "seen": 1791989694.3448284,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Threading.Tasks.Extensions.4.6.3/PACKAGE.md": {
+    "mtime": 1787015663.540962,
+    "seen": 1791989694.3448303,
+    "ast_hash": "b52cba6207e92a9eeee3becdb060edd7",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.ValueTuple.4.6.1/PACKAGE.md": {
+    "mtime": 1787015663.6769629,
+    "seen": 1791989694.344832,
+    "ast_hash": "88818f485a5cb392dda6ae726118dae0",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/AI_INSTRUCTIONS.md": {
+    "mtime": 1787015663.9390597,
+    "seen": 1791989694.3448339,
+    "ast_hash": "85f06bcf16f58b2f36940b089b395def",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/obj/Debug/CallerApp.csproj.FileListAbsolute.txt": {
+    "mtime": 1791121049.4503014,
+    "seen": 1791989694.3448355,
+    "ast_hash": "74ce82ed6e44a475b993186194bd3d11",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/obj/Release/CallerApp.csproj.FileListAbsolute.txt": {
+    "mtime": 1791122131.817068,
+    "seen": 1791989694.3448374,
+    "ast_hash": "dbb96fea169ebef784b873b761abbdf3",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Bcl.AsyncInterfaces.10.0.3/PACKAGE.md": {
+    "mtime": 1787015665.5340009,
+    "seen": 1791989694.3448393,
+    "ast_hash": "3dcdb22610a9976cdd8de1782e3436be",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Bcl.AsyncInterfaces.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015665.5360155,
+    "seen": 1791989694.3448417,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Bcl.AsyncInterfaces.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015665.5970001,
+    "seen": 1791989694.3448431,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.DependencyInjection.10.0.3/PACKAGE.md": {
+    "mtime": 1787015665.607005,
+    "seen": 1791989694.3448453,
+    "ast_hash": "c7e8247862e7885ffe2a2d912d40087e",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.DependencyInjection.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015665.6089985,
+    "seen": 1791989694.3448477,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.DependencyInjection.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015665.6589997,
+    "seen": 1791989694.3448493,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.DependencyInjection.Abstractions.10.0.3/PACKAGE.md": {
+    "mtime": 1787015665.6690035,
+    "seen": 1791989694.3448513,
+    "ast_hash": "6c73bc22a9ba7492bca0942b7bd825b8",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.DependencyInjection.Abstractions.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015665.6710024,
+    "seen": 1791989694.344853,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.DependencyInjection.Abstractions.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015665.7440007,
+    "seen": 1791989694.3448548,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.Logging.10.0.3/PACKAGE.md": {
+    "mtime": 1787015665.7519996,
+    "seen": 1791989694.3448565,
+    "ast_hash": "41dd1dcb3a2a707b039cf1a52f19e083",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.Logging.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015665.754003,
+    "seen": 1791989694.3448586,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.Logging.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015665.8753407,
+    "seen": 1791989694.3448603,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.Logging.Abstractions.10.0.3/PACKAGE.md": {
+    "mtime": 1787015665.8933246,
+    "seen": 1791989694.3448622,
+    "ast_hash": "23ec091c2efe5acae1c8a780376876ee",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.Logging.Abstractions.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015665.8943238,
+    "seen": 1791989694.344864,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.Logging.Abstractions.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015666.1013253,
+    "seen": 1791989694.344866,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.Options.10.0.3/PACKAGE.md": {
+    "mtime": 1787015666.1133268,
+    "seen": 1791989694.3448682,
+    "ast_hash": "844336fe4ddf266a860dccdd35a9678b",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.Options.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015666.115324,
+    "seen": 1791989694.3448696,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.Options.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015666.2322476,
+    "seen": 1791989694.3448715,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.Primitives.10.0.3/PACKAGE.md": {
+    "mtime": 1787015666.2402503,
+    "seen": 1791989694.3448732,
+    "ast_hash": "fd3ecdfee7385616180e66a32d226f2d",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.Primitives.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015666.2422476,
+    "seen": 1791989694.344875,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.Primitives.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015666.2772484,
+    "seen": 1791989694.3448772,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/SocketIOClient.4.0.5/README.md": {
+    "mtime": 1787015666.2802494,
+    "seen": 1791989694.3448792,
+    "ast_hash": "08a720c9cf1e23dab14c091c11469e9c",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/SocketIOClient.4.0.5/README.zh.md": {
+    "mtime": 1787015666.2822566,
+    "seen": 1791989694.3448806,
+    "ast_hash": "fb14a1cb1bc29b11ce1ecb7b0cd0052b",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Buffers.4.6.1/PACKAGE.md": {
+    "mtime": 1787015666.3302467,
+    "seen": 1791989694.3448827,
+    "ast_hash": "5fe657bd4f0ab12e907f7949239a1816",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Diagnostics.DiagnosticSource.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015666.3732486,
+    "seen": 1791989694.344885,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Diagnostics.DiagnosticSource.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015666.4592505,
+    "seen": 1791989694.3448868,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.IO.4.3.0/ThirdPartyNotices.txt": {
+    "mtime": 1787015666.47025,
+    "seen": 1791989694.3448887,
+    "ast_hash": "c967cb8266866e70f817fee256966091",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.IO.4.3.0/dotnet_library_license.txt": {
+    "mtime": 1787015666.4712498,
+    "seen": 1791989694.3448904,
+    "ast_hash": "db62529d9c74388f3885fad4b435b3f7",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.IO.Pipelines.10.0.3/PACKAGE.md": {
+    "mtime": 1787015666.7462487,
+    "seen": 1791989694.3448925,
+    "ast_hash": "cafac9081515a104881751badbcdce49",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.IO.Pipelines.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015666.7762496,
+    "seen": 1791989694.344894,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.IO.Pipelines.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015666.8132477,
+    "seen": 1791989694.3448958,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Memory.4.6.3/PACKAGE.md": {
+    "mtime": 1787015666.8232512,
+    "seen": 1791989694.3448977,
+    "ast_hash": "368ef44d43ed9990747121e7e3d1e0cd",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Net.Http.4.3.4/ThirdPartyNotices.txt": {
+    "mtime": 1787015666.866249,
+    "seen": 1791989694.3448997,
+    "ast_hash": "c967cb8266866e70f817fee256966091",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Net.Http.4.3.4/dotnet_library_license.txt": {
+    "mtime": 1787015666.8672466,
+    "seen": 1791989694.3449016,
+    "ast_hash": "db62529d9c74388f3885fad4b435b3f7",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Numerics.Vectors.4.6.1/PACKAGE.md": {
+    "mtime": 1787015666.9732475,
+    "seen": 1791989694.3449037,
+    "ast_hash": "73eef9d4aa6bf18569388e2bf0adf122",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Resources.Extensions.4.6.0/LICENSE.TXT": {
+    "mtime": 1787015667.0122478,
+    "seen": 1791989694.3449054,
+    "ast_hash": "ba2bed45d99b13d4c31485d0631ae675",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Resources.Extensions.4.6.0/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015667.0202477,
+    "seen": 1791989694.344907,
+    "ast_hash": "bb8ff70a18e8d63d43b06eea1caefb96",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Resources.Extensions.4.6.0/useSharedDesignerContext.txt": {
+    "mtime": 1787015667.029251,
+    "seen": 1791989694.3449087,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Resources.Extensions.4.6.0/version.txt": {
+    "mtime": 1787015667.0302467,
+    "seen": 1791989694.3449104,
+    "ast_hash": "f2962fe8afa5ea706c3e3357ab4be331",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Runtime.4.3.0/ThirdPartyNotices.txt": {
+    "mtime": 1787015667.125249,
+    "seen": 1791989694.344912,
+    "ast_hash": "c967cb8266866e70f817fee256966091",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Runtime.4.3.0/dotnet_library_license.txt": {
+    "mtime": 1787015667.1262467,
+    "seen": 1791989694.3449137,
+    "ast_hash": "db62529d9c74388f3885fad4b435b3f7",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Runtime.CompilerServices.Unsafe.6.1.2/PACKAGE.md": {
+    "mtime": 1787015668.1657975,
+    "seen": 1791989694.3449156,
+    "ast_hash": "0bc8a306a687e37d8c858a90f9b0b7f3",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Security.Cryptography.Algorithms.4.3.0/ThirdPartyNotices.txt": {
+    "mtime": 1787015668.2168014,
+    "seen": 1791989694.344918,
+    "ast_hash": "c967cb8266866e70f817fee256966091",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Security.Cryptography.Algorithms.4.3.0/dotnet_library_license.txt": {
+    "mtime": 1787015668.2177937,
+    "seen": 1791989694.3449194,
+    "ast_hash": "db62529d9c74388f3885fad4b435b3f7",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Security.Cryptography.Encoding.4.3.0/ThirdPartyNotices.txt": {
+    "mtime": 1787015668.2957938,
+    "seen": 1791989694.3449216,
+    "ast_hash": "c967cb8266866e70f817fee256966091",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Security.Cryptography.Encoding.4.3.0/dotnet_library_license.txt": {
+    "mtime": 1787015668.2968001,
+    "seen": 1791989694.3449235,
+    "ast_hash": "db62529d9c74388f3885fad4b435b3f7",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Security.Cryptography.Primitives.4.3.0/ThirdPartyNotices.txt": {
+    "mtime": 1787015668.3597987,
+    "seen": 1791989694.3449254,
+    "ast_hash": "c967cb8266866e70f817fee256966091",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Security.Cryptography.Primitives.4.3.0/dotnet_library_license.txt": {
+    "mtime": 1787015668.3607965,
+    "seen": 1791989694.344927,
+    "ast_hash": "db62529d9c74388f3885fad4b435b3f7",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Security.Cryptography.X509Certificates.4.3.0/ThirdPartyNotices.txt": {
+    "mtime": 1787015668.417798,
+    "seen": 1791989694.344929,
+    "ast_hash": "c967cb8266866e70f817fee256966091",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Security.Cryptography.X509Certificates.4.3.0/dotnet_library_license.txt": {
+    "mtime": 1787015668.4197965,
+    "seen": 1791989694.344931,
+    "ast_hash": "db62529d9c74388f3885fad4b435b3f7",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Text.Encodings.Web.10.0.3/PACKAGE.md": {
+    "mtime": 1787015668.6297953,
+    "seen": 1791989694.3449323,
+    "ast_hash": "e23c42dec51e1b7dad1259c23d75b513",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Text.Encodings.Web.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015668.6387959,
+    "seen": 1791989694.344934,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Text.Encodings.Web.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015668.6997952,
+    "seen": 1791989694.3449547,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Text.Json.10.0.3/PACKAGE.md": {
+    "mtime": 1787015668.7037983,
+    "seen": 1791989694.3449564,
+    "ast_hash": "97e7030f8149eb6b8f77c84743f160b8",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Text.Json.10.0.3/THIRD-PARTY-NOTICES.TXT": {
+    "mtime": 1787015668.7727952,
+    "seen": 1791989694.3449583,
+    "ast_hash": "28907c1d989c3d725ea4503cbda28921",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Text.Json.10.0.3/useSharedDesignerContext.txt": {
+    "mtime": 1787015669.0740192,
+    "seen": 1791989694.3449602,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Threading.Tasks.Extensions.4.6.3/PACKAGE.md": {
+    "mtime": 1787015669.078017,
+    "seen": 1791989694.3449621,
+    "ast_hash": "b52cba6207e92a9eeee3becdb060edd7",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.ValueTuple.4.6.1/PACKAGE.md": {
+    "mtime": 1787015669.102014,
+    "seen": 1791989694.3449638,
+    "ast_hash": "88818f485a5cb392dda6ae726118dae0",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/example/resources/document.pdf": {
+    "mtime": 1787015639.099121,
+    "seen": 1791989694.344966,
+    "ast_hash": "4aae7550454cec795da10295aebd589a",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/test/unit/resources/doc.pdf": {
+    "mtime": 1787015639.40255,
+    "seen": 1791989694.3449678,
+    "ast_hash": "f99d76976cb04647d56e1003da8985bc",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/example/resources/document.pdf": {
+    "mtime": 1787015642.8724113,
+    "seen": 1791989694.3449697,
+    "ast_hash": "4aae7550454cec795da10295aebd589a",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/test/unit/resources/doc.pdf": {
+    "mtime": 1787015643.0614047,
+    "seen": 1791989694.3449717,
+    "ast_hash": "f99d76976cb04647d56e1003da8985bc",
+    "semantic_hash": ""
+  },
+  "favicon.png": {
+    "mtime": 1787015628.0336154,
+    "seen": 1791989694.3449738,
+    "ast_hash": "a5016c4797a840a48b5280d7098afb8f",
+    "semantic_hash": ""
+  },
+  "need to update the teller api in main app to filter tellers.png": {
+    "mtime": 1787015628.082614,
+    "seen": 1791989694.3449757,
+    "ast_hash": "eb0cedfef8662aa23b0593fa660f015c",
+    "semantic_hash": ""
+  },
+  "public/images/CCTO/3840px-Bagong_Pilipinas_logo.png": {
+    "mtime": 1787015630.2810676,
+    "seen": 1791989694.3449776,
+    "ast_hash": "5024437a1f9165086d298aa24a93c770",
+    "semantic_hash": ""
+  },
+  "public/images/CCTO/3840px-Cebu_City_seal.svg.png": {
+    "mtime": 1787015630.3150654,
+    "seen": 1791989694.3449798,
+    "ast_hash": "a9c5166b9d9ae1b1110764b8a4dc8628",
+    "semantic_hash": ""
+  },
+  "public/images/CCTO/Untitled-1.png": {
+    "mtime": 1787015630.3500667,
+    "seen": 1791989694.3449814,
+    "ast_hash": "3beb78c5209939d50918a462c6d2e5fe",
+    "semantic_hash": ""
+  },
+  "public/images/CCTO/ccto.png": {
+    "mtime": 1787015630.3590648,
+    "seen": 1791989694.3449836,
+    "ast_hash": "f44ee8093ba0abaab4fb00305208746c",
+    "semantic_hash": ""
+  },
+  "public/images/CCTO/header-text1.png": {
+    "mtime": 1787015630.4040895,
+    "seen": 1791989694.344986,
+    "ast_hash": "886f96005389585eac8baa83acba4df5",
+    "semantic_hash": ""
+  },
+  "public/images/DALAGUETE/0ffbe6b7-3b64-4532-a135-832ee65cec0b.jpg": {
+    "mtime": 1787015630.425067,
+    "seen": 1791989694.3449879,
+    "ast_hash": "b01925d0f7953715d89b181f6dbb4518",
+    "semantic_hash": ""
+  },
+  "public/images/DALAGUETE/105635483_103995168036246_7835214198002073407_n.jpg": {
+    "mtime": 1787015630.437078,
+    "seen": 1791989694.3449903,
+    "ast_hash": "d7e71342cc38e051d3503aa37b1a0bb6",
+    "semantic_hash": ""
+  },
+  "public/images/DALAGUETE/513702808_122095951838934137_6966469428230687637_n.jpg": {
+    "mtime": 1787015630.4520655,
+    "seen": 1791989694.3449922,
+    "ast_hash": "22d3d001a5c6504a78eb5d95c6be615b",
+    "semantic_hash": ""
+  },
+  "public/images/DALAGUETE/635220335_122157440012934137_8473263747743931881_n.jpg": {
+    "mtime": 1787015630.5419111,
+    "seen": 1791989694.3449943,
+    "ast_hash": "6f52ea48ecae5ed9cfc16ad39f512950",
+    "semantic_hash": ""
+  },
+  "public/images/DALAGUETE/736760322_122175215102934137_6133675638434382447_n.jpg": {
+    "mtime": 1787015630.5609128,
+    "seen": 1791989694.3449962,
+    "ast_hash": "1bcea298f341a7c29cccc03487257e51",
+    "semantic_hash": ""
+  },
+  "public/images/DALAGUETE/Gemini_Generated_Image_x8tkqxx8tkqxx8tk.png": {
+    "mtime": 1787015630.726914,
+    "seen": 1791989694.3449984,
+    "ast_hash": "18cf0111715cbb333a5b56c530523d71",
+    "semantic_hash": ""
+  },
+  "public/images/DALAGUETE/Gemini_Generated_Image_xhiqnsxhiqnsxhiq.png": {
+    "mtime": 1787015630.8618054,
+    "seen": 1791989694.3450007,
+    "ast_hash": "ad05f4527b02dbb0ac5d4044af925eca",
+    "semantic_hash": ""
+  },
+  "public/images/DALAGUETE/Kandungaw-Peak-1-1024x1283.png": {
+    "mtime": 1787015630.8888063,
+    "seen": 1791989694.3450024,
+    "ast_hash": "f836fd2699c5192fecf5bc6ee96f2d14",
+    "semantic_hash": ""
+  },
+  "public/images/DALAGUETE/Obong+Spring+Water+and+Beach.png": {
+    "mtime": 1787015630.9188027,
+    "seen": 1791989694.3450046,
+    "ast_hash": "b0fc1fbcf0763fbb6a1b5ce15836a43c",
+    "semantic_hash": ""
+  },
+  "public/images/DALAGUETE/bg.png": {
+    "mtime": 1787015631.0458152,
+    "seen": 1791989694.3450067,
+    "ast_hash": "18cf0111715cbb333a5b56c530523d71",
+    "semantic_hash": ""
+  },
+  "public/images/DALAGUETE/dalaguete.png": {
+    "mtime": 1787015631.1798074,
+    "seen": 1791989694.3450084,
+    "ast_hash": "6ac9a9d47d6be547c4fcca6363d6d5d8",
+    "semantic_hash": ""
+  },
+  "public/images/Gemini_Generated_Image_f7yb7uf7yb7uf7yb.png": {
+    "mtime": 1787015631.3623598,
+    "seen": 1791989694.3450105,
+    "ast_hash": "e4e618dfc4790f2ced78b784ecf9dd8c",
+    "semantic_hash": ""
+  },
+  "public/images/banner.png": {
+    "mtime": 1787015631.3733594,
+    "seen": 1791989694.3450122,
+    "ast_hash": "7766a7a1d7cd80c23a60900c23d0eaca",
+    "semantic_hash": ""
+  },
+  "public/images/bg.png": {
+    "mtime": 1787015631.6594193,
+    "seen": 1791989694.3450146,
+    "ast_hash": "7a448a73434fe1d5c06b1095562d7c9e",
+    "semantic_hash": ""
+  },
+  "public/images/buttons/button_priority.png": {
+    "mtime": 1787015631.6614196,
+    "seen": 1791989694.3450165,
+    "ast_hash": "5f517db2bbaa0e9fa1cb175625963cee",
+    "semantic_hash": ""
+  },
+  "public/images/buttons/button_regular.png": {
+    "mtime": 1787015631.663419,
+    "seen": 1791989694.3450186,
+    "ast_hash": "fd91f59871900bc52e3614b32340c11a",
+    "semantic_hash": ""
+  },
+  "public/images/ccto.png": {
+    "mtime": 1787015631.667418,
+    "seen": 1791989694.3450205,
+    "ast_hash": "f44ee8093ba0abaab4fb00305208746c",
+    "semantic_hash": ""
+  },
+  "public/images/charts/bar_chart.png": {
+    "mtime": 1787015631.669422,
+    "seen": 1791989694.3450222,
+    "ast_hash": "3723d24df18725665bbc1bd2eb90e32e",
+    "semantic_hash": ""
+  },
+  "public/images/charts/daily_chart.png": {
+    "mtime": 1787015631.6714244,
+    "seen": 1791989694.3450243,
+    "ast_hash": "5edd4f08ce26b02bef9e29d0cc7d6413",
+    "semantic_hash": ""
+  },
+  "public/images/charts/hourly_chart.png": {
+    "mtime": 1787015631.6734202,
+    "seen": 1791989694.3450263,
+    "ast_hash": "8422f66946bdbf43f6cd63355e8521e2",
+    "semantic_hash": ""
+  },
+  "public/images/charts/monthly_chart.png": {
+    "mtime": 1787015631.6744206,
+    "seen": 1791989694.3450282,
+    "ast_hash": "c00ec9918774ae0900b2dabbb6855835",
+    "semantic_hash": ""
+  },
+  "public/images/company.png": {
+    "mtime": 1787015631.6794212,
+    "seen": 1791989694.3450303,
+    "ast_hash": "377b049fc9db6147ef3d5b21544f6435",
+    "semantic_hash": ""
+  },
+  "public/images/email.png": {
+    "mtime": 1787015631.6804197,
+    "seen": 1791989694.3450322,
+    "ast_hash": "57785b3921a2c43a6ac9931b488fd38f",
+    "semantic_hash": ""
+  },
+  "public/images/error.gif": {
+    "mtime": 1787015631.70142,
+    "seen": 1791989694.345034,
+    "ast_hash": "dda8a677e8d3cbf8c9b2f16f982afcc8",
+    "semantic_hash": ""
+  },
+  "public/images/icons/accounts.svg": {
+    "mtime": 1787015631.722423,
+    "seen": 1791989694.3450358,
+    "ast_hash": "314614d21c0787670797494c471d6906",
+    "semantic_hash": ""
+  },
+  "public/images/icons/call-back.png": {
+    "mtime": 1787015631.7384224,
+    "seen": 1791989694.345038,
+    "ast_hash": "4d590a97710d2d4a582096bff052f688",
+    "semantic_hash": ""
+  },
+  "public/images/icons/check.png": {
+    "mtime": 1787015631.7504194,
+    "seen": 1791989694.3450398,
+    "ast_hash": "95998d3d65a299bc3119a388f31fbf4b",
+    "semantic_hash": ""
+  },
+  "public/images/icons/fast-forward.png": {
+    "mtime": 1787015631.760419,
+    "seen": 1791989694.3450418,
+    "ast_hash": "35564818d39d26d9a3c692df2d19911d",
+    "semantic_hash": ""
+  },
+  "public/images/icons/file.png": {
+    "mtime": 1787015631.7754195,
+    "seen": 1791989694.3450437,
+    "ast_hash": "71b19d818ab4e9619d565c27644f3162",
+    "semantic_hash": ""
+  },
+  "public/images/icons/livepreview.svg": {
+    "mtime": 1787015631.7964191,
+    "seen": 1791989694.345046,
+    "ast_hash": "0bc05caf7712618e8c9d9456ba9fb342",
+    "semantic_hash": ""
+  },
+  "public/images/icons/overview.svg": {
+    "mtime": 1787015631.8101828,
+    "seen": 1791989694.3450484,
+    "ast_hash": "8fdd92a96cbcb38aad12dc421f198654",
+    "semantic_hash": ""
+  },
+  "public/images/icons/pause.png": {
+    "mtime": 1787015631.8241868,
+    "seen": 1791989694.3450503,
+    "ast_hash": "61a60430a9bec893b2487fa97f32c8cc",
+    "semantic_hash": ""
+  },
+  "public/images/icons/remove.png": {
+    "mtime": 1787015631.8331735,
+    "seen": 1791989694.3450525,
+    "ast_hash": "5e661752d9163f5c8d43ab1aaf464bc5",
+    "semantic_hash": ""
+  },
+  "public/images/icons/report.png": {
+    "mtime": 1787015631.8481746,
+    "seen": 1791989694.3450541,
+    "ast_hash": "cc48f6571a726d486cbe2bcd0e2e7c90",
+    "semantic_hash": ""
+  },
+  "public/images/icons/reports.svg": {
+    "mtime": 1787015631.8601737,
+    "seen": 1791989694.345056,
+    "ast_hash": "b6a02c2ae682238e4ec91c1d889c1206",
+    "semantic_hash": ""
+  },
+  "public/images/icons/services.svg": {
+    "mtime": 1787015631.8711765,
+    "seen": 1791989694.3450577,
+    "ast_hash": "78e0a271854c110d48f8c3ef0e0bc0aa",
+    "semantic_hash": ""
+  },
+  "public/images/icons/settings.png": {
+    "mtime": 1787015631.8821774,
+    "seen": 1791989694.3450596,
+    "ast_hash": "a80cca85da135295a998d6816a9aa28b",
+    "semantic_hash": ""
+  },
+  "public/images/icons/settings.svg": {
+    "mtime": 1787015631.9011726,
+    "seen": 1791989694.3450613,
+    "ast_hash": "cca30f1d39dec791f837e55e2369574a",
+    "semantic_hash": ""
+  },
+  "public/images/icons/tellers.svg": {
+    "mtime": 1787015631.9151733,
+    "seen": 1791989694.3450634,
+    "ast_hash": "c4c5956569e8a26e0ce0119a0933f9be",
+    "semantic_hash": ""
+  },
+  "public/images/icons/ticketsjourney.svg": {
+    "mtime": 1787015631.9331741,
+    "seen": 1791989694.345065,
+    "ast_hash": "7028a19f5a8823ea862f967e1a5fe8d1",
+    "semantic_hash": ""
+  },
+  "public/images/ostilogo.png": {
+    "mtime": 1787015631.9361784,
+    "seen": 1791989694.3450675,
+    "ast_hash": "377b049fc9db6147ef3d5b21544f6435",
+    "semantic_hash": ""
+  },
+  "public/images/question.png": {
+    "mtime": 1787015631.9371755,
+    "seen": 1791989694.34507,
+    "ast_hash": "da8360f3b3de4c386581b150d5f324f3",
+    "semantic_hash": ""
+  },
+  "public/images/shutdown.png": {
+    "mtime": 1787015631.9391775,
+    "seen": 1791989694.3450716,
+    "ast_hash": "734cf8d893e3f4ff898635a7cc159c60",
+    "semantic_hash": ""
+  },
+  "public/images/tel.png": {
+    "mtime": 1787015631.9401796,
+    "seen": 1791989694.3450735,
+    "ast_hash": "91c5bf318e2109f33be1796a061f0d61",
+    "semantic_hash": ""
+  },
+  "public/images/web.png": {
+    "mtime": 1787015631.9421742,
+    "seen": 1791989694.3450754,
+    "ast_hash": "cdf95b427f17016536cb57f5b727ddde",
+    "semantic_hash": ""
+  },
+  "public/libs/jquery-ui-1.14.1/images/ui-icons_444444_256x240.png": {
+    "mtime": 1787015638.3595214,
+    "seen": 1791989694.3450775,
+    "ast_hash": "3af048a4171e4fe525b9dd627337b24c",
+    "semantic_hash": ""
+  },
+  "public/libs/jquery-ui-1.14.1/images/ui-icons_555555_256x240.png": {
+    "mtime": 1787015638.3605223,
+    "seen": 1791989694.3450792,
+    "ast_hash": "9e9ec90037d819f44938e3a5c3f326eb",
+    "semantic_hash": ""
+  },
+  "public/libs/jquery-ui-1.14.1/images/ui-icons_777620_256x240.png": {
+    "mtime": 1787015638.3615205,
+    "seen": 1791989694.345081,
+    "ast_hash": "3f740235d573bd8f1d96cff7ddc99f80",
+    "semantic_hash": ""
+  },
+  "public/libs/jquery-ui-1.14.1/images/ui-icons_777777_256x240.png": {
+    "mtime": 1787015638.3615205,
+    "seen": 1791989694.3450825,
+    "ast_hash": "7c30110e5378197bb764de8fe3c11bf6",
+    "semantic_hash": ""
+  },
+  "public/libs/jquery-ui-1.14.1/images/ui-icons_cc0000_256x240.png": {
+    "mtime": 1787015638.3625195,
+    "seen": 1791989694.3450844,
+    "ast_hash": "f83aedc92a0e7a52f0cf1fbe4db64957",
+    "semantic_hash": ""
+  },
+  "public/libs/jquery-ui-1.14.1/images/ui-icons_ffffff_256x240.png": {
+    "mtime": 1787015638.3635206,
+    "seen": 1791989694.3450866,
+    "ast_hash": "fe3cb44a3fa482a701277e00b6247c0b",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/example/cadepic.png": {
+    "mtime": 1787015638.9878905,
+    "seen": 1791989694.3450885,
+    "ast_hash": "c446d8eee6df5f1cdf24c3937c33788e",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/example/interface/cadepic.png": {
+    "mtime": 1787015638.999888,
+    "seen": 1791989694.3450902,
+    "ast_hash": "c446d8eee6df5f1cdf24c3937c33788e",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/example/interface/ni.jpg": {
+    "mtime": 1787015639.0708892,
+    "seen": 1791989694.3450918,
+    "ast_hash": "cd6cea92b8acb41f15c2307a5833b8f4",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/example/resources/cadepic.png": {
+    "mtime": 1787015639.0911243,
+    "seen": 1791989694.3450935,
+    "ast_hash": "c446d8eee6df5f1cdf24c3937c33788e",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/example/resources/escpos-php-small.png": {
+    "mtime": 1787015639.1021183,
+    "seen": 1791989694.3450954,
+    "ast_hash": "5f39077cbeb7865c6b53a73de9e89e4d",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/example/resources/escpos-php.png": {
+    "mtime": 1787015639.1041214,
+    "seen": 1791989694.3450973,
+    "ast_hash": "f8b0629e38cd23b73ecdf31f5782c10b",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/example/resources/rawbtlogo.png": {
+    "mtime": 1787015639.1061203,
+    "seen": 1791989694.345099,
+    "ast_hash": "c159cedfde5c02f2a31a927e98f7bb02",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/example/resources/tulips.png": {
+    "mtime": 1787015639.1161199,
+    "seen": 1791989694.3451009,
+    "ast_hash": "3887fd88247204c5322969d20c04bd8b",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/example/resources/tux.png": {
+    "mtime": 1787015639.1181207,
+    "seen": 1791989694.3451025,
+    "ast_hash": "f6cc9ddc8955827bd7d31bb749a32c16",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/example/tux.png": {
+    "mtime": 1787015639.1401205,
+    "seen": 1791989694.3451047,
+    "ast_hash": "f6cc9ddc8955827bd7d31bb749a32c16",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/test/unit/resources/black_transparent.gif": {
+    "mtime": 1787015639.3905504,
+    "seen": 1791989694.3451066,
+    "ast_hash": "77d54a73b87842f7a7f2f9eda8719007",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/test/unit/resources/black_transparent.png": {
+    "mtime": 1787015639.3905504,
+    "seen": 1791989694.3451087,
+    "ast_hash": "c5f886768965b0f36c43efce9bda9d20",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/test/unit/resources/black_white.gif": {
+    "mtime": 1787015639.392551,
+    "seen": 1791989694.345111,
+    "ast_hash": "b99117e8b51c37623b1477bf9a01c40d",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/test/unit/resources/black_white.jpg": {
+    "mtime": 1787015639.3935463,
+    "seen": 1791989694.3451126,
+    "ast_hash": "5dead111cb259bb455f2c313ed17acef",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/test/unit/resources/black_white.png": {
+    "mtime": 1787015639.3935463,
+    "seen": 1791989694.345115,
+    "ast_hash": "bf3b2305e6258f570d5e190981b0c1e8",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/test/unit/resources/black_white_tall.png": {
+    "mtime": 1787015639.3945496,
+    "seen": 1791989694.3451207,
+    "ast_hash": "7bfc9a1a568cb9b590622f81d5c2b737",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/test/unit/resources/canvas_black.gif": {
+    "mtime": 1787015639.395548,
+    "seen": 1791989694.3451233,
+    "ast_hash": "bdfc8637c0948633b535c5b954714870",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/test/unit/resources/canvas_black.jpg": {
+    "mtime": 1787015639.396546,
+    "seen": 1791989694.345126,
+    "ast_hash": "0e86c0b4bbf97979f827d815cb6eee13",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/test/unit/resources/canvas_black.png": {
+    "mtime": 1787015639.3975492,
+    "seen": 1791989694.3451416,
+    "ast_hash": "7173c37fd95d384c1870b5e162eb4232",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/test/unit/resources/canvas_white.gif": {
+    "mtime": 1787015639.3995469,
+    "seen": 1791989694.3451438,
+    "ast_hash": "d7965515f82f441db443052c5d561c14",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/test/unit/resources/canvas_white.jpg": {
+    "mtime": 1787015639.3995469,
+    "seen": 1791989694.345146,
+    "ast_hash": "586aa65d7564631e83031d90cf4a232c",
+    "semantic_hash": ""
+  },
+  "public/printer/vendor/mike42/escpos-php/test/unit/resources/canvas_white.png": {
+    "mtime": 1787015639.4005487,
+    "seen": 1791989694.3451478,
+    "ast_hash": "7663fc3cd916de404df9b11a34358674",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/images/1700100167726-removebg-preview.png": {
+    "mtime": 1787015641.144646,
+    "seen": 1791989694.3451502,
+    "ast_hash": "503e7a5c338e0e17fc24774fadb08874",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/images/1button_priority.png": {
+    "mtime": 1787015641.1696422,
+    "seen": 1791989694.345152,
+    "ast_hash": "5883866a331435891d190f456c56025d",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/images/1button_regular.png": {
+    "mtime": 1787015641.1986427,
+    "seen": 1791989694.3451538,
+    "ast_hash": "d68bbf433024ab1c29d86dd6d5dbf702",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/images/back.png": {
+    "mtime": 1787015641.3106427,
+    "seen": 1791989694.3451562,
+    "ast_hash": "800b0c732cee4c7f945b22fa3ffa50e9",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/images/bg.png": {
+    "mtime": 1787015641.362872,
+    "seen": 1791989694.345158,
+    "ast_hash": "e9a93b560d7edb811a5944e4174c6476",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/images/blueback.png": {
+    "mtime": 1787015641.383874,
+    "seen": 1791989694.3451602,
+    "ast_hash": "098cbc15f0c09e5cbdc12addae45a57b",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/images/blueback1 copy.png": {
+    "mtime": 1787015641.4588716,
+    "seen": 1791989694.3451622,
+    "ast_hash": "46b96f3d1bf4c576c53dbef2fd0a0617",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/images/blueback1.png": {
+    "mtime": 1787015641.4618752,
+    "seen": 1791989694.345164,
+    "ast_hash": "46b96f3d1bf4c576c53dbef2fd0a0617",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/images/button_priority.png": {
+    "mtime": 1787015641.568939,
+    "seen": 1791989694.3451657,
+    "ast_hash": "097cb138f72ee5d8c3e1b4f6284e3b70",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/images/button_priority2.png": {
+    "mtime": 1787015641.702935,
+    "seen": 1791989694.3451679,
+    "ast_hash": "82a184b12e0718785959cc5b9a7e425f",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/images/button_regular.png": {
+    "mtime": 1787015641.7299316,
+    "seen": 1791989694.3451698,
+    "ast_hash": "0d4d197d4dfb462ed40d5e18d7170303",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/images/company.png": {
+    "mtime": 1787015641.7349327,
+    "seen": 1791989694.345172,
+    "ast_hash": "377b049fc9db6147ef3d5b21544f6435",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/images/kiosk.png": {
+    "mtime": 1787015641.8933065,
+    "seen": 1791989694.3451743,
+    "ast_hash": "2c2652159eb59e9bea35371d2bb0a8ca",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/images/logo.png": {
+    "mtime": 1787015641.9073057,
+    "seen": 1791989694.3451762,
+    "ast_hash": "410532c5394a703df4a0c6f8cc6b20f4",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/images/pregnant.png": {
+    "mtime": 1787015641.9263043,
+    "seen": 1791989694.3451781,
+    "ast_hash": "81fbe513bae4cff212d33d1cb89eec52",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/images/pwd.png": {
+    "mtime": 1787015641.944304,
+    "seen": 1791989694.3451798,
+    "ast_hash": "87b2b188392e4892e88d9708c42f9a7d",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/images/senior.png": {
+    "mtime": 1787015641.963305,
+    "seen": 1791989694.3451822,
+    "ast_hash": "975afe2b8574a0316d732ec7067304cf",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/images/yelloback.png": {
+    "mtime": 1787015641.9813058,
+    "seen": 1791989694.345184,
+    "ast_hash": "7ba4a4b294ee3d31f95bac553e979c77",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/images/yelloback1.png": {
+    "mtime": 1787015642.0003097,
+    "seen": 1791989694.345186,
+    "ast_hash": "67d3ab294379988a5a634ebfa4b8ff8b",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/images/yelloback2.png": {
+    "mtime": 1787015642.0233066,
+    "seen": 1791989694.3451884,
+    "ast_hash": "24971a6b821f89589201a309835c64eb",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/example/cadepic.png": {
+    "mtime": 1787015642.779099,
+    "seen": 1791989694.3451903,
+    "ast_hash": "c446d8eee6df5f1cdf24c3937c33788e",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/example/interface/cadepic.png": {
+    "mtime": 1787015642.7900977,
+    "seen": 1791989694.3451924,
+    "ast_hash": "c446d8eee6df5f1cdf24c3937c33788e",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/example/interface/ni.jpg": {
+    "mtime": 1787015642.8520975,
+    "seen": 1791989694.3451943,
+    "ast_hash": "cd6cea92b8acb41f15c2307a5833b8f4",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/example/resources/cadepic.png": {
+    "mtime": 1787015642.8661013,
+    "seen": 1791989694.3451962,
+    "ast_hash": "c446d8eee6df5f1cdf24c3937c33788e",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/example/resources/escpos-php-small.png": {
+    "mtime": 1787015642.8744044,
+    "seen": 1791989694.3451984,
+    "ast_hash": "5f39077cbeb7865c6b53a73de9e89e4d",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/example/resources/escpos-php.png": {
+    "mtime": 1787015642.8754063,
+    "seen": 1791989694.3452003,
+    "ast_hash": "f8b0629e38cd23b73ecdf31f5782c10b",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/example/resources/rawbtlogo.png": {
+    "mtime": 1787015642.8754063,
+    "seen": 1791989694.3452022,
+    "ast_hash": "c159cedfde5c02f2a31a927e98f7bb02",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/example/resources/tulips.png": {
+    "mtime": 1787015642.8794036,
+    "seen": 1791989694.345204,
+    "ast_hash": "3887fd88247204c5322969d20c04bd8b",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/example/resources/tux.png": {
+    "mtime": 1787015642.8804061,
+    "seen": 1791989694.345206,
+    "ast_hash": "f6cc9ddc8955827bd7d31bb749a32c16",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/example/tux.png": {
+    "mtime": 1787015642.930405,
+    "seen": 1791989694.3452082,
+    "ast_hash": "f6cc9ddc8955827bd7d31bb749a32c16",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/test/unit/resources/black_transparent.gif": {
+    "mtime": 1787015643.0454035,
+    "seen": 1791989694.3452098,
+    "ast_hash": "77d54a73b87842f7a7f2f9eda8719007",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/test/unit/resources/black_transparent.png": {
+    "mtime": 1787015643.0464041,
+    "seen": 1791989694.3452117,
+    "ast_hash": "c5f886768965b0f36c43efce9bda9d20",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/test/unit/resources/black_white.gif": {
+    "mtime": 1787015643.0484037,
+    "seen": 1791989694.3452134,
+    "ast_hash": "b99117e8b51c37623b1477bf9a01c40d",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/test/unit/resources/black_white.jpg": {
+    "mtime": 1787015643.0484037,
+    "seen": 1791989694.3452156,
+    "ast_hash": "5dead111cb259bb455f2c313ed17acef",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/test/unit/resources/black_white.png": {
+    "mtime": 1787015643.049415,
+    "seen": 1791989694.3452172,
+    "ast_hash": "bf3b2305e6258f570d5e190981b0c1e8",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/test/unit/resources/black_white_tall.png": {
+    "mtime": 1787015643.0504045,
+    "seen": 1791989694.3452196,
+    "ast_hash": "7bfc9a1a568cb9b590622f81d5c2b737",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/test/unit/resources/canvas_black.gif": {
+    "mtime": 1787015643.0514038,
+    "seen": 1791989694.3452213,
+    "ast_hash": "bdfc8637c0948633b535c5b954714870",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/test/unit/resources/canvas_black.jpg": {
+    "mtime": 1787015643.0524044,
+    "seen": 1791989694.3452237,
+    "ast_hash": "0e86c0b4bbf97979f827d815cb6eee13",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/test/unit/resources/canvas_black.png": {
+    "mtime": 1787015643.053404,
+    "seen": 1791989694.3452256,
+    "ast_hash": "7173c37fd95d384c1870b5e162eb4232",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/test/unit/resources/canvas_white.gif": {
+    "mtime": 1787015643.056427,
+    "seen": 1791989694.3452272,
+    "ast_hash": "d7965515f82f441db443052c5d561c14",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/test/unit/resources/canvas_white.jpg": {
+    "mtime": 1787015643.0584035,
+    "seen": 1791989694.3452294,
+    "ast_hash": "586aa65d7564631e83031d90cf4a232c",
+    "semantic_hash": ""
+  },
+  "s2ndkiosk/outfolder/printer/vendor/mike42/escpos-php/test/unit/resources/canvas_white.png": {
+    "mtime": 1787015643.0594049,
+    "seen": 1791989694.3452315,
+    "ast_hash": "7663fc3cd916de404df9b11a34358674",
+    "semantic_hash": ""
+  },
+  "security-status.png": {
+    "mtime": 1787015644.0250466,
+    "seen": 1791989694.3452334,
+    "ast_hash": "0b6cc4c278c05ef5ba6b40c357b90cbe",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Bcl.AsyncInterfaces.10.0.3/Icon.png": {
+    "mtime": 1787015647.0697393,
+    "seen": 1791989694.3452353,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.DependencyInjection.10.0.3/Icon.png": {
+    "mtime": 1787015647.2157218,
+    "seen": 1791989694.3452375,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.DependencyInjection.Abstractions.10.0.3/Icon.png": {
+    "mtime": 1787015647.5837226,
+    "seen": 1791989694.3452394,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.Logging.10.0.3/Icon.png": {
+    "mtime": 1787015647.8645415,
+    "seen": 1791989694.345241,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.Logging.Abstractions.10.0.3/Icon.png": {
+    "mtime": 1787015648.1075392,
+    "seen": 1791989694.345243,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.Options.10.0.3/Icon.png": {
+    "mtime": 1787015648.8412774,
+    "seen": 1791989694.345245,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/Microsoft.Extensions.Primitives.10.0.3/Icon.png": {
+    "mtime": 1787015649.945403,
+    "seen": 1791989694.3452468,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Buffers.4.6.1/Icon.png": {
+    "mtime": 1787015651.8696475,
+    "seen": 1791989694.3452487,
+    "ast_hash": "09e1aea3b3b37c1d1df0cac1526db117",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Diagnostics.DiagnosticSource.10.0.3/Icon.png": {
+    "mtime": 1787015651.987028,
+    "seen": 1791989694.3452508,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.IO.Pipelines.10.0.3/Icon.png": {
+    "mtime": 1787015656.416716,
+    "seen": 1791989694.3452525,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Memory.4.6.3/Icon.png": {
+    "mtime": 1787015656.8657901,
+    "seen": 1791989694.3452547,
+    "ast_hash": "09e1aea3b3b37c1d1df0cac1526db117",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Numerics.Vectors.4.6.1/Icon.png": {
+    "mtime": 1787015657.4068055,
+    "seen": 1791989694.3452568,
+    "ast_hash": "09e1aea3b3b37c1d1df0cac1526db117",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Runtime.CompilerServices.Unsafe.6.1.2/Icon.png": {
+    "mtime": 1787015660.049801,
+    "seen": 1791989694.3452585,
+    "ast_hash": "09e1aea3b3b37c1d1df0cac1526db117",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Text.Encodings.Web.10.0.3/Icon.png": {
+    "mtime": 1787015662.1308365,
+    "seen": 1791989694.3452606,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Text.Json.10.0.3/Icon.png": {
+    "mtime": 1787015662.6488397,
+    "seen": 1791989694.3452625,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.Threading.Tasks.Extensions.4.6.3/Icon.png": {
+    "mtime": 1787015663.5259588,
+    "seen": 1791989694.3452644,
+    "ast_hash": "09e1aea3b3b37c1d1df0cac1526db117",
+    "semantic_hash": ""
+  },
+  "windowsCaller/packages/System.ValueTuple.4.6.1/Icon.png": {
+    "mtime": 1787015663.6599617,
+    "seen": 1791989694.3452663,
+    "ast_hash": "09e1aea3b3b37c1d1df0cac1526db117",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Bcl.AsyncInterfaces.10.0.3/Icon.png": {
+    "mtime": 1787015665.5310006,
+    "seen": 1791989694.3452682,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.DependencyInjection.10.0.3/Icon.png": {
+    "mtime": 1787015665.6000013,
+    "seen": 1791989694.3452702,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.DependencyInjection.Abstractions.10.0.3/Icon.png": {
+    "mtime": 1787015665.6639993,
+    "seen": 1791989694.3452723,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.Logging.10.0.3/Icon.png": {
+    "mtime": 1787015665.7470014,
+    "seen": 1791989694.3452742,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.Logging.Abstractions.10.0.3/Icon.png": {
+    "mtime": 1787015665.878326,
+    "seen": 1791989694.3452766,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.Options.10.0.3/Icon.png": {
+    "mtime": 1787015666.1043272,
+    "seen": 1791989694.3452785,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/Microsoft.Extensions.Primitives.10.0.3/Icon.png": {
+    "mtime": 1787015666.2352502,
+    "seen": 1791989694.3452804,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Buffers.4.6.1/Icon.png": {
+    "mtime": 1787015666.3282607,
+    "seen": 1791989694.3452823,
+    "ast_hash": "09e1aea3b3b37c1d1df0cac1526db117",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Diagnostics.DiagnosticSource.10.0.3/Icon.png": {
+    "mtime": 1787015666.3632467,
+    "seen": 1791989694.3452845,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.IO.Pipelines.10.0.3/Icon.png": {
+    "mtime": 1787015666.7452502,
+    "seen": 1791989694.3452864,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Memory.4.6.3/Icon.png": {
+    "mtime": 1787015666.8222501,
+    "seen": 1791989694.3452885,
+    "ast_hash": "09e1aea3b3b37c1d1df0cac1526db117",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Numerics.Vectors.4.6.1/Icon.png": {
+    "mtime": 1787015666.9722466,
+    "seen": 1791989694.345304,
+    "ast_hash": "09e1aea3b3b37c1d1df0cac1526db117",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Runtime.CompilerServices.Unsafe.6.1.2/Icon.png": {
+    "mtime": 1787015668.1647954,
+    "seen": 1791989694.345306,
+    "ast_hash": "09e1aea3b3b37c1d1df0cac1526db117",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Text.Encodings.Web.10.0.3/Icon.png": {
+    "mtime": 1787015668.628796,
+    "seen": 1791989694.3453076,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Text.Json.10.0.3/Icon.png": {
+    "mtime": 1787015668.7027974,
+    "seen": 1791989694.3453095,
+    "ast_hash": "4c4b4a9bb2d54db883702f949dc6fbe1",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.Threading.Tasks.Extensions.4.6.3/Icon.png": {
+    "mtime": 1787015669.0770347,
+    "seen": 1791989694.345311,
+    "ast_hash": "09e1aea3b3b37c1d1df0cac1526db117",
+    "semantic_hash": ""
+  },
+  "windowsCaller_prevs/packages/System.ValueTuple.4.6.1/Icon.png": {
+    "mtime": 1787015669.1010165,
+    "seen": 1791989694.3453128,
+    "ast_hash": "09e1aea3b3b37c1d1df0cac1526db117",
+    "semantic_hash": ""
   }
 }

@@ -2944,3 +2944,36 @@ Error: Failed to copy file to printer
 ✔ 2026-10-06 3:29:10 PM [node:events:514] [ADS] Client connected: jX1WBMFVEAHoyDoUAAAF
 ✔ 2026-10-06 3:29:21 PM [node:events:514] [ADS] Client disconnected: jX1WBMFVEAHoyDoUAAAF
 ✔ 2026-10-06 3:29:21 PM [node:events:514] [ADS] Client connected: pFuPy1cRvmaufAGzAAAG
+✔ 2026-10-14 10:54:39 PM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-10-14 10:54:39 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ custom filepath { path: '/custom/path/.env' }[0m
+✔ 2026-10-14 10:54:44 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-10-14 10:54:44 PM [unknown-location] Connected to SQLite database
+✔ 2026-10-14 10:54:44 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-10-14 10:54:44 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-14 10:54:44 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-14 10:54:44 PM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-10-14 10:54:46 PM [index.js:83] No external display found for the /display window.
+✔ 2026-10-14 10:54:47 PM [node:events:509] [ADS] Client connected: OUfmTMjzCEiQA3XzAAAB
+✔ 2026-10-14 10:54:51 PM [node:events:509] [ADS] Client connected: VNCSQcQQVy1EUASSAAAD
+✔ 2026-10-14 10:54:58 PM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-14 10:54:58 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-14 10:54:58 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-14 10:54:59 PM [node:events:509] [ADS] Client connected: cw76L5UNkEm4oICMAAAF
+✔ 2026-10-14 10:55:36 PM [node:events:509] [ADS] Client disconnected: VNCSQcQQVy1EUASSAAAD
+✔ 2026-10-14 11:01:39 PM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-10-14 11:01:39 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌁ auth for agents [www.vestauth.com][0m
+✔ 2026-10-14 11:01:40 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-10-14 11:01:40 PM [unknown-location] Connected to SQLite database
+✔ 2026-10-14 11:01:40 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-10-14 11:01:40 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-14 11:01:40 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-14 11:01:40 PM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-10-14 11:01:41 PM [index.js:83] No external display found for the /display window.
+✔ 2026-10-14 11:01:42 PM [node:events:509] [ADS] Client connected: Cd0_nCD5ZrA2XPtLAAAB
+✔ 2026-10-14 11:01:44 PM [node:events:509] [ADS] Client connected: Gu7mKcS4RFClN9mFAAAD
+✔ 2026-10-14 11:01:47 PM [node:events:509] [ADS] Client disconnected: Gu7mKcS4RFClN9mFAAAD
+✔ 2026-10-14 11:01:50 PM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-14 11:01:50 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-14 11:01:50 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-14 11:01:51 PM [node:events:509] [ADS] Client connected: dB1sRkOaY-6fKZ2JAAAF
+✔ 2026-10-14 11:03:11 PM [node:events:509] [ADS] Client disconnected: dB1sRkOaY-6fKZ2JAAAF

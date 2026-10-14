@@ -21,6 +21,7 @@ module.exports = function createTellerApiRouter(io) {
     const rootpath = global.BACKEND_PATH || __dirname;
     const db = require(path.join(rootpath, 'utilities/db'));
     const { getPHDateTime } = require(path.join(rootpath, 'utilities/datetime'));
+    const ticketHistoryHelper = require(path.join(rootpath, 'utilities/ticketHistoryHelper'));
     const {
         inTransaction,
         normalizeServiceKey,
@@ -152,78 +153,44 @@ module.exports = function createTellerApiRouter(io) {
             SELECT 
                 s.sname,
                 s.shortSname,
-                COUNT(CASE WHEN t.status = 'pending' AND t.date = ? THEN 1 END) AS waiting_count,
+                COUNT(CASE WHEN t.status IN ('pending', 'received') AND t.date = ? THEN 1 END) AS waiting_count,
                 COUNT(CASE WHEN (t.status = 'calling' OR t.status = 'called') AND t.date = ? THEN 1 END) AS serving_count,
                 COUNT(CASE WHEN t.status = 'finished' AND t.date = ? THEN 1 END) AS completed_count,
                 AVG(CASE WHEN t.status = 'finished' AND t.date = ? 
-                        THEN (strftime('%s',  t.start_time) - strftime('%s', t.time)) / 60.0 
+                        THEN (strftime('%s',  COALESCE(t.start_time, t.end_time)) - strftime('%s', t.time)) / 60.0 
                         END) AS avg_wait_time
-                FROM services s
-                LEFT JOIN transactions t 
-                    ON t.sname = s.sname
-                WHERE s.status = 1
-                GROUP BY s.sname
-        `, [date, date, date, date], (err, rows) => {
+            FROM services s
+            LEFT JOIN transactions t 
+                ON (UPPER(t.sname) = UPPER(s.sname) OR UPPER(t.ticketservice) = UPPER(s.regular) OR UPPER(t.ticketservice) = UPPER(s.priority))
+                AND t.date = ?
+            WHERE s.status = 1
+            GROUP BY s.sname
+        `, [date, date, date, date, date], (err, rows) => {
                 if (err) console.error("Service query error:", err);
-                else result.services = rows;
+                else result.services = rows || [];
                 resolve();
             });
         });
 
         const tellerPromise = new Promise((resolve) => {
-            db.all(`
-            SELECT 
-                c.id,
-                c.cname,
-                c.cnum,
-
-                COUNT(CASE 
-                    WHEN t.status = 'finished'
-                    AND date = ?
-                THEN 1 END) as served_today,
-
-                AVG(CASE 
-                    WHEN t.status = 'finished'
-                    AND date = ?
-                    THEN (strftime('%s', t.end_time) - strftime('%s', t.start_time)) / 60.0
-                END) as avg_service_time,
-
-                AVG(CASE 
-                    WHEN t.status = 'finished'
-                    AND date = ?
-                    THEN (strftime('%s', t.end_time) - strftime('%s', t.time)) / 60.0
-                END) as avg_turnaround_time,
-
-                MAX(CASE 
-                    WHEN (t.status = 'calling' OR t.status = 'called')
-                    AND date = ?
-                    THEN t.ticketservice || t.ticketnum
-                END) as serving_ticket
-
-            FROM counters c
-            LEFT JOIN transactions t 
-                ON t.teller_id = c.id
-
-            GROUP BY c.id
-        `, [date, date, date, date], (err, tellers) => {
-
+            db.all(`SELECT id, cname, cuser, cnum, services, group_name FROM counters ORDER BY cnum ASC, id ASC`, [], (err, counters) => {
                 if (err) {
-                    console.error("Teller query error:", err);
+                    console.error("Counters query error:", err);
                     return resolve();
                 }
-
-                tellers.forEach(teller => {
-                    if (teller.serving_ticket) {
-                        teller.status = `Serving ${teller.serving_ticket}`;
-                        teller.status_code = 'busy';
-                    } else {
-                        teller.status = 'Idle';
-                        teller.status_code = 'idle';
+                db.all(`
+                    SELECT id, date, time, start_time, end_time, status, teller_id, counter_num, counter_user, ticketservice, ticketnum, history
+                    FROM transactions
+                    WHERE date = ?
+                `, [date], (err2, transactions) => {
+                    if (err2) {
+                        console.error("Transactions query error:", err2);
+                        return resolve();
                     }
+                    const tellerMetrics = ticketHistoryHelper.aggregateTellerMetrics(counters || [], transactions || [], date);
+                    result.tellers = tellerMetrics;
+                    resolve();
                 });
-
-                result.tellers = tellers;
-                resolve();
             });
         });
 
@@ -232,12 +199,12 @@ module.exports = function createTellerApiRouter(io) {
             db.get(`
             SELECT 
                 COUNT(CASE 
-                    WHEN status = 'pending' 
+                    WHEN status IN ('pending', 'received') 
                     AND date = ?
                 THEN 1 END) as queue_length,
 
                 COUNT(CASE 
-                    WHEN status != 'pending' 
+                    WHEN status NOT IN ('pending', 'received') 
                     AND date = ?
                 THEN 1 END) as queue_served,
 
@@ -247,14 +214,14 @@ module.exports = function createTellerApiRouter(io) {
 
                 AVG(
                     CASE
-                        WHEN end_time IS NOT NULL
+                        WHEN end_time IS NOT NULL AND status = 'finished'
                         THEN (strftime('%s', end_time) - strftime('%s', time)) / 60.0
                     END
                 ) AS avg_turnaround,
 
                 AVG(
                     CASE
-                        WHEN end_time IS NOT NULL
+                        WHEN end_time IS NOT NULL AND status = 'finished'
                         THEN (strftime('%s', end_time) - strftime('%s', start_time)) / 60.0
                     END
                 ) AS avg_service_time,
@@ -271,7 +238,7 @@ module.exports = function createTellerApiRouter(io) {
         `, [date, date, date, date], (err, row) => {
 
                 if (err) console.error("Stats query error:", err);
-                else result.stats = row;
+                else result.stats = row || {};
 
                 resolve();
             });
@@ -306,12 +273,12 @@ module.exports = function createTellerApiRouter(io) {
                     // 3️⃣ Tickets by service for today
                     db.all(
                         `SELECT
-                        COALESCE(s.shortSname, t.sname, t.ticketservice, 'General') AS sname,
+                        COALESCE(s.shortSname, s.sname, t.sname, t.ticketservice, 'General') AS sname,
                         COUNT(*) AS count
                      FROM transactions t
-                     LEFT JOIN services s ON t.sname = s.sname
+                     LEFT JOIN services s ON (UPPER(t.sname) = UPPER(s.sname) OR UPPER(t.ticketservice) = UPPER(s.regular) OR UPPER(t.ticketservice) = UPPER(s.priority))
                      WHERE t.date = ?
-                     GROUP BY COALESCE(s.shortSname, t.sname, t.ticketservice, 'General')
+                     GROUP BY COALESCE(s.shortSname, s.sname, t.sname, t.ticketservice, 'General')
                      ORDER BY count DESC`,
                         [date],
                         (err, rows) => {
@@ -321,16 +288,18 @@ module.exports = function createTellerApiRouter(io) {
                             // 4️⃣ Average service time per service for today
                             db.all(
                                 `
-                            SELECT ticketservice as sname,
+                            SELECT 
+                                COALESCE(s.shortSname, s.sname, t.sname, t.ticketservice, 'General') as sname,
                                 AVG(
-                                    (strftime('%s', date || ' ' || end_time) - strftime('%s', date || ' ' || start_time)) / 60.0
+                                    (strftime('%s', t.date || ' ' || t.end_time) - strftime('%s', t.date || ' ' || t.start_time)) / 60.0
                                 ) AS avg_minutes
-                            FROM transactions
-                            WHERE status = 'finished'
-                                AND start_time IS NOT NULL
-                                AND end_time IS NOT NULL
-                                AND date = ?
-                            GROUP BY ticketservice
+                            FROM transactions t
+                            LEFT JOIN services s ON (UPPER(t.sname) = UPPER(s.sname) OR UPPER(t.ticketservice) = UPPER(s.regular) OR UPPER(t.ticketservice) = UPPER(s.priority))
+                            WHERE t.status = 'finished'
+                                AND t.start_time IS NOT NULL
+                                AND t.end_time IS NOT NULL
+                                AND t.date = ?
+                            GROUP BY COALESCE(s.shortSname, s.sname, t.sname, t.ticketservice, 'General')
                             `,
                                 [date],
                                 (err, rows) => {
@@ -360,12 +329,12 @@ module.exports = function createTellerApiRouter(io) {
                 THEN '00' 
                 ELSE '30' 
             END AS minute_block,
-            COALESCE(s.shortSname, t.ticketservice, t.sname, 'General') AS sname,
+            COALESCE(s.shortSname, s.sname, t.sname, t.ticketservice, 'General') AS sname,
             COUNT(*) AS count
         FROM transactions t
-        LEFT JOIN services s ON t.sname = s.sname
+        LEFT JOIN services s ON (UPPER(t.sname) = UPPER(s.sname) OR UPPER(t.ticketservice) = UPPER(s.regular) OR UPPER(t.ticketservice) = UPPER(s.priority))
         WHERE t.date = ?
-        GROUP BY hour, minute_block, COALESCE(s.shortSname, t.ticketservice, t.sname, 'General')
+        GROUP BY hour, minute_block, COALESCE(s.shortSname, s.sname, t.sname, t.ticketservice, 'General')
         ORDER BY hour, minute_block, sname
     `,
             [date],
@@ -390,12 +359,12 @@ module.exports = function createTellerApiRouter(io) {
         db.all(`
             SELECT
                 CAST(strftime('%d', t.date) AS INTEGER) AS day,
-                COALESCE(s.shortSname, t.ticketservice, t.sname, 'General') AS sname,
+                COALESCE(s.shortSname, s.sname, t.sname, t.ticketservice, 'General') AS sname,
                 COUNT(*) AS count
             FROM transactions t
-            LEFT JOIN services s ON t.sname = s.sname
+            LEFT JOIN services s ON (UPPER(t.sname) = UPPER(s.sname) OR UPPER(t.ticketservice) = UPPER(s.regular) OR UPPER(t.ticketservice) = UPPER(s.priority))
             WHERE t.date LIKE ?
-            GROUP BY day, COALESCE(s.shortSname, t.ticketservice, t.sname, 'General')
+            GROUP BY day, COALESCE(s.shortSname, s.sname, t.sname, t.ticketservice, 'General')
             ORDER BY day ASC
         `,
             [`${currentMonth}%`],
@@ -417,12 +386,12 @@ module.exports = function createTellerApiRouter(io) {
         db.all(`
         SELECT
             CAST(strftime('%m', t.date) AS INTEGER) AS month,
-            COALESCE(s.shortSname, t.ticketservice, t.sname, 'General') AS sname,
+            COALESCE(s.shortSname, s.sname, t.sname, t.ticketservice, 'General') AS sname,
             COUNT(*) AS count
         FROM transactions t
-        LEFT JOIN services s ON t.sname = s.sname
+        LEFT JOIN services s ON (UPPER(t.sname) = UPPER(s.sname) OR UPPER(t.ticketservice) = UPPER(s.regular) OR UPPER(t.ticketservice) = UPPER(s.priority))
         WHERE t.date LIKE ?
-        GROUP BY month, COALESCE(s.shortSname, t.ticketservice, t.sname, 'General')
+        GROUP BY month, COALESCE(s.shortSname, s.sname, t.sname, t.ticketservice, 'General')
         ORDER BY month ASC, sname ASC
     `, [`${year}%`], (err, rows) => {
             if (err) {
@@ -481,7 +450,7 @@ module.exports = function createTellerApiRouter(io) {
             COUNT(*) AS total,
             COUNT(CASE WHEN status = 'finished' THEN 1 END) AS completed,
             COUNT(CASE WHEN status IS NULL OR status != 'finished' THEN 1 END) AS not_completed,
-            COUNT(CASE WHEN status IN ('waiting', 'pending') THEN 1 END) AS waiting,
+            COUNT(CASE WHEN status IN ('waiting', 'pending', 'received') THEN 1 END) AS waiting,
             COUNT(CASE WHEN priority = 1 THEN 1 END) AS priority,
             COUNT(DISTINCT COALESCE(sname, ticketservice)) AS active_services,
             AVG(CASE
@@ -539,10 +508,10 @@ module.exports = function createTellerApiRouter(io) {
             SELECT
                 strftime('%H', t.date || ' ' || t.time) || ':' ||
                     CASE WHEN CAST(strftime('%M', t.date || ' ' || t.time) AS INTEGER) < 30 THEN '00' ELSE '30' END AS time_block,
-                COALESCE(s.shortSname, t.ticketservice, t.sname, 'General') AS service_name,
+                COALESCE(s.shortSname, s.sname, t.sname, t.ticketservice, 'General') AS service_name,
                 COUNT(*) AS count
             FROM transactions t
-            LEFT JOIN services s ON t.sname = s.sname
+            LEFT JOIN services s ON (UPPER(t.sname) = UPPER(s.sname) OR UPPER(t.ticketservice) = UPPER(s.regular) OR UPPER(t.ticketservice) = UPPER(s.priority))
             WHERE t.date = ?
             GROUP BY time_block, service_name
             ORDER BY time_block, service_name
@@ -550,18 +519,18 @@ module.exports = function createTellerApiRouter(io) {
         });
 
         const tellerFlow = new Promise((resolve, reject) => {
-            db.all(`
-            SELECT
-                strftime('%H', t.date || ' ' || t.end_time) || ':' ||
-                    CASE WHEN CAST(strftime('%M', t.date || ' ' || t.end_time) AS INTEGER) < 30 THEN '00' ELSE '30' END AS time_block,
-                COALESCE(c.cname, t.counter_user, 'Unassigned') AS teller_name,
-                COUNT(*) AS count
-            FROM transactions t
-            LEFT JOIN counters c ON t.teller_id = c.id
-            WHERE t.date = ? AND t.status = 'finished' AND t.end_time IS NOT NULL
-            GROUP BY time_block, teller_name
-            ORDER BY time_block, teller_name
-        `, [date], (err, rows) => err ? reject(err) : resolve(rows || []));
+            db.all(`SELECT id, cname, cuser, cnum FROM counters`, [], (err, counters) => {
+                if (err) return reject(err);
+                db.all(`
+                    SELECT id, date, time, start_time, end_time, status, teller_id, counter_num, counter_user, history
+                    FROM transactions
+                    WHERE date = ?
+                `, [date], (err2, transactions) => {
+                    if (err2) return reject(err2);
+                    const flowBlocks = ticketHistoryHelper.extractTellerFlowBlocks(transactions || [], counters || []);
+                    resolve(flowBlocks);
+                });
+            });
         });
 
         Promise.all([ticketFlow, tellerFlow])
@@ -583,7 +552,7 @@ module.exports = function createTellerApiRouter(io) {
                 COUNT(*) AS total_tickets,
                 COUNT(CASE WHEN status = 'finished' THEN 1 END) AS completed_tickets,
                 COUNT(CASE WHEN priority = 1 THEN 1 END) AS priority_tickets,
-                COUNT(CASE WHEN status IN ('waiting', 'pending') THEN 1 END) AS waiting_tickets,
+                COUNT(CASE WHEN status IN ('waiting', 'pending', 'received') THEN 1 END) AS waiting_tickets,
                 COUNT(DISTINCT COALESCE(sname, ticketservice)) AS active_services,
                 AVG(CASE WHEN start_time IS NOT NULL THEN (strftime('%s', start_time) - strftime('%s', time)) / 60.0 END) AS avg_wait_minutes,
                 AVG(CASE WHEN start_time IS NOT NULL AND end_time IS NOT NULL THEN (strftime('%s', end_time) - strftime('%s', start_time)) / 60.0 END) AS avg_service_minutes,
@@ -599,11 +568,11 @@ module.exports = function createTellerApiRouter(io) {
 
         const busiestService = new Promise((resolve, reject) => {
             db.get(`
-            SELECT COALESCE(s.shortSname, t.ticketservice, t.sname, 'General') AS service_name, COUNT(*) AS ticket_count
+            SELECT COALESCE(s.shortSname, s.sname, t.sname, t.ticketservice, 'General') AS service_name, COUNT(*) AS ticket_count
             FROM transactions t
-            LEFT JOIN services s ON t.sname = s.sname
+            LEFT JOIN services s ON (UPPER(t.sname) = UPPER(s.sname) OR UPPER(t.ticketservice) = UPPER(s.regular) OR UPPER(t.ticketservice) = UPPER(s.priority))
             WHERE t.date = ?
-            GROUP BY COALESCE(s.shortSname, t.ticketservice, t.sname, 'General')
+            GROUP BY COALESCE(s.shortSname, s.sname, t.sname, t.ticketservice, 'General')
             ORDER BY ticket_count DESC
             LIMIT 1
         `, [date], (err, row) => {
@@ -1004,10 +973,11 @@ module.exports = function createTellerApiRouter(io) {
                 OR (t.ticketservice || t.ticketnum) LIKE ?
                 OR t.counter_user LIKE ?
                 OR t.status LIKE ?
+                OR t.history LIKE ?
             )
         `;
             const likeSearch = `%${search}%`;
-            filterParams.push(likeSearch, likeSearch, likeSearch, likeSearch, likeSearch, likeSearch);
+            filterParams.push(likeSearch, likeSearch, likeSearch, likeSearch, likeSearch, likeSearch, likeSearch);
         }
 
         const countQuery = `SELECT COUNT(*) AS total FROM transactions t ${whereClause}`;
@@ -1034,6 +1004,11 @@ module.exports = function createTellerApiRouter(io) {
 
             db.all(dataQuery, [...filterParams, queryLimit, queryOffset], (err, rows) => {
                 if (err) return res.status(500).json({ error: err.message });
+                (rows || []).forEach(row => {
+                    const journey = ticketHistoryHelper.extractTellerJourney(row.history, row.teller_name || row.counter_user);
+                    row.teller_name = journey;
+                    row.counter_user = journey;
+                });
                 res.json({
                     tickets: rows || [],
                     pagination: {
@@ -1458,20 +1433,20 @@ module.exports = function createTellerApiRouter(io) {
         const byServicePromise = new Promise((resolve) => {
             db.all(`
             SELECT
-                t.ticketservice as service_code,
-                COALESCE(s.shortSname, t.ticketservice) as service_name,
+                COALESCE(s.regular || CASE WHEN s.priority IS NOT NULL AND s.priority != '' THEN ' / ' || s.priority ELSE '' END, t.ticketservice) as service_code,
+                COALESCE(s.shortSname, s.sname, t.sname, t.ticketservice) as service_name,
                 COUNT(*)                                                                as ticket_count,
                 COUNT(CASE WHEN (${effT}) = 'finished' THEN 1 END)                    as completed,
                 COUNT(CASE WHEN (${effT}) = 'voided'   THEN 1 END)                    as voided,
-                COUNT(CASE WHEN (${effT}) NOT IN ('finished','voided') THEN 1 END)    as pending,
+                COUNT(CASE WHEN (${effT}) IN ('pending', 'received') THEN 1 END)       as pending,
                 AVG(CASE
                     WHEN t.status = 'finished' AND t.start_time IS NOT NULL AND t.end_time IS NOT NULL
                     THEN (strftime('%s', t.end_time) - strftime('%s', t.start_time)) / 60.0
                     END) as avg_service_time_minutes
             FROM transactions t
-            LEFT JOIN services s ON t.sname = s.sname
+            LEFT JOIN services s ON (UPPER(t.sname) = UPPER(s.sname) OR UPPER(t.ticketservice) = UPPER(s.regular) OR UPPER(t.ticketservice) = UPPER(s.priority))
             WHERE t.date BETWEEN ? AND ?
-            GROUP BY t.ticketservice
+            GROUP BY COALESCE(s.sname, t.sname, t.ticketservice)
             ORDER BY ticket_count DESC
         `, [dateFrom, dateTo], (err, rows) => {
                 if (err) console.error('By service query error:', err);
@@ -1481,30 +1456,28 @@ module.exports = function createTellerApiRouter(io) {
         });
 
         // 3. Tickets by Teller
-        //    tickets_served = only FINISHED tickets (actually served by the teller)
+        //    All tellers who served tickets (via history or teller_id) are credited,
+        //    regardless of which service or group they are assigned to.
         const byTellerPromise = new Promise((resolve) => {
-            db.all(`
-            SELECT
-                t.teller_id,
-                COALESCE(c.cname, 'Unknown') as teller_name,
-                c.cnum as counter_number,
-                COUNT(CASE WHEN (${effT}) = 'finished' THEN 1 END) as tickets_served,
-                COUNT(CASE WHEN (${effT}) = 'finished' THEN 1 END) as completed,
-                COUNT(CASE WHEN t.date != '${today}' AND t.status != 'finished' THEN 1 END) as voided,
-                AVG(CASE
-                    WHEN t.status = 'finished' AND t.start_time IS NOT NULL AND t.end_time IS NOT NULL
-                    THEN (strftime('%s', t.end_time) - strftime('%s', t.start_time)) / 60.0
-                    END) as avg_service_time_minutes
-            FROM transactions t
-            LEFT JOIN counters c ON t.teller_id = c.id
-            WHERE t.date BETWEEN ? AND ?
-              AND t.teller_id IS NOT NULL
-            GROUP BY t.teller_id
-            ORDER BY tickets_served DESC
-        `, [dateFrom, dateTo], (err, rows) => {
-                if (err) console.error('By teller query error:', err);
-                else reports.byTeller = rows || [];
-                resolve();
+            db.all(`SELECT id, cname, cuser, cnum, services, group_name FROM counters ORDER BY cnum ASC, id ASC`, [], (err, counters) => {
+                if (err) {
+                    console.error('Counters query error:', err);
+                    return resolve();
+                }
+                db.all(`
+                    SELECT id, date, time, start_time, end_time, status, teller_id, counter_num, counter_user, ticketservice, ticketnum, history, void_reason
+                    FROM transactions
+                    WHERE date BETWEEN ? AND ?
+                `, [dateFrom, dateTo], (err2, transactions) => {
+                    if (err2) {
+                        console.error('By teller transactions query error:', err2);
+                        return resolve();
+                    }
+                    const tellerMetrics = ticketHistoryHelper.aggregateTellerMetrics(counters || [], transactions || [], today);
+                    tellerMetrics.sort((a, b) => b.tickets_served - a.tickets_served);
+                    reports.byTeller = tellerMetrics;
+                    resolve();
+                });
             });
         });
 
@@ -1553,10 +1526,10 @@ module.exports = function createTellerApiRouter(io) {
             db.all(`
             SELECT
                 CAST(strftime('%H', t.date || ' ' || t.time) AS INTEGER) AS hour,
-                COALESCE(s.shortSname, t.ticketservice, t.sname, 'General') AS service_name,
+                COALESCE(s.shortSname, s.sname, t.sname, t.ticketservice, 'General') AS service_name,
                 COUNT(*) AS ticket_count
             FROM transactions t
-            LEFT JOIN services s ON t.sname = s.sname
+            LEFT JOIN services s ON (UPPER(t.sname) = UPPER(s.sname) OR UPPER(t.ticketservice) = UPPER(s.regular) OR UPPER(t.ticketservice) = UPPER(s.priority))
             WHERE t.date BETWEEN ? AND ?
             GROUP BY hour, service_name
             ORDER BY hour, service_name
@@ -1572,10 +1545,10 @@ module.exports = function createTellerApiRouter(io) {
             db.all(`
             SELECT
                 t.date,
-                COALESCE(s.shortSname, t.ticketservice, t.sname, 'General') AS service_name,
+                COALESCE(s.shortSname, s.sname, t.sname, t.ticketservice, 'General') AS service_name,
                 COUNT(*) AS ticket_count
             FROM transactions t
-            LEFT JOIN services s ON t.sname = s.sname
+            LEFT JOIN services s ON (UPPER(t.sname) = UPPER(s.sname) OR UPPER(t.ticketservice) = UPPER(s.regular) OR UPPER(t.ticketservice) = UPPER(s.priority))
             WHERE t.date BETWEEN ? AND ?
             GROUP BY t.date, service_name
             ORDER BY t.date, service_name
@@ -1591,10 +1564,10 @@ module.exports = function createTellerApiRouter(io) {
             db.all(`
             SELECT
                 substr(t.date, 1, 7) AS month,
-                COALESCE(s.shortSname, t.ticketservice, t.sname, 'General') AS service_name,
+                COALESCE(s.shortSname, s.sname, t.sname, t.ticketservice, 'General') AS service_name,
                 COUNT(*) AS ticket_count
             FROM transactions t
-            LEFT JOIN services s ON t.sname = s.sname
+            LEFT JOIN services s ON (UPPER(t.sname) = UPPER(s.sname) OR UPPER(t.ticketservice) = UPPER(s.regular) OR UPPER(t.ticketservice) = UPPER(s.priority))
             WHERE t.date BETWEEN ? AND ?
             GROUP BY month, service_name
             ORDER BY month, service_name
@@ -1613,11 +1586,15 @@ module.exports = function createTellerApiRouter(io) {
                 t.date,
                 t.time,
                 t.ticketservice as service_code,
-                COALESCE(s.shortSname, t.ticketservice) as service_name,
+                COALESCE(s.shortSname, s.sname, t.sname, t.ticketservice) as service_name,
                 (${effT})       as status,
                 CASE WHEN (${effT}) = 'voided' AND t.status != 'finished'
                      THEN 'not served' ELSE NULL END as void_reason,
-                COALESCE(c.cname, NULL) as teller_name,
+                t.counter_user,
+                t.counter_num,
+                t.teller_id,
+                t.history,
+                COALESCE(c.cname, t.counter_user, NULL) as teller_name,
                 CASE
                     WHEN t.status = 'finished' AND t.start_time IS NOT NULL AND t.end_time IS NOT NULL
                     THEN (strftime('%s', t.end_time) - strftime('%s', t.start_time)) / 60.0
@@ -1629,14 +1606,20 @@ module.exports = function createTellerApiRouter(io) {
                     ELSE NULL
                 END as turnaround_time_minutes
             FROM transactions t
-            LEFT JOIN services  s ON t.sname     = s.sname
+            LEFT JOIN services  s ON (UPPER(t.sname) = UPPER(s.sname) OR UPPER(t.ticketservice) = UPPER(s.regular) OR UPPER(t.ticketservice) = UPPER(s.priority))
             LEFT JOIN counters  c ON t.teller_id = c.id
             WHERE t.date BETWEEN ? AND ?
             ORDER BY t.date DESC, t.time DESC
             LIMIT 1000
         `, [dateFrom, dateTo], (err, rows) => {
-                if (err) console.error('Detailed transactions query error:', err);
-                else reports.detailedTransactions = rows || [];
+                if (err) {
+                    console.error('Detailed transactions query error:', err);
+                } else {
+                    (rows || []).forEach(row => {
+                        row.teller_name = ticketHistoryHelper.extractTellerJourney(row.history, row.teller_name || row.counter_user);
+                    });
+                    reports.detailedTransactions = rows || [];
+                }
                 resolve();
             });
         });
