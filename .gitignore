@@ -18,3 +18,6 @@ reso/outfolder/app.pid
 outfolder/config/db.db
 .tmp-cdp-scroll
 /.tmp-cdp-scroll
+/backend/config/db.db
+/backend/config/db.db-shm
+/backend/config/db.db-wal

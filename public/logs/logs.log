@@ -2977,3 +2977,17 @@ Error: Failed to copy file to printer
 ✔ 2026-10-14 11:01:50 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
 ✔ 2026-10-14 11:01:51 PM [node:events:509] [ADS] Client connected: dB1sRkOaY-6fKZ2JAAAF
 ✔ 2026-10-14 11:03:11 PM [node:events:509] [ADS] Client disconnected: dB1sRkOaY-6fKZ2JAAAF
+✔ 2026-10-15 7:54:48 AM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-10-15 7:54:50 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ suppress logs { quiet: true }[0m
+✔ 2026-10-15 7:55:01 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-10-15 7:55:02 AM [unknown-location] Connected to SQLite database
+✔ 2026-10-15 7:55:04 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-10-15 7:55:04 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-15 7:55:04 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-15 7:55:07 AM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-10-15 7:55:13 AM [node:events:509] [ADS] Client connected: S7xQ_hP1EqNyuccTAAAC
+✔ 2026-10-15 7:55:13 AM [node:events:509] [ADS] Client connected: Fi6ywT_wPTHwVsa7AAAD
+✔ 2026-10-15 7:55:33 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-15 7:55:33 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-15 7:55:33 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-15 7:55:34 AM [node:events:509] [ADS] Client connected: sSVP90pDEWIYLQEPAAAF
