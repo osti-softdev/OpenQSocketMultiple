@@ -2991,3 +2991,19 @@ Error: Failed to copy file to printer
 ✔ 2026-10-15 7:55:33 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
 ✔ 2026-10-15 7:55:33 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
 ✔ 2026-10-15 7:55:34 AM [node:events:509] [ADS] Client connected: sSVP90pDEWIYLQEPAAAF
+✔ 2026-10-15 8:03:57 AM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-10-15 8:03:57 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌁ auth for agents [www.vestauth.com][0m
+✔ 2026-10-15 8:03:58 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-10-15 8:03:58 AM [unknown-location] Connected to SQLite database
+✔ 2026-10-15 8:03:58 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-10-15 8:03:58 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-15 8:03:58 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-15 8:03:58 AM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-10-15 8:03:58 AM [node:events:509] [ADS] Client connected: hG3-NCCinSE68YS2AAAB
+✔ 2026-10-15 8:04:00 AM [node:events:509] [ADS] Client connected: bKJVXhDcPYA5upAFAAAD
+✔ 2026-10-15 8:04:00 AM [node:events:509] [ADS] Client connected: uo5I-pWF6RI9Xrw9AAAF
+✔ 2026-10-15 8:04:43 AM [node:events:509] [ADS] Client disconnected: hG3-NCCinSE68YS2AAAB
+✔ 2026-10-15 9:24:44 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-15 9:24:44 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-15 9:24:44 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-15 9:24:45 AM [node:events:509] [ADS] Client connected: 85xusKE9NXEjic-cAAAH
