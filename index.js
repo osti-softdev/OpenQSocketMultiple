@@ -19,23 +19,16 @@ const BASE_URL = `http://localhost:${SERVER_PORT}`;
 let kioskWindow = null;
 let displayWindow = null;
 
-app.whenReady().then(() => {
-    // Small delay to ensure Express is fully listening before windows load
-    setTimeout(() => {
-        createWindows();
-    }, 1000);
-});
-
-function createWindows() {
-    const displays = screen.getAllDisplays();
+// Helper to find any display that is NOT the primary display
+function getExternalDisplay() {
     const primaryDisplay = screen.getPrimaryDisplay();
+    return screen.getAllDisplays().find((d) => d.id !== primaryDisplay.id);
+}
 
-    // Find a secondary display, if any
-    const externalDisplay = displays.find((display) => {
-        return display.bounds.x !== 0 || display.bounds.y !== 0;
-    });
+function createKioskWindow() {
+    if (kioskWindow && !kioskWindow.isDestroyed()) return;
 
-    // 1. Create Kiosk Window (on Primary Display)
+    const primaryDisplay = screen.getPrimaryDisplay();
     kioskWindow = new BrowserWindow({
         x: primaryDisplay.bounds.x,
         y: primaryDisplay.bounds.y,
@@ -54,18 +47,16 @@ function createWindows() {
     kioskWindow.on('closed', () => {
         kioskWindow = null;
     });
+}
 
-    // 2. Create Display Window (on Extended Display, if available)
-    if (externalDisplay) {
+function openDisplayWindow(externalDisplay) {
+    if (displayWindow && !displayWindow.isDestroyed()) return;
+
     displayWindow = new BrowserWindow({
         x: externalDisplay.bounds.x,
         y: externalDisplay.bounds.y,
         width: externalDisplay.bounds.width,
         height: externalDisplay.bounds.height,
-        // x: primaryDisplay.bounds.x,
-        // y: primaryDisplay.bounds.y,
-        // width: primaryDisplay.bounds.width,
-        // height: primaryDisplay.bounds.height,
         fullscreen: true,
         autoHideMenuBar: true,
         webPreferences: {
@@ -73,16 +64,60 @@ function createWindows() {
             contextIsolation: true
         }
     });
+
     displayWindow.webContents.setZoomFactor(0.6);
     displayWindow.loadURL(`${BASE_URL}/display`);
 
     displayWindow.on('closed', () => {
         displayWindow = null;
     });
+}
+
+function closeDisplayWindow() {
+    if (displayWindow && !displayWindow.isDestroyed()) {
+        displayWindow.close();
+    }
+    displayWindow = null;
+}
+
+function syncDisplays() {
+    const externalDisplay = getExternalDisplay();
+
+    if (externalDisplay) {
+        if (!displayWindow || displayWindow.isDestroyed()) {
+            console.log("External display detected. Launching display window...");
+            openDisplayWindow(externalDisplay);
+        }
     } else {
-        console.log("No external display found for the /display window.");
+        if (displayWindow && !displayWindow.isDestroyed()) {
+            console.log("No external display available. Closing display window...");
+            closeDisplayWindow();
+        }
     }
 }
+
+app.whenReady().then(() => {
+    // Small delay to ensure Express is fully listening before windows load
+    setTimeout(() => {
+        createKioskWindow();
+        syncDisplays();
+
+        // Dynamically handle displays connecting, disconnecting, or changing bounds
+        screen.on('display-added', () => {
+            console.log("Display added event detected.");
+            syncDisplays();
+        });
+
+        screen.on('display-removed', () => {
+            console.log("Display removed event detected.");
+            syncDisplays();
+        });
+
+        screen.on('display-metrics-changed', () => {
+            syncDisplays();
+        });
+    }, 1000);
+});
 
 // Quit when all windows are closed
 app.on('window-all-closed', () => {
@@ -93,6 +128,7 @@ app.on('window-all-closed', () => {
 
 app.on('activate', () => {
     if (kioskWindow === null) {
-        createWindows();
+        createKioskWindow();
+        syncDisplays();
     }
 });

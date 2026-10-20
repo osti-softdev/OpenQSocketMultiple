@@ -3007,3 +3007,32 @@ Error: Failed to copy file to printer
 ✔ 2026-10-15 9:24:44 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
 ✔ 2026-10-15 9:24:44 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
 ✔ 2026-10-15 9:24:45 AM [node:events:509] [ADS] Client connected: 85xusKE9NXEjic-cAAAH
+✔ 2026-10-20 1:41:41 PM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-10-20 1:41:42 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ multiple files { path: ['.env.local', '.env'] }[0m
+✔ 2026-10-20 1:41:49 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-10-20 1:41:51 PM [unknown-location] Connected to SQLite database
+✔ 2026-10-20 1:41:55 PM [index.js:88] External display detected. Launching display window...
+✔ 2026-10-20 1:41:56 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-10-20 1:41:56 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-20 1:41:56 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-20 1:41:57 PM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-10-20 1:42:03 PM [node:events:509] [ADS] Client connected: Nh9c0CAZ-Rsbb1ZQAAAB
+✔ 2026-10-20 1:42:05 PM [node:events:509] [ADS] Client connected: Q9l-mrAqrSFKZnxdAAAD
+✔ 2026-10-20 1:42:14 PM [node:events:509] [ADS] Client disconnected: Nh9c0CAZ-Rsbb1ZQAAAB
+✔ 2026-10-20 1:55:00 PM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-10-20 1:55:01 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ secrets for agents [www.dotenvx.com][0m
+✔ 2026-10-20 1:55:01 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-10-20 1:55:01 PM [unknown-location] Connected to SQLite database
+✔ 2026-10-20 1:55:01 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-10-20 1:55:01 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-20 1:55:01 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-20 1:55:01 PM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-10-20 1:55:02 PM [index.js:88] External display detected. Launching display window...
+✔ 2026-10-20 1:55:03 PM [node:events:509] [ADS] Client connected: 9l1gYRSuYUXgR4LjAAAB
+✔ 2026-10-20 1:55:03 PM [node:events:509] [ADS] Client connected: UJAisd4-__g2CM1zAAAD
+✔ 2026-10-20 2:09:08 PM [node:events:509] Display removed event detected.
+✔ 2026-10-20 2:09:08 PM [index.js:93] No external display available. Closing display window...
+✔ 2026-10-20 2:09:10 PM [node:events:509] [ADS] Client disconnected: 9l1gYRSuYUXgR4LjAAAB
+✔ 2026-10-20 2:09:29 PM [index.js:88] External display detected. Launching display window...
+✔ 2026-10-20 2:09:30 PM [node:events:509] Display added event detected.
+✔ 2026-10-20 2:09:31 PM [node:events:509] [ADS] Client connected: GY5ldFbtj7VSkiyDAAAF
