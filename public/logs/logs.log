@@ -4848,3 +4848,12 @@ Error: Failed to copy file to printer
 ✔ 2026-10-22 6:47:06 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
 ✔ 2026-10-22 6:47:06 AM [node:events:514] [ADS] Client connected: vdLVI7eLR7kdqVLJAAAC
 ✔ 2026-10-22 6:47:38 AM [node:events:514] [ADS] Client disconnected: KT6toOEv7TE8maiRAAAA
+✔ 2026-10-22 6:59:28 AM [backend\routes\AtellerApi.js:73] Login attempt for: educ2
+✔ 2026-10-22 6:59:28 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-22 6:59:28 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: educ2
+✔ 2026-10-22 6:59:28 AM [node:events:514] [ADS] Client connected: yrHLYe_xoEcMaO6BAAAD
+✔ 2026-10-22 6:59:37 AM [node:events:514] [ADS] Client disconnected: yrHLYe_xoEcMaO6BAAAD
+✔ 2026-10-22 6:59:37 AM [node:events:514] [ADS] Client disconnected: vdLVI7eLR7kdqVLJAAAC
+✔ 2026-10-22 7:00:44 AM [node:events:514] [ADS] Client connected: aQzZ8-_RWdWpJB8_AAAE
+✔ 2026-10-22 7:02:29 AM [node:events:514] [ADS] Client disconnected: aQzZ8-_RWdWpJB8_AAAE
+✔ 2026-10-22 7:02:41 AM [node:events:514] [ADS] Client disconnected: wlw14hkqQ3JmX0pMAAAB
