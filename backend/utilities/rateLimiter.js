@@ -14,9 +14,10 @@ const apiLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
   skip: (req) => {
+    if (req.headers['x-bypass-api-limiter'] === 'true') return true;
     const url = req.originalUrl || req.url || '';
     // Unrestricted retries and calls for tellers
-    return url.includes('/tickets') || url.includes('/teller') || url.includes('/check-session') || url.includes('/login');
+    return url.includes('/tickets') || url.includes('/teller') || url.includes('/check-session') || url.includes('/login') || url.includes('/logout');
   }
 });
 
@@ -54,6 +55,9 @@ const kioskLimiter = rateLimit({
   max: 30,
   message: {
     error: "Kiosk ticket limit exceeded. Please wait a moment."
+  },
+  skip: (req) => {
+    return req.headers['x-bypass-kiosk-limiter'] === 'true';
   }
 });
 

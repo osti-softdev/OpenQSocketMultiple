@@ -177,6 +177,7 @@ function initializeDatabase() {
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )`);
 
+
     db.run(`CREATE TABLE IF NOT EXISTS playlist_items (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       playlist_id INTEGER NOT NULL REFERENCES playlists(id) ON DELETE CASCADE,
@@ -233,6 +234,8 @@ function initializeDatabase() {
       [10, 'TELLER 10', 10, 'tel10', 'tel10', '1', 'OTHERS', 'OTHERS', 81],
     ];
     counters.forEach(c => db.run(`INSERT OR IGNORE INTO counters (id, cname, cnum, cuser, cpass, cstatus, services, group_name, group_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`, c));
+
+    
 
     const services = [
       [1, 'BILLING', 'B', 'PB', 1, 'BILLING', 'Counter 1, 2', '11:09:01', ''],

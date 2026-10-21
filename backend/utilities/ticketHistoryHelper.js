@@ -14,6 +14,7 @@ function parseTimeToSec(tStr) {
     return null;
 }
 
+
 function parseHistory(historyStr) {
     if (!historyStr || typeof historyStr !== 'string') return [];
     const entries = historyStr.split(';').map(s => s.trim()).filter(Boolean);

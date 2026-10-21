@@ -3094,3 +3094,1548 @@ Error: Failed to copy file to printer
 ✔ 2026-10-21 9:03:40 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
 ✔ 2026-10-21 9:03:40 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
 ✔ 2026-10-21 9:37:30 AM [node:events:509] [ADS] Client disconnected: 38YXnjZ5A-XNTTPcAAAk
+✔ 2026-10-21 9:53:28 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 9:53:28 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 9:53:28 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 9:53:28 AM [node:events:509] [ADS] Client connected: hWhigA-pxRyjyoY_AAAm
+✔ 2026-10-21 10:04:15 AM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-10-21 10:04:15 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ enable debugging { debug: true }[0m
+✔ 2026-10-21 10:04:19 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-10-21 10:04:20 AM [unknown-location] Connected to SQLite database
+✔ 2026-10-21 10:04:20 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-10-21 10:04:20 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-21 10:04:20 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-21 10:04:20 AM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-10-21 10:04:21 AM [index.js:88] External display detected. Launching display window...
+✔ 2026-10-21 10:04:23 AM [node:events:509] [ADS] Client connected: 7zbmX16Sqvv5vk0aAAAB
+✔ 2026-10-21 10:04:23 AM [node:events:509] [ADS] Client connected: jtIpgSbPGa4ClGYfAAAD
+✔ 2026-10-21 10:04:24 AM [node:events:509] [ADS] Client connected: YLUnmqe3dhxHykM2AAAF
+✔ 2026-10-21 10:05:09 AM [node:events:509] [ADS] Client disconnected: YLUnmqe3dhxHykM2AAAF
+✔ 2026-10-21 10:08:37 AM [backend\routes\AadminApi.js:55] Login attempt for: ' OR 1=1
+✔ 2026-10-21 10:08:37 AM [node_modules\sqlite3\lib\trace.js:25] User not found: ' OR 1=1
+✔ 2026-10-21 10:08:46 AM [backend\routes\AadminApi.js:55] Login attempt for: ' OR 1=1;
+✔ 2026-10-21 10:08:46 AM [node_modules\sqlite3\lib\trace.js:25] User not found: ' OR 1=1;
+✔ 2026-10-21 10:08:49 AM [backend\routes\AadminApi.js:55] Login attempt for: ' OR 1=1;
+✔ 2026-10-21 10:08:49 AM [node_modules\sqlite3\lib\trace.js:25] User not found: ' OR 1=1;
+✔ 2026-10-21 10:11:47 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:11:47 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:11:47 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 10:11:47 AM [node:events:509] [ADS] Client connected: sbWVZl2ty_QlybbiAAAH
+✔ 2026-10-21 10:11:51 AM [node:events:509] [ADS] Client disconnected: sbWVZl2ty_QlybbiAAAH
+✔ 2026-10-21 10:11:52 AM [node:events:509] [ADS] Client connected: HPdAyqQG48lAvMnkAAAJ
+✔ 2026-10-21 10:11:54 AM [node:events:509] [ADS] Client connected: 4wW7P8gTKdQ83ricAAAM
+✔ 2026-10-21 10:11:54 AM [node:events:509] [ADS] Client disconnected: 4wW7P8gTKdQ83ricAAAM
+✔ 2026-10-21 10:11:54 AM [node:events:509] [ADS] Client connected: EgEhmV5yV2AjNrW9AAAO
+✔ 2026-10-21 10:11:54 AM [node:events:509] [ADS] Client disconnected: EgEhmV5yV2AjNrW9AAAO
+✔ 2026-10-21 10:11:55 AM [node:events:509] [ADS] Client connected: lH35zAI12DChJd4KAAAQ
+✔ 2026-10-21 10:12:00 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:00 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:00 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:00 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:00 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:00 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:01 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:01 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:01 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:02 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:02 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:02 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:03 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:03 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:03 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:03 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:03 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:03 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:04 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:04 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:04 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:04 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:04 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:04 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:05 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:05 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:05 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:05 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:05 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:05 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:05 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:05 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:05 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:23 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:23 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:23 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:23 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:23 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:23 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:37 AM [node:events:509] [ADS] Client disconnected: HPdAyqQG48lAvMnkAAAJ
+✔ 2026-10-21 10:12:39 AM [node:events:509] [ADS] Client disconnected: lH35zAI12DChJd4KAAAQ
+✔ 2026-10-21 10:12:57 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:57 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:57 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:57 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:57 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:57 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:57 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:57 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:57 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:57 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:57 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:57 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:57 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:57 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:57 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:58 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:58 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:58 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:58 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:58 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:58 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:58 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:58 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:58 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:58 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:58 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:58 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:58 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:58 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:58 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:58 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:58 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:58 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:58 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:58 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:58 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:59 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:59 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:59 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:59 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:59 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:59 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:59 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:59 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:59 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:59 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:59 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:59 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:59 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:59 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:59 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:59 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:59 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:59 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:12:59 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:12:59 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:12:59 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:13:00 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:13:00 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:13:00 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:13:00 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:13:00 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:13:00 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:13:00 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:13:00 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:13:00 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:13:00 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:13:00 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:13:00 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:13:00 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:13:00 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:13:00 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:13:00 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:13:00 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:13:00 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:13:00 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:13:00 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:13:00 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:13:01 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:13:01 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:13:01 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 10:13:06 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 10:13:06 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 10:13:06 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 10:13:07 AM [node:events:509] [ADS] Client connected: -GOLeJpslMa-nzGRAAAS
+✔ 2026-10-21 10:14:23 AM [node:events:509] [ADS] Client connected: WSpvxQmCc7CERCYKAAAU
+✔ 2026-10-21 10:15:07 AM [node:events:509] [ADS] Client disconnected: -GOLeJpslMa-nzGRAAAS
+✔ 2026-10-21 10:16:16 AM [node:events:509] [ADS] Client connected: B3DYTwHjo5X9VWIiAAAW
+✔ 2026-10-21 10:17:36 AM [node:events:509] [ADS] Client disconnected: B3DYTwHjo5X9VWIiAAAW
+✔ 2026-10-21 10:33:22 AM [node:events:509] [ADS] Client disconnected: WSpvxQmCc7CERCYKAAAU
+✔ 2026-10-21 10:33:22 AM [node:events:509] [ADS] Client connected: 2TtOfYMIdGIDiaMhAAAY
+✔ 2026-10-21 10:51:01 AM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-10-21 10:51:01 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ override existing { override: true }[0m
+✔ 2026-10-21 10:51:01 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-10-21 10:51:01 AM [unknown-location] Connected to SQLite database
+✔ 2026-10-21 10:51:01 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-10-21 10:51:01 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-21 10:51:01 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-21 10:51:01 AM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-10-21 10:51:02 AM [index.js:88] External display detected. Launching display window...
+✔ 2026-10-21 10:51:03 AM [node:events:509] [ADS] Client connected: 7ezjwiYYEjGCusaOAAAB
+✔ 2026-10-21 10:51:04 AM [node:events:509] [ADS] Client connected: 0x0ngI5XmqODUYaXAAAD
+✔ 2026-10-21 10:51:06 AM [node:events:509] [ADS] Client connected: 9sUTTGf-fVeafmTqAAAF
+✔ 2026-10-21 10:51:10 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:10 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:10 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:10 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:10 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:11 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:11 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:11 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:11 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:11 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:11 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:11 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:11 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:11 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:11 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:11 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:11 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:11 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:11 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:12 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:13 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 10:51:14 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:52:17 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-10-21 10:52:17 AM [node_modules\sqlite3\lib\trace.js:25] User not found: teller1
+✔ 2026-10-21 10:54:36 AM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-10-21 10:54:36 AM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-10-21 10:54:36 AM [backend\routes\AkioskApi.js:57] Counter 1
+✔ 2026-10-21 10:54:36 AM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-10-21 10:54:36 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:54:40 AM [backend\routes\AkioskApi.js:55] LEGAL_RETURN
+✔ 2026-10-21 10:54:40 AM [backend\routes\AkioskApi.js:56] LEGAL / RETURN
+✔ 2026-10-21 10:54:40 AM [backend\routes\AkioskApi.js:57] Counter 8
+✔ 2026-10-21 10:54:40 AM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-10-21 10:54:40 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:55:00 AM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-10-21 10:55:00 AM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-10-21 10:55:00 AM [backend\routes\AkioskApi.js:57] Counter 1
+✔ 2026-10-21 10:55:00 AM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-10-21 10:55:00 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:55:16 AM [backend\routes\AkioskApi.js:55] LEGAL_RETURN
+✔ 2026-10-21 10:55:16 AM [backend\routes\AkioskApi.js:56] LEGAL / RETURN
+✔ 2026-10-21 10:55:16 AM [backend\routes\AkioskApi.js:57] Counter 8
+✔ 2026-10-21 10:55:16 AM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-10-21 10:55:16 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:55:21 AM [backend\routes\AkioskApi.js:55] OTHERS
+✔ 2026-10-21 10:55:21 AM [backend\routes\AkioskApi.js:56] OTHERS
+✔ 2026-10-21 10:55:21 AM [backend\routes\AkioskApi.js:57] Check Counter
+✔ 2026-10-21 10:55:21 AM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-10-21 10:55:21 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:55:43 AM [backend\routes\AkioskApi.js:55] LEGAL_RETURN
+✔ 2026-10-21 10:55:43 AM [backend\routes\AkioskApi.js:56] LEGAL / RETURN
+✔ 2026-10-21 10:55:43 AM [backend\routes\AkioskApi.js:57] Counter 8
+✔ 2026-10-21 10:55:43 AM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-10-21 10:55:43 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:55:48 AM [backend\routes\AkioskApi.js:55] LEGAL_RETURN
+✔ 2026-10-21 10:55:48 AM [backend\routes\AkioskApi.js:56] LEGAL / RETURN
+✔ 2026-10-21 10:55:48 AM [backend\routes\AkioskApi.js:57] Counter 8
+✔ 2026-10-21 10:55:48 AM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-10-21 10:55:48 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:57:48 AM [backend\routes\AkioskApi.js:55] LEGAL_RETURN
+✔ 2026-10-21 10:57:48 AM [backend\routes\AkioskApi.js:56] LEGAL / RETURN
+✔ 2026-10-21 10:57:48 AM [backend\routes\AkioskApi.js:57] Counter 8
+✔ 2026-10-21 10:57:48 AM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-10-21 10:57:48 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:58:15 AM [node:events:509] [ADS] Client disconnected: 0x0ngI5XmqODUYaXAAAD
+✔ 2026-10-21 10:58:16 AM [node:events:509] [ADS] Client connected: CxOWu3ikfXwAxMjdAAAH
+✔ 2026-10-21 10:58:19 AM [backend\routes\AkioskApi.js:55] LEGAL_RETURN
+✔ 2026-10-21 10:58:19 AM [backend\routes\AkioskApi.js:56] LEGAL / RETURN
+✔ 2026-10-21 10:58:19 AM [backend\routes\AkioskApi.js:57] Counter 8
+✔ 2026-10-21 10:58:19 AM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-10-21 10:58:19 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 10:58:24 AM [node:events:509] [ADS] Client disconnected: CxOWu3ikfXwAxMjdAAAH
+✔ 2026-10-21 10:58:24 AM [node:events:509] [ADS] Client connected: WamExXfEWgx5aUGLAAAJ
+✔ 2026-10-21 10:58:31 AM [node:events:509] [ADS] Client disconnected: WamExXfEWgx5aUGLAAAJ
+✔ 2026-10-21 10:58:31 AM [node:events:509] [ADS] Client connected: s7I6QawGnmj8lprVAAAL
+✔ 2026-10-21 10:58:39 AM [backend\routes\AkioskApi.js:55] LEGAL_RETURN
+✔ 2026-10-21 10:58:39 AM [backend\routes\AkioskApi.js:56] LEGAL / RETURN
+✔ 2026-10-21 10:58:39 AM [backend\routes\AkioskApi.js:57] Counter 8
+✔ 2026-10-21 10:58:39 AM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-10-21 10:58:39 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:34 AM [backend\routes\AtellerApi.js:73] Login attempt for: teller1
+✔ 2026-10-21 11:14:34 AM [node_modules\sqlite3\lib\trace.js:25] User not found: teller1
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:40 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:41 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:42 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:43 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:43 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:43 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:43 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:43 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:43 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:43 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:43 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:43 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:43 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:14:43 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:14:43 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:14:43 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:14:43 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:14:43 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:16:29 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:16:29 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:16:29 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:16:29 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:16:29 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:16:29 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:16:29 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:16:29 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:17:16 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:17:16 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:17:16 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:17:16 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:17:16 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:17:16 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:17:16 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:17:16 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:18:48 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:18:48 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:18:48 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:18:48 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:18:48 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:18:49 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:18:49 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:18:49 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:13 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:14 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:15 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:50 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:50 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:50 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:50 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:50 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:50 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:50 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:50 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:50 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:50 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:50 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:50 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:50 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:50 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:50 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:50 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:51 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:52 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:19:53 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:20:14 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:20:14 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:20:14 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:20:53 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:20:53 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:20:53 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:20:53 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:20:53 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:20:53 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:20:53 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:20:53 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:21:11 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:21:11 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:21:11 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:21:11 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:21:11 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:21:11 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:21:11 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:21:11 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:24:17 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:24:17 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:24:17 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:24:17 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:24:17 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:24:17 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:24:17 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:24:17 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:26:52 AM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-10-21 11:26:52 AM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-10-21 11:26:52 AM [backend\routes\AkioskApi.js:57] Counter 1
+✔ 2026-10-21 11:26:52 AM [backend\routes\AkioskApi.js:58] 1
+✔ 2026-10-21 11:26:52 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:26:56 AM [backend\routes\AkioskApi.js:55] LEGAL_RETURN
+✔ 2026-10-21 11:26:56 AM [backend\routes\AkioskApi.js:56] LEGAL / RETURN
+✔ 2026-10-21 11:26:56 AM [backend\routes\AkioskApi.js:57] Counter 8
+✔ 2026-10-21 11:26:56 AM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-10-21 11:26:56 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:27:01 AM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-10-21 11:27:01 AM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-10-21 11:27:01 AM [backend\routes\AkioskApi.js:57] Counter 1
+✔ 2026-10-21 11:27:01 AM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-10-21 11:27:02 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:29:46 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:29:46 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:29:46 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 11:30:01 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:30:01 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:30:01 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:30:01 AM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-10-21 11:30:01 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:30:01 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:30:01 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:30:01 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:30:07 AM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-10-21 11:30:07 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:30:07 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:30:07 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:30:07 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:30:24 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:30:24 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:30:24 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:30:52 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:30:52 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:30:52 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:30:52 AM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-10-21 11:30:52 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:30:52 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:30:52 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:30:52 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:30:59 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:30:59 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:30:59 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:31:09 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:31:09 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:31:09 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:31:09 AM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-10-21 11:31:09 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:31:09 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:31:09 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:31:09 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:35 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:34:35 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:34:35 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 11:34:35 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:34:35 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:34:35 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 11:34:47 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:34:47 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:34:47 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 11:34:47 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:34:47 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:34:47 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 11:34:47 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:34:47 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:47 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:47 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:47 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:47 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:34:47 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:34:47 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:34:47 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:34:47 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:47 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:47 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:47 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:47 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:34:47 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:47 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:47 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:47 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:55 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:56 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:34:57 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:35:14 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:35:14 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:35:14 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 11:35:14 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:35:14 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:35:14 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 11:35:14 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:35:14 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:35:14 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:36:20 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:36:20 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:36:20 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 11:36:20 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:36:20 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:36:20 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 11:36:20 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:36:20 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:20 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:20 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:20 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:20 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:36:20 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:36:20 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:36:20 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:36:20 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:20 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:20 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:20 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:20 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:36:20 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:20 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:20 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:20 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:27 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:36:27 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:36:27 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 11:36:27 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:36:27 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:36:27 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 11:36:27 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:36:27 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:27 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:27 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:27 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:27 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:36:27 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:36:27 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:28 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:29 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:36:30 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:30 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:37:30 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:37:30 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 11:37:30 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:37:30 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:37:30 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 11:37:30 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:37:30 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:30 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:30 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:30 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:31 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:37:31 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:37:31 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:37:31 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:37:31 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:31 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:31 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:31 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:31 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:37:31 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:31 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:31 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:31 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:33 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:34 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:35 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:55] CASHIER
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:37:36 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:38:49 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:38:49 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:38:49 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 11:38:49 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:38:49 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:38:49 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:40:02 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:40:02 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:40:02 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:40:02 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:40:02 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:40:02 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:40:02 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 11:40:02 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:40:02 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:40:02 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:40:02 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 11:40:02 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:40:02 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:40:02 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:40:02 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:40:02 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:40:02 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:40:02 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:40:02 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:40:02 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:40:02 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:40:02 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:40:02 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:40:02 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:40:13 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:40:13 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:40:13 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 11:40:13 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:40:13 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:40:13 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:40:21 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:40:21 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:40:21 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 11:40:21 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:40:21 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:40:21 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:40:29 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:40:29 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:40:29 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 11:41:31 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:41:31 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:41:31 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 11:41:31 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:41:31 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:41:31 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:41:38 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:41:38 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:41:38 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 11:41:38 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:41:38 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:41:38 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:41:45 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:41:45 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:41:45 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 11:41:45 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:41:45 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:41:45 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:41:51 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:41:51 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:41:51 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 11:41:51 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:41:51 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:41:51 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:41:58 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:41:58 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:41:58 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 11:41:58 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:41:58 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:41:58 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 11:41:58 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:41:58 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:41:58 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:42:52 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:42:52 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:42:52 AM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 11:42:52 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:42:52 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:42:52 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 11:42:52 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:42:52 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:42:52 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:42:52 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:42:52 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:42:52 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 11:42:52 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:42:52 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 11:42:52 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:42:52 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:42:52 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:42:52 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:42:52 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:42:53 AM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 11:42:53 AM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 11:42:53 AM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 11:42:53 AM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 11:42:53 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 11:51:30 AM [node:events:509] [ADS] Client disconnected: 9sUTTGf-fVeafmTqAAAF
+✔ 2026-10-21 11:56:24 AM [node:events:509] [ADS] Client connected: IeraYuGoeTSVFPl2AAAN
+✔ 2026-10-21 11:56:40 AM [node:events:509] [ADS] Client disconnected: IeraYuGoeTSVFPl2AAAN
+✔ 2026-10-21 11:57:16 AM [node:events:509] [ADS] Client connected: gpIxt9yrTpe-I3ggAAAS
+✔ 2026-10-21 11:57:19 AM [node:events:509] [ADS] Client disconnected: gpIxt9yrTpe-I3ggAAAS
+✔ 2026-10-21 11:57:20 AM [node:events:509] [ADS] Client connected: KSOHkHtMwZPdT1MeAAAU
+✔ 2026-10-21 11:57:33 AM [node:events:509] [ADS] Client disconnected: KSOHkHtMwZPdT1MeAAAU
+✔ 2026-10-21 11:59:36 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 11:59:36 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 11:59:36 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 11:59:36 AM [node:events:509] [ADS] Client connected: yregfN3KgKEXTa1OAAAW
+✔ 2026-10-21 12:01:15 PM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-10-21 12:01:15 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ suppress logs { quiet: true }[0m
+✔ 2026-10-21 12:01:15 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-10-21 12:01:15 PM [unknown-location] Connected to SQLite database
+✔ 2026-10-21 12:01:15 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-10-21 12:01:15 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-21 12:01:15 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-21 12:01:15 PM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-10-21 12:01:16 PM [node:events:509] [ADS] Client connected: IgyQ8B8E8b3Wi9KlAAAB
+✔ 2026-10-21 12:01:16 PM [index.js:88] External display detected. Launching display window...
+✔ 2026-10-21 12:01:17 PM [node:events:509] [ADS] Client connected: J2rbJHGCAX3sb_4_AAAD
+✔ 2026-10-21 12:01:17 PM [node:events:509] [ADS] Client connected: XiZfzLbgXPUOmvyzAAAF
+✔ 2026-10-21 12:01:37 PM [node:events:509] [ADS] Client disconnected: IgyQ8B8E8b3Wi9KlAAAB
+✔ 2026-10-21 12:04:41 PM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 12:04:42 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 12:04:42 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 12:04:42 PM [node:events:509] [ADS] Client connected: -EeApkUXx1sJrUlvAAAH
+✔ 2026-10-21 12:04:46 PM [node:events:509] [ADS] Client disconnected: -EeApkUXx1sJrUlvAAAH
+✔ 2026-10-21 12:04:46 PM [node:events:509] [ADS] Client connected: om1QYlvR5H7H6lAVAAAJ

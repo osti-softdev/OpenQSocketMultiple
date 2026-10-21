@@ -1110,7 +1110,7 @@ module.exports = function createTellerApiRouter(io) {
             onlineTicketing: Boolean(config.ticketonline)
         });
     });
-
+    
     router.put('/admin/configuration', (req, res) => {
         const portText = String(req.body?.port ?? '').trim();
         const expiryText = String(req.body?.onlineTicketExpiry ?? '').trim();

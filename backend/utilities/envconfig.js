@@ -2,7 +2,7 @@ const path = require("path");
 const fs = require("fs");
 const dotenv = require("dotenv");
 
-const rootpath = global.BACKEND_PATH;
+const rootpath = global.BACKEND_PATH || path.join(__dirname, '..');
 
 // Load .env file from config folder
 const envPath = path.join(rootpath, "/config/.env");
@@ -24,7 +24,8 @@ function loadConfig() {
 		},
 	};
 	return config;
-}
+}					
+
 
 function saveConfig({ port, camscan, expiry, ticketonline }) {
 	const values = {

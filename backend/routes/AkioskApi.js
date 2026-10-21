@@ -159,7 +159,10 @@ module.exports = function createKioskApiRouter(io) {
       // Success response
       res.json({
         success: true,
+        ticketId: result.lastID,
+        ticketnum: nextTicket,
         ticket: {
+          id: result.lastID,
           ticketnum: nextTicket,
           sname,
           ticketservice,

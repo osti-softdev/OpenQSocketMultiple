@@ -392,8 +392,16 @@ module.exports = function createTellerApiRouter(io) {
     // =========================
     router.post('/tickets/call', (req, res) => {
         const { date } = getPHDateTime();
+        const sessionTeller = req.session?.teller || {};
 
-        const { ticketId, tellerId, counterNumber, counter_group, counter_user, mode, mix_received } = req.body;
+        const ticketId = req.body.ticketId ?? req.body.ticket_id;
+        const tellerId = req.body.tellerId ?? sessionTeller.id;
+        const counterNumber = req.body.counterNumber ?? sessionTeller.counter_number ?? '';
+        const counter_group = req.body.counter_group ?? sessionTeller.group_name ?? '';
+        const counter_user = req.body.counter_user ?? sessionTeller.username ?? '';
+        const mode = req.body.mode;
+        const mix_received = req.body.mix_received;
+
         if (mode === 'auto') {
             // Get teller's services
             db.get('SELECT services, group_id FROM counters WHERE id = ?', [tellerId], (err, teller) => {
@@ -824,7 +832,10 @@ module.exports = function createTellerApiRouter(io) {
     // & Complete A Ticket
     // =========================
     router.post('/tickets/complete', (req, res) => {
-        const { ticketId, cname, cnum } = req.body;
+        const sessionTeller = req.session?.teller || {};
+        const ticketId = req.body.ticketId ?? req.body.ticket_id;
+        const cname = req.body.cname ?? sessionTeller.username ?? '';
+        const cnum = req.body.cnum ?? sessionTeller.counter_number ?? '';
         const { date, time } = getPHDateTime();
         const finishEntry = `[${time}-${cname}-${cnum}-AutoFinished]`;
 
