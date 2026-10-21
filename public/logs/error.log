@@ -619,3 +619,57 @@ salkdhmasihdaisudmopauscj[pakw[pcl[pecascas
 ❌ 2026-10-21 12:52:15 PM [node:events:509] (node:652) electron: Failed to load URL: http://localhost:12341/kiosk with error: ERR_CONNECTION_REFUSED
 (Use `electron --trace-warnings ...` to show where the warning was created)
 ❌ 2026-10-21 12:52:15 PM [node:events:509] (node:652) electron: Failed to load URL: http://localhost:12341/display with error: ERR_CONNECTION_REFUSED
+❌ 2026-10-22 6:39:54 AM [node:events:514] (node:13916) UnhandledPromiseRejectionWarning: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Database#all('SELECT * FROM schedules WHERE active = 1', [], [Function (anonymous)])
+    at C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\backend\utilities\db.js:454:8
+    at new Promise (<anonymous>)
+    at db.allAsync (C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\backend\utilities\db.js:453:3)
+    at resolveCurrentQueue (C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\backend\routes\getads.js:48:36)
+    at broadcastState (C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\backend\routes\getads.js:94:36)
+    at setupAds (C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\backend\routes\getads.js:122:5)
+    at Object.<anonymous> (C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\server.js:92:19)
+    at Module._compile (node:internal/modules/cjs/loader:1937:14)
+    at Object..js (node:internal/modules/cjs/loader:2070:10)
+(Use `electron --trace-warnings ...` to show where the warning was created)
+❌ 2026-10-22 6:39:54 AM [node:events:514] (node:13916) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 1)
+❌ 2026-10-22 6:39:54 AM [backend\routes\AadminApi.js:35] Unable to synchronize services and routing groups: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#run([], [Function: replacement])
+    at Database.<anonymous> (C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:76:19)
+    at Database.<anonymous> (C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\backend\utilities\db.js:469:8
+    at new Promise (<anonymous>)
+    at db.runAsync (C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\backend\utilities\db.js:468:3)
+    at inTransaction (C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\backend\utilities\serviceGroups.js:127:12)
+    at createTellerApiRouter (C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\backend\routes\AadminApi.js:32:32)
+    at Object.<anonymous> (C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\server.js:84:61) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-22 6:39:54 AM [backend\utilities\db.js:71] Note: mobile_no drop: SQLITE_CORRUPT: database disk image is malformed
+❌ 2026-10-22 6:43:48 AM [backend\routes\AadminApi.js:35] Unable to synchronize services and routing groups: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#run([ 'CCTO_DRIVERS_ID', 85, 'CCTO_DRIVERS_ID', 33 ], [Function: replacement])
+    at Database.<anonymous> (C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:76:19)
+    at Database.<anonymous> (C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\backend\utilities\db.js:469:8
+    at new Promise (<anonymous>)
+    at db.runAsync (C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\backend\utilities\db.js:468:3)
+    at synchronizeServiceGroups (C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\backend\utilities\serviceGroups.js:106:14)
+    at async inTransaction (C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\backend\utilities\serviceGroups.js:129:20) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-22 6:46:53 AM [backend\routes\AadminApi.js:35] Unable to synchronize services and routing groups: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#run([ 'CCTO_DRIVERS_ID', 85, 'CCTO_DRIVERS_ID', 33 ], [Function: replacement])
+    at Database.<anonymous> (C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:76:19)
+    at Database.<anonymous> (C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\backend\utilities\db.js:469:8
+    at new Promise (<anonymous>)
+    at db.runAsync (C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\backend\utilities\db.js:468:3)
+    at synchronizeServiceGroups (C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\backend\utilities\serviceGroups.js:106:14)
+    at async inTransaction (C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\backend\utilities\serviceGroups.js:129:20) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}

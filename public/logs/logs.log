@@ -4778,3 +4778,73 @@ Error: Failed to copy file to printer
 ✔ 2026-10-21 1:00:28 PM [node:events:509] [ADS] Client disconnected: BHAew90CrfPeX2-9AAAJ
 ✔ 2026-10-21 1:00:28 PM [node:events:509] [ADS] Client connected: wWowXsWPCgId0rLXAAAL
 ✔ 2026-10-21 1:53:20 PM [node:events:509] [ADS] Client disconnected: wWowXsWPCgId0rLXAAAL
+✔ 2026-10-22 6:39:53 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-10-22 6:39:53 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ encrypted .env [www.dotenvx.com][0m
+✔ 2026-10-22 6:39:54 AM [node:events:639] Queue System running on http://localhost:12341
+✔ 2026-10-22 6:39:54 AM [unknown-location] Connected to SQLite database
+✔ 2026-10-22 6:39:54 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-10-22 6:39:54 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-22 6:41:01 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-10-22 6:41:01 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ custom filepath { path: '/custom/path/.env' }[0m
+✔ 2026-10-22 6:41:01 AM [node:events:639] Queue System running on http://localhost:12341
+✔ 2026-10-22 6:41:01 AM [unknown-location] Connected to SQLite database
+✔ 2026-10-22 6:41:01 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-10-22 6:41:01 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-22 6:41:01 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-22 6:41:01 AM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-10-22 6:41:03 AM [node:events:514] [ADS] Client connected: AkNFJnfJCRCCfTI9AAAA
+✔ 2026-10-22 6:41:07 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-22 6:41:07 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-22 6:41:07 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-22 6:41:07 AM [node:events:514] [ADS] Client connected: hWFHPADTOOz74tjGAAAB
+✔ 2026-10-22 6:42:57 AM [node:events:514] [ADS] Client disconnected: AkNFJnfJCRCCfTI9AAAA
+✔ 2026-10-22 6:43:48 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-10-22 6:43:48 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ suppress logs { quiet: true }[0m
+✔ 2026-10-22 6:43:48 AM [node:events:639] Queue System running on http://localhost:12341
+✔ 2026-10-22 6:43:48 AM [unknown-location] Connected to SQLite database
+✔ 2026-10-22 6:43:48 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-10-22 6:43:48 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-22 6:43:48 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-22 6:43:49 AM [node:events:514] [ADS] Client connected: -k2BzZsFRKa8BsrQAAAA
+✔ 2026-10-22 6:43:52 AM [node:events:514] [ADS] Client connected: JDF5V4qKIit2iqurAAAB
+✔ 2026-10-22 6:43:53 AM [node:events:514] [ADS] Client disconnected: JDF5V4qKIit2iqurAAAB
+✔ 2026-10-22 6:43:54 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-22 6:43:54 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-22 6:43:54 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-22 6:43:54 AM [node:events:514] [ADS] Client connected: Y_Dw3RFLa_F8VDHhAAAC
+✔ 2026-10-22 6:45:00 AM [node:events:514] [ADS] Client disconnected: -k2BzZsFRKa8BsrQAAAA
+✔ 2026-10-22 6:45:46 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-10-22 6:45:46 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ multiple files { path: ['.env.local', '.env'] }[0m
+✔ 2026-10-22 6:45:46 AM [node:events:639] Queue System running on http://localhost:12341
+✔ 2026-10-22 6:45:46 AM [unknown-location] Connected to SQLite database
+✔ 2026-10-22 6:45:46 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-10-22 6:45:46 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-22 6:45:46 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-22 6:45:46 AM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-10-22 6:45:46 AM [node:events:514] [ADS] Client connected: UKa9BNGDJbU41CCdAAAA
+✔ 2026-10-22 6:45:47 AM [node:events:514] [ADS] Client connected: z0vqY53w5pA-vPtzAAAB
+✔ 2026-10-22 6:45:52 AM [node:events:514] [ADS] Client disconnected: UKa9BNGDJbU41CCdAAAA
+✔ 2026-10-22 6:45:52 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-22 6:45:52 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-22 6:45:53 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-22 6:45:53 AM [node:events:514] [ADS] Client connected: Ue-CIHBuKeU_PRqmAAAC
+✔ 2026-10-22 6:46:25 AM [node:events:514] [ADS] Client disconnected: z0vqY53w5pA-vPtzAAAB
+✔ 2026-10-22 6:46:53 AM [backend\utilities\logger.js:149] Logger initialized at: C:\Users\CCTO\Documents\GitHub\OpenQSocketMultiple\public\logs
+✔ 2026-10-22 6:46:53 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ multiple files { path: ['.env.local', '.env'] }[0m
+✔ 2026-10-22 6:46:53 AM [node:events:639] Queue System running on http://localhost:12341
+✔ 2026-10-22 6:46:53 AM [unknown-location] Connected to SQLite database
+✔ 2026-10-22 6:46:53 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-10-22 6:46:53 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-22 6:46:53 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-22 6:46:53 AM [node:events:514] [ADS] Client connected: KT6toOEv7TE8maiRAAAA
+✔ 2026-10-22 6:46:54 AM [node:events:514] [ADS] Client connected: wlw14hkqQ3JmX0pMAAAB
+✔ 2026-10-22 6:46:57 AM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-10-22 6:46:57 AM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-10-22 6:46:57 AM [backend\routes\AkioskApi.js:57] Counter 1
+✔ 2026-10-22 6:46:57 AM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-10-22 6:46:57 AM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-22 6:47:06 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-22 6:47:06 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-22 6:47:06 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-22 6:47:06 AM [node:events:514] [ADS] Client connected: vdLVI7eLR7kdqVLJAAAC
+✔ 2026-10-22 6:47:38 AM [node:events:514] [ADS] Client disconnected: KT6toOEv7TE8maiRAAAA
