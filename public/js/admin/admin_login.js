@@ -66,6 +66,7 @@ $(document).ready(function () {
             success: function (response) {
                  if (response.success) {
                     currentAdmin = response.admin;
+                    sessionStorage.removeItem('last_admin_dashboard_redirect');
                     window.location.href = '/admin/dashboard';
                 } else {
                     handleLoginError(null, response);
@@ -78,17 +79,28 @@ $(document).ready(function () {
     });
 
     function checkSession() {
-    $.ajax({
-        url: '/api/check-session-admin',
-        method: 'GET',
-        success: function (response) {
-            if (response.loggedIn) {
-                currentAdmin = response.admin;
-                window.location.href = '/admin/dashboard';
-            } else {    
-                // Not logged in, stay on login page
-            }
+        const lastRedirect = sessionStorage.getItem('last_admin_dashboard_redirect');
+        const now = Date.now();
+        if (lastRedirect && (now - Number(lastRedirect)) < 4000) {
+            // Rapid loop detected between /admin and /admin/dashboard! Break loop cleanly.
+            sessionStorage.removeItem('last_admin_dashboard_redirect');
+            console.warn('Redirect loop detected. Clearing session.');
+            $.post('/api/logout');
+            return;
         }
-    });
-}
+
+        $.ajax({
+            url: '/api/check-session-admin',
+            method: 'GET',
+            success: function (response) {
+                if (response.loggedIn) {
+                    currentAdmin = response.admin;
+                    sessionStorage.setItem('last_admin_dashboard_redirect', String(Date.now()));
+                    window.location.href = '/admin/dashboard';
+                } else {    
+                    // Not logged in, stay on login page
+                }
+            }
+        });
+    }
 });

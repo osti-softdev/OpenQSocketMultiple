@@ -91,7 +91,6 @@ module.exports = function createTellerApiRouter(io) {
 
                 try {
                     if (password === teller.cpass) {
-                        req.session.teller = teller;
                         req.session.teller = {
                             id: teller.id,
                             username: teller.cname,
@@ -103,9 +102,15 @@ module.exports = function createTellerApiRouter(io) {
 
                         console.log('Login successful for:', username);
 
-                        return res.json({
-                            success: true,
-                            teller: req.session.teller
+                        return req.session.save((saveErr) => {
+                            if (saveErr) {
+                                console.error('Session save error:', saveErr);
+                                return res.status(500).json({ success: false, message: 'Session save error' });
+                            }
+                            return res.json({
+                                success: true,
+                                teller: req.session.teller
+                            });
                         });
                     } else {
                         console.log('Password mismatch for:', username);

@@ -52,7 +52,7 @@ appExpress.use(session({
         httpOnly: true,          // prevents JS access
         secure: false,           // ← set true in production + HTTPS
         maxAge: 1000 * 60 * 60,  // 1 hour
-        sameSite: 'strict'
+        sameSite: 'lax'
     }
 }));
 appExpress.use((req, res, next) => {

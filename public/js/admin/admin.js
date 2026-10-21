@@ -29,8 +29,17 @@ $(document).ready(function () {
     // Automatically handle session timeouts across all AJAX calls
     $.ajaxSetup({
         statusCode: {
-            401: function() { window.location.href = '/admin'; },
-            403: function() { window.location.href = '/admin'; }
+            401: function() {
+                // Invalidate session on server so /admin won't immediately loop back to /admin/dashboard
+                $.post('/api/logout').always(function() {
+                    window.location.href = '/admin';
+                });
+            },
+            403: function() {
+                // 403 Forbidden indicates restricted feature permissions, not an expired session.
+                // Do not redirect to /admin as it causes infinite loops.
+                console.warn('Action forbidden by role permissions.');
+            }
         }
     });
 
@@ -292,24 +301,37 @@ $('#setting-announcement-speed').on('change', function () {
 
 // ^ CHECK ADMIN SESSION
 function checkAdmin() {
-    return $.when(
-        $.get('/api/check-session-admin'),
-        $.get('/api/admin/role-permissions')
-    ).done(function (sessionRes, permRes) {
-        const res = sessionRes[0];
-        if (!res.loggedIn) {
-            window.location.href = '/admin';
-        } else {
+    return $.get('/api/check-session-admin')
+        .done(function (res) {
+            if (!res.loggedIn || !res.admin) {
+                $.post('/api/logout').always(function() {
+                    window.location.href = '/admin';
+                });
+                return;
+            }
+
             currentAdminSession = res.admin;
-            rolePermissionsData = permRes[0];
-            const displayName = res.admin.username || 'Administrator';
+            const displayName = res.admin.name || res.admin.username || 'Administrator';
             $('#current-user').text(displayName);
             $('.user-avatar').text(displayName.charAt(0).toUpperCase());
-            applyAdminRoleAccess(res.admin.role);
-        }
-    }).fail(() => {
-        window.location.href = '/admin';
-    });
+
+            // Non-blocking fetch of custom role permissions; gracefully fallback to defaults on error
+            $.get('/api/admin/role-permissions')
+                .done(function (perm) {
+                    rolePermissionsData = perm;
+                    applyAdminRoleAccess(res.admin.role);
+                })
+                .fail(function (xhr) {
+                    console.warn('Could not load custom role permissions, using system defaults.');
+                    rolePermissionsData = null;
+                    applyAdminRoleAccess(res.admin.role);
+                });
+        })
+        .fail(function () {
+            $.post('/api/logout').always(function() {
+                window.location.href = '/admin';
+            });
+        });
 }
 
 function normalizeAdminRole(role) {

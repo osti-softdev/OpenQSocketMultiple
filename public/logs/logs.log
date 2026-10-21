@@ -3036,3 +3036,61 @@ Error: Failed to copy file to printer
 ✔ 2026-10-20 2:09:29 PM [index.js:88] External display detected. Launching display window...
 ✔ 2026-10-20 2:09:30 PM [node:events:509] Display added event detected.
 ✔ 2026-10-20 2:09:31 PM [node:events:509] [ADS] Client connected: GY5ldFbtj7VSkiyDAAAF
+✔ 2026-10-20 2:22:32 PM [node:events:509] Display removed event detected.
+✔ 2026-10-20 2:22:32 PM [index.js:93] No external display available. Closing display window...
+✔ 2026-10-20 2:22:34 PM [node:events:509] [ADS] Client disconnected: GY5ldFbtj7VSkiyDAAAF
+✔ 2026-10-20 2:22:36 PM [index.js:88] External display detected. Launching display window...
+✔ 2026-10-20 2:22:37 PM [node:events:509] Display added event detected.
+✔ 2026-10-20 2:22:38 PM [node:events:509] [ADS] Client connected: knFy5DFCVcodwrqZAAAH
+✔ 2026-10-20 2:57:51 PM [node:events:509] [ADS] Client disconnected: UJAisd4-__g2CM1zAAAD
+✔ 2026-10-21 8:35:12 AM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-10-21 8:35:13 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌁ auth for agents [www.vestauth.com][0m
+✔ 2026-10-21 8:35:22 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-10-21 8:35:25 AM [unknown-location] Connected to SQLite database
+✔ 2026-10-21 8:35:27 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-10-21 8:35:27 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-21 8:35:27 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-21 8:35:30 AM [index.js:88] External display detected. Launching display window...
+✔ 2026-10-21 8:35:31 AM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-10-21 8:35:37 AM [node:events:509] [ADS] Client connected: _8QfAohtzB7cviDOAAAB
+✔ 2026-10-21 8:35:40 AM [node:events:509] [ADS] Client connected: jn1IqUZCuzVn_ON1AAAD
+✔ 2026-10-21 8:35:54 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 8:35:54 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 8:35:54 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 8:35:55 AM [node:events:509] [ADS] Client connected: 0BlBzS_ifcpEy5MiAAAF
+✔ 2026-10-21 8:36:21 AM [node:events:509] [ADS] Client disconnected: 0BlBzS_ifcpEy5MiAAAF
+✔ 2026-10-21 8:36:21 AM [node:events:509] [ADS] Client connected: fBzKdPiQAWGWlRr-AAAH
+✔ 2026-10-21 8:36:21 AM [node:events:509] [ADS] Client disconnected: fBzKdPiQAWGWlRr-AAAH
+✔ 2026-10-21 8:36:22 AM [node:events:509] [ADS] Client connected: 2PfqtfkLILiNJFgfAAAJ
+✔ 2026-10-21 8:36:22 AM [node:events:509] [ADS] Client disconnected: 2PfqtfkLILiNJFgfAAAJ
+✔ 2026-10-21 8:36:23 AM [node:events:509] [ADS] Client connected: -8sY9WI2ucZsjCk_AAAL
+✔ 2026-10-21 8:40:16 AM [node:events:509] [ADS] Client disconnected: _8QfAohtzB7cviDOAAAB
+✔ 2026-10-21 8:40:17 AM [node:events:509] [ADS] Client connected: lqSxh0e5TRj9AXlJAAAN
+✔ 2026-10-21 8:50:20 AM [node:events:509] [ADS] Client disconnected: lqSxh0e5TRj9AXlJAAAN
+✔ 2026-10-21 8:50:20 AM [node:events:509] [ADS] Client connected: CjfkuP_poBLuZx0CAAAP
+✔ 2026-10-21 8:50:20 AM [node:events:509] [ADS] Client disconnected: CjfkuP_poBLuZx0CAAAP
+✔ 2026-10-21 8:50:21 AM [node:events:509] [ADS] Client disconnected: -8sY9WI2ucZsjCk_AAAL
+✔ 2026-10-21 8:50:21 AM [node:events:509] [ADS] Client connected: Y8MP6F2bH6iWNlfYAAAS
+✔ 2026-10-21 8:50:22 AM [node:events:509] [ADS] Client disconnected: Y8MP6F2bH6iWNlfYAAAS
+✔ 2026-10-21 8:50:22 AM [node:events:509] [ADS] Client connected: IoyrRvHiDBwHYaskAAAT
+✔ 2026-10-21 8:50:23 AM [node:events:509] [ADS] Client connected: piMLuGca7zyHhQBBAAAW
+✔ 2026-10-21 8:50:24 AM [node:events:509] [ADS] Client disconnected: piMLuGca7zyHhQBBAAAW
+✔ 2026-10-21 8:50:24 AM [node:events:509] [ADS] Client connected: xZjds8Orn74rRsLlAAAY
+✔ 2026-10-21 8:50:25 AM [node:events:509] [ADS] Client disconnected: xZjds8Orn74rRsLlAAAY
+✔ 2026-10-21 8:50:25 AM [node:events:509] [ADS] Client connected: cbM0RWnjq6aFgut1AAAa
+✔ 2026-10-21 8:50:25 AM [node:events:509] [ADS] Client disconnected: cbM0RWnjq6aFgut1AAAa
+✔ 2026-10-21 8:50:26 AM [node:events:509] [ADS] Client connected: Jh11JMXh04bLx7pqAAAc
+✔ 2026-10-21 8:50:26 AM [node:events:509] [ADS] Client disconnected: Jh11JMXh04bLx7pqAAAc
+✔ 2026-10-21 8:50:26 AM [node:events:509] [ADS] Client connected: mC74tAcd0-ugT694AAAe
+✔ 2026-10-21 8:50:27 AM [node:events:509] [ADS] Client disconnected: mC74tAcd0-ugT694AAAe
+✔ 2026-10-21 8:50:27 AM [node:events:509] [ADS] Client connected: mBtFbiIlGWuT2dlFAAAg
+✔ 2026-10-21 8:50:27 AM [node:events:509] [ADS] Client disconnected: mBtFbiIlGWuT2dlFAAAg
+✔ 2026-10-21 8:50:27 AM [node:events:509] [ADS] Client connected: Bdo4PKjUyuBNbYb1AAAi
+✔ 2026-10-21 8:50:28 AM [node:events:509] [ADS] Client disconnected: Bdo4PKjUyuBNbYb1AAAi
+✔ 2026-10-21 8:50:28 AM [node:events:509] [ADS] Client connected: 38YXnjZ5A-XNTTPcAAAk
+✔ 2026-10-21 9:03:31 AM [backend\routes\AtellerApi.js:73] Login attempt for: cade
+✔ 2026-10-21 9:03:31 AM [node_modules\sqlite3\lib\trace.js:25] User not found: cade
+✔ 2026-10-21 9:03:40 AM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 9:03:40 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 9:03:40 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 9:37:30 AM [node:events:509] [ADS] Client disconnected: 38YXnjZ5A-XNTTPcAAAk

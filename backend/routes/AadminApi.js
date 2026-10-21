@@ -74,19 +74,25 @@ module.exports = function createTellerApiRouter(io) {
                 try {
                     if (password === admin.password) {
                         resetAuthLimit(req);
-                        req.session.admin = admin;
                         req.session.admin = {
                             id: admin.id,
-                            username: admin.name,
+                            username: admin.username || admin.name,
+                            name: admin.name || admin.username,
                             status: admin.status,
                             role: admin.role
                         };
 
                         console.log('Login successful for:', username);
 
-                        return res.json({
-                            success: true,
-                            admin: req.session.admin
+                        return req.session.save((saveErr) => {
+                            if (saveErr) {
+                                console.error('Session save error:', saveErr);
+                                return res.status(500).json({ success: false, message: 'Session save error' });
+                            }
+                            return res.json({
+                                success: true,
+                                admin: req.session.admin
+                            });
                         });
                     } else {
                         console.log('Password mismatch for:', username);
