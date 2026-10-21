@@ -44,6 +44,7 @@ async function runSeeder() {
 
     const services = await new Promise((res, rej) => db.all('SELECT * FROM services', (err, rows) => err ? rej(err) : res(rows)));
     const tellers = await new Promise((res, rej) => db.all('SELECT * FROM counters', (err, rows) => err ? rej(err) : res(rows)));
+    const counterGroups = await new Promise((res, rej) => db.all('SELECT * FROM counter_groups', (err, rows) => err ? rej(err) : res(rows)));
 
     if (!services.length || !tellers.length) {
         console.error('No services or counters found!');
@@ -51,7 +52,7 @@ async function runSeeder() {
     }
 
     const records = [];
-    const forwardedRecords = {};
+    const forwardedRecords = [];
     let txId = 1;
     let d = 0;
 
@@ -146,53 +147,57 @@ async function runSeeder() {
                             end_time = currentTime;
                             status = 'finished';
                         }
-                    } else if (journeyR < 0.6) {
-                        // Forwarded (maybe multiple times)
-                        let numForwards = randomInt(1, 3); // Forwarded between tellers a couple times
+                    } else if (journeyR < 0.7) {
+                        // Forwarded multiple times (3-5 hops across distinct teller groups)
+                        const numForwards = randomInt(3, 5);
                         for (let f = 0; f < numForwards; f++) {
-                            currentTime = addTime(currentTime, randomInt(2, 8));
+                            // Current teller handles it for a few minutes
+                            currentTime = addTime(currentTime, randomInt(2, 6));
 
-                            const otherTellers = tellers.filter(t => t.id !== currentTeller.id);
-                            const toTeller = otherTellers.length ? otherTellers[randomInt(0, otherTellers.length - 1)] : currentTeller;
+                            // Find a teller from a different group whenever possible
+                            const currentGroupName = (currentTeller.group_name || '').toUpperCase();
+                            const otherGroupTellers = tellers.filter(t => (t.group_name || '').toUpperCase() !== currentGroupName);
+                            const candidateTellers = otherGroupTellers.length > 0 ? otherGroupTellers : tellers.filter(t => t.id !== currentTeller.id);
+                            const toTeller = candidateTellers[randomInt(0, candidateTellers.length - 1)] || currentTeller;
 
+                            // Mark current teller forward in history
                             addHistory(`[${currentTime}-${currentTeller.cname}-${counter_num}-Forwarded]`);
 
-                            // Instead of pushing multiple records for the same ticket, 
-                            // we just overwrite the map entry to keep the latest forward info.
-                            forwardedRecords[txId] = {
+                            // Record each forward hop into forwarded_tickets
+                            forwardedRecords.push({
                                 ticket_id: txId,
                                 from_teller_id: currentTeller.id,
                                 to_teller_id: toTeller.id,
-                                to_group_id: null,
-                                note: 'Transferred for further processing',
+                                to_group_id: toTeller.group_id || null,
+                                note: `Forwarded to ${toTeller.group_name || 'Counter'} for specialized handling`,
                                 forwarded_at: `${dateStr} ${currentTime}`
-                            };
+                            });
 
                             forwarded_from = currentTeller.id;
                             forwarded_to = toTeller.id;
                             status = 'received';
 
-                            // Update current teller context for the NEXT step
+                            // Switch current teller context to the receiving teller
                             currentTeller = toTeller;
                             counter_num = toTeller.cnum || 1;
                             counter_user = toTeller.cname || 'teller';
                             counter_group = toTeller.group_name || 'GENERAL';
                             teller_id = toTeller.id;
 
-                            // If this is the last forward and we want it to stay received
+                            // If this is today and targetState is 4 on the last hop, leave it as received
                             if (f === numForwards - 1 && targetState === 4) {
                                 break;
                             }
 
                             // Next teller calls it
-                            currentTime = addTime(currentTime, randomInt(5, 20));
+                            currentTime = addTime(currentTime, randomInt(3, 10));
                             addHistory(`[${currentTime}-${currentTeller.cname}-${counter_num}-Called]`);
                             status = 'calling';
-                            start_time = currentTime; // Update start_time for the new teller session
+                            start_time = currentTime;
                         }
 
                         if (status === 'calling') {
-                            currentTime = addTime(currentTime, randomInt(5, 20));
+                            currentTime = addTime(currentTime, randomInt(3, 15));
                             addHistory(`[${currentTime}-${currentTeller.cname}-${counter_num}-Finished]`);
                             end_time = currentTime;
                             status = 'finished';
@@ -271,7 +276,7 @@ async function runSeeder() {
 
         const hasForwardedTickets = await new Promise(res => db.get("SELECT name FROM sqlite_master WHERE type='table' AND name='forwarded_tickets'", (err, row) => res(!!row)));
 
-        const fRecordsArray = Object.values(forwardedRecords);
+        const fRecordsArray = forwardedRecords;
         if (hasForwardedTickets && fRecordsArray.length > 0) {
             for (let i = 0; i < fRecordsArray.length; i += 100) {
                 const chunk = fRecordsArray.slice(i, i + 100);

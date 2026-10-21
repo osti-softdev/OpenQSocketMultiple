@@ -179,23 +179,29 @@ module.exports = function createTellerApiRouter(io) {
         });
 
         const tellerPromise = new Promise((resolve) => {
-            db.all(`SELECT id, cname, cuser, cnum, services, group_name FROM counters ORDER BY cnum ASC, id ASC`, [], (err, counters) => {
-                if (err) {
-                    console.error("Counters query error:", err);
-                    return resolve();
-                }
-                db.all(`
-                    SELECT id, date, time, start_time, end_time, status, teller_id, counter_num, counter_user, ticketservice, ticketnum, history
-                    FROM transactions
-                    WHERE date = ?
-                `, [date], (err2, transactions) => {
-                    if (err2) {
-                        console.error("Transactions query error:", err2);
+            db.all(`SELECT id, group_name FROM counter_groups ORDER BY id ASC`, [], (errG, counterGroups) => {
+                db.all(`SELECT id, cname, cuser, cnum, services, group_name, group_id FROM counters ORDER BY cnum ASC, id ASC`, [], (err, counters) => {
+                    if (err) {
+                        console.error("Counters query error:", err);
                         return resolve();
                     }
-                    const tellerMetrics = ticketHistoryHelper.aggregateTellerMetrics(counters || [], transactions || [], date);
-                    result.tellers = tellerMetrics;
-                    resolve();
+                    db.all(`
+                        SELECT id, date, time, start_time, end_time, status, teller_id, counter_num, counter_user, ticketservice, ticketnum, history
+                        FROM transactions
+                        WHERE date = ?
+                    `, [date], (err2, transactions) => {
+                        if (err2) {
+                            console.error("Transactions query error:", err2);
+                            return resolve();
+                        }
+                        const tellerMetrics = ticketHistoryHelper.aggregateTellerMetrics(counters || [], transactions || [], date);
+                        result.tellers = tellerMetrics;
+
+                        // Aggregate Teller Group counts checking tickets history
+                        const groupMetrics = ticketHistoryHelper.aggregateGroupMetrics(counterGroups || [], counters || [], transactions || [], date);
+                        result.groups = groupMetrics;
+                        resolve();
+                    });
                 });
             });
         });
@@ -713,11 +719,19 @@ module.exports = function createTellerApiRouter(io) {
     });
 
     //   ! -------- GROUPS -------- !
-    // & Groups List for Admin
+    // & Groups List for Admin (enriched with received, served, forwarded, completed metrics from ticket history)
     router.get('/admin/groups', (req, res) => {
-        db.all('SELECT * FROM counter_groups', (err, rows) => {
+        const { date } = getPHDateTime();
+        db.all('SELECT * FROM counter_groups ORDER BY id ASC', (err, groups) => {
             if (err) return res.status(500).json({ error: err.message });
-            res.json(rows);
+            db.all('SELECT id, cname, cuser, cnum, services, group_name, group_id FROM counters', (errC, counters) => {
+                if (errC) return res.json(groups);
+                db.all('SELECT id, date, time, start_time, end_time, status, teller_id, counter_num, counter_user, ticketservice, ticketnum, history FROM transactions WHERE date = ?', [date], (errT, transactions) => {
+                    if (errT) return res.json(groups);
+                    const groupMetrics = ticketHistoryHelper.aggregateGroupMetrics(groups || [], counters || [], transactions || [], date);
+                    res.json(groupMetrics);
+                });
+            });
         });
     });
 
@@ -1487,6 +1501,32 @@ module.exports = function createTellerApiRouter(io) {
             });
         });
 
+        // 3B. Tickets by Teller Group
+        //     Accurately credits teller groups based strictly on ticket history (received, served, forwarded, completed).
+        const byGroupPromise = new Promise((resolve) => {
+            db.all(`SELECT id, group_name FROM counter_groups ORDER BY id ASC`, [], (errG, counterGroups) => {
+                db.all(`SELECT id, cname, cuser, cnum, services, group_name, group_id FROM counters ORDER BY cnum ASC, id ASC`, [], (errC, counters) => {
+                    if (errC) {
+                        console.error('Counters query error for groups:', errC);
+                        return resolve();
+                    }
+                    db.all(`
+                        SELECT id, date, time, start_time, end_time, status, teller_id, counter_num, counter_user, ticketservice, ticketnum, history, void_reason
+                        FROM transactions
+                        WHERE date BETWEEN ? AND ?
+                    `, [dateFrom, dateTo], (errT, transactions) => {
+                        if (errT) {
+                            console.error('By group transactions query error:', errT);
+                            return resolve();
+                        }
+                        const groupMetrics = ticketHistoryHelper.aggregateGroupMetrics(counterGroups || [], counters || [], transactions || [], today);
+                        reports.byGroup = groupMetrics;
+                        resolve();
+                    });
+                });
+            });
+        });
+
         // 4. Tickets by Effective Status
         const byStatusPromise = new Promise((resolve) => {
             db.all(`
@@ -1633,6 +1673,7 @@ module.exports = function createTellerApiRouter(io) {
             summaryPromise,
             byServicePromise,
             byTellerPromise,
+            byGroupPromise,
             byStatusPromise,
             dailyTrendsPromise,
             serviceHourlyPromise,

@@ -1,17 +1,17 @@
 # Graph Report - OpenQSocketMultiple  (2026-10-21)
 
 ## Corpus Check
-- 2064 files · ~4,305,207 words
+- 2064 files · ~4,299,866 words
 - Verdict: corpus is large enough that graph structure adds value.
-- Unclassified: 2056 file(s) not represented in the graph (top: .dll 542, .xml 453, ._ 292)
+- Unclassified: 2057 file(s) not represented in the graph (top: .dll 542, .xml 453, ._ 292)
 
 ## Summary
-- 22354 nodes · 44991 edges · 1027 communities (441 shown, 586 thin omitted)
-- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 2719 edges (avg confidence: 0.85)
+- 22357 nodes · 44997 edges · 1023 communities (444 shown, 579 thin omitted)
+- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 2720 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2e9d493d`
+- Built from commit: `adadfc1b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -31,7 +31,7 @@
 - Worksheet
 - Printer
 - BaseFormatter
-- Format
+- NumberFormatter
 - .doSetup
 - HTMLPurifier_AttrTransform
 - Worksheet
@@ -41,6 +41,7 @@
 - RichText
 - Date
 - ErrorValue
+- Xls
 - an
 - PrintConnector
 - .log
@@ -55,18 +56,18 @@
 - StringHelper
 - Ods
 - Ls
-- Errors
+- IValueBinder
 - .trim
 - s
 - HTMLPurifier_URIFilter
 - Calculation
-- WizardAbstract
+- .exp
 - AutoFilter
 - MathTrig
 - EscposTest
 - .floor
 - XMLWriter
-- io
+- ChartColor
 - public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx.php
 - i
 - no
@@ -93,12 +94,11 @@
 - .sort
 - WizardInterface
 - HTMLPurifier_AttrDef
-- .getUInt2d
 - Functions
 - HeaderFooter
 - PHPUnit_Framework_TestCase
 - De
-- GdEscposImageTest
+- EscposImage
 - HTML5TreeConstructer
 - BaseReader
 - s
@@ -108,16 +108,16 @@
 - Protection
 - js/jquery.js
 - EventArgs
-- Html
+- DOMElement
 - DummyPrintConnector
 - NumberBase
 - Html
 - ReferenceHelper
 - Chart
-- draw
+- Slk
 - va
 - jquery/jquery.js
-- Chart
+- Title
 - Style
 - RowCellIterator
 - Protection
@@ -127,7 +127,7 @@
 - Html
 - IReadFilter
 - ArrayArgumentHelper
-- .strToUpper
+- Slk
 - Financial
 - Properties
 - HTMLPurifier_URI
@@ -172,8 +172,8 @@
 - HTMLPurifier_AttrDef_HTML_ID
 - jspdf.umd.min.js
 - public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/LookupRef.php
-- xn
-- Exception
+- ZipStreamTest
+- Namespaces
 - .__construct
 - RichText
 - Complex
@@ -191,7 +191,7 @@
 - .sort
 - BranchPruner
 - File
-- EscposPrintBuffer
+- Exception
 - Styles
 - outfolder/printer/vendor/markbaker/matrix/composer.json
 - Functions
@@ -231,14 +231,14 @@
 - HTMLPurifier_Config
 - Parser
 - Available methods
-- HTMLPurifier_Generator
+- Style
 - _update
 - HTML5TreeConstructer
 - Archive
 - Logical
 - JpGraphRendererBase
 - XmlScanner
-- DateTimeInterface
+- Column
 - Quick start
 - JpGraphRendererBase
 - Workbook
@@ -271,7 +271,7 @@
 - TrendLine
 - SpContainer
 - BestFit
-- DOMElement
+- Averages
 - outfolder/printer/vendor/markbaker/complex/composer.json
 - EscposPrintBufferTest
 - DateTime
@@ -280,7 +280,7 @@
 - public/printer/vendor/ezyang/htmlpurifier/composer.json
 - ImagickEscposImageTest
 - FormulaToken
-- ConvertBase
+- ConvertBinary
 - Exception
 - MessageInterface
 - outfolder/printer/vendor/ezyang/htmlpurifier/composer.json
@@ -288,7 +288,7 @@
 - TextData
 - Cells
 - Html
-- outfolder/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xml.php
+- Drawing
 - AadminApi.js
 - ref_path
 - server.js
@@ -300,7 +300,7 @@
 - Matrix
 - Border
 - Csv
-- ConditionalDataBar
+- ConditionalFormattingRuleExtension
 - Column
 - Csv
 - ClassLoader
@@ -312,16 +312,16 @@
 - HTMLPurifier_Lexer_DOMLex
 - HTMLPurifier_ConfigSchema_InterchangeBuilder
 - ExampleTest
-- Exception
+- HTMLPurifier_AttrDef_URI_IPv4
 - Escher
 - Dimension
 - PageMargins
 - UriInterface
 - HTMLPurifier_Lexer_DOMLex
 - HTMLPurifier_ConfigSchema_InterchangeBuilder
-- Date
+- LookupRef
 - Complex
-- ExampleTest
+- ConditionalDataBar
 - Escher
 - Resources
 - devDependencies
@@ -331,10 +331,10 @@
 - Enum
 - TrendLine
 - Font
-- Style
+- Rule
 - Style
 - AtellerApi.js
-- HTMLPurifier_VarParser
+- Conditional
 - HTMLPurifier_Printer_ConfigForm
 - dashboard.js
 - public/printer/vendor/myclabs/php-enum/composer.json
@@ -347,7 +347,7 @@
 - Conditional
 - PageMargins
 - s2ndkiosk/package.json
-- DOMDocument
+- ConditionalFormattingRuleExtension
 - report.js
 - s
 - E
@@ -356,7 +356,7 @@
 - .__construct
 - Column
 - MemoryDrawing
-- Title
+- Rule
 - Interfaces
 - ServerRequestInterface
 - WindowsPrintConnectorTest
@@ -376,12 +376,11 @@
 - MemoryDrawing
 - print.js
 - Dictionary
-- xe
-- public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Ods.php
+- ne
+- Throwable
 - Axis
 - Shadow
 - stdClass
-- IComparable
 - CapabilityProfile
 - WindowsPrintConnector
 - StructuredReference
@@ -397,7 +396,7 @@
 - Changelog
 - File
 - IWriter
-- bb
+- nb
 - Shadow
 - HTMLPurifier_Language
 - ChartColor
@@ -410,7 +409,7 @@
 - matcherFromTokens
 - HTMLPurifier_Printer
 - ExcelError
-- WizardAbstract
+- Xls
 - Font
 - HTMLPurifier_DefinitionCache_Serializer
 - Stream
@@ -422,25 +421,26 @@
 - exportreport.js
 - matcherFromTokens
 - jspdf.plugin.autotable.min.js
-- .getChildDef
+- HTMLPurifier_ChildDef
 - HTMLPurifier_DefinitionCache_Null
 - ColumnRange
+- ResponseInterface
 - Xf
 - public/printer/vendor/psr/http-client/composer.json
-- .getChildDef
+- IReader
 - HTMLPurifier_VarParser
 - LU
 - ImagickEscposImageTest
 - ColumnRange
 - PlotArea
-- HTMLPurifier_HTMLModule
-- CellMatcher
+- Style
+- Exception
 - Font
 - Fill
 - AkioskApi.js
 - Xf
 - outfolder/printer/vendor/psr/http-client/composer.json
-- ArrayArgumentProcessor
+- UploadedFileInterface
 - HTMLPurifier_AttrDef_HTML_FrameTarget
 - Drawing
 - HTMLPurifier_AttrDef_HTML_Pixels
@@ -453,34 +453,34 @@
 - public/printer/vendor/psr/http-message/composer.json
 - InstalledVersions
 - HTMLPurifier_AttrDef_HTML_Pixels
-- Trends
-- Styles
-- Protection
+- Bigint
+- SheetViews
+- Border
 - outfolder/printer/vendor/psr/http-factory/composer.json
 - outfolder/printer/vendor/psr/http-message/composer.json
 - ServerRequestInterface
 - AppSettings
-- HTMLPurifier_ChildDef_Optional
-- File
+- MessageInterface
+- RowRange
 - Animation
-- BranchPruner
+- ConditionalDataBar
 - HTMLPurifier_Injector
 - Database
 - Security
-- Ods
+- Pdf
 - ZipStream-PHP
 - public/printer/vendor/psr/simple-cache/composer.json
-- Xls
+- ChiSquared
 - Ods
 - HTMLPurifier_Injector
-- ZipStream
+- File
 - QR
 - Database
 - Security
 - DggContainer
 - .sqrt
 - BaseWriter
-- CellMatcher
+- Text
 - outfolder/printer/vendor/psr/simple-cache/composer.json
 - db.js
 - jquery-ui.min.js
@@ -495,8 +495,8 @@
 - HTMLPurifier_Zipper
 - Value
 - PageSetup
-- Legend
-- RowIterator
+- TextGrid
+- ColumnIterator
 - ZipStream-PHP
 - seed_transactions.js
 - IReader
@@ -507,22 +507,23 @@
 - domManip
 - Ee
 - HTMLPurifier_DefinitionCache_Decorator
-- HTMLPurifier_Printer_HTMLDefinition
+- ChainedBlockStream
 - require-dev
 - BinaryComparison
 - RowRange
 - HashTable
-- WorkbookView
+- AuresCustomerDisplay
+- Coupons
 - CellValue
 - Style
 - HTMLPurifier_DefinitionCache_Decorator
 - EscposPrintBuffer
 - require-dev
 - BinaryComparison
-- HTMLPurifier_ChildDef
-- Text
+- NonPeriodic
+- ExcelError
 - HTMLPurifier_ChildDef_StrictBlockquote
-- OLERead
+- public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xls.php
 - SheetView
 - ForwardModal
 - stop.js
@@ -532,17 +533,17 @@
 - video.js
 - br
 - Notification
-- HTMLPurifier_PropertyList
+- RowColumnInformation
 - HTMLPurifier_ConfigSchema_Validator
 - HTMLPurifier_ConfigSchema_ValidatorAtom
 - HTMLPurifier_Generator
 - ft
 - public/printer/vendor/phpoffice/phpspreadsheet/composer.json
 - ConvertUOM
-- Content
+- SimpleCache1
 - public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/LookupRef/Unique.php
 - Extract
-- Week
+- RowColumnInformation
 - StringValueBinder
 - TextValue
 - .__construct
@@ -560,33 +561,32 @@
 - TextGrid
 - Protection
 - ConditionalStyles
-- to
+- Delimiter
 - Dimension
 - Frequently Asked Questions (FAQ)
 - CacheInterface
 - AppSettings
-- IOFactory
+- AutoFilter
 - index.js
 - display/popup.js
 - chartjs-plugin-datalabels.min.js
 - InvalidArgumentException
 - Legend
-- Blanks
+- Xls
 - public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/Logical/Operations.php
 - CellValue
-- IWriter
+- Workbook
 - PolynomialBestFit
 - RowIterator
 - Conditional
 - pages.js
+- CupsPrintConnector
 - HTMLPurifier_HTMLDefinition
-- HTMLPurifier_HTMLModuleManager
 - outfolder/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/Logical/Operations.php
 - NumberFormatter
 - HTMLPurifier_VarParser_Native
 - HTMLPurifier_DoctypeRegistry
-- NetworkPrintConnector
-- SimpleCache3
+- Currency
 - SimpleCache3
 - DgContainer
 - ExponentialBestFit
@@ -595,17 +595,17 @@
 - PageSetup
 - BIFFwriter
 - HTMLPurifier_AttrDef_CSS_URI
-- StyleMerger
-- Blanks
+- Row
+- Wizard
 - HTMLPurifier_Printer
-- IOFactory
+- outfolder/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Writer/Xlsx/StringTable.php
 - public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/LookupRef/Filter.php
 - PasswordHasher
 - PhpSpreadsheet
 - BIFFwriter
 - js/popup.js
 - TextValue
-- HTMLPurifier_ChildDef_StrictBlockquote
+- Offset
 - HTMLPurifier_HTMLModule
 - LinearBestFit
 - FormulaToken
@@ -615,16 +615,15 @@
 - windowsCaller/packages/Microsoft.Extensions.Logging.Abstractions.10.0.3/PACKAGE.md
 - ChainedBlockStream
 - windowsCaller/packages/Microsoft.Extensions.Options.10.0.3/PACKAGE.md
-- RawbtPrintConnector
+- Beta
 - SumSquares
 - LogarithmicBestFit
-- HTMLPurifier_Printer
-- .trim
+- FormattedNumber
 - Matrix
 - windowsCaller_prevs/packages/Microsoft.Extensions.Logging.Abstractions.10.0.3/PACKAGE.md
-- SumSquares
+- outfolder/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/LookupRef/Offset.php
 - SpgrContainer
-- OLERead
+- HTMLPurifier_AttrDef_URI_Email_SimpleCheck
 - LogarithmicBestFit
 - UploadedFileInterface
 - .writeAutoFilterColumnRule
@@ -638,15 +637,15 @@
 - HTMLPurifier_ConfigSchema_Interchange_Id
 - MatrixFunctions
 - public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/MathTrig/Subtotal.php
-- RawbtPrintConnector
+- .tokenizeHTML
 - PowerBestFit
 - ticketHistoryHelper.js
 - PHP Enum implementation inspired from SplEnum
-- Expression
-- HTMLPurifier_ChildDef_Chameleon
-- AddressHelper
+- HTMLPurifier_AttrDef
+- public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/MathTrig/Operations.php
+- HTMLPurifier_AttrDef_HTML_LinkTypes
 - HTMLPurifier_ConfigSchema_Interchange_Id
-- HTMLPurifier_Generator
+- StandardNormal
 - HTMLPurifier_HTMLModule_Tidy
 - MatrixFunctions
 - outfolder/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/MathTrig/Subtotal.php
@@ -660,13 +659,13 @@
 - history.js
 - indexSocket.js
 - scripts
-- HTMLPurifier_ChildDef_Table
+- HTMLPurifier_AttrTransform_TargetNoopener
 - DateTime
 - .writeAutoFilterColumnRule
 - Exception
 - HTMLPurifier_Token
 - suggest
-- HTMLPurifier_ChildDef_Table
+- HTMLPurifier_AttrTransform_TargetNoreferrer
 - FunctionPrefix
 - windowsCaller/packages/Microsoft.Extensions.Primitives.10.0.3/PACKAGE.md
 - windowsCaller/packages/System.Text.Encodings.Web.10.0.3/PACKAGE.md
@@ -681,9 +680,9 @@
 - ITextElement
 - Escher
 - DateFormatter
-- PrintBuffer
+- ConvertHex
 - FunctionPrefix
-- CyclicReferenceStack
+- ConvertHex
 - serviceGroups.js
 - HTMLPurifier_URIScheme_http
 - e
@@ -702,12 +701,11 @@
 - HTMLPurifier_URISchemeRegistry
 - Operand
 - AddressRange
-- HTMLPurifier_AttrCollections
+- ConvertOctal
 - BstoreContainer
 - PasswordHasher
 - HTMLPurifier_URIScheme
 - admin_login.js
-- HTMLPurifier_AttrTransform_SafeEmbed
 - require
 - HTMLPurifier_ChildDef
 - HTMLPurifier_Definition
@@ -739,13 +737,13 @@
 - ExceptionHandler
 - WildcardMatch
 - Boolean
-- HTMLPurifier_AttrDef_Integer
+- Mpdf
 - RC4
-- ConditionalHelper
+- .isValueInList
 - bombardment.js
 - initAdminAppearance
 - footer.js
-- HTMLPurifier_ErrorCollector
+- HTMLPurifier_Generator
 - resolve
 - author
 - repository
@@ -760,7 +758,7 @@
 - MakeMatrix
 - Web
 - FooBar
-- HTMLPurifier_AttrTransform_BdoDir
+- Mpdf
 - BIFF5
 - BIFF8
 - BuiltIn
@@ -779,7 +777,7 @@
 - MakeMatrix
 - MaxMinBase
 - Web
-- HTMLPurifier_ChildDef_List
+- HTMLPurifier_AttrDef_CSS_DenyElementDecorator
 - outfolder/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Style/NumberFormat/Formatter.php
 - IComparable
 - IReadFilter
@@ -793,7 +791,7 @@
 - BaseFormatter
 - Wizard
 - ErrorCode
-- public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xls/Color.php
+- FormulaTranslator
 - inspect
 - inspect
 - bugs
@@ -816,13 +814,12 @@
 - public/printer/vendor/markbaker/matrix/README.md
 - How to contribute
 - Ceiling
-- outfolder/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xls/Color.php
+- Dompdf
 - 1.0.1 - 2016-08-06
 - outfolder/printer/vendor/markbaker/matrix/README.md
 - How to contribute
 - DataType
-- item
-- item
+- .tokenizeHTML
 - 1.0.1 - 2016-08-06
 - AI Context Memory & Instructions: Windows Caller App
 - windowsCaller/packages/Microsoft.Extensions.DependencyInjection.10.0.3/PACKAGE.md
@@ -858,7 +855,6 @@
 - 1.27.1 - 2023-02-08
 - 1.28.0 - 2023-02-25
 - NumberFormat
-- HTMLPurifier_PropertyList
 - .validate
 - outfolder/printer/vendor/markbaker/complex/README.md
 - 1.0.0-beta - 2017-08-17
@@ -939,9 +935,7 @@
 - nodeName
 - Font
 - XMLWriter
-- .log10
 - done
-- HTMLPurifier_StringHashParser
 - buildParams
 - resolve
 - show
@@ -982,215 +976,223 @@
 ## Import Cycles
 - None detected.
 
-## Communities (1027 total, 586 thin omitted)
+## Communities (1023 total, 579 thin omitted)
 
 ### Community 0 - "ArrayEnabled"
 Cohesion: 0.01
-Nodes (59): ArrayEnabled, Days, TimeParts, Compare, Erf, Selection, Absolute, Angle (+51 more)
+Nodes (61): ArrayEnabled, Days, Compare, Complex, Erf, ErfC, Selection, Absolute (+53 more)
 
 ### Community 1 - "DatabaseAbstract"
 Cohesion: 0.01
-Nodes (33): DatabaseAbstract, DAverage, DCount, DCountA, DGet, DMax, DMin, DProduct (+25 more)
+Nodes (31): DatabaseAbstract, DAverage, DCount, DCountA, DGet, DMax, DMin, DProduct (+23 more)
 
 ### Community 2 - "ExcelError"
-Cohesion: 0.01
-Nodes (30): YearFrac, CashFlowValidations, Cumulative, Interest, InterestAndPrincipal, Payments, Periodic, NonPeriodic (+22 more)
+Cohesion: 0.02
+Nodes (29): YearFrac, Amortization, CashFlowValidations, Cumulative, Interest, InterestAndPrincipal, Payments, Periodic (+21 more)
 
 ### Community 3 - "Conditional"
-Cohesion: 0.05
-Nodes (5): Conditional, Expression, Wizard, ConditionalFormatting, WizardInterface
+Cohesion: 0.07
+Nodes (4): Conditional, CellMatcher, ConditionalFormatting, CellMatcher
 
 ### Community 4 - "make_xlsx_lib"
 Cohesion: 0.02
-Nodes (111): make_xlsx_lib(), Al(), as(), Ba(), Bd(), bf(), bl(), bs() (+103 more)
+Nodes (131): Hi(), make_xlsx_lib(), Al(), ao(), as(), Ba(), Bd(), bf() (+123 more)
 
 ### Community 5 - "Worksheet"
 Cohesion: 0.02
-Nodes (6): compactCharTable(), Xls, Worksheet, CellsFactory, DataValidations, Xls
+Nodes (5): compactCharTable(), Xls, Worksheet, CellsFactory, Xls
 
 ### Community 6 - "charts.js"
 Cohesion: 0.03
-Nodes (39): Ae(), beforeDatasetDraw(), beforeDatasetsDraw(), cn(), d(), da(), destroy(), ea() (+31 more)
+Nodes (62): ai(), ao(), average(), beforeDatasetDraw(), beforeDatasetsDraw(), beforeDraw(), beforeLayout(), cn() (+54 more)
 
 ### Community 7 - "Spreadsheet"
 Cohesion: 0.02
-Nodes (7): Slk, Spreadsheet, Iterator, Slk, Iterator, DocProps, RelsRibbon
+Nodes (7): Spreadsheet, Iterator, Iterator, IWriter, Meta, DocProps, RelsRibbon
 
 ### Community 8 - "SimpleXMLElement"
-Cohesion: 0.03
-Nodes (22): PageSetup, Alignment, Border, Fill, Font, NumberFormat, Style, StyleBase (+14 more)
+Cohesion: 0.04
+Nodes (19): Alignment, Border, Fill, Font, NumberFormat, Style, StyleBase, Styles (+11 more)
 
 ### Community 9 - "Xlsx"
 Cohesion: 0.03
-Nodes (16): Namespaces, Comments, ContentTypes, DocProps, RelsRibbon, RelsVBA, StringTable, Table (+8 more)
+Nodes (13): Comments, ContentTypes, DocProps, RelsRibbon, RelsVBA, StringTable, Table, Theme (+5 more)
 
 ### Community 10 - ".log"
-Cohesion: 0.03
-Nodes (15): BesselK, ErfC, Single, Logarithms, Beta, ChiSquared, Fisher, Gamma (+7 more)
+Cohesion: 0.14
+Nodes (4): Logarithms, Sample, {closure#1}(), {closure#2}()
 
 ### Community 11 - "chart.min.js"
 Cohesion: 0.03
-Nodes (100): add(), addControllers(), addElements(), addPlugins(), addScales(), ae(), afterDatasetsUpdate(), as() (+92 more)
+Nodes (106): add(), addControllers(), addElements(), addPlugins(), addScales(), ae(), afterDatasetsUpdate(), an() (+98 more)
 
 ### Community 13 - "Printer"
 Cohesion: 0.03
-Nodes (12): title(), title(), item, title(), EscposImage, NativeEscposImage, WindowsPrintConnector, Printer (+4 more)
+Nodes (11): title(), title(), item, title(), WindowsPrintConnector, Printer, title(), title() (+3 more)
 
 ### Community 14 - "BaseFormatter"
 Cohesion: 0.13
 Nodes (5): BaseFormatter, FractionFormatter, PercentageFormatter, FractionFormatter, PercentageFormatter
 
+### Community 15 - "NumberFormatter"
+Cohesion: 0.07
+Nodes (6): Accounting, Currency, Locale, Accounting, Locale, NumberBase
+
 ### Community 16 - ".doSetup"
-Cohesion: 0.05
-Nodes (13): HTMLPurifier_AttrDef_CSS_AlphaValue, HTMLPurifier_AttrDef_CSS_Background, HTMLPurifier_AttrDef_CSS_BackgroundPosition, HTMLPurifier_AttrDef_CSS_Color, HTMLPurifier_AttrDef_CSS_Composite, HTMLPurifier_AttrDef_CSS_FontFamily, HTMLPurifier_AttrDef_CSS_Length, HTMLPurifier_AttrDef_CSS_Multiple (+5 more)
+Cohesion: 0.04
+Nodes (17): HTMLPurifier_AttrDef_CSS_AlphaValue, HTMLPurifier_AttrDef_CSS_Background, HTMLPurifier_AttrDef_CSS_BackgroundPosition, HTMLPurifier_AttrDef_CSS_Border, HTMLPurifier_AttrDef_CSS_Color, HTMLPurifier_AttrDef_CSS_Composite, HTMLPurifier_AttrDef_CSS_Font, HTMLPurifier_AttrDef_CSS_FontFamily (+9 more)
 
 ### Community 17 - "HTMLPurifier_AttrTransform"
 Cohesion: 0.02
-Nodes (32): HTMLPurifier_AttrTransform_Background, HTMLPurifier_AttrTransform_BgColor, HTMLPurifier_AttrTransform_BoolToCSS, HTMLPurifier_AttrTransform_Border, HTMLPurifier_AttrTransform_EnumToCSS, HTMLPurifier_AttrTransform_ImgSpace, HTMLPurifier_AttrTransform_Lang, HTMLPurifier_AttrTransform_Length (+24 more)
+Nodes (30): HTMLPurifier_AttrTransform_Background, HTMLPurifier_AttrTransform_BgColor, HTMLPurifier_AttrTransform_BoolToCSS, HTMLPurifier_AttrTransform_Border, HTMLPurifier_AttrTransform_EnumToCSS, HTMLPurifier_AttrTransform_ImgSpace, HTMLPurifier_AttrTransform_Lang, HTMLPurifier_AttrTransform_Length (+22 more)
 
 ### Community 19 - "ColumnDimension"
-Cohesion: 0.06
-Nodes (4): Dimension, ColumnDimension, RowDimension, Style
+Cohesion: 0.07
+Nodes (3): Dimension, ColumnDimension, RowDimension
 
 ### Community 20 - "CapabilityProfile"
 Cohesion: 0.03
 Nodes (15): CustomCapabilityProfile, CapabilityProfile, EposTepCapabilityProfile, P822DCapabilityProfile, StarCapabilityProfile, ImagePrintBuffer, FilePrintConnector, FilePrintConnectorTest (+7 more)
 
 ### Community 22 - "RichText"
-Cohesion: 0.06
-Nodes (4): HTMLPurifier, RichText, Run, Settings
+Cohesion: 0.03
+Nodes (11): HTMLPurifier_StringHash, AddressHelper, DataType, Hyperlink, CellsFactory, IComparable, PageSetup, Properties (+3 more)
 
 ### Community 23 - "Date"
-Cohesion: 0.04
-Nodes (8): DateParts, Days360, Date, TimeZone, DateParts, Days360, YearFrac, TimeZone
+Cohesion: 0.02
+Nodes (13): DateParts, Days360, TimeParts, Date, TimeZone, DateFormatter, DateParts, Days360 (+5 more)
 
 ### Community 24 - "ErrorValue"
 Cohesion: 0.03
-Nodes (13): ErrorValue, Value, Conditional, Sum, MaxMinBase, Concatenate, Helpers, Conditional (+5 more)
+Nodes (12): ErrorValue, Value, Conditional, Sum, Concatenate, Helpers, Conditional, Sum (+4 more)
+
+### Community 25 - "Xls"
+Cohesion: 0.06
+Nodes (3): Color, Xls, Color
 
 ### Community 26 - "an"
 Cohesion: 0.05
-Nodes (29): addBox(), an(), ct(), dataset(), fs(), ge(), generateLabels(), gs() (+21 more)
+Nodes (27): addBox(), an(), ct(), dataset(), fs(), ge(), generateLabels(), gs() (+19 more)
 
 ### Community 27 - "PrintConnector"
 Cohesion: 0.04
-Nodes (8): ApiPrintConnector, PrintConnector, ApiPrintConnector, CupsPrintConnector, DummyPrintConnector, FilePrintConnector, NetworkPrintConnector, UriPrintConnector
+Nodes (6): ApiPrintConnector, PrintConnector, RawbtPrintConnector, ApiPrintConnector, DummyPrintConnector, RawbtPrintConnector
 
 ### Community 28 - ".log"
-Cohesion: 0.04
-Nodes (12): BesselK, Single, Logarithms, Beta, ChiSquared, Fisher, GammaBase, LogNormal (+4 more)
+Cohesion: 0.03
+Nodes (20): BesselI, BesselK, ErfC, Single, Logarithms, Sqrt, Confidence, Beta (+12 more)
 
 ### Community 29 - "DefinedName"
-Cohesion: 0.03
-Nodes (14): DefinedName, NamedFormula, NamedRange, {closure#1}(), {closure#2}(), Formula, NamedExpressions, DefinedNames (+6 more)
+Cohesion: 0.04
+Nodes (13): Helpers, DefinedName, NamedFormula, {closure#1}(), {closure#2}(), Formula, NamedExpressions, Helpers (+5 more)
 
 ### Community 30 - "HTMLPurifier_HTMLModule"
 Cohesion: 0.02
-Nodes (31): HTMLPurifier_AttrTransform_BdoDir, HTMLPurifier_AttrTransform_TargetNoopener, HTMLPurifier_AttrTransform_TargetNoreferrer, HTMLPurifier_HTMLModule_Bdo, HTMLPurifier_HTMLModule_CommonAttributes, HTMLPurifier_HTMLModule_Iframe, HTMLPurifier_HTMLModule_NonXMLCommonAttributes, HTMLPurifier_HTMLModule_Object (+23 more)
+Nodes (32): HTMLPurifier_AttrTransform_BdoDir, HTMLPurifier_AttrTransform_SafeEmbed, HTMLPurifier_HTMLModule_Bdo, HTMLPurifier_HTMLModule_CommonAttributes, HTMLPurifier_HTMLModule_Iframe, HTMLPurifier_HTMLModule_NonXMLCommonAttributes, HTMLPurifier_HTMLModule_Object, HTMLPurifier_HTMLModule_Presentation (+24 more)
 
 ### Community 31 - "ns"
-Cohesion: 0.07
-Nodes (9): As(), go(), ii(), labelColor(), labelPointStyle(), ns(), parse(), rt() (+1 more)
+Cohesion: 0.05
+Nodes (19): As(), beforeUpdate(), bn(), _calculateBarValuePixels(), dn(), getBasePixel(), initialize(), labelColor() (+11 more)
 
 ### Community 32 - "Cell"
-Cohesion: 0.02
-Nodes (18): Hyperlink, LookupRef, Offset, RowColumnInformation, AdvancedValueBinder, Cell, DataValidator, DefaultValueBinder (+10 more)
+Cohesion: 0.04
+Nodes (8): Hyperlink, Cell, DataValidator, Formula, Hyperlink, LookupRef, IValueBinder, Comment
 
 ### Community 34 - "BSE"
-Cohesion: 0.03
-Nodes (12): DgContainer, SpgrContainer, Blip, BSE, BstoreContainer, DggContainer, Escher, File (+4 more)
+Cohesion: 0.04
+Nodes (10): DgContainer, SpgrContainer, Blip, BSE, BstoreContainer, DggContainer, Escher, Blip (+2 more)
 
 ### Community 36 - "CellAddress"
-Cohesion: 0.04
-Nodes (17): CellAddress, CellRange, nextColumn(), nextRow(), previousColumn(), previousRow(), AutoFit, PageBreak (+9 more)
+Cohesion: 0.05
+Nodes (15): CellAddress, CellRange, nextColumn(), nextRow(), previousColumn(), previousRow(), AutoFit, Validations (+7 more)
 
 ### Community 38 - "Ods"
-Cohesion: 0.03
-Nodes (19): AutoFilters, Comment, Content, Meta, MetaInf, Mimetype, Ods, Settings (+11 more)
+Cohesion: 0.04
+Nodes (14): Content, Meta, MetaInf, Mimetype, Ods, Settings, Styles, Thumbnails (+6 more)
 
 ### Community 39 - "Ls"
 Cohesion: 0.06
-Nodes (10): an(), at(), Ee(), ks(), labelColor(), labelPointStyle(), Ls, on (+2 more)
+Nodes (9): at(), kn(), ks(), labelColor(), labelPointStyle(), Ls, on, sn() (+1 more)
+
+### Community 40 - "IValueBinder"
+Cohesion: 0.08
+Nodes (6): FormattedNumber, AdvancedValueBinder, DefaultValueBinder, IValueBinder, AdvancedValueBinder, DefaultValueBinder
+
+### Community 41 - ".trim"
+Cohesion: 0.05
+Nodes (3): HTMLPurifier_AttrDef, Calculation, Exception
 
 ### Community 42 - "s"
 Cohesion: 0.11
-Nodes (74): A(), ak(), an(), ar(), B(), c(), cg(), ck() (+66 more)
+Nodes (77): A(), ag(), an(), ar(), B(), be(), c(), cg() (+69 more)
 
 ### Community 43 - "HTMLPurifier_URIFilter"
 Cohesion: 0.03
-Nodes (16): HTMLPurifier_URIDefinition, HTMLPurifier_URIFilter_DisableExternal, HTMLPurifier_URIFilter_DisableExternalResources, HTMLPurifier_URIFilter_DisableResources, HTMLPurifier_URIFilter_HostBlacklist, HTMLPurifier_URIFilter_MakeAbsolute, HTMLPurifier_URIFilter_Munge, HTMLPurifier_URIFilter_SafeIframe (+8 more)
+Nodes (15): HTMLPurifier_URIDefinition, HTMLPurifier_URIFilter_DisableExternal, HTMLPurifier_URIFilter_DisableExternalResources, HTMLPurifier_URIFilter_DisableResources, HTMLPurifier_URIFilter_HostBlacklist, HTMLPurifier_URIFilter_MakeAbsolute, HTMLPurifier_URIFilter_SafeIframe, HTMLPurifier_URIDefinition (+7 more)
 
-### Community 45 - "Calculation"
-Cohesion: 0.04
-Nodes (5): HTMLPurifier_AttrDef, Calculation, FormattedNumber, Formula, FormulaTranslator
-
-### Community 46 - "WizardAbstract"
-Cohesion: 0.06
-Nodes (3): DateValue, Duplicates, WizardAbstract
+### Community 46 - ".exp"
+Cohesion: 0.14
+Nodes (3): BesselK, GammaBase, LogNormal
 
 ### Community 51 - ".floor"
-Cohesion: 0.05
-Nodes (10): Month, Time, BitWise, ConvertDecimal, Factorial, Floor, Lcm, Size (+2 more)
+Cohesion: 0.04
+Nodes (13): Month, Time, BitWise, ConvertBase, ConvertDecimal, ConvertOctal, Factorial, Floor (+5 more)
 
 ### Community 52 - "XMLWriter"
-Cohesion: 0.05
-Nodes (9): XMLWriter, HeaderFooterDrawing, Drawing, Rels, Worksheet, Comments, Drawing, Rels (+1 more)
-
-### Community 53 - "io"
-Cohesion: 0.09
-Nodes (14): ao(), average(), dataset(), Ei(), Es, fi(), ho, Ii() (+6 more)
+Cohesion: 0.04
+Nodes (11): XMLWriter, Drawing, Rels, Worksheet, MetaInf, Settings, Styles, Comments (+3 more)
 
 ### Community 54 - "public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx.php"
 Cohesion: 0.08
-Nodes (5): AutoFilter, DataValidations, Hyperlinks, TableReader, Drawing
+Nodes (5): AutoFilter, DataValidations, Hyperlinks, TableReader, WorkbookView
 
 ### Community 55 - "i"
-Cohesion: 0.06
-Nodes (17): ai(), ea(), fn(), gt(), jo(), Ln, Pn(), pt() (+9 more)
+Cohesion: 0.07
+Nodes (12): ai(), fn(), gt(), In, jo(), Ln, Pn(), pt() (+4 more)
 
 ### Community 56 - "no"
-Cohesion: 0.07
-Nodes (12): buildLookupTable(), En, Fo(), _generate(), _getTimestampsForTable(), init(), initOffsets(), lt() (+4 more)
+Cohesion: 0.06
+Nodes (16): buildLookupTable(), ei(), En, _generate(), _getTimestampsForTable(), init(), initOffsets(), je() (+8 more)
 
 ### Community 57 - "Table"
-Cohesion: 0.03
-Nodes (5): Column, Table, TableStyle, Column, TableStyle
+Cohesion: 0.04
+Nodes (5): Column, Table, TableStyle, TableReader, TableStyle
 
 ### Community 58 - "Ra"
-Cohesion: 0.06
-Nodes (60): ab(), bn(), bp(), cn(), cp(), dn(), dp(), eb() (+52 more)
+Cohesion: 0.05
+Nodes (79): ab(), At(), bb(), bn(), bp(), cb(), cf(), co() (+71 more)
 
 ### Community 59 - ".floor"
-Cohesion: 0.05
-Nodes (11): Month, Time, BitWise, ConvertDecimal, Base, Ceiling, Factorial, Floor (+3 more)
+Cohesion: 0.04
+Nodes (12): Month, Time, BitWise, ConvertDecimal, Dollar, Base, Ceiling, Factorial (+4 more)
 
 ### Community 60 - "html2canvas.min.js"
 Cohesion: 0.03
 Nodes (24): an(), Be(), Cs(), dA(), ee(), FA(), fe(), gs() (+16 more)
 
 ### Community 61 - "bn"
-Cohesion: 0.07
-Nodes (12): bn, cn(), d(), dn(), generateLabels(), onClick(), pe(), remove() (+4 more)
+Cohesion: 0.06
+Nodes (19): ao(), bn, cn(), d(), dataset(), dn(), Ei(), fi() (+11 more)
 
 ### Community 64 - "Coordinate"
-Cohesion: 0.03
-Nodes (10): Indirect, AddressRange, Coordinate, DataType, CellsFactory, ConditionalFormatting, FillPattern, CodePage (+2 more)
+Cohesion: 0.04
+Nodes (8): Indirect, AddressRange, Coordinate, NamedRange, PageBreak, Indirect, DataValidations, PageBreak
 
 ### Community 65 - "s"
-Cohesion: 0.08
-Nodes (5): Bs(), c(), H(), s(), zs()
+Cohesion: 0.07
+Nodes (7): Bs(), c(), H(), s(), un(), ve(), zs()
 
 ### Community 68 - "HTMLPurifier_Token_Text"
 Cohesion: 0.05
-Nodes (14): HTMLPurifier_Exception, HTMLPurifier_Injector_AutoParagraph, HTMLPurifier_Injector_Linkify, HTMLPurifier_Injector_PurifierLinkify, HTMLPurifier_Lexer_DirectLex, HTMLPurifier_Lexer_PH5P, HTMLPurifier_Node_Element, HTMLPurifier_Node_Text (+6 more)
+Nodes (12): HTMLPurifier_Injector_AutoParagraph, HTMLPurifier_Injector_Linkify, HTMLPurifier_Injector_PurifierLinkify, HTMLPurifier_Node_Element, HTMLPurifier_Node_Text, HTMLPurifier_Printer, HTMLPurifier_Strategy_MakeWellFormed, HTMLPurifier_Token_Empty (+4 more)
 
 ### Community 69 - "Properties"
 Cohesion: 0.05
 Nodes (4): Properties, Properties, Properties, Properties
 
 ### Community 70 - "Go"
-Cohesion: 0.07
-Nodes (20): afterDraw(), afterEvent(), afterInit(), afterUpdate(), beforeUpdate(), eo(), gi(), Go (+12 more)
+Cohesion: 0.05
+Nodes (24): afterDraw(), afterEvent(), afterInit(), afterUpdate(), beforeUpdate(), di(), eo(), Es (+16 more)
 
 ### Community 73 - "DataValidation"
 Cohesion: 0.04
@@ -1198,39 +1200,39 @@ Nodes (5): DataValidation, DataValidationHelper, CellDataValidation, DataValidat
 
 ### Community 75 - "a"
 Cohesion: 0.06
-Nodes (11): a(), ia, In, j(), li(), lo(), na(), numeric() (+3 more)
+Nodes (11): a(), ea(), ia, j(), li(), na(), numeric(), oa (+3 more)
 
 ### Community 77 - ".sort"
-Cohesion: 0.08
-Nodes (4): WorkDay, Sort, Averages, Percentiles
+Cohesion: 0.11
+Nodes (3): WorkDay, Sort, Percentiles
 
 ### Community 78 - "WizardInterface"
-Cohesion: 0.06
-Nodes (5): WizardInterface, DateValue, Duplicates, Errors, Wizard
+Cohesion: 0.03
+Nodes (12): DateValue, Duplicates, Errors, Expression, WizardAbstract, WizardInterface, Blanks, DateValue (+4 more)
 
 ### Community 79 - "HTMLPurifier_AttrDef"
-Cohesion: 0.02
-Nodes (26): HTMLPurifier_AttrDef_CSS_Border, HTMLPurifier_AttrDef_CSS_DenyElementDecorator, HTMLPurifier_AttrDef_CSS_Font, HTMLPurifier_AttrDef_CSS_ImportantDecorator, HTMLPurifier_AttrDef_CSS_ListStyle, HTMLPurifier_AttrDef_CSS_TextDecoration, HTMLPurifier_AttrDef_URI_Email, HTMLPurifier_AttrDef_CSS_AlphaValue (+18 more)
+Cohesion: 0.03
+Nodes (23): HTMLPurifier_AttrDef_CSS_TextDecoration, HTMLPurifier_AttrDef_CSS_AlphaValue, HTMLPurifier_AttrDef_CSS_Background, HTMLPurifier_AttrDef_CSS_BackgroundPosition, HTMLPurifier_AttrDef_CSS_Border, HTMLPurifier_AttrDef_CSS_Color, HTMLPurifier_AttrDef_CSS_Composite, HTMLPurifier_AttrDef_CSS_DenyElementDecorator (+15 more)
 
 ### Community 83 - "PHPUnit_Framework_TestCase"
-Cohesion: 0.05
-Nodes (8): BugHonorFileTimeTest, CapabilityProfileTest, EscposImageTest, UriPrintConnectorTest, BugHonorFileTimeTest, CapabilityProfileTest, EscposImageTest, UriPrintConnectorTest
+Cohesion: 0.04
+Nodes (10): BugHonorFileTimeTest, NetworkPrintConnector, UriPrintConnector, CapabilityProfileTest, EscposImageTest, UriPrintConnectorTest, BugHonorFileTimeTest, CapabilityProfileTest (+2 more)
 
 ### Community 84 - "De"
 Cohesion: 0.10
 Nodes (51): De(), ae(), at(), be(), ce(), cr(), de(), ee() (+43 more)
 
-### Community 85 - "GdEscposImageTest"
-Cohesion: 0.14
-Nodes (3): GdEscposImage, GdEscposImageTest, GdEscposImageTest
+### Community 85 - "EscposImage"
+Cohesion: 0.07
+Nodes (8): item, EscposImage, GdEscposImage, NativeEscposImage, item, GdEscposImage, NativeEscposImage, GdEscposImageTest
+
+### Community 87 - "BaseReader"
+Cohesion: 0.06
+Nodes (4): BaseReader, Exception, Ods, Xml
 
 ### Community 88 - "s"
 Cohesion: 0.09
-Nodes (23): beforeLayout(), buildTicks(), ca(), _calculateBarIndexPixels(), _calculateBarValuePixels(), configure(), getBasePixel(), getLabelAndValue() (+15 more)
-
-### Community 90 - "ChartColor"
-Cohesion: 0.03
-Nodes (5): ChartColor, Layout, PlotArea, Title, StringTable
+Nodes (30): Ae(), _calculateBarIndexPixels(), e(), Fn(), Fo(), getPixelForTick(), getPixelForValue(), _getRuler() (+22 more)
 
 ### Community 91 - "Styles"
 Cohesion: 0.08
@@ -1238,99 +1240,111 @@ Nodes (3): SheetViewOptions, Styles, ConditionalStyles
 
 ### Community 93 - "js/jquery.js"
 Cohesion: 0.08
-Nodes (36): Ae(), B(), Be(), c(), $e(), ee(), F(), fe() (+28 more)
+Nodes (38): I(), Ae(), B(), Be(), c(), $e(), ee(), F() (+30 more)
 
 ### Community 94 - "EventArgs"
 Cohesion: 0.06
 Nodes (18): LoginForm, ComboItem, Text, Value, ForwardModal, Note, SelectedGroupId, SelectedTargetType (+10 more)
+
+### Community 95 - "DOMElement"
+Cohesion: 0.04
+Nodes (10): AutoFilter, BaseLoader, DefinedNames, FormulaTranslator, PageSettings, Html, AutoFilter, BaseLoader (+2 more)
 
 ### Community 96 - "DummyPrintConnector"
 Cohesion: 0.05
 Nodes (5): DefaultCapabilityProfile, SimpleCapabilityProfile, DummyPrintConnector, LegacyCapabilityProfileTest, LegacyCapabilityProfileTest
 
 ### Community 97 - "NumberBase"
-Cohesion: 0.06
-Nodes (9): Number, NumberBase, Percentage, Scientific, Wizard, Currency, Number, Percentage (+1 more)
-
-### Community 101 - "draw"
-Cohesion: 0.09
-Nodes (25): di(), ai(), ao(), average(), beforeDraw(), getCenterPoint(), hi(), ho() (+17 more)
+Cohesion: 0.07
+Nodes (8): Number, NumberBase, Percentage, Scientific, Wizard, Number, Percentage, Scientific
 
 ### Community 102 - "va"
 Cohesion: 0.09
-Nodes (17): afterDraw(), afterEvent(), afterUpdate(), b(), ba, draw(), Ee(), f() (+9 more)
+Nodes (16): afterDraw(), afterEvent(), afterUpdate(), b(), ba, configure(), Ee(), f() (+8 more)
 
 ### Community 103 - "jquery/jquery.js"
 Cohesion: 0.06
 Nodes (11): computeStyleTests(), createCache(), cache(), dataAttr(), finalPropName(), getData(), leverageNative(), on() (+3 more)
 
+### Community 104 - "Title"
+Cohesion: 0.05
+Nodes (3): PlotArea, Title, Chart
+
+### Community 105 - "Style"
+Cohesion: 0.04
+Nodes (6): CellStyleAssessor, StyleMerger, Style, CellStyleAssessor, WizardAbstract, WizardInterface
+
 ### Community 106 - "RowCellIterator"
-Cohesion: 0.08
-Nodes (3): Row, RowCellIterator, Row
+Cohesion: 0.07
+Nodes (5): Row, RowCellIterator, Comment, AutoFilters, Content
 
 ### Community 108 - "HTMLPurifier_Token_Text"
-Cohesion: 0.05
-Nodes (12): HTMLPurifier_Exception, HTMLPurifier_Injector_AutoParagraph, HTMLPurifier_Injector_PurifierLinkify, HTMLPurifier_Lexer_DirectLex, HTMLPurifier_Node_Element, HTMLPurifier_Node_Text, HTMLPurifier_Strategy_MakeWellFormed, HTMLPurifier_Token_Empty (+4 more)
+Cohesion: 0.06
+Nodes (12): HTMLPurifier_Exception, HTMLPurifier_Injector_AutoParagraph, HTMLPurifier_Injector_Linkify, HTMLPurifier_Injector_PurifierLinkify, HTMLPurifier_Lexer_DirectLex, HTMLPurifier_Node_Text, HTMLPurifier_Strategy_MakeWellFormed, HTMLPurifier_Token_Empty (+4 more)
+
+### Community 109 - "Archive"
+Cohesion: 0.04
+Nodes (3): Method, Archive, File
 
 ### Community 110 - "ArrayArgumentHelper"
-Cohesion: 0.09
-Nodes (4): ArrayArgumentHelper, {closure#1}(), {closure#2}(), ArrayArgumentProcessor
+Cohesion: 0.06
+Nodes (6): ArrayArgumentHelper, {closure#1}(), {closure#2}(), ArrayArgumentProcessor, ArrayEnabled, ArrayArgumentProcessor
 
 ### Community 112 - "IReadFilter"
-Cohesion: 0.07
-Nodes (5): DefaultReadFilter, IReadFilter, ColumnAndRowAttributes, IReader, ColumnAndRowAttributes
+Cohesion: 0.09
+Nodes (5): DefaultReadFilter, IReadFilter, ColumnAndRowAttributes, DefaultReadFilter, ColumnAndRowAttributes
 
 ### Community 113 - "ArrayArgumentHelper"
-Cohesion: 0.12
-Nodes (3): ArrayArgumentHelper, {closure#1}(), {closure#2}()
+Cohesion: 0.05
+Nodes (5): ArrayArgumentHelper, {closure#1}(), {closure#2}(), BranchPruner, CyclicReferenceStack
 
 ### Community 117 - "HTMLPurifier_URI"
-Cohesion: 0.05
-Nodes (10): HTMLPurifier_AttrDef_URI_Host, HTMLPurifier_AttrDef_URI_IPv4, HTMLPurifier_AttrDef_URI_IPv6, HTMLPurifier_AttrTransform_Nofollow, HTMLPurifier_AttrTransform_TargetBlank, HTMLPurifier_HTMLModule_Nofollow, HTMLPurifier_HTMLModule_TargetBlank, HTMLPurifier_PercentEncoder (+2 more)
+Cohesion: 0.06
+Nodes (8): HTMLPurifier_AttrDef_URI_Host, HTMLPurifier_AttrTransform_Nofollow, HTMLPurifier_AttrTransform_TargetBlank, HTMLPurifier_HTMLModule_Nofollow, HTMLPurifier_HTMLModule_TargetBlank, HTMLPurifier_PercentEncoder, HTMLPurifier_URI, HTMLPurifier_URIParser
 
 ### Community 124 - "Exception"
-Cohesion: 0.04
-Nodes (11): Exception, CellStyleAssessor, Accounting, Currency, Locale, AddressHelper, Cell, DataValidator (+3 more)
+Cohesion: 0.08
+Nodes (3): Exception, AddressHelper, Cell
 
 ### Community 126 - "wa"
 Cohesion: 0.07
-Nodes (13): ba(), ka, Ma(), mn(), rt(), st(), t(), va() (+5 more)
+Nodes (14): average(), ba(), ka, Ma(), mn(), nearest(), rt(), st() (+6 more)
 
 ### Community 127 - "RequestInterface"
-Cohesion: 0.06
-Nodes (12): Service, ClientExceptionInterface, NetworkExceptionInterface, RequestExceptionInterface, ResponseFactoryInterface, RequestInterface, ResponseInterface, ClientInterface (+4 more)
+Cohesion: 0.10
+Nodes (7): ClientExceptionInterface, NetworkExceptionInterface, RequestExceptionInterface, RequestInterface, NetworkExceptionInterface, RequestExceptionInterface, RequestFactoryInterface
 
 ### Community 130 - "Fill"
 Cohesion: 0.10
-Nodes (4): Fill, FillPattern, CellFill, Style
+Nodes (4): Fill, Style, FillPattern, CellFill
 
 ### Community 135 - ".__construct"
 Cohesion: 0.05
-Nodes (11): HTMLPurifier_AttrDef_HTML_Length, HTMLPurifier_AttrDef_HTML_MultiLength, HTMLPurifier_AttrDef_Clone, HTMLPurifier_AttrDef_HTML_Bool, HTMLPurifier_AttrDef_HTML_Color, HTMLPurifier_AttrDef_HTML_ContentEditable, HTMLPurifier_AttrDef_HTML_Length, HTMLPurifier_AttrDef_HTML_MultiLength (+3 more)
+Nodes (10): HTMLPurifier_AttrDef_HTML_Class, HTMLPurifier_AttrDef_HTML_MultiLength, HTMLPurifier_AttrDef_Clone, HTMLPurifier_AttrDef_HTML_Bool, HTMLPurifier_AttrDef_HTML_Class, HTMLPurifier_AttrDef_HTML_Color, HTMLPurifier_AttrDef_HTML_MultiLength, HTMLPurifier_AttrDef_HTML_Nmtokens (+2 more)
 
 ### Community 136 - "HTMLPurifier_URI"
-Cohesion: 0.05
-Nodes (10): HTMLPurifier_AttrDef_URI_Host, HTMLPurifier_AttrDef_URI_IPv4, HTMLPurifier_AttrDef_URI_IPv6, HTMLPurifier_AttrTransform_Nofollow, HTMLPurifier_AttrTransform_TargetBlank, HTMLPurifier_HTMLModule_Nofollow, HTMLPurifier_HTMLModule_TargetBlank, HTMLPurifier_PercentEncoder (+2 more)
+Cohesion: 0.06
+Nodes (9): HTMLPurifier_AttrDef_URI_Host, HTMLPurifier_AttrTransform_Nofollow, HTMLPurifier_AttrTransform_TargetBlank, HTMLPurifier_HTMLModule_Nofollow, HTMLPurifier_HTMLModule_TargetBlank, HTMLPurifier_PercentEncoder, HTMLPurifier_URI, HTMLPurifier_URIFilter_Munge (+1 more)
 
 ### Community 137 - "callerFunctions.js"
 Cohesion: 0.11
 Nodes (35): applyCallerTheme(), initTheme(), openReceiveSettings(), shouldShowReceivedInManualList(), socket, callNext(), callNextSubService(), callSpecificTicket() (+27 more)
 
 ### Community 138 - "sk"
-Cohesion: 0.07
-Nodes (49): Hi(), ni(), Ai(), bt(), Cc(), ep(), et(), fh() (+41 more)
+Cohesion: 0.09
+Nodes (34): Lt(), Ai(), ak(), bt(), Cc(), ep(), fh(), fi() (+26 more)
 
 ### Community 140 - "StreamInterface"
-Cohesion: 0.04
-Nodes (7): StreamFactoryInterface, UploadedFileFactoryInterface, StreamInterface, UploadedFileInterface, StreamFactoryInterface, UploadedFileFactoryInterface, MessageInterface
+Cohesion: 0.06
+Nodes (6): FileNotFoundException, FileNotReadableException, StreamFactoryInterface, StreamInterface, File, StreamFactoryInterface
 
 ### Community 141 - "Exception"
 Cohesion: 0.21
 Nodes (3): Div0Exception, Exception, Functions
 
 ### Community 143 - "HTMLPurifier_Strategy"
-Cohesion: 0.05
-Nodes (13): HTMLPurifier_Strategy_Composite, HTMLPurifier_Strategy_Core, HTMLPurifier_Strategy_FixNesting, HTMLPurifier_Strategy_RemoveForeignElements, HTMLPurifier_Strategy_ValidateAttributes, HTMLPurifier_AttrValidator, HTMLPurifier_Injector_RemoveEmpty, HTMLPurifier_Injector_RemoveSpansWithoutAttributes (+5 more)
+Cohesion: 0.06
+Nodes (11): HTMLPurifier_Strategy_Composite, HTMLPurifier_Strategy_Core, HTMLPurifier_Strategy_FixNesting, HTMLPurifier_Strategy_RemoveForeignElements, HTMLPurifier_Strategy_ValidateAttributes, HTMLPurifier_AttrValidator, HTMLPurifier_Strategy_Composite, HTMLPurifier_Strategy_Core (+3 more)
 
 ### Community 145 - "Alignment"
 Cohesion: 0.10
@@ -1341,20 +1355,12 @@ Cohesion: 0.08
 Nodes (8): Current, DateValue, NetworkDays, TimeValue, Current, DateValue, NetworkDays, TimeValue
 
 ### Community 150 - "Exception"
-Cohesion: 0.10
-Nodes (11): EncodingException, Exception, FileNotReadableException, IncompatibleOptionsException, StreamNotReadableException, EncodingException, FileNotFoundException, FileNotReadableException (+3 more)
-
-### Community 151 - "ImagickEscposImage"
-Cohesion: 0.09
-Nodes (3): ImagickEscposImage, ImagickEscposImage, ImagePrintBuffer
+Cohesion: 0.11
+Nodes (10): EncodingException, Exception, IncompatibleOptionsException, StreamNotReadableException, EncodingException, FileNotFoundException, FileNotReadableException, IncompatibleOptionsException (+2 more)
 
 ### Community 152 - "Matrix"
-Cohesion: 0.09
+Cohesion: 0.08
 Nodes (4): Decomposition, QR, Matrix, Operator
-
-### Community 154 - "Cells"
-Cohesion: 0.05
-Nodes (4): Cells, CellIterator, CellIterator, ColumnCellIterator
 
 ### Community 156 - "HTMLPurifier_AttrDef_HTML_ID"
 Cohesion: 0.13
@@ -1365,44 +1371,40 @@ Cohesion: 0.11
 Nodes (25): Be(), Ct(), d(), a(), d(), hr(), jt(), o() (+17 more)
 
 ### Community 158 - "public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/LookupRef.php"
+Cohesion: 0.10
+Nodes (5): Address, HLookup, Lookup, Matrix, VLookup
+
+### Community 160 - "Namespaces"
 Cohesion: 0.06
-Nodes (8): Address, HLookup, Lookup, LookupBase, Matrix, VLookup, HLookup, VLookup
-
-### Community 159 - "xn"
-Cohesion: 0.09
-Nodes (14): beforeUpdate(), bn(), dn(), ei(), initialize(), je(), on(), pn() (+6 more)
-
-### Community 160 - "Exception"
-Cohesion: 0.07
-Nodes (4): BaseWriter, Exception, Pdf, Workbook
+Nodes (8): Namespaces, HeaderFooterDrawing, BaseWriter, Exception, DefinedNames, ContentTypes, RelsVBA, Table
 
 ### Community 161 - ".__construct"
 Cohesion: 0.06
-Nodes (9): HTMLPurifier_AttrDef_Clone, HTMLPurifier_AttrDef_HTML_Bool, HTMLPurifier_AttrDef_HTML_Class, HTMLPurifier_AttrDef_HTML_Color, HTMLPurifier_AttrDef_HTML_ContentEditable, HTMLPurifier_AttrDef_HTML_Nmtokens, HTMLPurifier_AttrDef_Text, HTMLPurifier_AttrTypes (+1 more)
+Nodes (9): HTMLPurifier_AttrDef_Clone, HTMLPurifier_AttrDef_HTML_Bool, HTMLPurifier_AttrDef_HTML_Color, HTMLPurifier_AttrDef_HTML_ContentEditable, HTMLPurifier_AttrDef_HTML_Length, HTMLPurifier_AttrDef_HTML_Nmtokens, HTMLPurifier_AttrDef_Text, HTMLPurifier_AttrTypes (+1 more)
 
 ### Community 162 - "RichText"
-Cohesion: 0.08
-Nodes (4): ITextElement, TextElement, Run, TextElement
+Cohesion: 0.06
+Nodes (5): ITextElement, TextElement, RichText, Run, TextElement
 
 ### Community 166 - "En"
-Cohesion: 0.16
+Cohesion: 0.15
 Nodes (5): En, g(), Ms(), ws(), zn
 
 ### Community 167 - "ga"
-Cohesion: 0.12
-Nodes (10): aa(), ca(), da(), fa(), ga, ha(), la(), pi() (+2 more)
+Cohesion: 0.11
+Nodes (13): aa(), ca(), da(), fa(), g(), ga, ha(), K() (+5 more)
 
 ### Community 168 - "jquery.dataTables.min.js"
 Cohesion: 0.10
 Nodes (25): ae(), ce(), ct(), f(), ge(), gt(), he(), ht() (+17 more)
 
 ### Community 170 - "AuresCustomerDisplay"
-Cohesion: 0.06
-Nodes (4): AuresCustomerDisplay, AuresCustomerDisplayTest, AuresCustomerDisplay, AuresCustomerDisplayTest
+Cohesion: 0.08
+Nodes (3): AuresCustomerDisplay, AuresCustomerDisplayTest, AuresCustomerDisplayTest
 
 ### Community 171 - "Pdf"
-Cohesion: 0.09
-Nodes (7): Dompdf, Mpdf, Pdf, Tcpdf, Dompdf, Mpdf, Tcpdf
+Cohesion: 0.13
+Nodes (4): Dompdf, Pdf, Tcpdf, Tcpdf
 
 ### Community 174 - "public/printer/vendor/markbaker/matrix/composer.json"
 Cohesion: 0.05
@@ -1413,20 +1415,24 @@ Cohesion: 0.11
 Nodes (3): WorkDay, Sort, Percentiles
 
 ### Community 176 - "BranchPruner"
-Cohesion: 0.07
-Nodes (3): BranchPruner, Stack, Stack
+Cohesion: 0.04
+Nodes (5): BranchPruner, CyclicReferenceStack, Logger, Stack, Stack
 
 ### Community 177 - "File"
-Cohesion: 0.06
-Nodes (4): Gnumeric, PageSetup, Properties, File
+Cohesion: 0.08
+Nodes (3): Gnumeric, Properties, Properties
+
+### Community 178 - "Exception"
+Cohesion: 0.05
+Nodes (3): EscposPrintBuffer, PrintBuffer, ImagePrintBuffer
 
 ### Community 180 - "outfolder/printer/vendor/markbaker/matrix/composer.json"
 Cohesion: 0.05
 Nodes (36): dealerdirect/phpcodesniffer-composer-installer, authors, autoload, autoload-dev, psr-4, psr-4, config, allow-plugins (+28 more)
 
 ### Community 183 - "eo"
-Cohesion: 0.11
-Nodes (7): Bi(), Ci(), Do(), eo(), Fi(), n(), Oe()
+Cohesion: 0.07
+Nodes (16): Be(), Bi(), buildTicks(), ca(), Ci(), Do(), eo(), Fi() (+8 more)
 
 ### Community 184 - "jquery-3.7.1.js"
 Cohesion: 0.06
@@ -1441,36 +1447,36 @@ Cohesion: 0.21
 Nodes (21): a(), C(), b(), br(), ct(), dt(), e(), er() (+13 more)
 
 ### Community 189 - "Da"
-Cohesion: 0.13
-Nodes (29): am(), ao(), ap(), bm(), Da(), dm(), Fa(), gh() (+21 more)
+Cohesion: 0.10
+Nodes (35): am(), ap(), bm(), cn(), Da(), dm(), dp(), gh() (+27 more)
 
 ### Community 191 - "Enum"
 Cohesion: 0.10
 Nodes (5): Enum, Comparator, Method, Version, Comparator
 
+### Community 192 - "RowCellIterator"
+Cohesion: 0.08
+Nodes (3): CellIterator, ColumnCellIterator, RowCellIterator
+
 ### Community 193 - "HTMLPurifier_AttrDef_URI"
-Cohesion: 0.06
-Nodes (10): HTMLPurifier_AttrDef_URI, HTMLPurifier_AttrTransform_ImgRequired, HTMLPurifier_AttrTransform_SafeObject, HTMLPurifier_AttrTransform_SafeParam, HTMLPurifier_AttrTransform_ScriptRequired, HTMLPurifier_ElementDef, HTMLPurifier_HTMLModule_Image, HTMLPurifier_HTMLModule_SafeObject (+2 more)
+Cohesion: 0.07
+Nodes (9): HTMLPurifier_AttrDef_URI, HTMLPurifier_AttrTransform_ImgRequired, HTMLPurifier_AttrTransform_SafeObject, HTMLPurifier_AttrTransform_SafeParam, HTMLPurifier_AttrTransform_ScriptRequired, HTMLPurifier_HTMLModule_Image, HTMLPurifier_HTMLModule_SafeObject, HTMLPurifier_HTMLModule_SafeScripting (+1 more)
 
 ### Community 195 - "HTMLPurifier_Injector"
-Cohesion: 0.06
-Nodes (8): HTMLPurifier_AttrValidator, HTMLPurifier_Injector_DisplayLinkURI, HTMLPurifier_Injector_Linkify, HTMLPurifier_Injector_RemoveEmpty, HTMLPurifier_Injector_RemoveSpansWithoutAttributes, HTMLPurifier_Injector_SafeObject, HTMLPurifier_Injector_DisplayLinkURI, HTMLPurifier_Injector_SafeObject
+Cohesion: 0.05
+Nodes (9): HTMLPurifier_AttrValidator, HTMLPurifier_Injector_DisplayLinkURI, HTMLPurifier_Injector_RemoveEmpty, HTMLPurifier_Injector_RemoveSpansWithoutAttributes, HTMLPurifier_Injector_SafeObject, HTMLPurifier_Injector_DisplayLinkURI, HTMLPurifier_Injector_RemoveEmpty, HTMLPurifier_Injector_RemoveSpansWithoutAttributes (+1 more)
 
 ### Community 196 - "zt"
 Cohesion: 0.09
-Nodes (15): Bt(), color(), Ft(), Gt(), It(), jt(), kt(), mt() (+7 more)
+Nodes (15): Bt(), color(), Gt(), It(), jt(), kt(), mt(), qt() (+7 more)
 
 ### Community 197 - "xt"
 Cohesion: 0.10
-Nodes (5): Cs, nn(), os(), sn, xt
+Nodes (7): Cs, fe(), ks(), nn(), os(), sn, xt
 
 ### Community 198 - "public/printer/vendor/maennchen/zipstream-php/composer.json"
 Cohesion: 0.06
 Nodes (33): archive, exclude, authors, autoload, psr-4, description, keywords, license (+25 more)
-
-### Community 199 - "ZipStream"
-Cohesion: 0.10
-Nodes (3): ZipStream, ZipStreamTest, ZipStreamTest
 
 ### Community 201 - "outfolder/printer/vendor/maennchen/zipstream-php/composer.json"
 Cohesion: 0.06
@@ -1485,8 +1491,8 @@ Cohesion: 0.08
 Nodes (4): IRenderer, ClientInterface, RequestFactoryInterface, Settings
 
 ### Community 205 - "Kt"
-Cohesion: 0.10
-Nodes (14): bt(), color(), Et(), Ft(), It(), Jt(), Kt, qt() (+6 more)
+Cohesion: 0.09
+Nodes (15): bt(), color(), Et(), Ft(), It(), Jt(), Kt, qt() (+7 more)
 
 ### Community 206 - "jquery-ui-1.14.1/package.json"
 Cohesion: 0.06
@@ -1502,11 +1508,11 @@ Nodes (41): Available methods, barcode($content, $type), Basic usage, bitImage(E
 
 ### Community 212 - "Operator"
 Cohesion: 0.13
-Nodes (6): Addition, Operator, Addition, DirectSum, Multiplication, Subtraction
+Nodes (6): Operator, Subtraction, Addition, DirectSum, Multiplication, Subtraction
 
 ### Community 214 - "ColumnCellIterator"
-Cohesion: 0.05
-Nodes (5): Column, ColumnCellIterator, ColumnIterator, Column, ColumnIterator
+Cohesion: 0.06
+Nodes (4): Column, ColumnCellIterator, ColumnIterator, Column
 
 ### Community 217 - "Available methods"
 Cohesion: 0.05
@@ -1514,11 +1520,11 @@ Nodes (41): Available methods, barcode($content, $type), Basic usage, bitImage(E
 
 ### Community 219 - "_update"
 Cohesion: 0.10
-Nodes (7): bi(), ji(), qs(), stop(), _update(), xs, ys
+Nodes (6): ji(), qs(), stop(), _update(), xs, ys
 
 ### Community 221 - "Archive"
-Cohesion: 0.04
-Nodes (6): FileNotFoundException, OverflowException, Archive, File, Method, Version
+Cohesion: 0.06
+Nodes (3): OverflowException, Archive, Version
 
 ### Community 222 - "Logical"
 Cohesion: 0.07
@@ -1530,7 +1536,7 @@ Nodes (5): JpGraph, JpGraphRendererBase, MtJpGraphRenderer, JpGraph, MtJpGraphRe
 
 ### Community 224 - "XmlScanner"
 Cohesion: 0.06
-Nodes (5): XmlScanner, Properties, BaseReader, DefaultReadFilter, Properties
+Nodes (4): XmlScanner, Properties, BaseReader, Properties
 
 ### Community 226 - "Quick start"
 Cohesion: 0.05
@@ -1545,16 +1551,20 @@ Cohesion: 0.07
 Nodes (4): HTMLPurifier_DefinitionCache_Decorator_Cleanup, HTMLPurifier_DefinitionCache_Decorator_Memory, HTMLPurifier_DefinitionCache_Decorator_Cleanup, HTMLPurifier_DefinitionCache_Decorator_Memory
 
 ### Community 231 - "HTMLPurifier_AttrDef_URI"
-Cohesion: 0.06
-Nodes (10): HTMLPurifier_AttrDef_URI, HTMLPurifier_AttrTransform_ImgRequired, HTMLPurifier_AttrTransform_SafeObject, HTMLPurifier_AttrTransform_SafeParam, HTMLPurifier_AttrTransform_ScriptRequired, HTMLPurifier_ElementDef, HTMLPurifier_HTMLModule_Image, HTMLPurifier_HTMLModule_SafeObject (+2 more)
+Cohesion: 0.07
+Nodes (9): HTMLPurifier_AttrDef_URI, HTMLPurifier_AttrTransform_ImgRequired, HTMLPurifier_AttrTransform_SafeObject, HTMLPurifier_AttrTransform_SafeParam, HTMLPurifier_AttrTransform_ScriptRequired, HTMLPurifier_HTMLModule_Image, HTMLPurifier_HTMLModule_SafeObject, HTMLPurifier_HTMLModule_SafeScripting (+1 more)
 
 ### Community 232 - "Exception"
-Cohesion: 0.10
-Nodes (6): Builder, Div0Exception, Exception, Functions, Multiplication, Division
+Cohesion: 0.16
+Nodes (4): Div0Exception, Exception, Functions, Division
 
 ### Community 233 - "Division"
-Cohesion: 0.12
-Nodes (5): Operations, DirectSum, Division, Subtraction, Operations
+Cohesion: 0.11
+Nodes (6): Operations, Addition, DirectSum, Division, Multiplication, Operations
+
+### Community 234 - "Borders"
+Cohesion: 0.14
+Nodes (3): Borders, CellBorder, CellFill
 
 ### Community 239 - "package.json"
 Cohesion: 0.08
@@ -1568,10 +1578,6 @@ Nodes (3): Color, ColorMap, ColorMap
 Cohesion: 0.08
 Nodes (23): { app, BrowserWindow, ipcMain, screen, session }, axios, bodyParser, checkDatabaseConnection(), checkDateChange(), cors, createWindow(), errorConsole (+15 more)
 
-### Community 243 - "Drawing"
-Cohesion: 0.05
-Nodes (4): Comment, Size, Drawing, HeaderFooterDrawing
-
 ### Community 245 - "adminAdsScheduling.js"
 Cohesion: 0.21
 Nodes (26): apiGet(), apiSend(), attachDragReorder(), bindEvents(), deletePlaylist(), deleteSchedule(), escapeHtml(), formatHourLabel() (+18 more)
@@ -1581,19 +1587,19 @@ Cohesion: 0.14
 Nodes (22): clampAudioValue(), clearLog(), collectDisplayAudioConfig(), displayAudioConfig, displayAudioVoices, findConfiguredDisplayVoice(), loadDisplayAudioSettings(), loadSettings() (+14 more)
 
 ### Community 247 - "jn"
-Cohesion: 0.16
-Nodes (9): Fn(), getMaxOverflow(), jn, parseArrayData(), parseObjectData(), parsePrimitiveData(), resolveDataElementOptions(), size() (+1 more)
+Cohesion: 0.17
+Nodes (8): draw(), getMaxOverflow(), jn, kn(), qn(), resolveDataElementOptions(), size(), uo()
 
 ### Community 248 - "ft"
-Cohesion: 0.10
-Nodes (38): Lt(), gr(), ft(), ah(), At(), bc(), bh(), bo() (+30 more)
+Cohesion: 0.11
+Nodes (36): ft(), ah(), bc(), bh(), Br(), ch(), cm(), ct() (+28 more)
 
 ### Community 249 - "aw"
-Cohesion: 0.30
-Nodes (26): aw(), bw(), cw(), ew(), fw(), gw(), Hw(), iw() (+18 more)
+Cohesion: 0.28
+Nodes (27): aw(), bw(), cw(), ew(), fw(), gw(), Hw(), iw() (+19 more)
 
 ### Community 250 - "Stream"
-Cohesion: 0.08
+Cohesion: 0.11
 Nodes (3): DeflateStream, Stream, DeflateStream
 
 ### Community 251 - "Quick start"
@@ -1604,9 +1610,9 @@ Nodes (38): [4.0.5] - 2026-07-24, Ack, Binary messages, Bugfix, Change log, Deve
 Cohesion: 0.07
 Nodes (26): dealerdirect/phpcodesniffer-composer-installer, markbaker/ukraine, authors, autoload, psr-4, config, allow-plugins, sort-packages (+18 more)
 
-### Community 258 - "DOMElement"
-Cohesion: 0.15
-Nodes (5): BaseLoader, DefinedNames, AutoFilter, BaseLoader, DefinedNames
+### Community 258 - "Averages"
+Cohesion: 0.13
+Nodes (3): AggregateBase, Averages, Counts
 
 ### Community 259 - "outfolder/printer/vendor/markbaker/complex/composer.json"
 Cohesion: 0.07
@@ -1620,16 +1626,16 @@ Nodes (19): ADMIN_ROLE_SETTINGS, ADMIN_ROLE_TABS, allSystemAccounts, applyAdminR
 Cohesion: 0.08
 Nodes (25): authors, autoload, exclude-from-classmap, files, psr-0, config, sort-packages, description (+17 more)
 
+### Community 265 - "ImagickEscposImageTest"
+Cohesion: 0.15
+Nodes (3): friendlyBinary(), GdEscposImageTest, ImagickEscposImageTest
+
 ### Community 266 - "FormulaToken"
 Cohesion: 0.08
 Nodes (3): FormulaParser, FormulaToken, FormulaParser
 
-### Community 267 - "ConvertBase"
-Cohesion: 0.08
-Nodes (7): ConvertBase, ConvertBinary, ConvertHex, ConvertOctal, ConvertBinary, ConvertHex, ConvertOctal
-
 ### Community 268 - "Exception"
-Cohesion: 0.14
+Cohesion: 0.12
 Nodes (3): Delimiter, Exception, Xml
 
 ### Community 269 - "MessageInterface"
@@ -1643,10 +1649,6 @@ Nodes (25): authors, autoload, exclude-from-classmap, files, psr-0, config, sort
 ### Community 271 - "OLE"
 Cohesion: 0.12
 Nodes (3): HTMLPurifier_AttrDef_URI_Email, OLE, PPS
-
-### Community 275 - "outfolder/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xml.php"
-Cohesion: 0.15
-Nodes (3): Properties, Exception, Xml
 
 ### Community 276 - "AadminApi.js"
 Cohesion: 0.10
@@ -1669,24 +1671,16 @@ Cohesion: 0.21
 Nodes (24): b(), beforeEvent(), C(), d(), E(), f(), g(), h() (+16 more)
 
 ### Community 281 - "tn"
-Cohesion: 0.14
-Nodes (4): addElements(), at(), tn, w()
+Cohesion: 0.12
+Nodes (6): addElements(), at(), removeBox(), stop(), tn, w()
 
 ### Community 283 - "public/printer/vendor/mike42/escpos-php/composer.json"
 Cohesion: 0.08
 Nodes (24): authors, autoload, psr-4, config, platform, description, homepage, keywords (+16 more)
 
 ### Community 285 - "Border"
-Cohesion: 0.16
-Nodes (4): Border, Border, Border, CellBorder
-
-### Community 287 - "ConditionalDataBar"
-Cohesion: 0.05
-Nodes (4): ConditionalDataBar, ConditionalFormattingRuleExtension, ConditionalFormatValueObject, ConditionalDataBar
-
-### Community 288 - "Column"
-Cohesion: 0.06
-Nodes (3): Column, Rule, Rule
+Cohesion: 0.09
+Nodes (5): Border, Border, Border, StyleMerger, CellBorder
 
 ### Community 292 - "outfolder/printer/vendor/mike42/escpos-php/composer.json"
 Cohesion: 0.08
@@ -1701,8 +1695,12 @@ Cohesion: 0.12
 Nodes (3): HTMLPurifier_Arborize, HTMLPurifier_Lexer_DOMLex, HTMLPurifier_Queue
 
 ### Community 297 - "HTMLPurifier_ConfigSchema_InterchangeBuilder"
-Cohesion: 0.10
-Nodes (6): HTMLPurifier_ConfigSchema_Exception, HTMLPurifier_ConfigSchema_Interchange_Directive, HTMLPurifier_ConfigSchema_Interchange, HTMLPurifier_ConfigSchema_InterchangeBuilder, HTMLPurifier_StringHash, HTMLPurifier_StringHashParser
+Cohesion: 0.13
+Nodes (5): HTMLPurifier_ConfigSchema_Exception, HTMLPurifier_ConfigSchema_Interchange_Directive, HTMLPurifier_ConfigSchema_Interchange, HTMLPurifier_ConfigSchema_InterchangeBuilder, HTMLPurifier_StringHashParser
+
+### Community 299 - "HTMLPurifier_AttrDef_URI_IPv4"
+Cohesion: 0.13
+Nodes (4): HTMLPurifier_AttrDef_URI_IPv4, HTMLPurifier_AttrDef_URI_IPv6, HTMLPurifier_AttrDef_URI_IPv4, HTMLPurifier_AttrDef_URI_IPv6
 
 ### Community 301 - "Dimension"
 Cohesion: 0.06
@@ -1717,8 +1715,8 @@ Cohesion: 0.12
 Nodes (3): HTMLPurifier_Arborize, HTMLPurifier_Lexer_DOMLex, HTMLPurifier_Queue
 
 ### Community 305 - "HTMLPurifier_ConfigSchema_InterchangeBuilder"
-Cohesion: 0.12
-Nodes (5): HTMLPurifier_ConfigSchema_Exception, HTMLPurifier_ConfigSchema_Interchange_Directive, HTMLPurifier_ConfigSchema_Interchange, HTMLPurifier_ConfigSchema_InterchangeBuilder, HTMLPurifier_StringHash
+Cohesion: 0.10
+Nodes (6): HTMLPurifier_ConfigSchema_Exception, HTMLPurifier_ConfigSchema_Interchange_Directive, HTMLPurifier_ConfigSchema_Interchange, HTMLPurifier_ConfigSchema_InterchangeBuilder, HTMLPurifier_StringHash, HTMLPurifier_StringHashParser
 
 ### Community 307 - "Complex"
 Cohesion: 0.11
@@ -1732,6 +1730,10 @@ Nodes (15): CallerApp.Properties, Resources, Culture, _held, _received, Resource
 Cohesion: 0.09
 Nodes (23): devDependencies, body-parser, browserstack-local, commitplease, diff, eslint-config-jquery, exit-hook, express (+15 more)
 
+### Community 312 - "HTMLPurifier_PropertyList"
+Cohesion: 0.09
+Nodes (3): HTMLPurifier_ConfigSchema_Builder_ConfigSchema, HTMLPurifier_ConfigSchema, HTMLPurifier_PropertyList
+
 ### Community 313 - "CupsPrintConnector"
 Cohesion: 0.13
 Nodes (3): CupsPrintConnector, CupsPrintConnectorTest, CupsPrintConnectorTest
@@ -1740,12 +1742,16 @@ Nodes (3): CupsPrintConnector, CupsPrintConnectorTest, CupsPrintConnectorTest
 Cohesion: 0.13
 Nodes (3): CodePage, CodePageTest, CodePageTest
 
+### Community 317 - "Font"
+Cohesion: 0.05
+Nodes (4): HTMLPurifier, Run, Font, Drawing
+
 ### Community 320 - "AtellerApi.js"
 Cohesion: 0.09
 Nodes (19): express, fs, path, express, { requireRole }, bcrypt, callTicket(), express (+11 more)
 
 ### Community 322 - "HTMLPurifier_Printer_ConfigForm"
-Cohesion: 0.14
+Cohesion: 0.13
 Nodes (5): HTMLPurifier_Printer_ConfigForm, HTMLPurifier_Printer_ConfigForm_bool, HTMLPurifier_Printer_ConfigForm_default, HTMLPurifier_Printer_ConfigForm_NullDecorator, Service
 
 ### Community 323 - "dashboard.js"
@@ -1762,7 +1768,7 @@ Nodes (22): require, ext-ctype, ext-dom, ext-fileinfo, ext-gd, ext-iconv, ext-li
 
 ### Community 326 - "CacheInterface"
 Cohesion: 0.08
-Nodes (3): SimpleCache1, CacheInterface, SimpleCache1
+Nodes (3): SimpleCache3, CacheInterface, SimpleCache1
 
 ### Community 327 - "outfolder/printer/vendor/myclabs/php-enum/composer.json"
 Cohesion: 0.09
@@ -1782,19 +1788,19 @@ Nodes (21): author, dependencies, axios, body-parser, cors, electron, express, m
 
 ### Community 335 - "report.js"
 Cohesion: 0.20
-Nodes (19): createReportServiceLineChart(), displayByService(), displayByStatus(), displayByTeller(), displayDailyTrends(), displayDetailedTransactions(), displayReportData(), displayReportServiceAnalytics() (+11 more)
+Nodes (20): createReportServiceLineChart(), displayByGroup(), displayByService(), displayByStatus(), displayByTeller(), displayDailyTrends(), displayDetailedTransactions(), displayReportData() (+12 more)
 
 ### Community 336 - "s"
-Cohesion: 0.05
-Nodes (38): a(), aa(), afterDatasetsUpdate(), Be(), bo, determineDataLimits(), Di(), e() (+30 more)
+Cohesion: 0.06
+Nodes (24): a(), aa(), afterDatasetsUpdate(), bo, determineDataLimits(), et(), g(), getValueForPixel() (+16 more)
 
 ### Community 337 - "E"
 Cohesion: 0.20
 Nodes (18): at(), bt(), r(), C(), E(), i(), mt(), o() (+10 more)
 
 ### Community 339 - ".sqrt"
-Cohesion: 0.04
-Nodes (14): DStDev, DStDevP, BesselI, BesselJ, BesselY, Sqrt, Cotangent, Tangent (+6 more)
+Cohesion: 0.03
+Nodes (15): BesselI, BesselJ, BesselY, Sqrt, Cosecant, Cosine, Cotangent, Secant (+7 more)
 
 ### Community 344 - "Interfaces"
 Cohesion: 0.07
@@ -1816,10 +1822,6 @@ Nodes (19): d(), de(), ee(), Ft(), it(), jt(), K(), O() (+11 more)
 Cohesion: 0.07
 Nodes (25): Interfaces, `Psr\Http\Message\MessageInterface` Methods, `Psr\Http\Message\RequestInterface` Methods, `Psr\Http\Message\ResponseInterface` Methods:, `Psr\Http\Message\ServerRequestInterface` Methods, `Psr\Http\Message\StreamInterface` Methods, `Psr\Http\Message\UploadedFileInterface` Methods, `Psr\Http\Message\UriInterface` Methods (+17 more)
 
-### Community 356 - "EscposImage"
-Cohesion: 0.14
-Nodes (3): EscposImage, GdEscposImage, NativeEscposImage
-
 ### Community 358 - "Changelog"
 Cohesion: 0.08
 Nodes (25): 1.12.0 - 2020-04-27, 1.14.0 - 2020-06-29, 1.1.0 - 2018-01-28, 1.2.1 - 2018-04-10, 1.3.1 - 2018-06-12, 1.4.1 - 2018-09-30, 1.5.2 - 2018-11-25, 1.7.0 - 2019-05-26 (+17 more)
@@ -1832,33 +1834,33 @@ Nodes (6): app, escpos, express, Jimp, printer, PrinterService
 Cohesion: 0.20
 Nodes (7): ApiClient, BaseUrl, CurrentTeller, Socket, ApiClient, BaseUrl, CurrentTeller
 
-### Community 363 - "xe"
-Cohesion: 0.14
-Nodes (29): ae(), ag(), be(), ce(), dr(), Ee(), fe(), gg() (+21 more)
+### Community 363 - "ne"
+Cohesion: 0.20
+Nodes (16): ni(), ae(), ce(), De(), fe(), gg(), hg(), ie() (+8 more)
 
-### Community 364 - "public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Ods.php"
-Cohesion: 0.15
-Nodes (4): AutoFilter, FormulaTranslator, ClientExceptionInterface, CacheException
+### Community 364 - "Throwable"
+Cohesion: 0.22
+Nodes (3): Builder, ClientExceptionInterface, CacheException
 
-### Community 368 - "IComparable"
-Cohesion: 0.05
-Nodes (4): Hyperlink, IComparable, RichText, Supervisor
+### Community 370 - "WindowsPrintConnector"
+Cohesion: 0.10
+Nodes (4): FilePrintConnector, NetworkPrintConnector, UriPrintConnector, WindowsPrintConnector
 
 ### Community 375 - "OLE"
-Cohesion: 0.07
-Nodes (4): ChainedBlockStream, OLE, PPS, File
+Cohesion: 0.08
+Nodes (5): HTMLPurifier_AttrDef_URI_Email, OLE, File, PPS, File
 
 ### Community 378 - "refreshCurrentTab"
 Cohesion: 0.14
 Nodes (10): deleteAccount(), loadAccounts(), refreshCurrentTab(), showAjaxError(), deleteGroup(), loadGroups(), deleteService(), loadServices() (+2 more)
 
 ### Community 379 - "de"
-Cohesion: 0.16
-Nodes (5): ce(), de, dt(), he(), qs()
+Cohesion: 0.21
+Nodes (4): ce(), de, dt(), he()
 
 ### Community 380 - "wA"
-Cohesion: 0.20
-Nodes (17): A(), B(), n(), r(), B(), cn(), E(), H() (+9 more)
+Cohesion: 0.21
+Nodes (16): A(), B(), n(), r(), B(), cn(), E(), H() (+8 more)
 
 ### Community 381 - "HTMLPurifier_Language"
 Cohesion: 0.16
@@ -1869,12 +1871,12 @@ Cohesion: 0.08
 Nodes (25): 1.12.0 - 2020-04-27, 1.14.0 - 2020-06-29, 1.1.0 - 2018-01-28, 1.2.1 - 2018-04-10, 1.3.1 - 2018-06-12, 1.4.1 - 2018-09-30, 1.5.2 - 2018-11-25, 1.7.0 - 2019-05-26 (+17 more)
 
 ### Community 384 - "IWriter"
-Cohesion: 0.12
-Nodes (3): {closure#1}(), IWriter, {closure#1}()
+Cohesion: 0.10
+Nodes (3): {closure#1}(), IOFactory, IWriter
 
-### Community 385 - "bb"
-Cohesion: 0.07
-Nodes (37): bb(), cb(), cf(), Ci(), db(), df(), Fb(), ff() (+29 more)
+### Community 385 - "nb"
+Cohesion: 0.18
+Nodes (13): nb(), 1.18.0 - 2021-05-31, Added, Changed, Deprecated, Fixed, Removed, 1.18.0 - 2021-05-31 (+5 more)
 
 ### Community 387 - "HTMLPurifier_Language"
 Cohesion: 0.16
@@ -1885,12 +1887,12 @@ Cohesion: 0.18
 Nodes (17): addCombinator(), assert(), compile(), condense(), createPositionalPseudo(), elementMatcher(), find(), markFunction() (+9 more)
 
 ### Community 396 - "HTMLPurifier_Printer"
-Cohesion: 0.13
-Nodes (6): HTMLPurifier_Printer_ConfigForm, HTMLPurifier_Printer_ConfigForm_bool, HTMLPurifier_Printer_ConfigForm_default, HTMLPurifier_Printer_ConfigForm_NullDecorator, HTMLPurifier_Printer_CSSDefinition, HTMLPurifier_Printer_CSSDefinition
+Cohesion: 0.10
+Nodes (7): HTMLPurifier_Printer_ConfigForm, HTMLPurifier_Printer_ConfigForm_bool, HTMLPurifier_Printer_ConfigForm_default, HTMLPurifier_Printer_ConfigForm_NullDecorator, HTMLPurifier_Printer_CSSDefinition, Service, HTMLPurifier_Printer_CSSDefinition
 
 ### Community 397 - "ExcelError"
 Cohesion: 0.02
-Nodes (18): Exception, Operations, Complex, Periodic, ExcelError, Gcd, Roman, Round (+10 more)
+Nodes (22): DVar, DVarP, Single, Periodic, ExcelError, Gcd, Roman, Deviations (+14 more)
 
 ### Community 400 - "Font"
 Cohesion: 0.11
@@ -1912,33 +1914,33 @@ Nodes (17): addCombinator(), assert(), compile(), condense(), createPositionalPs
 Cohesion: 0.29
 Nodes (14): c(), d(), e(), f(), g(), h(), i(), l() (+6 more)
 
-### Community 411 - ".getChildDef"
-Cohesion: 0.15
-Nodes (3): HTMLPurifier_ChildDef_Custom, HTMLPurifier_ChildDef_Required, HTMLPurifier_ContentSets
+### Community 411 - "HTMLPurifier_ChildDef"
+Cohesion: 0.03
+Nodes (20): HTMLPurifier_ChildDef_Custom, HTMLPurifier_ChildDef_Empty, HTMLPurifier_ChildDef_List, HTMLPurifier_ChildDef_Required, HTMLPurifier_ChildDef_Table, HTMLPurifier_ContentSets, HTMLPurifier_HTMLModule_List, HTMLPurifier_HTMLModule_Tables (+12 more)
+
+### Community 414 - "ResponseInterface"
+Cohesion: 0.14
+Nodes (4): ResponseFactoryInterface, ResponseInterface, ClientInterface, ResponseFactoryInterface
 
 ### Community 416 - "public/printer/vendor/psr/http-client/composer.json"
 Cohesion: 0.12
 Nodes (15): authors, autoload, psr-4, dev-master, description, extra, branch-alias, homepage (+7 more)
 
-### Community 417 - ".getChildDef"
-Cohesion: 0.15
-Nodes (3): HTMLPurifier_ChildDef_Custom, HTMLPurifier_ChildDef_Empty, HTMLPurifier_ContentSets
-
 ### Community 418 - "HTMLPurifier_VarParser"
-Cohesion: 0.18
-Nodes (3): HTMLPurifier_VarParser, HTMLPurifier_VarParser_Native, HTMLPurifier_VarParserException
+Cohesion: 0.16
+Nodes (4): HTMLPurifier_Exception, HTMLPurifier_VarParser, HTMLPurifier_VarParser_Native, HTMLPurifier_VarParserException
 
 ### Community 427 - "AkioskApi.js"
 Cohesion: 0.12
 Nodes (13): axios, express, fs, { kioskLimiter }, path, QRCode, express, fs (+5 more)
 
-### Community 428 - "Xf"
-Cohesion: 0.09
-Nodes (3): CellBorder, CellFill, Xf
-
 ### Community 429 - "outfolder/printer/vendor/psr/http-client/composer.json"
 Cohesion: 0.12
 Nodes (15): authors, autoload, psr-4, dev-master, description, extra, branch-alias, homepage (+7 more)
+
+### Community 430 - "UploadedFileInterface"
+Cohesion: 0.14
+Nodes (3): UploadedFileFactoryInterface, UploadedFileInterface, UploadedFileFactoryInterface
 
 ### Community 431 - "HTMLPurifier_AttrDef_HTML_FrameTarget"
 Cohesion: 0.13
@@ -1949,8 +1951,8 @@ Cohesion: 0.13
 Nodes (4): HTMLPurifier_AttrDef_HTML_Pixels, HTMLPurifier_AttrTransform_Input, HTMLPurifier_AttrTransform_Textarea, HTMLPurifier_HTMLModule_Forms
 
 ### Community 438 - "Coupons"
-Cohesion: 0.07
-Nodes (7): Amortization, Coupons, Depreciation, Dollar, InterestRate, TreasuryBill, Format
+Cohesion: 0.09
+Nodes (5): Coupons, Depreciation, Dollar, InterestRate, Format
 
 ### Community 439 - "public/printer/vendor/psr/http-factory/composer.json"
 Cohesion: 0.13
@@ -1976,10 +1978,6 @@ Nodes (14): authors, autoload, psr-4, dev-master, description, extra, branch-ali
 Cohesion: 0.15
 Nodes (10): AppSettings, AlwaysOnTop, AutoFinishEnabled, EnableSoundAlerts, SavedPassword, SavedUsername, ShowReceivedInWaiting, ShowTooltips (+2 more)
 
-### Community 450 - "HTMLPurifier_ChildDef_Optional"
-Cohesion: 0.13
-Nodes (4): HTMLPurifier_ChildDef_Optional, HTMLPurifier_ChildDef_Chameleon, HTMLPurifier_ChildDef_Optional, HTMLPurifier_HTMLModule_Edit
-
 ### Community 452 - "Animation"
 Cohesion: 0.15
 Nodes (14): adoptValue(), ajaxConvert(), ajaxHandleResponses(), Animation(), camelCase(), createFxNow(), createTween(), defaultPrefilter() (+6 more)
@@ -1993,8 +1991,8 @@ Cohesion: 0.14
 Nodes (13): authors, autoload, psr-4, dev-master, description, extra, branch-alias, keywords (+5 more)
 
 ### Community 468 - ".sqrt"
-Cohesion: 0.05
-Nodes (10): BesselI, BesselJ, BesselY, Sqrt, Cotangent, Tangent, Normal, StandardNormal (+2 more)
+Cohesion: 0.06
+Nodes (9): BesselJ, BesselY, Cosecant, Cosine, Cotangent, Secant, Sine, Tangent (+1 more)
 
 ### Community 471 - "outfolder/printer/vendor/psr/simple-cache/composer.json"
 Cohesion: 0.14
@@ -2012,9 +2010,17 @@ Nodes (8): c(), h(), l(), n(), o(), r(), u(), a()
 Cohesion: 0.13
 Nodes (4): HTMLPurifier_AttrDef_CSS_Ident, HTMLPurifier_AttrDef_HTML_ID, HTMLPurifier_AttrTransform_NameSync, HTMLPurifier_HTMLModule_Name
 
+### Community 481 - "HTMLPurifier_PropertyList"
+Cohesion: 0.09
+Nodes (3): HTMLPurifier_ConfigSchema_Builder_ConfigSchema, HTMLPurifier_ConfigSchema, HTMLPurifier_PropertyList
+
 ### Community 486 - "PageSetup"
-Cohesion: 0.11
-Nodes (3): BaseParserClass, SheetViews, SheetViews
+Cohesion: 0.12
+Nodes (3): BaseParserClass, PageSetup, SheetViews
+
+### Community 488 - "ColumnIterator"
+Cohesion: 0.07
+Nodes (3): CellIterator, ColumnIterator, RowIterator
 
 ### Community 489 - "ZipStream-PHP"
 Cohesion: 0.12
@@ -2023,6 +2029,10 @@ Nodes (15): About the Authors, Code Contributors, Contributing, Contributors, Fi
 ### Community 490 - "seed_transactions.js"
 Cohesion: 0.22
 Nodes (12): addTime(), db, dbPath, endDate, formatDate(), fs, generateRandomTimeUntil530(), path (+4 more)
+
+### Community 491 - "IReader"
+Cohesion: 0.09
+Nodes (3): IReader, {closure#1}(), IOFactory
 
 ### Community 492 - "loadServicesBtns"
 Cohesion: 0.29
@@ -2052,17 +2062,13 @@ Nodes (12): require-dev, dealerdirect/phpcodesniffer-composer-installer, dompdf/
 Cohesion: 0.17
 Nodes (12): require-dev, dealerdirect/phpcodesniffer-composer-installer, dompdf/dompdf, friendsofphp/php-cs-fixer, mitoteam/jpgraph, mpdf/mpdf, phpcompatibility/php-compatibility, phpstan/phpstan (+4 more)
 
-### Community 512 - "HTMLPurifier_ChildDef"
-Cohesion: 0.14
-Nodes (4): HTMLPurifier_ChildDef_Empty, HTMLPurifier_ChildDef_List, HTMLPurifier_HTMLModule_List, HTMLPurifier_ChildDef_Required
-
-### Community 513 - "Text"
-Cohesion: 0.06
-Nodes (4): Text, TextGrid, ExcelError, Delimiter
-
 ### Community 514 - "HTMLPurifier_ChildDef_StrictBlockquote"
-Cohesion: 0.16
-Nodes (4): HTMLPurifier_HTMLModule_Tidy_Transitional, HTMLPurifier_ChildDef_StrictBlockquote, HTMLPurifier_HTMLModule_Tidy_Strict, HTMLPurifier_HTMLModule_Tidy_Transitional
+Cohesion: 0.07
+Nodes (9): HTMLPurifier_ChildDef_Chameleon, HTMLPurifier_ChildDef_Optional, HTMLPurifier_ChildDef_StrictBlockquote, HTMLPurifier_HTMLModule_Edit, HTMLPurifier_HTMLModule_Tidy_Strict, HTMLPurifier_HTMLModule_Tidy_Transitional, HTMLPurifier_ChildDef_StrictBlockquote, HTMLPurifier_HTMLModule_Tidy_Strict (+1 more)
+
+### Community 515 - "public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xls.php"
+Cohesion: 0.07
+Nodes (5): ConditionalFormatting, FillPattern, CodePage, OLERead, SheetView
 
 ### Community 517 - "ForwardModal"
 Cohesion: 0.18
@@ -2085,8 +2091,8 @@ Cohesion: 0.46
 Nodes (8): g(), k(), kt(), m(), p(), rt(), f(), P()
 
 ### Community 528 - "HTMLPurifier_Generator"
-Cohesion: 0.09
-Nodes (4): HTMLPurifier_Context, HTMLPurifier_ErrorCollector, HTMLPurifier_ErrorStruct, HTMLPurifier_Generator
+Cohesion: 0.08
+Nodes (5): HTMLPurifier_Context, HTMLPurifier_ErrorCollector, HTMLPurifier_ErrorStruct, HTMLPurifier_Generator, HTMLPurifier_Printer_HTMLDefinition
 
 ### Community 529 - "ft"
 Cohesion: 0.24
@@ -2103,10 +2109,6 @@ Nodes (13): Can I print from my server on the Internet?, Can I print over the ne
 ### Community 543 - "outfolder/printer/vendor/phpoffice/phpspreadsheet/composer.json"
 Cohesion: 0.18
 Nodes (10): authors, autoload, psr-4, description, homepage, keywords, license, name (+2 more)
-
-### Community 544 - "Logger"
-Cohesion: 0.07
-Nodes (3): CyclicReferenceStack, Logger, Logger
 
 ### Community 555 - "Frequently Asked Questions (FAQ)"
 Cohesion: 0.14
@@ -2132,6 +2134,18 @@ Nodes (3): CacheException, InvalidArgumentException, InvalidArgumentException
 Cohesion: 0.20
 Nodes (6): express, jwt, { loadConfig }, pageRouter, path, jsonwebtoken
 
+### Community 574 - "HTMLPurifier_HTMLDefinition"
+Cohesion: 0.07
+Nodes (5): HTMLPurifier_AttrCollections, HTMLPurifier_ElementDef, HTMLPurifier_HTMLDefinition, HTMLPurifier_HTMLModule, HTMLPurifier_HTMLModuleManager
+
+### Community 577 - "HTMLPurifier_VarParser_Native"
+Cohesion: 0.13
+Nodes (4): HTMLPurifier_VarParser_Flexible, HTMLPurifier_VarParser_Native, HTMLPurifier_VarParserException, HTMLPurifier_VarParser_Flexible
+
+### Community 590 - "Wizard"
+Cohesion: 0.07
+Nodes (4): Blanks, Wizard, ConditionalHelper, ConditionalHelper
+
 ### Community 595 - "PhpSpreadsheet"
 Cohesion: 0.18
 Nodes (10): Additional Installation Options, Chart Export, Documentation, Installation, License, Patreon, PDF, PHP Version Support (+2 more)
@@ -2151,10 +2165,6 @@ Nodes (10): About, Additional Documentation, Create logs, Custom logger provider
 ### Community 608 - "windowsCaller/packages/Microsoft.Extensions.Options.10.0.3/PACKAGE.md"
 Cohesion: 0.18
 Nodes (10): About, Additional Documentation, Feedback & Contributing, How to Use, Key Features, Main Types, Options validation example, Options Validation Source Generator Example (+2 more)
-
-### Community 613 - ".trim"
-Cohesion: 0.08
-Nodes (5): HTMLPurifier_AttrDef_URI_Email_SimpleCheck, HTMLPurifier_AttrDef, HTMLPurifier_AttrDef_URI_Email_SimpleCheck, FormattedNumber, Formula
 
 ### Community 615 - "windowsCaller_prevs/packages/Microsoft.Extensions.Logging.Abstractions.10.0.3/PACKAGE.md"
 Cohesion: 0.18
@@ -2181,16 +2191,12 @@ Cohesion: 0.09
 Nodes (4): HTMLPurifier_Filter_ExtractStyleBlocks, HTMLPurifier_Filter_YouTube, HTMLPurifier_Filter_ExtractStyleBlocks, HTMLPurifier_Filter_YouTube
 
 ### Community 634 - "ticketHistoryHelper.js"
-Cohesion: 0.33
-Nodes (6): aggregateTellerMetrics(), extractTellerFlowBlocks(), extractTellerJourney(), extractTellersFromTransaction(), parseHistory(), parseTimeToSec()
+Cohesion: 0.27
+Nodes (7): aggregateGroupMetrics(), aggregateTellerMetrics(), extractTellerFlowBlocks(), extractTellerJourney(), extractTellersFromTransaction(), parseHistory(), parseTimeToSec()
 
 ### Community 635 - "PHP Enum implementation inspired from SplEnum"
 Cohesion: 0.20
 Nodes (9): Declaration, Documentation, Installation, Native enums and migration, PHP Enum implementation inspired from SplEnum, Related projects, Static methods, Usage (+1 more)
-
-### Community 638 - "AddressHelper"
-Cohesion: 0.15
-Nodes (3): Helpers, AddressHelper, Helpers
 
 ### Community 651 - "PHP Enum implementation inspired from SplEnum"
 Cohesion: 0.20
@@ -2209,12 +2215,12 @@ Cohesion: 0.33
 Nodes (6): scripts, build, lint, test, test:server, test:unit
 
 ### Community 656 - "DateTime"
-Cohesion: 0.04
-Nodes (8): Difference, Helpers, IntOrFloat, Difference, Helpers, Week, Coupons, Permutations
+Cohesion: 0.03
+Nodes (8): Difference, Helpers, Week, IntOrFloat, Difference, Helpers, Week, Permutations
 
 ### Community 658 - "Exception"
 Cohesion: 0.02
-Nodes (33): Date, EngineeringValidations, Exception, FinancialValidations, SecurityValidations, LookupRefValidations, Arabic, Helpers (+25 more)
+Nodes (26): Date, EngineeringValidations, Exception, FinancialValidations, SecurityValidations, LookupBase, LookupRefValidations, Arabic (+18 more)
 
 ### Community 660 - "suggest"
 Cohesion: 0.33
@@ -2284,13 +2290,13 @@ Nodes (4): autoload-dev, psr-4, PhpOffice\\PhpSpreadsheetInfra\\, PhpOffice\\Php
 Cohesion: 0.50
 Nodes (4): scripts, check, fix, versions
 
-### Community 735 - "HTMLPurifier_AttrDef_Integer"
-Cohesion: 0.18
-Nodes (3): HTMLPurifier_AttrDef_CSS_Filter, HTMLPurifier_AttrDef_Integer, HTMLPurifier_HTMLModule_Legacy
-
 ### Community 739 - "bombardment.js"
 Cohesion: 0.31
 Nodes (7): authenticateSessions(), checkServerReachable(), getRequestDefinitions(), path, rawArgs, runStressTest(), stats
+
+### Community 745 - "HTMLPurifier_Generator"
+Cohesion: 0.10
+Nodes (4): HTMLPurifier_ErrorCollector, HTMLPurifier_ErrorStruct, HTMLPurifier_Generator, HTMLPurifier
 
 ### Community 746 - "resolve"
 Cohesion: 0.67
@@ -2314,7 +2320,7 @@ Nodes (8): About, Additional Documentation, Baggage and Tags for `ActivityTracki
 
 ### Community 868 - "en"
 Cohesion: 0.05
-Nodes (68): aA(), av(), bg(), bk(), Cv(), dc(), Dd(), Dg() (+60 more)
+Nodes (72): aA(), av(), bg(), bk(), Cv(), dc(), Dd(), Dg() (+64 more)
 
 ### Community 869 - "public/printer/vendor/markbaker/matrix/README.md"
 Cohesion: 0.25
@@ -2750,23 +2756,23 @@ Nodes (3): 1.5.0 - 2018-10-21, Added, Fixed
 
 ## Knowledge Gaps
 - **91 isolated node(s):** `@ffmpeg/core`, `@ffmpeg/core-mt`, `@ffmpeg/ffmpeg`, `axios`, `body-parser` (+86 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 7713 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **586 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 7714 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **579 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Worksheet` connect `Worksheet` to `Spreadsheet`, `SimpleXMLElement`, `Xlsx`, `.log`, `Worksheet`, `ColumnDimension`, `Content`, `RichText`, `.log`, `DefinedName`, `Cell`, `CellAddress`, `StringHelper`, `Ods`, `ConditionalStyles`, `.trim`, `Calculation`, `AutoFilter`, `XMLWriter`, `public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx.php`, `Table`, `RowIterator`, `Coordinate`, `Html`, `DataValidation`, `Chart`, `ReferenceHelper`, `ChartColor`, `Styles`, `Protection`, `Html`, `Html`, `ReferenceHelper`, `Chart`, `RowCellIterator`, `.writeAutoFilterColumnRule`, `Html`, `IReadFilter`, `PageSetup`, `Exception`, `AddressHelper`, `DataSeries`, `AutoFilter`, `Xlsx`, `BaseDrawing`, `.getNamedFormula`, `DataSeriesValues`, `.writeAutoFilterColumnRule`, `DataSeriesValues`, `BaseDrawing`, `MD5`, `Cells`, `public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/LookupRef.php`, `File`, `.loadSpreadsheetFromFile`, `RowCellIterator`, `Parser`, `Table`, `ColumnCellIterator`, `HeaderFooter`, `Drawing`, `Stream`, `DOMElement`, `Cells`, `outfolder/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xml.php`, `ConditionalDataBar`, `Column`, `DataSeries`, `Coordinate`, `Exception`, `PageMargins`, `DOMDocument`, `public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Ods.php`, `IComparable`, `CellAddress`, `.count`, `DefinedName`, `ColumnRange`, `ColumnRange`, `PlotArea`, `CellMatcher`, `HTMLPurifier_DefinitionCache_Serializer`, `CellMatcher`, `Supervisor`, `Value`, `PageSetup`, `RowIterator`, `RowRange`, `.createCSSStyle`, `Style`?**
-  _High betweenness centrality (0.079) - this node is a cross-community bridge._
+- **Why does `Worksheet` connect `Worksheet` to `public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xls.php`, `Conditional`, `Spreadsheet`, `SimpleXMLElement`, `Xlsx`, `.log`, `Worksheet`, `RowColumnInformation`, `ColumnDimension`, `Spreadsheet`, `RichText`, `RowColumnInformation`, `ErrorValue`, `.log`, `DefinedName`, `Cell`, `CellAddress`, `StringHelper`, `Ods`, `ConditionalStyles`, `IValueBinder`, `.trim`, `Calculation`, `AutoFilter`, `AutoFilter`, `XMLWriter`, `public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xlsx.php`, `Table`, `RowIterator`, `Coordinate`, `Html`, `.testColumnInRange`, `DataValidation`, `Chart`, `Row`, `outfolder/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Writer/Xlsx/StringTable.php`, `Offset`, `ReferenceHelper`, `Styles`, `Protection`, `DOMElement`, `Html`, `ReferenceHelper`, `Chart`, `Title`, `Style`, `RowCellIterator`, `outfolder/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/LookupRef/Offset.php`, `.writeAutoFilterColumnRule`, `Html`, `IReadFilter`, `PageSetup`, `Exception`, `DataSeries`, `AutoFilter`, `Xlsx`, `BaseDrawing`, `.getNamedFormula`, `DataSeriesValues`, `.writeAutoFilterColumnRule`, `DataSeriesValues`, `BaseDrawing`, `MD5`, `Cells`, `public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/LookupRef.php`, `Namespaces`, `BranchPruner`, `Exception`, `.loadSpreadsheetFromFile`, `RowCellIterator`, `Table`, `ColumnCellIterator`, `Column`, `HeaderFooter`, `Drawing`, `Exception`, `Cells`, `Matrix`, `ConditionalFormattingRuleExtension`, `DataSeries`, `Coordinate`, `PageMargins`, `ConditionalDataBar`, `Font`, `public/printer/vendor/maennchen/zipstream-php/test/ZipStreamTest.php`, `CellAddress`, `XmlScanner`, `DefinedName`, `ColumnRange`, `ColumnRange`, `PlotArea`, `Style`, `HTMLPurifier_DefinitionCache_Serializer`, `SheetViews`, `RowRange`, `Supervisor`, `Value`, `PageSetup`, `ColumnIterator`, `RowRange`, `Style`?**
+  _High betweenness centrality (0.093) - this node is a cross-community bridge._
 - **Are the 119 inferred relationships involving `make_xlsx_lib()` (e.g. with `Pn()` and `Oe()`) actually correct?**
   _`make_xlsx_lib()` has 119 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `@ffmpeg/core`, `@ffmpeg/core-mt`, `@ffmpeg/ffmpeg` to the rest of the system?**
   _91 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ArrayEnabled` be split into smaller, more focused modules?**
-  _Cohesion score 0.011050273768043803 - nodes in this community are weakly interconnected._
-- **Why does `ArrayEnabled` connect `ArrayEnabled` to `DatabaseAbstract`, `ExcelError`, `Text`, `.log`, `ConvertBase`, `ExcelError`, `Format`, `DateTime`, `Exception`, `ConvertUOM`, `DateTimeImmutable`, `Extract`, `Week`, `Date`, `ErrorValue`, `.log`, `DefinedName`, `public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/LookupRef.php`, `ConvertUOM`, `.log10`, `Extract`, `Text`, `ArrayArgumentProcessor`, `.sort`, `.floor`, `Trends`, `Coupons`, `public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/Logical/Operations.php`, `.floor`, `Trends`, `outfolder/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Calculation/Logical/Operations.php`, `public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/AutoFilter.php`, `.sort`, `.sqrt`, `.sqrt`, `ComplexFunctions`, `Value`, `Ceiling`, `Matrix`, `ComplexFunctions`?**
-  _High betweenness centrality (0.056) - this node is a cross-community bridge._
+  _Cohesion score 0.010426799610894941 - nodes in this community are weakly interconnected._
+- **Why does `Exception` connect `Exception` to `public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Reader/Xls.php`, `SheetView`, `Worksheet`, `Spreadsheet`, `NumberFormatter`, `Worksheet`, `ColumnDimension`, `RichText`, `Date`, `XMLWriter`, `Xls`, `TextValue`, `DefinedName`, `Cell`, `BSE`, `CellAddress`, `.trim`, `Dimension`, `AutoFilter`, `Xls`, `CellValue`, `Coordinate`, `Currency`, `.testColumnInRange`, `DgContainer`, `Wizard`, `WizardInterface`, `.getUInt2d`, `PasswordHasher`, `TextValue`, `BaseReader`, `ReferenceHelper`, `NumberBase`, `Style`, `RowCellIterator`, `Gnumeric`, `PageSetup`, `Xlsx`, `PageSetup`, `Comment`, `DataSeriesValues`, `Alignment`, `Exception`, `DataSeriesValues`, `Namespaces`, `Dimension`, `PasswordHasher`, `.readSheet`, `RowCellIterator`, `Settings`, `ColumnCellIterator`, `XmlScanner`, `.isValueInList`, `Workbook`, `Borders`, `Drawing`, `Exception`, `Drawing`, `Matrix`, `Border`, `Column`, `Coordinate`, `Dimension`, `Font`, `Rule`, `public/printer/vendor/phpoffice/phpspreadsheet/src/PhpSpreadsheet/Worksheet/AutoFilter.php`, `Column`, `MemoryDrawing`, `Rule`, `Alignment`, `MemoryDrawing`, `.setRange`, `CellAddress`, `Borders`, `IWriter`, `Font`, `Drawing`, `Border`, `CodePage`, `BaseWriter`, `ColumnIterator`, `ChainedBlockStream`, `CellValue`?**
+  _High betweenness centrality (0.062) - this node is a cross-community bridge._
 - **Are the 13 inferred relationships involving `Exception` (e.g. with `.evaluateComparison()` and `.calculate()`) actually correct?**
   _`Exception` has 13 INFERRED edges - model-reasoned connections that need verification._
 - **Should `DatabaseAbstract` be split into smaller, more focused modules?**
-  _Cohesion score 0.011934643618280843 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.012552748250627637 - nodes in this community are weakly interconnected._

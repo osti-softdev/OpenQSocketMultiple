@@ -1571,19 +1571,34 @@ button.btn {
     min-height: 0 !important;
 }
 
-.reports-data-sections .report-card-teller {
+.reports-split-row {
     grid-column: 1 / -1 !important;
-    order: 1 !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    align-items: stretch !important;
+    gap: 14px !important;
+    width: 100% !important;
+}
+
+.reports-split-row .report-card-teller,
+.reports-split-row .report-card-group {
+    grid-column: span 1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
 }
 
 .reports-data-sections .report-card-service {
-    grid-column: auto !important;
-    order: 2 !important;
+    grid-column: 1 / -1 !important;
 }
 
 .reports-data-sections .report-card-daily {
-    grid-column: auto !important;
-    order: 3 !important;
+    grid-column: 1 / -1 !important;
+}
+
+@media (max-width: 992px) {
+    .reports-split-row {
+        grid-template-columns: 1fr !important;
+    }
 }
 
 .report-service-analytics {

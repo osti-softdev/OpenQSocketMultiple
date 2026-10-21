@@ -4639,3 +4639,142 @@ Error: Failed to copy file to printer
 ✔ 2026-10-21 12:04:42 PM [node:events:509] [ADS] Client connected: -EeApkUXx1sJrUlvAAAH
 ✔ 2026-10-21 12:04:46 PM [node:events:509] [ADS] Client disconnected: -EeApkUXx1sJrUlvAAAH
 ✔ 2026-10-21 12:04:46 PM [node:events:509] [ADS] Client connected: om1QYlvR5H7H6lAVAAAJ
+✔ 2026-10-21 12:27:04 PM [backend\routes\AtellerApi.js:73] Login attempt for: admin
+✔ 2026-10-21 12:27:04 PM [node_modules\sqlite3\lib\trace.js:25] User not found: admin
+✔ 2026-10-21 12:27:28 PM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 12:27:28 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 12:27:28 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 12:27:46 PM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 12:27:46 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 12:27:46 PM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 12:27:46 PM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 12:27:46 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 12:27:46 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 12:27:46 PM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 12:27:46 PM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 12:27:46 PM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 12:27:46 PM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 12:27:46 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 12:27:46 PM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 12:27:46 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 12:27:46 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 12:27:46 PM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 12:27:46 PM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 12:27:46 PM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 12:27:46 PM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 12:27:46 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 12:27:46 PM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 12:27:46 PM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 12:27:46 PM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 12:27:46 PM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 12:27:46 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 12:28:26 PM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 12:28:26 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 12:28:26 PM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 12:28:26 PM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 12:28:26 PM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 12:28:26 PM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 12:28:26 PM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 12:28:26 PM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 12:28:26 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 12:28:26 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 12:28:26 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 12:28:26 PM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 12:28:26 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 12:28:26 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 12:28:26 PM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 12:28:26 PM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 12:28:26 PM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 12:28:26 PM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 12:28:26 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 12:28:26 PM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 12:28:26 PM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 12:28:26 PM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 12:28:26 PM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 12:28:26 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 12:28:45 PM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 12:28:45 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 12:28:45 PM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 12:28:45 PM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 12:28:45 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 12:28:45 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 12:28:45 PM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 12:28:45 PM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 12:28:45 PM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 12:28:45 PM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 12:28:45 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 12:28:45 PM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 12:28:45 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 12:28:45 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 12:28:45 PM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 12:28:45 PM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 12:28:45 PM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 12:28:45 PM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 12:28:45 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 12:28:45 PM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 12:28:45 PM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 12:28:45 PM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 12:28:45 PM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 12:28:45 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 12:28:52 PM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 12:28:52 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 12:28:52 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 12:28:52 PM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 12:28:52 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 12:28:52 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 12:52:08 PM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-10-21 12:52:08 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ multiple files { path: ['.env.local', '.env'] }[0m
+✔ 2026-10-21 12:52:10 PM [unknown-location] Connected to SQLite database
+✔ 2026-10-21 12:52:10 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-10-21 12:52:10 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-21 12:52:11 PM [unknown-location] Found 49010 transactions older than 365 days. Archiving...
+✔ 2026-10-21 12:52:12 PM [index.js:88] External display detected. Launching display window...
+✔ 2026-10-21 12:52:12 PM [backend\utilities\db.js:411] Successfully archived 49010 transactions to E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\backups\transactions_archive_2026-10-21T04-52-12-000Z.csv
+✔ 2026-10-21 12:52:14 PM [unknown-location] Deleted 49010 old transactions from database.
+✔ 2026-10-21 12:52:16 PM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-10-21 12:52:24 PM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-10-21 12:52:24 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ encrypted .env [www.dotenvx.com][0m
+✔ 2026-10-21 12:52:24 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-10-21 12:52:24 PM [unknown-location] Connected to SQLite database
+✔ 2026-10-21 12:52:24 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-10-21 12:52:24 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-21 12:52:24 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-21 12:52:24 PM [node:events:509] [ADS] Client connected: mGoo6vAxyF3NnmDvAAAB
+✔ 2026-10-21 12:52:25 PM [index.js:88] External display detected. Launching display window...
+✔ 2026-10-21 12:52:26 PM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-10-21 12:52:26 PM [node:events:509] [ADS] Client connected: DooUoBC9FyRXy7W2AAAD
+✔ 2026-10-21 12:52:26 PM [node:events:509] [ADS] Client connected: 0c3PBrPX2uk0RqdvAAAF
+✔ 2026-10-21 12:52:40 PM [node:events:509] [ADS] Client disconnected: mGoo6vAxyF3NnmDvAAAB
+✔ 2026-10-21 12:52:44 PM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 12:52:44 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 12:52:44 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 12:52:44 PM [node:events:509] [ADS] Client connected: pDeFS3PxqKZj41_2AAAH
+✔ 2026-10-21 1:00:17 PM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 1:00:17 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 1:00:17 PM [node_modules\sqlite3\lib\trace.js:25] Password mismatch for: admin
+✔ 2026-10-21 1:00:17 PM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-21 1:00:17 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 1:00:17 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-21 1:00:17 PM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 1:00:17 PM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 1:00:17 PM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 1:00:17 PM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 1:00:17 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 1:00:17 PM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-21 1:00:17 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-21 1:00:17 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-21 1:00:17 PM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 1:00:17 PM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 1:00:17 PM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 1:00:17 PM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 1:00:17 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 1:00:17 PM [backend\routes\AkioskApi.js:55] BILLING
+✔ 2026-10-21 1:00:17 PM [backend\routes\AkioskApi.js:56] undefined
+✔ 2026-10-21 1:00:17 PM [backend\routes\AkioskApi.js:57] undefined
+✔ 2026-10-21 1:00:17 PM [backend\routes\AkioskApi.js:58] undefined
+✔ 2026-10-21 1:00:17 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-21 1:00:21 PM [node:events:509] [ADS] Client disconnected: pDeFS3PxqKZj41_2AAAH
+✔ 2026-10-21 1:00:22 PM [node:events:509] [ADS] Client connected: BHAew90CrfPeX2-9AAAJ
+✔ 2026-10-21 1:00:28 PM [node:events:509] [ADS] Client disconnected: BHAew90CrfPeX2-9AAAJ
+✔ 2026-10-21 1:00:28 PM [node:events:509] [ADS] Client connected: wWowXsWPCgId0rLXAAAL
+✔ 2026-10-21 1:53:20 PM [node:events:509] [ADS] Client disconnected: wWowXsWPCgId0rLXAAAL

@@ -7,8 +7,13 @@ function loadGroups() {
         groups.forEach(g => {
             $list.append(`
                 <tr>
-                    <td>${g.id}</td>
-                    <td>${g.group_name}</td>
+                    <td>${g.id || '-'}</td>
+                    <td><strong>${g.group_name}</strong></td>
+                    <td>${g.active_tellers || 0}</td>
+                    <td><span class="badge badge-info">${g.received || 0}</span></td>
+                    <td><span class="badge badge-primary">${g.served || 0}</span></td>
+                    <td><span class="badge badge-warning">${g.forwarded || 0}</span></td>
+                    <td><span class="badge badge-success">${g.completed || 0}</span></td>
                     <td class="actions">
                         <button class="btn btn-sm btn-danger" onclick="deleteGroup(${g.id})">Delete</button>
                     </td>

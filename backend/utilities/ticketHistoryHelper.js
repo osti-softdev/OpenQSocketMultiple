@@ -386,11 +386,160 @@ function extractTellerFlowBlocks(transactions, counters) {
     return result;
 }
 
+/**
+ * Aggregates performance and ticket movement by Teller Group.
+ * Strictly verifies and checks ticket history if it exists to credit:
+ * - received: number of tickets received via transfer/forward from another group
+ * - served: number of tickets called/resumed/handled by tellers in this group
+ * - forwarded: number of tickets forwarded out by tellers in this group
+ * - completed: number of tickets successfully finished in this group
+ */
+function aggregateGroupMetrics(counterGroups, counters, transactions, todayDate) {
+    const groupStats = new Map();
+
+    // 1. Initialize for each counter group
+    (counterGroups || []).forEach(g => {
+        const name = (g.group_name || `Group ${g.id}`).trim();
+        const key = name.toUpperCase();
+        groupStats.set(key, {
+            id: g.id,
+            group_name: name,
+            active_tellers: 0,
+            received: 0,
+            served: 0,
+            forwarded: 0,
+            completed: 0,
+            _servedTickets: new Set(),
+            _receivedTickets: new Set(),
+            _forwardedTickets: new Set(),
+            _completedTickets: new Set()
+        });
+    });
+
+    // 2. Count active tellers in each group (and discover any group present in counters)
+    (counters || []).forEach(c => {
+        const gName = String(c.group_name || '').trim();
+        if (!gName) return;
+        const key = gName.toUpperCase();
+        if (!groupStats.has(key)) {
+            groupStats.set(key, {
+                id: c.group_id || null,
+                group_name: gName,
+                active_tellers: 0,
+                received: 0,
+                served: 0,
+                forwarded: 0,
+                completed: 0,
+                _servedTickets: new Set(),
+                _receivedTickets: new Set(),
+                _forwardedTickets: new Set(),
+                _completedTickets: new Set()
+            });
+        }
+        groupStats.get(key).active_tellers += 1;
+    });
+
+    // Helper to find the group name of a teller actor from history
+    function resolveActorGroup(actor, counterNum) {
+        if (!actor || actor.toLowerCase() === 'kiosk') return null;
+        const actorLower = actor.toLowerCase().trim();
+        const numStr = counterNum ? String(counterNum).trim() : null;
+
+        // 1. Try match by name or user
+        for (const c of (counters || [])) {
+            if (String(c.cname || '').toLowerCase().trim() === actorLower ||
+                String(c.cuser || '').toLowerCase().trim() === actorLower) {
+                return String(c.group_name || '').trim().toUpperCase();
+            }
+        }
+        // 2. Try match by counter number
+        if (numStr) {
+            for (const c of (counters || [])) {
+                if (String(c.cnum).trim() === numStr) {
+                    return String(c.group_name || '').trim().toUpperCase();
+                }
+            }
+        }
+        return null;
+    }
+
+    // 3. Process transactions: ONLY check history if exist!
+    (transactions || []).forEach(tx => {
+        if (!tx.history || typeof tx.history !== 'string' || !tx.history.trim()) {
+            return; // strictly check only tickets history if exist
+        }
+
+        const events = parseHistory(tx.history);
+        if (!events || !events.length) return;
+
+        let previousForwardGroup = null;
+
+        for (let i = 0; i < events.length; i++) {
+            const ev = events[i];
+            if (!ev.actor || ev.actor.toLowerCase() === 'kiosk') continue;
+
+            const groupKey = resolveActorGroup(ev.actor, ev.counterNum);
+            if (!groupKey || !groupStats.has(groupKey)) continue;
+
+            const stat = groupStats.get(groupKey);
+            const act = (ev.action || '').toLowerCase();
+
+            // If a previous group forwarded the ticket, and this event is handled by a different group:
+            if (previousForwardGroup && previousForwardGroup !== groupKey) {
+                if (!stat._receivedTickets.has(tx.id)) {
+                    stat._receivedTickets.add(tx.id);
+                    stat.received += 1;
+                }
+                previousForwardGroup = null; // Marked as received
+            }
+
+            // Called / Served:
+            if (['called', 'recalled', 'resumed'].includes(act)) {
+                if (!stat._servedTickets.has(tx.id)) {
+                    stat._servedTickets.add(tx.id);
+                    stat.served += 1;
+                }
+            } else if (act === 'forwarded') {
+                if (!stat._forwardedTickets.has(tx.id)) {
+                    stat._forwardedTickets.add(tx.id);
+                    stat.forwarded += 1;
+                }
+                previousForwardGroup = groupKey;
+            } else if (['finished', 'autofinished'].includes(act)) {
+                if (!stat._servedTickets.has(tx.id)) {
+                    stat._servedTickets.add(tx.id);
+                    stat.served += 1;
+                }
+                if (!stat._completedTickets.has(tx.id)) {
+                    stat._completedTickets.add(tx.id);
+                    stat.completed += 1;
+                }
+            }
+        }
+    });
+
+    // 4. Return formatted results
+    const results = [];
+    for (const stat of groupStats.values()) {
+        delete stat._servedTickets;
+        delete stat._receivedTickets;
+        delete stat._forwardedTickets;
+        delete stat._completedTickets;
+        results.push(stat);
+    }
+
+    // Sort by served descending
+    results.sort((a, b) => b.served - a.served || a.group_name.localeCompare(b.group_name));
+    return results;
+}
+
 module.exports = {
     parseTimeToSec,
     parseHistory,
     extractTellerJourney,
     extractTellersFromTransaction,
     aggregateTellerMetrics,
-    extractTellerFlowBlocks
+    extractTellerFlowBlocks,
+    aggregateGroupMetrics
 };
+

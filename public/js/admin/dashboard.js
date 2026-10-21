@@ -153,6 +153,25 @@ function loadLiveDashboard() {
         } else {
             $tellerList.append('<tr><td colspan="6" style="text-align:center">No tellers online</td></tr>');
         }
+
+        // 4. Teller Groups Live List
+        const $groupList = $('#group-live-list').empty();
+        if (data.groups && data.groups.length > 0) {
+            data.groups.forEach(g => {
+                $groupList.append(`
+                    <tr>
+                        <td><strong>${g.group_name}</strong></td>
+                        <td>${g.active_tellers || 0}</td>
+                        <td><span style="display:inline-block; padding:2px 8px; border-radius:12px; background:rgba(30,144,255,0.15); color:#1e90ff; font-weight:700;">${g.received || 0}</span></td>
+                        <td><span style="display:inline-block; padding:2px 8px; border-radius:12px; background:rgba(46,204,113,0.15); color:#2ecc71; font-weight:700;">${g.served || 0}</span></td>
+                        <td><span style="display:inline-block; padding:2px 8px; border-radius:12px; background:rgba(243,156,18,0.15); color:#f39c12; font-weight:700;">${g.forwarded || 0}</span></td>
+                        <td><span style="display:inline-block; padding:2px 8px; border-radius:12px; background:rgba(155,89,182,0.15); color:#9b59b6; font-weight:700;">${g.completed || 0}</span></td>
+                    </tr>
+                `);
+            });
+        } else {
+            $groupList.append('<tr><td colspan="6" style="text-align:center">No teller groups found</td></tr>');
+        }
     });
 
     $.get('/api/admin/analytics/insights', renderOperationalInsights);

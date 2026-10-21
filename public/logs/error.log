@@ -616,3 +616,6 @@ salkdhmasihdaisudmopauscj[pakw[pcl[pecascas
   signal: null,
   cmd: 'php C:\\Users\\TECHNICAL\\Documents\\GitHub\\OpenQSocketMultiple/public/printer/print.php P 38 PLANNING Counter 6 '
 }
+❌ 2026-10-21 12:52:15 PM [node:events:509] (node:652) electron: Failed to load URL: http://localhost:12341/kiosk with error: ERR_CONNECTION_REFUSED
+(Use `electron --trace-warnings ...` to show where the warning was created)
+❌ 2026-10-21 12:52:15 PM [node:events:509] (node:652) electron: Failed to load URL: http://localhost:12341/display with error: ERR_CONNECTION_REFUSED

@@ -186,6 +186,11 @@
                             <div class="section-heading"><div><span class="section-kicker">Team monitor</span><h3>Teller status board</h3></div><button class="text-action" type="button" data-jump-tab="tellers">Manage tellers →</button></div>
                             <div class="card-teller-dashboard no-gap"><div class="table-container table-scroll"><table class="admin-table dense"><thead><tr><th>Teller</th><th>Counter</th><th>Status</th><th>Served</th><th>Avg handling</th><th>Avg turns</th></tr></thead><tbody id="teller-live-list"></tbody></table></div></div>
                         </article>
+
+                        <article class="dashGroups operations-card" style="grid-column: 1 / -1;">
+                            <div class="section-heading"><div><span class="section-kicker">Group monitor</span><h3>Teller Groups status board</h3></div><span class="live-chip small"><i></i> History Verified</span></div>
+                            <div class="card-teller-dashboard no-gap"><div class="table-container table-scroll"><table class="admin-table dense"><thead><tr><th>Group Name</th><th>Active Tellers</th><th>Received</th><th>Served</th><th>Forwarded</th><th>Completed</th></tr></thead><tbody id="group-live-list"></tbody></table></div></div>
+                        </article>
                     </section>
                 </div>
             </div>
@@ -277,25 +282,50 @@
                             </div>
                         </div>
 
-                        <!-- By Teller -->
-                        <div class="cardrep report-card-teller">
-                            <div class="card-headerrep">
-                                <h3>Performance by Teller</h3>
+                        <!-- Teller & Teller Group 50% Split Row -->
+                        <div class="reports-split-row">
+                            <!-- By Teller -->
+                            <div class="cardrep report-card-teller">
+                                <div class="card-headerrep">
+                                    <h3>Performance by Teller</h3>
+                                </div>
+                                <div class="table-containerrep">
+                                    <table class="admin-tablerep">
+                                        <thead>
+                                            <tr>
+                                                <th>Teller Name</th>
+                                                <th>Counter</th>
+                                                <th>Tickets Served</th>
+                                                <th>Completed</th>
+                                                <th>Voided</th>
+                                                <th>Avg Service Time</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="reports-by-teller"></tbody>
+                                    </table>
+                                </div>
                             </div>
-                            <div class="table-containerrep">
-                                <table class="admin-tablerep">
-                                    <thead>
-                                        <tr>
-                                            <th>Teller Name</th>
-                                            <th>Counter</th>
-                                            <th>Tickets Served</th>
-                                            <th>Completed</th>
-                                            <th>Voided</th>
-                                            <th>Avg Service Time</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="reports-by-teller"></tbody>
-                                </table>
+
+                            <!-- By Teller Group -->
+                            <div class="cardrep report-card-group">
+                                <div class="card-headerrep">
+                                    <h3>Performance by Teller Group (History Verified)</h3>
+                                </div>
+                                <div class="table-containerrep">
+                                    <table class="admin-tablerep">
+                                        <thead>
+                                            <tr>
+                                                <th>Group Name</th>
+                                                <th>Active Tellers</th>
+                                                <th>Received</th>
+                                                <th>Served</th>
+                                                <th>Forwarded</th>
+                                                <th>Completed</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="reports-by-group"></tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
 

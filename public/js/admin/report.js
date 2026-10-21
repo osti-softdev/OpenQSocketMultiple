@@ -106,6 +106,9 @@ function displayReportData(data) {
     // Display By Teller
     displayByTeller(data.byTeller || []);
 
+    // Display By Teller Group (History Verified)
+    displayByGroup(data.byGroup || []);
+
     // Display By Status
     displayByStatus(data.byStatus || [], summary.total_tickets || 0);
 
@@ -397,6 +400,7 @@ function displayServiceDistribChart(transactions) {
 const reportPagination = {
     service: { data: [], page: 1, limit: 10 },
     teller: { data: [], page: 1, limit: 10 },
+    group: { data: [], page: 1, limit: 10 },
     daily: { data: [], page: 1, limit: 10 }
 };
 
@@ -445,6 +449,7 @@ window.changeReportPage = function(key, newPage) {
     reportPagination[key].page = newPage;
     if (key === 'service') displayByService();
     else if (key === 'teller') displayByTeller();
+    else if (key === 'group') displayByGroup();
     else if (key === 'daily') displayDailyTrends();
 };
 
@@ -489,6 +494,28 @@ function displayByTeller(tellers) {
             </tr>
         `;
         $('#reports-by-teller').append(row);
+    });
+}
+
+// Display performance by teller group (History Verified)
+function displayByGroup(groups) {
+    if (groups) {
+        reportPagination.group.data = groups;
+        reportPagination.group.page = 1;
+    }
+
+    renderPaginatedTable('group', '#reports-by-group', group => {
+        const row = `
+            <tr>
+                <td><strong>${group.group_name || 'N/A'}</strong></td>
+                <td style="text-align: center;">${group.active_tellers || 0}</td>
+                <td style="text-align: center;"><span style="display:inline-block; padding:2px 8px; border-radius:12px; background:rgba(30,144,255,0.15); color:#1e90ff; font-weight:700;">${group.received || 0}</span></td>
+                <td style="text-align: center;"><span style="display:inline-block; padding:2px 8px; border-radius:12px; background:rgba(46,204,113,0.15); color:#2ecc71; font-weight:700;">${group.served || 0}</span></td>
+                <td style="text-align: center;"><span style="display:inline-block; padding:2px 8px; border-radius:12px; background:rgba(243,156,18,0.15); color:#f39c12; font-weight:700;">${group.forwarded || 0}</span></td>
+                <td style="text-align: center;"><span style="display:inline-block; padding:2px 8px; border-radius:12px; background:rgba(155,89,182,0.15); color:#9b59b6; font-weight:700;">${group.completed || 0}</span></td>
+            </tr>
+        `;
+        $('#reports-by-group').append(row);
     });
 }
 
@@ -604,6 +631,7 @@ function exportReportAsPDF() {
         const summary = currentReportData.summary || {};
         const services = currentReportData.byService || [];
         const tellers = currentReportData.byTeller || [];
+        const groups = currentReportData.byGroup || [];
         const statuses = currentReportData.byStatus || [];
         const dailyTrends = currentReportData.dailyTrends || [];
         const transactions = currentReportData.detailedTransactions || [];
@@ -815,9 +843,37 @@ function exportReportAsPDF() {
         ]);
         if (tellerRows.length) doc.autoTable({ ...tableTheme, head: [['Teller', 'Counter', 'Served', 'Completed', 'Voided', 'Avg service']], body: tellerRows, startY: 39, columnStyles: { 0: { cellWidth: 55 }, 1: { halign: 'center' }, 2: { halign: 'center' }, 3: { halign: 'center' }, 4: { halign: 'center' }, 5: { halign: 'center' } } });
 
-        // Page 6: status and daily trends
+        // Page 6: teller group table (history verified)
         doc.addPage();
-        drawPageHeader('Status and Daily Trends', 'Outcome distribution and day-to-day operating performance', '06');
+        drawPageHeader('Performance by Teller Group', `${groups.length} teller group record${groups.length === 1 ? '' : 's'} (history verified) in this report`, '06');
+        const groupRows = groups.map(group => [
+            group.group_name || 'N/A',
+            Number(group.active_tellers || 0).toLocaleString(),
+            Number(group.received || 0).toLocaleString(),
+            Number(group.served || 0).toLocaleString(),
+            Number(group.forwarded || 0).toLocaleString(),
+            Number(group.completed || 0).toLocaleString()
+        ]);
+        if (groupRows.length) {
+            doc.autoTable({
+                ...tableTheme,
+                head: [['Group Name', 'Active Tellers', 'Received', 'Served', 'Forwarded', 'Completed']],
+                body: groupRows,
+                startY: 39,
+                columnStyles: {
+                    0: { cellWidth: 55 },
+                    1: { halign: 'center' },
+                    2: { halign: 'center' },
+                    3: { halign: 'center' },
+                    4: { halign: 'center' },
+                    5: { halign: 'center' }
+                }
+            });
+        }
+
+        // Page 7: status and daily trends
+        doc.addPage();
+        drawPageHeader('Status and Daily Trends', 'Outcome distribution and day-to-day operating performance', '07');
         const statusRows = statuses.map(status => [
             String(status.status || 'N/A').replace(/_/g, ' ').toUpperCase(),
             Number(status.count || 0).toLocaleString(),
@@ -842,7 +898,7 @@ function exportReportAsPDF() {
         let dailyStart = Math.max((doc.lastAutoTable?.finalY || 47) + 13, 100);
         if (dailyStart > 220) {
             doc.addPage();
-            drawPageHeader('Daily Trends', 'Day-to-day operating performance', '06B');
+            drawPageHeader('Daily Trends', 'Day-to-day operating performance', '07B');
             dailyStart = 42;
         }
         doc.setTextColor(...colors.navy);
@@ -874,7 +930,7 @@ function exportReportAsPDF() {
         // Final section: detailed transaction log
         if (transactions.length) {
             doc.addPage();
-            drawPageHeader('Detailed Transaction Log', `${transactions.length} transaction${transactions.length === 1 ? '' : 's'} / first 500 exported`, '07');
+            drawPageHeader('Detailed Transaction Log', `${transactions.length} transaction${transactions.length === 1 ? '' : 's'} / first 500 exported`, '08');
             const transactionRows = transactions.slice(0, 500).map(transaction => [
                 transaction.date || 'N/A',
                 transaction.time || 'N/A',
@@ -990,6 +1046,24 @@ function exportReportAsExcel() {
         const tellerSheet = XLSX.utils.aoa_to_sheet(tellerData);
         tellerSheet['!cols'] = [{ wch: 25 }, { wch: 15 }, { wch: 15 }, { wch: 15 }, { wch: 20 }];
         XLSX.utils.book_append_sheet(wb, tellerSheet, 'By Teller');
+
+        // By Teller Group sheet
+        const groupData = [
+            ['Group Name', 'Active Tellers', 'Received Tickets', 'Served Tickets', 'Forwarded Tickets', 'Completed Tickets']
+        ];
+        (currentReportData.byGroup || []).forEach(g => {
+            groupData.push([
+                g.group_name || 'N/A',
+                g.active_tellers || 0,
+                g.received || 0,
+                g.served || 0,
+                g.forwarded || 0,
+                g.completed || 0
+            ]);
+        });
+        const groupSheet = XLSX.utils.aoa_to_sheet(groupData);
+        groupSheet['!cols'] = [{ wch: 30 }, { wch: 15 }, { wch: 18 }, { wch: 18 }, { wch: 18 }, { wch: 18 }];
+        XLSX.utils.book_append_sheet(wb, groupSheet, 'By Teller Group');
 
         // By Status sheet
         const statusData = [
