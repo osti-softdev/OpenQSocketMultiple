@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* OpenQ Admin Console 2.0 - isolated visual layer */
 .role-restricted,
 .settingsmenubtn.role-restricted,
@@ -1305,8 +1306,6 @@ button.btn {
   font-weight: 800 !important;
   cursor: pointer !important;
 }
-
-
 
 .live-market-grid {
   display: grid !important;
@@ -4194,9 +4193,9 @@ html.compact-sidebar .logout-btn span {
     gap: 14px !important;
   }
   .live-page .live-market-card {
-    min-height: 350px !important;
-    height: 350px !important;
-    padding: 18px 20px !important;
+    min-height: 280px !important;
+    height: auto !important;
+    padding: 16px 18px !important;
     display: flex !important;
     flex-direction: column !important;
   }
@@ -4210,16 +4209,16 @@ html.compact-sidebar .logout-btn span {
     font-size: 10px !important;
   }
   .live-page .market-chart-wrap {
-    min-height: 255px !important;
-    height: 255px !important;
+    min-height: 200px !important;
+    height: 200px !important;
     margin-top: 8px !important;
-    flex: 1 1 auto !important;
+    flex: none !important;
   }
   .live-page .operations-grid {
     min-height: 0 !important;
     height: auto !important;
     display: grid !important;
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr) !important;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr) !important;
     gap: 16px !important;
   }
   .live-page .operations-card,
@@ -4229,7 +4228,7 @@ html.compact-sidebar .logout-btn span {
     min-height: auto !important;
     height: auto !important;
     max-height: none !important;
-    padding: 18px 20px !important;
+    padding: 16px 18px !important;
     display: flex !important;
     flex-direction: column !important;
     overflow: visible !important;
@@ -4263,50 +4262,21 @@ html.compact-sidebar .logout-btn span {
     position: static !important;
     inset: auto !important;
     width: 100% !important;
-    min-height: 180px !important;
+    min-height: 120px !important;
     height: auto !important;
-    max-height: 385px !important; /* Comfortably displays up to max 8 rows before inner scrolling */
+    max-height: 425px !important; /* Comfortably displays up to max 8 rows before inner scrolling */
     flex: none !important;
     overflow-x: auto !important;
     overflow-y: auto !important;
     border: 1px solid var(--console-border) !important;
     border-radius: var(--console-radius-small, 10px) !important;
-    background: var(--console-surface-soft) !important;
+    background: var(--console-surface) !important;
   }
   .live-page .operations-card table thead th {
     position: sticky !important;
     top: 0 !important;
     z-index: 5 !important;
-    height: 38px !important;
-    padding: 8px 12px !important;
-    background: var(--console-surface-solid) !important;
-    border-bottom: 1px solid var(--console-border-strong) !important;
-    font-size: 9px !important;
-    font-weight: 850 !important;
-    letter-spacing: 0.08em !important;
-    text-transform: uppercase !important;
-    color: var(--console-muted) !important;
-    white-space: nowrap !important;
-  }
-  .live-page .operations-card table tbody td {
-    height: 40px !important;
-    padding: 8px 12px !important;
-    border-bottom: 1px solid var(--console-border) !important;
-    font-size: 11px !important;
-    color: var(--console-text) !important;
-    vertical-align: middle !important;
-    white-space: nowrap !important;
-  }
-  .live-page .operations-card table tbody tr:last-child td {
-    border-bottom: 0 !important;
-  }
-  .live-page .operations-card table tbody tr:hover td {
-    background: var(--console-surface-hover) !important;
-  }
-  .live-page .admin-table,
-  .live-page .service-live-table {
-    min-width: 100% !important;
-    width: 100% !important;
+    background: var(--console-surface-soft) !important;
   }
   .content .tab-content#history-tab.active,
   .content .tab-content#tellers-tab.active {
@@ -5896,11 +5866,14 @@ html.compact-sidebar .logout-btn span {
   border-radius: 999px;
   font-size: 12px;
   cursor: pointer;
-}/*# sourceMappingURL=admin-console.css.map */
+}
+
 /* Sortable table headers */
 th.sortable {
   cursor: pointer !important;
-  user-select: none !important;
+  -webkit-user-select: none !important;
+     -moz-user-select: none !important;
+          user-select: none !important;
   position: relative;
   padding-right: 20px !important;
 }
@@ -5908,7 +5881,7 @@ th.sortable:hover {
   color: var(--console-heading) !important;
 }
 th.sortable::after {
-  content: '\2195';
+  content: "↕";
   position: absolute;
   right: 7px;
   top: 50%;
@@ -5917,13 +5890,12 @@ th.sortable::after {
   opacity: 0.35;
 }
 th.sortable.sort-asc::after {
-  content: '\25B2';
+  content: "▲";
   opacity: 1;
   color: var(--console-primary);
 }
 th.sortable.sort-desc::after {
-  content: '\25BC';
+  content: "▼";
   opacity: 1;
   color: var(--console-primary);
-}
-
+}/*# sourceMappingURL=admin-console.css.map */
