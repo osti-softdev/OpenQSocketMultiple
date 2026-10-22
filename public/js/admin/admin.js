@@ -68,12 +68,12 @@ $(document).ready(function () {
     $('#account-perm-select').on('change', function () {
         const accId = $(this).val();
         if (!accId) {
-            $('#account-perm-container').slideUp(150);
+            $('#account-perm-container').hide();
             $('#clear-account-perm-btn').hide();
             return;
         }
 
-        $('#account-perm-container').slideDown(150);
+        $('#account-perm-container').show();
         $('#clear-account-perm-btn').show();
 
         const targetAccount = allSystemAccounts.find(a => String(a.id) === String(accId));
@@ -218,6 +218,7 @@ function initAdminAppearance() {
         const nextTheme = $root.attr('data-theme') === 'dark' ? 'light' : 'dark';
         $root.attr('data-theme', nextTheme);
         localStorage.setItem('admin-theme', nextTheme);
+        localStorage.setItem('openqAdminTheme', nextTheme);
         syncThemeControl();
     });
 
@@ -512,11 +513,18 @@ function switchTab(tab) {
 
     $('#tab-title').text(titles[tab] || 'Admin Console');
     if(tab !== 'settings'){
-        $('.settingsMenu').slideUp(100);
+        $('.settingsMenu').hide();
     }
     
     // Load data for the tab
-    if (tab === 'dashboard' || tab === 'live') loadDashboard();
+    if (tab === 'dashboard') loadDashboard();
+    else if (tab === 'live') {
+        loadDashboard();
+        if (typeof switchLiveSection === 'function') {
+            const currentActive = $('.live-nav-btn.active').data('live-section') || 'charts-status';
+            switchLiveSection(currentActive);
+        }
+    }
     else if (tab === 'reports') {
         // Initialize report page with default dates
         if (typeof initializeReportPage === 'function') {
@@ -528,7 +536,7 @@ function switchTab(tab) {
     else if (tab === 'tellers') loadTellers();
     else if (tab === 'accounts') loadAccounts();
     else if (tab === 'settings') {
-        $('.settingsMenu').slideDown(200);
+        $('.settingsMenu').show();
         const activeSetting = $('.settingsmenubtn.active').data('settingstab');
         if (!canAccessAdminSetting(activeSetting)) settingstabs(getAllowedAdminSettings()[0]);
         loadSettings();

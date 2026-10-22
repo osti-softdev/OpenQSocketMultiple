@@ -226,21 +226,21 @@ module.exports = function createTellerApiRouter(io) {
 
                 AVG(
                     CASE
-                        WHEN end_time IS NOT NULL AND status = 'finished'
+                        WHEN end_time IS NOT NULL AND status = 'finished' AND (strftime('%s', end_time) - strftime('%s', time)) > 0
                         THEN (strftime('%s', end_time) - strftime('%s', time)) / 60.0
                     END
                 ) AS avg_turnaround,
 
                 AVG(
                     CASE
-                        WHEN end_time IS NOT NULL AND status = 'finished'
+                        WHEN end_time IS NOT NULL AND start_time IS NOT NULL AND status = 'finished' AND (strftime('%s', end_time) - strftime('%s', start_time)) > 0
                         THEN (strftime('%s', end_time) - strftime('%s', start_time)) / 60.0
                     END
                 ) AS avg_service_time,
 
                 AVG(
                     CASE
-                        WHEN start_time IS NOT NULL
+                        WHEN start_time IS NOT NULL AND time IS NOT NULL AND (strftime('%s', start_time) - strftime('%s', time)) > 0
                         THEN (strftime('%s', start_time) - strftime('%s', time)) / 60.0
                     END
                 ) AS avg_wait_time
@@ -1433,11 +1433,11 @@ module.exports = function createTellerApiRouter(io) {
                 COUNT(CASE WHEN date != '${today}' AND status != 'finished' THEN 1 END) as voided_tickets,
                 COUNT(CASE WHEN (${eff}) NOT IN ('finished','voided') THEN 1 END) as pending_tickets,
                 AVG(CASE
-                    WHEN status = 'finished' AND start_time IS NOT NULL AND end_time IS NOT NULL
+                    WHEN status = 'finished' AND start_time IS NOT NULL AND end_time IS NOT NULL AND (strftime('%s', end_time) - strftime('%s', start_time)) > 0
                     THEN (strftime('%s', end_time) - strftime('%s', start_time)) / 60.0
                     END) as avg_service_time_minutes,
                 AVG(CASE
-                    WHEN status = 'finished' AND start_time IS NOT NULL AND time IS NOT NULL
+                    WHEN status = 'finished' AND time IS NOT NULL AND end_time IS NOT NULL AND (strftime('%s', end_time) - strftime('%s', time)) > 0
                     THEN (strftime('%s', end_time) - strftime('%s', time)) / 60.0
                     END) as avg_turnaround_time_minutes
             FROM transactions
@@ -1460,7 +1460,7 @@ module.exports = function createTellerApiRouter(io) {
                 COUNT(CASE WHEN (${effT}) = 'voided'   THEN 1 END)                    as voided,
                 COUNT(CASE WHEN (${effT}) IN ('pending', 'received') THEN 1 END)       as pending,
                 AVG(CASE
-                    WHEN t.status = 'finished' AND t.start_time IS NOT NULL AND t.end_time IS NOT NULL
+                    WHEN t.status = 'finished' AND t.start_time IS NOT NULL AND t.end_time IS NOT NULL AND (strftime('%s', t.end_time) - strftime('%s', t.start_time)) > 0
                     THEN (strftime('%s', t.end_time) - strftime('%s', t.start_time)) / 60.0
                     END) as avg_service_time_minutes
             FROM transactions t
@@ -1553,7 +1553,7 @@ module.exports = function createTellerApiRouter(io) {
                 COUNT(CASE WHEN (${eff}) = 'finished' THEN 1 END)                   as daily_completed,
                 COUNT(CASE WHEN (${eff}) = 'voided'   THEN 1 END)                   as daily_voided,
                 AVG(CASE
-                    WHEN status = 'finished' AND start_time IS NOT NULL AND end_time IS NOT NULL
+                    WHEN status = 'finished' AND start_time IS NOT NULL AND end_time IS NOT NULL AND (strftime('%s', end_time) - strftime('%s', start_time)) > 0
                     THEN (strftime('%s', end_time) - strftime('%s', start_time)) / 60.0
                     END) as daily_avg_service_time
             FROM transactions
@@ -1642,12 +1642,12 @@ module.exports = function createTellerApiRouter(io) {
                 t.history,
                 COALESCE(c.cname, t.counter_user, NULL) as teller_name,
                 CASE
-                    WHEN t.status = 'finished' AND t.start_time IS NOT NULL AND t.end_time IS NOT NULL
+                    WHEN t.status = 'finished' AND t.start_time IS NOT NULL AND t.end_time IS NOT NULL AND (strftime('%s', t.end_time) - strftime('%s', t.start_time)) > 0
                     THEN (strftime('%s', t.end_time) - strftime('%s', t.start_time)) / 60.0
                     ELSE NULL
                 END as service_time_minutes,
                 CASE
-                    WHEN t.status = 'finished' AND t.start_time IS NOT NULL AND t.time IS NOT NULL
+                    WHEN t.status = 'finished' AND t.time IS NOT NULL AND t.end_time IS NOT NULL AND (strftime('%s', t.end_time) - strftime('%s', t.time)) > 0
                     THEN (strftime('%s', t.end_time) - strftime('%s', t.time)) / 60.0
                     ELSE NULL
                 END as turnaround_time_minutes

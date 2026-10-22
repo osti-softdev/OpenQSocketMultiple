@@ -35,8 +35,10 @@ function formatDateForDisplay(date) {
 
 // Format minutes to readable time
 function formatTime(minutes) {
-    if (!minutes || minutes === null) return 'N/A';
-    const mins = Math.round(minutes);
+    if (minutes === null || minutes === undefined || isNaN(minutes)) return 'N/A';
+    const num = Number(minutes);
+    if (num <= 0) return '0m';
+    const mins = Math.round(num);
     if (mins < 60) return `${mins}m`;
     const hours = Math.floor(mins / 60);
     const remainingMins = mins % 60;
@@ -841,7 +843,7 @@ function exportReportAsPDF() {
             Number(teller.voided || 0).toLocaleString(),
             formatTime(teller.avg_service_time_minutes)
         ]);
-        if (tellerRows.length) doc.autoTable({ ...tableTheme, head: [['Teller', 'Counter', 'Served', 'Completed', 'Voided', 'Avg service']], body: tellerRows, startY: 39, columnStyles: { 0: { cellWidth: 55 }, 1: { halign: 'center' }, 2: { halign: 'center' }, 3: { halign: 'center' }, 4: { halign: 'center' }, 5: { halign: 'center' } } });
+        if (tellerRows.length) doc.autoTable({ ...tableTheme, head: [['Teller', 'Counter', 'Served', 'Completed', 'Voided', 'Avg service']], body: tellerRows, startY: 39, columnStyles: { 0: { cellWidth: 55, overflow: 'linebreak' }, 1: { halign: 'center' }, 2: { halign: 'center' }, 3: { halign: 'center' }, 4: { halign: 'center' }, 5: { halign: 'center' } } });
 
         // Page 6: teller group table (history verified)
         doc.addPage();
@@ -937,25 +939,23 @@ function exportReportAsPDF() {
                 transaction.service_name || transaction.service_code || 'N/A',
                 String(transaction.status || 'N/A').replace(/_/g, ' '),
                 transaction.teller_name || 'N/A',
-                formatTime(transaction.service_time_minutes),
                 formatTime(transaction.turnaround_time_minutes)
             ]);
             doc.autoTable({
                 ...tableTheme,
-                head: [['Date', 'Time', 'Service', 'Status', 'Teller', 'Handling', 'Turnaround']],
+                head: [['Date', 'Time', 'Service', 'Status', 'Teller', 'Turnaround']],
                 body: transactionRows,
                 startY: 39,
                 tableWidth: contentWidth,
                 headStyles: { ...tableTheme.headStyles, fontSize: 7 },
-                bodyStyles: { ...tableTheme.bodyStyles, fontSize: 6.6, cellPadding: 2 },
+                bodyStyles: { ...tableTheme.bodyStyles, fontSize: 6.6, cellPadding: 2, overflow: 'linebreak' },
                 columnStyles: {
-                    0: { cellWidth: contentWidth * .12 },
-                    1: { cellWidth: contentWidth * .09 },
-                    2: { cellWidth: contentWidth * .22 },
-                    3: { cellWidth: contentWidth * .13 },
-                    4: { cellWidth: contentWidth * .19 },
-                    5: { cellWidth: contentWidth * .12 },
-                    6: { cellWidth: contentWidth * .13 }
+                    0: { cellWidth: contentWidth * .13 },
+                    1: { cellWidth: contentWidth * .10 },
+                    2: { cellWidth: contentWidth * .22, overflow: 'linebreak' },
+                    3: { cellWidth: contentWidth * .12, halign: 'center' },
+                    4: { cellWidth: contentWidth * .30, overflow: 'linebreak' },
+                    5: { cellWidth: contentWidth * .13, halign: 'center' }
                 }
             });
         }
@@ -1104,7 +1104,7 @@ function exportReportAsExcel() {
             ['Generated on:', now],
             ['Report Period:', currentReportData.dateFrom + ' to ' + currentReportData.dateTo],
             [],
-            ['Date', 'Time', 'Service Code', 'Service Name', 'Status', 'Teller Name', 'Counter', 'Service Time (min)', 'Turnaround Time (min)']
+            ['Date', 'Time', 'Service Code', 'Service Name', 'Status', 'Teller Name', 'Turnaround Time (min)']
         ];
         (currentReportData.detailedTransactions || []).forEach(tx => {
             detailedData.push([
@@ -1114,14 +1114,12 @@ function exportReportAsExcel() {
                 tx.service_name || 'N/A',
                 tx.status || 'N/A',
                 tx.teller_name || 'N/A',
-                'N/A',
-                (tx.service_time_minutes || 0).toFixed(2),
                 (tx.turnaround_time_minutes || 0).toFixed(2)
             ]);
         });
         const detailedSheet = XLSX.utils.aoa_to_sheet(detailedData);
         detailedSheet['A1'].font = { bold: true, size: 12 };
-        detailedSheet['!cols'] = [{ wch: 15 }, { wch: 15 }, { wch: 20 }, { wch: 30 }, { wch: 15 }, { wch: 25 }, { wch: 15 }, { wch: 20 }, { wch: 25 }];
+        detailedSheet['!cols'] = [{ wch: 15 }, { wch: 15 }, { wch: 20 }, { wch: 30 }, { wch: 15 }, { wch: 35 }, { wch: 25 }];
         XLSX.utils.book_append_sheet(wb, detailedSheet, 'Transactions');
 
         // Save Excel file

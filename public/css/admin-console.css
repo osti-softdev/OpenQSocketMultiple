@@ -8,31 +8,41 @@
 
 :root {
   color-scheme: light;
-  --console-bg: #f3f6fb;
-  --console-bg-accent: #e9effc;
-  --console-surface: #ffffff;
-  --console-surface-raised: #ffffff;
-  --console-surface-soft: #f4f7fb;
-  --console-surface-hover: #eaf0f8;
-  --console-border: #cbd4e1;
-  --console-border-strong: #a0b0c2;
+  --console-theme-name: 'light';
+  --console-bg: #f8fafc;
+  --console-bg-accent: #f1f5f9;
+  --console-bg-image: linear-gradient(135deg, rgba(250, 252, 255, 0.88), rgba(242, 246, 252, 0.93)), url('/public/CCTO/bg.png');
+  --console-surface: rgba(255, 255, 255, 0.84);
+  --console-surface-solid: #ffffff;
+  --console-surface-raised: rgba(255, 255, 255, 0.92);
+  --console-surface-soft: rgba(245, 247, 252, 0.72);
+  --console-surface-hover: rgba(255, 255, 255, 0.97);
+  --console-border: rgba(203, 213, 225, 0.70);
+  --console-border-strong: rgba(148, 163, 184, 0.85);
   --console-text: #1e293b;
   --console-heading: #0f172a;
   --console-muted: #64748b;
   --console-faint: #94a3b8;
-  --console-primary: #4f6df5;
-  --console-primary-strong: #3d56d6;
-  --console-primary-soft: #edf0ff;
-  --console-cyan: #11a8c7;
-  --console-success: #0ba678;
-  --console-warning: #e49b21;
-  --console-danger: #e14f65;
-  --console-sidebar: #101a2c;
-  --console-sidebar-raised: #18253b;
-  --console-sidebar-text: #e8eef9;
-  --console-sidebar-muted: #8494ae;
-  --console-shadow: 0 10px 35px rgba(15, 25, 45, 0.12);
-  --console-shadow-small: 0 4px 15px rgba(15, 25, 45, 0.09);
+  /* Light Theme Color: #f7ed0e (Vibrant Yellow / Gold) */
+  --console-primary: #f7ed0e;
+  --console-primary-strong: #dfd400;
+  --console-primary-hover: #fffa38;
+  --console-primary-text: #18181b;
+  --console-primary-soft: rgba(247, 237, 14, 0.28);
+  --console-primary-glow: 0 0 20px rgba(247, 237, 14, 0.55);
+  --console-primary-border: #d4ca00;
+  --console-primary-gradient: linear-gradient(135deg, #f7ed0e, #edd700);
+  --console-cyan: #0284c7;
+  --console-success: #059669;
+  --console-warning: #d97706;
+  --console-danger: #e11d48;
+  --console-sidebar: rgba(15, 23, 42, 0.86);
+  --console-sidebar-raised: rgba(30, 41, 59, 0.92);
+  --console-sidebar-text: #f8fafc;
+  --console-sidebar-muted: #94a3b8;
+  --console-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+  --console-shadow-small: 0 4px 18px rgba(15, 23, 42, 0.05);
+  --console-glass-blur: blur(16px);
   --console-radius: 18px;
   --console-radius-small: 12px;
   --sidebar-width: 276px;
@@ -50,31 +60,41 @@ html.admin-access-pending .tab-content {
 
 html[data-theme=dark] {
   color-scheme: dark;
-  --console-bg: #09111f;
-  --console-bg-accent: #0c1728;
-  --console-surface: #111c2e;
-  --console-surface-raised: #152238;
-  --console-surface-soft: #0e192a;
-  --console-surface-hover: #1a2941;
-  --console-border: #24344c;
-  --console-border-strong: #32445f;
-  --console-text: #cbd6e6;
-  --console-heading: #f4f7fb;
-  --console-muted: #91a0b7;
-  --console-faint: #6e7e97;
-  --console-primary: #6e8cff;
-  --console-primary-strong: #8aa2ff;
-  --console-primary-soft: rgba(91, 125, 255, .14);
-  --console-cyan: #34c3dc;
-  --console-success: #27c99a;
-  --console-warning: #f5b84c;
-  --console-danger: #f07084;
-  --console-sidebar: #080f1c;
-  --console-sidebar-raised: #111e32;
-  --console-sidebar-text: #edf3fb;
-  --console-sidebar-muted: #7d8da7;
-  --console-shadow: 0 20px 55px rgba(0, 0, 0, .24);
-  --console-shadow-small: 0 8px 22px rgba(0, 0, 0, .18);
+  --console-theme-name: 'dark';
+  --console-bg: #0b0722;
+  --console-bg-accent: #130c33;
+  --console-bg-image: linear-gradient(135deg, rgba(14, 10, 36, 0.86), rgba(7, 4, 22, 0.94)), url('/public/CCTO/bg.png');
+  --console-surface: rgba(20, 14, 46, 0.80);
+  --console-surface-solid: #150f32;
+  --console-surface-raised: rgba(30, 20, 68, 0.88);
+  --console-surface-soft: rgba(15, 9, 36, 0.72);
+  --console-surface-hover: rgba(42, 28, 92, 0.92);
+  --console-border: rgba(99, 70, 185, 0.40);
+  --console-border-strong: rgba(139, 92, 246, 0.55);
+  --console-text: #e2e8f0;
+  --console-heading: #ffffff;
+  --console-muted: #94a3b8;
+  --console-faint: #64748b;
+  /* Dark Theme Color: #3f00d7 (Deep Electric Indigo / Violet) */
+  --console-primary: #3f00d7;
+  --console-primary-strong: #5915f0;
+  --console-primary-hover: #6e2bf8;
+  --console-primary-text: #ffffff;
+  --console-primary-soft: rgba(63, 0, 215, 0.28);
+  --console-primary-glow: 0 0 24px rgba(99, 38, 255, 0.65);
+  --console-primary-border: #6d28d9;
+  --console-primary-gradient: linear-gradient(135deg, #5b1aff, #3f00d7);
+  --console-cyan: #38bdf8;
+  --console-success: #10b981;
+  --console-warning: #f59e0b;
+  --console-danger: #f43f5e;
+  --console-sidebar: rgba(10, 6, 28, 0.88);
+  --console-sidebar-raised: rgba(18, 12, 44, 0.92);
+  --console-sidebar-text: #f8fafc;
+  --console-sidebar-muted: #8b9bb4;
+  --console-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  --console-shadow-small: 0 8px 24px rgba(0, 0, 0, 0.25);
+  --console-glass-blur: blur(18px);
 }
 
 html,
@@ -114,7 +134,12 @@ textarea:focus-visible {
   height: 100vh !important;
   min-height: 100vh !important;
   display: block !important;
-  background: radial-gradient(circle at 82% 0%, var(--console-bg-accent) 0, transparent 34%), var(--console-bg) !important;
+  background-image: var(--console-bg-image), url("/public/CCTO/bg.png"), url("/images/bg.png") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  background-color: var(--console-bg) !important;
 }
 
 .sidebar {
@@ -128,11 +153,13 @@ textarea:focus-visible {
   flex-direction: column !important;
   overflow: hidden !important;
   border: 0 !important;
-  border-right: 1px solid rgba(255, 255, 255, 0.06) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
   border-radius: 0 !important;
-  background: radial-gradient(circle at 0 0, rgba(79, 109, 245, 0.18), transparent 34%), var(--console-sidebar) !important;
+  background: radial-gradient(circle at 0 0, color-mix(in srgb, var(--console-primary) 15%, transparent), transparent 38%), var(--console-sidebar) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
   color: var(--console-sidebar-text) !important;
-  box-shadow: none !important;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15) !important;
   transition: width 0.22s ease !important;
 }
 
@@ -146,19 +173,33 @@ textarea:focus-visible {
 }
 
 .brand-mark {
-  width: 44px !important;
-  height: 44px !important;
-  flex: 0 0 44px !important;
+  width: 48px !important;
+  height: 48px !important;
+  flex: 0 0 48px !important;
   display: grid !important;
   place-items: center !important;
-  border: 1px solid rgba(255, 255, 255, 0.17) !important;
+  padding: 4px !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
   border-radius: 14px !important;
-  background: linear-gradient(145deg, #6e8cff, #405eea) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
   color: #fff !important;
   font-size: 13px !important;
   font-weight: 850 !important;
   letter-spacing: -0.04em !important;
-  box-shadow: 0 10px 25px rgba(65, 88, 220, 0.34) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25) !important;
+  overflow: hidden !important;
+}
+
+.brand-mark img,
+.brand-logo-img {
+  width: 100% !important;
+  height: 100% !important;
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
+  display: block !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.35)) !important;
 }
 
 .brand-copy {
@@ -284,10 +325,10 @@ textarea:focus-visible {
 }
 
 .sidebar .nav-item.active {
-  border-color: rgba(114, 143, 255, 0.18) !important;
-  background: linear-gradient(100deg, rgba(93, 122, 245, 0.25), rgba(69, 91, 190, 0.11)) !important;
+  border-color: color-mix(in srgb, var(--console-primary) 35%, transparent) !important;
+  background: linear-gradient(100deg, color-mix(in srgb, var(--console-primary) 28%, transparent), color-mix(in srgb, var(--console-primary) 12%, transparent)) !important;
   color: #fff !important;
-  box-shadow: inset 3px 0 0 #7893ff !important;
+  box-shadow: inset 4px 0 0 var(--console-primary), 0 0 16px color-mix(in srgb, var(--console-primary) 22%, transparent) !important;
 }
 
 .nav-icon {
@@ -325,8 +366,8 @@ textarea:focus-visible {
 }
 
 .nav-item.active .nav-icon {
-  border-color: rgba(133, 157, 255, 0.22) !important;
-  background: rgba(119, 145, 255, 0.18) !important;
+  border-color: color-mix(in srgb, var(--console-primary) 45%, transparent) !important;
+  background: color-mix(in srgb, var(--console-primary) 32%, transparent) !important;
   color: #fff !important;
 }
 
@@ -494,11 +535,11 @@ textarea:focus-visible {
   gap: 18px !important;
   border: 0 !important;
   border-bottom: 1px solid var(--console-border) !important;
-  border-radius: 0 !important;
-  background: color-mix(in srgb, var(--console-surface) 88%, transparent) !important;
+  background: color-mix(in srgb, var(--console-surface) 75%, transparent) !important;
   color: var(--console-text) !important;
   box-shadow: none !important;
-  backdrop-filter: blur(16px) !important;
+  backdrop-filter: var(--console-glass-blur) saturate(160%) !important;
+  -webkit-backdrop-filter: var(--console-glass-blur) saturate(160%) !important;
 }
 
 .header-title-group {
@@ -802,9 +843,10 @@ button.btn {
 }
 
 .btn-primary {
-  border-color: var(--console-primary) !important;
-  background: linear-gradient(135deg, #627df6, #445fdf) !important;
-  color: #fff !important;
+  border-color: var(--console-primary-border, var(--console-primary)) !important;
+  background: var(--console-primary-gradient) !important;
+  color: var(--console-primary-text) !important;
+  box-shadow: var(--console-primary-glow) !important;
 }
 
 .btn-secondary {
@@ -896,6 +938,8 @@ button.btn {
   border: 1px solid var(--console-border) !important;
   border-radius: 15px !important;
   background: var(--console-surface) !important;
+  backdrop-filter: var(--console-glass-blur) saturate(140%) !important;
+  -webkit-backdrop-filter: var(--console-glass-blur) saturate(140%) !important;
   box-shadow: var(--console-shadow-small) !important;
 }
 
@@ -986,6 +1030,8 @@ button.btn {
   border: 1px solid var(--console-border) !important;
   border-radius: var(--console-radius) !important;
   background: var(--console-surface) !important;
+  backdrop-filter: var(--console-glass-blur) saturate(140%) !important;
+  -webkit-backdrop-filter: var(--console-glass-blur) saturate(140%) !important;
   color: var(--console-text) !important;
   box-shadow: var(--console-shadow-small) !important;
 }
@@ -998,6 +1044,8 @@ button.btn {
 .operations-grid .operations-card {
   border-color: var(--console-border) !important;
   background: var(--console-surface) !important;
+  backdrop-filter: var(--console-glass-blur) saturate(140%) !important;
+  -webkit-backdrop-filter: var(--console-glass-blur) saturate(140%) !important;
   color: var(--console-text) !important;
   box-shadow: var(--console-shadow-small) !important;
 }
@@ -1098,6 +1146,8 @@ button.btn {
   border: 1px solid var(--console-border) !important;
   border-radius: 16px !important;
   background: var(--console-surface) !important;
+  backdrop-filter: var(--console-glass-blur) saturate(140%) !important;
+  -webkit-backdrop-filter: var(--console-glass-blur) saturate(140%) !important;
   box-shadow: var(--console-shadow-small) !important;
 }
 

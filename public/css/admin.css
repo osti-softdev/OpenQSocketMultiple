@@ -42,6 +42,9 @@ body {
 .layout {
   display: flex;
   min-height: 100vh;
+  background-image: url("/public/CCTO/bg.png"), url("/images/bg.png");
+  background-size: cover;
+  background-position: center;
 }
 
 .sidebar {
@@ -50,13 +53,13 @@ body {
   left: 0;
   width: 15%;
   height: 100%;
-  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+  background: #0f172a;
   color: white;
   display: flex;
   flex-direction: column;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   z-index: 100;
-  transition: transform 0.3s ease;
+  transition: none;
 }
 .sidebar .sidebar-header {
   padding: 24px 20px;
@@ -78,7 +81,7 @@ body {
   color: rgba(255, 255, 255, 0.8);
   text-align: left;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: none;
   font-size: 15px;
   display: block;
 }
@@ -3360,8 +3363,25 @@ textarea {
   overflow: auto !important;
 }
 
-.operations-card .table-scroll {
-  max-height: 420px;
+.operations-card .table-scroll,
+.operations-card .live-grid,
+.operations-card .table-container {
+  max-height: 425px !important;
+  height: auto !important;
+  overflow: auto !important;
+}
+
+.operations-card .card-teller-dashboard {
+  position: static !important;
+  inset: auto !important;
+  width: 100% !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  overflow: visible !important;
 }
 
 .card,
