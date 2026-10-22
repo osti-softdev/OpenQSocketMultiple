@@ -4857,3 +4857,18 @@ Error: Failed to copy file to printer
 ✔ 2026-10-22 7:00:44 AM [node:events:514] [ADS] Client connected: aQzZ8-_RWdWpJB8_AAAE
 ✔ 2026-10-22 7:02:29 AM [node:events:514] [ADS] Client disconnected: aQzZ8-_RWdWpJB8_AAAE
 ✔ 2026-10-22 7:02:41 AM [node:events:514] [ADS] Client disconnected: wlw14hkqQ3JmX0pMAAAB
+✔ 2026-10-22 9:07:37 AM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-10-22 9:07:38 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ secrets for agents [www.dotenvx.com][0m
+✔ 2026-10-22 9:07:50 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-10-22 9:07:51 AM [unknown-location] Connected to SQLite database
+✔ 2026-10-22 9:07:53 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-10-22 9:07:53 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-22 9:07:53 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-22 9:07:53 AM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-10-22 9:07:56 AM [index.js:88] External display detected. Launching display window...
+✔ 2026-10-22 9:08:03 AM [node:events:509] [ADS] Client connected: gYoihMyz4w4t50XvAAAB
+✔ 2026-10-22 9:08:04 AM [node:events:509] [ADS] Client connected: EH_e6tfV00hyAeabAAAD
+✔ 2026-10-22 9:08:13 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-22 9:08:13 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-22 9:08:13 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-22 9:08:14 AM [node:events:509] [ADS] Client connected: GWRIJJSjIrJLCUu8AAAF
