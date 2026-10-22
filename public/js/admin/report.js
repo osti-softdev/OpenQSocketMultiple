@@ -353,7 +353,7 @@ function displayServiceDistribChart(transactions) {
                 data: data,
                 backgroundColor: backgroundColors,
                 borderColor: theme.dark ? '#111c2e' : '#ffffff',
-                borderWidth: 4,
+                borderWidth: 1,
                 hoverBorderWidth: 4,
                 hoverOffset: 8,
                 spacing: 2
