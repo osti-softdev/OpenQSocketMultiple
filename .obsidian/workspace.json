@@ -183,6 +183,8 @@
   },
   "active": "8631e6f67ac52d98",
   "lastOpenFiles": [
+    "public/js/admin/tableSort.js",
+    "node_modules/@babel/helper-module-imports/README.md",
     "backend/db.db-journal",
     "backend/db.db",
     "node_modules/es-set-tostringtag/CHANGELOG.md"

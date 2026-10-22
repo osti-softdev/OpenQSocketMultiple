@@ -520,10 +520,12 @@ function switchTab(tab) {
     if (tab === 'dashboard') loadDashboard();
     else if (tab === 'live') {
         loadDashboard();
-        if (typeof switchLiveSection === 'function') {
-            const currentActive = $('.live-nav-btn.active').data('live-section') || 'charts-status';
-            switchLiveSection(currentActive);
-        }
+        setTimeout(function() {
+            if (window.charts) {
+                if (window.charts.liveTickets && typeof window.charts.liveTickets.resize === 'function') window.charts.liveTickets.resize();
+                if (window.charts.liveTellers && typeof window.charts.liveTellers.resize === 'function') window.charts.liveTellers.resize();
+            }
+        }, 50);
     }
     else if (tab === 'reports') {
         // Initialize report page with default dates

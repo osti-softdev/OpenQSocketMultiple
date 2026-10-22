@@ -2506,6 +2506,20 @@ textarea.form-control {
   --oq-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
 }
 
+html[data-theme=dark],
+body[data-theme=dark] {
+  --oq-bg: #0b0722;
+  --oq-surface: rgba(20, 14, 46, 0.85);
+  --oq-surface-soft: rgba(30, 20, 68, 0.75);
+  --oq-border: rgba(99, 70, 185, 0.40);
+  --oq-border-strong: rgba(139, 92, 246, 0.55);
+  --oq-text: #e2e8f0;
+  --oq-heading: #ffffff;
+  --oq-muted: #94a3b8;
+  --oq-primary: #3f00d7;
+  --oq-sidebar: rgba(10, 6, 28, 0.88);
+}
+
 html,
 body {
   min-height: 100%;
@@ -3382,6 +3396,225 @@ textarea {
   box-shadow: none !important;
   background: transparent !important;
   overflow: visible !important;
+}
+
+/* Live Preview Single Continuous Workspace */
+.live-page,
+.workspace-page.live-page {
+  height: auto !important;
+  min-height: auto !important;
+  display: grid !important;
+  grid-template-rows: none !important;
+  gap: 16px !important;
+  overflow: visible !important;
+  padding-bottom: 40px !important;
+}
+
+.live-page .stats-grid {
+  display: grid !important;
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  height: auto !important;
+  min-height: 84px !important;
+}
+
+.live-page .stats-grid .stat-card,
+.live-page .stat-card {
+  min-height: 84px !important;
+  height: auto !important;
+  max-height: 98px !important;
+  padding: 12px 14px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 12px !important;
+  background: var(--console-surface, var(--oq-surface)) !important;
+  border: 1px solid var(--console-border, var(--oq-border)) !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05) !important;
+}
+.live-page .stats-grid .stat-card::after,
+.live-page .stat-card::after {
+  display: none !important;
+}
+.live-page .stats-grid .stat-card.stat-blue,
+.live-page .stat-card.stat-blue {
+  border-left: 3px solid #3874ff !important;
+}
+.live-page .stats-grid .stat-card.stat-green,
+.live-page .stat-card.stat-green {
+  border-left: 3px solid #10b981 !important;
+}
+.live-page .stats-grid .stat-card.stat-amber,
+.live-page .stat-card.stat-amber {
+  border-left: 3px solid #f59e0b !important;
+}
+.live-page .stats-grid .stat-card.stat-violet,
+.live-page .stat-card.stat-violet {
+  border-left: 3px solid #8b5cf6 !important;
+}
+.live-page .stats-grid .stat-card.stat-cyan,
+.live-page .stat-card.stat-cyan {
+  border-left: 3px solid #06b6d4 !important;
+}
+.live-page .stats-grid .stat-card.stat-rose,
+.live-page .stat-card.stat-rose {
+  border-left: 3px solid #f43f5e !important;
+}
+
+.live-page .stat-icon {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 13px !important;
+  font-weight: 850 !important;
+  flex-shrink: 0 !important;
+  background: var(--console-surface-soft, var(--oq-surface-soft)) !important;
+  border: 1px solid var(--console-border, var(--oq-border)) !important;
+  color: var(--console-heading, var(--oq-heading)) !important;
+}
+
+.live-page .stat-info {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+  min-width: 0 !important;
+}
+.live-page .stat-info p {
+  margin: 0 !important;
+  font-size: 9px !important;
+  font-weight: 750 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  color: var(--console-muted, var(--oq-muted)) !important;
+}
+.live-page .stat-info h3 {
+  margin: 1px 0 !important;
+  font-size: 22px !important;
+  font-weight: 850 !important;
+  line-height: 1.1 !important;
+  color: var(--console-heading, var(--oq-heading)) !important;
+}
+.live-page .stat-info span {
+  margin: 0 !important;
+  font-size: 9px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  color: var(--console-muted, var(--oq-muted)) !important;
+}
+
+.live-page .live-market-grid {
+  min-height: 0 !important;
+  height: auto !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+}
+
+.live-page .live-market-card {
+  min-height: 350px !important;
+  height: 350px !important;
+  background: var(--console-surface, var(--oq-surface)) !important;
+  border: 1px solid var(--console-border, var(--oq-border)) !important;
+  border-radius: 16px !important;
+  padding: 18px 20px !important;
+}
+
+.live-page .market-chart-wrap {
+  min-height: 255px !important;
+  height: 255px !important;
+}
+
+.live-page .operations-grid {
+  min-height: 0 !important;
+  height: auto !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr) !important;
+  gap: 16px !important;
+}
+
+.live-page .operations-card,
+.live-page .dashServices,
+.live-page .dashTellers,
+.live-page .dashGroups {
+  min-height: auto !important;
+  height: auto !important;
+  max-height: none !important;
+  padding: 18px 20px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: visible !important;
+  background: var(--console-surface, var(--oq-surface)) !important;
+  border: 1px solid var(--console-border, var(--oq-border)) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05) !important;
+}
+
+.live-page .operations-card .live-grid,
+.live-page .operations-card .card-teller-dashboard .table-container,
+.live-page .operations-card .table-container,
+.live-page .operations-card .table-scroll {
+  position: static !important;
+  inset: auto !important;
+  width: 100% !important;
+  min-height: 180px !important;
+  height: auto !important;
+  max-height: 385px !important; /* Comfortably displays up to 8 rows before inner scrolling */
+  flex: none !important;
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+  border: 1px solid var(--console-border, var(--oq-border)) !important;
+  border-radius: 10px !important;
+  background: var(--console-surface-soft, var(--oq-surface-soft)) !important;
+}
+
+.live-page .operations-card table thead th {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 5 !important;
+  height: 38px !important;
+  padding: 8px 12px !important;
+  background: var(--console-surface-solid, var(--oq-surface)) !important;
+  border-bottom: 1px solid var(--console-border-strong, var(--oq-border-strong)) !important;
+  font-size: 9px !important;
+  font-weight: 850 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--console-muted, var(--oq-muted)) !important;
+  white-space: nowrap !important;
+}
+
+.live-page .operations-card table tbody td {
+  height: 40px !important;
+  padding: 8px 12px !important;
+  border-bottom: 1px solid var(--console-border, var(--oq-border)) !important;
+  font-size: 11px !important;
+  color: var(--console-text, var(--oq-text)) !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+}
+
+.live-page .operations-card table tbody tr:last-child td {
+  border-bottom: 0 !important;
+}
+
+.live-page .operations-card table tbody tr:hover td {
+  background: var(--console-surface-hover, #f8faff) !important;
+}
+
+.live-page .admin-table,
+.live-page .service-live-table {
+  min-width: 100% !important;
+  width: 100% !important;
 }
 
 .card,

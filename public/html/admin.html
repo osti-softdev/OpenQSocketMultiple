@@ -6,7 +6,7 @@
     <title>OpenQ Operations Console</title>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/css/admin.css">
-<link rel="stylesheet" href="/css/admin-console.css?v=20260718-9">
+    <link rel="stylesheet" href="/css/admin-console.css?v=20261022-onescroll">
     <script>
         (() => {
             document.documentElement.classList.add('admin-access-pending');
@@ -54,12 +54,12 @@
                 <button class="nav-item" data-tab="accounts"><span class="nav-icon"><img src="/images/icons/accounts.svg" alt=""></span><span class="nav-copy"><strong>Accounts</strong><small>Admin access</small></span></button>
                 <button class="nav-item" data-tab="settings"><span class="nav-icon"><img src="/images/icons/settings.svg" alt=""></span><span class="nav-copy"><strong>Settings</strong><small>Display & media</small></span></button>
                 <div class="settingsMenu">
-                    <div class="settingsmenubtn" data-settingstab="configuration">Configurations</div>
+                    <!-- <div class="settingsmenubtn" data-settingstab="configuration">Configurations</div> -->
                     <div class="settingsmenubtn active" data-settingstab="advertisement">Advertisement</div>
                     <div class="settingsmenubtn" data-settingstab="announcement">Announcement</div>
                     <div class="settingsmenubtn" data-settingstab="displayaudio">Display Audio</div>
                     <div class="settingsmenubtn" data-settingstab="images">Images</div>
-                    <div class="settingsmenubtn" data-settingstab="smsconfig">SMS Configuration</div>
+                    <!-- <div class="settingsmenubtn" data-settingstab="smsconfig">SMS Configuration</div> -->
                     <div class="settingsmenubtn" data-settingstab="systemlogs">System Logs</div>
                 </div>
             </nav>
@@ -157,80 +157,43 @@
                         <div><span class="page-kicker live-kicker">Live operations</span><h1>Realtime queue control room</h1><p>See demand, teller activity, and service pressure as it happens.</p></div>
                         <div class="page-intro-actions"><span class="live-chip"><i></i> Updated <b id="last-updated">just now</b></span><button class="btn btn-secondary" type="button" onclick="loadLiveDashboard()">Refresh now</button></div>
                     </section>
-                    <!-- Live Preview 2-Page / Section Switcher -->
-                    <nav class="live-section-nav" role="tablist" aria-label="Live preview pages">
-                        <button type="button" class="live-nav-btn active" data-live-section="charts-status" role="tab" aria-selected="true" title="View Realtime Charts & Statuses">
-                            <span class="live-nav-badge">Page 1</span>
-                            <div class="live-nav-text">
-                                <strong class="live-nav-title">Charts & Statuses</strong>
-                                <small class="live-nav-desc">Queue metrics & arrival trends</small>
-                            </div>
-                        </button>
-                        <button type="button" class="live-nav-btn" data-live-section="status-boards" role="tab" aria-selected="false" title="View Service & Teller Status Boards">
-                            <span class="live-nav-badge">Page 2</span>
-                            <div class="live-nav-text">
-                                <strong class="live-nav-title">Status Boards</strong>
-                                <small class="live-nav-desc">Service, teller & group operations</small>
-                            </div>
-                        </button>
-                    </nav>
 
-                    <!-- PAGE 1: CHARTS & STATUSES -->
-                    <div id="live-page-charts-status" class="live-page-section active">
-                        <section class="stats-grid">
-                            <article class="stat-card stat-blue"><div class="stat-icon">01</div><div class="stat-info"><p>Total tickets today</p><h3 id="live-total">0</h3><span>All queue entries</span></div></article>
-                            <article class="stat-card stat-green"><div class="stat-icon">02</div><div class="stat-info"><p>Total served</p><h3 id="live-served">0</h3><span>Completed today</span></div></article>
-                            <article class="stat-card stat-amber"><div class="stat-icon">03</div><div class="stat-info"><p>Waiting now</p><h3 id="live-queue">0</h3><span>Pending service</span></div></article>
-                            <article class="stat-card stat-violet"><div class="stat-icon">04</div><div class="stat-info"><p>Average serving</p><h3 id="live-avgserving">0m</h3><span>Handling duration</span></div></article>
-                            <article class="stat-card stat-cyan"><div class="stat-icon">05</div><div class="stat-info"><p>Avg turnaround</p><h3 id="live-turnaround">0m</h3><span>End-to-end journey</span></div></article>
-                            <article class="stat-card stat-rose"><div class="stat-icon">06</div><div class="stat-info"><p>Average waiting</p><h3 id="live-avgwaiting">0m</h3><span>Before teller call</span></div></article>
-                        </section>
+                    <section class="stats-grid">
+                        <article class="stat-card stat-blue"><div class="stat-icon">01</div><div class="stat-info"><p>Total tickets today</p><h3 id="live-total">0</h3><span>All queue entries</span></div></article>
+                        <article class="stat-card stat-green"><div class="stat-icon">02</div><div class="stat-info"><p>Total served</p><h3 id="live-served">0</h3><span>Completed today</span></div></article>
+                        <article class="stat-card stat-amber"><div class="stat-icon">03</div><div class="stat-info"><p>Waiting now</p><h3 id="live-queue">0</h3><span>Pending service</span></div></article>
+                        <article class="stat-card stat-violet"><div class="stat-icon">04</div><div class="stat-info"><p>Average serving</p><h3 id="live-avgserving">0m</h3><span>Handling duration</span></div></article>
+                        <article class="stat-card stat-cyan"><div class="stat-icon">05</div><div class="stat-info"><p>Avg turnaround</p><h3 id="live-turnaround">0m</h3><span>End-to-end journey</span></div></article>
+                        <article class="stat-card stat-rose"><div class="stat-icon">06</div><div class="stat-info"><p>Average waiting</p><h3 id="live-avgwaiting">0m</h3><span>Before teller call</span></div></article>
+                    </section>
 
-                        <section class="live-market-grid">
-                            <article class="live-market-card ticket-flow-card">
-                                <div class="market-card-heading"><div><span class="market-live-dot">Live arrivals</span><h3>Ticket flow · 30-minute intervals</h3><p>Arrival pressure across every active service today.</p></div><div class="market-quote"><span>Tickets today</span><strong id="market-ticket-total">0</strong></div></div>
-                                <div class="market-chart-wrap"><canvas id="liveTicketFlowChart"></canvas></div>
-                            </article>
-                            <article class="live-market-card teller-flow-card">
-                                <div class="market-card-heading"><div><span class="market-live-dot success">Live throughput</span><h3>Teller served-ticket monitor</h3><p>Completed tickets per teller in 30-minute intervals.</p></div><div class="market-quote"><span>Served today</span><strong id="market-served-total">0</strong></div></div>
-                                <div class="market-chart-wrap"><canvas id="liveTellerFlowChart"></canvas></div>
-                            </article>
-                        </section>
+                    <section class="live-market-grid">
+                        <article class="live-market-card ticket-flow-card">
+                            <div class="market-card-heading"><div><span class="market-live-dot">Live arrivals</span><h3>Ticket flow · 30-minute intervals</h3><p>Arrival pressure across every active service today.</p></div><div class="market-quote"><span>Tickets today</span><strong id="market-ticket-total">0</strong></div></div>
+                            <div class="market-chart-wrap"><canvas id="liveTicketFlowChart"></canvas></div>
+                        </article>
+                        <article class="live-market-card teller-flow-card">
+                            <div class="market-card-heading"><div><span class="market-live-dot success">Live throughput</span><h3>Teller served-ticket monitor</h3><p>Completed tickets per teller in 30-minute intervals.</p></div><div class="market-quote"><span>Served today</span><strong id="market-served-total">0</strong></div></div>
+                            <div class="market-chart-wrap"><canvas id="liveTellerFlowChart"></canvas></div>
+                        </article>
+                    </section>
 
-                        <div class="live-pagination-bar">
-                            <div class="live-pagination-info">
-                                <span>Showing <strong>Page 1 of 2</strong>: Realtime queue metrics & flow charts</span>
-                            </div>
-                            <button type="button" class="btn btn-primary" onclick="switchLiveSection('status-boards')">Next: Status Boards (Page 2) →</button>
-                        </div>
-                    </div>
+                    <section class="operations-grid">
+                        <article class="dashServices operations-card">
+                            <div class="section-heading"><div><span class="section-kicker">Service monitor</span><h3>Service status board</h3></div><span class="live-chip small"><i></i> Live</span></div>
+                            <div class="live-grid table-scroll"><table class="service-live-table" id="service-live-grid"><thead><tr><th>Service</th><th>Status</th><th>Waiting</th><th>Serving</th><th>Completed</th><th>Avg wait</th></tr></thead><tbody></tbody></table></div>
+                        </article>
 
-                    <!-- PAGE 2: STATUS BOARDS -->
-                    <div id="live-page-status-boards" class="live-page-section" style="display: none;">
-                        <section class="operations-grid">
-                            <article class="dashServices operations-card">
-                                <div class="section-heading"><div><span class="section-kicker">Service monitor</span><h3>Service status board</h3></div><span class="live-chip small"><i></i> Live</span></div>
-                                <div class="live-grid table-scroll"><table class="service-live-table" id="service-live-grid"><thead><tr><th>Service</th><th>Status</th><th>Waiting</th><th>Serving</th><th>Completed</th><th>Avg wait</th></tr></thead><tbody></tbody></table></div>
-                            </article>
+                        <article class="dashTellers operations-card">
+                            <div class="section-heading"><div><span class="section-kicker">Team monitor</span><h3>Teller status board</h3></div><button class="text-action" type="button" data-jump-tab="tellers">Manage tellers →</button></div>
+                            <div class="card-teller-dashboard no-gap"><div class="table-container table-scroll"><table class="admin-table dense"><thead><tr><th>Teller</th><th>Counter</th><th>Status</th><th>Served</th><th>Avg handling</th><th>Avg turns</th></tr></thead><tbody id="teller-live-list"></tbody></table></div></div>
+                        </article>
 
-                            <article class="dashTellers operations-card">
-                                <div class="section-heading"><div><span class="section-kicker">Team monitor</span><h3>Teller status board</h3></div><button class="text-action" type="button" data-jump-tab="tellers">Manage tellers →</button></div>
-                                <div class="card-teller-dashboard no-gap"><div class="table-container table-scroll"><table class="admin-table dense"><thead><tr><th>Teller</th><th>Counter</th><th>Status</th><th>Served</th><th>Avg handling</th><th>Avg turns</th></tr></thead><tbody id="teller-live-list"></tbody></table></div></div>
-                            </article>
-
-                            <article class="dashGroups operations-card" style="grid-column: 1 / -1;">
-                                <div class="section-heading"><div><span class="section-kicker">Group monitor</span><h3>Teller Groups status board</h3></div><span class="live-chip small"><i></i> History Verified</span></div>
-                                <div class="card-teller-dashboard no-gap"><div class="table-container table-scroll"><table class="admin-table dense"><thead><tr><th>Group Name</th><th>Active Tellers</th><th>Received</th><th>Served</th><th>Forwarded</th><th>Completed</th></tr></thead><tbody id="group-live-list"></tbody></table></div></div>
-                            </article>
-                        </section>
-
-                        <div class="live-pagination-bar">
-                            <button type="button" class="btn btn-secondary" onclick="switchLiveSection('charts-status')">← Back to Charts & Statuses (Page 1)</button>
-                            <div class="live-pagination-info">
-                                <span>Showing <strong>Page 2 of 2</strong>: Service, teller & group status boards</span>
-                            </div>
-                        </div>
-                    </div>
+                        <article class="dashGroups operations-card" style="grid-column: 1 / -1;">
+                            <div class="section-heading"><div><span class="section-kicker">Group monitor</span><h3>Teller Groups status board</h3></div><span class="live-chip small"><i></i> History Verified</span></div>
+                            <div class="card-teller-dashboard no-gap"><div class="table-container table-scroll"><table class="admin-table dense"><thead><tr><th>Group Name</th><th>Active Tellers</th><th>Received</th><th>Served</th><th>Forwarded</th><th>Completed</th></tr></thead><tbody id="group-live-list"></tbody></table></div></div>
+                        </article>
+                    </section>
                 </div>
             </div>
             <!-- ^ REPORTS TAB -->
@@ -1141,6 +1104,7 @@ $(function () {
 <script src="/js/admin/history.js?v=20260717-7"></script>
 <script src="/js/admin/report.js?v=20260717-9"></script>
 <!-- Main admin navigation and modal functions -->
+<script src="/js/admin/tableSort.js?v=20261022-1"></script>
 <script src="/js/admin/admin.js?v=20260718-9"></script>
 <script src="/js/display/footer.js"></script>
 <script src="/js/admin/adminads.js?v=20260717-2"></script>

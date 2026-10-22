@@ -23,31 +23,13 @@ $(document).on('click', '#monthlyBtn', function () {
     renderSelectedPeriodTrend();
 });
 
-// & ===== LIVE SECTION / PAGE NAVIGATION =====
-function switchLiveSection(sectionKey) {
-    if (!sectionKey) sectionKey = 'charts-status';
-    $('.live-nav-btn').removeClass('active').attr('aria-selected', 'false');
-    $(`.live-nav-btn[data-live-section="${sectionKey}"]`).addClass('active').attr('aria-selected', 'true');
-    $('.live-page-section').hide().removeClass('active');
-    $(`#live-page-${sectionKey}`).show().addClass('active');
-
-    if (sectionKey === 'charts-status') {
-        setTimeout(function() {
-            if (charts.liveTickets && typeof charts.liveTickets.resize === 'function') {
-                charts.liveTickets.resize();
-            }
-            if (charts.liveTellers && typeof charts.liveTellers.resize === 'function') {
-                charts.liveTellers.resize();
-            }
-        }, 30);
-    }
+// & ===== LIVE SECTION COMPATIBILITY STUB =====
+function switchLiveSection() {
+    // Single continuous scrolling page active
+    if (charts.liveTickets && typeof charts.liveTickets.resize === 'function') charts.liveTickets.resize();
+    if (charts.liveTellers && typeof charts.liveTellers.resize === 'function') charts.liveTellers.resize();
 }
 window.switchLiveSection = switchLiveSection;
-
-$(document).on('click', '.live-nav-btn', function () {
-    const sec = $(this).data('live-section');
-    switchLiveSection(sec);
-});
 
 // & ===== DASHBOARD =====
 function loadDashboard() {

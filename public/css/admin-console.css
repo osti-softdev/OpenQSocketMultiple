@@ -9,42 +9,44 @@
 :root {
   color-scheme: light;
   --console-theme-name: 'light';
-  --console-bg: #f8fafc;
-  --console-bg-accent: #f1f5f9;
-  --console-bg-image: linear-gradient(135deg, rgba(250, 252, 255, 0.88), rgba(242, 246, 252, 0.93)), url('/public/CCTO/bg.png');
-  --console-surface: rgba(255, 255, 255, 0.84);
-  --console-surface-solid: #ffffff;
-  --console-surface-raised: rgba(255, 255, 255, 0.92);
-  --console-surface-soft: rgba(245, 247, 252, 0.72);
-  --console-surface-hover: rgba(255, 255, 255, 0.97);
-  --console-border: rgba(203, 213, 225, 0.70);
-  --console-border-strong: rgba(148, 163, 184, 0.85);
+  --console-bg: #cbd5e1;
+  --console-bg-accent: #94a3b8;
+  /* Soft daylight tint that dims brightness while making Cebu City Hall clearly visible */
+  --console-bg-image: linear-gradient(180deg, rgba(206, 215, 226, 0.52) 0%, rgba(154, 172, 194, 0.62) 100%), url('/public/CCTO/bg.png');
+  --console-surface: rgba(246, 248, 251, 0.92);
+  --console-surface-solid: #f1f4f8;
+  --console-surface-raised: rgba(255, 255, 255, 0.96);
+  --console-surface-soft: rgba(226, 232, 240, 0.82);
+  --console-surface-hover: #ffffff;
+  --console-border: rgba(148, 163, 184, 0.45);
+  --console-border-strong: rgba(100, 116, 139, 0.65);
   --console-text: #1e293b;
   --console-heading: #0f172a;
-  --console-muted: #64748b;
-  --console-faint: #94a3b8;
-  /* Light Theme Color: #f7ed0e (Vibrant Yellow / Gold) */
-  --console-primary: #f7ed0e;
-  --console-primary-strong: #dfd400;
-  --console-primary-hover: #fffa38;
-  --console-primary-text: #18181b;
-  --console-primary-soft: rgba(247, 237, 14, 0.28);
-  --console-primary-glow: 0 0 20px rgba(247, 237, 14, 0.55);
-  --console-primary-border: #d4ca00;
-  --console-primary-gradient: linear-gradient(135deg, #f7ed0e, #edd700);
+  --console-muted: #475569;
+  --console-faint: #64748b;
+  /* Light Theme Accent: #f7ed0e tuned for friendly, clear contrast without blinding glare */
+  --console-primary: #d4a000;
+  --console-primary-bright: #f7ed0e;
+  --console-primary-strong: #b88600;
+  --console-primary-hover: #dfa800;
+  --console-primary-text: #0f172a;
+  --console-primary-soft: rgba(247, 237, 14, 0.20);
+  --console-primary-glow: 0 2px 8px rgba(184, 134, 0, 0.22);
+  --console-primary-border: #c99700;
+  --console-primary-gradient: linear-gradient(135deg, #f7ed0e, #d4a000);
   --console-cyan: #0284c7;
   --console-success: #059669;
   --console-warning: #d97706;
   --console-danger: #e11d48;
-  --console-sidebar: rgba(15, 23, 42, 0.86);
-  --console-sidebar-raised: rgba(30, 41, 59, 0.92);
+  --console-sidebar: #0f172a;
+  --console-sidebar-raised: #1e293b;
   --console-sidebar-text: #f8fafc;
   --console-sidebar-muted: #94a3b8;
-  --console-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
-  --console-shadow-small: 0 4px 18px rgba(15, 23, 42, 0.05);
-  --console-glass-blur: blur(16px);
-  --console-radius: 18px;
-  --console-radius-small: 12px;
+  --console-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.12);
+  --console-shadow-small: 0 2px 5px rgba(15, 23, 42, 0.08);
+  --console-glass-blur: blur(8px);
+  --console-radius: 14px;
+  --console-radius-small: 10px;
   --sidebar-width: 276px;
 }
 
@@ -61,40 +63,41 @@ html.admin-access-pending .tab-content {
 html[data-theme=dark] {
   color-scheme: dark;
   --console-theme-name: 'dark';
-  --console-bg: #0b0722;
-  --console-bg-accent: #130c33;
-  --console-bg-image: linear-gradient(135deg, rgba(14, 10, 36, 0.86), rgba(7, 4, 22, 0.94)), url('/public/CCTO/bg.png');
-  --console-surface: rgba(20, 14, 46, 0.80);
-  --console-surface-solid: #150f32;
-  --console-surface-raised: rgba(30, 20, 68, 0.88);
-  --console-surface-soft: rgba(15, 9, 36, 0.72);
-  --console-surface-hover: rgba(42, 28, 92, 0.92);
-  --console-border: rgba(99, 70, 185, 0.40);
-  --console-border-strong: rgba(139, 92, 246, 0.55);
+  --console-bg: #0b0f19;
+  --console-bg-accent: #111827;
+  --console-bg-image: linear-gradient(180deg, rgba(11, 15, 25, 0.78) 0%, rgba(17, 24, 39, 0.86) 100%), url('/public/CCTO/bg.png');
+  --console-surface: rgba(17, 24, 39, 0.94);
+  --console-surface-solid: #111827;
+  --console-surface-raised: #1e293b;
+  --console-surface-soft: #0f172a;
+  --console-surface-hover: #1f293d;
+  --console-border: #1f293d;
+  --console-border-strong: #334155;
   --console-text: #e2e8f0;
-  --console-heading: #ffffff;
+  --console-heading: #f8fafc;
   --console-muted: #94a3b8;
   --console-faint: #64748b;
-  /* Dark Theme Color: #3f00d7 (Deep Electric Indigo / Violet) */
-  --console-primary: #3f00d7;
-  --console-primary-strong: #5915f0;
-  --console-primary-hover: #6e2bf8;
+  /* Dark Theme Accent: #3f00d7 harmonized with rich indigo for soft, friendly readability */
+  --console-primary: #6355f6;
+  --console-primary-bright: #7c70ff;
+  --console-primary-strong: #3f00d7;
+  --console-primary-hover: #7265f8;
   --console-primary-text: #ffffff;
-  --console-primary-soft: rgba(63, 0, 215, 0.28);
-  --console-primary-glow: 0 0 24px rgba(99, 38, 255, 0.65);
-  --console-primary-border: #6d28d9;
-  --console-primary-gradient: linear-gradient(135deg, #5b1aff, #3f00d7);
+  --console-primary-soft: rgba(99, 85, 246, 0.16);
+  --console-primary-glow: 0 4px 14px rgba(63, 0, 215, 0.28);
+  --console-primary-border: #4f3ee8;
+  --console-primary-gradient: linear-gradient(135deg, #6355f6, #3f00d7);
   --console-cyan: #38bdf8;
   --console-success: #10b981;
   --console-warning: #f59e0b;
   --console-danger: #f43f5e;
-  --console-sidebar: rgba(10, 6, 28, 0.88);
-  --console-sidebar-raised: rgba(18, 12, 44, 0.92);
+  --console-sidebar: #090d16;
+  --console-sidebar-raised: #111827;
   --console-sidebar-text: #f8fafc;
-  --console-sidebar-muted: #8b9bb4;
-  --console-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-  --console-shadow-small: 0 8px 24px rgba(0, 0, 0, 0.25);
-  --console-glass-blur: blur(18px);
+  --console-sidebar-muted: #8492a6;
+  --console-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  --console-shadow-small: 0 2px 8px rgba(0, 0, 0, 0.22);
+  --console-glass-blur: blur(4px);
 }
 
 html,
@@ -155,11 +158,9 @@ textarea:focus-visible {
   border: 0 !important;
   border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
   border-radius: 0 !important;
-  background: radial-gradient(circle at 0 0, color-mix(in srgb, var(--console-primary) 15%, transparent), transparent 38%), var(--console-sidebar) !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  background: var(--console-sidebar) !important;
   color: var(--console-sidebar-text) !important;
-  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.12) !important;
   transition: width 0.22s ease !important;
 }
 
@@ -325,10 +326,10 @@ textarea:focus-visible {
 }
 
 .sidebar .nav-item.active {
-  border-color: color-mix(in srgb, var(--console-primary) 35%, transparent) !important;
-  background: linear-gradient(100deg, color-mix(in srgb, var(--console-primary) 28%, transparent), color-mix(in srgb, var(--console-primary) 12%, transparent)) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
   color: #fff !important;
-  box-shadow: inset 4px 0 0 var(--console-primary), 0 0 16px color-mix(in srgb, var(--console-primary) 22%, transparent) !important;
+  box-shadow: inset 4px 0 0 var(--console-primary) !important;
 }
 
 .nav-icon {
@@ -366,8 +367,8 @@ textarea:focus-visible {
 }
 
 .nav-item.active .nav-icon {
-  border-color: color-mix(in srgb, var(--console-primary) 45%, transparent) !important;
-  background: color-mix(in srgb, var(--console-primary) 32%, transparent) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
   color: #fff !important;
 }
 
@@ -535,11 +536,11 @@ textarea:focus-visible {
   gap: 18px !important;
   border: 0 !important;
   border-bottom: 1px solid var(--console-border) !important;
-  background: color-mix(in srgb, var(--console-surface) 75%, transparent) !important;
+  background: var(--console-surface) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
   color: var(--console-text) !important;
-  box-shadow: none !important;
-  backdrop-filter: var(--console-glass-blur) saturate(160%) !important;
-  -webkit-backdrop-filter: var(--console-glass-blur) saturate(160%) !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06) !important;
 }
 
 .header-title-group {
@@ -693,19 +694,31 @@ html[data-theme=dark] .theme-moon {
 
 .tab-content.active {
   display: block !important;
-  animation: consoleReveal 0.22s ease-out !important;
+  animation: none !important;
 }
 
-@keyframes consoleReveal {
-  from {
-    opacity: 0;
-    transform: translateY(5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Instant response - no laggy transitions on click */
+.tab-content,
+.tab-content.active,
+.settabs,
+.settabs.activetab,
+.sidebar,
+.content,
+.nav-item,
+.nav-icon,
+.nav-icon img,
+.settingsMenu,
+.settingsmenubtn,
+.btn,
+.sidebar-collapse-control,
+.theme-toggle,
+.overview-shortcuts button,
+.modal-overlay,
+.modal {
+  transition: none !important;
+  animation: none !important;
 }
+
 .workspace-page,
 .reports-container {
   width: min(100%, 1660px) !important;
@@ -723,9 +736,11 @@ html[data-theme=dark] .theme-moon {
   justify-content: space-between !important;
   gap: 24px !important;
   overflow: hidden !important;
-  border: 1px solid color-mix(in srgb, var(--console-primary) 18%, var(--console-border)) !important;
-  border-radius: 22px !important;
-  background: linear-gradient(110deg, color-mix(in srgb, var(--console-primary-soft) 60%, var(--console-surface)) 0%, var(--console-surface) 64%) !important;
+  border: 1px solid var(--console-border) !important;
+  border-radius: var(--console-radius) !important;
+  background: var(--console-surface) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
   box-shadow: var(--console-shadow) !important;
 }
 
@@ -938,8 +953,6 @@ button.btn {
   border: 1px solid var(--console-border) !important;
   border-radius: 15px !important;
   background: var(--console-surface) !important;
-  backdrop-filter: var(--console-glass-blur) saturate(140%) !important;
-  -webkit-backdrop-filter: var(--console-glass-blur) saturate(140%) !important;
   box-shadow: var(--console-shadow-small) !important;
 }
 
@@ -1030,8 +1043,8 @@ button.btn {
   border: 1px solid var(--console-border) !important;
   border-radius: var(--console-radius) !important;
   background: var(--console-surface) !important;
-  backdrop-filter: var(--console-glass-blur) saturate(140%) !important;
-  -webkit-backdrop-filter: var(--console-glass-blur) saturate(140%) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
   color: var(--console-text) !important;
   box-shadow: var(--console-shadow-small) !important;
 }
@@ -1044,8 +1057,8 @@ button.btn {
 .operations-grid .operations-card {
   border-color: var(--console-border) !important;
   background: var(--console-surface) !important;
-  backdrop-filter: var(--console-glass-blur) saturate(140%) !important;
-  -webkit-backdrop-filter: var(--console-glass-blur) saturate(140%) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
   color: var(--console-text) !important;
   box-shadow: var(--console-shadow-small) !important;
 }
@@ -1146,8 +1159,6 @@ button.btn {
   border: 1px solid var(--console-border) !important;
   border-radius: 16px !important;
   background: var(--console-surface) !important;
-  backdrop-filter: var(--console-glass-blur) saturate(140%) !important;
-  -webkit-backdrop-filter: var(--console-glass-blur) saturate(140%) !important;
   box-shadow: var(--console-shadow-small) !important;
 }
 
@@ -1230,17 +1241,60 @@ button.btn {
 .operations-grid {
   display: grid !important;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr) !important;
-  gap: 14px !important;
+  gap: 16px !important;
 }
 
 .operations-card {
   min-width: 0 !important;
+  height: auto !important;
   padding: 18px !important;
-  overflow: hidden !important;
+  overflow: visible !important;
 }
 
 .operations-card > .section-heading {
   margin-bottom: 12px !important;
+}
+
+.operations-card .card-teller-dashboard,
+.operations-card .card-teller-dashboard.no-gap {
+  position: static !important;
+  inset: auto !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: auto !important;
+  max-height: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  display: block !important;
+  overflow: visible !important;
+  transform: none !important;
+}
+
+.operations-card .live-grid,
+.operations-card .table-container,
+.operations-card .table-scroll {
+  position: static !important;
+  inset: auto !important;
+  width: 100% !important;
+  min-height: 120px !important;
+  height: auto !important;
+  max-height: 425px !important; /* Comfortably displays up to max 8 rows before inner scrolling */
+  flex: none !important;
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+  border: 1px solid var(--console-border) !important;
+  border-radius: var(--console-radius-small, 10px) !important;
+  background: var(--console-surface) !important;
+}
+
+.operations-card thead th {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 5 !important;
+  background: var(--console-surface-soft) !important;
 }
 
 .text-action {
@@ -1251,6 +1305,8 @@ button.btn {
   font-weight: 800 !important;
   cursor: pointer !important;
 }
+
+
 
 .live-market-grid {
   display: grid !important;
@@ -3858,11 +3914,17 @@ html.compact-sidebar .logout-btn span {
 /* Desktop viewport-fit workspaces */
 @media (min-width: 861px) {
   .content .tab-content#dashboard-tab.active,
-  .content .tab-content#live-tab.active,
   .content .tab-content#history-tab.active,
   .content .tab-content#tellers-tab.active,
   .content .tab-content#settings-tab.active:has(#advertisement-settab.activetab) {
     overflow: hidden !important;
+  }
+  .content .tab-content#live-tab,
+  .tab-content#live-tab {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100% !important;
   }
   .overview-page {
     height: 100% !important;
@@ -4054,36 +4116,87 @@ html.compact-sidebar .logout-btn span {
     height: auto !important;
     flex: 1 1 auto !important;
   }
-  .live-page {
-    height: 100% !important;
-    min-height: 0 !important;
-    grid-template-rows: 84px 78px minmax(190px, 1.12fr) minmax(145px, 0.88fr) !important;
-    gap: 10px !important;
-    overflow: hidden !important;
+  .live-page,
+  .workspace-page.live-page {
+    height: auto !important;
+    min-height: auto !important;
+    display: grid !important;
+    grid-template-rows: none !important;
+    gap: 16px !important;
+    overflow: visible !important;
+    padding-bottom: 40px !important;
+  }
+  .live-page .page-intro {
+    height: auto !important;
+    min-height: 68px !important;
   }
   .live-page .stats-grid {
-    height: 100% !important;
-    gap: 8px !important;
-  }
-  .live-page .stat-card {
-    min-height: 0 !important;
-    height: 100% !important;
-    padding: 10px 11px !important;
-    align-items: center !important;
-  }
-  .live-page .stat-info h3 {
-    font-size: 19px !important;
-  }
-  .live-page .live-market-grid,
-  .live-page .operations-grid {
-    min-height: 0 !important;
-    height: 100% !important;
+    height: auto !important;
+    min-height: 74px !important;
+    display: grid !important;
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
     gap: 10px !important;
   }
-  .live-page .live-market-card {
+  .live-page .stats-grid .stat-card,
+  .live-page .stat-card {
+    min-height: 84px !important;
+    height: auto !important;
+    max-height: 98px !important;
+    padding: 12px 14px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important;
+    background: var(--console-surface) !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: var(--console-radius-small, 12px) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    box-shadow: var(--console-shadow-small) !important;
+  }
+  .live-page .stats-grid .stat-card::after,
+  .live-page .stat-card::after {
+    display: none !important;
+  }
+  .live-page .stats-grid .stat-card.stat-blue,
+  .live-page .stat-card.stat-blue {
+    border-left: 3px solid #3874ff !important;
+  }
+  .live-page .stats-grid .stat-card.stat-green,
+  .live-page .stat-card.stat-green {
+    border-left: 3px solid #10b981 !important;
+  }
+  .live-page .stats-grid .stat-card.stat-amber,
+  .live-page .stat-card.stat-amber {
+    border-left: 3px solid #f59e0b !important;
+  }
+  .live-page .stats-grid .stat-card.stat-violet,
+  .live-page .stat-card.stat-violet {
+    border-left: 3px solid #8b5cf6 !important;
+  }
+  .live-page .stats-grid .stat-card.stat-cyan,
+  .live-page .stat-card.stat-cyan {
+    border-left: 3px solid #06b6d4 !important;
+  }
+  .live-page .stats-grid .stat-card.stat-rose,
+  .live-page .stat-card.stat-rose {
+    border-left: 3px solid #f43f5e !important;
+  }
+  .live-page .stat-info h3 {
+    font-size: 22px !important;
+    color: var(--console-heading) !important;
+  }
+  .live-page .live-market-grid {
     min-height: 0 !important;
-    height: 100% !important;
-    padding: 11px 13px !important;
+    height: auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+  }
+  .live-page .live-market-card {
+    min-height: 350px !important;
+    height: 350px !important;
+    padding: 18px 20px !important;
     display: flex !important;
     flex-direction: column !important;
   }
@@ -4091,50 +4204,109 @@ html.compact-sidebar .logout-btn span {
     min-height: 52px !important;
   }
   .live-page .market-card-heading p {
-    display: none !important;
+    display: block !important;
+    margin: 4px 0 0 !important;
+    color: var(--console-muted) !important;
+    font-size: 10px !important;
   }
   .live-page .market-chart-wrap {
-    min-height: 0 !important;
-    height: auto !important;
-    margin-top: 4px !important;
+    min-height: 255px !important;
+    height: 255px !important;
+    margin-top: 8px !important;
     flex: 1 1 auto !important;
   }
-  .live-page .operations-card {
+  .live-page .operations-grid {
     min-height: 0 !important;
-    height: 100% !important;
-    padding: 11px 13px !important;
-    display: flex !important;
-    flex-direction: column !important;
+    height: auto !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr) !important;
+    gap: 16px !important;
   }
   .live-page .operations-card,
-  .live-page .card-teller-dashboard,
-  .live-page .dashTellers {
-    overflow: hidden !important;
-  }
-  .live-page .card-teller-dashboard {
-    min-height: 0 !important;
+  .live-page .dashServices,
+  .live-page .dashTellers,
+  .live-page .dashGroups {
+    min-height: auto !important;
     height: auto !important;
-    flex: 1 1 auto !important;
+    max-height: none !important;
+    padding: 18px 20px !important;
     display: flex !important;
     flex-direction: column !important;
+    overflow: visible !important;
+    transform: none !important;
   }
   .live-page .operations-card > .section-heading {
-    min-height: 28px !important;
-    margin-bottom: 7px !important;
+    min-height: 32px !important;
+    margin-bottom: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  .live-page .card-teller-dashboard,
+  .live-page .card-teller-dashboard.no-gap {
+    min-height: auto !important;
+    height: auto !important;
+    max-height: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    display: block !important;
+    overflow: visible !important;
+    transform: none !important;
   }
   .live-page .operations-card .live-grid,
-  .live-page .operations-card .card-teller-dashboard {
-    min-height: 0 !important;
+  .live-page .operations-card .card-teller-dashboard .table-container,
+  .live-page .operations-card .table-container,
+  .live-page .operations-card .table-scroll {
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    min-height: 180px !important;
     height: auto !important;
-    flex: 1 1 auto !important;
-    overflow: hidden !important;
+    max-height: 385px !important; /* Comfortably displays up to max 8 rows before inner scrolling */
+    flex: none !important;
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: var(--console-radius-small, 10px) !important;
+    background: var(--console-surface-soft) !important;
   }
-  .live-page .operations-card .table-container {
-    min-height: 0 !important;
-    max-height: 100% !important;
-    height: auto !important;
-    flex: 1 1 auto !important;
-    overflow: auto !important;
+  .live-page .operations-card table thead th {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 5 !important;
+    height: 38px !important;
+    padding: 8px 12px !important;
+    background: var(--console-surface-solid) !important;
+    border-bottom: 1px solid var(--console-border-strong) !important;
+    font-size: 9px !important;
+    font-weight: 850 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: var(--console-muted) !important;
+    white-space: nowrap !important;
+  }
+  .live-page .operations-card table tbody td {
+    height: 40px !important;
+    padding: 8px 12px !important;
+    border-bottom: 1px solid var(--console-border) !important;
+    font-size: 11px !important;
+    color: var(--console-text) !important;
+    vertical-align: middle !important;
+    white-space: nowrap !important;
+  }
+  .live-page .operations-card table tbody tr:last-child td {
+    border-bottom: 0 !important;
+  }
+  .live-page .operations-card table tbody tr:hover td {
+    background: var(--console-surface-hover) !important;
+  }
+  .live-page .admin-table,
+  .live-page .service-live-table {
+    min-width: 100% !important;
+    width: 100% !important;
   }
   .content .tab-content#history-tab.active,
   .content .tab-content#tellers-tab.active {
@@ -4332,8 +4504,8 @@ html.compact-sidebar .logout-btn span {
     gap: 7px !important;
   }
   .live-page {
-    grid-template-rows: 70px 64px minmax(140px, 1.12fr) minmax(110px, 0.88fr) !important;
-    gap: 7px !important;
+    grid-template-rows: none !important;
+    height: auto !important;
   }
   .content .tab-content#history-tab.active,
   .content .tab-content#tellers-tab.active,
@@ -5280,8 +5452,8 @@ html.compact-sidebar .logout-btn span {
     flex: 1 1 auto !important;
   }
   .live-page {
-    grid-template-rows: 70px 64px minmax(170px, 1.12fr) minmax(130px, 0.88fr) !important;
-    gap: 7px !important;
+    grid-template-rows: none !important;
+    height: auto !important;
   }
   .content .tab-content#history-tab.active {
     display: grid !important;
@@ -5725,3 +5897,33 @@ html.compact-sidebar .logout-btn span {
   font-size: 12px;
   cursor: pointer;
 }/*# sourceMappingURL=admin-console.css.map */
+/* Sortable table headers */
+th.sortable {
+  cursor: pointer !important;
+  user-select: none !important;
+  position: relative;
+  padding-right: 20px !important;
+}
+th.sortable:hover {
+  color: var(--console-heading) !important;
+}
+th.sortable::after {
+  content: '\2195';
+  position: absolute;
+  right: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  opacity: 0.35;
+}
+th.sortable.sort-asc::after {
+  content: '\25B2';
+  opacity: 1;
+  color: var(--console-primary);
+}
+th.sortable.sort-desc::after {
+  content: '\25BC';
+  opacity: 1;
+  color: var(--console-primary);
+}
+

@@ -1307,118 +1307,7 @@ button.btn {
     cursor: pointer !important;
 }
 
-.live-section-nav {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 12px !important;
-    padding: 8px !important;
-    border: 1px solid var(--console-border) !important;
-    border-radius: var(--console-radius) !important;
-    background: var(--console-surface) !important;
-    backdrop-filter: blur(8px) !important;
-    -webkit-backdrop-filter: blur(8px) !important;
-    box-shadow: var(--console-shadow-small) !important;
-}
 
-.live-nav-btn {
-    display: flex !important;
-    align-items: center !important;
-    gap: 12px !important;
-    padding: 10px 16px !important;
-    border: 1px solid var(--console-border) !important;
-    border-radius: var(--console-radius-small, 10px) !important;
-    background: var(--console-surface-soft) !important;
-    color: var(--console-muted) !important;
-    cursor: pointer !important;
-    text-align: left !important;
-    transition: none !important;
-
-    &:hover {
-        background: var(--console-surface-hover) !important;
-        border-color: color-mix(in srgb, var(--console-primary) 30%, var(--console-border)) !important;
-        color: var(--console-heading) !important;
-    }
-
-    &.active {
-        background: color-mix(in srgb, var(--console-primary) 15%, var(--console-surface)) !important;
-        border-color: color-mix(in srgb, var(--console-primary) 45%, var(--console-border)) !important;
-        color: var(--console-heading) !important;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12) !important;
-
-        .live-nav-badge {
-            background: var(--console-primary) !important;
-            color: #ffffff !important;
-        }
-
-        .live-nav-title {
-            color: var(--console-heading) !important;
-            font-weight: 850 !important;
-        }
-    }
-}
-
-.live-nav-badge {
-    padding: 3px 8px !important;
-    border-radius: 999px !important;
-    font-size: 8px !important;
-    font-weight: 850 !important;
-    letter-spacing: .08em !important;
-    text-transform: uppercase !important;
-    background: var(--console-surface) !important;
-    border: 1px solid var(--console-border) !important;
-    color: var(--console-muted) !important;
-    flex-shrink: 0 !important;
-}
-
-.live-nav-text {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 2px !important;
-    min-width: 0 !important;
-}
-
-.live-nav-title {
-    font-size: 13px !important;
-    font-weight: 750 !important;
-    color: var(--console-heading) !important;
-    line-height: 1.2 !important;
-}
-
-.live-nav-desc {
-    font-size: 9px !important;
-    color: var(--console-muted) !important;
-    line-height: 1.2 !important;
-}
-
-.live-page-section {
-    width: 100% !important;
-    display: grid !important;
-    gap: 16px !important;
-}
-
-.live-pagination-bar {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: 14px !important;
-    padding: 12px 18px !important;
-    border: 1px solid var(--console-border) !important;
-    border-radius: var(--console-radius) !important;
-    background: var(--console-surface) !important;
-    backdrop-filter: blur(8px) !important;
-    -webkit-backdrop-filter: blur(8px) !important;
-    box-shadow: var(--console-shadow-small) !important;
-}
-
-.live-pagination-info {
-    font-size: 11px !important;
-    color: var(--console-muted) !important;
-
-    strong {
-        color: var(--console-heading) !important;
-        font-weight: 800 !important;
-    }
-}
 
 .live-market-grid {
     display: grid !important;
@@ -4291,15 +4180,38 @@ html.compact-sidebar .logout-btn span {
         gap: 10px !important;
     }
 
+    .live-page .stats-grid .stat-card,
     .live-page .stat-card {
-        min-height: 74px !important;
+        min-height: 84px !important;
         height: auto !important;
-        padding: 10px 14px !important;
+        max-height: 98px !important;
+        padding: 12px 14px !important;
+        display: flex !important;
+        flex-direction: row !important;
         align-items: center !important;
+        gap: 12px !important;
+        background: var(--console-surface) !important;
+        border: 1px solid var(--console-border) !important;
+        border-radius: var(--console-radius-small, 12px) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        box-shadow: var(--console-shadow-small) !important;
+
+        &::after {
+            display: none !important;
+        }
+
+        &.stat-blue { border-left: 3px solid #3874ff !important; }
+        &.stat-green { border-left: 3px solid #10b981 !important; }
+        &.stat-amber { border-left: 3px solid #f59e0b !important; }
+        &.stat-violet { border-left: 3px solid #8b5cf6 !important; }
+        &.stat-cyan { border-left: 3px solid #06b6d4 !important; }
+        &.stat-rose { border-left: 3px solid #f43f5e !important; }
     }
 
     .live-page .stat-info h3 {
-        font-size: 19px !important;
+        font-size: 22px !important;
+        color: var(--console-heading) !important;
     }
 
     .live-page .live-market-grid {
@@ -6219,3 +6131,37 @@ $ads-accent-inactive: #9aa0ac;
         cursor: pointer;
     }
 }
+/* Sortable table headers */
+th.sortable {
+    cursor: pointer !important;
+    user-select: none !important;
+    position: relative;
+    padding-right: 20px !important;
+
+    &:hover {
+        color: var(--console-heading) !important;
+    }
+
+    &::after {
+        content: '\2195';
+        position: absolute;
+        right: 7px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 10px;
+        opacity: 0.35;
+    }
+
+    &.sort-asc::after {
+        content: '\25B2';
+        opacity: 1;
+        color: var(--console-primary);
+    }
+
+    &.sort-desc::after {
+        content: '\25BC';
+        opacity: 1;
+        color: var(--console-primary);
+    }
+}
+
