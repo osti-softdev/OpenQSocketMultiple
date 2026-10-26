@@ -1,9 +1,3 @@
 /node_modules
-/dist_32
-/dist_64
-dist_32
-dist_64
-node_modules
-package-lock.json
-.tmp-cdp-scroll
-/.tmp-cdp-scroll
+/backend/config
+/public/ads
