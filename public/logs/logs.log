@@ -93,3 +93,43 @@
 ✔ 2026-10-22 3:25:06 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
 ✔ 2026-10-22 3:25:06 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
 ✔ 2026-10-22 3:25:07 PM [node:events:509] [ADS] Client connected: UnZrS-r6cw7w5myTAAAr
+✔ 2026-10-26 9:46:31 AM [backend\utilities\logger.js:149] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-10-26 9:46:32 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ enable debugging { debug: true }[0m
+✔ 2026-10-26 9:46:38 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-10-26 9:46:39 AM [unknown-location] Connected to SQLite database
+✔ 2026-10-26 9:46:40 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-10-26 9:46:40 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-26 9:46:40 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-26 9:46:41 AM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-10-26 9:46:43 AM [index.js:88] External display detected. Launching display window...
+✔ 2026-10-26 9:46:48 AM [node:events:509] [ADS] Client connected: vd9QWdJVV4-SGfedAAAB
+✔ 2026-10-26 9:46:49 AM [node:events:509] [ADS] Client connected: VKbKchjl7cG7kxJcAAAD
+✔ 2026-10-26 10:31:31 AM [backend\utilities\logger.js:150] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-10-26 10:31:31 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ custom filepath { path: '/custom/path/.env' }[0m
+✔ 2026-10-26 10:31:32 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-10-26 10:31:32 AM [unknown-location] Connected to SQLite database
+✔ 2026-10-26 10:31:32 AM [backend\utilities\db.js:64] Database schema auto-creation and seed verification completed.
+✔ 2026-10-26 10:31:32 AM [backend\utilities\db.js:51] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-26 10:31:32 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-26 10:31:32 AM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-10-26 10:31:33 AM [index.js:88] External display detected. Launching display window...
+✔ 2026-10-26 10:31:34 AM [node:events:509] [ADS] Client connected: oWgQ_VsxG-jbEHFmAAAB
+✔ 2026-10-26 10:31:34 AM [node:events:509] [ADS] Client connected: 6oWWyaZuLFPYnl6zAAAD
+✔ 2026-10-26 10:31:55 AM [node:events:509] [ADS] Client disconnected: 6oWWyaZuLFPYnl6zAAAD
+✔ 2026-10-26 10:31:59 AM [backend\utilities\logger.js:150] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-10-26 10:31:59 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ enable debugging { debug: true }[0m
+✔ 2026-10-26 10:31:59 AM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-10-26 10:31:59 AM [unknown-location] Connected to SQLite database
+✔ 2026-10-26 10:31:59 AM [backend\utilities\db.js:64] Database schema auto-creation and seed verification completed.
+✔ 2026-10-26 10:31:59 AM [backend\utilities\db.js:51] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-26 10:31:59 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-26 10:31:59 AM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-10-26 10:32:00 AM [index.js:88] External display detected. Launching display window...
+✔ 2026-10-26 10:32:01 AM [node:events:509] [ADS] Client connected: qtMrL4ZvTpgmzS3MAAAB
+✔ 2026-10-26 10:32:01 AM [node:events:509] [ADS] Client connected: xH16G-Qt_nwPXkv_AAAD
+✔ 2026-10-26 10:32:50 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-10-26 10:32:50 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-26 10:32:50 AM [node_modules\sqlite3\lib\trace.js:25] Login successful for: admin
+✔ 2026-10-26 10:32:51 AM [node:events:509] [ADS] Client connected: udv5lKzmYi6FXdtmAAAF
+✔ 2026-10-26 10:37:10 AM [node:events:509] [ADS] Client disconnected: udv5lKzmYi6FXdtmAAAF
+✔ 2026-10-26 12:47:33 PM [node:events:509] [ADS] Client disconnected: xH16G-Qt_nwPXkv_AAAD

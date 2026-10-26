@@ -150,9 +150,7 @@ module.exports = function createDisplayApiRouter(io) {
 
       const { sname, counter_num, counter_user } = ticket;
 
-      await db.runAsync("BEGIN TRANSACTION");
-
-      try {
+      await db.transaction(async () => {
         await db.runAsync(
           `UPDATE transactions
           SET status = 'finished',
@@ -166,45 +164,37 @@ module.exports = function createDisplayApiRouter(io) {
         );
 
         // 4. Set current ticket to "called"
-        const updateResult = await db.runAsync(
+        await db.runAsync(
           `UPDATE transactions
           SET status = 'called',
               start_time = ?
           WHERE id = ?`,
           [time, id]
         );
+      });
 
-        // 5. Commit
-        await db.runAsync("COMMIT");
+      // ────────────────────────────────────────────────
+      // IMPORTANT: Notify all displays in real-time
+      // ────────────────────────────────────────────────
+      io.emit("ticket-called", {
+        id,
+        sname,
+        ticketnum: ticket.ticketnum || "?", // optional: fetch if needed
+        service: ticket.ticketservice || "?",
+        counter_num,
+        counter_user,
+        time,
+        date
+      });
 
-        // ────────────────────────────────────────────────
-        // IMPORTANT: Notify all displays in real-time
-        // ────────────────────────────────────────────────
-        io.emit("ticket-called", {
-          id,
-          sname,
-          ticketnum: ticket.ticketnum || "?", // optional: fetch if needed
-          service: ticket.ticketservice || "?",
-          counter_num,
-          counter_user,
-          time,
-          date
-        });
-
-        // Success response
-        res.json({
-          success: true,
-          message: "Ticket marked as called",
-          ticketId: id,
-          counter: counter_num,
-          user: counter_user
-        });
-
-      } catch (innerErr) {
-        // Rollback on any error inside transaction
-        await db.runAsync("ROLLBACK").catch(() => { });
-        throw innerErr;
-      }
+      // Success response
+      res.json({
+        success: true,
+        message: "Ticket marked as called",
+        ticketId: id,
+        counter: counter_num,
+        user: counter_user
+      });
 
     } catch (err) {
       console.error("[updateCalledTickets] Failed:", {

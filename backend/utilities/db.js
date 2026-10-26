@@ -17,11 +17,9 @@ const db = new sqlite3.Database(dbPath, (err) => {
       db.run("PRAGMA busy_timeout = 15000;", () => {
         db.run("PRAGMA temp_store = MEMORY;", () => {
           db.run("PRAGMA cache_size = -64000;", () => {
-            db.run("PRAGMA mmap_size = 268435456;", () => {
-              db.run("PRAGMA foreign_keys = ON;", () => {
-                initializeDatabase();
-                ensureIndexes();
-              });
+            db.run("PRAGMA foreign_keys = ON;", () => {
+              initializeDatabase();
+              ensureIndexes();
             });
           });
         });
@@ -475,16 +473,24 @@ db.runAsync = (sql, params = []) =>
     });
   });
 
-// transaction helper
-db.transaction = async (fn) => {
-  try {
-    await db.runAsync('BEGIN');
-    await fn();
-    await db.runAsync('COMMIT');
-  } catch (err) {
-    await db.runAsync('ROLLBACK');
-    throw err;
-  }
+// serialized transaction helper to avoid SQLite concurrent transaction collisions
+let transactionQueue = Promise.resolve();
+
+db.transaction = function (fn) {
+  const result = transactionQueue.then(async () => {
+    await db.runAsync('BEGIN IMMEDIATE');
+    try {
+      const res = await fn();
+      await db.runAsync('COMMIT');
+      return res;
+    } catch (err) {
+      await db.runAsync('ROLLBACK').catch(() => {});
+      throw err;
+    }
+  });
+  // Maintain queue continuity even on rejection
+  transactionQueue = result.catch(() => {});
+  return result;
 };
 
 module.exports = db;

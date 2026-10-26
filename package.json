@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"bin": "index.js",
 	"scripts": {
+		"copy-db1": "node copy_from_db1.js",
 		"start": "electron index.js . --no-sandbox",
 		"dev": "node --inspect index.js",
 		"stop": "node tools/stop.js",

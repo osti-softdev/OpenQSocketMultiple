@@ -1,6 +1,7 @@
 // reso/node/utils/logger.js
 const fs = require("fs");
 const path = require("path");
+const util = require("util");
 
 // Ensure log directory exists
 const rootpath =
@@ -135,14 +136,14 @@ function setupLogger() {
 		const callerInfo = getCallerInfo();
 		const logMessage = `❌ ${timestamp} [${callerInfo}]`;
 		errorConsole.error(logMessage, ...args);
-		process.stderr.write(`${logMessage} ${args.join(" ")}\n`);
+		process.stderr.write(`${logMessage} ${util.format(...args)}\n`);
 	};
 
 	console.log = (...args) => {
 		const timestamp = getPHTimestamp();
 		const callerInfo = getCallerInfo();
 		const logMessage = `✔ ${timestamp} [${callerInfo}]`;
-		process.stdout.write(`${logMessage} ${args.join(" ")}\n`);
+		process.stdout.write(`${logMessage} ${util.format(...args)}\n`);
 		infoConsole.log(logMessage, ...args);
 	};
 

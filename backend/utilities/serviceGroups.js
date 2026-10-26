@@ -124,6 +124,9 @@ async function synchronizeServiceGroups(db, options = {}) {
 }
 
 async function inTransaction(db, work) {
+  if (typeof db.transaction === 'function') {
+    return db.transaction(work);
+  }
   await db.runAsync('BEGIN IMMEDIATE');
   try {
     const result = await work();
