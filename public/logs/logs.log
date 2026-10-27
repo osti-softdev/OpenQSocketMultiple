@@ -1,0 +1,32 @@
+✔ 2026-10-27 3:47:45 PM [backend\utilities\logger.js:150] Logger initialized at: E:\SOURCE_CODES\NODE\OpenQSocketMultiple\public\logs
+✔ 2026-10-27 3:47:47 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌁ auth for agents [www.vestauth.com][0m
+✔ 2026-10-27 3:47:57 PM [node:events:630] Queue System running on http://localhost:12341
+✔ 2026-10-27 3:47:59 PM [unknown-location] Connected to SQLite database
+✔ 2026-10-27 3:48:04 PM [index.js:88] External display detected. Launching display window...
+✔ 2026-10-27 3:48:05 PM [backend\utilities\db.js:64] Database schema auto-creation and seed verification completed.
+✔ 2026-10-27 3:48:05 PM [backend\utilities\db.js:51] Database performance PRAGMAs and indexes verified.
+✔ 2026-10-27 3:48:05 PM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-10-27 3:48:05 PM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-10-27 3:48:15 PM [node:events:509] [ADS] Client connected: CwIpvZ6gW3zHzlw_AAAB
+✔ 2026-10-27 3:48:17 PM [node:events:509] [ADS] Client connected: io-mRiy-iQxyvVL4AAAD
+✔ 2026-10-27 3:49:13 PM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-27 3:49:13 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-27 3:49:13 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-27 3:50:01 PM [backend\routes\AtellerApi.js:73] Login attempt for: tel1
+✔ 2026-10-27 3:50:01 PM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-10-27 3:50:01 PM [node_modules\sqlite3\lib\trace.js:25] Login successful for: tel1
+✔ 2026-10-27 3:50:09 PM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-10-27 3:50:09 PM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-10-27 3:50:09 PM [backend\routes\AkioskApi.js:57] Counter 1
+✔ 2026-10-27 3:50:09 PM [backend\routes\AkioskApi.js:58] 0
+✔ 2026-10-27 3:50:09 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-27 3:50:15 PM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-10-27 3:50:15 PM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-10-27 3:50:15 PM [backend\routes\AkioskApi.js:57] Counter 1
+✔ 2026-10-27 3:50:15 PM [backend\routes\AkioskApi.js:58] 1
+✔ 2026-10-27 3:50:15 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-10-27 3:50:21 PM [backend\routes\AkioskApi.js:55] EDUCATION
+✔ 2026-10-27 3:50:21 PM [backend\routes\AkioskApi.js:56] EDUCATION
+✔ 2026-10-27 3:50:21 PM [backend\routes\AkioskApi.js:57] Counter 1
+✔ 2026-10-27 3:50:21 PM [backend\routes\AkioskApi.js:58] 1
+✔ 2026-10-27 3:50:21 PM [backend\routes\AkioskApi.js:139] On-prem ticket requested locally, printing on Main Kiosk...
