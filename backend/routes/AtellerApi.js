@@ -866,32 +866,230 @@ module.exports = function createTellerApiRouter(io) {
     // & Ticket History
     // =========================
     router.get('/tickets/history', (req, res) => {
-        const { counterNumber, cname, limit } = req.query;
-        const queryLimit = Number(limit) || 20;
+        const { counterNumber, cname, limit, scope, group_name, group_id } = req.query;
+        const queryLimit = Number(limit) || 100;
         const { date } = getPHDateTime();
 
-        let query = `
-        SELECT t.*, s.shortSname
+        // Scope options: 'self' (current counter only), 'group' (all tellers in current counter's group), 'all' (all tellers of the day)
+        const effectiveScope = (scope || (counterNumber || cname ? 'self' : 'all')).toLowerCase();
+
+        const baseSelect = `
+        SELECT t.*, s.shortSname,
+               cg_to.group_name AS to_group_name,
+               ft.to_group_id,
+               ft.note AS forward_note,
+               c_to.cname AS to_teller_name,
+               c_to.cnum AS to_counter_num,
+               c_from.cname AS from_teller_name,
+               c_from.cnum AS from_counter_num,
+               c_curr.group_name AS teller_group_name
         FROM transactions t
         LEFT JOIN services s ON t.sname = s.sname
+        LEFT JOIN forwarded_tickets ft ON t.id = ft.ticket_id
+        LEFT JOIN counter_groups cg_to ON ft.to_group_id = cg_to.id
+        LEFT JOIN counters c_to ON ft.to_teller_id = c_to.id
+        LEFT JOIN counters c_from ON ft.from_teller_id = c_from.id
+        LEFT JOIN counters c_curr ON (
+            (t.counter_num IS NOT NULL AND t.counter_num != '' AND CAST(t.counter_num AS TEXT) = CAST(c_curr.cnum AS TEXT))
+            OR (t.counter_user IS NOT NULL AND t.counter_user != '' AND t.counter_user = c_curr.cname)
+        )
         WHERE t.date = ?
+          AND LOWER(t.status) != 'pending'
+          AND t.status IN ('received', 'held', 'finished', 'completed', 'voided', 'called', 'calling', 'serving')
     `;
 
-        let params = [date];
+        const serveFilter = ` AND (
+            (t.counter_num IS NOT NULL AND t.counter_num != '')
+            OR (t.counter_user IS NOT NULL AND t.counter_user != '')
+            OR (t.counter_group IS NOT NULL AND t.counter_group != '')
+            OR (t.start_time IS NOT NULL AND t.start_time != '')
+            OR (t.history IS NOT NULL AND t.history != '' AND (t.history LIKE '%;%' OR t.history LIKE '%Called%' OR t.history LIKE '%Held%' OR t.history LIKE '%Voided%' OR t.history LIKE '%Forwarded%' OR t.history LIKE '%Finished%'))
+        )`;
 
-        if (counterNumber) {
-            query += ` AND t.history LIKE ?`;
-            params.push(`%-${cname}-%`);
-        }
+        const orderClause = ` GROUP BY t.id ORDER BY COALESCE(NULLIF(t.end_time, ''), NULLIF(t.start_time, ''), t.time) DESC, t.id DESC LIMIT ?`;
 
-        query += ` ORDER BY t.start_time DESC LIMIT ?`;
-        params.push(queryLimit);
+        const enrichHistoryRows = (rows, allCounters) => {
+            const countersList = allCounters || [];
+            return (rows || [])
+                .filter(row => row && row.status && row.status.toLowerCase() !== 'pending')
+                .map(row => {
+                // If counter_group is missing, check teller_group_name or to_group_name
+                if (!row.counter_group) {
+                    row.counter_group = row.teller_group_name || row.to_group_name || '';
+                }
 
-        db.all(query, params, (err, rows) => {
-            if (err) {
-                return res.status(500).json({ error: err.message });
+                // If counter_num or counter_user is missing, parse history
+                if ((!row.counter_num || !row.counter_user) && row.history) {
+                    const entries = row.history.split(';').map(s => s.trim()).filter(Boolean);
+                    for (let i = entries.length - 1; i >= 0; i--) {
+                        const clean = entries[i].replace(/[\[\]]/g, '').trim();
+                        if (!clean) continue;
+                        const parts = clean.split('-');
+                        if (parts.length >= 4) {
+                            const actor = parts[1].trim();
+                            const cNum = parts[2].trim();
+                            if (actor && actor.toLowerCase() !== 'kiosk') {
+                                if (!row.counter_user) row.counter_user = actor;
+                                if (!row.counter_num) row.counter_num = cNum;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                // If still missing counter_group, try to look up via counter_user or counter_num in countersList
+                if (!row.counter_group && (row.counter_user || row.counter_num)) {
+                    const match = countersList.find(c => 
+                        (row.counter_user && (c.cname === row.counter_user || c.cuser === row.counter_user)) ||
+                        (row.counter_num && String(c.cnum) === String(row.counter_num))
+                    );
+                    if (match && match.group_name) {
+                        row.counter_group = match.group_name;
+                    }
+                }
+
+                // If status is received, set from_counter_num if missing
+                if (row.status === 'received') {
+                    if (!row.counter_num && row.from_counter_num) {
+                        row.counter_num = String(row.from_counter_num);
+                    }
+                    if (!row.counter_user && row.from_teller_name) {
+                        row.counter_user = row.from_teller_name;
+                    }
+                }
+
+                return row;
+            });
+        };
+
+        db.all(`SELECT id, cname, cnum, cuser, group_name, group_id FROM counters`, [], (errC, counters) => {
+            const allCounters = counters || [];
+
+            if (effectiveScope === 'all') {
+                const query = baseSelect + serveFilter + orderClause;
+                const params = [date, queryLimit];
+                return db.all(query, params, (err, rows) => {
+                    if (err) {
+                        return res.status(500).json({ error: err.message });
+                    }
+                    res.json(enrichHistoryRows(rows, allCounters));
+                });
             }
-            res.json(rows);
+
+            if (effectiveScope === 'group') {
+                let targetGroupId = group_id || (req.session?.teller?.group_id);
+                let targetGroupName = group_name || (req.session?.teller?.group_name);
+
+                if (!targetGroupId && !targetGroupName) {
+                    const found = allCounters.find(c => 
+                        (cname && (c.cname === cname || c.cuser === cname)) ||
+                        (counterNumber && String(c.cnum) === String(counterNumber))
+                    );
+                    if (found) {
+                        targetGroupId = found.group_id;
+                        targetGroupName = found.group_name;
+                    }
+                }
+
+                const groupTellers = allCounters.filter(c => {
+                    if (targetGroupId && c.group_id && String(c.group_id) === String(targetGroupId)) return true;
+                    if (targetGroupName && c.group_name && c.group_name.trim().toLowerCase() === targetGroupName.trim().toLowerCase()) return true;
+                    return false;
+                });
+
+                const tellerNames = new Set();
+                const tellerNums = new Set();
+
+                groupTellers.forEach(gt => {
+                    if (gt.cname) tellerNames.add(gt.cname);
+                    if (gt.cuser) tellerNames.add(gt.cuser);
+                    if (gt.cnum !== undefined && gt.cnum !== null) tellerNums.add(String(gt.cnum));
+                });
+
+                if (cname) tellerNames.add(cname);
+                if (counterNumber) tellerNums.add(String(counterNumber));
+
+                const groupClauses = [];
+                const groupParams = [];
+
+                if (targetGroupName && targetGroupName.trim()) {
+                    groupClauses.push(`LOWER(t.counter_group) = LOWER(?)`);
+                    groupParams.push(targetGroupName.trim());
+                    groupClauses.push(`LOWER(cg_to.group_name) = LOWER(?)`);
+                    groupParams.push(targetGroupName.trim());
+                }
+                if (targetGroupId) {
+                    groupClauses.push(`ft.to_group_id = ?`);
+                    groupParams.push(targetGroupId);
+                }
+
+                tellerNames.forEach(name => {
+                    groupClauses.push(`t.history LIKE ?`);
+                    groupParams.push(`%-${name}-%`);
+                    groupClauses.push(`t.counter_user = ?`);
+                    groupParams.push(name);
+                });
+
+                tellerNums.forEach(num => {
+                    groupClauses.push(`t.counter_num = ?`);
+                    groupParams.push(num);
+                });
+
+                let query = baseSelect;
+                const params = [date];
+
+                if (groupClauses.length > 0) {
+                    query += ` AND (${groupClauses.join(' OR ')})`;
+                    params.push(...groupParams);
+                }
+
+                query += serveFilter + orderClause;
+                params.push(queryLimit);
+
+                return db.all(query, params, (err, rows) => {
+                    if (err) {
+                        return res.status(500).json({ error: err.message });
+                    }
+                    res.json(enrichHistoryRows(rows, allCounters));
+                });
+            }
+
+            // Default: 'self'
+            let query = baseSelect;
+            const params = [date];
+
+            const selfClauses = [];
+            const selfParams = [];
+
+            if (cname) {
+                selfClauses.push(`t.history LIKE ?`);
+                selfParams.push(`%-${cname}-%`);
+                selfClauses.push(`t.counter_user = ?`);
+                selfParams.push(cname);
+            }
+            if (counterNumber) {
+                selfClauses.push(`t.counter_num = ?`);
+                selfParams.push(String(counterNumber));
+                selfClauses.push(`c_from.cnum = ?`);
+                selfParams.push(String(counterNumber));
+                selfClauses.push(`c_to.cnum = ?`);
+                selfParams.push(String(counterNumber));
+            }
+
+            if (selfClauses.length > 0) {
+                query += ` AND (${selfClauses.join(' OR ')})`;
+                params.push(...selfParams);
+            }
+
+            query += serveFilter + orderClause;
+            params.push(queryLimit);
+
+            return db.all(query, params, (err, rows) => {
+                if (err) {
+                    return res.status(500).json({ error: err.message });
+                }
+                res.json(enrichHistoryRows(rows, allCounters));
+            });
         });
     });
 

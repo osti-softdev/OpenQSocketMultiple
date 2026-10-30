@@ -52,10 +52,7 @@ module.exports = function createKioskApiRouter(io) {
   router.post("/newServiceTicket", kioskLimiter, async (req, res) => {
     const { sname, shortSname, subsname, ticketservice, selectedType, stats, mobile, sub_services } = req.body;
 
-    console.log(sname)
-    console.log(shortSname)
-    console.log(subsname)
-    console.log(selectedType)
+
 
     const { date, time } = getPHDateTime();
     const expiryMinutes = Number(config.MainServer.expiry);

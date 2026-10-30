@@ -18,8 +18,10 @@ const db = new sqlite3.Database(dbPath, (err) => {
         db.run("PRAGMA temp_store = MEMORY;", () => {
           db.run("PRAGMA cache_size = -64000;", () => {
             db.run("PRAGMA foreign_keys = ON;", () => {
-              initializeDatabase();
-              ensureIndexes();
+              db.run("PRAGMA wal_autocheckpoint = 500;", () => {
+                initializeDatabase();
+                ensureIndexes();
+              });
             });
           });
         });
@@ -492,5 +494,27 @@ db.transaction = function (fn) {
   transactionQueue = result.catch(() => {});
   return result;
 };
+
+// Periodic passive checkpoint every 15 minutes to keep db.db synchronized with db.db-wal
+setInterval(() => {
+  db.run("PRAGMA wal_checkpoint(PASSIVE);", (err) => {
+    if (err) console.error("Periodic WAL checkpoint error:", err.message);
+  });
+}, 15 * 60 * 1000).unref();
+
+// Flush WAL on graceful termination
+const cleanExit = () => {
+  try {
+    db.run("PRAGMA wal_checkpoint(TRUNCATE);", () => {
+      db.close(() => {
+        process.exit(0);
+      });
+    });
+  } catch (e) {
+    process.exit(0);
+  }
+};
+process.once('SIGINT', cleanExit);
+process.once('SIGTERM', cleanExit);
 
 module.exports = db;

@@ -127,14 +127,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OpenQCaller.exe" size="4157888">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OpenQCaller.exe" size="4167104">
       <assemblyIdentity name="OpenQCaller" version="1.0.0.3" publicKeyToken="3B3AF86D60E29651" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>H57FvQ44kbPdAYczPmu54n2rLmTw5yU6c9c7/QPDyFo=</dsig:DigestValue>
+        <dsig:DigestValue>xdLAp4/iHW111kQU4SP1neMKi8ymwSBlwIGScx6IFLc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

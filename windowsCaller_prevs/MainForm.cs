@@ -140,8 +140,7 @@ namespace CallerApp
 
         private void BtnHistory_Click(object sender, EventArgs e)
         {
-            var histParams = new Dictionary<string, string> { { "counterNumber", ApiClient.CurrentTeller["counter_number"].ToString() }, { "cname", ApiClient.CurrentTeller["username"].ToString() } };
-            object[] historyTickets = ApiClient.GetArray("/api/tickets/history", histParams);
+            object[] historyTickets = HistoryModal.FetchHistoryTickets();
             
             HistoryModal hm = new HistoryModal(historyTickets, CallSpecificTicket, OpenForwardModal);
             hm.Show();
@@ -540,8 +539,6 @@ namespace CallerApp
                 bgColor = Color.FromArgb(250, 219, 216); // Light Red
             }
 
-            Panel p = new Panel() { Width = 235, Height = 65, BorderStyle = BorderStyle.FixedSingle, Margin = new Padding(2), BackColor = bgColor };
-            
             string tNum = t.ContainsKey("ticketservice") ? string.Format("{0}{1}", t["ticketservice"], t["ticketnum"]) : t["ticketnum"].ToString();
             string sName = t.ContainsKey("sname") ? t["sname"].ToString().Replace("_", " ") : "";
             if (string.IsNullOrEmpty(sName) && t.ContainsKey("status")) sName = t["status"].ToString();
@@ -557,17 +554,31 @@ namespace CallerApp
             else if (t.ContainsKey("time") && t["time"] != null && t["time"].ToString().Length > 0) tTime = t["time"].ToString();
             
             if (!string.IsNullOrEmpty(tTime)) sName += " ⌚ " + tTime;
-            
+
+            string subService = t.ContainsKey("sub_services") && t["sub_services"] != null 
+                                ? t["sub_services"].ToString().Trim() 
+                                : "";
+            if (!string.IsNullOrEmpty(subService))
+            {
+                sName += "\n" + subService;
+            }
+
+            int pHeight = !string.IsNullOrEmpty(subService) ? 75 : 65;
+            Panel p = new Panel() { Width = 235, Height = pHeight, BorderStyle = BorderStyle.FixedSingle, Margin = new Padding(2), BackColor = bgColor };
+
             Label lblNum = new Label() { Text = tNum, Font = new Font("Segoe UI", 9, FontStyle.Bold), Location = new Point(2, 3), AutoSize = true, ForeColor = Color.FromArgb(40,40,40) };
             Label lblSvc = new Label() { Text = sName, Location = new Point(2, 19), AutoSize = true, MaximumSize = new Size(105, 0), Font = new Font("Segoe UI", 7), ForeColor = Color.DimGray };
+            appToolTip.SetToolTip(lblSvc, sName);
+
+            int btnY = !string.IsNullOrEmpty(subService) ? 22 : 18;
 
             if (!string.IsNullOrEmpty(btn2Text) && btn2Color.HasValue)
             {
-                Button btn1 = CreateModernButton(btn1Text, 110, 18, 45, 26, btn1Color, Color.White);
+                Button btn1 = CreateModernButton(btn1Text, 110, btnY, 45, 26, btn1Color, Color.White);
                 btn1.Font = new Font("Segoe UI", 6.5f, FontStyle.Bold);
                 btn1.Click += onBtn1Click;
                 
-                Button btn2 = CreateModernButton(btn2Text, 160, 18, 45, 26, btn2Color.Value, Color.White);
+                Button btn2 = CreateModernButton(btn2Text, 160, btnY, 45, 26, btn2Color.Value, Color.White);
                 btn2.Font = new Font("Segoe UI", 6.5f, FontStyle.Bold);
                 btn2.Click += onBtn2Click;
                 
@@ -579,7 +590,7 @@ namespace CallerApp
             }
             else
             {
-                Button btn1 = CreateModernButton(btn1Text, 150, 18, 55, 26, btn1Color, Color.White);
+                Button btn1 = CreateModernButton(btn1Text, 150, btnY, 55, 26, btn1Color, Color.White);
                 btn1.Font = new Font("Segoe UI", 7.5f, FontStyle.Bold);
                 btn1.Click += onBtn1Click;
                 appToolTip.SetToolTip(btn1, btn1Text.Replace("📢 ", "").Replace("▶ ", "").Replace("➡️ ", ""));
@@ -633,7 +644,18 @@ namespace CallerApp
             string sname = ticket.ContainsKey("shortSname") && ticket["shortSname"] != null && !string.IsNullOrEmpty(ticket["shortSname"].ToString())
                            ? ticket["shortSname"].ToString().Replace("_", " ") 
                            : (ticket.ContainsKey("sname") ? ticket["sname"].ToString().Replace("_", " ") : "");
+
+            string subService = ticket.ContainsKey("sub_services") && ticket["sub_services"] != null 
+                                ? ticket["sub_services"].ToString().Trim() 
+                                : "";
+            if (!string.IsNullOrEmpty(subService))
+            {
+                if (!string.IsNullOrEmpty(sname)) sname = sname + " - " + subService;
+                else sname = subService;
+            }
+
             lblShortSname.Text = sname;
+            appToolTip.SetToolTip(lblShortSname, sname);
 
             if (ticket.ContainsKey("start_time") && ticket["start_time"] != null && ticket.ContainsKey("date") && ticket["date"] != null)
             {
@@ -652,6 +674,7 @@ namespace CallerApp
             lblCurrentTicket.Text = "Ready";
             lblCurrentTicket.ForeColor = Color.FromArgb(41, 128, 185);
             lblShortSname.Text = "";
+            appToolTip.SetToolTip(lblShortSname, "");
             durationTimer.Stop();
             lblDuration.Text = "00:00";
             currentTicketStartTime = null;

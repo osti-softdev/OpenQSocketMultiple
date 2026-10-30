@@ -16,6 +16,7 @@ namespace CallerApp
         private static bool _enableSoundAlerts = true;
         private static string _savedUsername = "";
         private static string _savedPassword = "";
+        private static string _historyScope = "self";
 
         public static bool AutoFinishEnabled { get { return _autoFinishEnabled; } set { _autoFinishEnabled = value; } }
         public static bool ShowReceivedInWaiting { get { return _showReceivedInWaiting; } set { _showReceivedInWaiting = value; } }
@@ -24,6 +25,7 @@ namespace CallerApp
         public static bool EnableSoundAlerts { get { return _enableSoundAlerts; } set { _enableSoundAlerts = value; } }
         public static string SavedUsername { get { return _savedUsername; } set { _savedUsername = value; } }
         public static string SavedPassword { get { return _savedPassword; } set { _savedPassword = value; } }
+        public static string HistoryScope { get { return string.IsNullOrEmpty(_historyScope) ? "self" : _historyScope; } set { _historyScope = string.IsNullOrEmpty(value) ? "self" : value; } }
 
         private static string GetConfigPath()
         {
@@ -50,6 +52,7 @@ namespace CallerApp
                     if (data.ContainsKey("EnableSoundAlerts")) _enableSoundAlerts = (bool)data["EnableSoundAlerts"];
                     if (data.ContainsKey("SavedUsername")) _savedUsername = data["SavedUsername"].ToString();
                     if (data.ContainsKey("SavedPassword")) _savedPassword = data["SavedPassword"].ToString();
+                    if (data.ContainsKey("HistoryScope") && data["HistoryScope"] != null) _historyScope = data["HistoryScope"].ToString();
                 }
             } catch {}
         }
@@ -65,7 +68,8 @@ namespace CallerApp
                     { "AlwaysOnTop", _alwaysOnTop },
                     { "EnableSoundAlerts", _enableSoundAlerts },
                     { "SavedUsername", _savedUsername },
-                    { "SavedPassword", _savedPassword }
+                    { "SavedPassword", _savedPassword },
+                    { "HistoryScope", HistoryScope }
                 };
                 string json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(data);
                 File.WriteAllText(GetConfigPath(), json);

@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "E:\\SOURCE_CODES\\NODE\\OpenQSocketMultiple\\windowsCaller_prevs\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|E:\\SOURCE_CODES\\NODE\\OpenQSocketMultiple\\windowsCaller_prevs\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|e:\\source_codes\\node\\openqsocketmultiple\\windowscaller_prevs\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|E:\\SOURCE_CODES\\NODE\\OpenQSocketMultiple\\windowsCaller_prevs\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|e:\\source_codes\\node\\openqsocketmultiple\\windowscaller_prevs\\forwardmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|solutionrelative:forwardmodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A3D73A9E-C4E2-4C67-B9F2-C52ACD59A85B}|CallerApp.csproj|E:\\SOURCE_CODES\\NODE\\OpenQSocketMultiple\\windowsCaller_prevs\\historymodal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -22,8 +26,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ForwardModal.cs [Design]",
+              "DocumentMoniker": "E:\\SOURCE_CODES\\NODE\\OpenQSocketMultiple\\windowsCaller_prevs\\ForwardModal.cs",
+              "RelativeDocumentMoniker": "ForwardModal.cs",
+              "ToolTip": "E:\\SOURCE_CODES\\NODE\\OpenQSocketMultiple\\windowsCaller_prevs\\ForwardModal.cs [Design]",
+              "RelativeToolTip": "ForwardModal.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-30T01:34:50.209Z",
+              "EditorCaption": " [Design]"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -38,31 +58,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainForm.cs",
               "DocumentMoniker": "E:\\SOURCE_CODES\\NODE\\OpenQSocketMultiple\\windowsCaller_prevs\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
               "ToolTip": "E:\\SOURCE_CODES\\NODE\\OpenQSocketMultiple\\windowsCaller_prevs\\MainForm.cs",
               "RelativeToolTip": "MainForm.cs",
-              "ViewState": "AgIAAJMCAAAAAAAAAAAywAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAL4CAAAAAAAAAAAiwL4CAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-17T01:03:39.991Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainForm.cs [Design]",
               "DocumentMoniker": "E:\\SOURCE_CODES\\NODE\\OpenQSocketMultiple\\windowsCaller_prevs\\MainForm.cs",
               "RelativeDocumentMoniker": "MainForm.cs",
               "ToolTip": "E:\\SOURCE_CODES\\NODE\\OpenQSocketMultiple\\windowsCaller_prevs\\MainForm.cs [Design]",
               "RelativeToolTip": "MainForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-17T01:01:44.648Z"
+              "WhenOpened": "2026-10-17T01:01:44.648Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "HistoryModal.cs [Design]",
               "DocumentMoniker": "E:\\SOURCE_CODES\\NODE\\OpenQSocketMultiple\\windowsCaller_prevs\\HistoryModal.cs",
               "RelativeDocumentMoniker": "HistoryModal.cs",

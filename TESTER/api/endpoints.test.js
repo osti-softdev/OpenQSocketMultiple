@@ -326,7 +326,43 @@ test('Complete Ticket Lifecycle Integration Test', async (t) => {
     });
 
     // ---------------------------------------------------------
-    // 12. TELLER: Logout
+    // 12. TELLER: History Scopes Test (Self, Group, All)
+    // ---------------------------------------------------------
+    await t.test('GET /api/tickets/history - Should support self, group, and all history scopes', async () => {
+        assert.ok(tellerCookie, 'Missing teller session');
+
+        // Scope: self
+        const selfRes = await fetch(`${API_URL}/tickets/history?scope=self&counterNumber=1&cname=TELLER+1`, {
+            headers: { 'Cookie': tellerCookie }
+        });
+        assert.strictEqual(selfRes.status, 200, 'Expected 200 OK for self history');
+        const selfList = await selfRes.json();
+        assert.ok(Array.isArray(selfList), 'Expected an array of tickets for self history');
+
+        // Scope: group
+        const groupRes = await fetch(`${API_URL}/tickets/history?scope=group&counterNumber=1&cname=TELLER+1`, {
+            headers: { 'Cookie': tellerCookie }
+        });
+        assert.strictEqual(groupRes.status, 200, 'Expected 200 OK for group history');
+        const groupList = await groupRes.json();
+        assert.ok(Array.isArray(groupList), 'Expected an array of tickets for group history');
+
+        // Scope: all
+        const allRes = await fetch(`${API_URL}/tickets/history?scope=all`, {
+            headers: { 'Cookie': tellerCookie }
+        });
+        assert.strictEqual(allRes.status, 200, 'Expected 200 OK for all history');
+        const allList = await allRes.json();
+        assert.ok(Array.isArray(allList), 'Expected an array of tickets for all history');
+        assert.ok(allList.length >= selfList.length, 'All history should contain at least as many tickets as self history');
+
+        // Strictly verify pending tickets are NEVER returned in history
+        const hasPending = allList.some(item => (item.status || '').toLowerCase() === 'pending');
+        assert.strictEqual(hasPending, false, 'History must not include pending tickets');
+    });
+
+    // ---------------------------------------------------------
+    // 13. TELLER: Logout
     // ---------------------------------------------------------
     await t.test('POST /api/logout - Teller should logout and invalidate session', async () => {
         assert.ok(tellerCookie, 'Missing teller session');

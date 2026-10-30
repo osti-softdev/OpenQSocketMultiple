@@ -219,11 +219,12 @@ namespace CallerApp
             // 
             // lblShortSname
             // 
-            this.lblShortSname.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblShortSname.AutoEllipsis = true;
+            this.lblShortSname.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.lblShortSname.ForeColor = System.Drawing.Color.Gray;
-            this.lblShortSname.Location = new System.Drawing.Point(26, 158);
+            this.lblShortSname.Location = new System.Drawing.Point(10, 158);
             this.lblShortSname.Name = "lblShortSname";
-            this.lblShortSname.Size = new System.Drawing.Size(98, 20);
+            this.lblShortSname.Size = new System.Drawing.Size(142, 20);
             this.lblShortSname.TabIndex = 7;
             this.lblShortSname.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -231,9 +232,9 @@ namespace CallerApp
             // 
             this.lblDuration.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblDuration.ForeColor = System.Drawing.Color.DimGray;
-            this.lblDuration.Location = new System.Drawing.Point(26, 178);
+            this.lblDuration.Location = new System.Drawing.Point(10, 178);
             this.lblDuration.Name = "lblDuration";
-            this.lblDuration.Size = new System.Drawing.Size(98, 20);
+            this.lblDuration.Size = new System.Drawing.Size(142, 20);
             this.lblDuration.TabIndex = 1;
             this.lblDuration.Text = "00:00";
             this.lblDuration.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

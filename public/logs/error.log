@@ -1,0 +1,311 @@
+❌ 2026-10-30 9:25:33 AM [backend\routes\AadminApi.js:35] Unable to synchronize services and routing groups: ReferenceError: d is not defined
+    at inTransaction (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\serviceGroups.js:127:46)
+    at createTellerApiRouter (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:32:32)
+    at Object.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\server.js:86:61)
+    at Module._compile (node:internal/modules/cjs/loader:1879:14)
+    at Object..js (node:internal/modules/cjs/loader:2012:10)
+    at Module.load (node:internal/modules/cjs/loader:1601:32)
+    at node:internal/modules/cjs/loader:1403:12
+    at Module._load (node:electron/js2c/node_init:2:18068)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:262:19)
+    at Module.require (node:internal/modules/cjs/loader:1624:12)
+❌ 2026-10-30 1:20:16 PM [backend\routes\AadminApi.js:509] Period overview analytics error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#get([ '2026-10-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:82:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:438:8
+    at new Promise (<anonymous>)
+    at db.getAsync (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:437:3)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:460:42 {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:24 PM [backend\routes\AadminApi.js:509] Period overview analytics error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#get([ '2026-10-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:82:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:438:8
+    at new Promise (<anonymous>)
+    at db.getAsync (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:437:3)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:460:42 {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:31 PM [node_modules\sqlite3\lib\trace.js:25] Daily trends query error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#all([ '2026-10-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:88:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1549:16
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1548:36
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:31 PM [node_modules\sqlite3\lib\trace.js:25] Service hourly report query error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#all([ '2026-10-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:88:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1572:16
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1571:38
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:31 PM [node_modules\sqlite3\lib\trace.js:25] Detailed transactions query error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#all([ '2026-10-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:88:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1629:16
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1628:33
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:31 PM [node_modules\sqlite3\lib\trace.js:25] By service query error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#all([ '2026-10-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:88:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1454:16
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1453:34
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:31 PM [node_modules\sqlite3\lib\trace.js:25] Summary query error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#get([ '2026-10-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:82:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1429:16
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1428:32
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:31 PM [node_modules\sqlite3\lib\trace.js:25] By teller transactions query error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#all([ '2026-10-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:88:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at Statement.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1487:20) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:31 PM [node_modules\sqlite3\lib\trace.js:25] By group transactions query error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#all([ '2026-10-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:88:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at Statement.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1513:24) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:33 PM [node_modules\sqlite3\lib\trace.js:25] Summary query error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#get([ '2026-10-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:82:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1429:16
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1428:32
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:33 PM [node_modules\sqlite3\lib\trace.js:25] By service query error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#all([ '2026-10-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:88:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1454:16
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1453:34
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:33 PM [node_modules\sqlite3\lib\trace.js:25] Daily trends query error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#all([ '2026-10-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:88:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1549:16
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1548:36
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:33 PM [node_modules\sqlite3\lib\trace.js:25] Service hourly report query error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#all([ '2026-10-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:88:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1572:16
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1571:38
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:33 PM [node_modules\sqlite3\lib\trace.js:25] Detailed transactions query error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#all([ '2026-10-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:88:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1629:16
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1628:33
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:33 PM [node_modules\sqlite3\lib\trace.js:25] By teller transactions query error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#all([ '2026-10-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:88:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at Statement.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1487:20) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:33 PM [node_modules\sqlite3\lib\trace.js:25] By group transactions query error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#all([ '2026-10-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:88:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at Statement.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1513:24) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:39 PM [node_modules\sqlite3\lib\trace.js:25] By service query error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#all([ '2026-08-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:88:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1454:16
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1453:34
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:39 PM [node_modules\sqlite3\lib\trace.js:25] Daily trends query error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#all([ '2026-08-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:88:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1549:16
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1548:36
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:39 PM [node_modules\sqlite3\lib\trace.js:25] Service hourly report query error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#all([ '2026-08-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:88:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1572:16
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1571:38
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:39 PM [node_modules\sqlite3\lib\trace.js:25] Summary query error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#get([ '2026-08-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:82:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1429:16
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1428:32
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:39 PM [node_modules\sqlite3\lib\trace.js:25] By teller transactions query error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#all([ '2026-08-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:88:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at Statement.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1487:20) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:39 PM [node_modules\sqlite3\lib\trace.js:25] Detailed transactions query error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#all([ '2026-08-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:88:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1629:16
+    at new Promise (<anonymous>)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1628:33
+    at Layer.handleRequest (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\layer.js:152:17)
+    at next (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\router\lib\route.js:117:3) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:39 PM [node_modules\sqlite3\lib\trace.js:25] By group transactions query error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#all([ '2026-08-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:88:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at Statement.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:1513:24) {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}
+❌ 2026-10-30 1:20:54 PM [backend\routes\AadminApi.js:509] Period overview analytics error: Error: SQLITE_CORRUPT: database disk image is malformed
+--> in Statement#get([ '2026-10-01', '2026-10-30' ], [Function: replacement])
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:82:19)
+    at Database.<anonymous> (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\node_modules\sqlite3\lib\sqlite3.js:20:19)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:438:8
+    at new Promise (<anonymous>)
+    at db.getAsync (E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\utilities\db.js:437:3)
+    at E:\SOURCE_CODES\NODE\OpenQSocketMultiple\backend\routes\AadminApi.js:460:42 {
+  errno: 11,
+  code: 'SQLITE_CORRUPT',
+  __augmented: true
+}

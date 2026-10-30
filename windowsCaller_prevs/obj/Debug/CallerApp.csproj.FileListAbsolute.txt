@@ -156,13 +156,13 @@ C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller_prevs\obj\
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller_prevs\obj\Debug\OpenQCaller.exe
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller_prevs\obj\Debug\OpenQCaller.pdb
 E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller_prevs\bin\Debug\OpenQCaller.exe.config
-E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller_prevs\bin\Debug\OpenQCaller.exe.manifest
-E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller_prevs\bin\Debug\OpenQCaller.application
 E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller_prevs\bin\Debug\OpenQCaller.exe
 E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller_prevs\bin\Debug\OpenQCaller.pdb
 E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller_prevs\obj\Debug\OpenQCaller.exe.config
+E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller_prevs\obj\Debug\OpenQCaller.exe
+E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller_prevs\obj\Debug\OpenQCaller.pdb
+E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller_prevs\bin\Debug\OpenQCaller.exe.manifest
+E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller_prevs\bin\Debug\OpenQCaller.application
 E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller_prevs\obj\Debug\OpenQCaller.TrustInfo.xml
 E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller_prevs\obj\Debug\OpenQCaller.exe.manifest
 E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller_prevs\obj\Debug\OpenQCaller.application
-E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller_prevs\obj\Debug\OpenQCaller.exe
-E:\SOURCE_CODES\NODE\OpenQSocketMultiple\windowsCaller_prevs\obj\Debug\OpenQCaller.pdb
