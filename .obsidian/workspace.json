@@ -183,6 +183,10 @@
   },
   "active": "d275041a9eda2cb1",
   "lastOpenFiles": [
+    "graphify-out/obsidian/00-Index.md",
+    "graphify-out/obsidian/$adsList.md",
+    "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/df0954320bd1b00d4774d398b437cf97e4f40becef12261512abece137143375.json",
+    "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/bb06909d9d20ce4beda7f2f9c22e7d2c1d8fcc15764bcd3b936992761a94d3c7.json",
     "graphify-out/cache/stat-index.c_47inyt.tmp",
     "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/d1caa20be470d45eeaa542a364f5a62d60af66e928a03839091a8d1113c5d9fc.json",
     "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/77ef41ecb57e3b306140a81f3a28461f84be947487f01b88c90e610d67003c04.json",
@@ -191,9 +195,6 @@
     "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/3ccebe6ecd56ad0965e04133aecfb53f557075f3e360008a95fb4a6ee445c75a.json",
     "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/ff3836cba3b6759b9a675e3d6d0e6ccad837d2d527337d6c49672a6908e2574e.json",
     "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/0bb8200c9af1a8a4b776e664c1848bd52def80063c20c0503acc3778bd54a63e.json",
-    "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/2e487df62570bcf04b58958b9c4343bde7f700317d81e11bab111a1b88302647.json",
-    "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/4e9367fb83e0401402a41f2feeab60ed4693a25f75a22f576880d51bb237a8c6.json",
-    "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/5240382e3ea38f3f5b0a7781066139364bda6e6216f79419b28f32078257ccc2.json",
     "graphify-out/2026-11-05/GRAPH_REPORT.md",
     "graphify-out/obsidian/{ securityHeaders, SESSION_SECRET }.md",
     "graphify-out/obsidian/express.md",
@@ -219,7 +220,6 @@
     "graphify-out/obsidian/_COMMUNITY_check_schema.js  db  dbPath.md",
     "graphify-out/obsidian/_COMMUNITY_Systematic Debugging & API Security Ledger.md",
     "graphify-out/obsidian/_COMMUNITY_serviceGroups.js  inTransaction()  normaliz.md",
-    "graphify-out/obsidian/_COMMUNITY_dump_schema_data.js  db  dbPath.md",
     "Untitled 1.canvas",
     "Untitled.canvas"
   ]
