@@ -183,6 +183,7 @@
   },
   "active": "d275041a9eda2cb1",
   "lastOpenFiles": [
+    "graphify-out/cache/stat-index.4q_3we5o.tmp",
     "graphify-out/cache/stat-index.bnr3esis.tmp",
     "graphify-out/cache/stat-index.7x619azi.tmp",
     "graphify-out/cache/stat-index.r4mlodu9.tmp",
@@ -193,7 +194,6 @@
     "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/9aed58c3ee010684452676c52a5de8adb64fa1cc4ab5dac5f2d98364f41a4f6b.json",
     "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/aaad9055d2eb80c157a7a2ae9008c50f488b61bdfefcc84313cd304332c4983e.json",
     "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/36fb4d94801f50480c786bd0bbfb901a5623b64e96a259d1ef7f38d9cf212f4c.json",
-    "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/47fe3cafc2980a819db75a7852e7fbe3666145f365c02bd359047e07bfff334e.json",
     "graphify-out/obsidian/{ verifyAndUpgradePassword }.md",
     "graphify-out/obsidian/{ requireRole }.md",
     "graphify-out/obsidian/{ readSoundConfig, writeSoundConfig }.md",
