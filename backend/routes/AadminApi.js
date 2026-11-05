@@ -1233,15 +1233,15 @@ module.exports = function createTellerApiRouter(io) {
 
     const DEFAULT_ROLE_PERMISSIONS = {
         user: {
-            tabs: ['dashboard', 'live', 'reports', 'history'],
+            tabs: ['dashboard', 'reports', 'history'],
             settings: []
         },
         admin: {
-            tabs: ['dashboard', 'live', 'reports', 'history', 'services', 'tellers', 'settings'],
+            tabs: ['dashboard', 'reports', 'history', 'services', 'tellers', 'settings'],
             settings: ['advertisement', 'announcement']
         },
         superadmin: {
-            tabs: ['dashboard', 'live', 'reports', 'history', 'services', 'tellers', 'accounts', 'settings'],
+            tabs: ['dashboard', 'reports', 'history', 'services', 'tellers', 'accounts', 'settings'],
             settings: ['configuration', 'advertisement', 'announcement', 'displayaudio', 'images', 'smsconfig', 'systemlogs']
         }
     };
@@ -1521,16 +1521,16 @@ module.exports = function createTellerApiRouter(io) {
         });
 
         // 3. Tickets by Teller
-        //    tickets_served = only FINISHED tickets (actually served by the teller)
+        //    tickets_served = total tickets called/handled by the teller (finished, voided, in-progress)
         const byTellerPromise = new Promise((resolve) => {
             db.all(`
             SELECT
                 t.teller_id,
                 COALESCE(c.cname, 'Unknown') as teller_name,
                 c.cnum as counter_number,
-                COUNT(CASE WHEN (${effT}) = 'finished' THEN 1 END) as tickets_served,
+                COUNT(*) as tickets_served,
                 COUNT(CASE WHEN (${effT}) = 'finished' THEN 1 END) as completed,
-                COUNT(CASE WHEN t.date != '${today}' AND t.status != 'finished' THEN 1 END) as voided,
+                COUNT(CASE WHEN (${effT}) IN ('void', 'voided') OR t.status IN ('void', 'voided') OR (t.date != '${today}' AND t.status != 'finished') THEN 1 END) as voided,
                 AVG(CASE
                     WHEN t.status = 'finished' AND t.start_time IS NOT NULL AND t.end_time IS NOT NULL
                     THEN (strftime('%s', t.end_time) - strftime('%s', t.start_time)) / 60.0

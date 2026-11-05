@@ -22,7 +22,6 @@ body {
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: Gotham;
   src: url("/libs/fonts/Gotham/GothamMedium.ttf") format("truetype");
@@ -30,7 +29,6 @@ body {
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: Gotham;
   src: url("/libs/fonts/Gotham/GothamBold.ttf") format("truetype");
@@ -38,7 +36,6 @@ body {
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: Gotham;
   src: url("/libs/fonts/Gotham/Gotham-Black.otf") format("opentype");
@@ -46,19 +43,16 @@ body {
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: Sacred;
   src: url("/libs/fonts/Sacred/Sacred Crowns.otf") format("opentype");
   font-display: swap;
 }
-
 @font-face {
   font-family: Made;
   src: url("/libs/fonts/Made/MADESoulmazeBrushPERSONALUSE.otf") format("opentype");
   font-display: swap;
 }
-
 @font-face {
   font-family: calibri;
   src: url("/libs/fonts/calibri/CalibriRegular.ttf") format("truetype");
@@ -66,7 +60,6 @@ body {
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: calibri;
   src: url("/libs/fonts/calibri/Calibri Bold.TTF") format("truetype");
@@ -74,19 +67,16 @@ body {
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: digital;
   src: url("/libs/fonts/digital/digital-mono_italic.ttf") format("truetype");
   font-display: swap;
 }
-
 @font-face {
   font-family: compos;
   src: url("/libs/fonts/compostela/QUANTU1H.TTF") format("truetype");
   font-display: swap;
 }
-
 .mainkioskcontainer {
   display: flex;
   flex-direction: column;

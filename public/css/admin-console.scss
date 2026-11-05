@@ -80,33 +80,33 @@
 
 :root {
     color-scheme: light;
-    --console-bg: #f3f6fb;
-    --console-bg-accent: #e9effc;
-    --console-surface: #ffffff;
-    --console-surface-raised: #ffffff;
-    --console-surface-soft: #f7f9fc;
-    --console-surface-hover: #eef3fb;
-    --console-border: #dfe6ef;
-    --console-border-strong: #ccd6e4;
-    --console-text: #1e293b;
-    --console-heading: #0f172a;
-    --console-muted: #64748b;
-    --console-faint: #94a3b8;
-    --console-primary: #4f6df5;
-    --console-primary-strong: #3d56d6;
-    --console-primary-soft: #edf0ff;
-    --console-cyan: #11a8c7;
-    --console-success: #0ba678;
-    --console-warning: #e49b21;
-    --console-danger: #e14f65;
-    --console-sidebar: #101a2c;
-    --console-sidebar-raised: #18253b;
-    --console-sidebar-text: #e8eef9;
-    --console-sidebar-muted: #8494ae;
-    --console-shadow: 0 18px 45px rgba(32, 52, 89, .08);
-    --console-shadow-small: 0 6px 18px rgba(32, 52, 89, .07);
-    --console-radius: 18px;
-    --console-radius-small: 12px;
+    --console-bg: #e9e4d8;
+    --console-bg-accent: #dfd8ca;
+    --console-surface: #f3efe6;
+    --console-surface-raised: #f9f6ef;
+    --console-surface-soft: #e7e0d2;
+    --console-surface-hover: #dbd3c2;
+    --console-border: #cfc5b0;
+    --console-border-strong: #b5a890;
+    --console-text: #162030;
+    --console-heading: #0a1220;
+    --console-muted: #525f74;
+    --console-faint: #79869c;
+    --console-primary: #1e3a8a;
+    --console-primary-strong: #172554;
+    --console-primary-soft: rgba(30, 58, 138, 0.08);
+    --console-cyan: #0e7490;
+    --console-success: #15803d;
+    --console-warning: #b45309;
+    --console-danger: #b91c1c;
+    --console-sidebar: #0f172a;
+    --console-sidebar-raised: #1e293b;
+    --console-sidebar-text: #f8fafc;
+    --console-sidebar-muted: #94a3b8;
+    --console-shadow: 0 4px 12px rgba(10, 18, 32, 0.05);
+    --console-shadow-small: 0 2px 4px rgba(10, 18, 32, 0.03);
+    --console-radius: 12px;
+    --console-radius-small: 8px;
     --sidebar-width: 276px;
 }
 
@@ -122,31 +122,31 @@ html.admin-access-pending .tab-content {
 
 html[data-theme="dark"] {
     color-scheme: dark;
-    --console-bg: #09111f;
-    --console-bg-accent: #0c1728;
-    --console-surface: #111c2e;
-    --console-surface-raised: #152238;
-    --console-surface-soft: #0e192a;
-    --console-surface-hover: #1a2941;
-    --console-border: #24344c;
-    --console-border-strong: #32445f;
-    --console-text: #cbd6e6;
-    --console-heading: #f4f7fb;
-    --console-muted: #91a0b7;
-    --console-faint: #6e7e97;
-    --console-primary: #6e8cff;
-    --console-primary-strong: #8aa2ff;
-    --console-primary-soft: rgba(91, 125, 255, .14);
-    --console-cyan: #34c3dc;
-    --console-success: #27c99a;
-    --console-warning: #f5b84c;
-    --console-danger: #f07084;
-    --console-sidebar: #080f1c;
-    --console-sidebar-raised: #111e32;
-    --console-sidebar-text: #edf3fb;
-    --console-sidebar-muted: #7d8da7;
-    --console-shadow: 0 20px 55px rgba(0, 0, 0, .24);
-    --console-shadow-small: 0 8px 22px rgba(0, 0, 0, .18);
+    --console-bg: #090d16;
+    --console-bg-accent: #0f172a;
+    --console-surface: #0f172a;
+    --console-surface-raised: #1e293b;
+    --console-surface-soft: #0c1322;
+    --console-surface-hover: #1e293b;
+    --console-border: rgba(255, 255, 255, 0.09);
+    --console-border-strong: rgba(255, 255, 255, 0.16);
+    --console-text: #e2e8f0;
+    --console-heading: #f8fafc;
+    --console-muted: #94a3b8;
+    --console-faint: #64748b;
+    --console-primary: #60a5fa;
+    --console-primary-strong: #3b82f6;
+    --console-primary-soft: rgba(59, 130, 246, 0.15);
+    --console-cyan: #22d3ee;
+    --console-success: #34d399;
+    --console-warning: #fbbf24;
+    --console-danger: #f87171;
+    --console-sidebar: #060911;
+    --console-sidebar-raised: #0b1120;
+    --console-sidebar-text: #f1f5f9;
+    --console-sidebar-muted: #64748b;
+    --console-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4);
+    --console-shadow-small: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
 }
 
 html,
@@ -759,24 +759,13 @@ html[data-theme="dark"] .theme-moon {
     justify-content: space-between !important;
     gap: 24px !important;
     overflow: hidden !important;
-    border: 1px solid color-mix(in srgb, var(--console-primary) 18%, var(--console-border)) !important;
+    border: 1px solid var(--console-border) !important;
     border-radius: 22px !important;
-    background:
-        linear-gradient(110deg, color-mix(in srgb, var(--console-primary-soft) 60%, var(--console-surface)) 0%, var(--console-surface) 64%) !important;
+    background: var(--console-surface) !important;
     box-shadow: var(--console-shadow) !important;
 }
 
-.page-intro::after {
-    content: "" !important;
-    position: absolute !important;
-    width: 260px !important;
-    height: 260px !important;
-    right: -90px !important;
-    top: -125px !important;
-    border: 52px solid color-mix(in srgb, var(--console-primary) 8%, transparent) !important;
-    border-radius: 50% !important;
-    pointer-events: none !important;
-}
+.page-intro::after { display: none !important; }
 
 .compact-intro {
     min-height: 80px !important;
@@ -1142,12 +1131,12 @@ button.btn {
 .chart-canvas-wrap {
     position: relative !important;
     width: 100% !important;
-    height: 300px !important;
+    height: 195px !important;
     min-height: 0 !important;
 }
 
 .trend-card .chart-canvas-wrap {
-    height: 330px !important;
+    height: 210px !important;
 }
 
 .chart-canvas-wrap canvas,
@@ -1384,7 +1373,7 @@ button.btn {
     position: relative !important;
     z-index: 1 !important;
     width: 100% !important;
-    height: 285px !important;
+    height: 180px !important;
     margin-top: 10px !important;
 }
 
@@ -1620,7 +1609,7 @@ button.btn {
 .chartWrapper {
     position: relative !important;
     width: 100% !important;
-    height: 320px !important;
+    height: 210px !important;
 }
 
 .reports-data-sections {
@@ -1719,11 +1708,11 @@ button.btn {
 .report-trend-canvas {
     position: relative !important;
     width: 100% !important;
-    height: 300px !important;
+    height: 195px !important;
 }
 
 .report-trend-hourly .report-trend-canvas {
-    height: 330px !important;
+    height: 210px !important;
 }
 
 .report-trend-canvas canvas {
@@ -2771,7 +2760,7 @@ html[data-theme="dark"] .settingfonts {
     position: relative !important;
     inset: auto !important;
     width: 100% !important;
-    height: 310px !important;
+    height: 210px !important;
     padding: 0 !important;
     overflow: hidden !important;
 }
@@ -3511,7 +3500,7 @@ html[data-theme="dark"] .settingfonts {
 
 .display-voice-list {
     min-height: 200px !important;
-    max-height: 310px !important;
+    max-height: 210px !important;
     padding: 7px !important;
     display: grid !important;
     align-content: start !important;
@@ -3868,340 +3857,9 @@ html.compact-sidebar .logout-btn span {
 /* Desktop viewport-fit workspaces */
 @media (min-width: 861px) {
 
-    .content .tab-content#dashboard-tab.active,
-    .content .tab-content#live-tab.active,
-    .content .tab-content#history-tab.active,
+        .content .tab-content#live-tab.active,
     .content .tab-content#tellers-tab.active,
-    .content .tab-content#settings-tab.active:has(#advertisement-settab.activetab) {
-        overflow: hidden !important;
-    }
-
-    .overview-page {
-        height: 100% !important;
-        min-height: 0 !important;
-        grid-template-rows: 92px 180px 72px minmax(0, 1fr) !important;
-        gap: 10px !important;
-        overflow: hidden !important;
-    }
-
-    .overview-page .page-intro,
-    .live-page .page-intro,
-    #history-tab>.page-intro,
-    #tellers-tab>.page-intro,
-    #settings-tab:has(#advertisement-settab.activetab)>.page-intro {
-        height: 100% !important;
-        min-height: 0 !important;
-        padding: 14px 18px !important;
-        border-radius: 16px !important;
-    }
-
-    .overview-page .page-intro h1,
-    .live-page .page-intro h1,
-    #history-tab>.page-intro h1,
-    #tellers-tab>.page-intro h1,
-    #settings-tab:has(#advertisement-settab.activetab)>.page-intro h1 {
-        font-size: 24px !important;
-    }
-
-    .overview-page .page-intro p,
-    .live-page .page-intro p,
-    #history-tab>.page-intro p,
-    #tellers-tab>.page-intro p,
-    #settings-tab:has(#advertisement-settab.activetab)>.page-intro p {
-        margin-top: 5px !important;
-        line-height: 1.35 !important;
-    }
-
-    .overview-page .period-overview-grid {
-        min-height: 0 !important;
-        height: 100% !important;
-        display: grid !important;
-        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-        gap: 9px !important;
-    }
-
-    .overview-page .period-card {
-        position: relative !important;
-        min-width: 0 !important;
-        min-height: 0 !important;
-        padding: 12px 13px 9px !important;
-        display: grid !important;
-        grid-template-rows: auto auto minmax(0, 1fr) !important;
-        gap: 7px !important;
-        overflow: hidden !important;
-        border: 1px solid var(--console-border) !important;
-        border-radius: 14px !important;
-        background: var(--console-surface) !important;
-        box-shadow: var(--console-shadow-small) !important;
-    }
-
-    .overview-page .period-card::before {
-        content: "" !important;
-        position: absolute !important;
-        inset: 0 0 auto !important;
-        height: 3px !important;
-        background: var(--period-color, var(--console-primary)) !important;
-    }
-
-    .overview-page .period-day {
-        --period-color: var(--console-primary);
-    }
-
-    .overview-page .period-week {
-        --period-color: var(--console-success);
-    }
-
-    .overview-page .period-month {
-        --period-color: #8b6be8;
-    }
-
-    .overview-page .period-card-heading {
-        min-width: 0 !important;
-        display: flex !important;
-        align-items: flex-start !important;
-        justify-content: space-between !important;
-        gap: 10px !important;
-    }
-
-    .overview-page .period-card-heading>div {
-        min-width: 0 !important;
-        display: grid !important;
-        gap: 2px !important;
-    }
-
-    .overview-page .period-card-heading span {
-        color: var(--console-muted) !important;
-        font-size: 8px !important;
-        font-weight: 850 !important;
-        letter-spacing: .1em !important;
-        text-transform: uppercase !important;
-    }
-
-    .overview-page .period-card-heading strong {
-        overflow: hidden !important;
-        color: var(--console-heading) !important;
-        font-size: 10px !important;
-        font-weight: 750 !important;
-        text-overflow: ellipsis !important;
-        white-space: nowrap !important;
-    }
-
-    .overview-page .period-card-heading>b {
-        color: var(--period-color, var(--console-primary)) !important;
-        font-size: 25px !important;
-        font-weight: 880 !important;
-        letter-spacing: -.05em !important;
-    }
-
-    .overview-page .period-metrics {
-        display: grid !important;
-        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-        gap: 6px !important;
-    }
-
-    .overview-page .period-metrics>span {
-        min-width: 0 !important;
-        padding: 5px 7px !important;
-        display: grid !important;
-        gap: 1px !important;
-        border-radius: 8px !important;
-        background: var(--console-surface-soft) !important;
-    }
-
-    .overview-page .period-metrics small {
-        color: var(--console-faint) !important;
-        font-size: 7px !important;
-        font-weight: 750 !important;
-        overflow-wrap: anywhere !important;
-    }
-
-    .overview-page .period-metrics strong {
-        color: var(--console-heading) !important;
-        font-size: 11px !important;
-        font-weight: 820 !important;
-    }
-
-    .overview-page .period-chart {
-        position: relative !important;
-        min-height: 0 !important;
-        height: 100% !important;
-    }
-
-    .overview-page .period-chart canvas {
-        width: 100% !important;
-        height: 100% !important;
-    }
-
-    .overview-page .insight-grid {
-        height: 100% !important;
-        gap: 8px !important;
-    }
-
-    .overview-page .insight-card {
-        min-height: 0 !important;
-        height: 100% !important;
-        padding: 9px 11px !important;
-    }
-
-    .overview-page .insight-card strong {
-        font-size: 17px !important;
-    }
-
-    .overview-page .insight-card {
-        padding-inline: 9px !important;
-    }
-
-    .overview-page .insight-card small {
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-        white-space: nowrap !important;
-    }
-
-    .overview-page .card-chart-dashboard {
-        min-height: 0 !important;
-        height: 100% !important;
-        grid-template-columns: minmax(0, .72fr) minmax(0, .72fr) minmax(0, 1.56fr) !important;
-        grid-template-rows: auto minmax(0, 1fr) !important;
-        gap: 9px !important;
-        overflow: hidden !important;
-    }
-
-    .overview-page .card-chart-dashboard>.section-heading {
-        grid-column: 1 / -1 !important;
-        min-height: 28px !important;
-    }
-
-    .overview-page .card-chart-dashboard .trend-card {
-        grid-column: auto !important;
-    }
-
-    .overview-page .analytics-card {
-        min-height: 0 !important;
-        height: 100% !important;
-        padding: 11px 12px !important;
-        display: flex !important;
-        flex-direction: column !important;
-    }
-
-    .overview-page .chart-card-heading {
-        min-height: 37px !important;
-        margin-bottom: 5px !important;
-    }
-
-    .overview-page .chart-card-heading>div>span {
-        display: none !important;
-    }
-
-    .overview-page .chart-canvas-wrap,
-    .overview-page .trend-card .chart-canvas-wrap {
-        min-height: 0 !important;
-        height: auto !important;
-        flex: 1 1 auto !important;
-    }
-
-    .live-page {
-        height: 100% !important;
-        min-height: 0 !important;
-        grid-template-rows: 84px 78px minmax(190px, 1.12fr) minmax(145px, .88fr) !important;
-        gap: 10px !important;
-        overflow: hidden !important;
-    }
-
-    .live-page .stats-grid {
-        height: 100% !important;
-        gap: 8px !important;
-    }
-
-    .live-page .stat-card {
-        min-height: 0 !important;
-        height: 100% !important;
-        padding: 10px 11px !important;
-        align-items: center !important;
-    }
-
-    .live-page .stat-info h3 {
-        font-size: 19px !important;
-    }
-
-    .live-page .live-market-grid,
-    .live-page .operations-grid {
-        min-height: 0 !important;
-        height: 100% !important;
-        gap: 10px !important;
-    }
-
-    .live-page .live-market-card {
-        min-height: 0 !important;
-        height: 100% !important;
-        padding: 11px 13px !important;
-        display: flex !important;
-        flex-direction: column !important;
-    }
-
-    .live-page .market-card-heading {
-        min-height: 52px !important;
-    }
-
-    .live-page .market-card-heading p {
-        display: none !important;
-    }
-
-    .live-page .market-chart-wrap {
-        min-height: 0 !important;
-        height: auto !important;
-        margin-top: 4px !important;
-        flex: 1 1 auto !important;
-    }
-
-    .live-page .operations-card {
-        min-height: 0 !important;
-        height: 100% !important;
-        padding: 11px 13px !important;
-        display: flex !important;
-        flex-direction: column !important;
-    }
-
-    .live-page .operations-card,
-    .live-page .card-teller-dashboard,
-    .live-page .dashTellers {
-        overflow: hidden !important;
-    }
-
-    .live-page .card-teller-dashboard {
-        min-height: 0 !important;
-        height: auto !important;
-        flex: 1 1 auto !important;
-        display: flex !important;
-        flex-direction: column !important;
-    }
-
-    .live-page .operations-card>.section-heading {
-        min-height: 28px !important;
-        margin-bottom: 7px !important;
-    }
-
-    .live-page .operations-card .live-grid,
-    .live-page .operations-card .card-teller-dashboard {
-        min-height: 0 !important;
-        height: auto !important;
-        flex: 1 1 auto !important;
-        overflow: hidden !important;
-    }
-
-    .live-page .operations-card .table-container {
-        min-height: 0 !important;
-        max-height: 100% !important;
-        height: auto !important;
-        flex: 1 1 auto !important;
-        overflow: auto !important;
-    }
-
-    .content .tab-content#history-tab.active,
-    .content .tab-content#tellers-tab.active {
-        display: grid !important;
-        grid-template-rows: 92px minmax(0, 1fr) !important;
-        gap: 10px !important;
-    }
+    
 
     .content .tab-content#history-tab>.card,
     .content .tab-content#tellers-tab>.card {
@@ -4326,11 +3984,7 @@ html.compact-sidebar .logout-btn span {
         padding-top: 6px !important;
     }
 
-    .content .tab-content#settings-tab.active:has(#advertisement-settab.activetab) {
-        display: grid !important;
-        grid-template-rows: 92px minmax(0, 1fr) !important;
-        gap: 10px !important;
-    }
+    
 
     .content .tab-content#settings-tab #advertisement-settab.activetab {
         min-height: 0 !important;
@@ -4384,79 +4038,34 @@ html.compact-sidebar .logout-btn span {
         padding: 14px 18px !important;
     }
 
-    .overview-page {
-        grid-template-rows: 70px 140px 52px minmax(0, 1fr) !important;
-        gap: 7px !important;
-    }
+    .overview-page { display: flex !important; flex-direction: column !important; gap: 20px !important; }
 
     .live-page {
         grid-template-rows: 70px 64px minmax(140px, 1.12fr) minmax(110px, .88fr) !important;
         gap: 7px !important;
     }
 
-    .content .tab-content#history-tab.active,
-    .content .tab-content#tellers-tab.active,
-    .content .tab-content#settings-tab.active:has(#advertisement-settab.activetab) {
+    .content .tab-content#tellers-tab.active {
         grid-template-rows: 70px minmax(0, 1fr) !important;
         gap: 7px !important;
     }
 
-    .overview-page .page-intro,
     .live-page .page-intro,
-    #history-tab>.page-intro,
-    #tellers-tab>.page-intro,
-    #settings-tab:has(#advertisement-settab.activetab)>.page-intro {
-        padding: 9px 14px !important;
-    }
+        #tellers-tab>.page-intro,
+    
 
     .overview-page .page-intro h1,
     .live-page .page-intro h1,
-    #history-tab>.page-intro h1,
-    #tellers-tab>.page-intro h1,
-    #settings-tab:has(#advertisement-settab.activetab)>.page-intro h1 {
-        font-size: 20px !important;
-    }
+        #tellers-tab>.page-intro h1,
+    
 
     .overview-page .page-intro p,
     .live-page .page-intro p,
-    #history-tab>.page-intro p,
-    #tellers-tab>.page-intro p,
-    #settings-tab:has(#advertisement-settab.activetab)>.page-intro p {
+        #tellers-tab>.page-intro p,
+    
+
+        .live-page .stat-info span {
         display: none !important;
-    }
-
-    .overview-page .insight-card small,
-    .live-page .stat-info span {
-        display: none !important;
-    }
-
-    .overview-page .period-card {
-        padding: 8px 10px 6px !important;
-        gap: 4px !important;
-    }
-
-    .overview-page .period-card-heading>b {
-        font-size: 20px !important;
-    }
-
-    .overview-page .period-metrics>span {
-        padding: 3px 5px !important;
-    }
-
-    .overview-page .insight-card {
-        padding-block: 6px !important;
-    }
-
-    .overview-page .card-chart-dashboard {
-        gap: 7px !important;
-    }
-
-    .overview-page .card-chart-dashboard>.section-heading {
-        display: none !important;
-    }
-
-    .overview-page .card-chart-dashboard {
-        grid-template-rows: minmax(0, 1fr) !important;
     }
 
     .live-page .stat-card {
@@ -5007,7 +4616,7 @@ html.compact-sidebar .logout-btn span {
 .configuration-grid {
     display: grid !important;
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 14px !important;
+    gap: 10px !important;
 }
 
 .configuration-field,
@@ -5405,109 +5014,18 @@ html.compact-sidebar .logout-btn span {
     padding: 10px 11px !important;
 }
 
-@media (min-width: 861px) {
-    .overview-page {
-        height: 100% !important;
-        grid-template-rows: 72px 150px 76px minmax(0, 1fr) !important;
-        gap: 7px !important;
-        align-content: stretch !important;
-        overflow: hidden !important;
-    }
+@media (min-width: 861px) { .overview-page { height: auto !important; min-height: 100% !important; overflow: visible !important; }
 
-    .overview-page .insight-grid {
-        min-height: 0 !important;
-        height: 76px !important;
-        align-items: stretch !important;
-    }
+    
 
-    .overview-page .insight-card {
-        min-height: 0 !important;
-        height: 100% !important;
-        padding: 8px 9px !important;
-        align-content: center !important;
-    }
+    
 
-    .overview-page .card-chart-dashboard {
-        min-height: 0 !important;
-        height: 100% !important;
-        grid-template-rows: 52px minmax(0, 1fr) !important;
-        gap: 7px !important;
     }
-
-    .overview-page .card-chart-dashboard>.section-heading {
-        min-height: 52px !important;
-        align-content: center !important;
-    }
-
-    .overview-page .analytics-card {
-        min-height: 0 !important;
-        padding: 9px 10px !important;
-    }
-
-    .overview-page .chart-card-heading {
-        min-height: 32px !important;
-        margin-bottom: 4px !important;
-    }
-
-    .overview-page .chart-canvas-wrap,
-    .overview-page .trend-card .chart-canvas-wrap {
-        min-height: 0 !important;
-        height: auto !important;
-        max-height: none !important;
-        flex: 1 1 auto !important;
-    }
-
-    .live-page {
-        grid-template-rows: 70px 64px minmax(170px, 1.12fr) minmax(130px, .88fr) !important;
-        gap: 7px !important;
-    }
-
-    .content .tab-content#history-tab.active {
-        display: grid !important;
-        grid-template-rows: minmax(0, 1fr) !important;
-        gap: 0 !important;
-        overflow: hidden !important;
-    }
-
-    .content .tab-content#history-tab>.card {
-        min-height: 0 !important;
-        height: 100% !important;
-    }
-
-    .content .tab-content#tellers-tab.active {
-        grid-template-rows: 70px minmax(0, 1fr) !important;
-        gap: 7px !important;
-    }
-
-    .content .tab-content#settings-tab.active:has(#advertisement-settab.activetab) {
-        display: grid !important;
-        grid-template-rows: minmax(0, 1fr) !important;
-        gap: 0 !important;
-        overflow: hidden !important;
-    }
-
-    .content .tab-content#settings-tab #advertisement-settab.activetab {
-        height: 100% !important;
-        margin: 0 auto !important;
-        grid-template-rows: auto minmax(0, 1fr) !important;
-    }
-}
 
 @media (min-width: 861px) and (max-height: 760px) {
-    .overview-page .card-chart-dashboard {
-        grid-template-rows: 52px minmax(0, 1fr) !important;
-    }
+    
 
-    .overview-page .card-chart-dashboard>.section-heading {
-        display: flex !important;
-        grid-row: 1 !important;
     }
-
-    .overview-page .analytics-card {
-        grid-row: 2 !important;
-        height: 100% !important;
-    }
-}
 
 @media (max-width: 860px) {
     .content-header {
@@ -5714,4 +5232,1070 @@ html.compact-sidebar .logout-btn span {
   .obsidian-form-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Modern Responsive Overview Page */
+.content .tab-content#dashboard-tab {
+    padding: 0 !important;
+}
+
+.content .tab-content#dashboard-tab.active {
+    display: block !important;
+    overflow-y: auto !important;
+    height: 100% !important;
+}
+
+.overview-page {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    padding: 12px 18px 24px !important;
+    max-width: 1600px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    min-height: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+}
+
+/* Page Intro Header - Neutral Executive Styling */
+.overview-page .page-intro {
+    background: var(--console-surface) !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: var(--console-radius) !important;
+    padding: 10px 16px !important;
+    box-shadow: var(--console-shadow-small) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 16px !important;
+    flex-wrap: wrap !important;
+    min-height: auto !important;
+    height: auto !important;
+}
+
+.overview-page .page-intro h1 {
+    font-size: 22px !important;
+    font-weight: 800 !important;
+    color: var(--console-heading) !important;
+    margin: 3px 0 4px !important;
+    letter-spacing: -0.01em !important;
+}
+
+.overview-page .page-intro p {
+    font-size: 13px !important;
+    color: var(--console-muted) !important;
+    margin: 0 !important;
+}
+
+.overview-page .page-kicker {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    color: var(--console-muted) !important;
+}
+
+/* 1. Executive KPI Summary Cards */
+.overview-kpi-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)) !important;
+    gap: 10px !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+}
+
+.kpi-card {
+    background: var(--console-surface) !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: var(--console-radius) !important;
+    padding: 10px 14px !important;
+    box-shadow: var(--console-shadow-small) !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    height: auto !important;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease !important;
+}
+
+.kpi-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: var(--console-shadow) !important;
+    border-color: var(--console-border-strong) !important;
+}
+
+.kpi-card .kpi-icon-wrap {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 9px !important;
+    display: grid !important;
+    place-items: center !important;
+    font-size: 16px !important;
+    flex-shrink: 0 !important;
+    background: var(--console-surface-soft) !important;
+    border: 1px solid var(--console-border) !important;
+    color: var(--console-heading) !important;
+}
+
+.kpi-card .kpi-content {
+    display: flex !important;
+    flex-direction: column !important;
+    min-width: 0 !important;
+}
+
+.kpi-card .kpi-label {
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    color: var(--console-muted) !important;
+    margin-bottom: 3px !important;
+}
+
+.kpi-card .kpi-value {
+    font-size: 24px !important;
+    font-weight: 800 !important;
+    color: var(--console-heading) !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.15 !important;
+}
+
+.kpi-card .kpi-hint {
+    font-size: 11px !important;
+    color: var(--console-faint) !important;
+    margin-top: 3px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+/* 2. Visual Analytics Row (60% Trend / 40% Split) */
+.overview-analytics-grid {
+    display: grid !important;
+    grid-template-columns: 1.65fr 1fr !important;
+    gap: 12px !important;
+    width: 100% !important;
+    align-items: stretch !important;
+    height: auto !important;
+}
+
+.overview-analytics-grid .trend-main-card {
+    background: var(--console-surface) !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: var(--console-radius) !important;
+    padding: 12px 14px !important;
+    box-shadow: var(--console-shadow-small) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+}
+
+.overview-analytics-grid .trend-main-card .chart-card-heading {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 12px !important;
+}
+
+.overview-analytics-grid .chart-kicker {
+    display: block !important;
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    color: var(--console-muted) !important;
+    margin-bottom: 2px !important;
+}
+
+.overview-analytics-grid .trend-main-card .chart-card-heading strong {
+    font-size: 15px !important;
+    font-weight: 750 !important;
+    color: var(--console-heading) !important;
+}
+
+.overview-analytics-grid .chart-buttons {
+    display: flex !important;
+    gap: 3px !important;
+    background: var(--console-surface-soft) !important;
+    padding: 3px !important;
+    border-radius: 8px !important;
+    border: 1px solid var(--console-border) !important;
+}
+
+.overview-analytics-grid .chart-buttons button {
+    background: transparent !important;
+    border: 0 !important;
+    padding: 4px 10px !important;
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+    color: var(--console-muted) !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+}
+
+.overview-analytics-grid .chart-buttons button.active {
+    background: var(--console-surface) !important;
+    color: var(--console-heading) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+}
+
+.overview-analytics-grid .main-trend-wrap {
+    height: 185px !important;
+    min-height: 185px !important;
+    position: relative !important;
+    width: 100% !important;
+}
+
+.overview-analytics-grid .analytics-split-column {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    height: 100% !important;
+}
+
+.overview-analytics-grid .analytics-split-column .analytics-card {
+    background: var(--console-surface) !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: var(--console-radius) !important;
+    padding: 8px 12px !important;
+    box-shadow: var(--console-shadow-small) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 50% !important;
+    height: auto !important;
+}
+
+.overview-analytics-grid .analytics-split-column .chart-card-heading {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 6px !important;
+}
+
+.overview-analytics-grid .analytics-split-column .chart-card-heading strong {
+    font-size: 13px !important;
+    font-weight: 750 !important;
+    color: var(--console-heading) !important;
+}
+
+.overview-analytics-grid .chart-badge {
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding: 2px 7px !important;
+    border-radius: 6px !important;
+    background: var(--console-surface-soft) !important;
+    color: var(--console-muted) !important;
+    border: 1px solid var(--console-border) !important;
+}
+
+.overview-analytics-grid .split-chart-wrap {
+    height: 105px !important;
+    min-height: 105px !important;
+    position: relative !important;
+    width: 100% !important;
+}
+
+/* 3. Operational Tables Row */
+.overview-tables-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+.overview-table-card {
+    background: var(--console-surface) !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: var(--console-radius) !important;
+    padding: 12px 14px !important;
+    box-shadow: var(--console-shadow-small) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+}
+
+.overview-table-card .section-heading {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 12px !important;
+}
+
+.overview-table-card .section-kicker {
+    display: block !important;
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    color: var(--console-muted) !important;
+    margin-bottom: 2px !important;
+}
+
+.overview-table-card .section-heading h3 {
+    margin: 0 !important;
+    font-size: 15px !important;
+    font-weight: 750 !important;
+    color: var(--console-heading) !important;
+}
+
+.overview-table-card .table-scroll-container {
+    max-height: 290px !important;
+    overflow-y: auto !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: 8px !important;
+}
+
+.overview-table-card .admin-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    font-size: 12px !important;
+}
+
+.overview-table-card .admin-table th {
+    background: var(--console-surface-soft) !important;
+    color: var(--console-muted) !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    padding: 9px 12px !important;
+    text-align: left !important;
+    border-bottom: 1px solid var(--console-border) !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 2 !important;
+}
+
+.overview-table-card .admin-table td {
+    padding: 9px 12px !important;
+    border-bottom: 1px solid var(--console-border) !important;
+    color: var(--console-text) !important;
+}
+
+.overview-table-card .admin-table tr:hover td {
+    background: var(--console-surface-hover) !important;
+}
+
+.overview-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 2px 7px !important;
+    border-radius: 6px !important;
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+    border: 1px solid var(--console-border) !important;
+}
+
+.overview-badge.active, .overview-badge.serving {
+    background: rgba(21, 128, 61, 0.1) !important;
+    color: var(--console-success) !important;
+}
+
+.overview-badge.inactive, .overview-badge.idle {
+    background: rgba(82, 95, 116, 0.1) !important;
+    color: var(--console-muted) !important;
+}
+
+/* 4. Period Comparison Row */
+.period-overview-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+.period-card {
+    background: var(--console-surface) !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: var(--console-radius) !important;
+    padding: 16px 18px !important;
+    box-shadow: var(--console-shadow-small) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+}
+
+.period-card-heading {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 10px !important;
+}
+
+.period-card-heading span {
+    display: block !important;
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    color: var(--console-muted) !important;
+}
+
+.period-card-heading strong {
+    font-size: 14px !important;
+    font-weight: 750 !important;
+    color: var(--console-heading) !important;
+}
+
+.period-card-heading b {
+    font-size: 22px !important;
+    font-weight: 800 !important;
+    color: var(--console-heading) !important;
+}
+
+.period-metrics {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 6px !important;
+    margin-bottom: 10px !important;
+    padding: 8px 10px !important;
+    background: var(--console-surface-soft) !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: 8px !important;
+    height: auto !important;
+}
+
+.period-metrics span {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.period-metrics small {
+    font-size: 9.5px !important;
+    color: var(--console-faint) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+}
+
+.period-metrics strong {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: var(--console-heading) !important;
+}
+
+.period-chart {
+    height: 55px !important;
+    position: relative !important;
+    width: 100% !important;
+}
+
+/* 5. Operational Insights Grid */
+.insight-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+    gap: 12px !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+.insight-card {
+    background: var(--console-surface) !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: var(--console-radius) !important;
+    padding: 10px 12px !important;
+    box-shadow: var(--console-shadow-small) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+}
+
+.insight-card .insight-label {
+    font-size: 10.5px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    color: var(--console-muted) !important;
+    margin-bottom: 4px !important;
+}
+
+.insight-card strong {
+    font-size: 18px !important;
+    font-weight: 800 !important;
+    color: var(--console-heading) !important;
+}
+
+.insight-card small {
+    font-size: 10.5px !important;
+    color: var(--console-faint) !important;
+    margin-top: 3px !important;
+}
+
+@media (max-width: 1100px) {
+    .overview-analytics-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .overview-tables-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .period-overview-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+
+
+/* ============================================================
+   TICKET HISTORY FIX - FULL HEIGHT SCROLLABLE WORKSPACE
+   ============================================================ */
+.content .tab-content#history-tab.active {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    padding: 14px 18px !important;
+    overflow: hidden !important;
+}
+
+.content .tab-content#history-tab > .card {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 14px 18px !important;
+    overflow: hidden !important;
+    background: var(--console-surface) !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: var(--console-radius) !important;
+    box-shadow: var(--console-shadow-small) !important;
+}
+
+.content .tab-content#history-tab > .card > .card-header {
+    flex: 0 0 auto !important;
+    margin-bottom: 10px !important;
+    padding: 0 0 10px 0 !important;
+    border: 0 !important;
+    border-bottom: 1px solid var(--console-border) !important;
+    min-height: 44px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+}
+
+.content .tab-content#history-tab > .card > .table-container {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    height: 100% !important;
+    max-height: none !important;
+    margin: 0 !important;
+    overflow: auto !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: 8px !important;
+    background: var(--console-surface-soft) !important;
+}
+
+.content .tab-content#history-tab .history-pagination {
+    flex: 0 0 auto !important;
+    margin-top: 10px !important;
+    padding: 6px 10px !important;
+    border-top: 1px solid var(--console-border) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+/* ============================================================
+   REPORTS TAB TABLE ALIGNMENT FIX (Headers aligned with data)
+   ============================================================ */
+.content .tab-content#reports-tab .admin-tablerep {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    table-layout: auto !important;
+}
+
+.content .tab-content#reports-tab .admin-tablerep th,
+.content .tab-content#reports-tab .admin-tablerep td {
+    padding: 10px 14px !important;
+    vertical-align: middle !important;
+    font-size: 11.5px !important;
+    border-bottom: 1px solid var(--console-border) !important;
+}
+
+.content .tab-content#reports-tab .admin-tablerep th {
+    background: var(--console-surface-soft) !important;
+    color: var(--console-muted) !important;
+    font-size: 10.5px !important;
+    font-weight: 750 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+}
+
+/* First column (e.g. Service Name, Teller Name, Date) -> Align Left */
+.content .tab-content#reports-tab .admin-tablerep th:first-child,
+.content .tab-content#reports-tab .admin-tablerep td:first-child {
+    text-align: left !important;
+    padding-left: 16px !important;
+}
+
+/* Subsequent metric columns (Counts, Times, Percentages) -> Align Center */
+.content .tab-content#reports-tab .admin-tablerep th:not(:first-child),
+.content .tab-content#reports-tab .admin-tablerep td:not(:first-child) {
+    text-align: center !important;
+}
+
+/* ============================================================
+   OVERVIEW SPACE CONSERVATION & BANNER REMOVAL
+   ============================================================ */
+.overview-loading-banner,
+#overview-loading-banner {
+    display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    visibility: hidden !important;
+}
+
+
+/* ============================================================
+   ANALYTICS 2x2 BALANCED GRID & COUNTER VELOCITY CHART
+   ============================================================ */
+.overview-analytics-grid .analytics-main-column {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    height: 100% !important;
+    min-width: 0 !important;
+}
+
+.overview-analytics-grid .analytics-main-column .trend-main-card {
+    background: var(--console-surface) !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: var(--console-radius) !important;
+    padding: 12px 14px !important;
+    box-shadow: var(--console-shadow-small) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 auto !important;
+    height: auto !important;
+}
+
+.overview-analytics-grid .main-trend-wrap {
+    height: 145px !important;
+    min-height: 145px !important;
+    position: relative !important;
+    width: 100% !important;
+}
+
+.overview-analytics-grid .counter-velocity-card {
+    background: var(--console-surface) !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: var(--console-radius) !important;
+    padding: 12px 14px !important;
+    box-shadow: var(--console-shadow-small) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 auto !important;
+    height: auto !important;
+}
+
+.overview-analytics-grid .counter-trend-wrap {
+    height: 115px !important;
+    min-height: 115px !important;
+    position: relative !important;
+    width: 100% !important;
+}
+
+/* Active / Serving Highlight in Overview Tables */
+.overview-table tr.row-active-serving td {
+    background: rgba(16, 185, 129, 0.06) !important;
+}
+
+.overview-table tr.row-active-serving td:first-child strong {
+    color: var(--console-heading) !important;
+    font-weight: 800 !important;
+}
+
+/* Remove old live tab styles safely */
+.live-page,
+#live-tab {
+    display: none !important;
+}
+
+
+/* ============================================================
+   TEMPORARILY HIDE CONFIGURATIONS AND SMS BUTTONS ON SIDEBAR
+   ============================================================ */
+.settingsmenubtn[data-settingstab="configuration"],
+.settingsmenubtn[data-settingstab="smsconfig"],
+.settingsMenu .settingsmenubtn[data-settingstab="configuration"],
+.settingsMenu .settingsmenubtn[data-settingstab="smsconfig"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+}
+
+/* ============================================================
+   ADVERTISEMENT SETTINGS PAGE FIX - EXPANDED & PROPERLY DISPLAYED
+   ============================================================ */
+.content .tab-content#settings-tab.active {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    padding: 14px 18px !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+.content .tab-content#settings-tab #advertisement-settab.activetab {
+    display: grid !important;
+    grid-template-columns: minmax(300px, 0.7fr) minmax(420px, 1.3fr) !important;
+    grid-template-rows: auto minmax(420px, 1fr) !important;
+    gap: 14px !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 520px !important;
+    padding: 18px 20px !important;
+    background: var(--console-surface) !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: var(--console-radius) !important;
+    box-shadow: var(--console-shadow-small) !important;
+    overflow: visible !important;
+}
+
+.content .tab-content#settings-tab #advertisement-settab .adsmainconfigtitle {
+    grid-column: 1 / -1 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 14px !important;
+    padding-bottom: 12px !important;
+    border-bottom: 1px solid var(--console-border) !important;
+    min-height: 50px !important;
+    height: auto !important;
+}
+
+.content .tab-content#settings-tab #advertisement-settab .adsmainconfigtitle h3 {
+    margin: 0 !important;
+    font-size: 17px !important;
+    font-weight: 800 !important;
+    color: var(--console-heading) !important;
+}
+
+.content .tab-content#settings-tab #advertisement-settab .adsmainconfigtitle p {
+    margin: 2px 0 0 !important;
+    font-size: 11.5px !important;
+    color: var(--console-muted) !important;
+}
+
+.content .tab-content#settings-tab #advertisement-settab .media-library-panel {
+    background: var(--console-surface-soft) !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: 8px !important;
+    padding: 14px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 380px !important;
+}
+
+.content .tab-content#settings-tab #advertisement-settab .media-library-panel .adslist {
+    flex: 1 1 auto !important;
+    overflow-y: auto !important;
+    max-height: 480px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    margin-top: 10px !important;
+}
+
+.content .tab-content#settings-tab #advertisement-settab .media-preview-panel {
+    background: var(--console-surface-soft) !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: 8px !important;
+    padding: 14px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 380px !important;
+}
+
+.content .tab-content#settings-tab #advertisement-settab .media-preview-panel .videocontainer {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    min-height: 320px !important;
+    background: #000 !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    margin-top: 10px !important;
+}
+
+.content .tab-content#settings-tab #advertisement-settab .media-preview-panel #adminAdPlayer {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 440px !important;
+    object-fit: contain !important;
+}
+
+/* ============================================================
+   OVERVIEW CHARTS FIT & COMPACT TIGHT CONTAINERS (NO VOID BELOW)
+   ============================================================ */
+.overview-analytics-grid {
+    display: grid !important;
+    grid-template-columns: 1.6fr 1fr !important;
+    gap: 12px !important;
+    width: 100% !important;
+    align-items: start !important;
+    height: auto !important;
+}
+
+.overview-analytics-grid .analytics-main-column,
+.overview-analytics-grid .analytics-split-column {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    width: 100% !important;
+    height: auto !important;
+    min-width: 0 !important;
+}
+
+.overview-analytics-grid .analytics-card {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 10px 14px !important;
+    background: var(--console-surface) !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: var(--console-radius) !important;
+    box-shadow: var(--console-shadow-small) !important;
+    height: auto !important;
+    overflow: hidden !important;
+}
+
+.overview-analytics-grid .chart-card-heading {
+    flex: 0 0 auto !important;
+    margin-bottom: 4px !important;
+}
+
+.overview-analytics-grid .main-trend-wrap {
+    height: 120px !important;
+    min-height: 120px !important;
+    max-height: 120px !important;
+    position: relative !important;
+    width: 100% !important;
+    flex: 0 0 auto !important;
+}
+
+.overview-analytics-grid .counter-trend-wrap {
+    height: 85px !important;
+    min-height: 85px !important;
+    max-height: 85px !important;
+    position: relative !important;
+    width: 100% !important;
+    flex: 0 0 auto !important;
+}
+
+.overview-analytics-grid .split-chart-wrap {
+    height: 85px !important;
+    min-height: 85px !important;
+    max-height: 85px !important;
+    position: relative !important;
+    width: 100% !important;
+    flex: 0 0 auto !important;
+}
+
+/* ============================================================
+   INSIGHT GRID RESTORATION (FULL HEIGHT & VISIBLE LABELS/NOTES)
+   ============================================================ */
+.insight-grid,
+.overview-page .insight-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)) !important;
+    gap: 10px !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    margin-top: 4px !important;
+}
+
+.insight-card,
+.overview-page .insight-card {
+    background: var(--console-surface) !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: var(--console-radius) !important;
+    padding: 12px 14px !important;
+    box-shadow: var(--console-shadow-small) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    height: auto !important;
+    min-height: 85px !important;
+}
+
+.insight-card .insight-label {
+    display: block !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    color: var(--console-muted) !important;
+    margin-bottom: 2px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+.insight-card strong {
+    display: block !important;
+    font-size: 19px !important;
+    font-weight: 800 !important;
+    color: var(--console-heading) !important;
+    line-height: 1.2 !important;
+    margin: 2px 0 !important;
+}
+
+.insight-card small,
+.overview-page .insight-card small {
+    display: block !important;
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+    color: var(--console-muted) !important;
+    margin-top: 2px !important;
+    word-break: break-word !important;
+}
+
+
+/* ============================================================
+   RESPONSIVE CHART CONTAINER AUTO-FIT (CHARTS FILL CARDS FULLY)
+   ============================================================ */
+.overview-analytics-grid {
+    display: grid !important;
+    grid-template-columns: 1.5fr 1fr !important;
+    gap: 16px !important;
+    width: 100% !important;
+    align-items: stretch !important;
+    height: auto !important;
+}
+
+.overview-analytics-grid .analytics-main-column,
+.overview-analytics-grid .analytics-split-column {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0 !important;
+}
+
+.overview-analytics-grid .analytics-card,
+.overview-analytics-grid .trend-main-card,
+.overview-analytics-grid .counter-velocity-card {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 50% !important;
+    min-height: 250px !important;
+    height: 100% !important;
+    padding: 16px 18px !important;
+    background: var(--console-surface) !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: var(--console-radius) !important;
+    box-shadow: var(--console-shadow-small) !important;
+    overflow: hidden !important;
+}
+
+.overview-analytics-grid .chart-card-heading {
+    flex: 0 0 auto !important;
+    margin-bottom: 12px !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+}
+
+.overview-analytics-grid .chart-canvas-wrap,
+.overview-analytics-grid .main-trend-wrap,
+.overview-analytics-grid .counter-trend-wrap,
+.overview-analytics-grid .split-chart-wrap {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    min-height: 180px !important;
+    height: 100% !important;
+    max-height: none !important;
+    position: relative !important;
+}
+
+.overview-analytics-grid .chart-canvas-wrap canvas,
+.overview-analytics-grid .main-trend-wrap canvas,
+.overview-analytics-grid .counter-trend-wrap canvas,
+.overview-analytics-grid .split-chart-wrap canvas {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+}
+
+
+/* ============================================================
+   REPORTS TAB TICKET TRENDS & SERVICE DISTRIBUTION CHARTS FIT
+   ============================================================ */
+.content .tab-content#reports-tab .reports-charts-sections {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr) !important;
+    gap: 16px !important;
+    width: 100% !important;
+    align-items: stretch !important;
+    margin-bottom: 4px !important;
+}
+
+.content .tab-content#reports-tab .reports-charts-sections .chartdiv,
+.content .tab-content#reports-tab .reports-charts-sections .repChart-trend,
+.content .tab-content#reports-tab .reports-charts-sections .repChart-ServiceDistrib {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    min-height: 290px !important;
+    height: 100% !important;
+    padding: 16px 18px !important;
+    background: var(--console-surface) !important;
+    border: 1px solid var(--console-border) !important;
+    border-radius: var(--console-radius) !important;
+    box-shadow: var(--console-shadow-small) !important;
+    overflow: hidden !important;
+}
+
+.content .tab-content#reports-tab .reports-charts-sections .chartdiv h3 {
+    flex: 0 0 auto !important;
+    margin: 0 0 12px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    color: var(--console-heading) !important;
+}
+
+.content .tab-content#reports-tab .reports-charts-sections .chartdiv .chartWrapper,
+.reports-charts-sections .chartWrapper {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    min-height: 230px !important;
+    height: 100% !important;
+    max-height: none !important;
+    position: relative !important;
+}
+
+.content .tab-content#reports-tab .reports-charts-sections .chartWrapper canvas,
+.content .tab-content#reports-tab .reports-charts-sections .chartWrapper .RepchartCanvas,
+.chartWrapper canvas,
+.chartWrapper .RepchartCanvas {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
 }

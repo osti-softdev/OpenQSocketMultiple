@@ -84,9 +84,9 @@
     "semantic_hash": ""
   },
   "backend/routes/AadminApi.js": {
-    "mtime": 1793848165.9230664,
-    "seen": 1793849950.6318266,
-    "ast_hash": "e22fdc2e651f11f65a1ff1efa84f79bb",
+    "mtime": 1793863868.3795817,
+    "seen": 1793864109.7452037,
+    "ast_hash": "60b82a7906d85745060de58b01401b11",
     "semantic_hash": ""
   },
   "backend/routes/AdisplayApi.js": {
@@ -228,9 +228,9 @@
     "semantic_hash": ""
   },
   "public/js/admin/admin.js": {
-    "mtime": 1793848165.932014,
-    "seen": 1793849950.6318266,
-    "ast_hash": "cbff86087a0c4277565df078dd4388f3",
+    "mtime": 1793860432.8962853,
+    "seen": 1793860614.5717793,
+    "ast_hash": "1f5bb5e8747b500fdcae2c87f4d27c27",
     "semantic_hash": ""
   },
   "public/js/admin/admin_login.js": {
@@ -246,9 +246,9 @@
     "semantic_hash": ""
   },
   "public/js/admin/dashboard.js": {
-    "mtime": 1793846737.7415433,
-    "seen": 1793849950.6318266,
-    "ast_hash": "daf562cc439d291339729f2953dd528d",
+    "mtime": 1793861092.107019,
+    "seen": 1793861289.2691083,
+    "ast_hash": "e5e1f475cb8fda2d4d0d5ff0672b6608",
     "semantic_hash": ""
   },
   "public/js/admin/errorHandler.js": {
@@ -270,9 +270,9 @@
     "semantic_hash": ""
   },
   "public/js/admin/report.js": {
-    "mtime": 1793844095.3180723,
-    "seen": 1793849950.6318266,
-    "ast_hash": "433618e621fd888852cf9b376a83d179",
+    "mtime": 1793864010.5632956,
+    "seen": 1793864109.7611892,
+    "ast_hash": "2d91de6227a1f1cfab3b58223e34da89",
     "semantic_hash": ""
   },
   "public/js/admin/services.js": {
@@ -11447,30 +11447,6 @@
     "ast_hash": "85a987a1e57be1e4e15319ad4e0a0395",
     "semantic_hash": ""
   },
-  "windowsCaller/.vs/CallerApp.csproj.dtbcache.json": {
-    "mtime": 1793844655.8894773,
-    "seen": 1793849950.6368191,
-    "ast_hash": "5f0e7c63c6068c2a052475ac3aedab06",
-    "semantic_hash": ""
-  },
-  "windowsCaller/.vs/CallerApp.slnx/v18/DocumentLayout.backup.json": {
-    "mtime": 1793848447.2305126,
-    "seen": 1793849950.6368191,
-    "ast_hash": "35c2647b4cd6ff1311adb61cd5978d0b",
-    "semantic_hash": ""
-  },
-  "windowsCaller/.vs/CallerApp.slnx/v18/DocumentLayout.json": {
-    "mtime": 1793849796.6381524,
-    "seen": 1793849950.6368191,
-    "ast_hash": "35c2647b4cd6ff1311adb61cd5978d0b",
-    "semantic_hash": ""
-  },
-  "windowsCaller/.vs/CallerApp.slnx/v18/ResourceExplorer/settings.json": {
-    "mtime": 1793844657.0412543,
-    "seen": 1793849950.6368191,
-    "ast_hash": "940aaa5fd2b237d4506d209ca7509c69",
-    "semantic_hash": ""
-  },
   "windowsCaller/ApiClient.cs": {
     "mtime": 1793849840.205917,
     "seen": 1793849950.6368191,
@@ -11772,9 +11748,9 @@
     "semantic_hash": ""
   },
   "public/html/admin.html": {
-    "mtime": 1793848165.9300158,
-    "seen": 1793849950.6368191,
-    "ast_hash": "313e3f0885b9e61cfbd5a77e63d4aaba",
+    "mtime": 1793863949.9108233,
+    "seen": 1793864110.701038,
+    "ast_hash": "1e3dd7ce9410d43d7b07a3170a412c1e",
     "semantic_hash": ""
   },
   "public/html/admin_login.html": {

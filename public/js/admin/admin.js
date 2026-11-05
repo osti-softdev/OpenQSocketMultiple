@@ -239,12 +239,15 @@ function getAdminChartTheme() {
     const dark = document.documentElement.dataset.theme === 'dark';
     return {
         dark,
-        text: dark ? '#a9b7cc' : '#667085',
-        heading: dark ? '#edf3fb' : '#172033',
-        grid: dark ? 'rgba(148, 163, 184, .13)' : 'rgba(100, 116, 139, .12)',
-        tooltipBackground: dark ? '#111c2e' : '#ffffff',
-        tooltipBorder: dark ? '#2b3b55' : '#dfe6ef',
-        palette: ['#5b8cff', '#22c7a9', '#f7b955', '#a879f7', '#f36f8b', '#35b9e9', '#ff8c5a', '#9db05d']
+        text: dark ? '#94a3b8' : '#505c70',
+        muted: dark ? '#94a3b8' : '#505c70',
+        heading: dark ? '#f8fafc' : '#0d1527',
+        grid: dark ? 'rgba(255, 255, 255, 0.08)' : '#ded7c8',
+        tooltipBackground: dark ? '#101624' : '#f5f0e6',
+        tooltipBorder: dark ? '#1e293b' : '#d2c8b5',
+        palette: dark 
+            ? ['#60a5fa', '#34d399', '#fbbf24', '#22d3ee', '#f87171', '#a78bfa', '#fb923c', '#94a3b8']
+            : ['#1e3a8a', '#15803d', '#b45309', '#0e7490', '#b91c1c', '#6d28d9', '#c2410c', '#475569']
     };
 }
 
@@ -422,6 +425,11 @@ function applyAdminRoleAccess(role) {
 
     $('.settingsmenubtn').each(function () {
         const settingKey = String($(this).data('settingstab') || '');
+        // Temporarily hide configurations and smsconfig as requested
+        if (settingKey === 'configuration' || settingKey === 'smsconfig') {
+            $(this).attr('style', 'display: none !important;').addClass('role-restricted').attr('aria-hidden', 'true');
+            return;
+        }
         const allowed = hasSettingsTab && allowedSettings.includes(settingKey);
         $(this).toggleClass('role-restricted', !allowed).attr('aria-hidden', String(!allowed));
         if (!allowed) {
@@ -486,7 +494,7 @@ function switchTab(tab) {
     }
     
     // Load data for the tab
-    if (tab === 'dashboard' || tab === 'live') loadDashboard();
+    if (tab === 'dashboard') loadDashboard();
     else if (tab === 'reports') {
         // Initialize report page with default dates
         if (typeof initializeReportPage === 'function') {
