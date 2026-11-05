@@ -1,31 +1,63 @@
 const { app, BrowserWindow, ipcMain, screen, session } = require("electron");
 const fs = require("fs");
-const { readdir } = require("fs");
 const path = require("path");
-const axios = require("axios"); // Add Axios for HTTP request
-const { exec } = require("child_process");
+const axios = require("axios");
+const { execFile, exec } = require("child_process");
+const express = require("express");
+const cors = require("cors");
 
-const express = require('express');
-const expressApp = express();
-const multer = require('multer');
-const requestAPI = multer()
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const os = require('os');
+// Setup persistent logging
+const logDir = path.join(__dirname, "outfolder", "logs", "error");
+if (!fs.existsSync(logDir)) {
+  try {
+    fs.mkdirSync(logDir, { recursive: true });
+  } catch (err) {
+    // ignore
+  }
+}
+const logStream = fs.createWriteStream(path.join(__dirname, "error.log"), { flags: "a" });
+const errorConsole = new console.Console({ stderr: logStream, stdout: process.stdout });
 
-const logStream = fs.createWriteStream(path.join(__dirname, "error.log"), {
-  flags: "a",
-});
-const errorConsole = new console.Console({
-  stderr: logStream,
-  stdout: process.stdout,
-});
-// Override console.error to write to the log file
 console.error = (...args) => {
-  const ticksnowaf = new Date().toISOString(); // Get current date and time in ISO format
-  errorConsole.error(ticksnowaf, ...args); // Prepend date and time to the error message
+  const ts = new Date().toISOString();
+  errorConsole.error(ts, ...args);
 };
 
+// ==========================================
+// CONFIGURATION LOADER
+// ==========================================
+function loadConfig() {
+  const configPath = path.join(__dirname, "outfolder", "config", "config.ini");
+  let hostName = "localhost";
+  let hostPort = 12341;
+  let printerName = "POS-82";
+
+  if (fs.existsSync(configPath)) {
+    try {
+      const content = fs.readFileSync(configPath, "utf8");
+      const hostMatch = content.match(/hostName\s*=\s*([^\r\n]+)/i);
+      const portMatch = content.match(/hostPort\s*=\s*([^\r\n]+)/i);
+      const printerMatch = content.match(/printerName\s*=\s*([^\r\n]+)/i);
+
+      if (hostMatch && hostMatch[1].trim()) hostName = hostMatch[1].trim();
+      if (portMatch && portMatch[1].trim()) hostPort = parseInt(portMatch[1].trim(), 10) || 12341;
+      if (printerMatch && printerMatch[1].trim()) printerName = printerMatch[1].trim();
+    } catch (err) {
+      console.error("Failed to parse config.ini:", err.message);
+    }
+  }
+
+  const kioskUrl = `http://${hostName}:${hostPort}/kiosk?station=kiosk2`;
+  const pingUrl = `http://${hostName}:${hostPort}/kiosk`;
+
+  return { hostName, hostPort, printerName, kioskUrl, pingUrl };
+}
+
+let appConfig = loadConfig();
+
+// ==========================================
+// DATE CHANGE & MIDNIGHT RESET
+// ==========================================
 function getCurrentDate() {
   return new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Manila" });
 }
@@ -33,193 +65,210 @@ let initialDate = getCurrentDate();
 
 function checkDateChange() {
   const currentDate = getCurrentDate();
-
   if (currentDate !== initialDate) {
-    cleardbtransac();
-    getservices();
-    app.relaunch();
-    app.exit(0);
-  }
-}
-
-setInterval(checkDateChange, 1000);
-
-var tagline = "../../";
-tagline = "./";
-// check database
-function checkDatabaseConnection() {
-  return new Promise((resolve, reject) => {
-    axios.get('http://localhost:12341/kiosk')
-      .then(() => {
-        resolve("true");
-      })
-      .catch((error) => {
-        reject(new Error("Connection refused: Check if the main server is running."));
-      });
-  });
-}
-
-function createWindow() {
-  checkDatabaseConnection()
-    .then((connected) => {
-      const displays = screen.getAllDisplays();
-
-      if (displays.length > 1) {
-        const externalDisplay = displays.find(
-          (display) => display.bounds.x !== 0 || display.bounds.y !== 0
-        );
-
-        if (externalDisplay) {
-          const kioskwindowdisplay = new BrowserWindow({
-            width: 400,
-            height: 400,
-            show: true,
-            autoHideMenuBar: true,
-            frame: true
-          });
-          kioskwindowdisplay.setFullScreen(true);
-          kioskwindowdisplay.loadURL('http://localhost:12341/kiosk');
-
-        }
-      } else {
-
-        const kioskwindowdisplay = new BrowserWindow({
-          width: 400,
-          height: 400,
-          show: true,
-          autoHideMenuBar: true,
-          frame: true
-        });
-        kioskwindowdisplay.setFullScreen(true);
-        kioskwindowdisplay.loadURL('http://localhost:12341/kiosk');
-      }
-    })
-    .catch((error) => {
-      const alertWindow = new BrowserWindow({
-        width: 400,
-        height: 400,
-        hasShadow: false,
-        transparent: true,
-        alwaysOnTop: true,
-        webPreferences: {
-          nodeIntegration: true,
-          preload: path.join(__dirname, "reso", "node", "appstatus.js"),
-        },
-        autoHideMenuBar: true,
-        frame: false,
-      });
-      alertWindow.loadFile("error.html");
-      alertWindow.once("ready-to-show", () => { });
-      alertWindow.webContents.on("did-finish-load", () => { });
-      setTimeout(() => {
-        app.relaunch();
-        app.quit();
-      }, 15000);
-    });
-}
-
-app.on("ready", () => {
-  session.defaultSession.clearCache(() => {
-    console.log("Cache cleared");
-  });
-});
-
-// Create the main window when Electron has finished initializing
-app.whenReady().then(createWindow);
-// Quit the app when all windows are closed
-app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") {
-    app.quit();
-  }
-});
-
-// Re-create the main window if the app is activated and no windows are open
-app.on("activate", () => {
-  if (BrowserWindow.getAllWindows().length === 0) {
-    createWindow();
-  }
-});
-
-ipcMain.on("appstatus", (event, stats) => {
-  if (stats == "relaunch") {
-    app.relaunch();
-    app.quit();
-  } else {
-    app.quit();
-  }
-});
-
-expressApp.use(express.urlencoded({ extended: true }));
-expressApp.use(express.json({ limit: '1000mb' }));
-expressApp.use(express.urlencoded({ limit: '1000mb', extended: true }));
-expressApp.use(bodyParser.json({ limit: '1000mb' }));
-expressApp.use(bodyParser.urlencoded({ limit: '1000mb', extended: true }));
-expressApp.use(cors());
-
-expressApp.use((req, res, next) => {
-  res.removeHeader('Content-Disposition');
-  next();
-});
-
-expressApp.post("/api/requestor", requestAPI.none(), (req, res) => {
-  console.log("Received data at requestor:", req.body);
-  // Here you can process the data as needed, for example:
-  const { service, ticket, note, service_name, date, time, ip } = req.body;
-
-  executephp(service, ticket, note, service_name, date, time);
-  // Respond back to the client (if needed)
-  return res.status(200).json({ success: true, message: "Data received successfully", data: req.body });
-})
-
-const localIP = getLocalIP(); // Get the local IP address dynamically
-expressApp.listen(3234, localIP, () => {
-  console.log("Server started at port 3232 on 10.1.0.98");
-});
-expressApp.use('/reso', express.static(path.join(__dirname, 'reso')));
-expressApp.use('/outfolder', express.static(path.join(__dirname, `${tagline}outfolder`)));
-expressApp.use('/node', express.static(path.join(__dirname, 'node')));
-
-
-let argumentprevious = "";
-
-function formatArgument(...args) {
-  return args.map(arg => {
-    // Ensure all fields are quoted and internal quotes escaped
-    const safe = String(arg).replace(/"/g, '""'); // escape quotes
-    return `"${safe}"`;
-  }).join(',');
-}
-
-function executephp(service, ticket, note, service_name, date, time) {
-  const argument = formatArgument(service, ticket, note, service_name, date, time);
-
-  if (argument !== argumentprevious) {
-    exec(
-      `php ${tagline}outfolder/printer/print.php "${argument}"`,
-      (error, stdout, stderr) => {
-        argumentprevious = argument;
-        if (error) {
-          console.error(`exec error: ${error}`);
-          return;
-        }
-        if (stderr) console.error(`stderr: ${stderr}`);
-        if (stdout) console.log(`stdout: ${stdout}`);
-      }
-    );
-  } else {
-    console.log("Duplicate argument detected, skipping PHP execution.");
-  }
-}
-
-
-function getLocalIP() {
-  const interfaces = os.networkInterfaces();
-  for (const interfaceName in interfaces) {
-    for (const interfaceInfo of interfaces[interfaceName]) {
-      if (interfaceInfo.family === "IPv4" && !interfaceInfo.internal) {
-        return interfaceInfo.address; // Return the first valid IPv4 address found
-      }
+    initialDate = currentDate;
+    console.log(`[Date Transition] Detected date change to ${currentDate}. Refreshing kiosk...`);
+    if (mainWindow && !mainWindow.isDestroyed()) {
+      mainWindow.reload();
     }
   }
-  throw new Error("No valid IPv4 address found.");
 }
+// Check every 30 seconds instead of an aggressive 1-second interval
+setInterval(checkDateChange, 30000);
+
+// ==========================================
+// THERMAL PRINTER EXECUTION
+// ==========================================
+function executePrint(service, ticket, shortSname, subsname, selectedSubService) {
+  const printScript = path.join(__dirname, "outfolder", "printer", "print.php");
+  const args = [
+    printScript,
+    String(service || ""),
+    String(ticket || ""),
+    String(shortSname || ""),
+    String(subsname || ""),
+    String(selectedSubService || "")
+  ];
+
+  execFile("php", args, { windowsHide: true }, (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Printer execution error:`, error.message);
+      return;
+    }
+    if (stderr && stderr.trim()) {
+      console.error(`Printer stderr:`, stderr.trim());
+    }
+    if (stdout && stdout.trim()) {
+      console.log(`Printer output:`, stdout.trim());
+    }
+  });
+}
+
+// ==========================================
+// LOCAL PRINT RECEIVER (PORT 3234)
+// ==========================================
+const expressApp = express();
+expressApp.use(cors());
+expressApp.use(express.json({ limit: "10mb" }));
+expressApp.use(express.urlencoded({ extended: true, limit: "10mb" }));
+
+expressApp.use("/reso", express.static(path.join(__dirname, "reso")));
+expressApp.use("/outfolder", express.static(path.join(__dirname, "outfolder")));
+
+expressApp.post("/api/requestor", (req, res) => {
+  const data = req.body || {};
+  console.log("[Kiosk 2 Print Request Received]:", data);
+
+  const service = data.service || "";
+  const ticket = data.ticket || "";
+  const shortSname = data.shortSname || data.service_name || "";
+  const subsname = data.subsname || data.note || "";
+  const selectedSubService = data.selectedSubService || data.sub_services || "";
+
+  executePrint(service, ticket, shortSname, subsname, selectedSubService);
+
+  return res.status(200).json({
+    success: true,
+    message: "Ticket print command executed successfully on Kiosk 2",
+    ticket: `${service}${ticket}`
+  });
+});
+
+expressApp.get("/health", (req, res) => {
+  res.json({ status: "online", station: "kiosk2", time: new Date().toISOString() });
+});
+
+// Bind to 0.0.0.0 so all network interfaces can reach this print receiver
+expressApp.listen(3234, "0.0.0.0", () => {
+  console.log("Kiosk 2 Print Server listening safely on 0.0.0.0:3234");
+});
+
+// ==========================================
+// ELECTRON WINDOW & RECONNECT CONTROLLER
+// ==========================================
+let mainWindow = null;
+let reconnectInterval = null;
+let isConnected = false;
+
+function checkConnection() {
+  return axios.get(appConfig.pingUrl, { timeout: 3500 })
+    .then(() => true)
+    .catch(() => false);
+}
+
+function startReconnectLoop() {
+  if (reconnectInterval) return;
+  console.log(`[Network Monitor] Starting reconnection loop to ${appConfig.pingUrl}...`);
+
+  reconnectInterval = setInterval(async () => {
+    appConfig = loadConfig(); // reload config if updated
+    const ok = await checkConnection();
+    if (ok) {
+      console.log(`[Network Monitor] Connection restored! Loading ${appConfig.kioskUrl}...`);
+      clearInterval(reconnectInterval);
+      reconnectInterval = null;
+      isConnected = true;
+      if (mainWindow && !mainWindow.isDestroyed()) {
+        mainWindow.loadURL(appConfig.kioskUrl);
+      }
+    }
+  }, 4000);
+}
+
+function createKioskWindow() {
+  const displays = screen.getAllDisplays();
+  const externalDisplay = displays.find(
+    (display) => display.bounds.x !== 0 || display.bounds.y !== 0
+  );
+
+  const windowOptions = {
+    width: 1024,
+    height: 768,
+    show: false,
+    autoHideMenuBar: true,
+    frame: true,
+    webPreferences: {
+      nodeIntegration: false,
+      contextIsolation: true,
+      preload: path.join(__dirname, "reso", "node", "appstatus.js")
+    }
+  };
+
+  if (externalDisplay) {
+    windowOptions.x = externalDisplay.bounds.x;
+    windowOptions.y = externalDisplay.bounds.y;
+  }
+
+  mainWindow = new BrowserWindow(windowOptions);
+  mainWindow.setFullScreen(true);
+
+  // Failure fallback
+  mainWindow.webContents.on("did-fail-load", (event, errorCode, errorDescription) => {
+    console.error(`Page failed to load (${errorCode}): ${errorDescription}`);
+    if (!mainWindow.webContents.getURL().includes("error.html")) {
+      mainWindow.loadFile("error.html");
+      startReconnectLoop();
+    }
+  });
+
+  checkConnection().then((online) => {
+    mainWindow.show();
+    if (online) {
+      isConnected = true;
+      console.log(`Connected to main server. Loading ${appConfig.kioskUrl}...`);
+      mainWindow.loadURL(appConfig.kioskUrl);
+    } else {
+      console.warn(`Cannot reach main server at ${appConfig.pingUrl}. Displaying error/reconnect screen.`);
+      mainWindow.loadFile("error.html");
+      startReconnectLoop();
+    }
+  });
+
+  mainWindow.on("closed", () => {
+    mainWindow = null;
+  });
+}
+
+// Single instance lock
+const gotTheLock = app.requestSingleInstanceLock();
+if (!gotTheLock) {
+  app.quit();
+} else {
+  app.on("second-instance", () => {
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) mainWindow.restore();
+      mainWindow.focus();
+    }
+  });
+
+  app.whenReady().then(async () => {
+    try {
+      await session.defaultSession.clearCache();
+      console.log("Electron cache cleared successfully");
+    } catch (err) {
+      console.error("Cache clear error:", err.message);
+    }
+    createKioskWindow();
+  });
+
+  app.on("window-all-closed", () => {
+    if (process.platform !== "darwin") {
+      app.quit();
+    }
+  });
+
+  app.on("activate", () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createKioskWindow();
+    }
+  });
+}
+
+ipcMain.on("appstatus", (event, stats) => {
+  if (stats === "relaunch") {
+    app.relaunch();
+    app.quit();
+  } else {
+    app.quit();
+  }
+});

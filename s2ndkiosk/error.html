@@ -1,53 +1,130 @@
-<link rel="stylesheet" type="text/css" href="./reso/css/error.css">
-<script src="reso/js/jquery.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connecting to Queue Server</title>
+    <link rel="stylesheet" type="text/css" href="./reso/css/error.css">
+    <script src="reso/js/jquery.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0a1220;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: #f3efe6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .window {
+            background: #141e30;
+            border: 1px solid #2a3a52;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            padding: 40px;
+            max-width: 520px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+        }
+        h1 {
+            color: #e5983b;
+            font-size: 26px;
+            margin-top: 0;
+            -webkit-text-stroke: 0;
+        }
+        p {
+            color: #9ab0c8;
+            font-size: 15px;
+            line-height: 1.5;
+            margin: 16px 0 24px;
+        }
+        .spinner {
+            display: inline-block;
+            width: 44px;
+            height: 44px;
+            border: 4px solid rgba(229, 152, 59, 0.2);
+            border-top-color: #e5983b;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .status-box {
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 12px;
+            font-family: monospace;
+            font-size: 13px;
+            color: #64b5f6;
+            margin-bottom: 24px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+        .btn {
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+        .btn-relaunch {
+            background: #107850;
+            color: white;
+        }
+        .btn-relaunch:hover {
+            background: #139463;
+        }
+        .btn-close {
+            background: #8e2b2b;
+            color: white;
+        }
+        .btn-close:hover {
+            background: #b13737;
+        }
+    </style>
+</head>
+<body>
+    <div class="window">
+        <div class="spinner"></div>
+        <h1>Connecting to Queue Server...</h1>
+        <p>The kiosk is waiting for the main queue server to respond. Once the server is online, this screen will automatically open the kiosk interface.</p>
+        
+        <div class="status-box" id="status-msg">
+            Target: Main Server (Configured in config.ini)<br>
+            Auto-reconnecting every 4 seconds...
+        </div>
 
-<div class="window">
-<div class="errorcont">
-    <h1>Database Not Connected</h1>
-    <h3>PLEASE CHECK XAMPP CONNECTION APACHE & MYSQL</h3>
-    <label for="countdown">App automatically relaunches every 15s</label>
-    <label for="countdown" class="rl">App will relaunch on</label>
-    <label for="countdown" class="cl">App closes on</label>
-    <div class="countdown" id="countdown"></div>
-    <div class="butons">
-        <div class="relaunch botonsnani" onclick="updateCountdown('relaunch');">RELAUNCH</div>
-        <div class="closeapp botonsnani" onclick="updateCountdown('close');">CLOSE</div>
+        <div class="btn-group">
+            <button class="btn btn-relaunch" onclick="relaunchApp();">RETRY NOW</button>
+            <button class="btn btn-close" onclick="closeApp();">CLOSE</button>
+        </div>
     </div>
-</div>
 
-</div>
-<script>
-let countdownValue = 5;
-const buttons = document.querySelectorAll('.butons');
-const labelrelauch = document.querySelectorAll('.rl');
-const labelclose = document.querySelectorAll('.cl');
-
-function updateCountdown(item) {
-    if(item == 'relaunch'){
-        $('.rl').css('display','flex');
-        $('.cl').css('display','none');
-        $('.butons').css('display','none');
-    }else{
-        $('.rl').css('display','none');
-        $('.cl').css('display','flex');
-        $('.butons').css('display','none');
-    }
-    
-        const timer = setInterval(() => {
-        document.getElementById('countdown').innerText = countdownValue;
-        countdownValue--;
-        if (countdownValue < 0) {
-            clearInterval(timer);
-            document.getElementById('countdown').innerText = 'Time\'s up!';
-            window.electronAPI.appstatus(item,(result) => {
-            })
+    <script>
+        function relaunchApp() {
+            if (window.electronAPI && window.electronAPI.appstatus) {
+                window.electronAPI.appstatus('relaunch');
+            } else {
+                location.reload();
+            }
         }
 
-    }, 1000);
-    
-}
-
-</script>
-
+        function closeApp() {
+            if (window.electronAPI && window.electronAPI.appstatus) {
+                window.electronAPI.appstatus('close');
+            } else {
+                window.close();
+            }
+        }
+    </script>
 </body>
 </html>

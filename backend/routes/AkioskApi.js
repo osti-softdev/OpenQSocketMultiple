@@ -50,7 +50,7 @@ module.exports = function createKioskApiRouter(io) {
 
   // ^ INSERT NEW TICKET
   router.post("/newServiceTicket", kioskLimiter, async (req, res) => {
-    const { sname, shortSname, subsname, ticketservice, selectedType, stats, mobile, sub_services } = req.body;
+    const { sname, shortSname, subsname, ticketservice, selectedType, stats, mobile, sub_services, station } = req.body;
     const { date, time } = getPHDateTime();
     const expiryMinutes = Number(config.MainServer.expiry);
     if (!sname || !ticketservice) {
@@ -103,14 +103,16 @@ module.exports = function createKioskApiRouter(io) {
           const kiosk2IP = process.env.KIOSK2_IP || '10.1.0.98';
           
           // Check if the request came from the 2nd Kiosk
-          if (req.ip.includes(kiosk2IP)) {
+          const isKiosk2 = (station === 'kiosk2') || req.ip.includes(kiosk2IP);
+          if (isKiosk2) {
             console.log("On-prem ticket requested from 2nd Kiosk, sending print command to Kiosk 2...");
             const insertedTicketData = {
               service: ticketservice,
               ticket: nextTicket,
               note: "",
               shortSname: shortSname,
-              subsname:subsname,
+              subsname: subsname,
+              selectedSubService: selectedSubService || "",
               date: date,
               time: time,
               ip: req.ip

@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "backend/routes/AkioskApi.js": {
-    "mtime": 1793848429.269295,
-    "seen": 1793849950.6318266,
-    "ast_hash": "8c59805d81b94830039005a757177c2d",
+    "mtime": 1793869897.3194757,
+    "seen": 1793870052.4772832,
+    "ast_hash": "39d16fd4bab243cedd8fbe1abe94bff2",
     "semantic_hash": ""
   },
   "backend/routes/AonlineKioskApi.js": {
@@ -336,9 +336,9 @@
     "semantic_hash": ""
   },
   "public/js/kiosk/kioskfunctions.js": {
-    "mtime": 1793848324.0640087,
-    "seen": 1793849950.6318266,
-    "ast_hash": "7e39265cdbe5549f35699402e339b4b1",
+    "mtime": 1793869897.5497975,
+    "seen": 1793870052.495265,
+    "ast_hash": "dc525e4f358390e3fa866c788579d685",
     "semantic_hash": ""
   },
   "public/js/kiosk/scanTicket.js": {
@@ -5946,9 +5946,9 @@
     "semantic_hash": ""
   },
   "s2ndkiosk/index.js": {
-    "mtime": 1793844095.371161,
-    "seen": 1793849950.6348214,
-    "ast_hash": "44ec6b69f3463aa696f2455a22aa2956",
+    "mtime": 1793869725.6961377,
+    "seen": 1793870052.9679184,
+    "ast_hash": "ad5dc5c3977b74cac3ff4cfb7438f585",
     "semantic_hash": ""
   },
   "s2ndkiosk/outfolder/config/footer.json": {
@@ -5970,9 +5970,9 @@
     "semantic_hash": ""
   },
   "s2ndkiosk/outfolder/printer/print.php": {
-    "mtime": 1793844095.4486134,
-    "seen": 1793849950.6348214,
-    "ast_hash": "65b7d80fbbd44d3cac807ecb91bb5917",
+    "mtime": 1793869869.686958,
+    "seen": 1793870052.9689164,
+    "ast_hash": "d44ba1d9854e816adc02f097d8555c5d",
     "semantic_hash": ""
   },
   "s2ndkiosk/outfolder/printer/vendor/autoload.php": {
@@ -11418,9 +11418,9 @@
     "semantic_hash": ""
   },
   "s2ndkiosk/package.json": {
-    "mtime": 1793844096.808965,
-    "seen": 1793849950.6368191,
-    "ast_hash": "02b595ba1ba7e72f655a077e90f91a6a",
+    "mtime": 1793869842.587052,
+    "seen": 1793870053.439356,
+    "ast_hash": "0ee14bbc048cbb089e68f9946d8b30ef",
     "semantic_hash": ""
   },
   "s2ndkiosk/reso/js/jquery.js": {
@@ -12900,9 +12900,9 @@
     "semantic_hash": ""
   },
   "s2ndkiosk/error.html": {
-    "mtime": 1793844095.3691626,
-    "seen": 1793849950.6378186,
-    "ast_hash": "95ad5127ca332876af8d59febb065ddc",
+    "mtime": 1793869759.0420587,
+    "seen": 1793870053.5620573,
+    "ast_hash": "546aa8a20f19c928db599c4289f0bac5",
     "semantic_hash": ""
   },
   "s2ndkiosk/outfolder/printer/vendor/ezyang/htmlpurifier/CHANGELOG.md": {

@@ -272,7 +272,9 @@ $(document).ready(async function () {
                 didOpen: () => Swal.showLoading(),
             });
 
-            const payload = { sname, shortSname,subsname, ticketservice, selectedType, stats: "onprem" };
+            const urlParams = new URLSearchParams(window.location.search);
+            const station = urlParams.get('station') || 'main';
+            const payload = { sname, shortSname, subsname, ticketservice, selectedType, stats: "onprem", station };
             if (mobile) payload.mobile = mobile;
             if (subService) payload.sub_services = subService;
 
