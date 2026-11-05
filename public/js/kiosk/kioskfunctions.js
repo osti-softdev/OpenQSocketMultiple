@@ -151,7 +151,9 @@ $(document).ready(async function () {
             subList.forEach(subItem => {
                 $container.append(`
                     <button class="service-button ${selectedType === 0 ? 'regbtn' : 'priobtn'} sub-service-button"
-                        data-sname="${sname}"
+                        data-sname="${sname || ''}"
+                        data-shortsname="${shortSname || sname || ''}"
+                        data-subsname="${subsname || ''}"
                         data-ticketservice="${ticketservice}"
                         data-subservice="${subItem}">
                         ${subItem}

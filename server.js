@@ -27,6 +27,8 @@ setupLogger();
 
 // Rate Limiter (Applied strictly to API routes so static assets load freely)
 const { apiLimiter } = require("./backend/utilities/rateLimiter");
+const { securityHeaders, SESSION_SECRET } = require("./backend/utilities/security");
+appExpress.use(securityHeaders);
 appExpress.use('/api', apiLimiter);
 
 require('./backend/utilities/db');
@@ -45,7 +47,7 @@ appExpress.use(express.json({ limit: '50mb' }));
 appExpress.use(cookieParser());
 appExpress.use(express.urlencoded({ limit: '50mb', extended: true }));
 appExpress.use(session({
-    secret: 'asdasdasd-wejjks9qweqewe-cdvfretvert-asdrace323c23-c234234cf3324234-2026asds',
+    secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {

@@ -96,6 +96,16 @@ router.post("/check_ticket_in", kioskLimiter, async (req, res) => {
             `CHECK-IN: ${row.ticketnum} | Age: ${Math.floor(ageMinutes)} min | STATUS -> pending`
         );
 
+        io.emit("new-ticket", {
+            id: row.id,
+            sname: row.sname,
+            ticketnum: row.ticketnum,
+            ticketservice: row.ticketservice,
+            status: "pending",
+            date,
+            time
+        });
+
 
         // await executephp(ticketservice, nextTicket, sname);
         return res.json({

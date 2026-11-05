@@ -339,3 +339,65 @@
 ✔ 2026-08-10 10:12:41 AM [node:events:509] [ADS] Client disconnected: _fpSKZyxrXygcBleAAAH
 ✔ 2026-08-10 10:39:42 AM [node:events:509] [ADS] Client disconnected: yIeyrsS_AtzCUZPfAAAJ
 ✔ 2026-08-10 10:39:42 AM [node:events:509] [ADS] Client disconnected: 4tixyqlzHsfJlufYAAAF
+✔ 2026-11-05 10:13:30 AM [backend\utilities\logger.js:149] Logger initialized at: E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED\public\logs
+✔ 2026-11-05 10:13:30 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ suppress logs { quiet: true }[0m
+✔ 2026-11-05 10:13:31 AM [node:events:639] Queue System running on http://localhost:12341
+✔ 2026-11-05 10:13:32 AM [unknown-location] Connected to SQLite database
+✔ 2026-11-05 10:13:32 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-11-05 10:13:32 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-11-05 10:13:32 AM [unknown-location] Found 6789 transactions older than 365 days. Archiving...
+✔ 2026-11-05 10:13:32 AM [backend\utilities\db.js:363] Successfully archived 6789 transactions to E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED\backend\backups\transactions_archive_2026-11-05T02-13-32-627Z.csv
+✔ 2026-11-05 10:13:33 AM [unknown-location] Deleted 6789 old transactions from database.
+✔ 2026-11-05 10:13:33 AM [backend\routes\AadminApi.js:32] Services and routing groups synchronized
+✔ 2026-11-05 10:13:35 AM [node:events:514] [ADS] Client connected: ihF2A8dJS21uY2KMAAAA
+✔ 2026-11-05 10:13:35 AM [node:events:514] [ADS] Client connected: d64j151BY1KLfUDrAAAB
+✔ 2026-11-05 10:13:47 AM [backend\routes\AkioskApi.js:133] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-11-05 11:07:58 AM [backend\utilities\logger.js:149] Logger initialized at: E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED\public\logs
+✔ 2026-11-05 11:07:58 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ multiple files { path: ['.env.local', '.env'] }[0m
+✔ 2026-11-05 11:07:58 AM [node:events:639] Queue System running on http://localhost:12341
+✔ 2026-11-05 11:07:58 AM [unknown-location] Connected to SQLite database
+✔ 2026-11-05 11:07:58 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-11-05 11:07:58 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-11-05 11:07:58 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-11-05 11:07:59 AM [backend\routes\AadminApi.js:41] Services and routing groups synchronized
+✔ 2026-11-05 11:08:01 AM [node:events:514] [ADS] Client connected: 7tsTgagDN9fdnczKAAAA
+✔ 2026-11-05 11:08:01 AM [node:events:514] [ADS] Client connected: FbVVANJDCchLN6fSAAAB
+✔ 2026-11-05 11:08:06 AM [backend\routes\AkioskApi.js:131] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-11-05 11:08:29 AM [backend\routes\AkioskApi.js:131] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-11-05 11:13:34 AM [backend\utilities\logger.js:149] Logger initialized at: E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED\public\logs
+✔ 2026-11-05 11:13:34 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ custom filepath { path: '/custom/path/.env' }[0m
+✔ 2026-11-05 11:13:34 AM [node:events:639] Queue System running on http://localhost:12341
+✔ 2026-11-05 11:13:34 AM [unknown-location] Connected to SQLite database
+✔ 2026-11-05 11:13:34 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-11-05 11:13:34 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-11-05 11:13:35 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-11-05 11:13:35 AM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-11-05 11:13:36 AM [node:events:514] [ADS] Client connected: LBXz6PsK9Lpl7U6kAAAA
+✔ 2026-11-05 11:13:37 AM [node:events:514] [ADS] Client connected: BFxLtQrKE5H9LeXPAAAB
+✔ 2026-11-05 11:13:39 AM [backend\routes\AkioskApi.js:132] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-11-05 11:13:44 AM [backend\routes\AkioskApi.js:132] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-11-05 11:14:15 AM [backend\routes\AtellerApi.js:74] Login attempt for: tel1
+✔ 2026-11-05 11:14:15 AM [node_modules\sqlite3\lib\trace.js:25] User not found: tel1
+✔ 2026-11-05 11:14:23 AM [backend\routes\AtellerApi.js:74] Login attempt for: FAS45
+✔ 2026-11-05 11:14:23 AM [node_modules\sqlite3\lib\trace.js:25] User not found: FAS45
+✔ 2026-11-05 11:15:30 AM [backend\routes\AtellerApi.js:74] Login attempt for: FAS4507
+✔ 2026-11-05 11:15:30 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-11-05 11:15:30 AM [unknown-location] Login successful for: FAS4507
+✔ 2026-11-05 11:15:37 AM [backend\routes\AkioskApi.js:132] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-11-05 11:15:39 AM [backend\routes\AtellerApi.js:463] 10
+✔ 2026-11-05 11:36:45 AM [backend\routes\AtellerApi.js:74] Login attempt for: FAS4507
+✔ 2026-11-05 11:36:45 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-11-05 11:36:45 AM [unknown-location] Login successful for: FAS4507
+✔ 2026-11-05 11:37:38 AM [backend\routes\AkioskApi.js:132] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-11-05 11:37:44 AM [backend\routes\AkioskApi.js:132] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-11-05 11:37:49 AM [backend\routes\AkioskApi.js:132] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-11-05 11:37:56 AM [backend\routes\AkioskApi.js:132] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-11-05 11:37:58 AM [backend\routes\AtellerApi.js:463] 10
+✔ 2026-11-05 11:46:54 AM [backend\routes\AtellerApi.js:74] Login attempt for: FAS4508
+✔ 2026-11-05 11:46:54 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-11-05 11:46:54 AM [unknown-location] Login successful for: FAS4508
+✔ 2026-11-05 11:46:56 AM [backend\routes\AtellerApi.js:463] 11
+✔ 2026-11-05 11:48:39 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-11-05 11:48:39 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-11-05 11:48:39 AM [unknown-location] Login successful for: admin
+✔ 2026-11-05 11:48:40 AM [node:events:514] [ADS] Client connected: YQMa5kIgV7nC1x6bAAAC

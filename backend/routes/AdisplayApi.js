@@ -110,7 +110,7 @@ module.exports = function createDisplayApiRouter(io) {
         tickets: ticketRow
       })
 
-    } catch (error) {
+    } catch (err) {
       console.error("Error in /getCallingTickets:", err);
       return res.status(500).json({
         success: false,

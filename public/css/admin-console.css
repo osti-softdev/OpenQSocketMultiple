@@ -1,3 +1,75 @@
+@font-face {
+  font-family: Gotham;
+  src: url("/libs/fonts/Gotham/GothamBook.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Gotham;
+  src: url("/libs/fonts/Gotham/GothamMedium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Gotham;
+  src: url("/libs/fonts/Gotham/GothamBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Gotham;
+  src: url("/libs/fonts/Gotham/Gotham-Black.otf") format("opentype");
+  font-weight: 800 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Sacred;
+  src: url("/libs/fonts/Sacred/Sacred Crowns.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Made;
+  src: url("/libs/fonts/Made/MADESoulmazeBrushPERSONALUSE.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: calibri;
+  src: url("/libs/fonts/calibri/CalibriRegular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: calibri;
+  src: url("/libs/fonts/calibri/Calibri Bold.TTF") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: digital;
+  src: url("/libs/fonts/digital/digital-mono_italic.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: compos;
+  src: url("/libs/fonts/compostela/QUANTU1H.TTF") format("truetype");
+  font-display: swap;
+}
+
 /* OpenQ Admin Console 2.0 - isolated visual layer */
 .role-restricted,
 .settingsmenubtn.role-restricted,
@@ -5238,3 +5310,186 @@ html.compact-sidebar .logout-btn span {
 .sidebar .sidebar-nav .settingsMenu .settingsmenubtn[style*="display: none"] {
   display: none !important;
 }/*# sourceMappingURL=admin-console.css.map */
+
+/* Obsidian Vault & Graphify Memory Integration */
+.overview-loading-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  margin-bottom: 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--console-primary-strong);
+  background: var(--console-primary-soft);
+  border: 1px solid rgba(79, 109, 245, 0.24);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.overview-loading-banner[hidden] {
+  display: none !important;
+}
+
+.obsidian-layout-grid {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.obsidian-sidebar-card,
+.obsidian-editor-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.obsidian-notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.obsidian-note-item {
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--console-border);
+  background: var(--console-surface-soft);
+  color: var(--console-text);
+  cursor: pointer;
+  transition: border-color 0.16s ease, background-color 0.16s ease, transform 0.14s ease;
+}
+
+.obsidian-note-item:hover {
+  background: var(--console-surface-hover);
+  border-color: var(--console-border-strong);
+}
+
+.obsidian-note-item.active {
+  background: var(--console-primary-soft);
+  border-color: var(--console-primary);
+  box-shadow: 0 4px 14px rgba(79, 109, 245, 0.12);
+}
+
+.obsidian-note-item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.obsidian-note-folder {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(79, 109, 245, 0.12);
+  color: var(--console-primary);
+}
+
+.obsidian-note-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--console-muted);
+}
+
+.obsidian-form-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.2fr;
+  gap: 12px;
+}
+
+.obsidian-split-panes {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 14px;
+}
+
+.obsidian-pane label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--console-muted);
+  margin-bottom: 6px;
+}
+
+.obsidian-pane textarea {
+  width: 100%;
+  min-height: 320px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--console-border);
+  background: var(--console-surface-soft);
+  color: var(--console-text);
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 13px;
+  line-height: 1.55;
+  resize: vertical;
+}
+
+.obsidian-preview-box {
+  min-height: 320px;
+  max-height: 460px;
+  overflow-y: auto;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--console-border);
+  background: var(--console-surface-soft);
+  color: var(--console-text);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.obsidian-preview-box h1,
+.obsidian-preview-box h2,
+.obsidian-preview-box h3 {
+  color: var(--console-heading);
+  margin: 10px 0 6px;
+}
+
+.obsidian-callout {
+  padding: 10px 12px;
+  margin: 8px 0;
+  border-left: 4px solid var(--console-primary);
+  background: var(--console-primary-soft);
+  border-radius: 8px;
+}
+
+.wikilink-chip,
+.god-node-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  margin: 2px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(17, 168, 199, 0.14);
+  color: var(--console-cyan);
+  border: 1px solid rgba(17, 168, 199, 0.28);
+}
+
+.graph-god-nodes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+@media (max-width: 1080px) {
+  .obsidian-layout-grid,
+  .obsidian-split-panes,
+  .obsidian-form-grid {
+    grid-template-columns: 1fr;
+  }
+}

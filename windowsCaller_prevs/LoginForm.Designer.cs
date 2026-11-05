@@ -77,11 +77,11 @@ namespace CallerApp
             // 
             // lblError
             // 
-            this.lblError.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblError.Font = new System.Drawing.Font("Segoe UI", 8.5F);
             this.lblError.ForeColor = System.Drawing.Color.Crimson;
-            this.lblError.Location = new System.Drawing.Point(20, 255);
+            this.lblError.Location = new System.Drawing.Point(9, 252);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(300, 20);
+            this.lblError.Size = new System.Drawing.Size(197, 26);
             this.lblError.TabIndex = 5;
             this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

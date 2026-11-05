@@ -431,10 +431,13 @@ db.runAsync = (sql, params = []) =>
 db.transaction = async (fn) => {
   try {
     await db.runAsync('BEGIN');
-    await fn();
+    const result = await fn();
     await db.runAsync('COMMIT');
+    return result;
   } catch (err) {
-    await db.runAsync('ROLLBACK');
+    try {
+      await db.runAsync('ROLLBACK');
+    } catch (_) {}
     throw err;
   }
 };

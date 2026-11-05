@@ -91,10 +91,15 @@
                             <p>Track service demand, ticket outcomes, and operational patterns from one focused analytics workspace.</p>
                         </div>
                         <div class="page-intro-actions">
-                            <span class="live-chip"><i></i> Data synced live</span>
+                            <span class="live-chip" id="overview-sync-chip"><i></i> <span id="overview-sync-status">Data synced live</span></span>
                             <button class="btn btn-primary" type="button" data-jump-tab="live">Open live preview</button>
                         </div>
                     </section>
+
+                    <div id="overview-loading-banner" class="overview-loading-banner" aria-live="polite">
+                        <span class="overview-spinner"></span>
+                        <span id="overview-loading-text">Synchronizing queue intelligence & analytics…</span>
+                    </div>
 
                     <section class="period-overview-grid" aria-label="Current period performance">
                         <article class="period-card period-day">
@@ -348,10 +353,24 @@
             <!-- ^ HISTORY TAB -->
             <div id="history-tab" class="tab-content">
                 <div class="card">
-                    <div class="card-header">
-                        <h3>Complete Ticket History</h3>
-                        <input type="text" id="history-search" placeholder="Search tickets..." class="form-control"
-                            style="max-width: 300px;">
+                    <div class="card-header history-header-controls" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;">
+                        <div>
+                            <span class="section-kicker">Audit trail</span>
+                            <h3>Complete Ticket History</h3>
+                        </div>
+                        <div class="history-filter-bar" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center;">
+                            <label style="display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--text-secondary);">
+                                <span>From</span>
+                                <input type="date" id="history-date-from" class="form-control" style="width: auto; padding: 6px 10px;">
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--text-secondary);">
+                                <span>To</span>
+                                <input type="date" id="history-date-to" class="form-control" style="width: auto; padding: 6px 10px;">
+                            </label>
+                            <button type="button" id="history-today-btn" class="btn btn-secondary" style="padding: 7px 12px; font-size: 12px;">Today</button>
+                            <button type="button" id="history-all-dates-btn" class="btn btn-secondary" style="padding: 7px 12px; font-size: 12px;">All dates</button>
+                            <input type="text" id="history-search" placeholder="Search tickets, service, status..." class="form-control" style="min-width: 220px; max-width: 280px;">
+                        </div>
                     </div>
                     <div class="table-container">
                         <table class="admin-table">
@@ -381,7 +400,7 @@
                         <span class="pagination-size">10 rows per page</span>
                     </div>
                 </div>
-            </div>  
+            </div>
             <!-- ^ SERVICES TAB -->
             <div id="services-tab" class="tab-content">
                 <section class="page-intro compact-intro"><div><span class="page-kicker">Queue catalog</span><h1>Services</h1><p>Manage service names, ticket prefixes, schedules, and availability.</p></div><div class="page-intro-actions"><button id="addServiceBtn" class="btn btn-primary" onclick="openModal('services')">+ Add service</button></div></section>
@@ -803,6 +822,10 @@
   <button class="fnav-item" data-tab="history">
     <span class="fnav-label">Ticket History</span>
     <span class="fnav-icon"><img src="/images/icons/ticketsjourney.svg" alt=""></span>
+  </button>
+  <button class="fnav-item" data-tab="notes">
+    <span class="fnav-label">Notes & Memory</span>
+    <span class="fnav-icon"><img src="/images/icons/reports.svg" alt=""></span>
   </button>
   <button class="fnav-item" data-tab="services">
     <span class="fnav-label">Services</span>

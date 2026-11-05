@@ -8,7 +8,9 @@ namespace CallerApp
     public class ForwardModal : Form
     {
         private ComboBox cmbTargetType;
+        private Label lblTeller;
         private ComboBox cmbTeller;
+        private Label lblGroup;
         private ComboBox cmbGroup;
         private TextBox txtNote;
         private Button btnConfirm;
@@ -39,13 +41,11 @@ namespace CallerApp
             cmbTargetType = new ComboBox() { Location = new Point(30, 45), Size = new Size(270, 25), DropDownStyle = ComboBoxStyle.DropDownList, Font = new Font("Segoe UI", 10) };
             cmbTargetType.Items.Add("Specific Teller");
             cmbTargetType.Items.Add("Teller Group");
-            cmbTargetType.SelectedIndex = 0;
-            cmbTargetType.SelectedIndexChanged += CmbTargetType_SelectedIndexChanged;
 
-            Label lblTeller = new Label() { Text = "Select Teller:", Location = new Point(30, 80), Size = new Size(100, 20), Font = new Font("Segoe UI", 9, FontStyle.Bold), ForeColor = Color.Gray };
+            lblTeller = new Label() { Text = "Select Teller:", Location = new Point(30, 80), Size = new Size(100, 20), Font = new Font("Segoe UI", 9, FontStyle.Bold), ForeColor = Color.Gray };
             cmbTeller = new ComboBox() { Location = new Point(30, 105), Size = new Size(270, 25), DropDownStyle = ComboBoxStyle.DropDownList, Font = new Font("Segoe UI", 10) };
             
-            Label lblGroup = new Label() { Text = "Select Group:", Location = new Point(30, 80), Size = new Size(100, 20), Font = new Font("Segoe UI", 9, FontStyle.Bold), ForeColor = Color.Gray, Visible = false };
+            lblGroup = new Label() { Text = "Select Group:", Location = new Point(30, 80), Size = new Size(100, 20), Font = new Font("Segoe UI", 9, FontStyle.Bold), ForeColor = Color.Gray, Visible = false };
             cmbGroup = new ComboBox() { Location = new Point(30, 105), Size = new Size(270, 25), DropDownStyle = ComboBoxStyle.DropDownList, Font = new Font("Segoe UI", 10), Visible = false };
 
             if (tellers != null)
@@ -54,6 +54,7 @@ namespace CallerApp
                 {
                     cmbTeller.Items.Add(new ComboItem(string.Format("{0} (Counter {1})", t["cname"], t["cnum"]), t["id"].ToString()));
                 }
+                if (cmbTeller.Items.Count > 0) cmbTeller.SelectedIndex = 0;
             }
 
             if (groups != null)
@@ -62,7 +63,11 @@ namespace CallerApp
                 {
                     cmbGroup.Items.Add(new ComboItem(g["group_name"].ToString(), g["id"].ToString()));
                 }
+                if (cmbGroup.Items.Count > 0) cmbGroup.SelectedIndex = 0;
             }
+
+            cmbTargetType.SelectedIndex = 0;
+            cmbTargetType.SelectedIndexChanged += CmbTargetType_SelectedIndexChanged;
 
             Label lblNote = new Label() { Text = "Note:", Location = new Point(30, 140), Size = new Size(100, 20), Font = new Font("Segoe UI", 9, FontStyle.Bold), ForeColor = Color.Gray };
             txtNote = new TextBox() { Location = new Point(30, 165), Size = new Size(270, 50), Multiline = true, Font = new Font("Segoe UI", 10), BorderStyle = BorderStyle.FixedSingle };
@@ -108,13 +113,17 @@ namespace CallerApp
         private void CmbTargetType_SelectedIndexChanged(object sender, EventArgs e)
         {
             bool isTeller = cmbTargetType.SelectedIndex == 0;
+            lblTeller.Visible = isTeller;
             cmbTeller.Visible = isTeller;
+            lblGroup.Visible = !isTeller;
             cmbGroup.Visible = !isTeller;
         }
 
         private void BtnConfirm_Click(object sender, EventArgs e)
         {
             SelectedTargetType = cmbTargetType.SelectedIndex == 0 ? "teller" : "group";
+            SelectedTellerId = null;
+            SelectedGroupId = null;
             
             if (SelectedTargetType == "teller" && cmbTeller.SelectedItem != null)
                 SelectedTellerId = ((ComboItem)cmbTeller.SelectedItem).Value;

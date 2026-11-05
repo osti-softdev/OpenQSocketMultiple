@@ -1,0 +1,226 @@
+{
+  "main": {
+    "id": "ff8768ecbd31275c",
+    "type": "split",
+    "children": [
+      {
+        "id": "e5f830d96e73edde",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d275041a9eda2cb1",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7d5434c3e8840864",
+    "type": "split",
+    "children": [
+      {
+        "id": "0c946314656abd5a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4f8f7870ad5a23ce",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "86b82d8397e17abe",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "e28640db7ad3dee4",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 227.5
+  },
+  "right": {
+    "id": "8f74f704b900daeb",
+    "type": "split",
+    "children": [
+      {
+        "id": "b452da3cbfef14c8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "eb219a4037639fe0",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "84d8f000213711cd",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "79986f5150c00265",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "b99c024e02c2ef12",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "30acb102cfc0b450",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "d275041a9eda2cb1",
+  "lastOpenFiles": [
+    "graphify-out/cache/stat-index.c_47inyt.tmp",
+    "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/d1caa20be470d45eeaa542a364f5a62d60af66e928a03839091a8d1113c5d9fc.json",
+    "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/77ef41ecb57e3b306140a81f3a28461f84be947487f01b88c90e610d67003c04.json",
+    "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/df45f685fde1b28db0169a169ad61df081d4dee0d9f6892bbe7b3253f0afdbaa.json",
+    "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/12edcc1e72a6d2e47f51fdb0f09d4bf086b5bad9226501415747244d5e4f6222.json",
+    "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/3ccebe6ecd56ad0965e04133aecfb53f557075f3e360008a95fb4a6ee445c75a.json",
+    "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/ff3836cba3b6759b9a675e3d6d0e6ccad837d2d527337d6c49672a6908e2574e.json",
+    "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/0bb8200c9af1a8a4b776e664c1848bd52def80063c20c0503acc3778bd54a63e.json",
+    "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/2e487df62570bcf04b58958b9c4343bde7f700317d81e11bab111a1b88302647.json",
+    "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/4e9367fb83e0401402a41f2feeab60ed4693a25f75a22f576880d51bb237a8c6.json",
+    "graphify-out/cache/ast/v0.9.91-s16-g0fcafffe3c00/5240382e3ea38f3f5b0a7781066139364bda6e6216f79419b28f32078257ccc2.json",
+    "graphify-out/2026-11-05/GRAPH_REPORT.md",
+    "graphify-out/obsidian/{ securityHeaders, SESSION_SECRET }.md",
+    "graphify-out/obsidian/express.md",
+    "graphify-out/obsidian/path.md",
+    "graphify-out/obsidian/dot-SetLastCredentials().md",
+    "graphify-out/obsidian/tellerconnection.js.md",
+    "graphify-out/obsidian/setAuthUser()_1.md",
+    "graphify-out/obsidian/handleLoginError()_1.md",
+    "graphify-out/obsidian/caller_login.js.md",
+    "graphify-out/obsidian/showMsg().md",
+    "graphify-out/obsidian/alert.js.md",
+    "graphify-out/obsidian/ensureNotesTabInRole().md",
+    "graphify-out/obsidian/{      listNotes,      getNote,      saveNote,      deleteNote,      appendSystemMemory,      getGraphSummary  }.md",
+    "Untitled 2.canvas",
+    "graphify-out/obsidian/_COMMUNITY_windowsCaller_prevsCallerApp.slnx.md",
+    "graphify-out/obsidian/_COMMUNITY_CallerApp_1.md",
+    "graphify-out/obsidian/_COMMUNITY_windowsCallerCallerApp.slnx.md",
+    "graphify-out/obsidian/_COMMUNITY_CallerApp.md",
+    "graphify-out/obsidian/_COMMUNITY_outfolderprintercomposer.json  require  m.md",
+    "graphify-out/obsidian/_COMMUNITY_publicprintercomposer.json  require  mike.md",
+    "graphify-out/obsidian/_COMMUNITY_admin_login.js  checkSession()  handleLogin.md",
+    "graphify-out/obsidian/_COMMUNITY_scripts  dev  start.md",
+    "graphify-out/obsidian/_COMMUNITY_check_schema.js  db  dbPath.md",
+    "graphify-out/obsidian/_COMMUNITY_Systematic Debugging & API Security Ledger.md",
+    "graphify-out/obsidian/_COMMUNITY_serviceGroups.js  inTransaction()  normaliz.md",
+    "graphify-out/obsidian/_COMMUNITY_dump_schema_data.js  db  dbPath.md",
+    "Untitled 1.canvas",
+    "Untitled.canvas"
+  ]
+}

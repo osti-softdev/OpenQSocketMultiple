@@ -800,6 +800,7 @@ function openModal(type = currentTab, data = null) {
             { id: 'live', label: 'Live Queue' },
             { id: 'reports', label: 'Reports' },
             { id: 'history', label: 'History' },
+            { id: 'notes', label: 'Notes & Memory' },
             { id: 'services', label: 'Services' },
             { id: 'tellers', label: 'Tellers' },
             { id: 'settings', label: 'Settings' }
@@ -1189,5 +1190,3 @@ function logout() {
         window.location.href = '/admin';
     });
 }
-
-

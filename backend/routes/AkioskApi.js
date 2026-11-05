@@ -61,18 +61,10 @@ module.exports = function createKioskApiRouter(io) {
     }
 
     try {
-      // Get current max ticket number
-      const row = await db.getAsync(
-        `SELECT MAX(ticketnum) as maxTicket 
-        FROM transactions 
-        WHERE sname = ? AND ticketservice = ? AND date = ?`,
-        [sname, ticketservice, date]
-      );
-
       const crypto = require('crypto');
       let randomCode = null;
       let qrCodeDataUrl = null;
-      let finalstats;
+      let finalstats = stats === "online" ? "online_reserved" : "pending";
 
       if (stats === "online") {
         finalstats = "online_reserved";
@@ -82,26 +74,27 @@ module.exports = function createKioskApiRouter(io) {
         } catch (qrErr) {
           console.error("QR Generation Error:", qrErr);
         }
-      }
-      if (stats === "onprem") {
+      } else if (stats === "onprem") {
         finalstats = "pending";
         randomCode = "on-prem";
       }
-      const nextTicket = (row?.maxTicket || 0) + 1;
+
       const history = `[${time}-Kiosk-Inserted]`;
+      const mobileStr = mobile || null;
+      const mobileRecordsStr = mobileStr ? `[${time}] ticket generate sent\n` : null;
+      const selectedSubService = sub_services || null;
 
-      let mobileStr = mobile || null;
-      let mobileRecordsStr = null;
-      if (mobileStr) {
-        mobileRecordsStr = `[${time}] ticket generate sent\n`;
-      }
+      const row = await db.getAsync(
+        `SELECT COALESCE(MAX(ticketnum), 0) as maxTicket 
+         FROM transactions 
+         WHERE sname = ? AND ticketservice = ? AND date = ?`,
+        [sname, ticketservice, date]
+      );
+      const nextTicket = (Number(row?.maxTicket) || 0) + 1;
 
-      let selectedSubService = sub_services || null;
-
-      // Insert new ticket
-      const result = await db.runAsync(
+      await db.runAsync(
         `INSERT INTO transactions (ticketnum, sname, ticketservice, status, date, time, history, priority, ticket_secret, mobile, mobile_records, sub_services)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [nextTicket, sname, ticketservice, finalstats, date, time, history, selectedType, randomCode, mobileStr, mobileRecordsStr, selectedSubService]
       );
 
@@ -165,9 +158,16 @@ module.exports = function createKioskApiRouter(io) {
           expiryMinutes
         }
       });
+      io.emit("new-ticket", {
+        ticketnum: nextTicket,
+        sname,
+        ticketservice,
+        sub_services: selectedSubService,
+        status: finalstats,
+        date,
+        time
+      });
       io.emit("ticket_voided");
-      // You can trigger printer / socket here
-      // io.emit("new-ticket", { ... });
 
     } catch (err) {
       console.error("Error creating ticket:", err.message);

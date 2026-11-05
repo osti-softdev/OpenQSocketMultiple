@@ -13,9 +13,15 @@ namespace CallerApp
         private CheckBox chkAlwaysOnTop;
         private CheckBox chkSoundAlerts;
         
+        private GroupBox grpHistory;
+        private RadioButton rdoHistorySelf;
+        private RadioButton rdoHistoryGroup;
+        private RadioButton rdoHistoryAll;
+
         private Button btnLogout;
         private Button btnSave;
         private Button btnCancel;
+
         public SettingsModal()
         {
             InitializeComponent();
@@ -25,43 +31,88 @@ namespace CallerApp
         {
             this.Text = "Settings";
             this.TopMost = AppSettings.AlwaysOnTop;
-            this.Size = new Size(320, 390);
+            this.Size = new Size(320, 480);
             this.StartPosition = FormStartPosition.CenterParent;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.BackColor = Color.White;
 
-            Label lblTitle = new Label() { Text = "⚙ Settings", Font = new Font("Segoe UI", 14, FontStyle.Bold), Location = new Point(20, 15), Size = new Size(200, 30), ForeColor = Color.FromArgb(40, 40, 40) };
+            Label lblTitle = new Label() { Text = "⚙ Settings", Font = new Font("Segoe UI", 14, FontStyle.Bold), Location = new Point(20, 12), Size = new Size(200, 28), ForeColor = Color.FromArgb(40, 40, 40) };
 
-            Label lblUrl = new Label() { Text = "Connection URL:", Location = new Point(20, 55), Size = new Size(200, 20), Font = new Font("Segoe UI", 9, FontStyle.Bold), ForeColor = Color.Gray };
-            txtBaseUrl = new TextBox() { Location = new Point(20, 75), Size = new Size(260, 25), Font = new Font("Segoe UI", 10), BorderStyle = BorderStyle.FixedSingle };
+            Label lblUrl = new Label() { Text = "Connection URL:", Location = new Point(20, 48), Size = new Size(200, 18), Font = new Font("Segoe UI", 8.5f, FontStyle.Bold), ForeColor = Color.Gray };
+            txtBaseUrl = new TextBox() { Location = new Point(20, 68), Size = new Size(260, 24), Font = new Font("Segoe UI", 9.5f), BorderStyle = BorderStyle.FixedSingle };
             txtBaseUrl.Text = ApiClient.BaseUrl;
 
-            chkAutoFinish = new CheckBox() { Text = "Auto-Complete Ticket on Call Next", Location = new Point(20, 115), Size = new Size(260, 25), Font = new Font("Segoe UI", 9) };
+            chkAutoFinish = new CheckBox() { Text = "Auto-Complete Ticket on Call Next", Location = new Point(20, 100), Size = new Size(260, 22), Font = new Font("Segoe UI", 8.5f) };
             chkAutoFinish.Checked = AppSettings.AutoFinishEnabled;
 
-            chkShowReceived = new CheckBox() { Text = "Mix Received Tickets into Waiting List", Location = new Point(20, 145), Size = new Size(260, 25), Font = new Font("Segoe UI", 9) };
+            chkShowReceived = new CheckBox() { Text = "Mix Received Tickets into Waiting List", Location = new Point(20, 124), Size = new Size(260, 22), Font = new Font("Segoe UI", 8.5f) };
             chkShowReceived.Checked = AppSettings.ShowReceivedInWaiting;
 
-            chkShowTooltips = new CheckBox() { Text = "Show Button ToolTips on Hover", Location = new Point(20, 175), Size = new Size(260, 25), Font = new Font("Segoe UI", 9) };
+            chkShowTooltips = new CheckBox() { Text = "Show Button ToolTips on Hover", Location = new Point(20, 148), Size = new Size(260, 22), Font = new Font("Segoe UI", 8.5f) };
             chkShowTooltips.Checked = AppSettings.ShowTooltips;
 
-            chkAlwaysOnTop = new CheckBox() { Text = "App Always on Top", Location = new Point(20, 205), Size = new Size(260, 25), Font = new Font("Segoe UI", 9) };
+            chkAlwaysOnTop = new CheckBox() { Text = "App Always on Top", Location = new Point(20, 172), Size = new Size(260, 22), Font = new Font("Segoe UI", 8.5f) };
             chkAlwaysOnTop.Checked = AppSettings.AlwaysOnTop;
 
-            chkSoundAlerts = new CheckBox() { Text = "Enable Sound Alerts", Location = new Point(20, 235), Size = new Size(260, 25), Font = new Font("Segoe UI", 9) };
+            chkSoundAlerts = new CheckBox() { Text = "Enable Sound Alerts", Location = new Point(20, 196), Size = new Size(260, 22), Font = new Font("Segoe UI", 8.5f) };
             chkSoundAlerts.Checked = AppSettings.EnableSoundAlerts;
+
+            // History scope group box
+            grpHistory = new GroupBox()
+            {
+                Text = "Ticket History Scope",
+                Location = new Point(20, 224),
+                Size = new Size(260, 95),
+                Font = new Font("Segoe UI", 8.5f, FontStyle.Bold),
+                ForeColor = Color.FromArgb(60, 60, 60)
+            };
+
+            rdoHistorySelf = new RadioButton()
+            {
+                Text = "History Self (My Counter Only)",
+                Location = new Point(12, 18),
+                Size = new Size(240, 20),
+                Font = new Font("Segoe UI", 8.5f, FontStyle.Regular),
+                Cursor = Cursors.Hand
+            };
+            rdoHistoryGroup = new RadioButton()
+            {
+                Text = "History Group (Same Group Counters)",
+                Location = new Point(12, 42),
+                Size = new Size(240, 20),
+                Font = new Font("Segoe UI", 8.5f, FontStyle.Regular),
+                Cursor = Cursors.Hand
+            };
+            rdoHistoryAll = new RadioButton()
+            {
+                Text = "History All (All Tellers Today)",
+                Location = new Point(12, 66),
+                Size = new Size(240, 20),
+                Font = new Font("Segoe UI", 8.5f, FontStyle.Regular),
+                Cursor = Cursors.Hand
+            };
+
+            string scope = AppSettings.HistoryScope;
+            if (scope == "All") rdoHistoryAll.Checked = true;
+            else if (scope == "Group") rdoHistoryGroup.Checked = true;
+            else rdoHistorySelf.Checked = true;
+
+            grpHistory.Controls.Add(rdoHistorySelf);
+            grpHistory.Controls.Add(rdoHistoryGroup);
+            grpHistory.Controls.Add(rdoHistoryAll);
 
             // Only show auto-finish/received/history if user is logged in
             bool isLoggedIn = ApiClient.CurrentTeller != null;
             chkAutoFinish.Visible = isLoggedIn;
             chkShowReceived.Visible = isLoggedIn;
+            grpHistory.Visible = isLoggedIn;
 
             btnLogout = new Button() { 
                 Text = "🚪 Logout", 
-                Location = new Point(20, 265), 
-                Size = new Size(260, 35), 
+                Location = new Point(20, 330), 
+                Size = new Size(260, 32), 
                 BackColor = Color.Crimson, 
                 ForeColor = Color.White,
                 Font = new Font("Segoe UI", 9, FontStyle.Bold),
@@ -80,8 +131,8 @@ namespace CallerApp
 
             btnSave = new Button() { 
                 Text = "✅ Save Changes", 
-                Location = new Point(20, 310), 
-                Size = new Size(125, 35), 
+                Location = new Point(20, 372), 
+                Size = new Size(125, 34), 
                 BackColor = Color.FromArgb(46, 204, 113), 
                 ForeColor = Color.White,
                 Font = new Font("Segoe UI", 9, FontStyle.Bold),
@@ -93,8 +144,8 @@ namespace CallerApp
             
             btnCancel = new Button() { 
                 Text = "Cancel", 
-                Location = new Point(155, 310), 
-                Size = new Size(125, 35), 
+                Location = new Point(155, 372), 
+                Size = new Size(125, 34), 
                 BackColor = Color.WhiteSmoke, 
                 ForeColor = Color.DimGray,
                 Font = new Font("Segoe UI", 9, FontStyle.Bold),
@@ -112,6 +163,7 @@ namespace CallerApp
             this.Controls.Add(chkShowTooltips);
             this.Controls.Add(chkAlwaysOnTop);
             this.Controls.Add(chkSoundAlerts);
+            this.Controls.Add(grpHistory);
             this.Controls.Add(btnLogout);
             this.Controls.Add(btnSave);
             this.Controls.Add(btnCancel);
@@ -132,6 +184,11 @@ namespace CallerApp
             AppSettings.ShowTooltips = chkShowTooltips.Checked;
             AppSettings.AlwaysOnTop = chkAlwaysOnTop.Checked;
             AppSettings.EnableSoundAlerts = chkSoundAlerts.Checked;
+
+            if (rdoHistoryAll.Checked) AppSettings.HistoryScope = "All";
+            else if (rdoHistoryGroup.Checked) AppSettings.HistoryScope = "Group";
+            else AppSettings.HistoryScope = "Self";
+
             AppSettings.Save();
 
             this.DialogResult = DialogResult.OK;

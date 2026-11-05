@@ -4,6 +4,7 @@ using System.Net;
 using System.Text;
 using System.Web.Script.Serialization;
 using System.Collections.Generic;
+using SocketIOClient;
 
 namespace CallerApp
 {
@@ -16,6 +17,23 @@ namespace CallerApp
         private static bool _enableSoundAlerts = true;
         private static string _savedUsername = "";
         private static string _savedPassword = "";
+        private static string _historyScope = "Self"; // "Self", "Group", "All"
+
+        public static string HistoryScope
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_historyScope)) return "Self";
+                return _historyScope;
+            }
+            set
+            {
+                if (value == "Group" || value == "All" || value == "Self")
+                    _historyScope = value;
+                else
+                    _historyScope = "Self";
+            }
+        }
 
         public static bool AutoFinishEnabled { get { return _autoFinishEnabled; } set { _autoFinishEnabled = value; } }
         public static bool ShowReceivedInWaiting { get { return _showReceivedInWaiting; } set { _showReceivedInWaiting = value; } }
@@ -50,6 +68,7 @@ namespace CallerApp
                     if (data.ContainsKey("EnableSoundAlerts")) _enableSoundAlerts = (bool)data["EnableSoundAlerts"];
                     if (data.ContainsKey("SavedUsername")) _savedUsername = data["SavedUsername"].ToString();
                     if (data.ContainsKey("SavedPassword")) _savedPassword = data["SavedPassword"].ToString();
+                    if (data.ContainsKey("HistoryScope")) _historyScope = data["HistoryScope"].ToString();
                 }
             } catch {}
         }
@@ -65,7 +84,8 @@ namespace CallerApp
                     { "AlwaysOnTop", _alwaysOnTop },
                     { "EnableSoundAlerts", _enableSoundAlerts },
                     { "SavedUsername", _savedUsername },
-                    { "SavedPassword", _savedPassword }
+                    { "SavedPassword", _savedPassword },
+                    { "HistoryScope", _historyScope }
                 };
                 string json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(data);
                 File.WriteAllText(GetConfigPath(), json);
@@ -79,10 +99,19 @@ namespace CallerApp
         public static string BaseUrl { get { return _baseUrl; } set { _baseUrl = value; } }
         private static CookieContainer cookieContainer = new CookieContainer();
         private static JavaScriptSerializer serializer = new JavaScriptSerializer();
+        private static string _lastUsername = "";
+        private static string _lastPassword = "";
 
         // Data Models to store current Teller info
         public static Dictionary<string, object> CurrentTeller { get; set; }
 
+        public static SocketIO Socket { get; set; }
+
+        public static void SetLastCredentials(string u, string p)
+        {
+            _lastUsername = u;
+            _lastPassword = p;
+        }
 
         public static Dictionary<string, object> Post(string endpoint, object data)
         {

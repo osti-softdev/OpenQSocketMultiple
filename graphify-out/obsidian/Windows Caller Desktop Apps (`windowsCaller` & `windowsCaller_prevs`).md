@@ -1,0 +1,19 @@
+---
+source_file: "docs/obsidian/Architecture/Windows-Caller-Desktop.md"
+type: "document"
+community: "Cluster 13"
+location: "L16"
+tags:
+  - graphify/document
+  - graphify/EXTRACTED
+  - community/Cluster_13
+---
+
+# Windows Caller Desktop Apps (`windowsCaller` & `windowsCaller_prevs`)
+
+## Connections
+- [[1. Comparison of `windowsCaller` vs `windowsCaller_prevs`]] - `contains` [EXTRACTED]
+- [[2. Smoothness & Reliability Engineering]] - `contains` [EXTRACTED]
+- [[Windows-Caller-Desktop]] - `contains` [EXTRACTED]
+
+#graphify/document #graphify/EXTRACTED #community/Cluster_13

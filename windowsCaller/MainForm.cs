@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using SocketIOClient;
@@ -21,23 +22,63 @@ namespace CallerApp
         private string lastHeldJson = "";
         private string lastForwardedJson = "";
         private int lastForwardedCount = 0;
+        private int isFetchingQueues = 0;
+        private int isCheckingTicket = 0;
 
         public ToolTip appToolTip = new ToolTip();
 
         public MainForm()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
+            EnableDoubleBuffering(pnlServicesList);
+            EnableDoubleBuffering(pnlWaitingList);
+            EnableDoubleBuffering(pnlHeldList);
+            EnableDoubleBuffering(pnlForwardedList);
+            EnableDoubleBuffering(tabs);
         }
 
-        private void BtnRecall_Click(object sender, EventArgs e) => RecallTicket();
-        private void BtnHold_Click(object sender, EventArgs e) => HoldTicket();
-        private void BtnForward_Click(object sender, EventArgs e) => OpenForwardModal();
-        private void BtnVoid_Click(object sender, EventArgs e) => OpenVoidModal();
-        private void BtnComplete_Click(object sender, EventArgs e) => CompleteTicket();
+        private static void EnableDoubleBuffering(Control ctrl)
+        {
+            if (ctrl == null) return;
+            try
+            {
+                PropertyInfo prop = typeof(Control).GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
+                if (prop != null) prop.SetValue(ctrl, true, null);
+            }
+            catch { }
+        }
+
+        private static void ClearPanelSafely(Panel pnl)
+        {
+            if (pnl == null) return;
+            pnl.SuspendLayout();
+            try
+            {
+                while (pnl.Controls.Count > 0)
+                {
+                    Control c = pnl.Controls[0];
+                    pnl.Controls.RemoveAt(0);
+                    c.Dispose();
+                }
+            }
+            finally
+            {
+                pnl.ResumeLayout();
+            }
+        }
+
+        private void BtnRecall_Click(object sender, EventArgs e) { RecallTicket(); }
+        private void BtnHold_Click(object sender, EventArgs e) { HoldTicket(); }
+        private void BtnForward_Click(object sender, EventArgs e) { OpenForwardModal(); }
+        private void BtnVoid_Click(object sender, EventArgs e) { OpenVoidModal(); }
+        private void BtnComplete_Click(object sender, EventArgs e) { CompleteTicket(); }
         private void BtnAutoCall_Click(object sender, EventArgs e)
         {
             CallNext("auto");
-        }  private Button CreateModernButton(string text, int x, int y, int w, int h, Color bg, Color fg)
+        }
+
+        private Button CreateModernButton(string text, int x, int y, int w, int h, Color bg, Color fg)
         {
             Button b = new Button();
             b.Text = text;
@@ -70,58 +111,63 @@ namespace CallerApp
             ApplyTabSettings();
             LoadCatalogServices();
 
-            // Force initial load immediately on the UI thread
-            this.BeginInvoke(new Action(() => {
-                ThreadPool.QueueUserWorkItem(state => {
+            // Force initial load immediately on the background thread
+            this.BeginInvoke(new Action(delegate {
+                ThreadPool.QueueUserWorkItem(delegate {
                     FetchQueues();
                 });
             }));
             
             CheckCurrentTicket();
 
-            // Setup a 5-second fallback polling timer
+            // Setup a 4-second fallback polling timer
             fallbackTimer = new System.Windows.Forms.Timer();
-            fallbackTimer.Interval = 5000;
-            fallbackTimer.Tick += (s, ev) => {
-                ThreadPool.QueueUserWorkItem(state => { FetchQueues(); });
+            fallbackTimer.Interval = 4000;
+            fallbackTimer.Tick += delegate {
+                ThreadPool.QueueUserWorkItem(delegate { FetchQueues(); });
                 CheckCurrentTicket();
             };
             fallbackTimer.Start();
             
-            if (ApiClient.Socket == null)
+            try
             {
-                ApiClient.Socket = new SocketIO(new Uri(ApiClient.BaseUrl));
-                
-                ApiClient.Socket.OnConnected += (s, ev) => {
-                    // Handled by initial load, but keep for reconnects
-                    this.BeginInvoke(new Action(() => {
-                        ThreadPool.QueueUserWorkItem(state => { FetchQueues(); });
-                    }));
-                };
-                
-                Action triggerUpdate = () => {
-                    ThreadPool.QueueUserWorkItem(state => {
-                        FetchQueues();
-                    });
-                    CheckCurrentTicket();
-                };
+                if (ApiClient.Socket == null)
+                {
+                    ApiClient.Socket = new SocketIO(new Uri(ApiClient.BaseUrl));
+                    
+                    ApiClient.Socket.OnConnected += delegate {
+                        if (this.IsHandleCreated && !this.IsDisposed)
+                        {
+                            this.BeginInvoke(new Action(delegate {
+                                ThreadPool.QueueUserWorkItem(delegate { FetchQueues(); });
+                                CheckCurrentTicket();
+                            }));
+                        }
+                    };
+                    
+                    Action triggerUpdate = delegate {
+                        ThreadPool.QueueUserWorkItem(delegate {
+                            FetchQueues();
+                        });
+                        CheckCurrentTicket();
+                    };
 
-                ApiClient.Socket.On("ticket_completed", response => { triggerUpdate(); return Task.CompletedTask; });
-                ApiClient.Socket.On("calledticketsArrived", response => { triggerUpdate(); return Task.CompletedTask; });
-                ApiClient.Socket.On("ticket_called", response => { triggerUpdate(); return Task.CompletedTask; });
-                ApiClient.Socket.On("ticket_held", response => { triggerUpdate(); return Task.CompletedTask; });
-                ApiClient.Socket.On("ticket_voided", response => { triggerUpdate(); return Task.CompletedTask; });
-                ApiClient.Socket.On("ticket_forwarded", response => { triggerUpdate(); return Task.CompletedTask; });
-                ApiClient.Socket.On("new-ticket", response => { triggerUpdate(); return Task.CompletedTask; });
-                ApiClient.Socket.On("service_update", response => { triggerUpdate(); return Task.CompletedTask; });
+                    ApiClient.Socket.On("ticket_completed", response => { triggerUpdate(); return Task.CompletedTask; });
+                    ApiClient.Socket.On("calledticketsArrived", response => { triggerUpdate(); return Task.CompletedTask; });
+                    ApiClient.Socket.On("ticket_called", response => { triggerUpdate(); return Task.CompletedTask; });
+                    ApiClient.Socket.On("ticket-called", response => { triggerUpdate(); return Task.CompletedTask; });
+                    ApiClient.Socket.On("ticket_held", response => { triggerUpdate(); return Task.CompletedTask; });
+                    ApiClient.Socket.On("ticket_voided", response => { triggerUpdate(); return Task.CompletedTask; });
+                    ApiClient.Socket.On("ticket_forwarded", response => { triggerUpdate(); return Task.CompletedTask; });
+                    ApiClient.Socket.On("new-ticket", response => { triggerUpdate(); return Task.CompletedTask; });
+                    ApiClient.Socket.On("new_ticket", response => { triggerUpdate(); return Task.CompletedTask; });
+                    ApiClient.Socket.On("service_update", response => { triggerUpdate(); return Task.CompletedTask; });
+                    ApiClient.Socket.On("teller_assignment_updated", response => { triggerUpdate(); return Task.CompletedTask; });
 
-                ApiClient.Socket.OnAny((name, response) => {
-                    triggerUpdate();
-                    return Task.CompletedTask;
-                });
-
-                ApiClient.Socket.ConnectAsync();
+                    ApiClient.Socket.ConnectAsync();
+                }
             }
+            catch { }
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -133,27 +179,33 @@ namespace CallerApp
             }
             if (ApiClient.Socket != null)
             {
-                ApiClient.Socket.DisconnectAsync();
-                ApiClient.Socket.Dispose();
+                try
+                {
+                    ApiClient.Socket.DisconnectAsync();
+                    ApiClient.Socket.Dispose();
+                }
+                catch { }
                 ApiClient.Socket = null;
             }
             durationTimer.Stop();
         }
 
-
-
         private void BtnSettings_Click(object sender, EventArgs e)
         {
             using (SettingsModal sm = new SettingsModal())
             {
-                if (sm.ShowDialog() == DialogResult.OK)
+                DialogResult dr = sm.ShowDialog();
+                if (dr == DialogResult.OK)
                 {
                     ApplyTabSettings();
                     appToolTip.Active = AppSettings.ShowTooltips;
                     this.TopMost = AppSettings.AlwaysOnTop;
-                    FetchQueues();
+                    lastWaitingJson = "";
+                    lastHeldJson = "";
+                    lastForwardedJson = "";
+                    ThreadPool.QueueUserWorkItem(delegate { FetchQueues(); });
                 }
-                else if (sm.DialogResult == DialogResult.Abort)
+                else if (dr == DialogResult.Abort)
                 {
                     Application.Restart();
                 }
@@ -162,16 +214,24 @@ namespace CallerApp
 
         private void BtnHistory_Click(object sender, EventArgs e)
         {
-            var histParams = new Dictionary<string, string> { { "counterNumber", ApiClient.CurrentTeller["counter_number"].ToString() }, { "cname", ApiClient.CurrentTeller["username"].ToString() } };
-            object[] historyTickets = ApiClient.GetArray("/api/tickets/history", histParams);
-            
-            HistoryModal hm = new HistoryModal(historyTickets, CallSpecificTicket, OpenForwardModal);
-            hm.Show();
+            ThreadPool.QueueUserWorkItem(delegate
+            {
+                var histParams = HistoryModal.BuildHistoryQueryParams();
+                object[] historyTickets = ApiClient.GetArray("/api/tickets/history", histParams);
+                if (this.IsHandleCreated && !this.IsDisposed)
+                {
+                    this.BeginInvoke(new Action(delegate
+                    {
+                        HistoryModal hm = new HistoryModal(historyTickets, CallSpecificTicket, OpenForwardModal);
+                        hm.Show();
+                    }));
+                }
+            });
         }
 
         private void ApplyTabSettings()
         {
-            // The user requested to ALWAYS display the Recv tab, regardless of settings.
+            this.TopMost = AppSettings.AlwaysOnTop;
             if (!tabs.TabPages.Contains(tabRecv)) 
             {
                 tabs.TabPages.Add(tabRecv);
@@ -189,7 +249,10 @@ namespace CallerApp
                 {
                     catalogServicesList = ((System.Collections.ArrayList)response["data"]).ToArray();
                 }
-                this.BeginInvoke(new Action(() => CreateServiceBoxes()));
+                if (this.IsHandleCreated && !this.IsDisposed)
+                {
+                    this.BeginInvoke(new Action(delegate { CreateServiceBoxes(); }));
+                }
             });
         }
 
@@ -200,61 +263,70 @@ namespace CallerApp
             if (ApiClient.CurrentTeller == null || !ApiClient.CurrentTeller.ContainsKey("services")) return;
             string[] services = ApiClient.CurrentTeller["services"].ToString().Split(',');
 
-            pnlServicesList.Controls.Clear();
+            ClearPanelSafely(pnlServicesList);
             serviceButtons.Clear();
 
-            foreach (string rawSrv in services)
+            pnlServicesList.SuspendLayout();
+            try
             {
-                string srv = rawSrv.Trim();
-                if (string.IsNullOrEmpty(srv)) continue;
-
-                string displaySrv = srv;
-                if (catalogServicesList != null)
+                foreach (string rawSrv in services)
                 {
-                    foreach (Dictionary<string, object> cat in catalogServicesList)
+                    string srv = rawSrv.Trim();
+                    if (string.IsNullOrEmpty(srv)) continue;
+
+                    string displaySrv = srv;
+                    if (catalogServicesList != null)
                     {
-                        if (cat.ContainsKey("sname") && cat["sname"].ToString().Equals(srv, StringComparison.InvariantCultureIgnoreCase))
+                        foreach (Dictionary<string, object> cat in catalogServicesList)
                         {
-                            if (cat.ContainsKey("shortSname") && cat["shortSname"] != null && !string.IsNullOrEmpty(cat["shortSname"].ToString()))
+                            if (cat.ContainsKey("sname") && cat["sname"].ToString().Equals(srv, StringComparison.InvariantCultureIgnoreCase))
                             {
-                                displaySrv = cat["shortSname"].ToString();
+                                if (cat.ContainsKey("shortSname") && cat["shortSname"] != null && !string.IsNullOrEmpty(cat["shortSname"].ToString()))
+                                {
+                                    displaySrv = cat["shortSname"].ToString();
+                                }
+                                break;
                             }
-                            break;
                         }
                     }
+                    displaySrv = displaySrv.Replace("_", " ");
+
+                    Panel pRow = new Panel() { Width = 215, Height = 34, Margin = new Padding(2) };
+                    
+                    Label lblName = new Label() { 
+                        Text = displaySrv, 
+                        Font = new Font("Segoe UI", 7.5f, FontStyle.Bold), 
+                        Location = new Point(2, 2), 
+                        Size = new Size(126, 30),
+                        AutoSize = false,
+                        TextAlign = ContentAlignment.MiddleLeft,
+                        ForeColor = Color.DimGray 
+                    };
+                    
+                    string capturedSrv = srv;
+                    Button btnReg = CreateModernButton("0", 130, 4, 35, 26, Color.FromArgb(52, 152, 219), Color.White);
+                    btnReg.Font = new Font("Segoe UI", 8, FontStyle.Bold);
+                    btnReg.Click += delegate { CallNext("regular", capturedSrv); };
+
+                    Button btnPri = CreateModernButton("0", 170, 4, 35, 26, Color.FromArgb(155, 89, 182), Color.White);
+                    btnPri.Font = new Font("Segoe UI", 8, FontStyle.Bold);
+                    btnPri.Click += delegate { CallNext("priority", capturedSrv); };
+                    
+                    appToolTip.SetToolTip(btnReg, "Regular");
+                    appToolTip.SetToolTip(btnPri, "Priority");
+
+                    pRow.Controls.Add(lblName);
+                    pRow.Controls.Add(btnReg);
+                    pRow.Controls.Add(btnPri);
+
+                    pnlServicesList.Controls.Add(pRow);
+                    
+                    serviceButtons[srv] = new Button[] { btnReg, btnPri };
                 }
-                displaySrv = displaySrv.Replace("_", " ");
-
-                Panel pRow = new Panel() { Width = 215, Height = 34, Margin = new Padding(2) };
-                
-                Label lblName = new Label() { 
-                    Text = displaySrv, 
-                    Font = new Font("Segoe UI", 7.5f, FontStyle.Bold), 
-                    Location = new Point(2, 2), 
-                    Size = new Size(126, 30),
-                    AutoSize = false,
-                    TextAlign = ContentAlignment.MiddleLeft,
-                    ForeColor = Color.DimGray 
-                };
-                
-                Button btnReg = CreateModernButton("0", 130, 4, 35, 26, Color.FromArgb(52, 152, 219), Color.White);
-                btnReg.Font = new Font("Segoe UI", 8, FontStyle.Bold);
-                btnReg.Click += (s, e) => CallNext("regular", srv);
-
-                Button btnPri = CreateModernButton("0", 170, 4, 35, 26, Color.FromArgb(155, 89, 182), Color.White);
-                btnPri.Font = new Font("Segoe UI", 8, FontStyle.Bold);
-                btnPri.Click += (s, e) => CallNext("priority", srv);
-                
-                appToolTip.SetToolTip(btnReg, "Regular");
-                appToolTip.SetToolTip(btnPri, "Priority");
-
-                pRow.Controls.Add(lblName);
-                pRow.Controls.Add(btnReg);
-                pRow.Controls.Add(btnPri);
-
-                pnlServicesList.Controls.Add(pRow);
-                
-                serviceButtons[srv] = new Button[] { btnReg, btnPri };
+            }
+            finally
+            {
+                pnlServicesList.ResumeLayout();
             }
         }
 
@@ -290,18 +362,24 @@ namespace CallerApp
 
             foreach (var kvp in serviceButtons)
             {
-                string srv = kvp.Key;
+                string srv = kvp.Key.Trim();
+                string srvSpace = srv.Replace("_", " ");
                 int rCount = 0;
                 int pCount = 0;
                 
-                // Try matching exact or prefix (since sometimes service strings differ)
-                foreach(var rK in regCounts.Keys) {
-                    if (rK.Equals(srv, StringComparison.InvariantCultureIgnoreCase) || srv.Equals(rK, StringComparison.InvariantCultureIgnoreCase) || rK.StartsWith(srv)) {
+                foreach (var rK in regCounts.Keys)
+                {
+                    string rKSpace = rK.Trim().Replace("_", " ");
+                    if (rKSpace.Equals(srvSpace, StringComparison.InvariantCultureIgnoreCase) || rKSpace.StartsWith(srvSpace, StringComparison.InvariantCultureIgnoreCase))
+                    {
                         rCount += regCounts[rK];
                     }
                 }
-                foreach(var pK in priCounts.Keys) {
-                    if (pK.Equals(srv, StringComparison.InvariantCultureIgnoreCase) || srv.Equals(pK, StringComparison.InvariantCultureIgnoreCase) || pK.StartsWith(srv)) {
+                foreach (var pK in priCounts.Keys)
+                {
+                    string pKSpace = pK.Trim().Replace("_", " ");
+                    if (pKSpace.Equals(srvSpace, StringComparison.InvariantCultureIgnoreCase) || pKSpace.StartsWith(srvSpace, StringComparison.InvariantCultureIgnoreCase))
+                    {
                         pCount += priCounts[pK];
                     }
                 }
@@ -314,62 +392,67 @@ namespace CallerApp
         private void FetchQueues()
         {
             if (ApiClient.CurrentTeller == null) return;
+            if (Interlocked.CompareExchange(ref isFetchingQueues, 1, 0) != 0) return;
 
-            string services = ApiClient.CurrentTeller["services"].ToString();
-            string tellerId = ApiClient.CurrentTeller["id"].ToString();
-            string groupId = ApiClient.CurrentTeller.ContainsKey("group_id") ? ApiClient.CurrentTeller["group_id"].ToString() : "";
-
-            var waitingParams = new Dictionary<string, string> { { "services", services }, { "tellerId", tellerId }, { "groupId", groupId } };
-            object[] waitingTickets = ApiClient.GetArray("/api/tickets/waiting", waitingParams);
-
-            var heldParams = new Dictionary<string, string> { { "tellerId", ApiClient.CurrentTeller["counter_number"].ToString() } };
-            object[] heldTickets = ApiClient.GetArray("/api/tickets/held", heldParams);
-
-            var forwardParams = new Dictionary<string, string> { { "tellerId", tellerId }, { "groupId", groupId } };
-            object[] forwardedTickets = ApiClient.GetArray("/api/tickets/forwarded", forwardParams);
-
-            if (this.IsHandleCreated && !this.IsDisposed)
+            try
             {
-                this.BeginInvoke(new Action(() =>
+                string services = ApiClient.CurrentTeller["services"].ToString();
+                string tellerId = ApiClient.CurrentTeller["id"].ToString();
+                string groupId = (ApiClient.CurrentTeller.ContainsKey("group_id") && ApiClient.CurrentTeller["group_id"] != null)
+                    ? ApiClient.CurrentTeller["group_id"].ToString()
+                    : "";
+
+                var waitingParams = new Dictionary<string, string> { { "services", services }, { "tellerId", tellerId }, { "groupId", groupId } };
+                object[] waitingTickets = ApiClient.GetArray("/api/tickets/waiting", waitingParams);
+
+                var heldParams = new Dictionary<string, string> { { "tellerId", ApiClient.CurrentTeller["counter_number"].ToString() } };
+                object[] heldTickets = ApiClient.GetArray("/api/tickets/held", heldParams);
+
+                var forwardParams = new Dictionary<string, string> { { "tellerId", tellerId }, { "groupId", groupId } };
+                object[] forwardedTickets = ApiClient.GetArray("/api/tickets/forwarded", forwardParams);
+
+                if (this.IsHandleCreated && !this.IsDisposed)
                 {
-                    try
+                    this.BeginInvoke(new Action(delegate
                     {
-                        if (AppSettings.ShowReceivedInWaiting)
+                        try
                         {
-                            var merged = new List<object>();
-                            if (forwardedTickets != null) merged.AddRange(forwardedTickets);
-                            if (waitingTickets != null) merged.AddRange(waitingTickets);
+                            if (AppSettings.ShowReceivedInWaiting)
+                            {
+                                var merged = new List<object>();
+                                if (forwardedTickets != null) merged.AddRange(forwardedTickets);
+                                if (waitingTickets != null) merged.AddRange(waitingTickets);
+                                
+                                var uniqueMerged = merged
+                                    .Select(t => (Dictionary<string, object>)t)
+                                    .GroupBy(t => t.ContainsKey("id") ? t["id"].ToString() : Guid.NewGuid().ToString())
+                                    .Select(g => g.First())
+                                    .Cast<object>()
+                                    .ToArray();
+
+                                UpdateWaitingQueue(uniqueMerged);
+                            }
+                            else
+                            {
+                                var pureWaiting = waitingTickets != null ? waitingTickets.Where(t => {
+                                    var dict = (Dictionary<string, object>)t;
+                                    string stat = dict.ContainsKey("status") ? dict["status"].ToString() : "";
+                                    return stat != "received" && stat != "forwarded";
+                                }).ToArray() : null;
+                                UpdateWaitingQueue(pureWaiting);
+                            }
                             
-                            var uniqueMerged = merged
-                                .Select(t => (Dictionary<string, object>)t)
-                                .GroupBy(t => t.ContainsKey("id") ? t["id"].ToString() : Guid.NewGuid().ToString())
-                                .Select(g => g.First())
-                                .Cast<object>()
-                                .ToArray();
-
-                            UpdateWaitingQueue(uniqueMerged);
+                            UpdateForwardedQueue(forwardedTickets);
+                            UpdateHeldQueue(heldTickets);
+                            UpdateServiceCounts(waitingTickets);
                         }
-                        else
-                        {
-                            var pureWaiting = waitingTickets != null ? waitingTickets.Where(t => {
-                                var dict = (Dictionary<string, object>)t;
-                                string stat = dict.ContainsKey("status") ? dict["status"].ToString() : "";
-                                return stat != "received" && stat != "forwarded";
-                            }).ToArray() : null;
-                            UpdateWaitingQueue(pureWaiting);
-                        }
-                        
-                        // Always update the Forwarded (Recv) queue so the tab is populated
-                        UpdateForwardedQueue(forwardedTickets);
-
-                        UpdateHeldQueue(heldTickets);
-                        UpdateServiceCounts(waitingTickets);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error in FetchQueues UI update:\n" + ex.ToString());
-                    }
-                }));
+                        catch { }
+                    }));
+                }
+            }
+            finally
+            {
+                Interlocked.Exchange(ref isFetchingQueues, 0);
             }
         }
 
@@ -379,23 +462,32 @@ namespace CallerApp
             if (newJson == lastWaitingJson) return;
             lastWaitingJson = newJson;
 
-            pnlWaitingList.Controls.Clear();
+            ClearPanelSafely(pnlWaitingList);
+            pnlWaitingList.SuspendLayout();
             int count = 0;
-            if (tickets != null)
+            try
             {
-                var sortedTickets = tickets
-                    .Select(t => (Dictionary<string, object>)t)
-                    .OrderByDescending(t => t.ContainsKey("status") && t["status"].ToString() == "received" ? 1 : 0)
-                    .ThenByDescending(t => t.ContainsKey("priority") && Convert.ToInt32(t["priority"]) == 1 ? 1 : 0)
-                    .ThenBy(t => t.ContainsKey("id") ? Convert.ToInt64(t["id"]) : 0)
-                    .ToList();
-
-                foreach (var t in sortedTickets)
+                if (tickets != null)
                 {
-                    count++;
-                    Panel pItem = CreateQueueItem(t, "📢 Call", Color.FromArgb(52, 152, 219), (s, e) => CallSpecificTicket(t["id"].ToString()));
-                    pnlWaitingList.Controls.Add(pItem);
+                    var sortedTickets = tickets
+                        .Select(t => (Dictionary<string, object>)t)
+                        .OrderByDescending(t => t.ContainsKey("status") && t["status"].ToString() == "received" ? 1 : 0)
+                        .ThenByDescending(t => t.ContainsKey("priority") && Convert.ToInt32(t["priority"]) == 1 ? 1 : 0)
+                        .ThenBy(t => t.ContainsKey("id") ? Convert.ToInt64(t["id"]) : 0)
+                        .ToList();
+
+                    foreach (var t in sortedTickets)
+                    {
+                        count++;
+                        string tId = t["id"].ToString();
+                        Panel pItem = CreateQueueItem(t, "📢 Call", Color.FromArgb(52, 152, 219), delegate { CallSpecificTicket(tId); });
+                        pnlWaitingList.Controls.Add(pItem);
+                    }
                 }
+            }
+            finally
+            {
+                pnlWaitingList.ResumeLayout();
             }
             tabWait.Text = string.Format("🕒 Wait ({0})", count);
         }
@@ -406,23 +498,32 @@ namespace CallerApp
             if (newJson == lastHeldJson) return;
             lastHeldJson = newJson;
 
-            pnlHeldList.Controls.Clear();
+            ClearPanelSafely(pnlHeldList);
+            pnlHeldList.SuspendLayout();
             int count = 0;
-            if (tickets != null)
+            try
             {
-                var sortedTickets = tickets
-                    .Select(t => (Dictionary<string, object>)t)
-                    .OrderByDescending(t => t.ContainsKey("priority") && Convert.ToInt32(t["priority"]) == 1 ? 1 : 0)
-                    .ThenBy(t => t.ContainsKey("id") ? Convert.ToInt64(t["id"]) : 0)
-                    .ToList();
-                foreach (var t in sortedTickets)
+                if (tickets != null)
                 {
-                    count++;
-                    Panel pItem = CreateQueueItem(t, 
-                        "▶ Res", Color.FromArgb(46, 204, 113), (s, e) => ResumeHeldTicket(t["id"].ToString()),
-                        "➡️ Fwd", Color.FromArgb(149, 165, 166), (s, e) => OpenForwardModal(t["id"].ToString()));
-                    pnlHeldList.Controls.Add(pItem);
+                    var sortedTickets = tickets
+                        .Select(t => (Dictionary<string, object>)t)
+                        .OrderByDescending(t => t.ContainsKey("priority") && Convert.ToInt32(t["priority"]) == 1 ? 1 : 0)
+                        .ThenBy(t => t.ContainsKey("id") ? Convert.ToInt64(t["id"]) : 0)
+                        .ToList();
+                    foreach (var t in sortedTickets)
+                    {
+                        count++;
+                        string tId = t["id"].ToString();
+                        Panel pItem = CreateQueueItem(t, 
+                            "▶ Res", Color.FromArgb(46, 204, 113), delegate { ResumeHeldTicket(tId); },
+                            "➡️ Fwd", Color.FromArgb(149, 165, 166), delegate { OpenForwardModal(tId); });
+                        pnlHeldList.Controls.Add(pItem);
+                    }
                 }
+            }
+            finally
+            {
+                pnlHeldList.ResumeLayout();
             }
             tabHeld.Text = string.Format("⏸ Held ({0})", count);
         }
@@ -434,28 +535,37 @@ namespace CallerApp
             int currentLength = tickets != null ? tickets.Length : 0;
             if (lastForwardedJson != "" && currentLength > lastForwardedCount)
             {
-                PlayCustomSound("alarm"); // Alarm for newly received ticket
+                PlayCustomSound("received");
             }
             lastForwardedCount = currentLength;
             lastForwardedJson = newJson;
 
-            pnlForwardedList.Controls.Clear();
+            ClearPanelSafely(pnlForwardedList);
+            pnlForwardedList.SuspendLayout();
             int count = 0;
-            if (tickets != null)
+            try
             {
-                var sortedTickets = tickets
-                    .Select(t => (Dictionary<string, object>)t)
-                    .OrderByDescending(t => t.ContainsKey("priority") && Convert.ToInt32(t["priority"]) == 1 ? 1 : 0)
-                    .ThenBy(t => t.ContainsKey("id") ? Convert.ToInt64(t["id"]) : 0)
-                    .ToList();
-                foreach (var t in sortedTickets)
+                if (tickets != null)
                 {
-                    count++;
-                    Panel pItem = CreateQueueItem(t, 
-                        "📢 Call", Color.FromArgb(155, 89, 182), (s, e) => CallSpecificTicket(t["id"].ToString()),
-                        "➡️ Fwd", Color.FromArgb(149, 165, 166), (s, e) => OpenForwardModal(t["id"].ToString()));
-                    pnlForwardedList.Controls.Add(pItem);
+                    var sortedTickets = tickets
+                        .Select(t => (Dictionary<string, object>)t)
+                        .OrderByDescending(t => t.ContainsKey("priority") && Convert.ToInt32(t["priority"]) == 1 ? 1 : 0)
+                        .ThenBy(t => t.ContainsKey("id") ? Convert.ToInt64(t["id"]) : 0)
+                        .ToList();
+                    foreach (var t in sortedTickets)
+                    {
+                        count++;
+                        string tId = t["id"].ToString();
+                        Panel pItem = CreateQueueItem(t, 
+                            "📢 Call", Color.FromArgb(155, 89, 182), delegate { CallSpecificTicket(tId); },
+                            "➡️ Fwd", Color.FromArgb(149, 165, 166), delegate { OpenForwardModal(tId); });
+                        pnlForwardedList.Controls.Add(pItem);
+                    }
                 }
+            }
+            finally
+            {
+                pnlForwardedList.ResumeLayout();
             }
             tabRecv.Text = string.Format("📩 Recv ({0})", count);
         }
@@ -467,11 +577,11 @@ namespace CallerApp
             Color bgColor = Color.WhiteSmoke;
             if (t.ContainsKey("status") && t["status"].ToString() == "received")
             {
-                bgColor = Color.FromArgb(214, 234, 248); // Light Blue
+                bgColor = Color.FromArgb(214, 234, 248);
             }
             else if (t.ContainsKey("priority") && Convert.ToInt32(t["priority"]) == 1)
             {
-                bgColor = Color.FromArgb(250, 219, 216); // Light Red
+                bgColor = Color.FromArgb(250, 219, 216);
             }
 
             Panel p = new Panel() { Width = 215, Height = 38, BorderStyle = BorderStyle.FixedSingle, Margin = new Padding(2), BackColor = bgColor };
@@ -517,30 +627,55 @@ namespace CallerApp
 
         private void CheckCurrentTicket()
         {
+            if (ApiClient.CurrentTeller == null) return;
+            if (Interlocked.CompareExchange(ref isCheckingTicket, 1, 0) != 0) return;
+
             ThreadPool.QueueUserWorkItem(delegate(object state)
             {
-                object[] tickets = ApiClient.GetArray("/api/tickets/called");
-                if (tickets != null)
+                try
                 {
-                    string myCounter = ApiClient.CurrentTeller["counter_number"].ToString();
-                    foreach (Dictionary<string, object> t in tickets)
+                    object[] tickets = ApiClient.GetArray("/api/tickets/called");
+                    Dictionary<string, object> activeTicket = null;
+
+                    if (tickets != null && ApiClient.CurrentTeller != null)
                     {
-                        if (t.ContainsKey("counter_num") && t["counter_num"].ToString() == myCounter)
+                        string myCounter = ApiClient.CurrentTeller["counter_number"].ToString();
+                        foreach (Dictionary<string, object> t in tickets)
                         {
-                            string status = t["status"].ToString();
-                            if (status != "held" && status != "received" && status != "voided" && status != "finished")
+                            if (t.ContainsKey("counter_num") && t["counter_num"] != null && t["counter_num"].ToString() == myCounter)
                             {
-                                if (this.IsHandleCreated && !this.IsDisposed)
+                                string status = t.ContainsKey("status") && t["status"] != null ? t["status"].ToString() : "";
+                                if (status != "held" && status != "received" && status != "voided" && status != "finished")
                                 {
-                                    this.BeginInvoke(new Action(() => {
-                                        try { DisplayCurrentTicket(t); } 
-                                        catch (Exception ex) { MessageBox.Show("Error in CheckCurrentTicket UI update:\n" + ex.ToString()); }
-                                    }));
+                                    activeTicket = t;
+                                    break;
                                 }
-                                return;
                             }
                         }
                     }
+
+                    if (this.IsHandleCreated && !this.IsDisposed)
+                    {
+                        this.BeginInvoke(new Action(delegate
+                        {
+                            try
+                            {
+                                if (activeTicket != null)
+                                {
+                                    DisplayCurrentTicket(activeTicket);
+                                }
+                                else if (currentTicket != null)
+                                {
+                                    ClearCurrentTicket();
+                                }
+                            }
+                            catch { }
+                        }));
+                    }
+                }
+                finally
+                {
+                    Interlocked.Exchange(ref isCheckingTicket, 0);
                 }
             });
         }
@@ -550,7 +685,7 @@ namespace CallerApp
             currentTicket = ticket;
             string tNum = ticket.ContainsKey("ticketservice") ? string.Format("{0}{1}", ticket["ticketservice"], ticket["ticketnum"]) : ticket["ticketnum"].ToString();
             lblCurrentTicket.Text = tNum;
-            lblCurrentTicket.ForeColor = Color.FromArgb(39, 174, 96); // Green when active
+            lblCurrentTicket.ForeColor = Color.FromArgb(39, 174, 96);
 
             string sname = ticket.ContainsKey("shortSname") && ticket["shortSname"] != null && !string.IsNullOrEmpty(ticket["shortSname"].ToString())
                            ? ticket["shortSname"].ToString().Replace("_", " ") 
@@ -598,17 +733,10 @@ namespace CallerApp
 
         private void CallNext(string type, string service = null)
         {
-            if (currentTicket != null)
+            if (currentTicket != null && !AppSettings.AutoFinishEnabled)
             {
-                if (AppSettings.AutoFinishEnabled)
-                {
-                    // Will auto complete when executed
-                }
-                else
-                {
-                    MessageBox.Show("Please complete or hold current ticket first.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
+                MessageBox.Show("Please complete or hold current ticket first.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
 
             var reqData = new Dictionary<string, object>
@@ -652,11 +780,11 @@ namespace CallerApp
 
                         if (targetId != null)
                         {
-                            this.BeginInvoke(new Action(() => CallSpecificTicket(targetId)));
+                            this.BeginInvoke(new Action(delegate { CallSpecificTicket(targetId); }));
                         }
                         else
                         {
-                            this.BeginInvoke(new Action(() => MessageBox.Show(string.Format("No {0} tickets for {1}", type, service), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)));
+                            this.BeginInvoke(new Action(delegate { MessageBox.Show(string.Format("No {0} tickets for {1}", type, service), "Info", MessageBoxButtons.OK, MessageBoxIcon.Information); }));
                         }
                     }
                 });
@@ -688,20 +816,19 @@ namespace CallerApp
         {
             ThreadPool.QueueUserWorkItem(delegate(object state)
             {
-                // Auto finish sync if enabled
                 if (AppSettings.AutoFinishEnabled && currentTicket != null)
                 {
                     AutoCompleteActiveTicketSynchronous();
-                    this.BeginInvoke(new Action(() => { ClearCurrentTicket(); }));
+                    this.BeginInvoke(new Action(delegate { ClearCurrentTicket(); }));
                 }
 
                 var response = ApiClient.Post("/api/tickets/call", reqData);
-                this.BeginInvoke(new Action(() =>
+                this.BeginInvoke(new Action(delegate
                 {
                     if (response != null && response.ContainsKey("success") && (bool)response["success"])
                     {
                         DisplayCurrentTicket((Dictionary<string, object>)response["ticket"]);
-                        FetchQueues();
+                        ThreadPool.QueueUserWorkItem(delegate { FetchQueues(); });
                     }
                     else
                     {
@@ -727,10 +854,10 @@ namespace CallerApp
             ThreadPool.QueueUserWorkItem(delegate(object state)
             {
                 ApiClient.Post("/api/tickets/complete", reqData);
-                this.BeginInvoke(new Action(() =>
+                this.BeginInvoke(new Action(delegate
                 {
                     ClearCurrentTicket();
-                    FetchQueues();
+                    ThreadPool.QueueUserWorkItem(delegate { FetchQueues(); });
                 }));
             });
         }
@@ -742,11 +869,11 @@ namespace CallerApp
             ThreadPool.QueueUserWorkItem(delegate(object state)
             {
                 ApiClient.Post("/api/tickets/hold", reqData);
-                this.BeginInvoke(new Action(() =>
+                this.BeginInvoke(new Action(delegate
                 {
-                    PlayCustomSound("alarm");
+                    PlayCustomSound("held");
                     ClearCurrentTicket();
-                    FetchQueues();
+                    ThreadPool.QueueUserWorkItem(delegate { FetchQueues(); });
                 }));
             });
         }
@@ -773,16 +900,16 @@ namespace CallerApp
                 if (AppSettings.AutoFinishEnabled && currentTicket != null)
                 {
                     AutoCompleteActiveTicketSynchronous();
-                    this.BeginInvoke(new Action(() => { ClearCurrentTicket(); }));
+                    this.BeginInvoke(new Action(delegate { ClearCurrentTicket(); }));
                 }
 
                 var response = ApiClient.Post("/api/tickets/resume", reqData);
-                this.BeginInvoke(new Action(() =>
+                this.BeginInvoke(new Action(delegate
                 {
                     if (response != null && response.ContainsKey("success") && (bool)response["success"])
                     {
                         DisplayCurrentTicket((Dictionary<string, object>)response["ticket"]);
-                        FetchQueues();
+                        ThreadPool.QueueUserWorkItem(delegate { FetchQueues(); });
                     }
                 }));
             });
@@ -794,28 +921,31 @@ namespace CallerApp
             if (targetTicketId == null) return;
             
             object[] tellers = ApiClient.GetArray("/api/tellers/list", new Dictionary<string, string> { { "id", ApiClient.CurrentTeller["id"].ToString() }, { "activeToday", "true" } });
-            
-            // Extract unique groups from the tellers list since /api/admin/groups is restricted
-            var uniqueGroups = new Dictionary<string, Dictionary<string, object>>();
-            if (tellers != null)
+            object[] groups = ApiClient.GetArray("/api/groups/list");
+
+            if (groups == null || groups.Length == 0)
             {
-                foreach (Dictionary<string, object> t in tellers)
+                var uniqueGroups = new Dictionary<string, Dictionary<string, object>>();
+                if (tellers != null)
                 {
-                    if (t.ContainsKey("group_id") && t["group_id"] != null && !string.IsNullOrEmpty(t["group_id"].ToString()) &&
-                        t.ContainsKey("group_name") && t["group_name"] != null && !string.IsNullOrEmpty(t["group_name"].ToString()))
+                    foreach (Dictionary<string, object> t in tellers)
                     {
-                        string gId = t["group_id"].ToString();
-                        if (!uniqueGroups.ContainsKey(gId))
+                        if (t.ContainsKey("group_id") && t["group_id"] != null && !string.IsNullOrEmpty(t["group_id"].ToString()) &&
+                            t.ContainsKey("group_name") && t["group_name"] != null && !string.IsNullOrEmpty(t["group_name"].ToString()))
                         {
-                            var g = new Dictionary<string, object>();
-                            g["id"] = gId;
-                            g["group_name"] = t["group_name"];
-                            uniqueGroups[gId] = g;
+                            string gId = t["group_id"].ToString();
+                            if (!uniqueGroups.ContainsKey(gId))
+                            {
+                                var g = new Dictionary<string, object>();
+                                g["id"] = gId;
+                                g["group_name"] = t["group_name"];
+                                uniqueGroups[gId] = g;
+                            }
                         }
                     }
                 }
+                groups = new List<Dictionary<string, object>>(uniqueGroups.Values).ToArray();
             }
-            object[] groups = new List<Dictionary<string, object>>(uniqueGroups.Values).ToArray();
 
             using (ForwardModal fm = new ForwardModal(tellers, groups))
             {
@@ -835,41 +965,47 @@ namespace CallerApp
                     ThreadPool.QueueUserWorkItem(delegate(object state)
                     {
                         var response = ApiClient.Post("/api/tickets/forward", reqData);
-                        this.BeginInvoke(new Action(() =>
+                        this.BeginInvoke(new Action(delegate
                         {
-                            if (currentTicket != null && currentTicket["id"].ToString() == targetTicketId)
+                            bool isSuccess = response != null && response.ContainsKey("success") && (bool)response["success"];
+                            if (isSuccess && currentTicket != null && currentTicket["id"].ToString() == targetTicketId)
                             {
                                 ClearCurrentTicket();
                             }
-                            FetchQueues();
-                            bool isSuccess = response != null && response.ContainsKey("success") && (bool)response["success"];
-                            PlayCustomSound(isSuccess ? "success" : "alarm");
-                            
-                            Form toast = new Form();
-                            toast.FormBorderStyle = FormBorderStyle.None;
-                            toast.BackColor = Color.FromArgb(46, 204, 113);
-                            toast.Size = new Size(250, 50);
-                            toast.StartPosition = FormStartPosition.CenterParent;
-                            toast.TopMost = true;
-                            
-                            Label lbl = new Label();
-                            lbl.Text = "Ticket forwarded successfully.";
-                            lbl.ForeColor = Color.White;
-                            lbl.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-                            lbl.AutoSize = false;
-                            lbl.TextAlign = ContentAlignment.MiddleCenter;
-                            lbl.Dock = DockStyle.Fill;
-                            toast.Controls.Add(lbl);
-                            
-                            System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
-                            t.Interval = 3000;
-                            t.Tick += (st, ev) => { t.Stop(); toast.Close(); };
-                            t.Start();
-                            toast.ShowDialog();
+                            ThreadPool.QueueUserWorkItem(delegate { FetchQueues(); });
+                            ShowToastPopup(isSuccess ? "Ticket forwarded successfully." : "Failed to forward ticket.", isSuccess);
                         }));
                     });
                 }
             }
+        }
+
+        private void ShowToastPopup(string message, bool isSuccess)
+        {
+            Form toast = new Form();
+            toast.FormBorderStyle = FormBorderStyle.None;
+            toast.StartPosition = FormStartPosition.CenterScreen;
+            toast.Size = new Size(260, 56);
+            toast.BackColor = isSuccess ? Color.FromArgb(46, 204, 113) : Color.FromArgb(231, 76, 60);
+            toast.TopMost = true;
+            toast.ShowInTaskbar = false;
+
+            Label lbl = new Label();
+            lbl.Text = message;
+            lbl.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            lbl.ForeColor = Color.White;
+            lbl.AutoSize = false;
+            lbl.Dock = DockStyle.Fill;
+            lbl.TextAlign = ContentAlignment.MiddleCenter;
+            toast.Controls.Add(lbl);
+
+            PlayCustomSound(isSuccess ? "success" : "alarm");
+
+            System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
+            t.Interval = 2500;
+            t.Tick += delegate { t.Stop(); t.Dispose(); toast.Close(); toast.Dispose(); };
+            toast.Load += delegate { t.Start(); };
+            toast.Show();
         }
 
         private void OpenVoidModal()
@@ -892,11 +1028,11 @@ namespace CallerApp
                     ThreadPool.QueueUserWorkItem(delegate(object state)
                     {
                         ApiClient.Post("/api/tickets/void", reqData);
-                        this.BeginInvoke(new Action(() =>
+                        this.BeginInvoke(new Action(delegate
                         {
-                            PlayCustomSound("alarm");
+                            PlayCustomSound("void");
                             ClearCurrentTicket();
-                            FetchQueues();
+                            ThreadPool.QueueUserWorkItem(delegate { FetchQueues(); });
                         }));
                     });
                 }
@@ -911,22 +1047,39 @@ namespace CallerApp
             {
                 try
                 {
-                    string windir = Environment.GetEnvironmentVariable("WINDIR");
-                    string wavPath = "";
-                    if (soundType == "alarm") wavPath = System.IO.Path.Combine(windir, "Media", "Alarm01.wav");
-                    else if (soundType == "ring") wavPath = System.IO.Path.Combine(windir, "Media", "Ring01.wav");
-                    else if (soundType == "success") wavPath = System.IO.Path.Combine(windir, "Media", "tada.wav");
-
-                    if (!string.IsNullOrEmpty(wavPath) && System.IO.File.Exists(wavPath))
+                    if (soundType == "alarm" || soundType == "ring")
                     {
-                        using (var player = new System.Media.SoundPlayer(wavPath))
+                        string windir = Environment.GetEnvironmentVariable("WINDIR") ?? @"C:\Windows";
+                        string wavPath = soundType == "alarm"
+                            ? System.IO.Path.Combine(windir, "Media", "Alarm01.wav")
+                            : System.IO.Path.Combine(windir, "Media", "Ring01.wav");
+                        if (System.IO.File.Exists(wavPath))
                         {
-                            player.PlaySync();
+                            using (var player = new System.Media.SoundPlayer(wavPath))
+                            {
+                                player.PlaySync();
+                            }
+                        }
+                        else
+                        {
+                            System.Media.SystemSounds.Beep.Play();
                         }
                     }
                     else
                     {
-                        System.Media.SystemSounds.Beep.Play();
+                        System.IO.Stream audioStream = null;
+                        if (soundType == "success") audioStream = Properties.Resources._success;
+                        else if (soundType == "held") audioStream = Properties.Resources._held;
+                        else if (soundType == "received") audioStream = Properties.Resources._received;
+                        else if (soundType == "void") audioStream = Properties.Resources._void;
+
+                        if (audioStream != null)
+                        {
+                            using (var player = new System.Media.SoundPlayer(audioStream))
+                            {
+                                player.PlaySync();
+                            }
+                        }
                     }
                 }
                 catch { }

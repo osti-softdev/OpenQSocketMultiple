@@ -11,6 +11,7 @@ const { requireRole } = require(`../utilities/authsession`);
 const { authLimiter, resetAuthLimit } = require("../utilities/rateLimiter");
 const { readSoundConfig, writeSoundConfig } = require('../utilities/soundConfig');
 const { loadConfig, saveConfig } = require('../utilities/envconfig');
+const { hashPassword, verifyAndUpgradePassword } = require('../utilities/security');
 
 module.exports = function createTellerApiRouter(io) {
     const router = express.Router();
@@ -56,7 +57,7 @@ module.exports = function createTellerApiRouter(io) {
         db.get(
             'SELECT * FROM accounts WHERE username = ?',
             [username],
-            (err, admin) => {
+            async (err, admin) => {
                 if (err) {
                     console.error('Database error during login:', err);
                     return res.status(500).json({ success: false, message: 'Database error' });
@@ -71,9 +72,14 @@ module.exports = function createTellerApiRouter(io) {
                 console.log('User found, verifying password...');
 
                 try {
-                    if (password === admin.password) {
+                    const validPassword = await verifyAndUpgradePassword(
+                        password,
+                        admin.password,
+                        (newHash) => db.runAsync('UPDATE accounts SET password = ? WHERE id = ?', [newHash, admin.id])
+                    );
+
+                    if (validPassword) {
                         resetAuthLimit(req);
-                        req.session.admin = admin;
                         req.session.admin = {
                             id: admin.id,
                             username: admin.name,
@@ -131,6 +137,8 @@ module.exports = function createTellerApiRouter(io) {
     router.use('/admin/analytics', requireMonitorAccess);
     router.use('/admin/reports', requireMonitorAccess);
     router.use('/admin/tickets', requireMonitorAccess);
+    router.use('/admin/notes', requireMonitorAccess);
+    router.use('/admin/graph-summary', requireMonitorAccess);
     router.use('/admin/services', requireManagementAccess);
     router.use('/admin/groups', requireManagementAccess);
     router.use('/admin/tellers', requireManagementAccess);
@@ -764,38 +772,47 @@ module.exports = function createTellerApiRouter(io) {
     });
 
     // & Add Tellers 
-    router.post('/admin/tellers', (req, res) => {
+    router.post('/admin/tellers', async (req, res) => {
         const { name, username, password, counter_number, services, group_id, group_name, groupName, is_active } = req.body;
 
         if (!username || !password) {
             return res.status(400).json({ error: 'Username and password are required' });
         }
 
+        try {
+            const hashedPassword = await hashPassword(password);
 
-        // const hashedPassword = bcrypt.hashSync(password, 10);
-
-        db.run(
-            `INSERT INTO counters
+            db.run(
+                `INSERT INTO counters
          (cname, cuser, cpass, cnum, services, group_id, group_name, cstatus)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-            [
-                name,
-                username,
-                password,
-                counter_number,
-                services,
-                group_id,
-                group_name || groupName || null,
-                is_active
-            ],
-            function (err) {
-                if (err) {
-                    console.error(err);
-                    return res.status(500).json({ error: err.message });
+                [
+                    name,
+                    username,
+                    hashedPassword,
+                    counter_number,
+                    services,
+                    group_id,
+                    group_name || groupName || null,
+                    is_active
+                ],
+                function (err) {
+                    if (err) {
+                        console.error(err);
+                        return res.status(500).json({ error: err.message });
+                    }
+                    appendSystemMemory('Teller Created', {
+                        actor: req.session?.admin?.username || 'Admin',
+                        teller: `${name} (${username})`,
+                        counter: counter_number
+                    });
+                    res.json({ success: true, id: this.lastID });
                 }
-                res.json({ success: true, id: this.lastID });
-            }
-        );
+            );
+        } catch (err) {
+            console.error(err);
+            res.status(500).json({ error: err.message });
+        }
     });
 
     // & Multiply Tellers
@@ -863,7 +880,7 @@ module.exports = function createTellerApiRouter(io) {
     });
 
     //   & Edit Tellers
-    router.put('/admin/tellers/:id', (req, res) => {
+    router.put('/admin/tellers/:id', async (req, res) => {
         const { name, username, counter_number, services, group_id, groupName, is_active, password } = req.body;
         const tellerId = Number(req.params.id);
 
@@ -874,25 +891,28 @@ module.exports = function createTellerApiRouter(io) {
             res.json({ success: true });
         };
 
+        try {
+            if (password) {
+                const hashedPassword = await hashPassword(password);
 
-        if (password) {
-            // const hashedPassword = bcrypt.hashSync(password, 10);
-
-            db.run(
-                `UPDATE counters
+                db.run(
+                    `UPDATE counters
              SET cname = ?, cuser = ?, cpass = ?, cnum = ?, services = ?, group_id = ?,group_name = ?, cstatus = ?
              WHERE id = ?`,
-                [name, username, password, counter_number, services, group_id, groupName, is_active, req.params.id],
-                completeTellerUpdate
-            );
-        } else {
-            db.run(
-                `UPDATE counters
+                    [name, username, hashedPassword, counter_number, services, group_id, groupName, is_active, req.params.id],
+                    completeTellerUpdate
+                );
+            } else {
+                db.run(
+                    `UPDATE counters
              SET cname = ?, cuser = ?, cnum = ?, services = ?, group_id = ?,group_name = ?, cstatus = ?
              WHERE id = ?`,
-                [name, username, counter_number, services, group_id, groupName, is_active, req.params.id],
-                completeTellerUpdate
-            );
+                    [name, username, counter_number, services, group_id, groupName, is_active, req.params.id],
+                    completeTellerUpdate
+                );
+            }
+        } catch (err) {
+            res.status(500).json({ error: err.message });
         }
     });
 
@@ -914,66 +934,73 @@ module.exports = function createTellerApiRouter(io) {
     });
 
     // & Add Accounts 
-    router.post('/admin/accounts', requireRole('superadmin'), (req, res) => {
+    router.post('/admin/accounts', requireRole('superadmin'), async (req, res) => {
         const { name, username, password, role, is_active } = req.body;
 
         if (!username || !password) {
             return res.status(400).json({ error: 'Username and password are required' });
         }
 
+        try {
+            const hashedPassword = await hashPassword(password);
 
-        // const hashedPassword = bcrypt.hashSync(password, 10);
-
-        db.run(
-            `INSERT INTO accounts
+            db.run(
+                `INSERT INTO accounts
          (name, username, password, role, status)
          VALUES (?, ?, ?, ?, ?)`,
-            [
-                name,
-                username,
-                password,
-                role,
-                is_active
-            ],
-            function (err) {
-                if (err) {
-                    console.error(err);
-                    return res.status(500).json({ error: err.message });
+                [
+                    name,
+                    username,
+                    hashedPassword,
+                    role,
+                    is_active
+                ],
+                function (err) {
+                    if (err) {
+                        console.error(err);
+                        return res.status(500).json({ error: err.message });
+                    }
+                    res.json({ success: true, id: this.lastID });
                 }
-                res.json({ success: true, id: this.lastID });
-            }
-        );
+            );
+        } catch (err) {
+            console.error(err);
+            res.status(500).json({ error: err.message });
+        }
     });
 
     //   & Edit Accounts
-    router.put('/admin/accounts/:id', requireRole('superadmin'), (req, res) => {
+    router.put('/admin/accounts/:id', requireRole('superadmin'), async (req, res) => {
         const { name, username, role, is_active, password } = req.body;
 
+        try {
+            if (password) {
+                const hashedPassword = await hashPassword(password);
 
-        if (password) {
-            // const hashedPassword = bcrypt.hashSync(password, 10);
-
-            db.run(
-                `UPDATE accounts
+                db.run(
+                    `UPDATE accounts
              SET name = ?, username = ?, password = ?, role = ?, status = ?
              WHERE id = ?`,
-                [name, username, password, role, is_active, req.params.id],
-                err => {
-                    if (err) return res.status(500).json({ error: err.message });
-                    res.json({ success: true });
-                }
-            );
-        } else {
-            db.run(
-                `UPDATE accounts
+                    [name, username, hashedPassword, role, is_active, req.params.id],
+                    err => {
+                        if (err) return res.status(500).json({ error: err.message });
+                        res.json({ success: true });
+                    }
+                );
+            } else {
+                db.run(
+                    `UPDATE accounts
              SET name = ?, username = ?, role = ?, status = ?
              WHERE id = ?`,
-                [name, username, role, is_active, req.params.id],
-                err => {
-                    if (err) return res.status(500).json({ error: err.message });
-                    res.json({ success: true });
-                }
-            );
+                    [name, username, role, is_active, req.params.id],
+                    err => {
+                        if (err) return res.status(500).json({ error: err.message });
+                        res.json({ success: true });
+                    }
+                );
+            }
+        } catch (err) {
+            res.status(500).json({ error: err.message });
         }
     });
 
@@ -989,11 +1016,24 @@ module.exports = function createTellerApiRouter(io) {
     // & get all tickets
     router.get('/admin/tickets/all', (req, res) => {
         const search = String(req.query.search || '').trim();
+        const dateFrom = String(req.query.dateFrom || '').trim();
+        const dateTo = String(req.query.dateTo || '').trim();
         const queryLimit = Math.min(Math.max(parseInt(req.query.limit, 10) || 10, 1), 50);
         const requestedPage = Math.max(parseInt(req.query.page, 10) || 1, 1);
 
         let whereClause = 'WHERE 1=1';
         const filterParams = [];
+
+        if (dateFrom && dateTo) {
+            whereClause += ' AND t.date BETWEEN ? AND ?';
+            filterParams.push(dateFrom, dateTo);
+        } else if (dateFrom) {
+            whereClause += ' AND t.date >= ?';
+            filterParams.push(dateFrom);
+        } else if (dateTo) {
+            whereClause += ' AND t.date <= ?';
+            filterParams.push(dateTo);
+        }
 
         if (search) {
             whereClause += `

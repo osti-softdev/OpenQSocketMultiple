@@ -1,4 +1,4 @@
-<Project>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <!-- System.ValueTuple is inbox on .NET Framework >= 4.7.1 and therefore any potential redirect for it should be removed.
        This is necessary as the assembly version in the already shipped packages is higher than what's provided inbox on .NET Framework. -->

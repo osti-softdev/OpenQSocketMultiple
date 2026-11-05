@@ -2,12 +2,14 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-display: block;
 }
 
 html,
 body {
   -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -15,28 +17,76 @@ body {
 
 @font-face {
   font-family: Gotham;
-  src: url("/libs/fonts/Gotham/Gotham-Black.otf");
+  src: url("/libs/fonts/Gotham/GothamBook.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
+
+@font-face {
+  font-family: Gotham;
+  src: url("/libs/fonts/Gotham/GothamMedium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Gotham;
+  src: url("/libs/fonts/Gotham/GothamBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Gotham;
+  src: url("/libs/fonts/Gotham/Gotham-Black.otf") format("opentype");
+  font-weight: 800 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @font-face {
   font-family: Sacred;
-  src: url("/libs/fonts/Sacred/Sacred Crowns.otf");
+  src: url("/libs/fonts/Sacred/Sacred Crowns.otf") format("opentype");
+  font-display: swap;
 }
+
 @font-face {
   font-family: Made;
-  src: url("/libs/fonts/Made/MADESoulmazeBrushPERSONALUSE.otf");
+  src: url("/libs/fonts/Made/MADESoulmazeBrushPERSONALUSE.otf") format("opentype");
+  font-display: swap;
 }
+
 @font-face {
   font-family: calibri;
-  src: url("/libs/fonts/Gotham/Gotham-Black.otf");
+  src: url("/libs/fonts/calibri/CalibriRegular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
+
+@font-face {
+  font-family: calibri;
+  src: url("/libs/fonts/calibri/Calibri Bold.TTF") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @font-face {
   font-family: digital;
-  src: url("/libs/fonts/digital/digital-mono_italic.ttf");
+  src: url("/libs/fonts/digital/digital-mono_italic.ttf") format("truetype");
+  font-display: swap;
 }
+
 @font-face {
   font-family: compos;
-  src: url("/libs/fonts/compostela/QUANTU1H.TTF");
+  src: url("/libs/fonts/compostela/QUANTU1H.TTF") format("truetype");
+  font-display: swap;
 }
+
 .mainkioskcontainer {
   display: flex;
   flex-direction: column;

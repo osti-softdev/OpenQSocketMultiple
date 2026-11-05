@@ -37,6 +37,7 @@ namespace CallerApp
             this.btnSettings = new System.Windows.Forms.Button();
             this.lblUser = new System.Windows.Forms.Label();
             this.lblPass = new System.Windows.Forms.Label();
+            this.chkRemember = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtUsername
@@ -58,6 +59,18 @@ namespace CallerApp
             this.txtPassword.Size = new System.Drawing.Size(195, 27);
             this.txtPassword.TabIndex = 3;
             // 
+            // chkRemember
+            // 
+            this.chkRemember.AutoSize = true;
+            this.chkRemember.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.chkRemember.ForeColor = System.Drawing.Color.Gray;
+            this.chkRemember.Location = new System.Drawing.Point(13, 180);
+            this.chkRemember.Name = "chkRemember";
+            this.chkRemember.Size = new System.Drawing.Size(180, 24);
+            this.chkRemember.TabIndex = 4;
+            this.chkRemember.Text = "Remember credentials";
+            this.chkRemember.UseVisualStyleBackColor = true;
+            // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
@@ -66,33 +79,33 @@ namespace CallerApp
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(13, 185);
+            this.btnLogin.Location = new System.Drawing.Point(13, 210);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(195, 35);
-            this.btnLogin.TabIndex = 4;
+            this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "🔒 Login";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // lblError
             // 
-            this.lblError.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblError.Font = new System.Drawing.Font("Segoe UI", 8.5F);
             this.lblError.ForeColor = System.Drawing.Color.Crimson;
-            this.lblError.Location = new System.Drawing.Point(20, 225);
+            this.lblError.Location = new System.Drawing.Point(13, 248);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(300, 20);
-            this.lblError.TabIndex = 5;
+            this.lblError.Size = new System.Drawing.Size(195, 28);
+            this.lblError.TabIndex = 6;
             this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTitle
             // 
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.lblTitle.Location = new System.Drawing.Point(13, 29);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(195, 35);
-            this.lblTitle.TabIndex = 6;
-            this.lblTitle.Text = "🔑 OpenQ Teller Login";
+            this.lblTitle.TabIndex = 7;
+            this.lblTitle.Text = "🔑 OpenQ Login";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnSettings
@@ -106,7 +119,7 @@ namespace CallerApp
             this.btnSettings.Location = new System.Drawing.Point(-1, 1);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(100, 25);
-            this.btnSettings.TabIndex = 7;
+            this.btnSettings.TabIndex = 8;
             this.btnSettings.Text = "⚙ Settings";
             this.btnSettings.UseVisualStyleBackColor = false;
             this.btnSettings.Click += new System.EventHandler(this.BtnSettings_Click);
@@ -118,7 +131,7 @@ namespace CallerApp
             this.lblUser.Location = new System.Drawing.Point(13, 70);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(80, 20);
-            this.lblUser.TabIndex = 8;
+            this.lblUser.TabIndex = 9;
             this.lblUser.Text = "Username";
             // 
             // lblPass
@@ -128,14 +141,15 @@ namespace CallerApp
             this.lblPass.Location = new System.Drawing.Point(13, 125);
             this.lblPass.Name = "lblPass";
             this.lblPass.Size = new System.Drawing.Size(80, 20);
-            this.lblPass.TabIndex = 9;
+            this.lblPass.TabIndex = 10;
             this.lblPass.Text = "Password";
             // 
             // LoginForm
             // 
             this.AcceptButton = this.btnLogin;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(220, 232);
+            this.ClientSize = new System.Drawing.Size(220, 282);
+            this.Controls.Add(this.chkRemember);
             this.Controls.Add(this.lblPass);
             this.Controls.Add(this.lblUser);
             this.Controls.Add(this.btnSettings);
@@ -166,5 +180,6 @@ namespace CallerApp
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label lblPass;
+        private System.Windows.Forms.CheckBox chkRemember;
     }
 }

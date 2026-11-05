@@ -4,6 +4,7 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 // tellerApi.js
 const { requireRole } = require('../utilities/authsession');
+const { verifyAndUpgradePassword } = require('../utilities/security');
 
 module.exports = function createTellerApiRouter(io) {
     const router = express.Router();
@@ -75,7 +76,7 @@ module.exports = function createTellerApiRouter(io) {
         db.get(
             'SELECT * FROM counters WHERE cuser = ?',
             [username],
-            (err, teller) => {
+            async (err, teller) => {
                 if (err) {
                     console.error('Database error during login:', err);
                     return res.status(500).json({ success: false, message: 'Database error' });
@@ -90,8 +91,13 @@ module.exports = function createTellerApiRouter(io) {
                 console.log('User found, verifying password...');
 
                 try {
-                    if (password === teller.cpass) {
-                        req.session.teller = teller;
+                    const validPassword = await verifyAndUpgradePassword(
+                        password,
+                        teller.cpass,
+                        (newHash) => db.runAsync('UPDATE counters SET cpass = ? WHERE id = ?', [newHash, teller.id])
+                    );
+
+                    if (validPassword) {
                         req.session.teller = {
                             id: teller.id,
                             username: teller.cname,
@@ -768,6 +774,10 @@ module.exports = function createTellerApiRouter(io) {
             params.push(groupId);
         }
 
+        if (conditions.length === 0) {
+            return res.json([]);
+        }
+
         query += conditions.join(' OR ') + ') AND t.date = ? ORDER BY ft.forwarded_at DESC';
 
         params.push(date);
@@ -851,25 +861,35 @@ module.exports = function createTellerApiRouter(io) {
     // & Ticket History
     // =========================
     router.get('/tickets/history', (req, res) => {
-        const { counterNumber, cname, limit } = req.query;
-        const queryLimit = Number(limit) || 20;
+        const { counterNumber, cname, teller_id, limit, mode, group_id, group_name } = req.query;
+        const queryLimit = Number(limit) || 50;
         const { date } = getPHDateTime();
 
-        let query = `
-        SELECT t.*, s.shortSname
-        FROM transactions t
-        LEFT JOIN services s ON t.sname = s.sname
-        WHERE t.date = ?
-    `;
+        let query = "SELECT t.*, s.shortSname FROM transactions t LEFT JOIN services s ON t.sname = s.sname WHERE t.date = ? AND t.status != 'pending'";
 
         let params = [date];
+        const historyMode = (mode || 'self').toLowerCase();
 
-        if (counterNumber) {
-            query += ` AND t.history LIKE ?`;
-            params.push(`%-${cname}-%`);
+        if (historyMode === 'all') {
+            // History All: whole tickets served today of all tellers regardless of group and services served (status != 'pending')
+        } else if (historyMode === 'group') {
+            // History Group: all other history of served tickets by other counters which has same group_name or group_id
+            if (group_id || group_name) {
+                query += " AND (t.counter_group = ? OR t.counter_group = ? OR t.teller_id IN (SELECT id FROM counters WHERE group_id = ? OR group_name = ?))";
+                params.push(group_name || '', group_id ? String(group_id) : '', group_id || 0, group_name || '');
+            } else if (cname || counterNumber) {
+                query += " AND (t.history LIKE ? OR t.counter_num = ?)";
+                params.push(`%-${cname}-%`, counterNumber || '');
+            }
+        } else {
+            // History Self: tickets served by current logged in teller (based on cname)
+            if (cname || counterNumber) {
+                query += " AND (t.history LIKE ? OR t.counter_user = ? OR t.counter_num = ?)";
+                params.push(`%-${cname}-%`, cname || '', counterNumber || '');
+            }
         }
 
-        query += ` ORDER BY t.start_time DESC LIMIT ?`;
+        query += " ORDER BY COALESCE(t.end_time, t.start_time, t.time) DESC LIMIT ?";
         params.push(queryLimit);
 
         db.all(query, params, (err, rows) => {

@@ -4,6 +4,7 @@ const rootpath = global.ROOT_PATH;
 const pageRouter = express.Router();
 const jwt = require("jsonwebtoken");
 const { loadConfig } = require(`${rootpath}/backend/utilities/envconfig`);
+const { JWT_SECRET } = require(`${rootpath}/backend/utilities/security`);
 function requireTellerAuth(req, res, next) {
   if (!req.session?.teller) return res.redirect("/312Xtellerlogin");
   next();

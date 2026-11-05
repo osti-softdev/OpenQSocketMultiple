@@ -33,11 +33,13 @@ function loadDashboard() {
 
 // & ===== LIVE DASHBOARD =====
 function loadLiveDashboard() {
-    // Show loading state if needed, or just silent update
     const now = new Date();
     $('#last-updated').text(now.toLocaleTimeString());
+    const $banner = $('#overview-loading-banner');
+    $banner.removeClass('loaded').addClass('is-loading');
+    $('#overview-loading-text').text('Synchronizing queue intelligence & analytics…');
 
-    $.get('/api/admin/dashboard/live', function(data) {
+    const livePromise = $.get('/api/admin/dashboard/live', function(data) {
         // 1. Stats Cards
         if (data.stats) {
             $('#live-total').text(data.stats.total_tickets || 0);
@@ -155,20 +157,30 @@ function loadLiveDashboard() {
         }
     });
 
-    $.get('/api/admin/analytics/insights', renderOperationalInsights);
+    const insightsPromise = $.get('/api/admin/analytics/insights', renderOperationalInsights);
 
-    $.get('/api/admin/analytics/live-flow', function (data) {
+    const flowPromise = $.get('/api/admin/analytics/live-flow', function (data) {
         createLiveTicketFlowChart(data.tickets || []);
         createLiveTellerFlowChart(data.tellers || []);
     });
 
     // 4. Historical Charts (Refresh less often? For now, refresh with dashboard)
-    $.get('/api/admin/analytics/overview', function(stats) {
+    const overviewPromise = $.get('/api/admin/analytics/overview', function(stats) {
         createServiceChart(stats.byService);
         createStatusChart(stats.byStatus);
     });
 
-    $.get('/api/admin/analytics/period-overview', renderPeriodOverview);
+    const periodPromise = $.get('/api/admin/analytics/period-overview', renderPeriodOverview);
+
+    $.when(livePromise, insightsPromise, flowPromise, overviewPromise, periodPromise).always(function (liveRes) {
+        const liveData = Array.isArray(liveRes) ? liveRes[0] : (liveRes || {});
+        const totalToday = Number(liveData?.stats?.total_tickets || 0);
+        const activeSvcCount = Array.isArray(liveData?.services) ? liveData.services.length : 0;
+        const summaryMsg = `Overview ready · ${totalToday.toLocaleString()} ticket${totalToday === 1 ? '' : 's'} & ${activeSvcCount} active service${activeSvcCount === 1 ? '' : 's'} loaded`;
+        $('#overview-loading-text').text(summaryMsg);
+        $('#overview-sync-status').text(`${totalToday.toLocaleString()} tickets today`);
+        $banner.removeClass('is-loading').addClass('loaded');
+    });
 }
 
 function renderPeriodOverview(data) {

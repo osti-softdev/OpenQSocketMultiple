@@ -1,12 +1,57 @@
 // Ticket History Module for Admin Panel
+function getTodayIsoDate() {
+    const now = new Date();
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+}
+
 const historyState = {
     page: 1,
     limit: 10,
     search: '',
+    dateFrom: '',
+    dateTo: '',
+    initializedDates: false,
     totalPages: 0
 };
 
+function ensureHistoryDefaultDates() {
+    if (!historyState.initializedDates) {
+        const today = getTodayIsoDate();
+        historyState.dateFrom = today;
+        historyState.dateTo = today;
+        historyState.initializedDates = true;
+        $('#history-date-from').val(today);
+        $('#history-date-to').val(today);
+    } else {
+        historyState.dateFrom = String($('#history-date-from').val() || '').trim();
+        historyState.dateTo = String($('#history-date-to').val() || '').trim();
+    }
+}
+
+$(document).on('change', '#history-date-from, #history-date-to', function () {
+    historyState.initializedDates = true;
+    historyState.dateFrom = String($('#history-date-from').val() || '').trim();
+    historyState.dateTo = String($('#history-date-to').val() || '').trim();
+    loadTicketHistory(historyState.search, 1);
+});
+
+$(document).on('click', '#history-today-btn', function () {
+    const today = getTodayIsoDate();
+    historyState.initializedDates = true;
+    $('#history-date-from').val(today);
+    $('#history-date-to').val(today);
+    loadTicketHistory(historyState.search, 1);
+});
+
+$(document).on('click', '#history-all-dates-btn', function () {
+    historyState.initializedDates = true;
+    $('#history-date-from').val('');
+    $('#history-date-to').val('');
+    loadTicketHistory(historyState.search, 1);
+});
+
 function loadTicketHistory(search = historyState.search, page = 1) {
+    ensureHistoryDefaultDates();
     historyState.search = String(search || '').trim();
     historyState.page = Math.max(Number(page) || 1, 1);
 
@@ -14,6 +59,8 @@ function loadTicketHistory(search = historyState.search, page = 1) {
 
     $.get('/api/admin/tickets/all', {
         search: historyState.search,
+        dateFrom: historyState.dateFrom,
+        dateTo: historyState.dateTo,
         page: historyState.page,
         limit: historyState.limit
     }, function (payload) {

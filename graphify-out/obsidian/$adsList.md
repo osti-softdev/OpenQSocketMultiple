@@ -1,0 +1,17 @@
+---
+source_file: "public/js/admin/adminads.js"
+type: "code"
+community: "Cluster 26"
+location: "L9"
+tags:
+  - graphify/code
+  - graphify/EXTRACTED
+  - community/Cluster_26
+---
+
+# $adsList
+
+## Connections
+- [[adminads.js]] - `contains` [EXTRACTED]
+
+#graphify/code #graphify/EXTRACTED #community/Cluster_26

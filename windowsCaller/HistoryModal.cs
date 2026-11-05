@@ -2,6 +2,8 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Threading;
 
 namespace CallerApp
 {
@@ -19,18 +21,73 @@ namespace CallerApp
             PopulateHistory(historyTickets);
         }
 
+        private static void EnableDoubleBuffering(Control ctrl)
+        {
+            if (ctrl == null) return;
+            try
+            {
+                PropertyInfo prop = typeof(Control).GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
+                if (prop != null) prop.SetValue(ctrl, true, null);
+            }
+            catch { }
+        }
+
+        private static void ClearPanelSafely(Panel pnl)
+        {
+            if (pnl == null) return;
+            pnl.SuspendLayout();
+            try
+            {
+                while (pnl.Controls.Count > 0)
+                {
+                    Control c = pnl.Controls[0];
+                    pnl.Controls.RemoveAt(0);
+                    c.Dispose();
+                }
+            }
+            finally
+            {
+                pnl.ResumeLayout();
+            }
+        }
+
+        public static Dictionary<string, string> BuildHistoryQueryParams()
+        {
+            var histParams = new Dictionary<string, string>();
+            if (ApiClient.CurrentTeller != null)
+            {
+                if (ApiClient.CurrentTeller.ContainsKey("id") && ApiClient.CurrentTeller["id"] != null)
+                    histParams.Add("teller_id", ApiClient.CurrentTeller["id"].ToString());
+                if (ApiClient.CurrentTeller.ContainsKey("counter_number") && ApiClient.CurrentTeller["counter_number"] != null)
+                    histParams.Add("counterNumber", ApiClient.CurrentTeller["counter_number"].ToString());
+                if (ApiClient.CurrentTeller.ContainsKey("username") && ApiClient.CurrentTeller["username"] != null)
+                    histParams.Add("cname", ApiClient.CurrentTeller["username"].ToString());
+                if (ApiClient.CurrentTeller.ContainsKey("group_id") && ApiClient.CurrentTeller["group_id"] != null)
+                    histParams.Add("group_id", ApiClient.CurrentTeller["group_id"].ToString());
+                if (ApiClient.CurrentTeller.ContainsKey("group_name") && ApiClient.CurrentTeller["group_name"] != null)
+                    histParams.Add("group_name", ApiClient.CurrentTeller["group_name"].ToString());
+            }
+
+            string scope = AppSettings.HistoryScope;
+            histParams.Add("mode", scope.ToLower());
+            histParams.Add("limit", "50");
+            return histParams;
+        }
+
         private void InitializeComponent()
         {
-            this.Text = "Ticket History";
+            string scopeText = AppSettings.HistoryScope;
+            this.Text = "Ticket History (" + scopeText + ")";
             this.TopMost = AppSettings.AlwaysOnTop;
-            this.Size = new Size(320, 450); // Default, updated in PopulateHistory
+            this.DoubleBuffered = true;
+            this.Size = new Size(320, 450);
             this.StartPosition = FormStartPosition.CenterParent;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.BackColor = Color.White;
 
-            Label lblTitle = new Label() { Text = "📜 Ticket History", Font = new Font("Segoe UI", 14, FontStyle.Bold), Location = new Point(10, 10), Size = new Size(200, 30), ForeColor = Color.FromArgb(40, 40, 40) };
+            Label lblTitle = new Label() { Text = "📜 History (" + scopeText + ")", Font = new Font("Segoe UI", 12, FontStyle.Bold), Location = new Point(10, 10), Size = new Size(205, 30), ForeColor = Color.FromArgb(40, 40, 40) };
             
             Button btnRefresh = new Button() { 
                 Text = "🔄 Refresh", 
@@ -44,12 +101,22 @@ namespace CallerApp
             };
             btnRefresh.FlatAppearance.BorderSize = 0;
             btnRefresh.Click += (s, e) => {
-                var histParams = new Dictionary<string, string> { { "counterNumber", ApiClient.CurrentTeller["counter_number"].ToString() }, { "cname", ApiClient.CurrentTeller["username"].ToString() } };
-                object[] newTickets = ApiClient.GetArray("/api/tickets/history", histParams);
-                PopulateHistory(newTickets);
+                btnRefresh.Enabled = false;
+                ThreadPool.QueueUserWorkItem(delegate {
+                    var histParams = BuildHistoryQueryParams();
+                    object[] newTickets = ApiClient.GetArray("/api/tickets/history", histParams);
+                    if (!this.IsDisposed && this.IsHandleCreated)
+                    {
+                        this.BeginInvoke(new Action(delegate {
+                            PopulateHistory(newTickets);
+                            btnRefresh.Enabled = true;
+                        }));
+                    }
+                });
             };
 
             pnlList = new FlowLayoutPanel() { Location = new Point(10, 50), Size = new Size(285, 350), AutoScroll = true, WrapContents = false, FlowDirection = FlowDirection.TopDown, BorderStyle = BorderStyle.FixedSingle };
+            EnableDoubleBuffering(pnlList);
 
             this.Controls.Add(lblTitle);
             this.Controls.Add(btnRefresh);
@@ -58,25 +125,33 @@ namespace CallerApp
 
         private void PopulateHistory(object[] tickets)
         {
-            pnlList.Controls.Clear();
-            if (tickets == null || tickets.Length == 0)
+            ClearPanelSafely(pnlList);
+            pnlList.SuspendLayout();
+            try
             {
-                pnlList.Controls.Add(new Label() { Text = "No history available.", AutoSize = true, Font = new Font("Segoe UI", 10), ForeColor = Color.Gray, Margin = new Padding(10) });
-                this.Size = new Size(320, 150);
-                pnlList.Size = new Size(285, 50);
-                return;
-            }
+                if (tickets == null || tickets.Length == 0)
+                {
+                    pnlList.Controls.Add(new Label() { Text = "No history available.", AutoSize = true, Font = new Font("Segoe UI", 10), ForeColor = Color.Gray, Margin = new Padding(10) });
+                    this.Size = new Size(320, 150);
+                    pnlList.Size = new Size(285, 50);
+                    return;
+                }
 
-            foreach (Dictionary<string, object> t in tickets)
-            {
-                Panel pItem = CreateQueueItem(t);
-                pnlList.Controls.Add(pItem);
+                foreach (Dictionary<string, object> t in tickets)
+                {
+                    Panel pItem = CreateQueueItem(t);
+                    pnlList.Controls.Add(pItem);
+                }
+                
+                int displayCount = Math.Min(tickets.Length, 5);
+                int listHeight = displayCount * 80 + 5;
+                pnlList.Size = new Size(285, listHeight);
+                this.Size = new Size(320, listHeight + 100);
             }
-            
-            int displayCount = Math.Min(tickets.Length, 5);
-            int listHeight = displayCount * 80 + 5;
-            pnlList.Size = new Size(285, listHeight);
-            this.Size = new Size(320, listHeight + 100);
+            finally
+            {
+                pnlList.ResumeLayout();
+            }
         }
 
         private Button CreateModernButton(string text, int x, int y, int w, int h, Color bg, Color fg)
@@ -99,20 +174,24 @@ namespace CallerApp
             Panel p = new Panel() { Width = 260, Height = 75, BorderStyle = BorderStyle.FixedSingle, Margin = new Padding(2), BackColor = Color.WhiteSmoke };
             
             string tNum = t.ContainsKey("ticketservice") ? string.Format("{0}{1}", t["ticketservice"], t["ticketnum"]) : t["ticketnum"].ToString();
-            string sName = t.ContainsKey("sname") ? t["sname"].ToString().Replace("_", " ") : "";
+            string sName = t.ContainsKey("shortSname") && t["shortSname"] != null && t["shortSname"].ToString().Length > 0 
+                ? t["shortSname"].ToString() 
+                : (t.ContainsKey("sname") ? t["sname"].ToString().Replace("_", " ") : "");
             string tStatus = t.ContainsKey("status") ? t["status"].ToString().ToUpper() : "";
 
-            string tTime = "";
-            if (t.ContainsKey("start_time") && t["start_time"] != null && t["start_time"].ToString().Length > 0) tTime = t["start_time"].ToString();
-            else if (t.ContainsKey("created_at") && t["created_at"] != null && t["created_at"].ToString().Length > 0)
+            string counterInfo = "";
+            if (t.ContainsKey("counter_num") && t["counter_num"] != null && t["counter_num"].ToString().Length > 0)
             {
-                DateTime dt;
-                if (DateTime.TryParse(t["created_at"].ToString(), out dt)) tTime = dt.ToString("HH:mm:ss");
-                else tTime = t["created_at"].ToString();
+                counterInfo = "C#" + t["counter_num"].ToString();
             }
+
+            string tTime = "";
+            if (t.ContainsKey("end_time") && t["end_time"] != null && t["end_time"].ToString().Length > 0) tTime = t["end_time"].ToString();
+            else if (t.ContainsKey("start_time") && t["start_time"] != null && t["start_time"].ToString().Length > 0) tTime = t["start_time"].ToString();
             else if (t.ContainsKey("time") && t["time"] != null && t["time"].ToString().Length > 0) tTime = t["time"].ToString();
 
             string details = sName;
+            if (!string.IsNullOrEmpty(counterInfo)) details += " (" + counterInfo + ")";
             if (!string.IsNullOrEmpty(tStatus)) details += string.IsNullOrEmpty(details) ? tStatus : (" | " + tStatus);
             if (!string.IsNullOrEmpty(tTime)) details += " ⌚ " + tTime;
 

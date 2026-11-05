@@ -18,3 +18,9 @@ reso/outfolder/app.pid
 outfolder/config/db.db
 .tmp-cdp-scroll
 /.tmp-cdp-scroll
+*.db-wal
+*.db-shm
+.vs/
+*.suo
+*.user
+*.vsidx

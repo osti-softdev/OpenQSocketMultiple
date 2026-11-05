@@ -1,0 +1,10 @@
+node_modules
+packages
+libs
+vendor
+backups
+.vs
+bin
+obj
+package-lock.json
+logs
