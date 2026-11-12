@@ -127,3 +127,16 @@
 ✔ 2026-11-05 4:29:03 PM [node:events:514] [ADS] Client disconnected: P2KoY0hlau0VHiHiAABC
 ✔ 2026-11-05 4:33:31 PM [node:events:514] [ADS] Client connected: K6NAI7OrEQ2ylwu8AABE
 ✔ 2026-11-05 4:33:32 PM [node:events:514] [ADS] Client disconnected: K6NAI7OrEQ2ylwu8AABE
+✔ 2026-11-12 3:04:46 PM [backend\utilities\logger.js:149] Logger initialized at: E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED\public\logs
+✔ 2026-11-12 3:04:47 PM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ◈ encrypted .env [www.dotenvx.com][0m
+✔ 2026-11-12 3:04:52 PM [node:events:639] Queue System running on http://localhost:12341
+✔ 2026-11-12 3:04:52 PM [unknown-location] Connected to SQLite database
+✔ 2026-11-12 3:04:52 PM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-11-12 3:04:52 PM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-11-12 3:04:52 PM [unknown-location] Found 549 transactions older than 365 days. Archiving...
+✔ 2026-11-12 3:04:52 PM [backend\utilities\db.js:363] Successfully archived 549 transactions to E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED\backend\backups\transactions_archive_2026-11-12T07-04-52-548Z.csv
+✔ 2026-11-12 3:04:52 PM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-11-12 3:04:52 PM [unknown-location] Deleted 549 old transactions from database.
+✔ 2026-11-12 3:05:01 PM [node:events:514] [ADS] Client connected: MBaiI0laEBbH-F-lAAAA
+✔ 2026-11-12 3:05:03 PM [node:events:514] [ADS] Client connected: 2U2XZLIRMexnOoHnAAAB
+✔ 2026-11-12 3:06:25 PM [backend\routes\AkioskApi.js:128] On-prem ticket requested locally, printing on Main Kiosk...
