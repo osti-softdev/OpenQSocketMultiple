@@ -112,7 +112,7 @@ namespace CallerApp
             this.tabHome.Padding = new System.Windows.Forms.Padding(3);
             this.tabHome.Size = new System.Drawing.Size(275, 107);
             this.tabHome.TabIndex = 0;
-            this.tabHome.Text = "🏠 Home";
+            this.tabHome.Text = "Home";
             // 
             // pnlServicesList
             // 
@@ -131,9 +131,9 @@ namespace CallerApp
             this.tabWait.Location = new System.Drawing.Point(4, 22);
             this.tabWait.Name = "tabWait";
             this.tabWait.Padding = new System.Windows.Forms.Padding(3);
-            this.tabWait.Size = new System.Drawing.Size(276, 107);
+            this.tabWait.Size = new System.Drawing.Size(209, 107);
             this.tabWait.TabIndex = 1;
-            this.tabWait.Text = "🕒 Wait";
+            this.tabWait.Text = "Wait";
             // 
             // pnlWaitingList
             // 
@@ -142,7 +142,7 @@ namespace CallerApp
             this.pnlWaitingList.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.pnlWaitingList.Location = new System.Drawing.Point(3, 3);
             this.pnlWaitingList.Name = "pnlWaitingList";
-            this.pnlWaitingList.Size = new System.Drawing.Size(270, 101);
+            this.pnlWaitingList.Size = new System.Drawing.Size(203, 101);
             this.pnlWaitingList.TabIndex = 0;
             this.pnlWaitingList.WrapContents = false;
             // 
@@ -153,9 +153,9 @@ namespace CallerApp
             this.tabHeld.Location = new System.Drawing.Point(4, 22);
             this.tabHeld.Name = "tabHeld";
             this.tabHeld.Padding = new System.Windows.Forms.Padding(3);
-            this.tabHeld.Size = new System.Drawing.Size(276, 107);
+            this.tabHeld.Size = new System.Drawing.Size(209, 107);
             this.tabHeld.TabIndex = 2;
-            this.tabHeld.Text = "⏸ Held";
+            this.tabHeld.Text = "Held";
             // 
             // pnlHeldList
             // 
@@ -164,7 +164,7 @@ namespace CallerApp
             this.pnlHeldList.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.pnlHeldList.Location = new System.Drawing.Point(3, 3);
             this.pnlHeldList.Name = "pnlHeldList";
-            this.pnlHeldList.Size = new System.Drawing.Size(270, 101);
+            this.pnlHeldList.Size = new System.Drawing.Size(203, 101);
             this.pnlHeldList.TabIndex = 0;
             this.pnlHeldList.WrapContents = false;
             // 
@@ -175,9 +175,9 @@ namespace CallerApp
             this.tabRecv.Location = new System.Drawing.Point(4, 22);
             this.tabRecv.Name = "tabRecv";
             this.tabRecv.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRecv.Size = new System.Drawing.Size(276, 107);
+            this.tabRecv.Size = new System.Drawing.Size(209, 107);
             this.tabRecv.TabIndex = 3;
-            this.tabRecv.Text = "📩 Recv";
+            this.tabRecv.Text = "Recv";
             // 
             // pnlForwardedList
             // 
@@ -186,7 +186,7 @@ namespace CallerApp
             this.pnlForwardedList.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.pnlForwardedList.Location = new System.Drawing.Point(3, 3);
             this.pnlForwardedList.Name = "pnlForwardedList";
-            this.pnlForwardedList.Size = new System.Drawing.Size(270, 101);
+            this.pnlForwardedList.Size = new System.Drawing.Size(203, 101);
             this.pnlForwardedList.TabIndex = 0;
             this.pnlForwardedList.WrapContents = false;
             // 

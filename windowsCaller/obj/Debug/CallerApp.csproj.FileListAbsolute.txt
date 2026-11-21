@@ -102,3 +102,5 @@ E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED\windowsCaller\obj\Debug\CallerApp.exe
 E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED\windowsCaller\obj\Debug\CallerApp.pdb
 E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED\windowsCaller\bin\Debug\System.ValueTuple.dll
 E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED\windowsCaller\bin\Debug\System.ValueTuple.xml
+C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\System.ValueTuple.dll
+C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\System.ValueTuple.xml

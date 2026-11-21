@@ -1,6 +1,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Microsoft.Win32;
 
 namespace CallerApp
 {
@@ -17,6 +18,16 @@ namespace CallerApp
         private RadioButton rdoHistorySelf;
         private RadioButton rdoHistoryGroup;
         private RadioButton rdoHistoryAll;
+
+        private GroupBox grpServiceMode;
+        private RadioButton rdoServiceSingle;
+        private RadioButton rdoServiceMultiple;
+
+        private GroupBox grpLayoutStyle;
+        private RadioButton rdoLayoutDefault;
+        private RadioButton rdoLayoutGrid;
+        private RadioButton rdoLayoutCollapsible;
+        private RadioButton rdoLayoutDynamic;
 
         private Button btnLogout;
         private Button btnSave;
@@ -38,7 +49,27 @@ namespace CallerApp
             this.MinimizeBox = false;
             this.BackColor = Color.White;
 
-            Label lblTitle = new Label() { Text = "⚙ Settings", Font = new Font("Segoe UI", 14, FontStyle.Bold), Location = new Point(20, 12), Size = new Size(200, 28), ForeColor = Color.FromArgb(40, 40, 40) };
+            Label lblTitle = new Label() { Text = "⚙ Settings", Font = new Font("Segoe UI", 14, FontStyle.Bold), Location = new Point(20, 12), Size = new Size(115, 28), ForeColor = Color.FromArgb(40, 40, 40) };
+
+            Label lblPcNet = new Label()
+            {
+                Text = string.Format("PC .NET: v{0}", GetInstalledDotNetVersion()),
+                Font = new Font("Segoe UI", 7.5f, FontStyle.Bold),
+                Location = new Point(135, 11),
+                Size = new Size(145, 14),
+                TextAlign = ContentAlignment.MiddleRight,
+                ForeColor = Color.FromArgb(41, 128, 185)
+            };
+
+            Label lblReqNet = new Label()
+            {
+                Text = "Req: .NET 4.8 or higher",
+                Font = new Font("Segoe UI", 7.25f, FontStyle.Regular),
+                Location = new Point(135, 25),
+                Size = new Size(145, 14),
+                TextAlign = ContentAlignment.MiddleRight,
+                ForeColor = Color.DimGray
+            };
 
             Label lblUrl = new Label() { Text = "Connection URL:", Location = new Point(20, 48), Size = new Size(200, 18), Font = new Font("Segoe UI", 8.5f, FontStyle.Bold), ForeColor = Color.Gray };
             txtBaseUrl = new TextBox() { Location = new Point(20, 68), Size = new Size(260, 24), Font = new Font("Segoe UI", 9.5f), BorderStyle = BorderStyle.FixedSingle };
@@ -109,9 +140,100 @@ namespace CallerApp
             chkShowReceived.Visible = isLoggedIn;
             grpHistory.Visible = isLoggedIn;
 
+            int nextY = isLoggedIn ? 326 : 224;
+
+            // Service Mode group box
+            grpServiceMode = new GroupBox()
+            {
+                Text = "Service Mode",
+                Location = new Point(20, nextY),
+                Size = new Size(260, 68),
+                Font = new Font("Segoe UI", 8.5f, FontStyle.Bold),
+                ForeColor = Color.FromArgb(60, 60, 60)
+            };
+
+            rdoServiceSingle = new RadioButton()
+            {
+                Text = "Single Service (Compact 1-Row Height)",
+                Location = new Point(12, 18),
+                Size = new Size(240, 20),
+                Font = new Font("Segoe UI", 8.5f, FontStyle.Regular),
+                Cursor = Cursors.Hand
+            };
+            rdoServiceMultiple = new RadioButton()
+            {
+                Text = "Multiple Service (Standard Height)",
+                Location = new Point(12, 42),
+                Size = new Size(240, 20),
+                Font = new Font("Segoe UI", 8.5f, FontStyle.Regular),
+                Cursor = Cursors.Hand
+            };
+
+            if (AppSettings.ServiceMode == "Single") rdoServiceSingle.Checked = true;
+            else rdoServiceMultiple.Checked = true;
+
+            grpServiceMode.Controls.Add(rdoServiceSingle);
+            grpServiceMode.Controls.Add(rdoServiceMultiple);
+            nextY += 74;
+
+            // Layout Style group box
+            grpLayoutStyle = new GroupBox()
+            {
+                Text = "Window Layout Style",
+                Location = new Point(20, nextY),
+                Size = new Size(260, 116),
+                Font = new Font("Segoe UI", 8.5f, FontStyle.Bold),
+                ForeColor = Color.FromArgb(60, 60, 60)
+            };
+
+            rdoLayoutDefault = new RadioButton()
+            {
+                Text = "Default (Standard Row Layout)",
+                Location = new Point(12, 18),
+                Size = new Size(240, 20),
+                Font = new Font("Segoe UI", 8.5f, FontStyle.Regular),
+                Cursor = Cursors.Hand
+            };
+            rdoLayoutGrid = new RadioButton()
+            {
+                Text = "Compact Grid (2x2 Tabs & 3x2 Buttons)",
+                Location = new Point(12, 42),
+                Size = new Size(240, 20),
+                Font = new Font("Segoe UI", 8.5f, FontStyle.Regular),
+                Cursor = Cursors.Hand
+            };
+            rdoLayoutCollapsible = new RadioButton()
+            {
+                Text = "Collapsible (Grid + Show/Hide Queue)",
+                Location = new Point(12, 66),
+                Size = new Size(240, 20),
+                Font = new Font("Segoe UI", 8.5f, FontStyle.Regular),
+                Cursor = Cursors.Hand
+            };
+            rdoLayoutDynamic = new RadioButton()
+            {
+                Text = "Dynamic (Resizable & Auto-Arrange)",
+                Location = new Point(12, 90),
+                Size = new Size(240, 20),
+                Font = new Font("Segoe UI", 8.5f, FontStyle.Regular),
+                Cursor = Cursors.Hand
+            };
+
+            string layoutStyle = AppSettings.LayoutStyle;
+            if (layoutStyle == "Grid") rdoLayoutGrid.Checked = true;
+            else if (layoutStyle == "Collapsible") rdoLayoutCollapsible.Checked = true;
+            else if (layoutStyle == "Dynamic") rdoLayoutDynamic.Checked = true;
+            else rdoLayoutDefault.Checked = true;
+
+            grpLayoutStyle.Controls.Add(rdoLayoutDefault);
+            grpLayoutStyle.Controls.Add(rdoLayoutGrid);
+            grpLayoutStyle.Controls.Add(rdoLayoutCollapsible);
+            grpLayoutStyle.Controls.Add(rdoLayoutDynamic);
+            nextY += 124;
+
             btnLogout = new Button() { 
                 Text = "🚪 Logout", 
-                Location = new Point(20, 330), 
+                Location = new Point(20, nextY), 
                 Size = new Size(260, 32), 
                 BackColor = Color.Crimson, 
                 ForeColor = Color.White,
@@ -128,10 +250,11 @@ namespace CallerApp
                     Application.Restart();
                 }
             };
+            if (isLoggedIn) nextY += 40;
 
             btnSave = new Button() { 
                 Text = "✅ Save Changes", 
-                Location = new Point(20, 372), 
+                Location = new Point(20, nextY), 
                 Size = new Size(125, 34), 
                 BackColor = Color.FromArgb(46, 204, 113), 
                 ForeColor = Color.White,
@@ -144,7 +267,7 @@ namespace CallerApp
             
             btnCancel = new Button() { 
                 Text = "Cancel", 
-                Location = new Point(155, 372), 
+                Location = new Point(155, nextY), 
                 Size = new Size(125, 34), 
                 BackColor = Color.WhiteSmoke, 
                 ForeColor = Color.DimGray,
@@ -155,7 +278,11 @@ namespace CallerApp
             btnCancel.FlatAppearance.BorderSize = 0;
             btnCancel.Click += (s, e) => { this.DialogResult = DialogResult.Cancel; this.Close(); };
 
+            this.ClientSize = new Size(300, nextY + 46);
+
             this.Controls.Add(lblTitle);
+            this.Controls.Add(lblPcNet);
+            this.Controls.Add(lblReqNet);
             this.Controls.Add(lblUrl);
             this.Controls.Add(txtBaseUrl);
             this.Controls.Add(chkAutoFinish);
@@ -164,6 +291,8 @@ namespace CallerApp
             this.Controls.Add(chkAlwaysOnTop);
             this.Controls.Add(chkSoundAlerts);
             this.Controls.Add(grpHistory);
+            this.Controls.Add(grpServiceMode);
+            this.Controls.Add(grpLayoutStyle);
             this.Controls.Add(btnLogout);
             this.Controls.Add(btnSave);
             this.Controls.Add(btnCancel);
@@ -189,10 +318,54 @@ namespace CallerApp
             else if (rdoHistoryGroup.Checked) AppSettings.HistoryScope = "Group";
             else AppSettings.HistoryScope = "Self";
 
+            AppSettings.ServiceMode = rdoServiceSingle.Checked ? "Single" : "Multiple";
+
+            if (rdoLayoutGrid.Checked) AppSettings.LayoutStyle = "Grid";
+            else if (rdoLayoutCollapsible.Checked) AppSettings.LayoutStyle = "Collapsible";
+            else if (rdoLayoutDynamic.Checked) AppSettings.LayoutStyle = "Dynamic";
+            else AppSettings.LayoutStyle = "Default";
+
+            // Reset cached dynamic dimensions so switching service/layout modes snaps to the new mode's preset size
+            AppSettings.DynamicWidth = 0;
+            AppSettings.DynamicHeight = 0;
+
             AppSettings.Save();
 
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private static string GetInstalledDotNetVersion()
+        {
+            try
+            {
+                using (RegistryKey ndpKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full"))
+                {
+                    if (ndpKey != null)
+                    {
+                        object releaseObj = ndpKey.GetValue("Release");
+                        if (releaseObj != null)
+                        {
+                            int release = Convert.ToInt32(releaseObj);
+                            if (release >= 533320) return "4.8.1";
+                            if (release >= 528040) return "4.8";
+                            if (release >= 461808) return "4.7.2";
+                            if (release >= 461308) return "4.7.1";
+                            if (release >= 460798) return "4.7";
+                            if (release >= 394802) return "4.6.2";
+                            if (release >= 394254) return "4.6.1";
+                            if (release >= 393295) return "4.6";
+                            if (release >= 379893) return "4.5.2";
+                            if (release >= 378675) return "4.5.1";
+                            if (release >= 378389) return "4.5";
+                        }
+                        object verObj = ndpKey.GetValue("Version");
+                        if (verObj != null && verObj.ToString().StartsWith("4.0")) return "4.0";
+                    }
+                }
+            }
+            catch { }
+            return string.Format("{0}.{1}", Environment.Version.Major, Environment.Version.Minor);
         }
     }
 }

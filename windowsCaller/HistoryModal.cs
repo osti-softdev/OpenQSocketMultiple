@@ -54,24 +54,136 @@ namespace CallerApp
         public static Dictionary<string, string> BuildHistoryQueryParams()
         {
             var histParams = new Dictionary<string, string>();
+            string scope = AppSettings.HistoryScope;
+            string mode = scope.ToLower();
+
             if (ApiClient.CurrentTeller != null)
             {
-                if (ApiClient.CurrentTeller.ContainsKey("id") && ApiClient.CurrentTeller["id"] != null)
-                    histParams.Add("teller_id", ApiClient.CurrentTeller["id"].ToString());
-                if (ApiClient.CurrentTeller.ContainsKey("counter_number") && ApiClient.CurrentTeller["counter_number"] != null)
-                    histParams.Add("counterNumber", ApiClient.CurrentTeller["counter_number"].ToString());
-                if (ApiClient.CurrentTeller.ContainsKey("username") && ApiClient.CurrentTeller["username"] != null)
+                bool hasCname = ApiClient.CurrentTeller.ContainsKey("username") && ApiClient.CurrentTeller["username"] != null && !string.IsNullOrEmpty(ApiClient.CurrentTeller["username"].ToString());
+                if (hasCname)
+                {
                     histParams.Add("cname", ApiClient.CurrentTeller["username"].ToString());
+                }
+                else
+                {
+                    if (ApiClient.CurrentTeller.ContainsKey("id") && ApiClient.CurrentTeller["id"] != null)
+                        histParams.Add("teller_id", ApiClient.CurrentTeller["id"].ToString());
+                    if (mode == "self" && ApiClient.CurrentTeller.ContainsKey("counter_number") && ApiClient.CurrentTeller["counter_number"] != null)
+                        histParams.Add("counterNumber", ApiClient.CurrentTeller["counter_number"].ToString());
+                }
+
                 if (ApiClient.CurrentTeller.ContainsKey("group_id") && ApiClient.CurrentTeller["group_id"] != null)
                     histParams.Add("group_id", ApiClient.CurrentTeller["group_id"].ToString());
                 if (ApiClient.CurrentTeller.ContainsKey("group_name") && ApiClient.CurrentTeller["group_name"] != null)
                     histParams.Add("group_name", ApiClient.CurrentTeller["group_name"].ToString());
+                if (ApiClient.CurrentTeller.ContainsKey("services") && ApiClient.CurrentTeller["services"] != null)
+                    histParams.Add("services", ApiClient.CurrentTeller["services"].ToString());
             }
 
-            string scope = AppSettings.HistoryScope;
-            histParams.Add("mode", scope.ToLower());
-            histParams.Add("limit", "50");
+            histParams.Add("mode", mode);
+            histParams.Add("limit", "100");
             return histParams;
+        }
+
+        private static object[] FilterTicketsByScope(object[] tickets)
+        {
+            if (tickets == null || tickets.Length == 0) return new object[0];
+            if (ApiClient.CurrentTeller == null) return tickets;
+
+            string scope = AppSettings.HistoryScope;
+            string myId = ApiClient.CurrentTeller.ContainsKey("id") && ApiClient.CurrentTeller["id"] != null ? ApiClient.CurrentTeller["id"].ToString().Trim() : "";
+            string myCname = ApiClient.CurrentTeller.ContainsKey("username") && ApiClient.CurrentTeller["username"] != null ? ApiClient.CurrentTeller["username"].ToString().Trim() : "";
+            string myCnum = ApiClient.CurrentTeller.ContainsKey("counter_number") && ApiClient.CurrentTeller["counter_number"] != null ? ApiClient.CurrentTeller["counter_number"].ToString().Trim() : "";
+            string myGroupId = ApiClient.CurrentTeller.ContainsKey("group_id") && ApiClient.CurrentTeller["group_id"] != null ? ApiClient.CurrentTeller["group_id"].ToString().Trim() : "";
+            string myGroupName = ApiClient.CurrentTeller.ContainsKey("group_name") && ApiClient.CurrentTeller["group_name"] != null ? ApiClient.CurrentTeller["group_name"].ToString().Trim() : "";
+            string rawServices = ApiClient.CurrentTeller.ContainsKey("services") && ApiClient.CurrentTeller["services"] != null ? ApiClient.CurrentTeller["services"].ToString() : "";
+
+            List<string> myServices = new List<string>();
+            foreach (string s in rawServices.Split(','))
+            {
+                string trimmed = s.Trim();
+                if (!string.IsNullOrEmpty(trimmed)) myServices.Add(trimmed);
+            }
+
+            string selfHistoryTag = (!string.IsNullOrEmpty(myCname) && !string.IsNullOrEmpty(myCnum))
+                ? string.Format("-{0}-{1}-", myCname, myCnum)
+                : "";
+
+            List<object> filtered = new List<object>();
+            foreach (object obj in tickets)
+            {
+                Dictionary<string, object> t = obj as Dictionary<string, object>;
+                if (t == null) continue;
+
+                string status = t.ContainsKey("status") && t["status"] != null ? t["status"].ToString().Trim().ToLower() : "";
+                if (status == "pending" || string.IsNullOrEmpty(status)) continue;
+
+                if (scope == "All")
+                {
+                    filtered.Add(t);
+                    continue;
+                }
+
+                string tTellerId = t.ContainsKey("teller_id") && t["teller_id"] != null ? t["teller_id"].ToString().Trim() : "";
+                string tGroup = t.ContainsKey("counter_group") && t["counter_group"] != null ? t["counter_group"].ToString().Trim() : "";
+                string tSname = t.ContainsKey("sname") && t["sname"] != null ? t["sname"].ToString().Trim() : "";
+                string tHistory = t.ContainsKey("history") && t["history"] != null ? t["history"].ToString() : "";
+
+                bool serviceMatches = false;
+                foreach (string srv in myServices)
+                {
+                    if (srv.Equals(tSname, StringComparison.InvariantCultureIgnoreCase) ||
+                        srv.Replace("_", " ").Equals(tSname.Replace("_", " "), StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        serviceMatches = true;
+                        break;
+                    }
+                }
+
+                if (scope == "Group")
+                {
+                    bool groupMatches = false;
+                    if (!string.IsNullOrEmpty(myGroupName) && !string.IsNullOrEmpty(tGroup) &&
+                        (myGroupName.Equals(tGroup, StringComparison.InvariantCultureIgnoreCase) ||
+                         myGroupName.Replace("_", " ").Equals(tGroup.Replace("_", " "), StringComparison.InvariantCultureIgnoreCase)))
+                    {
+                        groupMatches = true;
+                    }
+                    else if (!string.IsNullOrEmpty(myGroupId) && !string.IsNullOrEmpty(tGroup) && myGroupId == tGroup)
+                    {
+                        groupMatches = true;
+                    }
+                    else if (serviceMatches)
+                    {
+                        groupMatches = true;
+                    }
+
+                    if (groupMatches) filtered.Add(t);
+                }
+                else
+                {
+                    // Self: all tickets served today by this teller person (cname) across all of their accounts, or matching teller_id
+                    string tUser = t.ContainsKey("counter_user") && t["counter_user"] != null ? t["counter_user"].ToString().Trim() : "";
+                    string cnameTag = !string.IsNullOrEmpty(myCname) ? string.Format("-{0}-", myCname) : "";
+                    bool selfMatches = false;
+                    if (!string.IsNullOrEmpty(myId) && tTellerId == myId)
+                    {
+                        selfMatches = true;
+                    }
+                    else if (!string.IsNullOrEmpty(myCname) && tUser.Equals(myCname, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        selfMatches = true;
+                    }
+                    else if (!string.IsNullOrEmpty(cnameTag) && tHistory.IndexOf(cnameTag, StringComparison.InvariantCultureIgnoreCase) >= 0)
+                    {
+                        selfMatches = true;
+                    }
+
+                    if (selfMatches) filtered.Add(t);
+                }
+            }
+
+            return filtered.ToArray();
         }
 
         private void InitializeComponent()
@@ -123,8 +235,9 @@ namespace CallerApp
             this.Controls.Add(pnlList);
         }
 
-        private void PopulateHistory(object[] tickets)
+        private void PopulateHistory(object[] rawTickets)
         {
+            object[] tickets = FilterTicketsByScope(rawTickets);
             ClearPanelSafely(pnlList);
             pnlList.SuspendLayout();
             try
@@ -183,6 +296,11 @@ namespace CallerApp
             if (t.ContainsKey("counter_num") && t["counter_num"] != null && t["counter_num"].ToString().Length > 0)
             {
                 counterInfo = "C#" + t["counter_num"].ToString();
+            }
+            if (t.ContainsKey("counter_user") && t["counter_user"] != null && t["counter_user"].ToString().Length > 0)
+            {
+                string cUser = t["counter_user"].ToString();
+                counterInfo = string.IsNullOrEmpty(counterInfo) ? cUser : (counterInfo + " " + cUser);
             }
 
             string tTime = "";

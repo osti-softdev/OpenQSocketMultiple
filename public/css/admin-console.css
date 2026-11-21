@@ -369,7 +369,8 @@ textarea:focus-visible {
   width: 17px !important;
   height: 17px !important;
   display: block !important;
-  object-fit: contain !important;
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
   opacity: 0.78 !important;
   filter: invert(74%) sepia(16%) saturate(427%) hue-rotate(180deg) brightness(91%) contrast(88%) !important;
   transition: opacity 0.18s ease, filter 0.18s ease, transform 0.18s ease !important;
@@ -890,7 +891,8 @@ button.btn {
   grid-template-columns: 35px 1fr !important;
   grid-template-rows: auto auto !important;
   align-items: center !important;
-  column-gap: 11px !important;
+  -moz-column-gap: 11px !important;
+       column-gap: 11px !important;
   border: 1px solid var(--console-border) !important;
   border-radius: 15px !important;
   background: var(--console-surface) !important;
@@ -1279,7 +1281,8 @@ button.btn {
   pointer-events: none !important;
   background-image: linear-gradient(var(--console-border) 1px, transparent 1px), linear-gradient(90deg, var(--console-border) 1px, transparent 1px) !important;
   background-size: 42px 42px !important;
-  mask-image: linear-gradient(to bottom, transparent, #000 35%, transparent) !important;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 35%, transparent) !important;
+          mask-image: linear-gradient(to bottom, transparent, #000 35%, transparent) !important;
 }
 
 .market-card-heading {
@@ -1720,6 +1723,10 @@ textarea {
   color: var(--console-heading) !important;
   font-size: 10px !important;
   box-shadow: none !important;
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: var(--console-faint) !important;
 }
 
 input::placeholder,
@@ -2843,7 +2850,9 @@ html[data-theme=dark] .settingfonts {
 }
 
 .content .tab-content#settings-tab #announcement-settab .switch-control input[type=checkbox] {
-  appearance: none !important;
+  -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+          appearance: none !important;
   width: 30px !important;
   height: 17px !important;
   margin: 0 !important;
@@ -3161,7 +3170,8 @@ html[data-theme=dark] .settingfonts {
   max-width: 100% !important;
   max-height: 100% !important;
   display: block !important;
-  object-fit: contain !important;
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
   background: #050a12 !important;
 }
 
@@ -3258,7 +3268,9 @@ html[data-theme=dark] .settingfonts {
 }
 
 .audio-enable-control input {
-  appearance: none !important;
+  -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+          appearance: none !important;
   width: 36px !important;
   height: 20px !important;
   flex: 0 0 36px !important;
@@ -3441,7 +3453,9 @@ html[data-theme=dark] .settingfonts {
 }
 
 .content #displayaudio-settab .audio-range-control input[type=range] {
-  appearance: none !important;
+  -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+          appearance: none !important;
   width: 100% !important;
   height: 5px !important;
   min-height: 5px !important;
@@ -3456,7 +3470,8 @@ html[data-theme=dark] .settingfonts {
 }
 
 .content #displayaudio-settab .audio-range-control input[type=range]::-webkit-slider-thumb {
-  appearance: none !important;
+  -webkit-appearance: none !important;
+          appearance: none !important;
   width: 15px !important;
   height: 15px !important;
   border: 3px solid var(--console-surface-raised) !important;
@@ -3517,7 +3532,9 @@ html[data-theme=dark] .settingfonts {
 }
 
 .display-voice-option input[type=radio] {
-  appearance: none !important;
+  -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+          appearance: none !important;
   width: 16px !important;
   height: 16px !important;
   margin: 0 !important;
@@ -4129,7 +4146,8 @@ html.compact-sidebar .logout-btn span {
     width: 15px !important;
     height: 15px !important;
     display: block !important;
-    object-fit: contain !important;
+    -o-object-fit: contain !important;
+       object-fit: contain !important;
     opacity: 0.76 !important;
     transition: opacity 0.18s ease, filter 0.18s ease !important;
   }
@@ -5855,7 +5873,8 @@ html.compact-sidebar .logout-btn span {
   width: 100% !important;
   height: 100% !important;
   max-height: 440px !important;
-  object-fit: contain !important;
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
 }
 
 /* ============================================================
@@ -6109,4 +6128,4 @@ html.compact-sidebar .logout-btn span {
   width: 100% !important;
   height: 100% !important;
   display: block !important;
-}
+}/*# sourceMappingURL=admin-console.css.map */

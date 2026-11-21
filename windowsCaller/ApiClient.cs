@@ -18,6 +18,45 @@ namespace CallerApp
         private static string _savedUsername = "";
         private static string _savedPassword = "";
         private static string _historyScope = "Self"; // "Self", "Group", "All"
+        private static string _serviceMode = "Multiple"; // "Single", "Multiple"
+        private static string _layoutStyle = "Default"; // "Default", "Grid", "Collapsible", "Dynamic"
+        private static int _dynamicWidth = 0;
+        private static int _dynamicHeight = 0;
+
+        public static string ServiceMode
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_serviceMode)) return "Multiple";
+                return _serviceMode;
+            }
+            set
+            {
+                if (value == "Single" || value == "Multiple")
+                    _serviceMode = value;
+                else
+                    _serviceMode = "Multiple";
+            }
+        }
+
+        public static string LayoutStyle
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_layoutStyle)) return "Default";
+                return _layoutStyle;
+            }
+            set
+            {
+                if (value == "Default" || value == "Grid" || value == "Collapsible" || value == "Dynamic")
+                    _layoutStyle = value;
+                else
+                    _layoutStyle = "Default";
+            }
+        }
+
+        public static int DynamicWidth { get { return _dynamicWidth; } set { _dynamicWidth = value; } }
+        public static int DynamicHeight { get { return _dynamicHeight; } set { _dynamicHeight = value; } }
 
         public static string HistoryScope
         {
@@ -69,6 +108,10 @@ namespace CallerApp
                     if (data.ContainsKey("SavedUsername")) _savedUsername = data["SavedUsername"].ToString();
                     if (data.ContainsKey("SavedPassword")) _savedPassword = data["SavedPassword"].ToString();
                     if (data.ContainsKey("HistoryScope")) _historyScope = data["HistoryScope"].ToString();
+                    if (data.ContainsKey("ServiceMode") && data["ServiceMode"] != null) ServiceMode = data["ServiceMode"].ToString();
+                    if (data.ContainsKey("LayoutStyle") && data["LayoutStyle"] != null) LayoutStyle = data["LayoutStyle"].ToString();
+                    if (data.ContainsKey("DynamicWidth") && data["DynamicWidth"] != null) _dynamicWidth = Convert.ToInt32(data["DynamicWidth"]);
+                    if (data.ContainsKey("DynamicHeight") && data["DynamicHeight"] != null) _dynamicHeight = Convert.ToInt32(data["DynamicHeight"]);
                 }
             } catch {}
         }
@@ -85,7 +128,11 @@ namespace CallerApp
                     { "EnableSoundAlerts", _enableSoundAlerts },
                     { "SavedUsername", _savedUsername },
                     { "SavedPassword", _savedPassword },
-                    { "HistoryScope", _historyScope }
+                    { "HistoryScope", _historyScope },
+                    { "ServiceMode", ServiceMode },
+                    { "LayoutStyle", LayoutStyle },
+                    { "DynamicWidth", _dynamicWidth },
+                    { "DynamicHeight", _dynamicHeight }
                 };
                 string json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(data);
                 File.WriteAllText(GetConfigPath(), json);

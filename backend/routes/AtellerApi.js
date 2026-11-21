@@ -861,42 +861,88 @@ module.exports = function createTellerApiRouter(io) {
     // & Ticket History
     // =========================
     router.get('/tickets/history', (req, res) => {
-        const { counterNumber, cname, teller_id, limit, mode, group_id, group_name } = req.query;
-        const queryLimit = Number(limit) || 50;
+        const sessionTeller = req.session?.teller;
+        const tellerId = req.query.teller_id || sessionTeller?.id || '';
+        const counterNumber = req.query.counterNumber || sessionTeller?.counter_number || '';
+        const cname = req.query.cname || sessionTeller?.username || '';
+        const groupId = req.query.group_id || sessionTeller?.group_id || '';
+        const groupName = req.query.group_name || sessionTeller?.group_name || '';
+        const rawServices = req.query.services || sessionTeller?.services || '';
+        const queryLimit = Number(req.query.limit) || 100;
         const { date } = getPHDateTime();
+
+        const assignedServices = String(rawServices || '')
+            .split(',')
+            .map(s => s.trim().toUpperCase())
+            .filter(Boolean);
 
         let query = "SELECT t.*, s.shortSname FROM transactions t LEFT JOIN services s ON t.sname = s.sname WHERE t.date = ? AND t.status != 'pending'";
 
         let params = [date];
-        const historyMode = (mode || 'self').toLowerCase();
+        const historyMode = String(req.query.mode || 'self').toLowerCase();
 
         if (historyMode === 'all') {
-            // History All: whole tickets served today of all tellers regardless of group and services served (status != 'pending')
+            // History All: all served/non-pending tickets today across all tellers, counter groups, and services
         } else if (historyMode === 'group') {
-            // History Group: all other history of served tickets by other counters which has same group_name or group_id
-            if (group_id || group_name) {
-                query += " AND (t.counter_group = ? OR t.counter_group = ? OR t.teller_id IN (SELECT id FROM counters WHERE group_id = ? OR group_name = ?))";
-                params.push(group_name || '', group_id ? String(group_id) : '', group_id || 0, group_name || '');
-            } else if (cname || counterNumber) {
-                query += " AND (t.history LIKE ? OR t.counter_num = ?)";
-                params.push(`%-${cname}-%`, counterNumber || '');
+            // History Group: tickets served today in the same counter group or assigned services of this teller (including across all accounts of this teller cname)
+            const groupConds = [];
+            if (groupName) {
+                groupConds.push("UPPER(TRIM(t.counter_group)) = UPPER(TRIM(?))");
+                params.push(String(groupName));
+                groupConds.push("t.teller_id IN (SELECT id FROM counters WHERE UPPER(TRIM(group_name)) = UPPER(TRIM(?)))");
+                params.push(String(groupName));
+            }
+            if (groupId) {
+                groupConds.push("TRIM(t.counter_group) = TRIM(?)");
+                params.push(String(groupId));
+                groupConds.push("t.teller_id IN (SELECT id FROM counters WHERE group_id = ?)");
+                params.push(Number(groupId));
+            }
+            if (cname) {
+                groupConds.push("UPPER(TRIM(t.counter_group)) IN (SELECT DISTINCT UPPER(TRIM(group_name)) FROM counters WHERE UPPER(TRIM(cname)) = UPPER(TRIM(?)) AND group_name IS NOT NULL)");
+                params.push(String(cname));
+                groupConds.push("t.teller_id IN (SELECT c2.id FROM counters c1 JOIN counters c2 ON (c1.group_id = c2.group_id OR UPPER(TRIM(c1.group_name)) = UPPER(TRIM(c2.group_name))) WHERE UPPER(TRIM(c1.cname)) = UPPER(TRIM(?)))");
+                params.push(String(cname));
+            }
+            if (assignedServices.length > 0) {
+                const placeholders = assignedServices.map(() => '?').join(',');
+                groupConds.push(`UPPER(TRIM(t.sname)) IN (${placeholders})`);
+                params.push(...assignedServices);
+            }
+            if (groupConds.length > 0) {
+                query += ` AND (${groupConds.join(' OR ')})`;
             }
         } else {
-            // History Self: tickets served by current logged in teller (based on cname)
-            if (cname || counterNumber) {
-                query += " AND (t.history LIKE ? OR t.counter_user = ? OR t.counter_num = ?)";
-                params.push(`%-${cname}-%`, cname || '', counterNumber || '');
+            // History Self: all tickets served today by this teller person (cname) across all 3+ of their accounts, or by this teller_id
+            const selfConds = [];
+            if (tellerId) {
+                selfConds.push("t.teller_id = ?");
+                params.push(Number(tellerId));
+            }
+            if (cname) {
+                selfConds.push("UPPER(TRIM(t.counter_user)) = UPPER(TRIM(?))");
+                params.push(String(cname));
+                selfConds.push("t.history LIKE ?");
+                params.push(`%-${String(cname).trim()}-%`);
+                selfConds.push("t.teller_id IN (SELECT id FROM counters WHERE UPPER(TRIM(cname)) = UPPER(TRIM(?)))");
+                params.push(String(cname));
+            } else if (counterNumber) {
+                selfConds.push("TRIM(t.counter_num) = TRIM(?)");
+                params.push(String(counterNumber));
+            }
+            if (selfConds.length > 0) {
+                query += ` AND (${selfConds.join(' OR ')})`;
             }
         }
 
-        query += " ORDER BY COALESCE(t.end_time, t.start_time, t.time) DESC LIMIT ?";
+        query += " ORDER BY COALESCE(t.end_time, t.start_time, t.time) DESC, t.id DESC LIMIT ?";
         params.push(queryLimit);
 
         db.all(query, params, (err, rows) => {
             if (err) {
                 return res.status(500).json({ error: err.message });
             }
-            res.json(rows);
+            res.json(rows || []);
         });
     });
 

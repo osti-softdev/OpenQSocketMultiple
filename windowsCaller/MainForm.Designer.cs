@@ -126,7 +126,7 @@ namespace CallerApp
             this.tabHome.Padding = new System.Windows.Forms.Padding(3);
             this.tabHome.Size = new System.Drawing.Size(252, 107);
             this.tabHome.TabIndex = 0;
-            this.tabHome.Text = "🏠 Home";
+            this.tabHome.Text = "Home";
             // 
             // pnlServicesList
             // 
@@ -147,7 +147,7 @@ namespace CallerApp
             this.tabWait.Padding = new System.Windows.Forms.Padding(3);
             this.tabWait.Size = new System.Drawing.Size(252, 137);
             this.tabWait.TabIndex = 1;
-            this.tabWait.Text = "🕒 Wait";
+            this.tabWait.Text = "Wait";
             // 
             // pnlWaitingList
             // 
@@ -169,7 +169,7 @@ namespace CallerApp
             this.tabHeld.Padding = new System.Windows.Forms.Padding(3);
             this.tabHeld.Size = new System.Drawing.Size(252, 137);
             this.tabHeld.TabIndex = 2;
-            this.tabHeld.Text = "⏸ Held";
+            this.tabHeld.Text = "Held";
             // 
             // pnlHeldList
             // 
@@ -191,7 +191,7 @@ namespace CallerApp
             this.tabRecv.Padding = new System.Windows.Forms.Padding(3);
             this.tabRecv.Size = new System.Drawing.Size(252, 137);
             this.tabRecv.TabIndex = 3;
-            this.tabRecv.Text = "📩 Recv";
+            this.tabRecv.Text = "Recv";
             // 
             // pnlForwardedList
             // 
