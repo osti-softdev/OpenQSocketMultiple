@@ -19,3 +19,50 @@
 ✔ 2026-11-21 11:15:58 AM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
 ✔ 2026-11-21 11:15:59 AM [index.js:176] No external display found at startup. Waiting for external display connection...
 ✔ 2026-11-21 11:16:00 AM [node:events:509] [ADS] Client connected: O2IDEOlEenDe-rK6AAAB
+✔ 2026-11-23 9:09:00 AM [backend\utilities\logger.js:149] Logger initialized at: E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED\public\logs
+✔ 2026-11-23 9:09:00 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌘ enable debugging { debug: true }[0m
+✔ 2026-11-23 9:09:07 AM [node:events:639] Queue System running on http://localhost:12341
+✔ 2026-11-23 9:09:08 AM [unknown-location] Connected to SQLite database
+✔ 2026-11-23 9:09:13 AM [index.js:144] [startup] External display detected (1680x1050 at -1680,32). Opening /display window...
+✔ 2026-11-23 9:09:14 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-11-23 9:09:14 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-11-23 9:09:14 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-11-23 9:09:14 AM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-11-23 9:09:19 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-11-23 9:09:19 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-11-23 9:09:19 AM [unknown-location] Login successful for: admin
+✔ 2026-11-23 9:09:20 AM [node:events:514] [ADS] Client connected: DN9Qvun2N-7OrQOxAAAA
+✔ 2026-11-23 9:09:21 AM [node:events:514] [ADS] Client connected: mY8KfA1oOBMkUooIAAAB
+✔ 2026-11-23 9:09:23 AM [node:events:514] [ADS] Client connected: Y4ckbM9O7fwGJTBVAAAC
+✔ 2026-11-23 9:09:38 AM [backend\routes\AtellerApi.js:74] Login attempt for: FAS4508
+✔ 2026-11-23 9:09:38 AM [node_modules\sqlite3\lib\trace.js:25] User not found: FAS4508
+✔ 2026-11-23 9:10:09 AM [backend\routes\AtellerApi.js:74] Login attempt for: FAS47006
+✔ 2026-11-23 9:10:09 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-11-23 9:10:09 AM [unknown-location] Login successful for: FAS47006
+✔ 2026-11-23 9:10:16 AM [backend\routes\AkioskApi.js:128] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-11-23 9:10:22 AM [backend\routes\AkioskApi.js:128] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-11-23 9:10:27 AM [backend\routes\AkioskApi.js:128] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-11-23 9:10:31 AM [backend\routes\AkioskApi.js:128] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-11-23 9:10:36 AM [backend\routes\AkioskApi.js:128] On-prem ticket requested locally, printing on Main Kiosk...
+✔ 2026-11-23 9:10:39 AM [backend\routes\AtellerApi.js:463] 86
+✔ 2026-11-23 9:11:26 AM [backend\routes\AtellerApi.js:463] 86
+✔ 2026-11-23 9:26:47 AM [backend\routes\AtellerApi.js:463] 86
+✔ 2026-11-23 9:27:16 AM [backend\routes\AtellerApi.js:463] 86
+✔ 2026-11-23 9:32:00 AM [backend\utilities\logger.js:149] Logger initialized at: E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED\public\logs
+✔ 2026-11-23 9:32:00 AM [node_modules\dotenv\lib\main.js:131] ◇ injected env (9) from backend\config\.env [2m// tip: ⌁ auth for agents [www.vestauth.com][0m
+✔ 2026-11-23 9:32:01 AM [node:events:639] Queue System running on http://localhost:12341
+✔ 2026-11-23 9:32:01 AM [unknown-location] Connected to SQLite database
+✔ 2026-11-23 9:32:01 AM [backend\utilities\db.js:66] Database schema auto-creation and seed verification completed.
+✔ 2026-11-23 9:32:01 AM [backend\utilities\db.js:53] Database performance PRAGMAs and indexes verified.
+✔ 2026-11-23 9:32:01 AM [unknown-location] No transactions older than 365 days found. Skipping archive.
+✔ 2026-11-23 9:32:01 AM [backend\routes\AadminApi.js:33] Services and routing groups synchronized
+✔ 2026-11-23 9:32:01 AM [index.js:144] [display-metrics-changed] External display detected (1680x1050 at -1680,32). Opening /display window...
+✔ 2026-11-23 9:32:02 AM [node:events:514] [ADS] Client connected: WfAVqru0oS-UxA3dAAAA
+✔ 2026-11-23 9:32:03 AM [node:events:514] [ADS] Client connected: vbKcYStn18h_pUmFAAAB
+✔ 2026-11-23 9:32:04 AM [node:events:514] [ADS] Client connected: 7iN_aUaD5qhPANZXAAAC
+✔ 2026-11-23 9:32:35 AM [node:events:514] [ADS] Client disconnected: 7iN_aUaD5qhPANZXAAAC
+✔ 2026-11-23 9:32:37 AM [backend\routes\AadminApi.js:55] Login attempt for: admin
+✔ 2026-11-23 9:32:37 AM [node_modules\sqlite3\lib\trace.js:25] User found, verifying password...
+✔ 2026-11-23 9:32:38 AM [unknown-location] Login successful for: admin
+✔ 2026-11-23 9:32:38 AM [node:events:514] [ADS] Client connected: 6syzaBwHR0V60L_RAAAD
+✔ 2026-11-23 9:34:12 AM [backend\routes\AtellerApi.js:463] 86

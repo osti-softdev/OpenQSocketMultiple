@@ -1,0 +1,65 @@
+❌ 2026-11-23 9:10:19 AM [backend\utilities\printer.js:34] PHP Error: Error: Command failed: php E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED/public/printer/print.php T 1 TENTATIVE BILLING/INQUIRY Counter 1 & 2 
+
+    at genericNodeError (node:internal/errors:986:15)
+    at wrappedFn (node:internal/errors:540:14)
+    at ChildProcess.exithandler (node:child_process:417:12)
+    at ChildProcess.emit (node:events:514:28)
+    at maybeClose (node:internal/child_process:1172:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:335:5) {
+  code: 255,
+  killed: false,
+  signal: null,
+  cmd: 'php E:\\FOR PRODUCT TEST\\SAN_PEDRO\\RENEWED/public/printer/print.php T 1 TENTATIVE BILLING/INQUIRY Counter 1 & 2 '
+}
+❌ 2026-11-23 9:10:23 AM [backend\utilities\printer.js:34] PHP Error: Error: Command failed: php E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED/public/printer/print.php H 1 HMO/EMPLOYEE Counter 6 
+
+    at genericNodeError (node:internal/errors:986:15)
+    at wrappedFn (node:internal/errors:540:14)
+    at ChildProcess.exithandler (node:child_process:417:12)
+    at ChildProcess.emit (node:events:514:28)
+    at maybeClose (node:internal/child_process:1172:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:335:5) {
+  code: 255,
+  killed: false,
+  signal: null,
+  cmd: 'php E:\\FOR PRODUCT TEST\\SAN_PEDRO\\RENEWED/public/printer/print.php H 1 HMO/EMPLOYEE Counter 6 '
+}
+❌ 2026-11-23 9:10:27 AM [backend\utilities\printer.js:34] PHP Error: Error: Command failed: php E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED/public/printer/print.php H 2 HMO/EMPLOYEE Counter 6 
+
+    at genericNodeError (node:internal/errors:986:15)
+    at wrappedFn (node:internal/errors:540:14)
+    at ChildProcess.exithandler (node:child_process:417:12)
+    at ChildProcess.emit (node:events:514:28)
+    at maybeClose (node:internal/child_process:1172:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:335:5) {
+  code: 255,
+  killed: false,
+  signal: null,
+  cmd: 'php E:\\FOR PRODUCT TEST\\SAN_PEDRO\\RENEWED/public/printer/print.php H 2 HMO/EMPLOYEE Counter 6 '
+}
+❌ 2026-11-23 9:10:32 AM [backend\utilities\printer.js:34] PHP Error: Error: Command failed: php E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED/public/printer/print.php H 3 HMO/EMPLOYEE Counter 6 
+
+    at genericNodeError (node:internal/errors:986:15)
+    at wrappedFn (node:internal/errors:540:14)
+    at ChildProcess.exithandler (node:child_process:417:12)
+    at ChildProcess.emit (node:events:514:28)
+    at maybeClose (node:internal/child_process:1172:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:335:5) {
+  code: 255,
+  killed: false,
+  signal: null,
+  cmd: 'php E:\\FOR PRODUCT TEST\\SAN_PEDRO\\RENEWED/public/printer/print.php H 3 HMO/EMPLOYEE Counter 6 '
+}
+❌ 2026-11-23 9:10:36 AM [backend\utilities\printer.js:34] PHP Error: Error: Command failed: php E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED/public/printer/print.php H 4 HMO/EMPLOYEE Counter 6 
+
+    at genericNodeError (node:internal/errors:986:15)
+    at wrappedFn (node:internal/errors:540:14)
+    at ChildProcess.exithandler (node:child_process:417:12)
+    at ChildProcess.emit (node:events:514:28)
+    at maybeClose (node:internal/child_process:1172:16)
+    at ChildProcess._handle.onexit (node:internal/child_process:335:5) {
+  code: 255,
+  killed: false,
+  signal: null,
+  cmd: 'php E:\\FOR PRODUCT TEST\\SAN_PEDRO\\RENEWED/public/printer/print.php H 4 HMO/EMPLOYEE Counter 6 '
+}

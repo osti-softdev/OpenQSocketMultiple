@@ -931,9 +931,6 @@ body {
   font-weight: 500;
   transition: all 0.3s ease;
 }
-.content .tab-content#reports-tab .reports-filters .reports-filter-group .filter-item input[type=date]::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
 .content .tab-content#reports-tab .reports-filters .reports-filter-group .filter-item input[type=date]::placeholder {
   color: rgba(255, 255, 255, 0.7);
 }
@@ -1422,28 +1419,25 @@ body {
   z-index: 98;
   position: absolute;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   white-space: nowrap;
   overflow: hidden;
   box-sizing: border-box;
   /* background-color: red; */
 }
-.content .tab-content#settings-tab .card-settings .footer-container #runner {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  z-index: 98;
-  display: inline-block;
-  padding-left: 50%;
-  animation: marquee 41s linear infinite;
-  font-size: 45px;
-  font-weight: 900;
-  color: white;
-  white-space: nowrap;
-}
+.content .tab-content#settings-tab .card-settings .footer-container #runner,
 .content .tab-content#settings-tab .card-settings .footer-container #runner2 {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   z-index: 98;
   display: inline-block;
-  padding-left: 50%;
+  flex: 0 0 auto;
+  min-width: 100%;
+  padding-left: 0;
+  margin: 0;
   animation: marquee 41s linear infinite;
+  will-change: transform;
   font-size: 45px;
   font-weight: 900;
   color: white;
@@ -1451,10 +1445,10 @@ body {
 }
 @keyframes marquee {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translate3d(-100%, 0, 0);
   }
 }
 .content .tab-content#settings-tab .adsmain {
@@ -1808,9 +1802,7 @@ textarea.form-control {
   font-weight: 500;
   text-align: center;
   transition: all 0.2s ease;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 .service-checkbox-wrapper .form-check input[type=checkbox]:checked + label {
   background: #667eea;
@@ -3002,8 +2994,7 @@ textarea {
   display: grid;
   grid-template-columns: 38px 1fr;
   grid-template-rows: auto auto;
-  -moz-column-gap: 12px;
-       column-gap: 12px;
+  column-gap: 12px;
   border: 1px solid var(--oq-border);
   border-radius: 13px;
   background: var(--oq-surface);
@@ -3679,8 +3670,7 @@ textarea:focus {
 .videocontainer video {
   width: 100% !important;
   height: 100% !important;
-  -o-object-fit: contain !important;
-     object-fit: contain !important;
+  object-fit: contain !important;
 }
 
 .modal-overlay {
@@ -3913,4 +3903,6 @@ html[data-theme=dark] .settingfonts {
 .sidebar .sidebar-nav .settingsMenu .settingsmenubtn.role-restricted,
 .settingsmenubtn.role-restricted {
   display: none !important;
-}/*# sourceMappingURL=admin.css.map */
+}
+
+/*# sourceMappingURL=admin.css.map */

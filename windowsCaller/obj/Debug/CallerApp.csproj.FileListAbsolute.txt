@@ -104,3 +104,8 @@ E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED\windowsCaller\bin\Debug\System.ValueTuple.
 E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED\windowsCaller\bin\Debug\System.ValueTuple.xml
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\System.ValueTuple.dll
 C:\Users\TECHNICAL\Documents\GitHub\OpenQSocketMultiple\windowsCaller\bin\Debug\System.ValueTuple.xml
+E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED\windowsCaller\bin\Debug\CallerApp.exe.manifest
+E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED\windowsCaller\bin\Debug\CallerApp.application
+E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED\windowsCaller\obj\Debug\CallerApp.TrustInfo.xml
+E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED\windowsCaller\obj\Debug\CallerApp.exe.manifest
+E:\FOR PRODUCT TEST\SAN_PEDRO\RENEWED\windowsCaller\obj\Debug\CallerApp.application
